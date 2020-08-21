@@ -94,6 +94,7 @@ mnt/boot/*
 !*.dts
 !*.pdf
 !*.docx
+!petalinux_midas/*
 XU1-NuPRISM/SDK_NuPRISM/.metadata/
 XU1-NuPRISM/SDK_NuPRISM/.sdk/
 XU1-NuPRISM/SDK_NuPRISM/webtalk/
