@@ -1,0 +1,83 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 6b3303f8..45fa8898 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -357,9 +357,53 @@ if (HAVE_ROOT)
+    target_compile_options(rmana PRIVATE -DHAVE_ROOT ${ROOT_CXX_FLAGS})
+ endif(HAVE_ROOT)
+
++set(HEADERS
++   include/cfortran.h
++   include/crc32c.h
++   include/esone.h
++   include/ftplib.h
++   include/git-revision.h
++   include/hardware.h
++   include/hbook.h
++   include/history.h
++   include/lz4.h
++   include/lz4frame_static.h
++   include/lz4hc.h
++   include/mcstd.h
++   include/mdsupport.h
++   include/mjson.h
++   include/mfbstd.h
++   include/mfe.h
++   include/mgd.h
++   include/midas_c_compat.h
++   include/midas_macro.h
++   include/midas.h
++   include/midasinc.h
++   include/midas.inc
++   include/mjsonrpc.h
++   include/mongoose4.h
++   include/mongoose6.h
++   include/mongoose614.h
++   include/mrpc.h
++   include/msystem.h
++   include/musbstd.h
++   include/mvmestd.h
++   include/mvodb.h
++   include/pvm3.h
++   include/rmidas.h
++   include/sequencer.h
++   include/sha256.h
++   include/sha512.h
++   include/tmfe.h
++   include/xxhash.h
++)
++
++set_target_properties(midas PROPERTIES PUBLIC_HEADER "${HEADERS}")
+ install(TARGETS midas midas-shared midas-c-compat mfe mana rmana
+         LIBRARY DESTINATION lib
+-        ARCHIVE DESTINATION lib)
++        ARCHIVE DESTINATION lib
++        PUBLIC_HEADER DESTINATION include/midas
++        INCLUDES DESTINATION include/midas)
+
+ # library for mfe.o
+ add_library(mfeo OBJECT src/mfe)
+@@ -392,6 +436,12 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/CMakeFiles/rmanao.dir/src/mana.cxx.o D
+ #####################################################################
+
+ find_package(Git)
++# This fixes a strange issue with petalinux build
++if (NOT GIT_FOUND)
++    set(GIT_EXECUTABLE "/usr/bin/git")
++    set(GIT_FOUND true)
++endif()
++
+ set(GIT_REVISION ${PROJECT_SOURCE_DIR}/include/git-revision.h)
+ set(GIT_REVISION_TMP ${GIT_REVISION}.tmp)
+
+@@ -413,6 +463,8 @@ add_dependencies(objlib git_revision_h)
+ #####################################################################
+ # sub-projects
+ #####################################################################
+-add_subdirectory(progs)
+-add_subdirectory(examples)
++if (NOT LIBS_ONLY)
++   add_subdirectory(progs)
++   add_subdirectory(examples)
++endif()
+
