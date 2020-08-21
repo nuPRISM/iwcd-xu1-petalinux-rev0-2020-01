@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="C:\triumf\nuprism\proj\XU1-NuPRISM\Vivado_NuPRISM\MercuryXU1_NuPRISM.sdk" key="com.xilinx.sdk.hw.ui.hwspec.last"/>
+	<item value="C:\triumf\nuprism\xu1\rev0\pmufw" key="tcf_debug_app_selection"/>
+	<item value="C:\triumf\sandbox\deepsleep\myproj\project_1.ip_user_files\mem_init_files" key="debug_files_selection"/>
+	<item value="C:\triumf\nuprism\xu1\rev0\Vivado_NuPRISM\MercuryXU1_NuPRISM.sdk" key="hwspec_file_selection"/>
+	<item value="C:\triumf\sandbox\deepsleep\myproj\project_1.ip_user_files\mem_init_files" key="last_stored_selection"/>
+</section>

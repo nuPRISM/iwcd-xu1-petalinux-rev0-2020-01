@@ -1,0 +1,99 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
+| Date         : Tue Aug 18 10:58:47 2020
+| Host         : DESKTOP-813AKL3 running 64-bit major release  (build 9200)
+| Command      : report_drc -file system_top_drc_routed.rpt -pb system_top_drc_routed.pb -rpx system_top_drc_routed.rpx
+| Design       : system_top
+| Device       : xczu6eg-ffvc900-1-i
+| Speed File   : -1
+| Design State : Fully Routed
+------------------------------------------------------------------------------------------------------------------------
+
+Report DRC
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: checkpoint_system_top
+      Design limits: <entire design considered>
+           Ruledeck: default
+             Max violations: <unlimited>
+             Violations found: 9
++-----------+----------+---------------------------------+------------+
+| Rule      | Severity | Description                     | Violations |
++-----------+----------+---------------------------------+------------+
+| LVDS-1    | Warning  | Bidirection LVDS IOs            | 1          |
+| RPBF-3    | Warning  | IO port buffering is incomplete | 7          |
+| RTSTAT-10 | Warning  | No routable loads               | 1          |
++-----------+----------+---------------------------------+------------+
+
+2. REPORT DETAILS
+-----------------
+LVDS-1#1 Warning
+Bidirection LVDS IOs  
+The following port(s) use the LVDS I/O standard and have bi-directional differential usage. Please note that LVDS is a fixed impedance structure optimized to 100ohm differential. This is only intended to be used in point-to-point transmissions that do not have turn around timing requirements. If the intended usage is a bus structure, please use BLVDS/BLVDS_25, instead. ADC0_DA0_n, ADC0_DA0_p, ADC0_DA1_n, ADC0_DA1_p, ADC0_DB0_n, ADC0_DB0_p,
+ADC0_DB1_n, ADC0_DB1_p, ADC0_DC0_n, ADC0_DC0_p, ADC0_DC1_n, ADC0_DC1_p,
+ADC0_DD0_n, ADC0_DD0_p, ADC0_DD1_n (the first 15 of 78 listed).
+Related violations: <none>
+
+RPBF-3#1 Warning
+IO port buffering is incomplete  
+Device port ADC0_SEN expects both input and output buffering but the buffers are incomplete.
+Related violations: <none>
+
+RPBF-3#2 Warning
+IO port buffering is incomplete  
+Device port ADC1_SEN expects both input and output buffering but the buffers are incomplete.
+Related violations: <none>
+
+RPBF-3#3 Warning
+IO port buffering is incomplete  
+Device port ADC2_SEN expects both input and output buffering but the buffers are incomplete.
+Related violations: <none>
+
+RPBF-3#4 Warning
+IO port buffering is incomplete  
+Device port ADC3_SEN expects both input and output buffering but the buffers are incomplete.
+Related violations: <none>
+
+RPBF-3#5 Warning
+IO port buffering is incomplete  
+Device port ADC4_SEN expects both input and output buffering but the buffers are incomplete.
+Related violations: <none>
+
+RPBF-3#6 Warning
+IO port buffering is incomplete  
+Device port ADC_PDN expects both input and output buffering but the buffers are incomplete.
+Related violations: <none>
+
+RPBF-3#7 Warning
+IO port buffering is incomplete  
+Device port ADC_RST expects both input and output buffering but the buffers are incomplete.
+Related violations: <none>
+
+RTSTAT-10#1 Warning
+No routable loads  
+175 net(s) have no routable loads. The problem bus(es) and/or net(s) are dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i,
+dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg[2:0],
+dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD1/ctl_reg_en_2[1],
+dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg_en_2[1],
+MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0/AXI_SYSMON_CORE_I/daddr_C_master_reg2[7:0],
+MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0/AXI_SYSMON_CORE_I/daddr_C_master_reg[7:0],
+MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0/AXI_SYSMON_CORE_I/daddr_C_slave0_reg2[7:0],
+MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0/AXI_SYSMON_CORE_I/daddr_C_slave0_reg[7:0],
+MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0/AXI_SYSMON_CORE_I/daddr_C_slave1_reg2[7:0],
+MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0/AXI_SYSMON_CORE_I/daddr_C_slave1_reg[7:0],
+MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0/AXI_SYSMON_CORE_I/di_C_master_reg2[15:0],
+MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0/AXI_SYSMON_CORE_I/di_C_master_reg[15:0],
+MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0/AXI_SYSMON_CORE_I/di_C_slave0_reg2[15:0],
+MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0/AXI_SYSMON_CORE_I/di_C_slave0_reg[15:0],
+MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0/AXI_SYSMON_CORE_I/di_C_slave1_reg2[15:0] (the first 15 of 41 listed).
+Related violations: <none>
+
+
