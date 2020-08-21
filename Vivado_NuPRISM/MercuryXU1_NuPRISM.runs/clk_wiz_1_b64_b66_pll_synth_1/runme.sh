@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/triumf/nuprism/xu1/rev2020/Vivado_NuPRISM/MercuryXU1_NuPRISM.runs/clk_wiz_1_b64_b66_pll_synth_1'
+HD_PWD='C:/zp/rev0-2020.1-petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.runs/clk_wiz_1_b64_b66_pll_synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

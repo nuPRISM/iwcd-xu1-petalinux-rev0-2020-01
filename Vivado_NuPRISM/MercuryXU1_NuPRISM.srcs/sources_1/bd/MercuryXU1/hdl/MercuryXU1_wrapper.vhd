@@ -1,7 +1,7 @@
 --Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
---Date        : Thu Jul 23 16:19:15 2020
+--Date        : Fri Aug 21 07:34:51 2020
 --Host        : DESKTOP-813AKL3 running 64-bit major release  (build 9200)
 --Command     : generate_target MercuryXU1_wrapper.bd
 --Design      : MercuryXU1_wrapper
@@ -39,6 +39,16 @@ architecture STRUCTURE of MercuryXU1_wrapper is
     emio_spi0_ss_out : out STD_LOGIC;
     emio_spi0_ss_tri : out STD_LOGIC;
     emio_spi0_ss_in : in STD_LOGIC;
+    GPIO_tri_o : out STD_LOGIC_VECTOR ( 19 downto 0 );
+    ps_spi_0_sck_i : in STD_LOGIC;
+    ps_spi_0_sck_o : out STD_LOGIC;
+    ps_spi_0_sck_t : out STD_LOGIC;
+    ps_spi_0_io1_i : in STD_LOGIC;
+    ps_spi_0_io0_o : out STD_LOGIC;
+    ps_spi_0_io0_t : out STD_LOGIC;
+    ps_spi_0_io0_i : in STD_LOGIC;
+    ps_spi_0_io1_o : out STD_LOGIC;
+    ps_spi_0_io1_t : out STD_LOGIC;
     ps_spi_1_sck_i : in STD_LOGIC;
     ps_spi_1_sck_o : out STD_LOGIC;
     ps_spi_1_sck_t : out STD_LOGIC;
@@ -56,17 +66,7 @@ architecture STRUCTURE of MercuryXU1_wrapper is
     ps_master_i2c_scl_t : out STD_LOGIC;
     ps_master_i2c_sda_i : in STD_LOGIC;
     ps_master_i2c_sda_o : out STD_LOGIC;
-    ps_master_i2c_sda_t : out STD_LOGIC;
-    ps_spi_0_sck_i : in STD_LOGIC;
-    ps_spi_0_sck_o : out STD_LOGIC;
-    ps_spi_0_sck_t : out STD_LOGIC;
-    ps_spi_0_io1_i : in STD_LOGIC;
-    ps_spi_0_io0_o : out STD_LOGIC;
-    ps_spi_0_io0_t : out STD_LOGIC;
-    ps_spi_0_io0_i : in STD_LOGIC;
-    ps_spi_0_io1_o : out STD_LOGIC;
-    ps_spi_0_io1_t : out STD_LOGIC;
-    GPIO_tri_o : out STD_LOGIC_VECTOR ( 19 downto 0 )
+    ps_master_i2c_sda_t : out STD_LOGIC
   );
   end component MercuryXU1;
   component IOBUF is

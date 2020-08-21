@@ -2,11 +2,11 @@
 # Vivado v2020.1 (64-bit)
 # SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
 # IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
-# Start of session at: Tue Jun 23 07:47:07 2020
-# Process ID: 24188
-# Current directory: C:/triumf/nuprism/xu1/rev2020/Vivado_NuPRISM/MercuryXU1_NuPRISM.runs/clk_wiz_1_b64_b66_pll_synth_1
+# Start of session at: Fri Aug 21 07:36:04 2020
+# Process ID: 2428
+# Current directory: C:/zp/rev0-2020.1-petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.runs/clk_wiz_1_b64_b66_pll_synth_1
 # Command line: vivado.exe -log clk_wiz_1_b64_b66_pll.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source clk_wiz_1_b64_b66_pll.tcl
-# Log file: C:/triumf/nuprism/xu1/rev2020/Vivado_NuPRISM/MercuryXU1_NuPRISM.runs/clk_wiz_1_b64_b66_pll_synth_1/clk_wiz_1_b64_b66_pll.vds
-# Journal file: C:/triumf/nuprism/xu1/rev2020/Vivado_NuPRISM/MercuryXU1_NuPRISM.runs/clk_wiz_1_b64_b66_pll_synth_1\vivado.jou
+# Log file: C:/zp/rev0-2020.1-petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.runs/clk_wiz_1_b64_b66_pll_synth_1/clk_wiz_1_b64_b66_pll.vds
+# Journal file: C:/zp/rev0-2020.1-petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.runs/clk_wiz_1_b64_b66_pll_synth_1\vivado.jou
 #-----------------------------------------------------------
 source clk_wiz_1_b64_b66_pll.tcl -notrace

@@ -3,8 +3,6 @@
   <File Type="PA-TCL" Name="clk_wiz_1_b64_b66_pll.tcl"/>
   <File Type="REPORTS-TCL" Name="clk_wiz_1_b64_b66_pll_reports.tcl"/>
   <File Type="RDS-RDS" Name="clk_wiz_1_b64_b66_pll.vds"/>
-  <File Type="RDS-UTIL" Name="clk_wiz_1_b64_b66_pll_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="clk_wiz_1_b64_b66_pll_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="clk_wiz_1_b64_b66_pll.dcp"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/clk_wiz_1_b64_b66_pll">
     <File Path="$PSRCDIR/sources_1/ip/clk_wiz_1_b64_b66_pll/clk_wiz_1_b64_b66_pll.xci">
