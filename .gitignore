@@ -92,6 +92,8 @@ mnt/boot/*
 !*.sh
 !*.dtsi
 !*.dts
+!*.pdf
+!*.docx
 XU1-NuPRISM/SDK_NuPRISM/.metadata/
 XU1-NuPRISM/SDK_NuPRISM/.sdk/
 XU1-NuPRISM/SDK_NuPRISM/webtalk/
