@@ -1,0 +1,14 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../function_gen_test2.ip_user_files/bd/design_1/ipshared/aacd/hdl/sample_generator_v1_0_M_AXIS.v" \
+"../../../../function_gen_test2.ip_user_files/bd/design_1/ipshared/aacd/hdl/sample_generator_v1_0.v" \
+"../../../../function_gen_test2.ip_user_files/bd/design_1/ip/design_1_sample_generator_0_0/sim/design_1_sample_generator_0_0.v" \
+"../../../../function_gen_test2.ip_user_files/bd/design_1/sim/design_1.v" \
+"../../../../function_gen_test2.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v" \
+"../../../../function_gen_test2.srcs/sim_1/new/sample_generator_tb.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
