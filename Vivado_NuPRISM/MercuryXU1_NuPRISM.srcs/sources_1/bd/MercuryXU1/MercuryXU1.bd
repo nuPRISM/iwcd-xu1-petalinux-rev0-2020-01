@@ -3186,16 +3186,16 @@
               }
             },
             "interface_nets": {
-              "auto_pc_to_s00_couplers": {
-                "interface_ports": [
-                  "M_AXI",
-                  "auto_pc/M_AXI"
-                ]
-              },
               "s00_couplers_to_auto_pc": {
                 "interface_ports": [
                   "S_AXI",
                   "auto_pc/S_AXI"
+                ]
+              },
+              "auto_pc_to_s00_couplers": {
+                "interface_ports": [
+                  "M_AXI",
+                  "auto_pc/M_AXI"
                 ]
               }
             },
@@ -3336,16 +3336,16 @@
               "m01_couplers/M_AXI"
             ]
           },
-          "xbar_to_m01_couplers": {
-            "interface_ports": [
-              "xbar/M01_AXI",
-              "m01_couplers/S_AXI"
-            ]
-          },
           "ps8_0_axi_periph_to_s00_couplers": {
             "interface_ports": [
               "S00_AXI",
               "s00_couplers/S_AXI"
+            ]
+          },
+          "xbar_to_m01_couplers": {
+            "interface_ports": [
+              "xbar/M01_AXI",
+              "m01_couplers/S_AXI"
             ]
           },
           "s00_couplers_to_xbar": {
@@ -3394,6 +3394,12 @@
       }
     },
     "interface_nets": {
+      "zynq_ultra_ps_e_0_SPI_1": {
+        "interface_ports": [
+          "ps_spi_1",
+          "zynq_ultra_ps_e_0/SPI_1"
+        ]
+      },
       "ps8_0_axi_periph_M00_AXI": {
         "interface_ports": [
           "ps8_0_axi_periph/M00_AXI",
@@ -3412,16 +3418,10 @@
           "ps8_0_axi_periph/S00_AXI"
         ]
       },
-      "zynq_ultra_ps_e_0_SPI_1": {
+      "zynq_ultra_ps_e_0_SPI_0": {
         "interface_ports": [
-          "ps_spi_1",
-          "zynq_ultra_ps_e_0/SPI_1"
-        ]
-      },
-      "zynq_ultra_ps_e_0_IIC_0": {
-        "interface_ports": [
-          "ps_master_i2c",
-          "zynq_ultra_ps_e_0/IIC_0"
+          "ps_spi_0",
+          "zynq_ultra_ps_e_0/SPI_0"
         ]
       },
       "ps8_0_axi_periph_M01_AXI": {
@@ -3430,10 +3430,10 @@
           "system_management_wiz_0/S_AXI_LITE"
         ]
       },
-      "zynq_ultra_ps_e_0_SPI_0": {
+      "zynq_ultra_ps_e_0_IIC_0": {
         "interface_ports": [
-          "ps_spi_0",
-          "zynq_ultra_ps_e_0/SPI_0"
+          "ps_master_i2c",
+          "zynq_ultra_ps_e_0/IIC_0"
         ]
       }
     },

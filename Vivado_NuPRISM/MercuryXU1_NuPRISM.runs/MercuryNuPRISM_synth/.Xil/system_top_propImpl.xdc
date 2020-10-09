@@ -1,5 +1,5 @@
-set_property SRC_FILE_INFO {cfile:c:/zp/rev0-2020.1-petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_system_management_wiz_0_0_1/MercuryXU1_system_management_wiz_0_0.xdc rfile:../../../MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_system_management_wiz_0_0_1/MercuryXU1_system_management_wiz_0_0.xdc id:1 order:EARLY scoped_inst:MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0} [current_design]
-set_property SRC_FILE_INFO {cfile:C:/zp/rev0-2020.1-petalinux/src/MercuryXU1_NuPRISM.xdc rfile:../../../../src/MercuryXU1_NuPRISM.xdc id:2} [current_design]
+set_property SRC_FILE_INFO {cfile:c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_system_management_wiz_0_0_1/MercuryXU1_system_management_wiz_0_0.xdc rfile:../../../MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_system_management_wiz_0_0_1/MercuryXU1_system_management_wiz_0_0.xdc id:1 order:EARLY scoped_inst:MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0} [current_design]
+set_property SRC_FILE_INFO {cfile:C:/Repos/rev0-2020.1-petalinux/src/MercuryXU1_NuPRISM.xdc rfile:../../../../src/MercuryXU1_NuPRISM.xdc id:2} [current_design]
 current_instance MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0
 set_property src_info {type:SCOPED_XDC file:1 line:53 export:INPUT save:INPUT read:READ} [current_design]
 set_property IOSTANDARD ANALOG [get_ports  vp]
