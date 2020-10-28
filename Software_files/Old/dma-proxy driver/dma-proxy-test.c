@@ -68,6 +68,7 @@ int main(int argc, char *argv[])
 	int counter;
 	pthread_t tid;
 	FILE *module_fd;
+	char buf[16];
 
 	printf("DMA proxy test\n");
 
