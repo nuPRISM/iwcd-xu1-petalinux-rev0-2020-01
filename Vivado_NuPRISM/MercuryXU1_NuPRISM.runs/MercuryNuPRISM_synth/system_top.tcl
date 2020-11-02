@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.runs/MercuryNuPRISM_synth/system_top.tcl"
+  variable script "/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/MercuryXU1_NuPRISM.runs/MercuryNuPRISM_synth/system_top.tcl"
   variable category "vivado_synth"
 }
 
@@ -70,6 +70,7 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "MercuryNuPRISM_synth" START { ROLLUP_AUTO }
+set_param chipscope.maxJobs 4
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xczu6eg-ffvc900-1-i
 
@@ -77,123 +78,123 @@ set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.cache/wt [current_project]
-set_property parent.project_path C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.xpr [current_project]
+set_property webtalk.parent_dir /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/MercuryXU1_NuPRISM.cache/wt [current_project]
+set_property parent.project_path /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/MercuryXU1_NuPRISM.xpr [current_project]
 set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
-set_property ip_output_repo c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.cache/ip [current_project]
+set_property ip_output_repo /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/MercuryXU1_NuPRISM.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_verilog C:/Repos/rev0-2020.1-petalinux/lib/surf/base/general/simlink/src/VhpiGeneric.h
-set_property file_type "Verilog Header" [get_files C:/Repos/rev0-2020.1-petalinux/lib/surf/base/general/simlink/src/VhpiGeneric.h]
+read_verilog /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/general/simlink/src/VhpiGeneric.h
+set_property file_type "Verilog Header" [get_files /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/general/simlink/src/VhpiGeneric.h]
 read_vhdl -library xil_defaultlib {
-  C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/hdl/MercuryXU1_wrapper.vhd
-  C:/Repos/rev0-2020.1-petalinux/src/system_top_NuPRISM.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/hdl/MercuryXU1_wrapper.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/src/system_top_NuPRISM.vhd
 }
 read_vhdl -library surf {
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/general/rtl/SlvDelay.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/ram/xilinx/TrueDualPortRamXpm.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/sync/rtl/SynchronizerEdge.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/fifo/rtl/inferred/FifoSync.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/sync/rtl/SynchronizerOneShotCntVector.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/general/rtl/Gearbox.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/ram/inferred/DualPortRam.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/sync/rtl/SyncTrigRateVector.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/general/rtl/TextUtilPkg.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/sync/rtl/SyncStatusVector.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/xilinx/general/rtl/DeviceDna.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/sync/rtl/SynchronizerVector.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/sync/rtl/SynchronizerOneShotCnt.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/general/tb/ClkRst.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/ram/inferred/SimpleDualPortRam.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/general/rtl/CRC32Rtl.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/general/rtl/Arbiter.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/general/rtl/Crc32.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/general/rtl/RstPipelineVector.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/general/rtl/PwrUpRst.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/sync/rtl/SyncMinMax.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/general/rtl/ArbiterPkg.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/fifo/rtl/xilinx/FifoXpm.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/sync/rtl/SyncTrigPeriod.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/general/rtl/PrbsPkg.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/sync/rtl/Synchronizer.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/sync/rtl/RstSync.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/sync/rtl/SyncTrigRate.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/fifo/rtl/FifoOutputPipeline.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/general/tb/GearboxTb.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/general/rtl/Crc32Parallel.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/general/rtl/StdRtlPkg.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/general/rtl/RstPipeline.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/general/rtl/ClockDivider.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/ram/xilinx/SimpleDualPortRamXpm.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/fifo/rtl/inferred/FifoWrFsm.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/ram/inferred/QuadPortRam.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/sync/tb/SynchronizerFifoTb.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/xilinx/general/rtl/ClkOutBufDiff.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/fifo/rtl/Fifo.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/sync/rtl/SynchronizerOneShotVector.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/fifo/rtl/inferred/FifoRdFsm.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/general/rtl/Scrambler.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/ram/xilinx/SimpleDualPortRamAlteraMfDummy.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/sync/rtl/SynchronizerOneShot.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/xilinx/general/rtl/Iprog.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/general/rtl/AsyncGearbox.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/general/rtl/OneShot.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/ram/inferred/TrueDualPortRam.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/fifo/rtl/inferred/FifoAsync.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/fifo/rtl/FifoMux.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/sync/rtl/SyncClockFreq.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/sync/tb/SynchronizerOneShotTb.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/fifo/rtl/xilinx/FifoAlteraMfDummy.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/ram/xilinx/TrueDualPortRamXpmAlteraMfDummy.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/sync/rtl/SynchronizerFifo.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/xilinx/general/rtl/ClkOutBufSingle.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/general/rtl/Heartbeat.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/general/tb/glbl.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/general/tb/HeartbeatTb.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/general/rtl/SlvDelayFifo.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/general/rtl/RegisterVector.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/ram/inferred/OctalPortRam.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/general/rtl/Debouncer.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/fifo/rtl/FifoCascade.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/general/rtl/WatchDogRst.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/surf/base/general/rtl/CrcPkg.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/general/rtl/SlvDelay.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/ram/xilinx/TrueDualPortRamXpm.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/sync/rtl/SynchronizerEdge.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/fifo/rtl/inferred/FifoSync.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/sync/rtl/SynchronizerOneShotCntVector.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/general/rtl/Gearbox.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/ram/inferred/DualPortRam.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/sync/rtl/SyncTrigRateVector.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/general/rtl/TextUtilPkg.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/sync/rtl/SyncStatusVector.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/xilinx/general/rtl/DeviceDna.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/sync/rtl/SynchronizerVector.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/sync/rtl/SynchronizerOneShotCnt.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/general/tb/ClkRst.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/ram/inferred/SimpleDualPortRam.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/general/rtl/CRC32Rtl.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/general/rtl/Arbiter.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/general/rtl/Crc32.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/general/rtl/RstPipelineVector.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/general/rtl/PwrUpRst.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/sync/rtl/SyncMinMax.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/general/rtl/ArbiterPkg.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/fifo/rtl/xilinx/FifoXpm.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/sync/rtl/SyncTrigPeriod.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/general/rtl/PrbsPkg.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/sync/rtl/Synchronizer.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/sync/rtl/RstSync.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/sync/rtl/SyncTrigRate.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/fifo/rtl/FifoOutputPipeline.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/general/tb/GearboxTb.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/general/rtl/Crc32Parallel.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/general/rtl/StdRtlPkg.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/general/rtl/RstPipeline.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/general/rtl/ClockDivider.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/ram/xilinx/SimpleDualPortRamXpm.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/fifo/rtl/inferred/FifoWrFsm.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/ram/inferred/QuadPortRam.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/sync/tb/SynchronizerFifoTb.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/xilinx/general/rtl/ClkOutBufDiff.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/fifo/rtl/Fifo.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/sync/rtl/SynchronizerOneShotVector.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/fifo/rtl/inferred/FifoRdFsm.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/general/rtl/Scrambler.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/ram/xilinx/SimpleDualPortRamAlteraMfDummy.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/sync/rtl/SynchronizerOneShot.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/xilinx/general/rtl/Iprog.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/general/rtl/AsyncGearbox.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/general/rtl/OneShot.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/ram/inferred/TrueDualPortRam.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/fifo/rtl/inferred/FifoAsync.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/fifo/rtl/FifoMux.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/sync/rtl/SyncClockFreq.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/sync/tb/SynchronizerOneShotTb.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/fifo/rtl/xilinx/FifoAlteraMfDummy.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/ram/xilinx/TrueDualPortRamXpmAlteraMfDummy.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/sync/rtl/SynchronizerFifo.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/xilinx/general/rtl/ClkOutBufSingle.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/general/rtl/Heartbeat.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/general/tb/glbl.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/general/tb/HeartbeatTb.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/general/rtl/SlvDelayFifo.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/general/rtl/RegisterVector.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/ram/inferred/OctalPortRam.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/general/rtl/Debouncer.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/fifo/rtl/FifoCascade.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/general/rtl/WatchDogRst.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/surf/base/general/rtl/CrcPkg.vhd
 }
 read_vhdl -library amc_carrier_core {
-  C:/Repos/rev0-2020.1-petalinux/lib/amc_carrier_core/Ad9229Core.vhd
-  C:/Repos/rev0-2020.1-petalinux/lib/amc_carrier_core/Ad9229Deserializer.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/amc_carrier_core/Ad9229Core.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/lib/amc_carrier_core/Ad9229Deserializer.vhd
 }
-add_files C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/MercuryXU1.bd
-set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_gpio_0_0/MercuryXU1_axi_gpio_0_0_board.xdc]
-set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_gpio_0_0/MercuryXU1_axi_gpio_0_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_gpio_0_0/MercuryXU1_axi_gpio_0_0.xdc]
-set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_proc_sys_reset_0_0/MercuryXU1_proc_sys_reset_0_0_board.xdc]
-set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_proc_sys_reset_0_0/MercuryXU1_proc_sys_reset_0_0.xdc]
-set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_zynq_ultra_ps_e_0_0/MercuryXU1_zynq_ultra_ps_e_0_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_zynq_ultra_ps_e_0_0/MercuryXU1_zynq_ultra_ps_e_0_0.xdc]
-set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_xbar_1/MercuryXU1_xbar_1_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_system_management_wiz_0_0_1/MercuryXU1_system_management_wiz_0_0_board.xdc]
-set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_system_management_wiz_0_0_1/MercuryXU1_system_management_wiz_0_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_system_management_wiz_0_0_1/MercuryXU1_system_management_wiz_0_0.xdc]
-set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_auto_pc_0/MercuryXU1_auto_pc_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/MercuryXU1_ooc.xdc]
+add_files /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/MercuryXU1.bd
+set_property used_in_implementation false [get_files -all /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_gpio_0_0/MercuryXU1_axi_gpio_0_0_board.xdc]
+set_property used_in_implementation false [get_files -all /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_gpio_0_0/MercuryXU1_axi_gpio_0_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_gpio_0_0/MercuryXU1_axi_gpio_0_0.xdc]
+set_property used_in_implementation false [get_files -all /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_proc_sys_reset_0_0/MercuryXU1_proc_sys_reset_0_0_board.xdc]
+set_property used_in_implementation false [get_files -all /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_proc_sys_reset_0_0/MercuryXU1_proc_sys_reset_0_0.xdc]
+set_property used_in_implementation false [get_files -all /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_zynq_ultra_ps_e_0_0/MercuryXU1_zynq_ultra_ps_e_0_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_zynq_ultra_ps_e_0_0/MercuryXU1_zynq_ultra_ps_e_0_0.xdc]
+set_property used_in_implementation false [get_files -all /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_xbar_1/MercuryXU1_xbar_1_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_system_management_wiz_0_0_1/MercuryXU1_system_management_wiz_0_0_board.xdc]
+set_property used_in_implementation false [get_files -all /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_system_management_wiz_0_0_1/MercuryXU1_system_management_wiz_0_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_system_management_wiz_0_0_1/MercuryXU1_system_management_wiz_0_0.xdc]
+set_property used_in_implementation false [get_files -all /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_auto_pc_0/MercuryXU1_auto_pc_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/MercuryXU1_ooc.xdc]
 
-read_ip -quiet C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/ip/clk_wiz_1_b64_b66_pll/clk_wiz_1_b64_b66_pll.xci
-set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/ip/clk_wiz_1_b64_b66_pll/clk_wiz_1_b64_b66_pll_board.xdc]
-set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/ip/clk_wiz_1_b64_b66_pll/clk_wiz_1_b64_b66_pll.xdc]
-set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/ip/clk_wiz_1_b64_b66_pll/clk_wiz_1_b64_b66_pll_ooc.xdc]
+read_ip -quiet /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/ip/clk_wiz_1_b64_b66_pll/clk_wiz_1_b64_b66_pll.xci
+set_property used_in_implementation false [get_files -all /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/ip/clk_wiz_1_b64_b66_pll/clk_wiz_1_b64_b66_pll_board.xdc]
+set_property used_in_implementation false [get_files -all /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/ip/clk_wiz_1_b64_b66_pll/clk_wiz_1_b64_b66_pll.xdc]
+set_property used_in_implementation false [get_files -all /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/ip/clk_wiz_1_b64_b66_pll/clk_wiz_1_b64_b66_pll_ooc.xdc]
 
-read_ip -quiet C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm.xci
-set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm_board.xdc]
-set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm.xdc]
-set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm_ooc.xdc]
+read_ip -quiet /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm.xci
+set_property used_in_implementation false [get_files -all /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm_board.xdc]
+set_property used_in_implementation false [get_files -all /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm.xdc]
+set_property used_in_implementation false [get_files -all /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm_ooc.xdc]
 
-read_ip -quiet C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/ip/clk_divider_pll/clk_divider_pll.xci
-set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/ip/clk_divider_pll/clk_divider_pll_board.xdc]
-set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/ip/clk_divider_pll/clk_divider_pll.xdc]
-set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/ip/clk_divider_pll/clk_divider_pll_ooc.xdc]
+read_ip -quiet /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/ip/clk_divider_pll/clk_divider_pll.xci
+set_property used_in_implementation false [get_files -all /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/ip/clk_divider_pll/clk_divider_pll_board.xdc]
+set_property used_in_implementation false [get_files -all /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/ip/clk_divider_pll/clk_divider_pll.xdc]
+set_property used_in_implementation false [get_files -all /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/ip/clk_divider_pll/clk_divider_pll_ooc.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -204,8 +205,8 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc C:/Repos/rev0-2020.1-petalinux/src/MercuryXU1_NuPRISM.xdc
-set_property used_in_implementation false [get_files C:/Repos/rev0-2020.1-petalinux/src/MercuryXU1_NuPRISM.xdc]
+read_xdc /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/src/MercuryXU1_NuPRISM.xdc
+set_property used_in_implementation false [get_files /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/src/MercuryXU1_NuPRISM.xdc]
 
 read_xdc dont_touch.xdc
 set_property used_in_implementation false [get_files dont_touch.xdc]

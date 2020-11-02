@@ -909,6 +909,10 @@
 #define CRL_APB_UART0_REF_CTRL_OFFSET                                              0XFF5E0074
 #undef CRL_APB_I2C0_REF_CTRL_OFFSET 
 #define CRL_APB_I2C0_REF_CTRL_OFFSET                                               0XFF5E0120
+#undef CRL_APB_SPI0_REF_CTRL_OFFSET 
+#define CRL_APB_SPI0_REF_CTRL_OFFSET                                               0XFF5E007C
+#undef CRL_APB_SPI1_REF_CTRL_OFFSET 
+#define CRL_APB_SPI1_REF_CTRL_OFFSET                                               0XFF5E0080
 #undef CRL_APB_CPU_R5_CTRL_OFFSET 
 #define CRL_APB_CPU_R5_CTRL_OFFSET                                                 0XFF5E0090
 #undef CRL_APB_IOU_SWITCH_CTRL_OFFSET 
@@ -927,8 +931,6 @@
 #define CRL_APB_PL0_REF_CTRL_OFFSET                                                0XFF5E00C0
 #undef CRL_APB_PL1_REF_CTRL_OFFSET 
 #define CRL_APB_PL1_REF_CTRL_OFFSET                                                0XFF5E00C4
-#undef CRL_APB_PL2_REF_CTRL_OFFSET 
-#define CRL_APB_PL2_REF_CTRL_OFFSET                                                0XFF5E00C8
 #undef CRL_APB_AMS_REF_CTRL_OFFSET 
 #define CRL_APB_AMS_REF_CTRL_OFFSET                                                0XFF5E0108
 #undef CRL_APB_DLL_REF_CTRL_OFFSET 
@@ -1425,6 +1427,90 @@
 #define CRL_APB_I2C0_REF_CTRL_SRCSEL_MASK                      0x00000007U
 
 /*
+* Clock active signal. Switch to 0 to disable the clock
+*/
+#undef CRL_APB_SPI0_REF_CTRL_CLKACT_DEFVAL 
+#undef CRL_APB_SPI0_REF_CTRL_CLKACT_SHIFT 
+#undef CRL_APB_SPI0_REF_CTRL_CLKACT_MASK 
+#define CRL_APB_SPI0_REF_CTRL_CLKACT_DEFVAL                    0x01001800
+#define CRL_APB_SPI0_REF_CTRL_CLKACT_SHIFT                     24
+#define CRL_APB_SPI0_REF_CTRL_CLKACT_MASK                      0x01000000U
+
+/*
+* 6 bit divider
+*/
+#undef CRL_APB_SPI0_REF_CTRL_DIVISOR1_DEFVAL 
+#undef CRL_APB_SPI0_REF_CTRL_DIVISOR1_SHIFT 
+#undef CRL_APB_SPI0_REF_CTRL_DIVISOR1_MASK 
+#define CRL_APB_SPI0_REF_CTRL_DIVISOR1_DEFVAL                  0x01001800
+#define CRL_APB_SPI0_REF_CTRL_DIVISOR1_SHIFT                   16
+#define CRL_APB_SPI0_REF_CTRL_DIVISOR1_MASK                    0x003F0000U
+
+/*
+* 6 bit divider
+*/
+#undef CRL_APB_SPI0_REF_CTRL_DIVISOR0_DEFVAL 
+#undef CRL_APB_SPI0_REF_CTRL_DIVISOR0_SHIFT 
+#undef CRL_APB_SPI0_REF_CTRL_DIVISOR0_MASK 
+#define CRL_APB_SPI0_REF_CTRL_DIVISOR0_DEFVAL                  0x01001800
+#define CRL_APB_SPI0_REF_CTRL_DIVISOR0_SHIFT                   8
+#define CRL_APB_SPI0_REF_CTRL_DIVISOR0_MASK                    0x00003F00U
+
+/*
+* 000 = IOPLL; 010 = RPLL; 011 = DPLL; (This signal may only be toggled af
+    * ter 4 cycles of the old clock and 4 cycles of the new clock. This is not
+    *  usually an issue, but designers must be aware.)
+*/
+#undef CRL_APB_SPI0_REF_CTRL_SRCSEL_DEFVAL 
+#undef CRL_APB_SPI0_REF_CTRL_SRCSEL_SHIFT 
+#undef CRL_APB_SPI0_REF_CTRL_SRCSEL_MASK 
+#define CRL_APB_SPI0_REF_CTRL_SRCSEL_DEFVAL                    0x01001800
+#define CRL_APB_SPI0_REF_CTRL_SRCSEL_SHIFT                     0
+#define CRL_APB_SPI0_REF_CTRL_SRCSEL_MASK                      0x00000007U
+
+/*
+* Clock active signal. Switch to 0 to disable the clock
+*/
+#undef CRL_APB_SPI1_REF_CTRL_CLKACT_DEFVAL 
+#undef CRL_APB_SPI1_REF_CTRL_CLKACT_SHIFT 
+#undef CRL_APB_SPI1_REF_CTRL_CLKACT_MASK 
+#define CRL_APB_SPI1_REF_CTRL_CLKACT_DEFVAL                    0x01001800
+#define CRL_APB_SPI1_REF_CTRL_CLKACT_SHIFT                     24
+#define CRL_APB_SPI1_REF_CTRL_CLKACT_MASK                      0x01000000U
+
+/*
+* 6 bit divider
+*/
+#undef CRL_APB_SPI1_REF_CTRL_DIVISOR1_DEFVAL 
+#undef CRL_APB_SPI1_REF_CTRL_DIVISOR1_SHIFT 
+#undef CRL_APB_SPI1_REF_CTRL_DIVISOR1_MASK 
+#define CRL_APB_SPI1_REF_CTRL_DIVISOR1_DEFVAL                  0x01001800
+#define CRL_APB_SPI1_REF_CTRL_DIVISOR1_SHIFT                   16
+#define CRL_APB_SPI1_REF_CTRL_DIVISOR1_MASK                    0x003F0000U
+
+/*
+* 6 bit divider
+*/
+#undef CRL_APB_SPI1_REF_CTRL_DIVISOR0_DEFVAL 
+#undef CRL_APB_SPI1_REF_CTRL_DIVISOR0_SHIFT 
+#undef CRL_APB_SPI1_REF_CTRL_DIVISOR0_MASK 
+#define CRL_APB_SPI1_REF_CTRL_DIVISOR0_DEFVAL                  0x01001800
+#define CRL_APB_SPI1_REF_CTRL_DIVISOR0_SHIFT                   8
+#define CRL_APB_SPI1_REF_CTRL_DIVISOR0_MASK                    0x00003F00U
+
+/*
+* 000 = IOPLL; 010 = RPLL; 011 = DPLL; (This signal may only be toggled af
+    * ter 4 cycles of the old clock and 4 cycles of the new clock. This is not
+    *  usually an issue, but designers must be aware.)
+*/
+#undef CRL_APB_SPI1_REF_CTRL_SRCSEL_DEFVAL 
+#undef CRL_APB_SPI1_REF_CTRL_SRCSEL_SHIFT 
+#undef CRL_APB_SPI1_REF_CTRL_SRCSEL_MASK 
+#define CRL_APB_SPI1_REF_CTRL_SRCSEL_DEFVAL                    0x01001800
+#define CRL_APB_SPI1_REF_CTRL_SRCSEL_SHIFT                     0
+#define CRL_APB_SPI1_REF_CTRL_SRCSEL_MASK                      0x00000007U
+
+/*
 * Turing this off will shut down the OCM, some parts of the APM, and preve
     * nt transactions going from the FPD to the LPD and could lead to system h
     * ang
@@ -1733,48 +1819,6 @@
 #define CRL_APB_PL1_REF_CTRL_SRCSEL_DEFVAL                     0x00052000
 #define CRL_APB_PL1_REF_CTRL_SRCSEL_SHIFT                      0
 #define CRL_APB_PL1_REF_CTRL_SRCSEL_MASK                       0x00000007U
-
-/*
-* Clock active signal. Switch to 0 to disable the clock
-*/
-#undef CRL_APB_PL2_REF_CTRL_CLKACT_DEFVAL 
-#undef CRL_APB_PL2_REF_CTRL_CLKACT_SHIFT 
-#undef CRL_APB_PL2_REF_CTRL_CLKACT_MASK 
-#define CRL_APB_PL2_REF_CTRL_CLKACT_DEFVAL                     0x00052000
-#define CRL_APB_PL2_REF_CTRL_CLKACT_SHIFT                      24
-#define CRL_APB_PL2_REF_CTRL_CLKACT_MASK                       0x01000000U
-
-/*
-* 6 bit divider
-*/
-#undef CRL_APB_PL2_REF_CTRL_DIVISOR1_DEFVAL 
-#undef CRL_APB_PL2_REF_CTRL_DIVISOR1_SHIFT 
-#undef CRL_APB_PL2_REF_CTRL_DIVISOR1_MASK 
-#define CRL_APB_PL2_REF_CTRL_DIVISOR1_DEFVAL                   0x00052000
-#define CRL_APB_PL2_REF_CTRL_DIVISOR1_SHIFT                    16
-#define CRL_APB_PL2_REF_CTRL_DIVISOR1_MASK                     0x003F0000U
-
-/*
-* 6 bit divider
-*/
-#undef CRL_APB_PL2_REF_CTRL_DIVISOR0_DEFVAL 
-#undef CRL_APB_PL2_REF_CTRL_DIVISOR0_SHIFT 
-#undef CRL_APB_PL2_REF_CTRL_DIVISOR0_MASK 
-#define CRL_APB_PL2_REF_CTRL_DIVISOR0_DEFVAL                   0x00052000
-#define CRL_APB_PL2_REF_CTRL_DIVISOR0_SHIFT                    8
-#define CRL_APB_PL2_REF_CTRL_DIVISOR0_MASK                     0x00003F00U
-
-/*
-* 000 = IOPLL; 010 = RPLL; 011 = DPLL; (This signal may only be toggled af
-    * ter 4 cycles of the old clock and 4 cycles of the new clock. This is not
-    *  usually an issue, but designers must be aware.)
-*/
-#undef CRL_APB_PL2_REF_CTRL_SRCSEL_DEFVAL 
-#undef CRL_APB_PL2_REF_CTRL_SRCSEL_SHIFT 
-#undef CRL_APB_PL2_REF_CTRL_SRCSEL_MASK 
-#define CRL_APB_PL2_REF_CTRL_SRCSEL_DEFVAL                     0x00052000
-#define CRL_APB_PL2_REF_CTRL_SRCSEL_SHIFT                      0
-#define CRL_APB_PL2_REF_CTRL_SRCSEL_MASK                       0x00000007U
 
 /*
 * 6 bit divider
@@ -32634,6 +32678,8 @@
 #define CRL_APB_RST_LPD_IOU2_OFFSET                                                0XFF5E0238
 #undef CRL_APB_RST_LPD_IOU2_OFFSET 
 #define CRL_APB_RST_LPD_IOU2_OFFSET                                                0XFF5E0238
+#undef CRL_APB_RST_LPD_IOU2_OFFSET 
+#define CRL_APB_RST_LPD_IOU2_OFFSET                                                0XFF5E0238
 #undef UART0_BAUD_RATE_DIVIDER_REG0_OFFSET 
 #define UART0_BAUD_RATE_DIVIDER_REG0_OFFSET                                        0XFF000034
 #undef UART0_BAUD_RATE_GEN_REG0_OFFSET 
@@ -33119,12 +33165,52 @@
 /*
 * Block level reset
 */
+#undef CRL_APB_RST_LPD_IOU2_SPI0_RESET_DEFVAL 
+#undef CRL_APB_RST_LPD_IOU2_SPI0_RESET_SHIFT 
+#undef CRL_APB_RST_LPD_IOU2_SPI0_RESET_MASK 
+#define CRL_APB_RST_LPD_IOU2_SPI0_RESET_DEFVAL                 0x0017FFFF
+#define CRL_APB_RST_LPD_IOU2_SPI0_RESET_SHIFT                  3
+#define CRL_APB_RST_LPD_IOU2_SPI0_RESET_MASK                   0x00000008U
+
+/*
+* Block level reset
+*/
+#undef CRL_APB_RST_LPD_IOU2_SPI1_RESET_DEFVAL 
+#undef CRL_APB_RST_LPD_IOU2_SPI1_RESET_SHIFT 
+#undef CRL_APB_RST_LPD_IOU2_SPI1_RESET_MASK 
+#define CRL_APB_RST_LPD_IOU2_SPI1_RESET_DEFVAL                 0x0017FFFF
+#define CRL_APB_RST_LPD_IOU2_SPI1_RESET_SHIFT                  4
+#define CRL_APB_RST_LPD_IOU2_SPI1_RESET_MASK                   0x00000010U
+
+/*
+* Block level reset
+*/
 #undef CRL_APB_RST_LPD_IOU2_TTC0_RESET_DEFVAL 
 #undef CRL_APB_RST_LPD_IOU2_TTC0_RESET_SHIFT 
 #undef CRL_APB_RST_LPD_IOU2_TTC0_RESET_MASK 
 #define CRL_APB_RST_LPD_IOU2_TTC0_RESET_DEFVAL                 0x0017FFFF
 #define CRL_APB_RST_LPD_IOU2_TTC0_RESET_SHIFT                  11
 #define CRL_APB_RST_LPD_IOU2_TTC0_RESET_MASK                   0x00000800U
+
+/*
+* Block level reset
+*/
+#undef CRL_APB_RST_LPD_IOU2_TTC1_RESET_DEFVAL 
+#undef CRL_APB_RST_LPD_IOU2_TTC1_RESET_SHIFT 
+#undef CRL_APB_RST_LPD_IOU2_TTC1_RESET_MASK 
+#define CRL_APB_RST_LPD_IOU2_TTC1_RESET_DEFVAL                 0x0017FFFF
+#define CRL_APB_RST_LPD_IOU2_TTC1_RESET_SHIFT                  12
+#define CRL_APB_RST_LPD_IOU2_TTC1_RESET_MASK                   0x00001000U
+
+/*
+* Block level reset
+*/
+#undef CRL_APB_RST_LPD_IOU2_TTC2_RESET_DEFVAL 
+#undef CRL_APB_RST_LPD_IOU2_TTC2_RESET_SHIFT 
+#undef CRL_APB_RST_LPD_IOU2_TTC2_RESET_MASK 
+#define CRL_APB_RST_LPD_IOU2_TTC2_RESET_DEFVAL                 0x0017FFFF
+#define CRL_APB_RST_LPD_IOU2_TTC2_RESET_SHIFT                  13
+#define CRL_APB_RST_LPD_IOU2_TTC2_RESET_MASK                   0x00002000U
 
 /*
 * Block level reset
@@ -33587,8 +33673,12 @@
 #define CRL_APB_BOOT_PIN_CTRL_OUT_EN_DEFVAL                    0x00000000
 #define CRL_APB_BOOT_PIN_CTRL_OUT_EN_SHIFT                     0
 #define CRL_APB_BOOT_PIN_CTRL_OUT_EN_MASK                      0x0000000FU
+#undef LPD_SLCR_SECURE_SLCR_RPU_OFFSET 
+#define LPD_SLCR_SECURE_SLCR_RPU_OFFSET                                            0XFF4B0020
 #undef FPD_SLCR_SECURE_SLCR_DPDMA_OFFSET 
 #define FPD_SLCR_SECURE_SLCR_DPDMA_OFFSET                                          0XFD690040
+#undef FPD_SLCR_SECURE_SLCR_SATA_OFFSET 
+#define FPD_SLCR_SECURE_SLCR_SATA_OFFSET                                           0XFD690020
 #undef FPD_SLCR_SECURE_SLCR_PCIE_OFFSET 
 #define FPD_SLCR_SECURE_SLCR_PCIE_OFFSET                                           0XFD690030
 #undef LPD_SLCR_SECURE_SLCR_USB_OFFSET 
@@ -33613,6 +33703,26 @@
 #define FPD_SLCR_SECURE_SLCR_GDMA_OFFSET                                           0XFD690050
 
 /*
+* TrustZone Classification for R5_0
+*/
+#undef LPD_SLCR_SECURE_SLCR_RPU_TZ_R5_0_DEFVAL 
+#undef LPD_SLCR_SECURE_SLCR_RPU_TZ_R5_0_SHIFT 
+#undef LPD_SLCR_SECURE_SLCR_RPU_TZ_R5_0_MASK 
+#define LPD_SLCR_SECURE_SLCR_RPU_TZ_R5_0_DEFVAL                0x00000000
+#define LPD_SLCR_SECURE_SLCR_RPU_TZ_R5_0_SHIFT                 0
+#define LPD_SLCR_SECURE_SLCR_RPU_TZ_R5_0_MASK                  0x00000001U
+
+/*
+* TrustZone Classification for R5_1
+*/
+#undef LPD_SLCR_SECURE_SLCR_RPU_TZ_R5_1_DEFVAL 
+#undef LPD_SLCR_SECURE_SLCR_RPU_TZ_R5_1_SHIFT 
+#undef LPD_SLCR_SECURE_SLCR_RPU_TZ_R5_1_MASK 
+#define LPD_SLCR_SECURE_SLCR_RPU_TZ_R5_1_DEFVAL                0x00000000
+#define LPD_SLCR_SECURE_SLCR_RPU_TZ_R5_1_SHIFT                 1
+#define LPD_SLCR_SECURE_SLCR_RPU_TZ_R5_1_MASK                  0x00000002U
+
+/*
 * TrustZone classification for DisplayPort DMA
 */
 #undef FPD_SLCR_SECURE_SLCR_DPDMA_TZ_DEFVAL 
@@ -33621,6 +33731,36 @@
 #define FPD_SLCR_SECURE_SLCR_DPDMA_TZ_DEFVAL                   0x00000001
 #define FPD_SLCR_SECURE_SLCR_DPDMA_TZ_SHIFT                    0
 #define FPD_SLCR_SECURE_SLCR_DPDMA_TZ_MASK                     0x00000001U
+
+/*
+* Enable TrustZone Function
+*/
+#undef FPD_SLCR_SECURE_SLCR_SATA_TZ_EN_DEFVAL 
+#undef FPD_SLCR_SECURE_SLCR_SATA_TZ_EN_SHIFT 
+#undef FPD_SLCR_SECURE_SLCR_SATA_TZ_EN_MASK 
+#define FPD_SLCR_SECURE_SLCR_SATA_TZ_EN_DEFVAL                 0x0000000E
+#define FPD_SLCR_SECURE_SLCR_SATA_TZ_EN_SHIFT                  0
+#define FPD_SLCR_SECURE_SLCR_SATA_TZ_EN_MASK                   0x00000001U
+
+/*
+* TrustZone Classification for DMA Port 0
+*/
+#undef FPD_SLCR_SECURE_SLCR_SATA_TZ_AXIMDMA0_DEFVAL 
+#undef FPD_SLCR_SECURE_SLCR_SATA_TZ_AXIMDMA0_SHIFT 
+#undef FPD_SLCR_SECURE_SLCR_SATA_TZ_AXIMDMA0_MASK 
+#define FPD_SLCR_SECURE_SLCR_SATA_TZ_AXIMDMA0_DEFVAL           0x0000000E
+#define FPD_SLCR_SECURE_SLCR_SATA_TZ_AXIMDMA0_SHIFT            2
+#define FPD_SLCR_SECURE_SLCR_SATA_TZ_AXIMDMA0_MASK             0x00000004U
+
+/*
+* TrustZone Classification for DMA Port 1
+*/
+#undef FPD_SLCR_SECURE_SLCR_SATA_TZ_AXIMDMA1_DEFVAL 
+#undef FPD_SLCR_SECURE_SLCR_SATA_TZ_AXIMDMA1_SHIFT 
+#undef FPD_SLCR_SECURE_SLCR_SATA_TZ_AXIMDMA1_MASK 
+#define FPD_SLCR_SECURE_SLCR_SATA_TZ_AXIMDMA1_DEFVAL           0x0000000E
+#define FPD_SLCR_SECURE_SLCR_SATA_TZ_AXIMDMA1_SHIFT            3
+#define FPD_SLCR_SECURE_SLCR_SATA_TZ_AXIMDMA1_MASK             0x00000008U
 
 /*
 * TrustZone classification for DMA Channel 0
@@ -35338,14 +35478,6 @@
 #define CRL_APB_RST_LPD_TOP_OFFSET                                                 0XFF5E023C
 #undef LPD_SLCR_AFI_FS_OFFSET 
 #define LPD_SLCR_AFI_FS_OFFSET                                                     0XFF419000
-#undef AFIFM2_AFIFM_RDCTRL_OFFSET 
-#define AFIFM2_AFIFM_RDCTRL_OFFSET                                                 0XFD380000
-#undef AFIFM3_AFIFM_RDCTRL_OFFSET 
-#define AFIFM3_AFIFM_RDCTRL_OFFSET                                                 0XFD390000
-#undef AFIFM2_AFIFM_WRCTRL_OFFSET 
-#define AFIFM2_AFIFM_WRCTRL_OFFSET                                                 0XFD380014
-#undef AFIFM3_AFIFM_WRCTRL_OFFSET 
-#define AFIFM3_AFIFM_WRCTRL_OFFSET                                                 0XFD390014
 
 /*
 * AF_FM0 block level reset
@@ -35428,50 +35560,6 @@
 #define LPD_SLCR_AFI_FS_DW_SS2_SEL_DEFVAL                      0x00000200
 #define LPD_SLCR_AFI_FS_DW_SS2_SEL_SHIFT                       8
 #define LPD_SLCR_AFI_FS_DW_SS2_SEL_MASK                        0x00000300U
-
-/*
-* Configures the Read Channel Fabric interface width. 2'b11 : Reserved 2'b
-    * 10 : 32-bit Fabric 2'b01 : 64-bit enabled 2'b00 : 128-bit enabled
-*/
-#undef AFIFM2_AFIFM_RDCTRL_FABRIC_WIDTH_DEFVAL 
-#undef AFIFM2_AFIFM_RDCTRL_FABRIC_WIDTH_SHIFT 
-#undef AFIFM2_AFIFM_RDCTRL_FABRIC_WIDTH_MASK 
-#define AFIFM2_AFIFM_RDCTRL_FABRIC_WIDTH_DEFVAL                0x000003B0
-#define AFIFM2_AFIFM_RDCTRL_FABRIC_WIDTH_SHIFT                 0
-#define AFIFM2_AFIFM_RDCTRL_FABRIC_WIDTH_MASK                  0x00000003U
-
-/*
-* Configures the Read Channel Fabric interface width. 2'b11 : Reserved 2'b
-    * 10 : 32-bit Fabric 2'b01 : 64-bit enabled 2'b00 : 128-bit enabled
-*/
-#undef AFIFM3_AFIFM_RDCTRL_FABRIC_WIDTH_DEFVAL 
-#undef AFIFM3_AFIFM_RDCTRL_FABRIC_WIDTH_SHIFT 
-#undef AFIFM3_AFIFM_RDCTRL_FABRIC_WIDTH_MASK 
-#define AFIFM3_AFIFM_RDCTRL_FABRIC_WIDTH_DEFVAL                0x000003B0
-#define AFIFM3_AFIFM_RDCTRL_FABRIC_WIDTH_SHIFT                 0
-#define AFIFM3_AFIFM_RDCTRL_FABRIC_WIDTH_MASK                  0x00000003U
-
-/*
-* Configures the Write Channel Fabric interface width. 2'b11 : Reserved 2'
-    * b10 : 32-bit Fabric 2'b01 : 64-bit enabled 2'b00 : 128-bit enabled
-*/
-#undef AFIFM2_AFIFM_WRCTRL_FABRIC_WIDTH_DEFVAL 
-#undef AFIFM2_AFIFM_WRCTRL_FABRIC_WIDTH_SHIFT 
-#undef AFIFM2_AFIFM_WRCTRL_FABRIC_WIDTH_MASK 
-#define AFIFM2_AFIFM_WRCTRL_FABRIC_WIDTH_DEFVAL                0x000003B0
-#define AFIFM2_AFIFM_WRCTRL_FABRIC_WIDTH_SHIFT                 0
-#define AFIFM2_AFIFM_WRCTRL_FABRIC_WIDTH_MASK                  0x00000003U
-
-/*
-* Configures the Write Channel Fabric interface width. 2'b11 : Reserved 2'
-    * b10 : 32-bit Fabric 2'b01 : 64-bit enabled 2'b00 : 128-bit enabled
-*/
-#undef AFIFM3_AFIFM_WRCTRL_FABRIC_WIDTH_DEFVAL 
-#undef AFIFM3_AFIFM_WRCTRL_FABRIC_WIDTH_SHIFT 
-#undef AFIFM3_AFIFM_WRCTRL_FABRIC_WIDTH_MASK 
-#define AFIFM3_AFIFM_WRCTRL_FABRIC_WIDTH_DEFVAL                0x000003B0
-#define AFIFM3_AFIFM_WRCTRL_FABRIC_WIDTH_SHIFT                 0
-#define AFIFM3_AFIFM_WRCTRL_FABRIC_WIDTH_MASK                  0x00000003U
 #undef GPIO_MASK_DATA_5_MSW_OFFSET 
 #define GPIO_MASK_DATA_5_MSW_OFFSET                                                0XFF0A002C
 #undef GPIO_DIRM_5_OFFSET 

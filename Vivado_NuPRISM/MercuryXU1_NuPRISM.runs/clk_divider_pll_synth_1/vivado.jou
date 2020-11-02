@@ -1,12 +1,12 @@
 #-----------------------------------------------------------
 # Vivado v2020.1 (64-bit)
-# SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
+# SW Build 2902540 on Wed May 27 19:54:35 MDT 2020
 # IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
-# Start of session at: Thu Sep 17 14:33:41 2020
-# Process ID: 35548
-# Current directory: C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.runs/clk_divider_pll_synth_1
-# Command line: vivado.exe -log clk_divider_pll.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source clk_divider_pll.tcl
-# Log file: C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.runs/clk_divider_pll_synth_1/clk_divider_pll.vds
-# Journal file: C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.runs/clk_divider_pll_synth_1\vivado.jou
+# Start of session at: Thu Oct 29 17:50:31 2020
+# Process ID: 7682
+# Current directory: /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/MercuryXU1_NuPRISM.runs/clk_divider_pll_synth_1
+# Command line: vivado -log clk_divider_pll.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source clk_divider_pll.tcl
+# Log file: /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/MercuryXU1_NuPRISM.runs/clk_divider_pll_synth_1/clk_divider_pll.vds
+# Journal file: /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/MercuryXU1_NuPRISM.runs/clk_divider_pll_synth_1/vivado.jou
 #-----------------------------------------------------------
 source clk_divider_pll.tcl -notrace

@@ -1,12 +1,12 @@
 #-----------------------------------------------------------
 # Vivado v2020.1 (64-bit)
-# SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
+# SW Build 2902540 on Wed May 27 19:54:35 MDT 2020
 # IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
-# Start of session at: Thu Sep 17 14:44:03 2020
-# Process ID: 37696
-# Current directory: C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.runs/MercuryNuPRISM_impl
-# Command line: vivado.exe -log system_top.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source system_top.tcl -notrace
-# Log file: C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.runs/MercuryNuPRISM_impl/system_top.vdi
-# Journal file: C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.runs/MercuryNuPRISM_impl\vivado.jou
+# Start of session at: Thu Oct 29 17:57:27 2020
+# Process ID: 10448
+# Current directory: /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/MercuryXU1_NuPRISM.runs/MercuryNuPRISM_impl
+# Command line: vivado -log system_top.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source system_top.tcl -notrace
+# Log file: /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/MercuryXU1_NuPRISM.runs/MercuryNuPRISM_impl/system_top.vdi
+# Journal file: /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/MercuryXU1_NuPRISM.runs/MercuryNuPRISM_impl/vivado.jou
 #-----------------------------------------------------------
 source system_top.tcl -notrace
