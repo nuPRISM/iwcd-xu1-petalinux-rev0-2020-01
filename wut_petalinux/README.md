@@ -27,6 +27,7 @@
 Export hardware from the Vivado project in `Vivado_NuPRISM`. Verify if the above forlder contains the `system_top.xsa` file. Configure petalinux project:
 <pre>  
 petalinux-config --get-hw-description ../Vivado_NuPRISM
+</pre>
 
 ### rootfs configuration
 
