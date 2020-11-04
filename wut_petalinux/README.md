@@ -71,7 +71,7 @@ odbedit
 mhttp
 mlogger
 mserver
-<pre>
+</pre>
 
 ### petalinux/NuPRISM
 
