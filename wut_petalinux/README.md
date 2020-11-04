@@ -43,7 +43,7 @@ dtc -I dtb -O dts -o system.dts images/linux/system.dtb
 
 <pre>  
 petalinux-build -v
-<pre>  
+</pre>  
 
 ### SD card boot
 
@@ -51,7 +51,7 @@ The SD card used to boot the petalinux distrubution should be formatted as follo
 <pre>  
   1 GB vfat partition
   xx GB ext4 partition
-<pre>  
+</pre>  
 
 <pre>  
 petalinux-package 
