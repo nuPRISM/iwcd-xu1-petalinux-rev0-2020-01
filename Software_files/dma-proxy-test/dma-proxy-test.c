@@ -25,8 +25,70 @@
 #include "dma-proxy.h"
 
 static struct dma_proxy_channel_interface *tx_proxy_interface_p;
+static struct dma_proxy_channel_interface *rx_proxy_interface_p;
 static int tx_proxy_fd;
 static int test_size; 
+static FILE *fh;
+
+/*
+ * read_file Function
+ * Read file_count number of bytes from file and puts it in transmit buffer
+ */
+int read_file(int sd_count, char* input_file) {
+
+	size_t num_bytes_read = 0;
+
+	// Open the file for reading
+    fh = fopen(input_file, "r");
+
+	if (!fh) {
+		printf("Could not open file for reading: %s \n", input_file);
+		return -1;
+	}
+
+	// Load file content onto transmit buffer
+	num_bytes_read = fread(tx_proxy_interface_p->buffer, 1, sd_count, fh);
+	if (num_bytes_read <= 0){
+		printf("Can't read from file! \n");
+		fclose(fh);
+		return -2;
+	}
+
+	printf("Number of bytes read from file: %d \n", (int) num_bytes_read);
+
+	fclose(fh);
+
+	return 0;
+}
+
+/*
+ * write_file Function
+ * append file_count bytes into a file
+ */ 
+int write_file(int sd_count, char* output_file) {
+
+	// Open file for appending
+	fh = fopen(output_file, "w");
+
+	if (!fh) {
+		printf("Could not open file for writing: %s \n", output_file);
+		return -1;
+	}
+
+	// Append to output file
+	if (fwrite(rx_proxy_interface_p->buffer, sd_count, 1, fh) != 1){
+		printf("Can't write to file! \n");
+		fclose(fh);
+		return -2;
+	}
+	else {
+		printf("Successfully wrote %d bytes into %s! \n", sd_count, output_file);
+	}
+
+	fclose(fh);
+
+	return 0;
+}
 
 /* The following function is the transmit thread to allow the transmit and the
  * receive channels to be operating simultaneously. The ioctl calls are blocking
@@ -58,22 +120,24 @@ void *tx_thread(int dma_count)
 
 int main(int argc, char *argv[])
 {
-	struct dma_proxy_channel_interface *rx_proxy_interface_p;
 	int rx_proxy_fd, i;
 	int dummy;
+	int timeout;
 	int counter;
+	int result;
 	pthread_t tid;
 
 	printf("DMA proxy test\n");
 
-	if (argc != 3) {
-		printf("Usage: dma-proxy-test <# of DMA transfers to perform> <# of bytes in each transfer (< 3MB)>\n");
+	// Be sure 3 parameters are passed in
+	if (argc != 4) {
+		printf("Usage: dma-proxy-test <# of bytes in each transfer (< 3MB)> <input file path> <output file path>\n");
 		exit(EXIT_FAILURE);
 	}
 
 	/* Get the size of the test to run, making sure it's not bigger than the statically configured memory size)
 	 */
-	test_size = atoi(argv[2]);
+	test_size = atoi(argv[1]);
 	if (test_size > TEST_SIZE)
 		test_size = TEST_SIZE;
 
@@ -104,42 +168,66 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 
-	/* Set up the length for the DMA transfer and initialize the transmit buffer to a known pattern. Since
-	 * transmit channel is using cyclic mode the same data will be received every time a transfer is done.
+	// Read data from file and put it in transmit buffer
+	printf("Reading input data from %s... \n", argv[3]);
+	result = read_file(test_size, argv[2]);
+	if (result != 0) {
+		exit(EXIT_FAILURE);
+	}
+
+	printf("\nInitiating data transfer...\n");
+
+	// Printout the data to be transmitted
+	printf("To be transferred:\n");
+	for (i = 0; i < test_size; i++)
+		printf("byte %i: %f\n", i, rx_proxy_interface_p->buffer[i]);
+
+	// Create dummy transfer data
+	// for (i = 0; i < test_size; i++)
+	// 	tx_proxy_interface_p->buffer[i] = i;
+
+	/* Create the thread for the transmit processing
+	 */
+	pthread_create(&tid, NULL, tx_thread, NULL);
+	/* Set up the length for the DMA transfer
  	 */
 	tx_proxy_interface_p->length = test_size; 
 
+	rx_proxy_interface_p->length = test_size;
+
+	timeout = 30000;
+	
+	/* Flush the recieve buffer
+	*/
+	printf("flushing buffer... \n");
 	for (i = 0; i < test_size; i++)
-		tx_proxy_interface_p->buffer[i] = i;
+		rx_proxy_interface_p->buffer[i] = 0;
 
-	/* Create the thread for the transmit processing passing the number of transactions to it
-	 */
-	pthread_create(&tid, NULL, tx_thread, atoi(argv[1]));
+	/* Perform a receive DMA transfer and after it finishes check the status
+		*/
+	printf("\nRequesting receive transfer...\n");
+	ioctl(rx_proxy_fd, 0, &timeout);
 
-	for (counter = 0; counter < atoi(argv[1]); counter++) {
-
-		/* Initialize the receive buffer so that it can be verified after the transfer is done
-		 * and setup the size of the transfer for the receive channel
-		 */
-		for (i = 0; i < test_size; i++)
-			rx_proxy_interface_p->buffer[i] = 0;
-
-		rx_proxy_interface_p->length = test_size;
-
-		/* Perform a receive DMA transfer and after it finishes check the status
-		 */
-		ioctl(rx_proxy_fd, 0, &dummy);
-
-		if (rx_proxy_interface_p->status != PROXY_NO_ERROR)
-			printf("Proxy rx transfer error\n");
-
-		/* Verify the data recieved matchs what was sent (tx is looped back to tx)
-		 */
-		for (i = 0; i < test_size; i++)
-			if (rx_proxy_interface_p->buffer[i] != (unsigned char)(counter + i))
-				printf("buffer not equal, index = %d, data = %d expected data = %d\n", i, 
-					rx_proxy_interface_p->buffer[i], (unsigned char)(counter + i));
+	if (rx_proxy_interface_p->status != PROXY_NO_ERROR) {
+		printf("Proxy rx transfer error with error number %d\n", rx_proxy_interface_p->status);
 	}
+	else {
+		printf("Received a packet(s) \n");
+		// Append data to SD card
+		printf("Writing data to %s... \n", argv[3]);
+		write_file(test_size, argv[3]);
+	}
+	/* Verify the data recieved matchs what was sent (tx is looped back to tx)
+		*/
+	// for (i = 0; i < test_size; i++)
+	// 	if (rx_proxy_interface_p->buffer[i] != (unsigned char)(counter + i))
+	// 		printf("buffer not equal, index = %d, data = %d expected data = %d\n", i, 
+	// 			rx_proxy_interface_p->buffer[i], (unsigned char)(counter + i));
+
+	// Wait for transfer to finish if it has not
+	printf("\nWaiting for transfer completion...\n");
+	pthread_join(tid, NULL);
+	printf("Transfer is completed!\n");
 
 	/* Unmap the proxy channel interface memory and close the device files before leaving
 	 */
