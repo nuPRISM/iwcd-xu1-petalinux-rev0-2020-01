@@ -41,9 +41,22 @@ dtc -I dtb -O dts -o system.dts images/linux/system.dtb
 
 ### Project build
 
+Use the following command to build the entire project:
 <pre>  
 petalinux-build -v
-</pre>  
+</pre>
+**Warning** All temporary files, apps etc. will be removed from the `build` folder
+
+The system image/rootf for booting from SD card should created with the following command:
+<pre>
+petalinux-package --boot --u-boot --fpga images/linux/system.bit --format BIN --force
+</pre>
+
+Use the following command to compile selected application and **do not remove** it from the `build\...\app\...` subdirectory:
+<pre>
+petalinux-build -c adc -x compile
+</pre>
+
 
 ### SD card boot
 
@@ -52,10 +65,8 @@ The SD card used to boot the petalinux distrubution should be formatted as follo
   1 GB vfat partition
   xx GB ext4 partition
 </pre>  
-
-<pre>  
-petalinux-package 
-</pre>  
+Copy `boot.scr`, `BOOT.BIN`, `image.ub` from `image/linux` subdirectory to the vfat partition
+Unpack `image/linux/rootfs.tar.gz` to the ext4 partition
 
 ### TFTP boot
 
