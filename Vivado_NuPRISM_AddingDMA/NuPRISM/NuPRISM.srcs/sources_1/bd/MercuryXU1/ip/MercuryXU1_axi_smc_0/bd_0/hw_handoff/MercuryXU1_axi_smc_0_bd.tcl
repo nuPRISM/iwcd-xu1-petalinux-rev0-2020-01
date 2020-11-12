@@ -643,7 +643,7 @@ proc create_hier_cell_s02_entry_pipeline { parentCell nameHier } {
   set_property -dict [ list \
    CONFIG.ADDR_WIDTH {32} \
    CONFIG.IS_CASCADED {0} \
-   CONFIG.MEP_IDENTIFIER {3} \
+   CONFIG.MEP_IDENTIFIER {2} \
    CONFIG.MEP_IDENTIFIER_WIDTH {2} \
    CONFIG.NUM_READ_OUTSTANDING {2} \
    CONFIG.NUM_WRITE_OUTSTANDING {16} \
@@ -956,7 +956,7 @@ proc create_hier_cell_s01_entry_pipeline { parentCell nameHier } {
   set_property -dict [ list \
    CONFIG.ADDR_WIDTH {32} \
    CONFIG.IS_CASCADED {0} \
-   CONFIG.MEP_IDENTIFIER {2} \
+   CONFIG.MEP_IDENTIFIER {1} \
    CONFIG.MEP_IDENTIFIER_WIDTH {2} \
    CONFIG.NUM_READ_OUTSTANDING {16} \
    CONFIG.NUM_WRITE_OUTSTANDING {2} \
@@ -1440,7 +1440,7 @@ proc create_hier_cell_s00_entry_pipeline { parentCell nameHier } {
   set_property -dict [ list \
    CONFIG.ADDR_WIDTH {32} \
    CONFIG.IS_CASCADED {0} \
-   CONFIG.MEP_IDENTIFIER {1} \
+   CONFIG.MEP_IDENTIFIER {0} \
    CONFIG.MEP_IDENTIFIER_WIDTH {2} \
    CONFIG.NUM_READ_OUTSTANDING {2} \
    CONFIG.NUM_WRITE_OUTSTANDING {2} \
@@ -1871,10 +1871,10 @@ proc create_hier_cell_m00_exit_pipeline { parentCell nameHier } {
    CONFIG.NUM_WRITE_OUTSTANDING {16} \
    CONFIG.RDATA_WIDTH {128} \
    CONFIG.READ_WRITE_MODE {READ_WRITE} \
-   CONFIG.SSC000_ROUTE {0b000} \
-   CONFIG.SSC001_ROUTE {0b001} \
-   CONFIG.SSC002_ROUTE {0b010} \
-   CONFIG.SSC003_ROUTE {0b100} \
+   CONFIG.SSC000_ROUTE {0b001} \
+   CONFIG.SSC001_ROUTE {0b010} \
+   CONFIG.SSC002_ROUTE {0b100} \
+   CONFIG.SSC003_ROUTE {0b000} \
    CONFIG.SSC_ROUTE_WIDTH {3} \
    CONFIG.S_ID_WIDTH {2} \
    CONFIG.WDATA_WIDTH {128} \

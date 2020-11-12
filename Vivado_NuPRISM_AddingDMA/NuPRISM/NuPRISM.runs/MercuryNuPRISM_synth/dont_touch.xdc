@@ -153,6 +153,9 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==MercuryXU1_axi_
 # IP: bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_35/bd_cc23_m00e_0.xci
 # DONT_TOUCH constraint suppressed by (parent) sub-design file.
 
+# IP: bd/MercuryXU1/ip/MercuryXU1_xlconcat_0_0/MercuryXU1_xlconcat_0_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==MercuryXU1_xlconcat_0_0 || ORIG_REF_NAME==MercuryXU1_xlconcat_0_0} -quiet] -quiet
+
 # IP: bd/MercuryXU1/ip/MercuryXU1_auto_pc_0/MercuryXU1_auto_pc_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==MercuryXU1_auto_pc_0 || ORIG_REF_NAME==MercuryXU1_auto_pc_0} -quiet] -quiet
 
@@ -161,9 +164,6 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==MercuryXU1_auto
 
 # IP: bd/MercuryXU1/ip/MercuryXU1_auto_pc_2/MercuryXU1_auto_pc_2.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==MercuryXU1_auto_pc_2 || ORIG_REF_NAME==MercuryXU1_auto_pc_2} -quiet] -quiet
-
-# IP: bd/MercuryXU1/ip/MercuryXU1_xlconcat_0_0/MercuryXU1_xlconcat_0_0.xci
-set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==MercuryXU1_xlconcat_0_0 || ORIG_REF_NAME==MercuryXU1_xlconcat_0_0} -quiet] -quiet
 
 # XDC: bd/MercuryXU1/ip/MercuryXU1_axi_gpio_0_0/MercuryXU1_axi_gpio_0_0_board.xdc
 set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==MercuryXU1_axi_gpio_0_0 || ORIG_REF_NAME==MercuryXU1_axi_gpio_0_0} -quiet] {/U0 } ]/U0 ] -quiet] -quiet

@@ -1,0 +1,166 @@
+<?xml version="1.0"?>
+<wave_config>
+	<wave_state>
+	</wave_state>
+	<db_ref_list>
+		<db_ref path="C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.hw/hw_1/wave/hw_ila_data_1/hw_ila_data_1.wdb" id="1" type="auto">
+			<top_modules>
+				<top_module name="top">
+				</top_module>
+			</top_modules>
+		</db_ref>
+	</db_ref_list>
+	<WVObjectSize size="25">
+	</WVObjectSize>
+	<wvobject fp_name="ADC0_SEN_OBUF" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">ADC0_SEN_OBUF</obj_property>
+		<obj_property name="ObjectShortName">ADC0_SEN_OBUF</obj_property>
+		<obj_property name="DisplayName">FullPathName</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="ADC1_SEN_OBUF" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">ADC1_SEN_OBUF</obj_property>
+		<obj_property name="ObjectShortName">ADC1_SEN_OBUF</obj_property>
+		<obj_property name="DisplayName">FullPathName</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="ADC2_SEN_OBUF" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">ADC2_SEN_OBUF</obj_property>
+		<obj_property name="ObjectShortName">ADC2_SEN_OBUF</obj_property>
+		<obj_property name="DisplayName">FullPathName</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="ADC3_SEN_OBUF" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">ADC3_SEN_OBUF</obj_property>
+		<obj_property name="ObjectShortName">ADC3_SEN_OBUF</obj_property>
+		<obj_property name="DisplayName">FullPathName</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="ADC4_SEN_OBUF" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">ADC4_SEN_OBUF</obj_property>
+		<obj_property name="ObjectShortName">ADC4_SEN_OBUF</obj_property>
+		<obj_property name="DisplayName">FullPathName</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="ADC_PDN_OBUF" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">ADC_PDN_OBUF</obj_property>
+		<obj_property name="ObjectShortName">ADC_PDN_OBUF</obj_property>
+		<obj_property name="DisplayName">FullPathName</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="ADC_RST_OBUF" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">ADC_RST_OBUF</obj_property>
+		<obj_property name="ObjectShortName">ADC_RST_OBUF</obj_property>
+		<obj_property name="DisplayName">FullPathName</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="MercuryXU1_i/I" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">MercuryXU1_i/I</obj_property>
+		<obj_property name="ObjectShortName">I</obj_property>
+		<obj_property name="DisplayName">FullPathName</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="MercuryXU1_i/MercuryXU1_i_n_0" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">MercuryXU1_i/MercuryXU1_i_n_0</obj_property>
+		<obj_property name="ObjectShortName">MercuryXU1_i_n_0</obj_property>
+		<obj_property name="DisplayName">FullPathName</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="MercuryXU1_i/MercuryXU1_i_n_1" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">MercuryXU1_i/MercuryXU1_i_n_1</obj_property>
+		<obj_property name="ObjectShortName">MercuryXU1_i_n_1</obj_property>
+		<obj_property name="DisplayName">FullPathName</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="MercuryXU1_i/MercuryXU1_i_n_2" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">MercuryXU1_i/MercuryXU1_i_n_2</obj_property>
+		<obj_property name="ObjectShortName">MercuryXU1_i_n_2</obj_property>
+		<obj_property name="DisplayName">FullPathName</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="MercuryXU1_i/MercuryXU1_i_n_3" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">MercuryXU1_i/MercuryXU1_i_n_3</obj_property>
+		<obj_property name="ObjectShortName">MercuryXU1_i_n_3</obj_property>
+		<obj_property name="DisplayName">FullPathName</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="MercuryXU1_i/MercuryXU1_i_n_4" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">MercuryXU1_i/MercuryXU1_i_n_4</obj_property>
+		<obj_property name="ObjectShortName">MercuryXU1_i_n_4</obj_property>
+		<obj_property name="DisplayName">FullPathName</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="MercuryXU1_i/MercuryXU1_i_n_5" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">MercuryXU1_i/MercuryXU1_i_n_5</obj_property>
+		<obj_property name="ObjectShortName">MercuryXU1_i_n_5</obj_property>
+		<obj_property name="DisplayName">FullPathName</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="MercuryXU1_i/MercuryXU1_i_n_6" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">MercuryXU1_i/MercuryXU1_i_n_6</obj_property>
+		<obj_property name="ObjectShortName">MercuryXU1_i_n_6</obj_property>
+		<obj_property name="DisplayName">FullPathName</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="MercuryXU1_i/MercuryXU1_i_n_7" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">MercuryXU1_i/MercuryXU1_i_n_7</obj_property>
+		<obj_property name="ObjectShortName">MercuryXU1_i_n_7</obj_property>
+		<obj_property name="DisplayName">FullPathName</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="MercuryXU1_i/MercuryXU1_i_n_8" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">MercuryXU1_i/MercuryXU1_i_n_8</obj_property>
+		<obj_property name="ObjectShortName">MercuryXU1_i_n_8</obj_property>
+		<obj_property name="DisplayName">FullPathName</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="MercuryXU1_i/MercuryXU1_i_n_9" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">MercuryXU1_i/MercuryXU1_i_n_9</obj_property>
+		<obj_property name="ObjectShortName">MercuryXU1_i_n_9</obj_property>
+		<obj_property name="DisplayName">FullPathName</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="MercuryXU1_i/MercuryXU1_i_n_10" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">MercuryXU1_i/MercuryXU1_i_n_10</obj_property>
+		<obj_property name="ObjectShortName">MercuryXU1_i_n_10</obj_property>
+		<obj_property name="DisplayName">FullPathName</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="MercuryXU1_i/MercuryXU1_i_n_11" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">MercuryXU1_i/MercuryXU1_i_n_11</obj_property>
+		<obj_property name="ObjectShortName">MercuryXU1_i_n_11</obj_property>
+		<obj_property name="DisplayName">FullPathName</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="MercuryXU1_i/MercuryXU1_i_n_12" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">MercuryXU1_i/MercuryXU1_i_n_12</obj_property>
+		<obj_property name="ObjectShortName">MercuryXU1_i_n_12</obj_property>
+		<obj_property name="DisplayName">FullPathName</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="MercuryXU1_i/ps_master_i2c_sda_o" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">MercuryXU1_i/ps_master_i2c_sda_o</obj_property>
+		<obj_property name="ObjectShortName">ps_master_i2c_sda_o</obj_property>
+		<obj_property name="DisplayName">FullPathName</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="MercuryXU1_i/ps_spi_0_io0_o" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">MercuryXU1_i/ps_spi_0_io0_o</obj_property>
+		<obj_property name="ObjectShortName">ps_spi_0_io0_o</obj_property>
+		<obj_property name="DisplayName">FullPathName</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="MercuryXU1_i/ps_spi_0_io1_o" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">MercuryXU1_i/ps_spi_0_io1_o</obj_property>
+		<obj_property name="ObjectShortName">ps_spi_0_io1_o</obj_property>
+		<obj_property name="DisplayName">FullPathName</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="MercuryXU1_i/ps_spi_0_sck_o" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">MercuryXU1_i/ps_spi_0_sck_o</obj_property>
+		<obj_property name="ObjectShortName">ps_spi_0_sck_o</obj_property>
+		<obj_property name="DisplayName">FullPathName</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+</wave_config>
+

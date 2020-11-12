@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
-| Date         : Tue Oct  6 16:09:06 2020
+| Date         : Mon Nov  9 17:17:20 2020
 | Host         : edev3 running 64-bit major release  (build 9200)
 | Command      : report_utilization -file system_top_utilization_synth.rpt -pb system_top_utilization_synth.pb
 | Design       : system_top
@@ -31,13 +31,13 @@ Table of Contents
 +----------------------------+-------+-------+-----------+-------+
 |          Site Type         |  Used | Fixed | Available | Util% |
 +----------------------------+-------+-------+-----------+-------+
-| CLB LUTs*                  |  8903 |     0 |    214604 |  4.15 |
-|   LUT as Logic             |  7142 |     0 |    214604 |  3.33 |
-|   LUT as Memory            |  1761 |     0 |    144000 |  1.22 |
-|     LUT as Distributed RAM |  1300 |     0 |           |       |
+| CLB LUTs*                  | 12146 |     0 |    214604 |  5.66 |
+|   LUT as Logic             | 10145 |     0 |    214604 |  4.73 |
+|   LUT as Memory            |  2001 |     0 |    144000 |  1.39 |
+|     LUT as Distributed RAM |  1540 |     0 |           |       |
 |     LUT as Shift Register  |   461 |     0 |           |       |
-| CLB Registers              | 12957 |     0 |    429208 |  3.02 |
-|   Register as Flip Flop    | 12957 |     0 |    429208 |  3.02 |
+| CLB Registers              | 16835 |     0 |    429208 |  3.92 |
+|   Register as Flip Flop    | 16835 |     0 |    429208 |  3.92 |
 |   Register as Latch        |     0 |     0 |    429208 |  0.00 |
 | CARRY8                     |    40 |     0 |     34260 |  0.12 |
 | F7 Muxes                   |    15 |     0 |    137040 |  0.01 |
@@ -59,10 +59,10 @@ Table of Contents
 | 0     |            _ |         Set |            - |
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
-| 0     |          Yes |           - |          Set |
+| 90    |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
-| 457   |          Yes |         Set |            - |
-| 12500 |          Yes |       Reset |            - |
+| 667   |          Yes |         Set |            - |
+| 16078 |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -96,7 +96,7 @@ Table of Contents
 +------------+------+-------+-----------+-------+
 |  Site Type | Used | Fixed | Available | Util% |
 +------------+------+-------+-----------+-------+
-| Bonded IOB |   17 |     0 |       204 |  8.33 |
+| Bonded IOB |   79 |     0 |       204 | 38.73 |
 +------------+------+-------+-----------+-------+
 
 
@@ -106,9 +106,9 @@ Table of Contents
 +----------------------+------+-------+-----------+-------+
 |       Site Type      | Used | Fixed | Available | Util% |
 +----------------------+------+-------+-----------+-------+
-| GLOBAL CLOCK BUFFERs |    2 |     0 |       404 |  0.50 |
-|   BUFGCE             |    0 |     0 |       116 |  0.00 |
-|   BUFGCE_DIV         |    0 |     0 |        16 |  0.00 |
+| GLOBAL CLOCK BUFFERs |    6 |     0 |       404 |  1.49 |
+|   BUFGCE             |    2 |     0 |       116 |  1.72 |
+|   BUFGCE_DIV         |    2 |     0 |        16 | 12.50 |
 |   BUFG_GT            |    0 |     0 |       168 |  0.00 |
 |   BUFG_PS            |    2 |     0 |        72 |  2.78 |
 |   BUFGCTRL*          |    0 |     0 |        32 |  0.00 |
@@ -152,40 +152,50 @@ Table of Contents
 8. Primitives
 -------------
 
-+----------+-------+---------------------+
-| Ref Name |  Used | Functional Category |
-+----------+-------+---------------------+
-| FDRE     | 12500 |            Register |
-| LUT3     |  3364 |                 CLB |
-| RAMD32   |  2260 |                 CLB |
-| LUT6     |  1966 |                 CLB |
-| LUT5     |  1320 |                 CLB |
-| LUT4     |  1253 |                 CLB |
-| LUT1     |   819 |                 CLB |
-| LUT2     |   757 |                 CLB |
-| FDSE     |   457 |            Register |
-| RAMS32   |   320 |                 CLB |
-| SRL16E   |   308 |                 CLB |
-| SRLC32E  |   153 |                 CLB |
-| CARRY8   |    40 |                 CLB |
-| MUXF7    |    15 |                 CLB |
-| OBUFT    |     9 |                 I/O |
-| INBUF    |     9 |                 I/O |
-| IBUFCTRL |     9 |              Others |
-| OBUF     |     8 |                 I/O |
-| RAMB36E2 |     2 |           Block Ram |
-| BUFG_PS  |     2 |               Clock |
-| SYSMONE4 |     1 |            Advanced |
-| PS8      |     1 |            Advanced |
-+----------+-------+---------------------+
++------------+-------+---------------------+
+|  Ref Name  |  Used | Functional Category |
++------------+-------+---------------------+
+| FDRE       | 16078 |            Register |
+| LUT6       |  3898 |                 CLB |
+| LUT3       |  3584 |                 CLB |
+| RAMD32     |  2680 |                 CLB |
+| LUT5       |  1652 |                 CLB |
+| LUT4       |  1561 |                 CLB |
+| LUT1       |  1188 |                 CLB |
+| LUT2       |   911 |                 CLB |
+| FDSE       |   667 |            Register |
+| RAMS32     |   380 |                 CLB |
+| SRL16E     |   308 |                 CLB |
+| SRLC32E    |   153 |                 CLB |
+| FDPE       |    90 |            Register |
+| IBUFCTRL   |    40 |              Others |
+| CARRY8     |    40 |                 CLB |
+| DIFFINBUF  |    31 |                 I/O |
+| ISERDESE3  |    30 |                 I/O |
+| IDELAYE3   |    30 |                 I/O |
+| MUXF7      |    15 |                 CLB |
+| OBUFT      |     9 |                 I/O |
+| INBUF      |     9 |                 I/O |
+| OBUF       |     8 |                 I/O |
+| RAMB36E2   |     2 |           Block Ram |
+| OSERDESE3  |     2 |                 I/O |
+| BUFG_PS    |     2 |               Clock |
+| BUFGCE_DIV |     2 |               Clock |
+| BUFGCE     |     2 |               Clock |
+| SYSMONE4   |     1 |            Advanced |
+| PS8        |     1 |            Advanced |
++------------+-------+---------------------+
 
 
 9. Black Boxes
 --------------
 
-+----------+------+
-| Ref Name | Used |
-+----------+------+
++-----------------------+------+
+|        Ref Name       | Used |
++-----------------------+------+
+| clk_wiz_1_b64_b66_pll |    1 |
+| clk_wiz_0_b65_mmcm    |    1 |
++-----------------------+------+
 
 
 10. Instantiated Netlists

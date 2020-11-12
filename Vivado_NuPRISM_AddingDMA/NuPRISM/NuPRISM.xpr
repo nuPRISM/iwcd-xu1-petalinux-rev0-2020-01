@@ -88,7 +88,7 @@
       <File Path="$PSRCDIR/sources_1/imports/rev0-2020.1-petalinux/src/system_top_NuPRISM.vhd">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../../src/system_top_NuPRISM.vhd"/>
-          <Attr Name="ImportTime" Val="1600377784"/>
+          <Attr Name="ImportTime" Val="1604945981"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
@@ -858,9 +858,7 @@
   <Runs Version="1" Minor="11">
     <Run Id="MercuryNuPRISM_synth" Type="Ft3:Synth" SrcSet="sources_1" Part="xczu6eg-ffvc900-1-i" ConstrsSet="MercuryNuPRISM" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" State="current" Dir="$PRUNDIR/MercuryNuPRISM_synth" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -900,9 +898,7 @@
     </Run>
     <Run Id="MercuryNuPRISM_impl" Type="Ft2:EntireDesign" Part="xczu6eg-ffvc900-1-i" ConstrsSet="MercuryNuPRISM" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" State="current" Dir="$PRUNDIR/MercuryNuPRISM_impl" SynthRun="MercuryNuPRISM_synth" IncludeInArchive="true" GenFullBitstream="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2017">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2017"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>

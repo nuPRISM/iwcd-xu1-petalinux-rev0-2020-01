@@ -1,7 +1,7 @@
 --Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
---Date        : Tue Oct  6 16:04:00 2020
+--Date        : Mon Nov  9 10:21:21 2020
 --Host        : edev3 running 64-bit major release  (build 9200)
 --Command     : generate_target MercuryXU1.bd
 --Design      : MercuryXU1
@@ -3319,24 +3319,6 @@ architecture STRUCTURE of MercuryXU1 is
     S00_AXI_bresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
     S00_AXI_bvalid : out STD_LOGIC;
     S00_AXI_bready : in STD_LOGIC;
-    M00_AXI_awaddr : out STD_LOGIC_VECTOR ( 48 downto 0 );
-    M00_AXI_awlen : out STD_LOGIC_VECTOR ( 7 downto 0 );
-    M00_AXI_awsize : out STD_LOGIC_VECTOR ( 2 downto 0 );
-    M00_AXI_awburst : out STD_LOGIC_VECTOR ( 1 downto 0 );
-    M00_AXI_awlock : out STD_LOGIC_VECTOR ( 0 to 0 );
-    M00_AXI_awcache : out STD_LOGIC_VECTOR ( 3 downto 0 );
-    M00_AXI_awprot : out STD_LOGIC_VECTOR ( 2 downto 0 );
-    M00_AXI_awqos : out STD_LOGIC_VECTOR ( 3 downto 0 );
-    M00_AXI_awvalid : out STD_LOGIC;
-    M00_AXI_awready : in STD_LOGIC;
-    M00_AXI_wdata : out STD_LOGIC_VECTOR ( 127 downto 0 );
-    M00_AXI_wstrb : out STD_LOGIC_VECTOR ( 15 downto 0 );
-    M00_AXI_wlast : out STD_LOGIC;
-    M00_AXI_wvalid : out STD_LOGIC;
-    M00_AXI_wready : in STD_LOGIC;
-    M00_AXI_bresp : in STD_LOGIC_VECTOR ( 1 downto 0 );
-    M00_AXI_bvalid : in STD_LOGIC;
-    M00_AXI_bready : out STD_LOGIC;
     S00_AXI_araddr : in STD_LOGIC_VECTOR ( 31 downto 0 );
     S00_AXI_arlen : in STD_LOGIC_VECTOR ( 7 downto 0 );
     S00_AXI_arsize : in STD_LOGIC_VECTOR ( 2 downto 0 );
@@ -3385,6 +3367,24 @@ architecture STRUCTURE of MercuryXU1 is
     S02_AXI_bresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
     S02_AXI_bvalid : out STD_LOGIC;
     S02_AXI_bready : in STD_LOGIC;
+    M00_AXI_awaddr : out STD_LOGIC_VECTOR ( 48 downto 0 );
+    M00_AXI_awlen : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    M00_AXI_awsize : out STD_LOGIC_VECTOR ( 2 downto 0 );
+    M00_AXI_awburst : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    M00_AXI_awlock : out STD_LOGIC_VECTOR ( 0 to 0 );
+    M00_AXI_awcache : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    M00_AXI_awprot : out STD_LOGIC_VECTOR ( 2 downto 0 );
+    M00_AXI_awqos : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    M00_AXI_awvalid : out STD_LOGIC;
+    M00_AXI_awready : in STD_LOGIC;
+    M00_AXI_wdata : out STD_LOGIC_VECTOR ( 127 downto 0 );
+    M00_AXI_wstrb : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    M00_AXI_wlast : out STD_LOGIC;
+    M00_AXI_wvalid : out STD_LOGIC;
+    M00_AXI_wready : in STD_LOGIC;
+    M00_AXI_bresp : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    M00_AXI_bvalid : in STD_LOGIC;
+    M00_AXI_bready : out STD_LOGIC;
     M00_AXI_araddr : out STD_LOGIC_VECTOR ( 48 downto 0 );
     M00_AXI_arlen : out STD_LOGIC_VECTOR ( 7 downto 0 );
     M00_AXI_arsize : out STD_LOGIC_VECTOR ( 2 downto 0 );
