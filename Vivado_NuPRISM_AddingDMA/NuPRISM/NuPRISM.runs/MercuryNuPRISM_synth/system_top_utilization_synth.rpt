@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
-| Date         : Mon Nov  9 17:17:20 2020
+| Date         : Mon Nov 23 15:32:22 2020
 | Host         : edev3 running 64-bit major release  (build 9200)
 | Command      : report_utilization -file system_top_utilization_synth.rpt -pb system_top_utilization_synth.pb
 | Design       : system_top
@@ -31,15 +31,15 @@ Table of Contents
 +----------------------------+-------+-------+-----------+-------+
 |          Site Type         |  Used | Fixed | Available | Util% |
 +----------------------------+-------+-------+-----------+-------+
-| CLB LUTs*                  | 12146 |     0 |    214604 |  5.66 |
-|   LUT as Logic             | 10145 |     0 |    214604 |  4.73 |
-|   LUT as Memory            |  2001 |     0 |    144000 |  1.39 |
-|     LUT as Distributed RAM |  1540 |     0 |           |       |
-|     LUT as Shift Register  |   461 |     0 |           |       |
-| CLB Registers              | 16835 |     0 |    429208 |  3.92 |
-|   Register as Flip Flop    | 16835 |     0 |    429208 |  3.92 |
+| CLB LUTs*                  | 10649 |     0 |    214604 |  4.96 |
+|   LUT as Logic             |  8942 |     0 |    214604 |  4.17 |
+|   LUT as Memory            |  1707 |     0 |    144000 |  1.19 |
+|     LUT as Distributed RAM |  1330 |     0 |           |       |
+|     LUT as Shift Register  |   377 |     0 |           |       |
+| CLB Registers              | 14691 |     0 |    429208 |  3.42 |
+|   Register as Flip Flop    | 14691 |     0 |    429208 |  3.42 |
 |   Register as Latch        |     0 |     0 |    429208 |  0.00 |
-| CARRY8                     |    40 |     0 |     34260 |  0.12 |
+| CARRY8                     |    28 |     0 |     34260 |  0.08 |
 | F7 Muxes                   |    15 |     0 |    137040 |  0.01 |
 | F8 Muxes                   |     0 |     0 |     68520 |  0.00 |
 | F9 Muxes                   |     0 |     0 |     34260 |  0.00 |
@@ -61,8 +61,8 @@ Table of Contents
 | 0     |          Yes |           - |            - |
 | 90    |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
-| 667   |          Yes |         Set |            - |
-| 16078 |          Yes |       Reset |            - |
+| 591   |          Yes |         Set |            - |
+| 14010 |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -155,24 +155,24 @@ Table of Contents
 +------------+-------+---------------------+
 |  Ref Name  |  Used | Functional Category |
 +------------+-------+---------------------+
-| FDRE       | 16078 |            Register |
-| LUT6       |  3898 |                 CLB |
-| LUT3       |  3584 |                 CLB |
-| RAMD32     |  2680 |                 CLB |
-| LUT5       |  1652 |                 CLB |
-| LUT4       |  1561 |                 CLB |
-| LUT1       |  1188 |                 CLB |
-| LUT2       |   911 |                 CLB |
-| FDSE       |   667 |            Register |
-| RAMS32     |   380 |                 CLB |
-| SRL16E     |   308 |                 CLB |
+| FDRE       | 14010 |            Register |
+| LUT6       |  3572 |                 CLB |
+| LUT3       |  2889 |                 CLB |
+| RAMD32     |  2314 |                 CLB |
+| LUT5       |  1403 |                 CLB |
+| LUT4       |  1330 |                 CLB |
+| LUT1       |  1140 |                 CLB |
+| LUT2       |   768 |                 CLB |
+| FDSE       |   591 |            Register |
+| RAMS32     |   328 |                 CLB |
+| SRL16E     |   224 |                 CLB |
 | SRLC32E    |   153 |                 CLB |
 | FDPE       |    90 |            Register |
 | IBUFCTRL   |    40 |              Others |
-| CARRY8     |    40 |                 CLB |
 | DIFFINBUF  |    31 |                 I/O |
 | ISERDESE3  |    30 |                 I/O |
 | IDELAYE3   |    30 |                 I/O |
+| CARRY8     |    28 |                 CLB |
 | MUXF7      |    15 |                 CLB |
 | OBUFT      |     9 |                 I/O |
 | INBUF      |     9 |                 I/O |

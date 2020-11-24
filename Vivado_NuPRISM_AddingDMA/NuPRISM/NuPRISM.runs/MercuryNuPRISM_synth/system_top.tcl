@@ -71,15 +71,8 @@ proc create_report { reportName command } {
 }
 OPTRACE "MercuryNuPRISM_synth" START { ROLLUP_AUTO }
 set_param tcl.collectionResultDisplayLimit 0
-set_param power.BramSDPPropagationFix 1
 set_param chipscope.maxJobs 2
-set_param power.enableUnconnectedCarry8PinPower 1
-set_param power.enableCarry8RouteBelPower 1
-set_param power.enableLutRouteBelPower 1
-set_param synth.incrementalSynthesisCache C:/Users/edevel/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-28216-edev3/incrSyn
 set_param xicom.use_bs_reader 1
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xczu6eg-ffvc900-1-i
 
@@ -197,12 +190,6 @@ set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-p
 set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_dma_0_0/MercuryXU1_axi_dma_0_0.xdc]
 set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_dma_0_0/MercuryXU1_axi_dma_0_0_clocks.xdc]
 set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_dma_0_0/MercuryXU1_axi_dma_0_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_gpio_1_0/MercuryXU1_axi_gpio_1_0_board.xdc]
-set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_gpio_1_0/MercuryXU1_axi_gpio_1_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_gpio_1_0/MercuryXU1_axi_gpio_1_0.xdc]
-set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_gpio_2_0/MercuryXU1_axi_gpio_2_0_board.xdc]
-set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_gpio_2_0/MercuryXU1_axi_gpio_2_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_gpio_2_0/MercuryXU1_axi_gpio_2_0.xdc]
 set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_1/bd_cc23_psr_aclk_0_board.xdc]
 set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_1/bd_cc23_psr_aclk_0.xdc]
 set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_2/bd_cc23_arsw_0_ooc.xdc]
@@ -216,20 +203,18 @@ set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-p
 set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_13/bd_cc23_sawn_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_14/bd_cc23_swn_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_15/bd_cc23_sbn_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_19/bd_cc23_s01a2s_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_20/bd_cc23_sarn_1_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_21/bd_cc23_srn_1_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_25/bd_cc23_s02a2s_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_26/bd_cc23_sawn_1_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_27/bd_cc23_swn_1_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_28/bd_cc23_sbn_1_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_29/bd_cc23_m00s2a_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_30/bd_cc23_m00arn_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_31/bd_cc23_m00rn_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_32/bd_cc23_m00awn_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_33/bd_cc23_m00wn_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_34/bd_cc23_m00bn_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_19/bd_cc23_s02a2s_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_20/bd_cc23_sawn_1_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_21/bd_cc23_swn_1_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_22/bd_cc23_sbn_1_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_23/bd_cc23_m00s2a_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_24/bd_cc23_m00arn_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_25/bd_cc23_m00rn_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_26/bd_cc23_m00awn_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_27/bd_cc23_m00wn_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_28/bd_cc23_m00bn_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axis_data_fifo_0_0/MercuryXU1_axis_data_fifo_0_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_auto_pc_0/MercuryXU1_auto_pc_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_auto_pc_1/MercuryXU1_auto_pc_1_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_auto_pc_2/MercuryXU1_auto_pc_2_ooc.xdc]

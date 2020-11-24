@@ -114,7 +114,6 @@ proc step_failed { step } {
   close $ch
 }
 
-set_msg_config -id {Common 17-41} -limit 10000000
 
 OPTRACE "Implementation" START { ROLLUP_1 }
 OPTRACE "Phase: Write Bitstream" START { ROLLUP_AUTO }
@@ -123,11 +122,8 @@ start_step write_bitstream
 set ACTIVE_STEP write_bitstream
 set rc [catch {
   create_msg_db write_bitstream.pb
-  set_param power.BramSDPPropagationFix 1
+  set_param tcl.collectionResultDisplayLimit 0
   set_param chipscope.maxJobs 2
-  set_param power.enableUnconnectedCarry8PinPower 1
-  set_param power.enableCarry8RouteBelPower 1
-  set_param power.enableLutRouteBelPower 1
   set_param xicom.use_bs_reader 1
   open_checkpoint system_top_routed.dcp
   set_property webtalk.parent_dir C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.cache/wt [current_project]

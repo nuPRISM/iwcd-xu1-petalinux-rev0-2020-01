@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Mon Nov 23 12:59:38 2020
+# Process ID: 153656
+# Current directory: C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/fifo-funcgen-test
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent140908 C:\Repos\rev0-2020.1-petalinux\Vivado_NuPRISM_AddingDMA\fifo-funcgen-test\fifo-funcgen-test.xpr
+# Log file: C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/fifo-funcgen-test/vivado.log
+# Journal file: C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/fifo-funcgen-test\vivado.jou
+#-----------------------------------------------------------
+start_gui
