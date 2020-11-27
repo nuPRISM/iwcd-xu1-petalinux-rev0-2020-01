@@ -76,7 +76,7 @@ int adc_spi_slave_mode(bool value) {
 
 
 void print_usage() {
-    printf("ADC controller - available commands:\n");
+    printf("AC/DC controller - available commands:\n");
     printf("\tpdn  - power down\n");
     printf("\tpup  - power up\n");
     printf("\trst  - reset\n");
