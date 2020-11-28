@@ -192,7 +192,7 @@ int i2c_read(uint8_t slave_addr, uint16_t reg, uint8_t *result) {
     return 0;
 }
 
-// Write to an I2C slave device's register:
+// Write to the I2C slave device's register:
 int i2c_write(uint8_t slave_addr, uint16_t reg, uint8_t data) {
     int retval;
     uint8_t outbuf[3];
