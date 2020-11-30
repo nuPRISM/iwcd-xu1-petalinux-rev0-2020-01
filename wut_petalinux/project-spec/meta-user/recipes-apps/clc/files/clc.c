@@ -31,7 +31,9 @@
 #include <unistd.h>
 #include <stdint.h>
 #include <sys/ioctl.h>
+#include <linux/i2c.h>
 #include <linux/i2c-dev.h>
+#include <errno.h>
 
 
 #define I2C_DEVICE "/dev/i2c-0"
@@ -41,7 +43,7 @@
 
 // from: https://gist.github.com/jlintz/1192247
 #ifdef DEBUG
-    #define _DEBUG(fmt, args...) printf("%s:%s:%d: "fmt, __FILE__, __FUNCTION__, __LINE__, args)                                                                          
+    #define _DEBUG(fmt, args...) printf("%s:%s:%d: "fmt, __FILE__, __FUNCTION__, __LINE__, ##args)                                                                          
 #else
     #define _DEBUG(fmt, args...)
 #endif
@@ -78,6 +80,47 @@ uint8_t init_clock_cleaner_settings[] = {
 };
 
 
+__s32 i2c_smbus_access(int file, char read_write, __u8 command, int size, union i2c_smbus_data *data)
+{
+  struct i2c_smbus_ioctl_data args;
+  __s32 err;
+
+  args.read_write = read_write;
+  args.command = command;
+  args.size = size;
+  args.data = data;
+
+  err = ioctl(file, I2C_SMBUS, &args);
+  if (err == -1)  {
+    _DEBUG("errno=%d (%s)\n", errno, strerror(errno));
+  }
+  return err;
+}
+
+
+__s32 i2c_smbus_read_byte_data(int file, __u8 command)
+{
+  union i2c_smbus_data data;
+  int err;
+
+  err = i2c_smbus_access(file, I2C_SMBUS_READ, command,
+                         I2C_SMBUS_BYTE_DATA, &data);
+  if (err < 0)
+    return err;
+
+  return 0x0FF & data.byte;
+}
+
+
+__s32 i2c_smbus_write_byte_data(int file, __u8 command, __u8 value)
+{
+  union i2c_smbus_data data;
+  data.byte = value;
+  return i2c_smbus_access(file, I2C_SMBUS_WRITE, command,
+                          I2C_SMBUS_BYTE_DATA, &data);
+}
+
+
 int clc_init() {
     int fd = open(I2C_DEVICE, O_RDWR);
     if(fd == -1) {
@@ -92,8 +135,8 @@ int clc_init() {
     }
     _DEBUG("Slave address 0x%02x set\n", I2C_ADDRESS);
     
-    for int i = 0; i < sizeof(init_clock_cleaner_settings)/sizeof(uint8_t); i++) {
-        int res = i2c_smbus_write_byte_data(int file, _
+    for(int i = 0; i < sizeof(init_clock_cleaner_settings)/sizeof(uint8_t); i++) {
+        int res = i2c_smbus_write_byte_data(fd, i, init_clock_cleaner_settings[i]);
     }
 
     close(fd);
