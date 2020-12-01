@@ -37,7 +37,15 @@
 
 
 #define I2C_DEVICE "/dev/i2c-0"
-#define I2C_ADDRESS 0x7c
+
+#define CLOCK_CLEANER_SLAVE_ADDR	0x7C
+#define CLOCK_CLEANER_SCLK_RATE		100000
+#define CLOCK_CLEANER_INIT_REG		0x0039
+#define CLOCK_CLEANER_INIT_VAL		0x0F
+#define CLOCK_CLEANER_STOP_VAL		0x00
+
+#define ON 1
+#define OFF 0
 
 #define DEBUG
 
@@ -129,11 +137,12 @@ int clc_init() {
     }
     _DEBUG("device %s opened\n", I2C_DEVICE);
 
-    if( ioctl(fd, I2C_SLAVE, I2C_ADDRESS ) < 0 ) {
-        _DEBUG("Failed to set slave address 0x%02x\n", I2C_ADDRESS);
+    if( ioctl(fd, I2C_SLAVE, CLOCK_CLEANER_SLAVE_ADDR) < 0 ) {
+        _DEBUG("Failed to set slave address 0x%02x\n", CLOCK_CLEANER_SLAVE_ADDR);
+        close(fd);
         return 2;
     }
-    _DEBUG("Slave address 0x%02x set\n", I2C_ADDRESS);
+    _DEBUG("Slave address 0x%02x set\n", CLOCK_CLEANER_SLAVE_ADDR);
     
     for(int i = 0; i < sizeof(init_clock_cleaner_settings)/sizeof(uint8_t); i++) {
         int res = i2c_smbus_write_byte_data(fd, i, init_clock_cleaner_settings[i]);
@@ -146,15 +155,23 @@ int clc_init() {
 }
 
 
-int clc_start() {
-    printf("clc_start() - not implemented\n");
-    return 0;
-}
+int clc_set_state(int state) {
+    int fd = open(I2C_DEVICE, O_RDWR);
+    if(fd == -1) {
+        _DEBUG("Device %s not opened\n", I2C_DEVICE);
+        return 1;
+    }
+    _DEBUG("device %s opened\n", I2C_DEVICE);
+    if( ioctl(fd, I2C_SLAVE, CLOCK_CLEANER_SLAVE_ADDR ) < 0 ) {
+        _DEBUG("Failed to set slave address 0x%02x\n", CLOCK_CLEANER_SLAVE_ADDR);
+        close(fd);
+        return 2;
+    }
 
+    int res = i2c_smbus_write_byte_data(fd, CLOCK_CLEANER_INIT_REG, state ? CLOCK_CLEANER_INIT_VAL : CLOCK_CLEANER_STOP_VAL);
+    close(fd);
 
-int clc_stop() {
-    printf("clc_stop() - not implemented\n");
-    return 0;
+    return res;
 }
 
 
@@ -177,9 +194,9 @@ int main(int argc, char **argv)
     if(strcmp(argv[1], "init") == 0) {
         ret = clc_init();
     } else if(strcmp(argv[1], "start") == 0) {
-        ret = clc_start();
+        ret = clc_set_state(ON);
     } else if(strcmp(argv[1], "stop") == 0) {
-        ret = clc_stop();
+        ret = clc_set_state(OFF);
     } else {
         // unrecognized command
         print_usage();
