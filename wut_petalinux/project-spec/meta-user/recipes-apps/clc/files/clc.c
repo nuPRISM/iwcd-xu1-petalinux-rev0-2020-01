@@ -88,6 +88,7 @@ uint8_t init_clock_cleaner_settings[] = {
 };
 
 
+#ifdef USE_SMBUS
 __s32 i2c_smbus_access(int file, char read_write, __u8 command, int size, union i2c_smbus_data *data)
 {
   struct i2c_smbus_ioctl_data args;
@@ -127,6 +128,74 @@ __s32 i2c_smbus_write_byte_data(int file, __u8 command, __u8 value)
   return i2c_smbus_access(file, I2C_SMBUS_WRITE, command,
                           I2C_SMBUS_BYTE_DATA, &data);
 }
+#endif
+
+// Developed by Luke Bidulka, TRIUMF
+// Read the given I2C slave device's register and return the read value in `*result`:
+int i2c_read(int i2c_fd, uint8_t slave_addr, uint16_t reg, uint8_t *result) {
+    int retval;
+    uint8_t outbuf[2], inbuf[1];
+    struct i2c_msg msgs[2];
+    struct i2c_rdwr_ioctl_data msgset[1];
+
+    msgs[0].addr = slave_addr;
+    msgs[0].flags = 0;
+    msgs[0].len = 2;
+    msgs[0].buf = outbuf;
+
+    msgs[1].addr = slave_addr;
+    msgs[1].flags = I2C_M_RD | I2C_M_NOSTART;
+    msgs[1].len = 1;
+    msgs[1].buf = inbuf;
+
+    msgset[0].msgs = msgs;
+    msgset[0].nmsgs = 2;
+
+    outbuf[0] = (uint8_t) (reg >> 8);
+    outbuf[1] = (uint8_t) (reg&0x00FF);
+
+    inbuf[0] = 0;
+
+    *result = 0;
+    if (ioctl(i2c_fd, I2C_RDWR, &msgset) < 0) {
+        perror("ioctl(I2C_RDWR) in i2c_read\n");
+        printf("ERR couldn't read: %s\n", strerror(errno));
+        return -1;
+    }
+
+    *result = inbuf[0];
+    return 0;
+}
+
+// Developed by Luke Bidulka, TRIUMF
+// Write to an I2C slave device's register:
+int i2c_write(int i2c_fd, uint8_t slave_addr, uint16_t reg, uint8_t data) {
+    int retval;
+    uint8_t outbuf[3];
+
+    struct i2c_msg msgs[1];
+    struct i2c_rdwr_ioctl_data msgset[1];
+
+    outbuf[0] = (uint8_t) (reg >> 8);
+    outbuf[1] = (uint8_t) (reg&0x00FF);
+    outbuf[2] = data;
+
+    msgs[0].addr = slave_addr;
+    msgs[0].flags = 0;
+    msgs[0].len = 3;
+    msgs[0].buf = outbuf;
+
+    msgset[0].msgs = msgs;
+    msgset[0].nmsgs = 1;
+
+    if (ioctl(i2c_fd, I2C_RDWR, &msgset) < 0) {
+        perror("ioctl(I2C_RDWR) in i2c_write\n");
+        printf("ERR couldn't write: %s\n", strerror(errno));
+        return -1;
+    }
+
+    return 0;
+}
 
 
 int clc_init() {
@@ -137,21 +206,17 @@ int clc_init() {
     }
     _DEBUG("device %s opened\n", I2C_DEVICE);
 
-    if( ioctl(fd, I2C_SLAVE, CLOCK_CLEANER_SLAVE_ADDR) < 0 ) {
-        _DEBUG("Failed to set slave address 0x%02x\n", CLOCK_CLEANER_SLAVE_ADDR);
-        close(fd);
-        return 2;
-    }
-    _DEBUG("Slave address 0x%02x set\n", CLOCK_CLEANER_SLAVE_ADDR);
-    
-    for(int i = 0; i < sizeof(init_clock_cleaner_settings)/sizeof(uint8_t); i++) {
-        int res = i2c_smbus_write_byte_data(fd, i, init_clock_cleaner_settings[i]);
+    int ret = 0;    
+    for(uint16_t reg = 0; reg < sizeof(init_clock_cleaner_settings)/sizeof(uint8_t); reg++) {
+        ret |= i2c_write(fd, CLOCK_CLEANER_SLAVE_ADDR, reg, init_clock_cleaner_settings[reg]);
+        _DEBUG("reg=%04x data=%02x ret=%d\n", reg, init_clock_cleaner_settings[reg], ret);
+        usleep(500);
     }
 
     close(fd);
     _DEBUG("device %s closed\n", I2C_DEVICE);
 
-    return 0;
+    return ret;
 }
 
 
@@ -161,22 +226,37 @@ int clc_set_state(int state) {
         _DEBUG("Device %s not opened\n", I2C_DEVICE);
         return 1;
     }
-    _DEBUG("device %s opened\n", I2C_DEVICE);
-    if( ioctl(fd, I2C_SLAVE, CLOCK_CLEANER_SLAVE_ADDR ) < 0 ) {
-        _DEBUG("Failed to set slave address 0x%02x\n", CLOCK_CLEANER_SLAVE_ADDR);
-        close(fd);
-        return 2;
-    }
 
-    int res = i2c_smbus_write_byte_data(fd, CLOCK_CLEANER_INIT_REG, state ? CLOCK_CLEANER_INIT_VAL : CLOCK_CLEANER_STOP_VAL);
+    int ret = i2c_write(fd, CLOCK_CLEANER_SLAVE_ADDR, CLOCK_CLEANER_INIT_REG, state ? CLOCK_CLEANER_INIT_VAL : CLOCK_CLEANER_STOP_VAL);
     close(fd);
 
-    return res;
+    return ret;
+}
+
+
+int clc_read_id(uint8_t* id) {
+    int fd = open(I2C_DEVICE, O_RDWR);
+    if(fd == -1) {
+        _DEBUG("Device %s not opened\n", I2C_DEVICE);
+        return 1;
+    }
+    _DEBUG("device %s opened\n", I2C_DEVICE);
+
+    int ret = 0;    
+    ret |= i2c_read(fd, CLOCK_CLEANER_SLAVE_ADDR, 0x02, id);            // \todo #define
+    ret |= i2c_read(fd, CLOCK_CLEANER_SLAVE_ADDR, 0x03, id + 1);            // \todo #define
+    ret |= i2c_read(fd, CLOCK_CLEANER_SLAVE_ADDR, 0x04, id + 2);            // \todo #define
+    ret |= i2c_read(fd, CLOCK_CLEANER_SLAVE_ADDR, 0x05, id + 3);            // \todo #define
+
+    close(fd);
+
+    return ret;
 }
 
 
 void print_usage() {
     printf("Clock cleaner - available commands:\n");
+    printf("\tid\n");
     printf("\tinit\n");
     printf("\tstart\n");
     printf("\tstop\n");
@@ -197,6 +277,14 @@ int main(int argc, char **argv)
         ret = clc_set_state(ON);
     } else if(strcmp(argv[1], "stop") == 0) {
         ret = clc_set_state(OFF);
+    } else if (strcmp(argv[1], "id") == 0) {
+        uint8_t id[4];
+        ret = clc_read_id(id);
+        if(ret == 0) {
+            printf("CLC id=%02x %02x %02x %02x\n", id[0], id[1], id[2], id[3]);
+        } else {
+            printf("CLC/I2C error\n");
+        }
     } else {
         // unrecognized command
         print_usage();
