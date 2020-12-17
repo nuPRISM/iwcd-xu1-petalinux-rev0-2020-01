@@ -3,31 +3,29 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="C:/triumf/nuprism/proj2/xu1-nuprism/XU1-NuPRISM/Vivado_NuPRISM/MercuryXU1_NuPRISM.hw/hw_1/wave/hw_ila_data_2/hw_ila_data_2.wdb" id="1">
+      <db_ref path="/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/MercuryXU1_NuPRISM.hw/hw_1/wave/hw_ila_data_2/hw_ila_data_2.wdb" id="1">
          <top_modules>
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="1024001fs"></ZoomEndTime>
+      <ZoomEndTime time="1057514fs"></ZoomEndTime>
       <Cursor1Time time="565000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="153"></NameColumnWidth>
-      <ValueColumnWidth column_width="72"></ValueColumnWidth>
+      <NameColumnWidth column_width="245"></NameColumnWidth>
+      <ValueColumnWidth column_width="119"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="11" />
-   <wave_markers>
-   </wave_markers>
-   <wvobject fp_name="adc_b64_serdes_locked" type="logic">
+   <wvobject type="logic" fp_name="adc_b64_serdes_locked">
       <obj_property name="DisplayName">FullPathName</obj_property>
       <obj_property name="ElementShortName">adc_b64_serdes_locked</obj_property>
       <obj_property name="ObjectShortName">adc_b64_serdes_locked</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject fp_name="adc3_da_pardata_j16[0]" type="array">
+   <wvobject type="array" fp_name="adc3_da_pardata_j16[0]">
       <obj_property name="DisplayName">FullPathName</obj_property>
       <obj_property name="ElementShortName">adc3_da_pardata_j16[0][11:0]</obj_property>
       <obj_property name="ObjectShortName">adc3_da_pardata_j16[0][11:0]</obj_property>
@@ -35,7 +33,7 @@
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject fp_name="adc3_da_pardata_j16[1]" type="array">
+   <wvobject type="array" fp_name="adc3_da_pardata_j16[1]">
       <obj_property name="DisplayName">FullPathName</obj_property>
       <obj_property name="ElementShortName">adc3_da_pardata_j16[1][11:0]</obj_property>
       <obj_property name="ObjectShortName">adc3_da_pardata_j16[1][11:0]</obj_property>
@@ -43,7 +41,7 @@
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject fp_name="adc3_db_pardata_j15[0]" type="array">
+   <wvobject type="array" fp_name="adc3_db_pardata_j15[0]">
       <obj_property name="DisplayName">FullPathName</obj_property>
       <obj_property name="ElementShortName">adc3_db_pardata_j15[0][11:0]</obj_property>
       <obj_property name="ObjectShortName">adc3_db_pardata_j15[0][11:0]</obj_property>
@@ -51,7 +49,7 @@
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject fp_name="adc3_db_pardata_j15[1]" type="array">
+   <wvobject type="array" fp_name="adc3_db_pardata_j15[1]">
       <obj_property name="DisplayName">FullPathName</obj_property>
       <obj_property name="ElementShortName">adc3_db_pardata_j15[1][11:0]</obj_property>
       <obj_property name="ObjectShortName">adc3_db_pardata_j15[1][11:0]</obj_property>
@@ -59,7 +57,7 @@
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject fp_name="adc4_db_pardata_j19[0]" type="array">
+   <wvobject type="array" fp_name="adc4_db_pardata_j19[0]">
       <obj_property name="DisplayName">FullPathName</obj_property>
       <obj_property name="ElementShortName">adc4_db_pardata_j19[0][11:0]</obj_property>
       <obj_property name="ObjectShortName">adc4_db_pardata_j19[0][11:0]</obj_property>
@@ -67,7 +65,7 @@
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject fp_name="adc4_db_pardata_j19[1]" type="array">
+   <wvobject type="array" fp_name="adc4_db_pardata_j19[1]">
       <obj_property name="DisplayName">FullPathName</obj_property>
       <obj_property name="ElementShortName">adc4_db_pardata_j19[1][11:0]</obj_property>
       <obj_property name="ObjectShortName">adc4_db_pardata_j19[1][11:0]</obj_property>
@@ -75,7 +73,7 @@
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject fp_name="adc4_dc_pardata_j18[0]" type="array">
+   <wvobject type="array" fp_name="adc4_dc_pardata_j18[0]">
       <obj_property name="DisplayName">FullPathName</obj_property>
       <obj_property name="ElementShortName">adc4_dc_pardata_j18[0][11:0]</obj_property>
       <obj_property name="ObjectShortName">adc4_dc_pardata_j18[0][11:0]</obj_property>
@@ -83,7 +81,7 @@
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject fp_name="adc4_dc_pardata_j18[1]" type="array">
+   <wvobject type="array" fp_name="adc4_dc_pardata_j18[1]">
       <obj_property name="DisplayName">FullPathName</obj_property>
       <obj_property name="ElementShortName">adc4_dc_pardata_j18[1][11:0]</obj_property>
       <obj_property name="ObjectShortName">adc4_dc_pardata_j18[1][11:0]</obj_property>
@@ -91,7 +89,7 @@
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject fp_name="adc4_dd_pardata_j17[0]" type="array">
+   <wvobject type="array" fp_name="adc4_dd_pardata_j17[0]">
       <obj_property name="DisplayName">FullPathName</obj_property>
       <obj_property name="ElementShortName">adc4_dd_pardata_j17[0][11:0]</obj_property>
       <obj_property name="ObjectShortName">adc4_dd_pardata_j17[0][11:0]</obj_property>
@@ -99,7 +97,7 @@
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject fp_name="adc4_dd_pardata_j17[1]" type="array">
+   <wvobject type="array" fp_name="adc4_dd_pardata_j17[1]">
       <obj_property name="DisplayName">FullPathName</obj_property>
       <obj_property name="ElementShortName">adc4_dd_pardata_j17[1][11:0]</obj_property>
       <obj_property name="ObjectShortName">adc4_dd_pardata_j17[1][11:0]</obj_property>

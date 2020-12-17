@@ -3,19 +3,91 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="C:/triumf/nuprism/proj2/xu1-nuprism/XU1-NuPRISM/Vivado_NuPRISM/MercuryXU1_NuPRISM.hw/hw_1/wave/hw_ila_data_4/hw_ila_data_4.wdb" id="1">
+      <db_ref path="/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/MercuryXU1_NuPRISM.hw/hw_1/wave/hw_ila_data_4/hw_ila_data_4.wdb" id="1">
          <top_modules>
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="840908fs"></ZoomEndTime>
-      <Cursor1Time time="0fs"></Cursor1Time>
+      <ZoomEndTime time="1359fs"></ZoomEndTime>
+      <Cursor1Time time="268fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="255"></NameColumnWidth>
-      <ValueColumnWidth column_width="194"></ValueColumnWidth>
+      <NameColumnWidth column_width="236"></NameColumnWidth>
+      <ValueColumnWidth column_width="190"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="0" />
+   <WVObjectSize size="10" />
+   <wave_markers>
+   </wave_markers>
+   <wvobject type="logic" fp_name="MercuryXU1_i/ps_spi_0_sck_o">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">MercuryXU1_i/ps_spi_0_sck_o</obj_property>
+      <obj_property name="ObjectShortName">ps_spi_0_sck_o</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="MercuryXU1_i/ps_spi_0_io1_o">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">MercuryXU1_i/ps_spi_0_io1_o</obj_property>
+      <obj_property name="ObjectShortName">ps_spi_0_io1_o</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="MercuryXU1_i/ps_spi_0_io1_i">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">MercuryXU1_i/ps_spi_0_io1_i</obj_property>
+      <obj_property name="ObjectShortName">ps_spi_0_io1_i</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="MercuryXU1_i/ps_spi_0_io0_o">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">MercuryXU1_i/ps_spi_0_io0_o</obj_property>
+      <obj_property name="ObjectShortName">ps_spi_0_io0_o</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="MercuryXU1_i/ps_spi_1_io0_o">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">MercuryXU1_i/ps_spi_1_io0_o</obj_property>
+      <obj_property name="ObjectShortName">ps_spi_1_io0_o</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="MercuryXU1_i/ps_spi_1_io1_i">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">MercuryXU1_i/ps_spi_1_io1_i</obj_property>
+      <obj_property name="ObjectShortName">ps_spi_1_io1_i</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="MercuryXU1_i/ps_spi_1_io1_o">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">MercuryXU1_i/ps_spi_1_io1_o</obj_property>
+      <obj_property name="ObjectShortName">ps_spi_1_io1_o</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="MercuryXU1_i/ps_spi_1_sck_o">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">MercuryXU1_i/ps_spi_1_sck_o</obj_property>
+      <obj_property name="ObjectShortName">ps_spi_1_sck_o</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="MercuryXU1_i/ps_master_i2c_sda_o">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">MercuryXU1_i/ps_master_i2c_sda_o</obj_property>
+      <obj_property name="ObjectShortName">ps_master_i2c_sda_o</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="MercuryXU1_i/I">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">MercuryXU1_i/I</obj_property>
+      <obj_property name="ObjectShortName">I</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
 </wave_config>
