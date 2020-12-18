@@ -261,7 +261,7 @@ int main(int argc, char **argv)
     }
     
     if(optind < argc) {
-        adc_gpio_init();
+        // adc_gpio_init();  moved to the gpio_init.sh located in /etc/init.d and linked to /etc/rd5.d
 
         // open SPI device        
         int fd = open(device_name, O_RDWR);
