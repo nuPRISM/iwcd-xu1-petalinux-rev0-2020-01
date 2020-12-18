@@ -164,32 +164,68 @@ int adc_write(int fd, uint16_t address, uint8_t data) {
 }
 
 
-int adc_power_down(int fd, int adc_num) {
-    DBG("adc_power_down(): num=%d - not implemented\n", adc_num);
+int adc_power_down() {
+    DBG("adc_power_down(): all ADCs - GPIO=%d\n", PDN_GPIO);
+    int ret = system("echo 1 > /sys/class/gpio/gpio497/value"); 
+    DBG("adc_power_down(): ret=%d\n", ret);
+
     return 0;
 }
 
 
-int adc_power_up(int fd, int adc_num) {
-    DBG("adc_power_up(): num=%d - not implemented\n", adc_num);
+int adc_power_up() {
+    DBG("adc_power_up(): all ADCs - GPIO=%d\n", PDN_GPIO);
+    int ret = system("echo 0 > /sys/class/gpio/gpio497/value"); 
+    DBG("adc_power_up(): ret=%d\n", ret);
+
     return 0;
 }
 
 
-int adc_reset(int fd, int adc_num) {
-    DBG("adc_reset(): num=%d - not implemented\n", adc_num);
+int adc_reset() {
+    DBG("adc_reset(): all ADCs - GPIO=%d\n", RESET_GPIO);
+
+    int ret = system("echo 0 > /sys/class/gpio/gpio497/value"); 
+    DBG("adc_reset(): ret=%d\n", ret);
+    usleep(500);
+    ret = system("echo 1 > /sys/class/gpio/gpio497/value"); 
+    DBG("adc_reset(): ret=%d\n", ret);
+    usleep(100);
+    ret = system("echo 0 > /sys/class/gpio/gpio497/value ");
+    DBG("adc_reset(): ret=%d\n", ret);
+
     return 0;
 }
 
 
 int adc_nominal_mode(int fd, int adc_num) {
-    DBG("adc_nominal_mode(): num=%d - not implemented\n", adc_num);
+    DBG("adc_nominal_mode(): num=%d\n", adc_num);
+
+    adc_enable(adc_num, true);
+
+    int ret = adc_write(fd, 0x06, 0x00);    // Register 06h: normal output
+    DBG("adc_test: reg 06h, ret=%d\n", ret);
+    
+    adc_enable(adc_num, false);
+    
     return 0;
 }
 
 
 int adc_test(int fd, int adc_num) {
-    DBG("adc_test(): num=%d - not implemented\n", adc_num);
+    DBG("adc_test(): num=%d\n", adc_num);
+
+    adc_enable(adc_num, true);
+
+    int ret = adc_write(fd, 0x06, 0x02);    // Register 06h: Test pattern output enabled
+    DBG("adc_test: reg 06h, ret=%d\n", ret);
+    ret = adc_write(fd, 0x0A, 0x33);       // Register 0Ah: test pattern for channel A, B Toggle pattern: data alternate between 101010101010 and 010101010101 
+    DBG("adc_test: reg 0Ah, ret=%d\n", ret);
+    ret = adc_write(fd, 0x0B, 0x33);       // Register 0Ah: test pattern for channel C, D Toggle pattern: data alternate between 101010101010 and 010101010101 
+    DBG("adc_test: reg 0AB, ret=%d\n", ret);
+
+    adc_enable(adc_num, false);
+
     return 0;
 }
 
@@ -320,11 +356,11 @@ int main(int argc, char **argv)
 	    printf("max speed: %d Hz (%d KHz)\n", speed, speed/1000);
 
         if(strcmp(argv[optind], "pdn") == 0) {
-            ret = adc_power_down(fd, adc_num);
+            ret = adc_power_down();
         } else if(strcmp(argv[optind], "pup") == 0) {
-            ret = adc_power_up(fd, adc_num);
+            ret = adc_power_up();
         } else if(strcmp(argv[optind], "rst") == 0) {
-            ret = adc_reset(fd, adc_num);
+            ret = adc_reset();
         } else if(strcmp(argv[optind], "nom") == 0) {
             ret = adc_nominal_mode(fd, adc_num);
         } else if(strcmp(argv[optind], "tst") == 0) {
