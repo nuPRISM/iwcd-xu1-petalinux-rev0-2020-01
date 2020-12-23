@@ -236,7 +236,7 @@ static void parse_opts(int argc, char *argv[])
 		case 'i':
 			input_file = optarg;
 			break;
-		case 'o':
+		case 'o':  
 			output_file = optarg;
 			break;
 		case 'l':

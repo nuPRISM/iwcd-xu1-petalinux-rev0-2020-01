@@ -439,6 +439,8 @@ architecture rtl of system_top is
     attribute mark_debug of ADC3_SEN: signal is "true";
     attribute mark_debug of ADC4_SEN: signal is "true";
 
+    attribute mark_debug of Gpio: signal is "true";
+
 
 
 begin
@@ -454,16 +456,16 @@ begin
      pl_resetn0              => Rst_N,
      ps_master_i2c_scl_io    => I2c_Scl,
      ps_master_i2c_sda_io    => I2c_Sda,
-     ps_spi_0_io0_io         => ADC_SDATA, -- adc mosi
-     ps_spi_0_io1_io         => ADC_SDOUT, -- adc miso
-     ps_spi_0_sck_io         => ADC_SCLK, -- adc sclk
-     emio_spi0_ss_in         => '0',  -- gpio ss enable
+     ps_spi_0_io0_io         => ADC_SDATA,  -- adc mosi
+     ps_spi_0_io1_io         => ADC_SDOUT,  -- adc miso
+     ps_spi_0_sck_io         => ADC_SCLK,   -- adc sclk
+     emio_spi0_ss_in         => '0',        -- gpio ss enable
      emio_spi0_ss_tri        => open,       -- see AR# 56858
-     emio_spi0_ss_out        => adc_ss_in,       -- see AR# 56858
+     emio_spi0_ss_out        => adc_ss_in,  -- see AR# 56858
      ps_spi_1_io0_io         => FPGA_SDATA, -- max10 mosi
      ps_spi_1_io1_io         => FPGA_SDOUT, -- max10 miso
-     ps_spi_1_sck_io         => FPGA_SCLK, -- max10 sclk
-     ps_spi_1_ss_io          => SEL0   -- use as enable for gpio ss
+     ps_spi_1_sck_io         => FPGA_SCLK,  -- max10 sclk
+     ps_spi_1_ss_io          => SEL0        -- use as enable for gpio ss
      );
 
     ------------------------------------------------------------------------------------------------

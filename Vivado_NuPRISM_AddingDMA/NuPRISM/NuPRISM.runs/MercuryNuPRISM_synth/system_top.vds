@@ -2,8 +2,8 @@
 # Vivado v2020.1 (64-bit)
 # SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
 # IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
-# Start of session at: Mon Nov 23 15:28:47 2020
-# Process ID: 256524
+# Start of session at: Wed Dec 16 12:58:25 2020
+# Process ID: 406432
 # Current directory: C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.runs/MercuryNuPRISM_synth
 # Command line: vivado.exe -log system_top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source system_top.tcl
 # Log file: C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.runs/MercuryNuPRISM_synth/system_top.vds
@@ -20,13 +20,13 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xczu6eg
 INFO: [Device 21-403] Loading part xczu6eg-ffvc900-1-i
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 256136
+INFO: [Synth 8-7075] Helper process launched with PID 561160
 WARNING: [Synth 8-2507] parameter declaration becomes local in sample_generator_v1_0_S_AXIS with formal parameter declaration list [C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/ip_repo/sample_generator_1.0/hdl/sample_generator_v1_0_S_AXIS.v:53]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1565.398 ; gain = 87.414
+Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1565.570 ; gain = 86.578
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'system_top' [C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/imports/rev0-2020.1-petalinux/src/system_top_NuPRISM.vhd:285]
-INFO: [Synth 8-3491] module 'MercuryXU1_wrapper' declared at 'C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/hdl/MercuryXU1_wrapper.vhd:14' bound to instance 'MercuryXU1_i' of component 'MercuryXU1_wrapper' [C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/imports/rev0-2020.1-petalinux/src/system_top_NuPRISM.vhd:450]
+INFO: [Synth 8-3491] module 'MercuryXU1_wrapper' declared at 'C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/hdl/MercuryXU1_wrapper.vhd:14' bound to instance 'MercuryXU1_i' of component 'MercuryXU1_wrapper' [C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/imports/rev0-2020.1-petalinux/src/system_top_NuPRISM.vhd:452]
 INFO: [Synth 8-638] synthesizing module 'MercuryXU1_wrapper' [C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/hdl/MercuryXU1_wrapper.vhd:34]
 INFO: [Synth 8-3491] module 'MercuryXU1' declared at 'C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:2921' bound to instance 'MercuryXU1_i' of component 'MercuryXU1' [C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/hdl/MercuryXU1_wrapper.vhd:108]
 INFO: [Synth 8-638] synthesizing module 'MercuryXU1' [C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:2963]
@@ -5300,10 +5300,10 @@ INFO: [Synth 8-256] done synthesizing module 'MercuryXU1_wrapper' (229#1) [C:/Re
 	Parameter IBUF_LOW_PWR bound to: 1 - type: bool 
 	Parameter IFD_DELAY_VALUE bound to: AUTO - type: string 
 	Parameter IOSTANDARD bound to: DEFAULT - type: string 
-INFO: [Synth 8-3491] module 'clk_wiz_0_b65_mmcm' declared at 'C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.runs/MercuryNuPRISM_synth/.Xil/Vivado-256524-edev3/realtime/clk_wiz_0_b65_mmcm_stub.vhdl:5' bound to instance 'serdes_clock_b65' of component 'clk_wiz_0_b65_mmcm' [C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/imports/rev0-2020.1-petalinux/src/system_top_NuPRISM.vhd:527]
-INFO: [Synth 8-638] synthesizing module 'clk_wiz_0_b65_mmcm' [C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.runs/MercuryNuPRISM_synth/.Xil/Vivado-256524-edev3/realtime/clk_wiz_0_b65_mmcm_stub.vhdl:19]
-INFO: [Synth 8-3491] module 'clk_wiz_1_b64_b66_pll' declared at 'C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.runs/MercuryNuPRISM_synth/.Xil/Vivado-256524-edev3/realtime/clk_wiz_1_b64_b66_pll_stub.vhdl:5' bound to instance 'serdes_clock_b64' of component 'clk_wiz_1_b64_b66_pll' [C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/imports/rev0-2020.1-petalinux/src/system_top_NuPRISM.vhd:543]
-INFO: [Synth 8-638] synthesizing module 'clk_wiz_1_b64_b66_pll' [C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.runs/MercuryNuPRISM_synth/.Xil/Vivado-256524-edev3/realtime/clk_wiz_1_b64_b66_pll_stub.vhdl:16]
+INFO: [Synth 8-3491] module 'clk_wiz_0_b65_mmcm' declared at 'C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.runs/MercuryNuPRISM_synth/.Xil/Vivado-406432-edev3/realtime/clk_wiz_0_b65_mmcm_stub.vhdl:5' bound to instance 'serdes_clock_b65' of component 'clk_wiz_0_b65_mmcm' [C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/imports/rev0-2020.1-petalinux/src/system_top_NuPRISM.vhd:529]
+INFO: [Synth 8-638] synthesizing module 'clk_wiz_0_b65_mmcm' [C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.runs/MercuryNuPRISM_synth/.Xil/Vivado-406432-edev3/realtime/clk_wiz_0_b65_mmcm_stub.vhdl:19]
+INFO: [Synth 8-3491] module 'clk_wiz_1_b64_b66_pll' declared at 'C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.runs/MercuryNuPRISM_synth/.Xil/Vivado-406432-edev3/realtime/clk_wiz_1_b64_b66_pll_stub.vhdl:5' bound to instance 'serdes_clock_b64' of component 'clk_wiz_1_b64_b66_pll' [C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/imports/rev0-2020.1-petalinux/src/system_top_NuPRISM.vhd:545]
+INFO: [Synth 8-638] synthesizing module 'clk_wiz_1_b64_b66_pll' [C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.runs/MercuryNuPRISM_synth/.Xil/Vivado-406432-edev3/realtime/clk_wiz_1_b64_b66_pll_stub.vhdl:16]
 INFO: [Synth 8-638] synthesizing module 'Ad9229Core' [C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/imports/rev0-2020.1-petalinux/lib/amc_carrier_core/Ad9229Core.vhd:68]
 	Parameter TPD_G bound to: 64'b0000000000000000000000000000000000000000000011110100001001000000 
 	Parameter IODELAY_GROUP_G bound to: DEFAULT_GROUP - type: string 
@@ -5732,25 +5732,25 @@ INFO: [Synth 8-638] synthesizing module 'Ad9229Core__parameterized0' [C:/Repos/r
 	Parameter IFD_DELAY_VALUE bound to: AUTO - type: string 
 	Parameter IOSTANDARD bound to: DEFAULT - type: string 
 INFO: [Synth 8-256] done synthesizing module 'Ad9229Core__parameterized0' (243#1) [C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/imports/rev0-2020.1-petalinux/lib/amc_carrier_core/Ad9229Core.vhd:68]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'MercuryXU1_i'. This will prevent further optimization [C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/imports/rev0-2020.1-petalinux/src/system_top_NuPRISM.vhd:450]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'Ad9229Core_b65'. This will prevent further optimization [C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/imports/rev0-2020.1-petalinux/src/system_top_NuPRISM.vhd:574]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'Ad9229Core_b64'. This will prevent further optimization [C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/imports/rev0-2020.1-petalinux/src/system_top_NuPRISM.vhd:641]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'MercuryXU1_i'. This will prevent further optimization [C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/imports/rev0-2020.1-petalinux/src/system_top_NuPRISM.vhd:452]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'Ad9229Core_b65'. This will prevent further optimization [C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/imports/rev0-2020.1-petalinux/src/system_top_NuPRISM.vhd:576]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'Ad9229Core_b64'. This will prevent further optimization [C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/imports/rev0-2020.1-petalinux/src/system_top_NuPRISM.vhd:643]
 INFO: [Synth 8-256] done synthesizing module 'system_top' (244#1) [C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/imports/rev0-2020.1-petalinux/src/system_top_NuPRISM.vhd:285]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 2080.617 ; gain = 602.633
+Finished RTL Elaboration : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 2076.691 ; gain = 597.699
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 2080.617 ; gain = 602.633
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 2099.527 ; gain = 620.535
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 2080.617 ; gain = 602.633
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 2099.527 ; gain = 620.535
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2186.590 ; gain = 7.461
+Netlist sorting complete. Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2190.027 ; gain = 10.273
 INFO: [Netlist 29-17] Analyzing 815 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 WARNING: [Constraints 18-5254] DIFF_TERM is not supported in UltraScale devices.  Automatically translating DIFF_TERM of TRUE to DIFF_TERM_ADV=TERM_100.  Refer to UG571: UltraScale Architecture SelectIO User Guide for more detail.
 WARNING: [Constraints 18-5254] DIFF_TERM is not supported in UltraScale devices.  Automatically translating DIFF_TERM of TRUE to DIFF_TERM_ADV=TERM_100.  Refer to UG571: UltraScale Architecture SelectIO User Guide for more detail.
@@ -6069,7 +6069,7 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/system_top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.033 . Memory (MB): peak = 2648.961 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.034 . Memory (MB): peak = 2652.207 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 783 instances were transformed.
   BUFG => BUFGCE: 2 instances
@@ -6080,9 +6080,9 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   ODDRE1 => OSERDESE3: 2 instances
   SRL16 => SRL16E: 2 instances
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.827 . Memory (MB): peak = 2648.961 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.871 . Memory (MB): peak = 2652.207 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:01:08 ; elapsed = 00:01:08 . Memory (MB): peak = 2648.961 ; gain = 1170.977
+Finished Constraint Validation : Time (s): cpu = 00:01:11 ; elapsed = 00:01:11 . Memory (MB): peak = 2652.207 ; gain = 1173.215
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
@@ -6090,7 +6090,7 @@ Start Loading Part and Timing Information
 Loading part: xczu6eg-ffvc900-1-i
 INFO: [Synth 8-6742] Reading net delay rules and data
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:01:08 ; elapsed = 00:01:08 . Memory (MB): peak = 2648.961 ; gain = 1170.977
+Finished Loading Part and Timing Information : Time (s): cpu = 00:01:11 ; elapsed = 00:01:11 . Memory (MB): peak = 2652.207 ; gain = 1173.215
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -6166,7 +6166,7 @@ Applied set_property DONT_TOUCH = true for MercuryXU1_i/MercuryXU1_i/axi_smc/ins
 Applied set_property DONT_TOUCH = true for MercuryXU1_i/MercuryXU1_i/axi_smc/inst/s00_nodes/s00_w_node/inst/inst_mi_handler/\gen_normal_area.inst_fifo_node_payld /\gen_xpm_memory_fifo.inst_fifo /\gen_mem_rep[0].inst_xpm_memory . (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for MercuryXU1_i/MercuryXU1_i/axi_smc/inst/s02_nodes/s02_w_node/inst/inst_mi_handler/\gen_normal_area.inst_fifo_node_payld /\gen_xpm_memory_fifo.inst_fifo /\gen_mem_rep[0].inst_xpm_memory . (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:01:08 ; elapsed = 00:01:09 . Memory (MB): peak = 2648.961 ; gain = 1170.977
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:01:11 ; elapsed = 00:01:11 . Memory (MB): peak = 2652.207 ; gain = 1173.215
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'pntr_cs_reg' in module 'axi_sg_updt_queue'
 INFO: [Synth 8-802] inferred FSM for state register 'GEN_SM_FOR_NO_LENGTH.s2mm_cs_reg' in module 'axi_dma_s2mm_sm'
@@ -6318,7 +6318,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'MercuryXU1_system_management_wiz_0_0_slave_attachment'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:20 ; elapsed = 00:01:22 . Memory (MB): peak = 2648.961 ; gain = 1170.977
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:24 ; elapsed = 00:01:25 . Memory (MB): peak = 2652.207 ; gain = 1173.215
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5775] Found 'rw_addr_collision' attribute set to 'no' on SDP RAM gen_wr_a.gen_word_narrow.mem_reg. Setting write mode to NO_CHANGE 
 ---------------------------------------------------------------------------------
@@ -6480,7 +6480,7 @@ INFO: [Synth 8-5775] Found 'rw_addr_collision' attribute set to 'no' on SDP RAM 
 INFO: [Synth 8-5775] Found 'rw_addr_collision' attribute set to 'no' on SDP RAM gen_wr_a.gen_word_narrow.mem_reg. Setting write mode to NO_CHANGE 
 INFO: [Synth 8-5775] Found 'rw_addr_collision' attribute set to 'no' on SDP RAM gen_wr_a.gen_word_narrow.mem_reg. Setting write mode to NO_CHANGE 
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:11 ; elapsed = 00:02:16 . Memory (MB): peak = 2648.961 ; gain = 1170.977
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:19 ; elapsed = 00:02:22 . Memory (MB): peak = 2652.207 ; gain = 1173.215
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5775] Found 'rw_addr_collision' attribute set to 'no' on SDP RAM gen_wr_a.gen_word_narrow.mem_reg. Setting write mode to NO_CHANGE 
 INFO: [Synth 8-5775] Found 'rw_addr_collision' attribute set to 'no' on SDP RAM gen_wr_a.gen_word_narrow.mem_reg. Setting write mode to NO_CHANGE 
@@ -6572,7 +6572,7 @@ Finished ROM, RAM, DSP and Shift Register Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:22 ; elapsed = 00:02:28 . Memory (MB): peak = 3672.871 ; gain = 2194.887
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:31 ; elapsed = 00:02:35 . Memory (MB): peak = 3690.832 ; gain = 2211.840
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
@@ -6580,7 +6580,7 @@ Start Timing Optimization
 INFO: [Synth 8-5775] Found 'rw_addr_collision' attribute set to 'no' on SDP RAM gen_wr_a.gen_word_narrow.mem_reg. Setting write mode to NO_CHANGE 
 INFO: [Synth 8-5775] Found 'rw_addr_collision' attribute set to 'no' on SDP RAM gen_wr_a.gen_word_narrow.mem_reg. Setting write mode to NO_CHANGE 
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:02:28 ; elapsed = 00:02:33 . Memory (MB): peak = 3750.336 ; gain = 2272.352
+Finished Timing Optimization : Time (s): cpu = 00:02:36 ; elapsed = 00:02:41 . Memory (MB): peak = 3768.594 ; gain = 2289.602
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -6668,7 +6668,7 @@ Finished ROM, RAM, DSP and Shift Register Reporting
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:02:47 ; elapsed = 00:02:54 . Memory (MB): peak = 3779.992 ; gain = 2302.008
+Finished Technology Mapping : Time (s): cpu = 00:02:57 ; elapsed = 00:03:03 . Memory (MB): peak = 3798.258 ; gain = 2319.266
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -6788,37 +6788,37 @@ WARNING: [Synth 8-3295] tying undriven pin AXI_SYSMON_CORE_I/di_C_master_reg2_in
 INFO: [Common 17-14] Message 'Synth 8-3295' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/imports/rev0-2020.1-petalinux/lib/amc_carrier_core/Ad9229Core.vhd:268]
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:02:53 ; elapsed = 00:03:00 . Memory (MB): peak = 3779.992 ; gain = 2302.008
+Finished IO Insertion : Time (s): cpu = 00:03:03 ; elapsed = 00:03:09 . Memory (MB): peak = 3798.258 ; gain = 2319.266
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:02:53 ; elapsed = 00:03:00 . Memory (MB): peak = 3779.992 ; gain = 2302.008
+Finished Renaming Generated Instances : Time (s): cpu = 00:03:03 ; elapsed = 00:03:09 . Memory (MB): peak = 3798.258 ; gain = 2319.266
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:56 ; elapsed = 00:03:03 . Memory (MB): peak = 3779.992 ; gain = 2302.008
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:03:06 ; elapsed = 00:03:13 . Memory (MB): peak = 3798.258 ; gain = 2319.266
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:02:56 ; elapsed = 00:03:03 . Memory (MB): peak = 3779.992 ; gain = 2302.008
+Finished Renaming Generated Ports : Time (s): cpu = 00:03:06 ; elapsed = 00:03:13 . Memory (MB): peak = 3798.258 ; gain = 2319.266
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:02:57 ; elapsed = 00:03:04 . Memory (MB): peak = 3779.992 ; gain = 2302.008
+Finished Handling Custom Attributes : Time (s): cpu = 00:03:07 ; elapsed = 00:03:14 . Memory (MB): peak = 3798.258 ; gain = 2319.266
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:02:57 ; elapsed = 00:03:04 . Memory (MB): peak = 3779.992 ; gain = 2302.008
+Finished Renaming Generated Nets : Time (s): cpu = 00:03:07 ; elapsed = 00:03:14 . Memory (MB): peak = 3798.258 ; gain = 2319.266
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -6870,7 +6870,7 @@ Report Cell Usage:
 |6     |CARRY8                     |    28|
 |7     |IDELAYE3                   |    30|
 |8     |ISERDESE3                  |    30|
-|9     |LUT1                       |  1142|
+|9     |LUT1                       |  1144|
 |10    |LUT2                       |   768|
 |11    |LUT3                       |  2889|
 |12    |LUT4                       |  1330|
@@ -6897,13 +6897,13 @@ Report Cell Usage:
 |34    |OBUFTDS                    |     2|
 +------+---------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:02:57 ; elapsed = 00:03:04 . Memory (MB): peak = 3779.992 ; gain = 2302.008
+Finished Writing Synthesis Report : Time (s): cpu = 00:03:08 ; elapsed = 00:03:14 . Memory (MB): peak = 3798.258 ; gain = 2319.266
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 421 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:01:53 ; elapsed = 00:02:28 . Memory (MB): peak = 3779.992 ; gain = 1733.664
-Synthesis Optimization Complete : Time (s): cpu = 00:02:57 ; elapsed = 00:03:04 . Memory (MB): peak = 3779.992 ; gain = 2302.008
+Synthesis Optimization Runtime : Time (s): cpu = 00:02:02 ; elapsed = 00:02:37 . Memory (MB): peak = 3798.258 ; gain = 1766.586
+Synthesis Optimization Complete : Time (s): cpu = 00:03:08 ; elapsed = 00:03:14 . Memory (MB): peak = 3798.258 ; gain = 2319.266
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.802 . Memory (MB): peak = 3785.383 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.816 . Memory (MB): peak = 3804.480 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 553 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -6956,7 +6956,7 @@ CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'ADC_SCLK'; it is not access
 CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'ADC_SDATA'; it is not accessible from the fabric routing.
 CRITICAL WARNING: [Chipscope 16-3] Cannot debug net 'ADC_SDOUT'; it is not accessible from the fabric routing.
 INFO: [Opt 31-138] Pushed 2 inverter(s) to 30 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 3866.773 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 3882.957 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 478 instances were transformed.
   BUFG => BUFGCE: 2 instances
@@ -6972,11 +6972,11 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 INFO: [Common 17-83] Releasing license: Synthesis
 842 Infos, 436 Warnings, 5 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:03:13 ; elapsed = 00:03:21 . Memory (MB): peak = 3866.773 ; gain = 2799.520
+synth_design: Time (s): cpu = 00:03:22 ; elapsed = 00:03:32 . Memory (MB): peak = 3882.957 ; gain = 2816.594
 INFO: [Common 17-600] The following parameters have non-default value.
 tcl.collectionResultDisplayLimit
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.runs/MercuryNuPRISM_synth/system_top.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file system_top_utilization_synth.rpt -pb system_top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Mon Nov 23 15:32:22 2020...
+INFO: [Common 17-206] Exiting Vivado at Wed Dec 16 13:02:12 2020...

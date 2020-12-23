@@ -15,37 +15,57 @@
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="380"></NameColumnWidth>
-      <ValueColumnWidth column_width="125"></ValueColumnWidth>
+      <ValueColumnWidth column_width="119"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="4" />
+   <WVObjectSize size="7" />
    <wave_markers>
    </wave_markers>
-   <wvobject fp_name="MercuryXU1_i/MercuryXU1_i/Net1" type="array">
+   <wvobject fp_name="ADC_RST_OBUF" type="logic">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">MercuryXU1_i/MercuryXU1_i/Net1[31:0]</obj_property>
-      <obj_property name="ObjectShortName">Net1[31:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="ElementShortName">ADC_RST_OBUF</obj_property>
+      <obj_property name="ObjectShortName">ADC_RST_OBUF</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject fp_name="MercuryXU1_i/MercuryXU1_i/axi_dma_0_s_axis_s2mm_tready" type="logic">
+   <wvobject fp_name="ADC_PDN_OBUF" type="logic">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">MercuryXU1_i/MercuryXU1_i/axi_dma_0_s_axis_s2mm_tready</obj_property>
-      <obj_property name="ObjectShortName">axi_dma_0_s_axis_s2mm_tready</obj_property>
+      <obj_property name="ElementShortName">ADC_PDN_OBUF</obj_property>
+      <obj_property name="ObjectShortName">ADC_PDN_OBUF</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject fp_name="MercuryXU1_i/MercuryXU1_i/Net3" type="logic">
+   <wvobject fp_name="ADC0_SEN_OBUF" type="logic">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">MercuryXU1_i/MercuryXU1_i/Net3</obj_property>
-      <obj_property name="ObjectShortName">Net3</obj_property>
+      <obj_property name="ElementShortName">ADC0_SEN_OBUF</obj_property>
+      <obj_property name="ObjectShortName">ADC0_SEN_OBUF</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject fp_name="MercuryXU1_i/MercuryXU1_i/Net4" type="logic">
+   <wvobject fp_name="ADC1_SEN_OBUF" type="logic">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">MercuryXU1_i/MercuryXU1_i/Net4</obj_property>
-      <obj_property name="ObjectShortName">Net4</obj_property>
+      <obj_property name="ElementShortName">ADC1_SEN_OBUF</obj_property>
+      <obj_property name="ObjectShortName">ADC1_SEN_OBUF</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="ADC2_SEN_OBUF" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">ADC2_SEN_OBUF</obj_property>
+      <obj_property name="ObjectShortName">ADC2_SEN_OBUF</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="ADC3_SEN_OBUF" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">ADC3_SEN_OBUF</obj_property>
+      <obj_property name="ObjectShortName">ADC3_SEN_OBUF</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="ADC4_SEN_OBUF" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">ADC4_SEN_OBUF</obj_property>
+      <obj_property name="ObjectShortName">ADC4_SEN_OBUF</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>

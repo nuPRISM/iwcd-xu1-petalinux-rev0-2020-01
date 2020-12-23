@@ -64,7 +64,7 @@ u8 adc3424_spi_init(){
 			return ADC_CMD_FAILURE;
 		}
 
-		Status = XSpiPs_CfgInitialize(&SpiInstance, SpiConfig,
+		Status = XSpiPs_CfgInitialize(&SpiInstance, SpiConfig, 
 						SpiConfig->BaseAddress);
 		if (Status != XST_SUCCESS) {
 			printf("adc spi configuration failed\n");
@@ -181,7 +181,7 @@ u8 adc3424_init(u8 adc_id){
 
 	for(u32 i = 0; i < sizeof(adc_init_cfg_addr)/sizeof(adc_init_cfg_addr[0]); i++){
 		if( spi_write_readvalid(&SpiInstance, adc_init_cfg_addr[i], adc_init_cfg_data[i],
-			  WriteBuffer, ReadBuffer) == ADC_CMD_FAILURE) {
+			  					WriteBuffer, ReadBuffer) == ADC_CMD_FAILURE) {
 			nuprism_gpio_set(adc_id, !ADCX_SPI_SELECT);
 			return ADC_CMD_FAILURE;
 		}
