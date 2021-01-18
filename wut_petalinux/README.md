@@ -106,6 +106,16 @@ root@nuprism:~# ls /sys/class/gpio
 export       gpiochip310  gpiochip484  gpiochip504  unexport
 </pre>
 
+<pre>
+#define ADC0_GPIO  492
+#define ADC1_GPIO  493
+#define ADC2_GPIO  494
+#define ADC3_GPIO  495
+#define ADC4_GPIO  496
+#define RESET_GPIO 497
+#define PDN_GPIO   498
+</pre>
+
 ## I2C
 
 <pre>
@@ -257,6 +267,38 @@ RX | FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF 
 root@nuprism:~#
 </pre>
 
+## Clock Cleaner
+
+<pre>
+root@nuprism:~# clc 
+Clock cleaner - available commands:
+        id
+        init
+        start
+        stop
+</pre>
+
+
+## Analog to Digital Converter 
+
+<pre>
+root@nuprism:~# adc ccc
+spi mode: 0x0
+bits per word: 8
+max speed: 500000 Hz (500 KHz)
+Unrecognized cmd: ccc
+ADC controller - available commands:
+        pdn  - power down
+        pup  - power up
+        rst  - reset
+        nom  - nominal mode(?)
+        tst  - toggle test pattern
+        tst0 - all zeros test pattern
+        tst1 - all ones test pattern
+        init - initialization
+        ss   - set SPI slave mode(?)
+        nss  - unset SPI slave mode(?)
+</pre> 
 
 ## References
 
