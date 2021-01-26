@@ -1,8 +1,8 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------
-| Tool Version     : Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
-| Date             : Wed Jan 13 15:04:46 2021
-| Host             : edev3 running 64-bit major release  (build 9200)
+| Tool Version     : Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
+| Date             : Sat Jan 23 00:32:40 2021
+| Host             : edev running 64-bit unknown
 | Command          : report_power -file system_top_power_routed.rpt -pb system_top_power_summary_routed.pb -rpx system_top_power_routed.rpx
 | Design           : system_top
 | Device           : xczu6eg-ffvc900-1-i
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 3.920        |
+| Total On-Chip Power (W)  | 3.925        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 3.184        |
+| Dynamic (W)              | 3.188        |
 | Device Static (W)        | 0.736        |
 | Effective TJA (C/W)      | 1.4          |
 | Max Ambient (C)          | 94.5         |
@@ -52,10 +52,10 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.086 |       29 |       --- |             --- |
-| CLB Logic                |     0.078 |    39078 |       --- |             --- |
+| Clocks                   |     0.090 |       29 |       --- |             --- |
+| CLB Logic                |     0.079 |    39078 |       --- |             --- |
 |   LUT as Distributed RAM |     0.040 |     1164 |    144000 |            0.81 |
-|   LUT as Logic           |     0.032 |    10971 |    214604 |            5.11 |
+|   LUT as Logic           |     0.032 |    10966 |    214604 |            5.11 |
 |   LUT as Shift Register  |     0.003 |     1137 |    144000 |            0.79 |
 |   Register               |     0.003 |    18529 |    429208 |            4.32 |
 |   CARRY8                 |    <0.001 |      181 |     34260 |            0.53 |
@@ -70,7 +70,7 @@ Table of Contents
 | Static Power             |     0.736 |          |           |                 |
 |   PS Static              |     0.100 |          |           |                 |
 |   PL Static              |     0.636 |          |           |                 |
-| Total                    |     3.920 |          |           |                 |
+| Total                    |     3.925 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -80,7 +80,7 @@ Table of Contents
 +-----------------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source          | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint          |       0.850 |     0.474 |       0.258 |      0.216 |       NA    | Unspecified | NA         |
+| Vccint          |       0.850 |     0.479 |       0.263 |      0.216 |       NA    | Unspecified | NA         |
 | Vccint_io       |       0.850 |     0.060 |       0.024 |      0.036 |       NA    | Unspecified | NA         |
 | Vccbram         |       0.850 |     0.004 |       0.000 |      0.003 |       NA    | Unspecified | NA         |
 | Vccaux          |       1.800 |     0.298 |       0.106 |      0.192 |       NA    | Unspecified | NA         |
@@ -189,8 +189,8 @@ Table of Contents
 +------------------------------------------+-----------+
 | Name                                     | Power (W) |
 +------------------------------------------+-----------+
-| system_top                               |     3.184 |
-|   Ad9229Core_b64                         |     0.081 |
+| system_top                               |     3.188 |
+|   Ad9229Core_b64                         |     0.083 |
 |     Ad9229Deserializer_INST              |     0.004 |
 |       U_SyncFifo                         |     0.003 |
 |     GEN_DATA[0].Ad9229Deserializer_INST  |     0.004 |
@@ -224,10 +224,10 @@ Table of Contents
 |       U_SyncFifo                         |     0.003 |
 |     GEN_DATA[9].U_DataIn                 |     0.003 |
 |     U_FrameIn                            |     0.003 |
-|   Ad9229Core_b65                         |     0.132 |
+|   Ad9229Core_b65                         |     0.134 |
 |     Ad9229Deserializer_INST              |     0.004 |
 |       U_SyncFifo                         |     0.003 |
-|     GEN_DATA[0].Ad9229Deserializer_INST  |     0.003 |
+|     GEN_DATA[0].Ad9229Deserializer_INST  |     0.004 |
 |       U_SyncFifo                         |     0.003 |
 |     GEN_DATA[0].U_DataIn                 |     0.003 |
 |     GEN_DATA[10].Ad9229Deserializer_INST |     0.004 |
@@ -239,28 +239,28 @@ Table of Contents
 |     GEN_DATA[12].Ad9229Deserializer_INST |     0.004 |
 |       U_SyncFifo                         |     0.003 |
 |     GEN_DATA[12].U_DataIn                |     0.003 |
-|     GEN_DATA[13].Ad9229Deserializer_INST |     0.003 |
+|     GEN_DATA[13].Ad9229Deserializer_INST |     0.004 |
 |       U_SyncFifo                         |     0.003 |
 |     GEN_DATA[13].U_DataIn                |     0.003 |
 |     GEN_DATA[14].Ad9229Deserializer_INST |     0.004 |
 |       U_SyncFifo                         |     0.003 |
 |     GEN_DATA[14].U_DataIn                |     0.003 |
-|     GEN_DATA[15].Ad9229Deserializer_INST |     0.003 |
+|     GEN_DATA[15].Ad9229Deserializer_INST |     0.004 |
 |       U_SyncFifo                         |     0.003 |
 |     GEN_DATA[15].U_DataIn                |     0.003 |
 |     GEN_DATA[16].Ad9229Deserializer_INST |     0.004 |
 |       U_SyncFifo                         |     0.003 |
 |     GEN_DATA[16].U_DataIn                |     0.003 |
-|     GEN_DATA[17].Ad9229Deserializer_INST |     0.003 |
+|     GEN_DATA[17].Ad9229Deserializer_INST |     0.004 |
 |       U_SyncFifo                         |     0.003 |
 |     GEN_DATA[17].U_DataIn                |     0.003 |
 |     GEN_DATA[1].Ad9229Deserializer_INST  |     0.004 |
 |       U_SyncFifo                         |     0.003 |
 |     GEN_DATA[1].U_DataIn                 |     0.003 |
-|     GEN_DATA[2].Ad9229Deserializer_INST  |     0.003 |
+|     GEN_DATA[2].Ad9229Deserializer_INST  |     0.004 |
 |       U_SyncFifo                         |     0.003 |
 |     GEN_DATA[2].U_DataIn                 |     0.003 |
-|     GEN_DATA[3].Ad9229Deserializer_INST  |     0.003 |
+|     GEN_DATA[3].Ad9229Deserializer_INST  |     0.004 |
 |       U_SyncFifo                         |     0.003 |
 |     GEN_DATA[3].U_DataIn                 |     0.003 |
 |     GEN_DATA[4].Ad9229Deserializer_INST  |     0.004 |
@@ -278,18 +278,18 @@ Table of Contents
 |     GEN_DATA[8].Ad9229Deserializer_INST  |     0.004 |
 |       U_SyncFifo                         |     0.003 |
 |     GEN_DATA[8].U_DataIn                 |     0.003 |
-|     GEN_DATA[9].Ad9229Deserializer_INST  |     0.003 |
+|     GEN_DATA[9].Ad9229Deserializer_INST  |     0.004 |
 |       U_SyncFifo                         |     0.003 |
 |     GEN_DATA[9].U_DataIn                 |     0.003 |
 |     U_FrameIn                            |     0.003 |
-|   MercuryXU1_i                           |     2.738 |
-|     MercuryXU1_i                         |     2.729 |
+|   MercuryXU1_i                           |     2.737 |
+|     MercuryXU1_i                         |     2.728 |
 |       axi_dma_0                          |     0.006 |
 |       axi_smc                            |     0.054 |
 |       axis_data_fifo_0                   |     0.003 |
 |       ps8_0_axi_periph                   |     0.012 |
 |       system_management_wiz_0            |     0.006 |
-|       zynq_ultra_ps_e_0                  |     2.648 |
+|       zynq_ultra_ps_e_0                  |     2.647 |
 |     ps_spi_1_io0_iobuf                   |     0.001 |
 |     ps_spi_1_io1_iobuf                   |     0.001 |
 |     ps_spi_1_sck_iobuf                   |     0.001 |

@@ -1,8 +1,8 @@
 --Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
---Tool Version: Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
---Date        : Wed Jan 13 14:48:52 2021
---Host        : edev3 running 64-bit major release  (build 9200)
+--Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
+--Date        : Sat Jan 23 00:19:11 2021
+--Host        : edev running 64-bit unknown
 --Command     : generate_target MercuryXU1_wrapper.bd
 --Design      : MercuryXU1_wrapper
 --Purpose     : IP block netlist
@@ -39,7 +39,6 @@ architecture STRUCTURE of MercuryXU1_wrapper is
     emio_spi0_ss_out : out STD_LOGIC;
     emio_spi0_ss_tri : out STD_LOGIC;
     emio_spi0_ss_in : in STD_LOGIC;
-    GPIO_tri_o : out STD_LOGIC_VECTOR ( 19 downto 0 );
     ps_spi_0_sck_i : in STD_LOGIC;
     ps_spi_0_sck_o : out STD_LOGIC;
     ps_spi_0_sck_t : out STD_LOGIC;
@@ -55,6 +54,7 @@ architecture STRUCTURE of MercuryXU1_wrapper is
     ps_master_i2c_sda_i : in STD_LOGIC;
     ps_master_i2c_sda_o : out STD_LOGIC;
     ps_master_i2c_sda_t : out STD_LOGIC;
+    GPIO_tri_o : out STD_LOGIC_VECTOR ( 19 downto 0 );
     ps_spi_1_sck_i : in STD_LOGIC;
     ps_spi_1_sck_o : out STD_LOGIC;
     ps_spi_1_sck_t : out STD_LOGIC;

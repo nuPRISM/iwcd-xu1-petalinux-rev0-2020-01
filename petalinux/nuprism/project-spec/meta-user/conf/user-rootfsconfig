@@ -1,0 +1,11 @@
+#Note: Mention Each package in individual line
+#These packages will get added into rootfs menu entry
+
+CONFIG_gpio-demo
+CONFIG_peekpoke
+CONFIG_dma-proxy
+CONFIG_dma-proxy-test
+CONFIG_dataprocessor
+CONFIG_fifo-gen-test
+CONFIG_mfe
+CONFIG_spidev-test
