@@ -9,3 +9,4 @@ CONFIG_dataprocessor
 CONFIG_fifo-gen-test
 CONFIG_mfe
 CONFIG_spidev-test
+CONFIG_adc

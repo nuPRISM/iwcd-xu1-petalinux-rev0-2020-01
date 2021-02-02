@@ -4218,6 +4218,7 @@ CONFIG_imagefeature-debug-tweaks=y
 #
 # apps 
 #
+CONFIG_adc=y
 CONFIG_dataprocessor=y
 CONFIG_dma-proxy-test=y
 CONFIG_fifo-gen-test=y

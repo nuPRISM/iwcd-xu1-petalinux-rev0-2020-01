@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="MercuryNuPRISM_synth" LaunchPart="xczu6eg-ffvc900-1-i" LaunchTime="1611361194">
-  <File Type="VDS-TIMING-PB" Name="system_top_timing_summary_synth.pb"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="system_top_timing_summary_synth.rpt"/>
-  <File Type="RDS-DCP" Name="system_top.dcp"/>
-  <File Type="RDS-UTIL-PB" Name="system_top_utilization_synth.pb"/>
-  <File Type="RDS-UTIL" Name="system_top_utilization_synth.rpt"/>
-  <File Type="RDS-PROPCONSTRS" Name="system_top_drc_synth.rpt"/>
-  <File Type="RDS-RDS" Name="system_top.vds"/>
+<GenRun Id="MercuryNuPRISM_synth" LaunchPart="xczu6eg-ffvc900-1-i" LaunchTime="1612292047">
   <File Type="REPORTS-TCL" Name="system_top_reports.tcl"/>
   <File Type="PA-TCL" Name="system_top.tcl"/>
+  <File Type="RDS-DCP" Name="system_top.dcp"/>
+  <File Type="RDS-RDS" Name="system_top.vds"/>
+  <File Type="RDS-UTIL" Name="system_top_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="system_top_utilization_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/bd/MercuryXU1/hdl/MercuryXU1_wrapper.vhd">
@@ -715,7 +712,7 @@
     <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017"/>
     <Step Id="synth_design"/>
   </Strategy>
+  <BlockFileSet Type="BlockSrcs" Name="clk_wiz_1_b64_b66_pll"/>
   <BlockFileSet Type="BlockSrcs" Name="clk_divider_pll"/>
   <BlockFileSet Type="BlockSrcs" Name="clk_wiz_0_b65_mmcm"/>
-  <BlockFileSet Type="BlockSrcs" Name="clk_wiz_1_b64_b66_pll"/>
 </GenRun>
