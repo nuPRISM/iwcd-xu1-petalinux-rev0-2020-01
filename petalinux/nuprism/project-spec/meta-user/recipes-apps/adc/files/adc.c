@@ -80,15 +80,20 @@ static char device_name[64] = DEFAULT_SPI_DEVICE;
 static int fd;
 
 /**
- * Verify ADC selection and set the state accodingly
+ * @brief Verify ADC selection and set the state accodingly
  * 
  * (Invert selection so "true" appears to select the ADC)
+ * 
+ * @param adc_num   Index of the ADC to enable/disable
+ * @param state     ADC state, "true" to enable, "false" to disable
+ * 
+ * @return          Zero on success, uses negative numbers as error codes
  */
 int adc_enable(int adc_num, bool state)
 {
     DBG("Write to GPIO[%d]: %s ADC [%d].\n", PDN_GPIO, (state ? "Select":"Deselect"), adc_num);
 
-    if(adc_num < 0 || adc_num > 4)
+    if (adc_num < 0 || adc_num > 4)
     {
         printf("invalid ADC index [%d]\nValid ADCs: [0-4]\n", adc_num);
         return -1;
@@ -103,7 +108,9 @@ int adc_enable(int adc_num, bool state)
 
 
 /**
- * Power down all ADC
+ * @brief Power down all ADC peripherals by setting GPIO 498
+ * 
+ * @return Zero on success, uses negative numbers as error codes
  */
 int adc_power_down()
 {
@@ -117,7 +124,9 @@ int adc_power_down()
 
 
 /**
- * Power up all ADC
+ * @brief Power up all ADC peripherals by clearing GPIO 498
+ * 
+ * @return Zero on success, uses negative numbers as error codes
  */
 int adc_power_up()
 {
@@ -131,22 +140,29 @@ int adc_power_up()
 
 
 /**
- * Reset all ADC
+ * @brief Perform a hardware reset for all ADC peripherals
+ * 
+ * After power-up, the internal registers must be initialized to their 
+ * default values through a hardware reset by applying a high pulse on 
+ * the RESET pin (of durations greater than 10 ns)
+ * 
+ * @return Zero if a successful reset occures, uses negative numbers as error codes
  */
 int adc_reset()
 {
+    int ret = 0;
     DBG("Reset all ADC: Set and clear GPIO[%d]\n", RESET_GPIO);
 
-    int ret = system("echo 0 > /sys/class/gpio/gpio497/value"); 
+    ret |= system("echo 0 > /sys/class/gpio/gpio497/value"); 
     DBG("adc_reset(): ret=%d\n", ret);
     usleep(100);
-    ret = system("echo 1 > /sys/class/gpio/gpio497/value"); 
+    ret |= system("echo 1 > /sys/class/gpio/gpio497/value"); 
     DBG("adc_reset(): ret=%d\n", ret);
     usleep(100);
-    ret = system("echo 0 > /sys/class/gpio/gpio497/value ");
+    ret |= system("echo 0 > /sys/class/gpio/gpio497/value ");
     DBG("adc_reset(): ret=%d\n", ret);
 
-    return 0;
+    return ret;
 }
 
 
@@ -184,7 +200,9 @@ static void txbuffer(uint8_t *buffer, uint8_t command, uint16_t address, uint8_t
  * 
  * @param fd        file descriptor for SPI driver
  * @param address   Address of the register being read
- * @param data      Data returned from transfer
+ * @param data      Address to store data returned from transfer
+ * 
+ * @return          ioctl returns the number of bytes transferred upon success
 */
 int adc_read(int fd, uint16_t address, uint8_t* data)
 {
@@ -192,8 +210,6 @@ int adc_read(int fd, uint16_t address, uint8_t* data)
     uint8_t rxbuf[3] = {0};
 
     txbuffer(txbuf, SPI_READ_CMD, address, 0xFF);
-
-    DBG("TX: 0x%x%x%x\n", txbuf[2], txbuf[1], txbuf[0]);
 
     struct spi_ioc_transfer tr = {
 		.tx_buf = (unsigned long)txbuf,
@@ -206,11 +222,11 @@ int adc_read(int fd, uint16_t address, uint8_t* data)
         .rx_nbits = 1
 	};
     int ret = ioctl(fd, SPI_IOC_MESSAGE(1), &tr);
+
     DBG("adc_read(): ret=%d\n", ret);
 
     if (ret >= 0)
     {
-        DBG("RX: 0x%x%x%x\n", rxbuf[2], rxbuf[1], rxbuf[0]);
         *data = rxbuf[2];
     }
 
@@ -229,6 +245,8 @@ int adc_read(int fd, uint16_t address, uint8_t* data)
  * @param fd        file descriptor for SPI driver
  * @param address   Address of the register being written to
  * @param data      Data being transferred
+ * 
+ * @return          ioctl returns the number of bytes transferred upon success
  */
 int adc_write(int fd, uint16_t address, uint8_t data)
 {
@@ -245,10 +263,11 @@ int adc_write(int fd, uint16_t address, uint8_t data)
 		.speed_hz = speed,      //DEFAULT_SPI_SPEED,
 		.bits_per_word = bits,  //DEFAULT_SPI_BITS_PER_WORD,
         .tx_nbits = 1,
-        .rx_nbits = 1 
+        .rx_nbits = 1
 	};
 
     int ret = ioctl(fd, SPI_IOC_MESSAGE(1), &tr);
+
     DBG("adc_write(): ret=%d\n", ret);
 
     return ret;
@@ -256,44 +275,49 @@ int adc_write(int fd, uint16_t address, uint8_t data)
 
 
 /**
- * Write specific data to all ADC
+ * @brief Populate all registers of a specific ADC with specific data values
  * 
- * Address        Data
- * ====================
- *  0x001         0xFF
- *  0x003         0x00
- *  0x004         0x00
- *  0x005         0x00
- *  0x006         0x00
- *  0x007         0x00
- *  0x009         0x00
- *  0x00a         0x00
- *  0x00b         0x00
- *  0x00e         0x00
- *  0x00f         0x00
- *  0x013         0x00
- *  0x015         0x00
- *  0x025         0x00
- *  0x027         0x00
- *  0x11d         0x00
- *  0x122         0x02
- *  0x134         0x28
- *  0x139         0x08
- *  0x21d         0x00
- *  0x222         0x02
- *  0x234         0x28
- *  0x239         0x08
- *  0x308         0x00
- *  0x41d         0x00
- *  0x422         0x02
- *  0x434         0x28
- *  0x439         0x08
- *  0x51d         0x00
- *  0x522         0x02
- *  0x534         0x28
- *  0x539         0x08
- *  0x608         0x00
- *  0x70a         0x01
+ *   Address        Data
+ *   ====================
+ *    0x001         0xFF
+ *    0x003         0x00
+ *    0x004         0x00
+ *    0x005         0x00
+ *    0x006         0x00
+ *    0x007         0x00
+ *    0x009         0x00
+ *    0x00a         0x00
+ *    0x00b         0x00
+ *    0x00e         0x00
+ *    0x00f         0x00
+ *    0x013         0x00
+ *    0x015         0x00
+ *    0x025         0x00
+ *    0x027         0x00
+ *    0x11d         0x00
+ *    0x122         0x02
+ *    0x134         0x28
+ *    0x139         0x08
+ *    0x21d         0x00
+ *    0x222         0x02
+ *    0x234         0x28
+ *    0x239         0x08
+ *    0x308         0x00
+ *    0x41d         0x00
+ *    0x422         0x02
+ *    0x434         0x28
+ *    0x439         0x08
+ *    0x51d         0x00
+ *    0x522         0x02
+ *    0x534         0x28
+ *    0x539         0x08
+ *    0x608         0x00
+ *    0x70a         0x01
+ * 
+ * @param fd        file descriptor for SPI driver
+ * @param adc_num   The ADC to write to 
+ * 
+ * @return          Return number of bytes per transfer if all registers were successfully populated.
  */
 int adc_init(int fd, int adc_num)
 {
@@ -304,11 +328,12 @@ int adc_init(int fd, int adc_num)
     uint8_t adc_init_cfg_data [] =  {0xFF, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0,
                                      0x0, 0x2, 0x28, 0x8, 0x0, 0x2, 0x28, 0x8, 0x0, 0x0, 0x2, 0x28, 0x8, 0x0, 0x2,
                                      0x28, 0x8, 0x0, 0x1};
+    int ret = 0;
+
     DBG("adc_init(): num=%d\n", adc_num);
     adc_enable(adc_num, true);
 
-    int ret = 0;
-    for(int i = 0; i < sizeof(adc_init_cfg_addr)/sizeof(uint16_t); i++)
+    for (int i = 0; i < sizeof(adc_init_cfg_addr)/sizeof(uint16_t); i++)
     {
         ret |= adc_write(fd, adc_init_cfg_addr[i], adc_init_cfg_data[i]);
     }
@@ -321,14 +346,16 @@ int adc_init(int fd, int adc_num)
 
 
 /**
- * Configure SPI driver
+ * @brief Configure SPI driver by setting the default mode, bits per word and speed for a transfer
+ * 
+ * @return On successful configuration, zero is returned
  */
 int adc_spi_inti()
 {
     int status = 0;
-    // open SPI device        
+    // open SPI device
     fd = open(device_name, O_RDWR);
-    if(fd == -1)
+    if (fd == -1)
     {
         printf("Cannot open device, \"%s\"\n", device_name);
         return -1;
@@ -339,7 +366,7 @@ int adc_spi_inti()
     status |= ioctl(fd, SPI_IOC_RD_MODE32, &mode);
     if (status == -1)
     {
-        printf("can't get spi mode");
+        printf("can't get spi mode\n");
         return status;
     }
 
@@ -348,7 +375,7 @@ int adc_spi_inti()
     status |= ioctl(fd, SPI_IOC_RD_BITS_PER_WORD, &bits);
     if (status == -1)
     {
-        printf("can't get bits per word");
+        printf("can't get bits per word\n");
         return status;
     }
 
@@ -357,18 +384,11 @@ int adc_spi_inti()
     status |= ioctl(fd, SPI_IOC_RD_MAX_SPEED_HZ, &speed);
     if (status == -1)
     {
-        printf("can't get max speed hz");
+        printf("can't get max speed hz\n");
         return status;
     }
 
     return status;
-}
-
-
-int adc_spi_slave_mode(int fd, int adc_num, bool value)
-{
-    DBG("adc_spi_slave_mode(%d, %d) - not implemented\n", adc_num, value);
-    return 0;
 }
 
 
@@ -469,7 +489,7 @@ int main(int argc, char **argv)
 
             int ret = adc_write(fd, addr, value);
             DBG("address=%d, value=%d, ret=%d\n", addr, value, ret);
-            
+
             adc_enable(adc_num, false);
         }
         else

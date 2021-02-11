@@ -34,7 +34,7 @@
     </Object>
     <Object name="MercuryXU1_i/MercuryXU1_i/system_ila_0/U0/ila_lib" gui_info="">
       <Properties Property="CONTROL.TRIGGER_CONDITION" value="OR"/>
-      <Properties Property="CONTROL.TRIGGER_POSITION" value="0"/>
+      <Properties Property="CONTROL.TRIGGER_POSITION" value="500"/>
       <Properties Property="CORE_REFRESH_RATE_MS" value="500"/>
     </Object>
     <Object name="u_ila_0" gui_info="">

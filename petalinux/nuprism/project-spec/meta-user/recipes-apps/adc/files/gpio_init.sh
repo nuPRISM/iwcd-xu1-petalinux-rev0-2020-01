@@ -26,6 +26,7 @@ echo 1 > /sys/class/gpio/gpio495/value
 echo 1 > /sys/class/gpio/gpio496/value
 echo 0 > /sys/class/gpio/gpio498/value
 
+# Perform a hardware reset 
 echo 0 > /sys/class/gpio/gpio497/value
 sleep 0.1s
 echo 1 > /sys/class/gpio/gpio497/value
