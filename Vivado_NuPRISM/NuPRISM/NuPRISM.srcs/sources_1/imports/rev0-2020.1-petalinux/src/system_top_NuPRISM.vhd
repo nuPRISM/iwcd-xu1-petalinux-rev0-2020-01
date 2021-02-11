@@ -459,7 +459,7 @@ begin
      ps_spi_0_io0_io         => ADC_SDATA,  -- adc mosi
      ps_spi_0_io1_io         => ADC_SDOUT,  -- adc miso
      ps_spi_0_sck_io         => ADC_SCLK,   -- adc sclk
-     emio_spi0_ss_in         => '0',        -- gpio ss enable
+     emio_spi0_ss_in         => '1',        -- gpio ss enable
      emio_spi0_ss_tri        => open,       -- see AR# 56858
      emio_spi0_ss_out        => adc_ss_in,  -- see AR# 56858
      ps_spi_1_io0_io         => FPGA_SDATA, -- max10 mosi

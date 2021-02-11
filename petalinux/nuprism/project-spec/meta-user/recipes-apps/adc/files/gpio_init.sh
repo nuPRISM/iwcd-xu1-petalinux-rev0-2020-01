@@ -17,3 +17,17 @@ echo out > /sys/class/gpio/gpio495/direction
 echo out > /sys/class/gpio/gpio496/direction
 echo out > /sys/class/gpio/gpio497/direction 
 echo out > /sys/class/gpio/gpio498/direction
+
+# power-up all ADC, deselect all, set rst low
+echo 1 > /sys/class/gpio/gpio492/value
+echo 1 > /sys/class/gpio/gpio493/value
+echo 1 > /sys/class/gpio/gpio494/value
+echo 1 > /sys/class/gpio/gpio495/value
+echo 1 > /sys/class/gpio/gpio496/value
+echo 0 > /sys/class/gpio/gpio498/value
+
+echo 0 > /sys/class/gpio/gpio497/value
+sleep 0.1s
+echo 1 > /sys/class/gpio/gpio497/value
+sleep 0.1s
+echo 0 > /sys/class/gpio/gpio497/value

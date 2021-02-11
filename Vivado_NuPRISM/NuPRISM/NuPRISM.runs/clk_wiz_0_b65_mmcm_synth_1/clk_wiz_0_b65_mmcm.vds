@@ -1,18 +1,18 @@
 #-----------------------------------------------------------
-# Vivado v2020.1 (64-bit)
-# SW Build 2902540 on Wed May 27 19:54:35 MDT 2020
-# IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
-# Start of session at: Tue Feb  2 18:54:09 2021
-# Process ID: 61028
-# Current directory: /home/xil/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.runs/clk_wiz_0_b65_mmcm_synth_1
+# Vivado v2020.1.1 (64-bit)
+# SW Build 2960000 on Wed Aug  5 22:57:21 MDT 2020
+# IP Build 2956692 on Thu Aug  6 01:41:30 MDT 2020
+# Start of session at: Wed Feb 10 10:27:06 2021
+# Process ID: 28428
+# Current directory: /home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.runs/clk_wiz_0_b65_mmcm_synth_1
 # Command line: vivado -log clk_wiz_0_b65_mmcm.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source clk_wiz_0_b65_mmcm.tcl
-# Log file: /home/xil/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.runs/clk_wiz_0_b65_mmcm_synth_1/clk_wiz_0_b65_mmcm.vds
-# Journal file: /home/xil/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.runs/clk_wiz_0_b65_mmcm_synth_1/vivado.jou
+# Log file: /home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.runs/clk_wiz_0_b65_mmcm_synth_1/clk_wiz_0_b65_mmcm.vds
+# Journal file: /home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.runs/clk_wiz_0_b65_mmcm_synth_1/vivado.jou
 #-----------------------------------------------------------
 source clk_wiz_0_b65_mmcm.tcl -notrace
 INFO: [IP_Flow 19-234] Refreshing IP repositories
-INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/xil/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM_AddingDMA/ip_repo'.
-INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/xil/tools/xilinx/Vivado/2020.1/data/ip'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/ip_repo'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/edev/tools/Xilinx/Vivado/2020.1/data/ip'.
 Command: synth_design -top clk_wiz_0_b65_mmcm -part xczu6eg-ffvc900-1-i -mode out_of_context
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xczu6eg'
@@ -21,13 +21,13 @@ INFO: [Common 17-1540] The version limit for your license is '2021.01' and has e
 INFO: [Device 21-403] Loading part xczu6eg-ffvc900-1-i
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 61209
+INFO: [Synth 8-7075] Helper process launched with PID 28518
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 2566.758 ; gain = 9.902 ; free physical = 2751 ; free virtual = 18713
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2548.551 ; gain = 11.902 ; free physical = 3411 ; free virtual = 15978
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0_b65_mmcm' [/home/xil/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm.v:73]
-INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0_b65_mmcm_clk_wiz' [/home/xil/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm_clk_wiz.v:71]
-INFO: [Synth 8-6157] synthesizing module 'IBUFDS' [/home/xil/tools/xilinx/Vivado/2020.1/scripts/rt/data/unisim_comp.v:32992]
+INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0_b65_mmcm' [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm.v:73]
+INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0_b65_mmcm_clk_wiz' [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm_clk_wiz.v:71]
+INFO: [Synth 8-6157] synthesizing module 'IBUFDS' [/home/edev/tools/Xilinx/Vivado/2020.1/scripts/rt/data/unisim_comp.v:32992]
 	Parameter CAPACITANCE bound to: DONT_CARE - type: string 
 	Parameter DIFF_TERM bound to: FALSE - type: string 
 	Parameter DQS_BIAS bound to: FALSE - type: string 
@@ -35,8 +35,8 @@ INFO: [Synth 8-6157] synthesizing module 'IBUFDS' [/home/xil/tools/xilinx/Vivado
 	Parameter IBUF_LOW_PWR bound to: TRUE - type: string 
 	Parameter IFD_DELAY_VALUE bound to: AUTO - type: string 
 	Parameter IOSTANDARD bound to: DEFAULT - type: string 
-INFO: [Synth 8-6155] done synthesizing module 'IBUFDS' (1#1) [/home/xil/tools/xilinx/Vivado/2020.1/scripts/rt/data/unisim_comp.v:32992]
-INFO: [Synth 8-6157] synthesizing module 'MMCME4_ADV' [/home/xil/tools/xilinx/Vivado/2020.1/scripts/rt/data/unisim_comp.v:40387]
+INFO: [Synth 8-6155] done synthesizing module 'IBUFDS' (1#1) [/home/edev/tools/Xilinx/Vivado/2020.1/scripts/rt/data/unisim_comp.v:32992]
+INFO: [Synth 8-6157] synthesizing module 'MMCME4_ADV' [/home/edev/tools/Xilinx/Vivado/2020.1/scripts/rt/data/unisim_comp.v:40387]
 	Parameter BANDWIDTH bound to: OPTIMIZED - type: string 
 	Parameter CLKFBOUT_MULT_F bound to: 3.000000 - type: double 
 	Parameter CLKFBOUT_PHASE bound to: 0.000000 - type: double 
@@ -88,52 +88,52 @@ INFO: [Synth 8-6157] synthesizing module 'MMCME4_ADV' [/home/xil/tools/xilinx/Vi
 	Parameter SS_MODE bound to: CENTER_HIGH - type: string 
 	Parameter SS_MOD_PERIOD bound to: 10000 - type: integer 
 	Parameter STARTUP_WAIT bound to: FALSE - type: string 
-INFO: [Synth 8-6155] done synthesizing module 'MMCME4_ADV' (2#1) [/home/xil/tools/xilinx/Vivado/2020.1/scripts/rt/data/unisim_comp.v:40387]
-INFO: [Synth 8-6157] synthesizing module 'BUFG' [/home/xil/tools/xilinx/Vivado/2020.1/scripts/rt/data/unisim_comp.v:1083]
-INFO: [Synth 8-6155] done synthesizing module 'BUFG' (3#1) [/home/xil/tools/xilinx/Vivado/2020.1/scripts/rt/data/unisim_comp.v:1083]
-INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0_b65_mmcm_clk_wiz' (4#1) [/home/xil/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm_clk_wiz.v:71]
-INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0_b65_mmcm' (5#1) [/home/xil/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm.v:73]
+INFO: [Synth 8-6155] done synthesizing module 'MMCME4_ADV' (2#1) [/home/edev/tools/Xilinx/Vivado/2020.1/scripts/rt/data/unisim_comp.v:40387]
+INFO: [Synth 8-6157] synthesizing module 'BUFG' [/home/edev/tools/Xilinx/Vivado/2020.1/scripts/rt/data/unisim_comp.v:1083]
+INFO: [Synth 8-6155] done synthesizing module 'BUFG' (3#1) [/home/edev/tools/Xilinx/Vivado/2020.1/scripts/rt/data/unisim_comp.v:1083]
+INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0_b65_mmcm_clk_wiz' (4#1) [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm_clk_wiz.v:71]
+INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0_b65_mmcm' (5#1) [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm.v:73]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 2609.664 ; gain = 52.809 ; free physical = 3358 ; free virtual = 19320
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 2590.457 ; gain = 53.809 ; free physical = 4504 ; free virtual = 17072
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 2626.508 ; gain = 69.652 ; free physical = 3516 ; free virtual = 19479
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 2606.301 ; gain = 69.652 ; free physical = 4791 ; free virtual = 17360
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 2626.508 ; gain = 69.652 ; free physical = 3516 ; free virtual = 19479
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 2606.301 ; gain = 69.652 ; free physical = 4791 ; free virtual = 17360
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2638.414 ; gain = 0.000 ; free physical = 3486 ; free virtual = 19449
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2619.176 ; gain = 0.000 ; free physical = 4765 ; free virtual = 17334
 INFO: [Netlist 29-17] Analyzing 7 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [/home/xil/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm_ooc.xdc] for cell 'inst'
-Finished Parsing XDC File [/home/xil/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm_ooc.xdc] for cell 'inst'
-Parsing XDC File [/home/xil/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm_board.xdc] for cell 'inst'
-Finished Parsing XDC File [/home/xil/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm_board.xdc] for cell 'inst'
-Parsing XDC File [/home/xil/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm.xdc] for cell 'inst'
-Finished Parsing XDC File [/home/xil/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm.xdc] for cell 'inst'
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/xil/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/clk_wiz_0_b65_mmcm_propImpl.xdc].
+Parsing XDC File [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm_ooc.xdc] for cell 'inst'
+Finished Parsing XDC File [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm_ooc.xdc] for cell 'inst'
+Parsing XDC File [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm_board.xdc] for cell 'inst'
+Finished Parsing XDC File [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm_board.xdc] for cell 'inst'
+Parsing XDC File [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm.xdc] for cell 'inst'
+Finished Parsing XDC File [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm.xdc] for cell 'inst'
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/clk_wiz_0_b65_mmcm_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/clk_wiz_0_b65_mmcm_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 INFO: [Timing 38-2] Deriving generated clocks
-Parsing XDC File [/home/xil/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.runs/clk_wiz_0_b65_mmcm_synth_1/dont_touch.xdc]
-Finished Parsing XDC File [/home/xil/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.runs/clk_wiz_0_b65_mmcm_synth_1/dont_touch.xdc]
+Parsing XDC File [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.runs/clk_wiz_0_b65_mmcm_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.runs/clk_wiz_0_b65_mmcm_synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2729.227 ; gain = 0.000 ; free physical = 3257 ; free virtual = 19220
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2708.988 ; gain = 0.000 ; free physical = 4534 ; free virtual = 17103
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 6 instances were transformed.
   BUFG => BUFGCE: 5 instances
   IBUFDS => IBUFDS (DIFFINBUF, IBUFCTRL): 1 instance 
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2729.227 ; gain = 0.000 ; free physical = 3257 ; free virtual = 19220
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2708.988 ; gain = 0.000 ; free physical = 4534 ; free virtual = 17102
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:16 . Memory (MB): peak = 2729.227 ; gain = 172.371 ; free physical = 3373 ; free virtual = 19336
+Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:15 . Memory (MB): peak = 2708.988 ; gain = 172.340 ; free physical = 4645 ; free virtual = 17214
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
@@ -141,17 +141,17 @@ Start Loading Part and Timing Information
 Loading part: xczu6eg-ffvc900-1-i
 INFO: [Synth 8-6742] Reading net delay rules and data
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:17 . Memory (MB): peak = 2729.227 ; gain = 172.371 ; free physical = 3373 ; free virtual = 19336
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:15 . Memory (MB): peak = 2708.988 ; gain = 172.340 ; free physical = 4645 ; free virtual = 17214
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property DONT_TOUCH = true for inst. (constraint file  /home/xil/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.runs/clk_wiz_0_b65_mmcm_synth_1/dont_touch.xdc, line 9).
+Applied set_property DONT_TOUCH = true for inst. (constraint file  /home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.runs/clk_wiz_0_b65_mmcm_synth_1/dont_touch.xdc, line 9).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:17 . Memory (MB): peak = 2729.227 ; gain = 172.371 ; free physical = 3372 ; free virtual = 19335
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:15 . Memory (MB): peak = 2708.988 ; gain = 172.340 ; free physical = 4645 ; free virtual = 17214
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:17 . Memory (MB): peak = 2729.227 ; gain = 172.371 ; free physical = 3406 ; free virtual = 19370
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:15 . Memory (MB): peak = 2708.988 ; gain = 172.340 ; free physical = 4684 ; free virtual = 17255
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -173,25 +173,25 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:17 . Memory (MB): peak = 2729.227 ; gain = 172.371 ; free physical = 3440 ; free virtual = 19412
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:16 . Memory (MB): peak = 2708.988 ; gain = 172.340 ; free physical = 4714 ; free virtual = 17293
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:34 ; elapsed = 00:00:56 . Memory (MB): peak = 3234.891 ; gain = 678.035 ; free physical = 1594 ; free virtual = 17567
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:32 ; elapsed = 00:00:50 . Memory (MB): peak = 3165.645 ; gain = 628.996 ; free physical = 2938 ; free virtual = 15517
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:34 ; elapsed = 00:00:56 . Memory (MB): peak = 3234.891 ; gain = 678.035 ; free physical = 1592 ; free virtual = 17565
+Finished Timing Optimization : Time (s): cpu = 00:00:32 ; elapsed = 00:00:50 . Memory (MB): peak = 3165.645 ; gain = 628.996 ; free physical = 2938 ; free virtual = 15517
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:34 ; elapsed = 00:00:56 . Memory (MB): peak = 3254.930 ; gain = 698.074 ; free physical = 1582 ; free virtual = 17555
+Finished Technology Mapping : Time (s): cpu = 00:00:32 ; elapsed = 00:00:50 . Memory (MB): peak = 3185.684 ; gain = 649.035 ; free physical = 2930 ; free virtual = 15509
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -209,37 +209,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:36 ; elapsed = 00:00:58 . Memory (MB): peak = 3258.898 ; gain = 702.043 ; free physical = 1497 ; free virtual = 17470
+Finished IO Insertion : Time (s): cpu = 00:00:34 ; elapsed = 00:00:52 . Memory (MB): peak = 3191.621 ; gain = 654.973 ; free physical = 3006 ; free virtual = 15586
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:36 ; elapsed = 00:00:58 . Memory (MB): peak = 3258.898 ; gain = 702.043 ; free physical = 1497 ; free virtual = 17470
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:34 ; elapsed = 00:00:52 . Memory (MB): peak = 3191.621 ; gain = 654.973 ; free physical = 3006 ; free virtual = 15586
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:36 ; elapsed = 00:00:58 . Memory (MB): peak = 3258.898 ; gain = 702.043 ; free physical = 1497 ; free virtual = 17470
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:34 ; elapsed = 00:00:52 . Memory (MB): peak = 3191.621 ; gain = 654.973 ; free physical = 3006 ; free virtual = 15586
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:36 ; elapsed = 00:00:58 . Memory (MB): peak = 3258.898 ; gain = 702.043 ; free physical = 1497 ; free virtual = 17470
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:34 ; elapsed = 00:00:52 . Memory (MB): peak = 3191.621 ; gain = 654.973 ; free physical = 3006 ; free virtual = 15586
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:36 ; elapsed = 00:00:58 . Memory (MB): peak = 3258.898 ; gain = 702.043 ; free physical = 1497 ; free virtual = 17470
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:34 ; elapsed = 00:00:52 . Memory (MB): peak = 3191.621 ; gain = 654.973 ; free physical = 3006 ; free virtual = 15586
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:36 ; elapsed = 00:00:58 . Memory (MB): peak = 3258.898 ; gain = 702.043 ; free physical = 1497 ; free virtual = 17470
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:34 ; elapsed = 00:00:52 . Memory (MB): peak = 3191.621 ; gain = 654.973 ; free physical = 3006 ; free virtual = 15586
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -260,18 +260,18 @@ Report Cell Usage:
 |3     |IBUFDS     |     1|
 +------+-----------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:36 ; elapsed = 00:00:58 . Memory (MB): peak = 3258.898 ; gain = 702.043 ; free physical = 1497 ; free virtual = 17470
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:34 ; elapsed = 00:00:52 . Memory (MB): peak = 3191.621 ; gain = 654.973 ; free physical = 3006 ; free virtual = 15586
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:32 ; elapsed = 00:00:51 . Memory (MB): peak = 3258.898 ; gain = 599.324 ; free physical = 1535 ; free virtual = 17508
-Synthesis Optimization Complete : Time (s): cpu = 00:00:37 ; elapsed = 00:00:58 . Memory (MB): peak = 3258.906 ; gain = 702.043 ; free physical = 1535 ; free virtual = 17508
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:30 ; elapsed = 00:00:46 . Memory (MB): peak = 3191.621 ; gain = 552.285 ; free physical = 3041 ; free virtual = 15620
+Synthesis Optimization Complete : Time (s): cpu = 00:00:34 ; elapsed = 00:00:52 . Memory (MB): peak = 3191.629 ; gain = 654.973 ; free physical = 3041 ; free virtual = 15620
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3258.906 ; gain = 0.000 ; free physical = 1528 ; free virtual = 17501
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3191.629 ; gain = 0.000 ; free physical = 3033 ; free virtual = 15613
 INFO: [Netlist 29-17] Analyzing 7 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3295.586 ; gain = 0.000 ; free physical = 1604 ; free virtual = 17577
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3225.340 ; gain = 0.000 ; free physical = 3201 ; free virtual = 15780
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 6 instances were transformed.
   BUFG => BUFGCE: 5 instances
@@ -280,14 +280,14 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 INFO: [Common 17-83] Releasing license: Synthesis
 33 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:51 ; elapsed = 00:01:14 . Memory (MB): peak = 3295.586 ; gain = 1178.137 ; free physical = 1724 ; free virtual = 17697
+synth_design: Time (s): cpu = 00:00:47 ; elapsed = 00:01:06 . Memory (MB): peak = 3225.340 ; gain = 1073.098 ; free physical = 3323 ; free virtual = 15902
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
-INFO: [Common 17-1381] The checkpoint '/home/xil/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.runs/clk_wiz_0_b65_mmcm_synth_1/clk_wiz_0_b65_mmcm.dcp' has been generated.
+INFO: [Common 17-1381] The checkpoint '/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.runs/clk_wiz_0_b65_mmcm_synth_1/clk_wiz_0_b65_mmcm.dcp' has been generated.
 WARNING: [Common 17-576] 'use_project_ipc' is deprecated. This option is deprecated and no longer used.
-INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP clk_wiz_0_b65_mmcm, cache-ID = 6f830bb22b28958b
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP clk_wiz_0_b65_mmcm, cache-ID = a474ea4d23d38c17
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
-INFO: [Common 17-1381] The checkpoint '/home/xil/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.runs/clk_wiz_0_b65_mmcm_synth_1/clk_wiz_0_b65_mmcm.dcp' has been generated.
+INFO: [Common 17-1381] The checkpoint '/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.runs/clk_wiz_0_b65_mmcm_synth_1/clk_wiz_0_b65_mmcm.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file clk_wiz_0_b65_mmcm_utilization_synth.rpt -pb clk_wiz_0_b65_mmcm_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Tue Feb  2 18:55:36 2021...
+INFO: [Common 17-206] Exiting Vivado at Wed Feb 10 10:28:23 2021...

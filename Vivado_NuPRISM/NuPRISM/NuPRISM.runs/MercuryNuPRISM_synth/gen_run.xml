@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="MercuryNuPRISM_synth" LaunchPart="xczu6eg-ffvc900-1-i" LaunchTime="1612292047">
-  <File Type="REPORTS-TCL" Name="system_top_reports.tcl"/>
-  <File Type="PA-TCL" Name="system_top.tcl"/>
+<GenRun Id="MercuryNuPRISM_synth" LaunchPart="xczu6eg-ffvc900-1-i" LaunchTime="1612999717">
   <File Type="RDS-DCP" Name="system_top.dcp"/>
-  <File Type="RDS-RDS" Name="system_top.vds"/>
-  <File Type="RDS-UTIL" Name="system_top_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="system_top_utilization_synth.pb"/>
+  <File Type="PA-TCL" Name="system_top.tcl"/>
+  <File Type="RDS-UTIL" Name="system_top_utilization_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="system_top_reports.tcl"/>
+  <File Type="RDS-RDS" Name="system_top.vds"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/bd/MercuryXU1/hdl/MercuryXU1_wrapper.vhd">
       <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../../Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/hdl/MercuryXU1_wrapper.vhd"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/hdl/MercuryXU1_wrapper.vhd"/>
         <Attr Name="ImportTime" Val="1600377990"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -676,7 +676,7 @@
     </File>
     <File Path="$PSRCDIR/sources_1/bd/MercuryXU1/MercuryXU1.bd">
       <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../../Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/MercuryXU1.bd"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/MercuryXU1.bd"/>
         <Attr Name="ImportTime" Val="1600377988"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -712,7 +712,15 @@
     <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017"/>
     <Step Id="synth_design"/>
   </Strategy>
+  <BlockFileSet Type="BlockSrcs" Name="MercuryXU1_system_management_wiz_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="MercuryXU1_xbar_1"/>
   <BlockFileSet Type="BlockSrcs" Name="clk_wiz_1_b64_b66_pll"/>
-  <BlockFileSet Type="BlockSrcs" Name="clk_divider_pll"/>
+  <BlockFileSet Type="BlockSrcs" Name="MercuryXU1_zynq_ultra_ps_e_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="MercuryXU1_axi_dma_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="MercuryXU1_axis_data_fifo_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="clk_wiz_0_b65_mmcm"/>
+  <BlockFileSet Type="BlockSrcs" Name="MercuryXU1_system_ila_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="MercuryXU1_proc_sys_reset_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="MercuryXU1_axi_gpio_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="clk_divider_pll"/>
 </GenRun>
