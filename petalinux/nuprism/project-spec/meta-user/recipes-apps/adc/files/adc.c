@@ -346,6 +346,47 @@ int adc_init(int fd, int adc_num)
 
 
 /**
+ * @brief Read back the contents of each ADC register and compare with the data sent in adc_init()
+ * 
+ * @param fd        file descriptor for SPI driver
+ * @param adc_num   The ADC to write to 
+ * 
+ * @return          Return number of bytes per transfer if all registers were successfully read.
+ */
+int adc_read_back(int fd, int adc_num)
+{
+    uint16_t adc_init_cfg_addr [] = {0x1, 0x3, 0x4, 0x5, 0x6, 0x7, 0x9, 0xa, 0xb, 0xe, 0xf, 0x13, 0x15, 0x25, 0x27,
+                                     0x11d, 0x122, 0x134, 0x139, 0x21d, 0x222, 0x234, 0x239, 0x308, 0x41d, 0x422,
+                                     0x434, 0x439, 0x51d, 0x522, 0x534, 0x539, 0x608, 0x70a};
+
+    uint8_t adc_verification_data [] =  {0xFF, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0,
+                                         0x0, 0x2, 0x28, 0x8, 0x0, 0x2, 0x28, 0x8, 0x0, 0x0, 0x2, 0x28, 0x8, 0x0, 0x2,
+                                         0x28, 0x8, 0x0, 0x1};
+    uint8_t return_data = 0xCC;
+    int ret = 0;
+
+    DBG("adc_read_back(): num=%d\n", adc_num);
+    adc_enable(adc_num, true);
+
+    for (int i = 0; i < sizeof(adc_init_cfg_addr)/sizeof(uint16_t); i++)
+    {
+        ret |= adc_read(fd, adc_init_cfg_addr[i], &return_data);
+        
+        printf("Read-back %s for register, 0x%x (sent=0x%x, returned=0x%x\n", 
+                (return_data == adc_verification_data[i] ? "PASSED":"FAILED"), 
+                adc_init_cfg_addr[i], return_data, adc_verification_data[i]);
+
+        return_data = 0xCC;
+    }
+
+    adc_enable(adc_num, false);
+    DBG("adc_read_back(): ret=%d\n", ret);
+    
+    return ret;
+}
+
+
+/**
  * @brief Configure SPI driver by setting the default mode, bits per word and speed for a transfer
  * 
  * @return On successful configuration, zero is returned
@@ -472,6 +513,10 @@ int main(int argc, char **argv)
         else if(strcmp(argv[optind], "init") == 0)
         {
             ret = adc_init(fd, adc_num);
+        }
+        else if(strcmp(argv[optind], "rb") == 0)
+        {
+            ret = adc_read_back(fd, adc_num);
         }
         else if(strcmp(argv[optind], "read") == 0)
         {
