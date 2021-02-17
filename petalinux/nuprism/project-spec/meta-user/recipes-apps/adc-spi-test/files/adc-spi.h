@@ -53,14 +53,13 @@
  * followed by address and data. 
  * * Data bus is ignored for a read command 
  * 
- * @param buffer    A pointer to a byte array containing the TX buffer 
  * @param command   Determines bit A16 and A15, specifies a read or write command
  * @param address   Address of the register being read or written to
  * @param data      Byte of data being written to a register, ignored in a read command
  */
-#define TX_BUFFER(buffer, command, address, data) {buffer[0] = ((uint8_t)((address & 0x3F00) >> 8)) | command; \
-                                                   buffer[1] = (uint8_t)(address & 0xFF); \
-                                                   buffer[2] = data;}
+#define TX_BUFFER(command, address, data) {((uint8_t)((address & 0x3F00) >> 8)) | command, \
+                                           (uint8_t)(address & 0xFF), \
+                                           data}
 
 /**
  * @brief Returns the size of an array

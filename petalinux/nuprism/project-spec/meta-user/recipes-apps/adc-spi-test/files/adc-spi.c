@@ -182,12 +182,10 @@ int adc_reset()
 
 int adc_read(uint16_t address, uint8_t* data)
 {
-    uint8_t txbuf[3] = {0};
+    // For an adc register read, the data in the TX is ignored by the adc
+    uint8_t txbuf[3] = TX_BUFFER(SPI_READ_CMD, address, 0xFF);
     uint8_t rxbuf[3] = {0};
     DBG("adc_read(): address=0x%x\n", address);
-
-    // For an adc register read, the data in the TX is ignored by the adc
-    TX_BUFFER(txbuf, SPI_READ_CMD, address, 0xFF);
 
     struct spi_ioc_transfer tr = {
 		.tx_buf = (unsigned long)txbuf,
@@ -214,11 +212,9 @@ int adc_read(uint16_t address, uint8_t* data)
 
 int adc_write(uint16_t address, uint8_t data)
 {
-    uint8_t txbuf[3] = {0};
+    uint8_t txbuf[3] = TX_BUFFER(SPI_WRITE_CMD, address, data);
     uint8_t rxbuf[3] = {0};
     DBG("adc_write(): address=0x%x, data=0x%x\n", address, data);
-
-    TX_BUFFER(txbuf, SPI_WRITE_CMD, address, data);
 
     struct spi_ioc_transfer tr = {
 		.tx_buf = (unsigned long)txbuf,
