@@ -6,6 +6,7 @@
 .
 ├── documents
 ├── enclustra_scripts
+├── GP_xsa
 ├── lib
 ├── petalinux_midas
 ├── pmufw
@@ -16,17 +17,20 @@
 ├── Vitis_NUPRISM
 ├── Vivado_NuPRISM
 ├── Vivado_NuPRISM_AddingDMA
-└── wut_petalinux
+├── wut_petalinux
+└── wut_petalinux-2018.3
 </pre>  
+`GPA_xsa` and wut_petalinux-2018.2 not added to repo
 
 ## petalinux
+
 
 
 ### hardware configuration
 
 Export hardware from the Vivado project in `Vivado_NuPRISM`. Verify if the above forlder contains the `system_top.xsa` file. Configure petalinux project:
 <pre>  
-petalinux-config --get-hw-description ../Vivado_NuPRISM
+petalinux-config --get-hw-description ../GP_xsa/
 </pre>
 
 ### rootfs configuration
