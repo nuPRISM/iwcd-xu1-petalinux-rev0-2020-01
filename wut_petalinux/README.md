@@ -37,11 +37,18 @@ petalinux-config --get-hw-description ../GP_xsa/
 
 ### kernel configuration
 
+<pre>
+petalinux-config -c kernel
+</pre>
+Select `User mode SPI driver support` in the `Device drivers` section.
+
 ### device tree customization
 
+Generate current device tree info:
 <pre>  
 dtc -I dtb -O dts -o system.dts images/linux/system.dtb
 </pre>  
+If any modification is required insert device tree data into `*.dtsi` file in the `wut_petalinux/project-spec/meta-user/recipes-bsp/device-tree/files` directory.
 
 ### Project build
 
