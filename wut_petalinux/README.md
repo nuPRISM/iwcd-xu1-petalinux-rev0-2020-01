@@ -20,7 +20,7 @@
 ├── wut_petalinux
 └── wut_petalinux-2018.3
 </pre>  
-`GPA_xsa` and `wut_petalinux-2018.2` not added to repo
+`GP_xsa` and `wut_petalinux-2018.2` not added to repo
 
 ## petalinux
 
@@ -28,7 +28,7 @@
 
 ### hardware configuration
 
-Export hardware from the Vivado project in `Vivado_NuPRISM`. Verify if the above forlder contains the `system_top.xsa` file. Configure petalinux project:
+Export hardware from the Vivado project in `GP_xsa`. Verify if the above forlder contains the `system_top.xsa` file. Configure petalinux project:
 <pre>  
 petalinux-config --get-hw-description ../GP_xsa/
 </pre>
