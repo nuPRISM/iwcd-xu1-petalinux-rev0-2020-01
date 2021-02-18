@@ -20,7 +20,7 @@
 ├── wut_petalinux
 └── wut_petalinux-2018.3
 </pre>  
-`GPA_xsa` and wut_petalinux-2018.2 not added to repo
+`GPA_xsa` and `wut_petalinux-2018.2` not added to repo
 
 ## petalinux
 
