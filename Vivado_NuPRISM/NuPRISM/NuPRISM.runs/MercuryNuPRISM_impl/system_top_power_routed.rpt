@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2020.1.1 (lin64) Build 2960000 Wed Aug  5 22:57:21 MDT 2020
-| Date             : Tue Feb 16 09:43:09 2021
+| Date             : Fri Feb 19 10:39:57 2021
 | Host             : edev running 64-bit Ubuntu 18.04.5 LTS
 | Command          : report_power -file system_top_power_routed.rpt -pb system_top_power_summary_routed.pb -rpx system_top_power_routed.rpx
 | Design           : system_top
@@ -30,11 +30,11 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 3.928        |
+| Total On-Chip Power (W)  | 3.923        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 3.192        |
-| Device Static (W)        | 0.737        |
+| Dynamic (W)              | 3.187        |
+| Device Static (W)        | 0.736        |
 | Effective TJA (C/W)      | 1.4          |
 | Max Ambient (C)          | 94.5         |
 | Junction Temperature (C) | 30.5         |
@@ -52,25 +52,25 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.092 |       29 |       --- |             --- |
-| CLB Logic                |     0.079 |    42413 |       --- |             --- |
+| Clocks                   |     0.088 |       29 |       --- |             --- |
+| CLB Logic                |     0.079 |    39078 |       --- |             --- |
 |   LUT as Distributed RAM |     0.040 |     1164 |    144000 |            0.81 |
-|   LUT as Logic           |     0.032 |    11958 |    214604 |            5.57 |
-|   LUT as Shift Register  |     0.004 |     1274 |    144000 |            0.88 |
-|   Register               |     0.003 |    20243 |    429208 |            4.72 |
-|   CARRY8                 |    <0.001 |      207 |     34260 |            0.60 |
-|   Others                 |     0.000 |     2417 |       --- |             --- |
-|   F7/F8 Muxes            |     0.000 |      192 |    274080 |            0.07 |
-| Signals                  |     0.047 |    30200 |       --- |             --- |
-| Block RAM                |     0.005 |      6.5 |       714 |            0.91 |
+|   LUT as Logic           |     0.032 |    10974 |    214604 |            5.11 |
+|   LUT as Shift Register  |     0.003 |     1137 |    144000 |            0.79 |
+|   Register               |     0.003 |    18529 |    429208 |            4.32 |
+|   CARRY8                 |    <0.001 |      181 |     34260 |            0.53 |
+|   Others                 |     0.000 |     2182 |       --- |             --- |
+|   F7/F8 Muxes            |     0.000 |      189 |    274080 |            0.07 |
+| Signals                  |     0.046 |    27717 |       --- |             --- |
+| Block RAM                |     0.003 |        3 |       714 |            0.42 |
 | MMCM                     |     0.192 |        0 |       --- |             --- |
-| I/O                      |     0.128 |       79 |       204 |           38.73 |
+| I/O                      |     0.129 |       79 |       204 |           38.73 |
 | SYSMON                   |     0.005 |        1 |       --- |             --- |
 | PS8                      |     2.645 |        1 |       --- |             --- |
-| Static Power             |     0.737 |          |           |                 |
+| Static Power             |     0.736 |          |           |                 |
 |   PS Static              |     0.100 |          |           |                 |
 |   PL Static              |     0.636 |          |           |                 |
-| Total                    |     3.928 |          |           |                 |
+| Total                    |     3.923 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -80,14 +80,14 @@ Table of Contents
 +-----------------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source          | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint          |       0.850 |     0.485 |       0.269 |      0.216 |       NA    | Unspecified | NA         |
+| Vccint          |       0.850 |     0.477 |       0.261 |      0.216 |       NA    | Unspecified | NA         |
 | Vccint_io       |       0.850 |     0.060 |       0.024 |      0.036 |       NA    | Unspecified | NA         |
-| Vccbram         |       0.850 |     0.004 |       0.001 |      0.003 |       NA    | Unspecified | NA         |
+| Vccbram         |       0.850 |     0.004 |       0.000 |      0.003 |       NA    | Unspecified | NA         |
 | Vccaux          |       1.800 |     0.298 |       0.106 |      0.192 |       NA    | Unspecified | NA         |
-| Vccaux_io       |       1.800 |     0.067 |       0.034 |      0.033 |       NA    | Unspecified | NA         |
+| Vccaux_io       |       1.800 |     0.067 |       0.035 |      0.033 |       NA    | Unspecified | NA         |
 | Vcco33          |       3.300 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco25          |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
-| Vcco18          |       1.800 |     0.025 |       0.025 |      0.000 |       NA    | Unspecified | NA         |
+| Vcco18          |       1.800 |     0.026 |       0.026 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco15          |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco135         |       1.350 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco12          |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -189,8 +189,8 @@ Table of Contents
 +------------------------------------------+-----------+
 | Name                                     | Power (W) |
 +------------------------------------------+-----------+
-| system_top                               |     3.192 |
-|   Ad9229Core_b64                         |     0.082 |
+| system_top                               |     3.187 |
+|   Ad9229Core_b64                         |     0.083 |
 |     Ad9229Deserializer_INST              |     0.004 |
 |       U_SyncFifo                         |     0.003 |
 |     GEN_DATA[0].Ad9229Deserializer_INST  |     0.004 |
@@ -236,7 +236,7 @@ Table of Contents
 |     GEN_DATA[11].Ad9229Deserializer_INST |     0.004 |
 |       U_SyncFifo                         |     0.003 |
 |     GEN_DATA[11].U_DataIn                |     0.003 |
-|     GEN_DATA[12].Ad9229Deserializer_INST |     0.003 |
+|     GEN_DATA[12].Ad9229Deserializer_INST |     0.004 |
 |       U_SyncFifo                         |     0.003 |
 |     GEN_DATA[12].U_DataIn                |     0.003 |
 |     GEN_DATA[13].Ad9229Deserializer_INST |     0.004 |
@@ -282,13 +282,12 @@ Table of Contents
 |       U_SyncFifo                         |     0.003 |
 |     GEN_DATA[9].U_DataIn                 |     0.003 |
 |     U_FrameIn                            |     0.003 |
-|   MercuryXU1_i                           |     2.743 |
-|     MercuryXU1_i                         |     2.736 |
+|   MercuryXU1_i                           |     2.737 |
+|     MercuryXU1_i                         |     2.728 |
 |       axi_dma_0                          |     0.006 |
 |       axi_smc                            |     0.054 |
 |       axis_data_fifo_0                   |     0.003 |
 |       ps8_0_axi_periph                   |     0.011 |
-|       system_ila_0                       |     0.008 |
 |       system_management_wiz_0            |     0.006 |
 |       zynq_ultra_ps_e_0                  |     2.648 |
 |     ps_spi_1_io0_iobuf                   |     0.001 |

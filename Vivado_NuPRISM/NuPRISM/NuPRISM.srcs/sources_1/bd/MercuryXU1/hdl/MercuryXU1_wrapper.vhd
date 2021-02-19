@@ -1,7 +1,7 @@
 --Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2020.1.1 (lin64) Build 2960000 Wed Aug  5 22:57:21 MDT 2020
---Date        : Fri Feb 12 16:20:03 2021
+--Date        : Fri Feb 19 10:24:30 2021
 --Host        : edev running 64-bit Ubuntu 18.04.5 LTS
 --Command     : generate_target MercuryXU1_wrapper.bd
 --Design      : MercuryXU1_wrapper
@@ -49,6 +49,12 @@ architecture STRUCTURE of MercuryXU1_wrapper is
     ps_spi_0_io0_i : in STD_LOGIC;
     ps_spi_0_io1_o : out STD_LOGIC;
     ps_spi_0_io1_t : out STD_LOGIC;
+    ps_master_i2c_scl_i : in STD_LOGIC;
+    ps_master_i2c_scl_o : out STD_LOGIC;
+    ps_master_i2c_scl_t : out STD_LOGIC;
+    ps_master_i2c_sda_i : in STD_LOGIC;
+    ps_master_i2c_sda_o : out STD_LOGIC;
+    ps_master_i2c_sda_t : out STD_LOGIC;
     ps_spi_1_sck_i : in STD_LOGIC;
     ps_spi_1_sck_o : out STD_LOGIC;
     ps_spi_1_sck_t : out STD_LOGIC;
@@ -60,13 +66,7 @@ architecture STRUCTURE of MercuryXU1_wrapper is
     ps_spi_1_io1_t : out STD_LOGIC;
     ps_spi_1_ss_i : in STD_LOGIC;
     ps_spi_1_ss_o : out STD_LOGIC;
-    ps_spi_1_ss_t : out STD_LOGIC;
-    ps_master_i2c_scl_i : in STD_LOGIC;
-    ps_master_i2c_scl_o : out STD_LOGIC;
-    ps_master_i2c_scl_t : out STD_LOGIC;
-    ps_master_i2c_sda_i : in STD_LOGIC;
-    ps_master_i2c_sda_o : out STD_LOGIC;
-    ps_master_i2c_sda_t : out STD_LOGIC
+    ps_spi_1_ss_t : out STD_LOGIC
   );
   end component MercuryXU1;
   component IOBUF is

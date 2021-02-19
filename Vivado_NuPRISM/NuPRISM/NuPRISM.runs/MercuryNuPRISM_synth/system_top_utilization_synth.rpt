@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.1.1 (lin64) Build 2960000 Wed Aug  5 22:57:21 MDT 2020
-| Date         : Tue Feb 16 09:35:12 2021
+| Date         : Fri Feb 19 10:32:08 2021
 | Host         : edev running 64-bit Ubuntu 18.04.5 LTS
 | Command      : report_utilization -file system_top_utilization_synth.rpt -pb system_top_utilization_synth.pb
 | Design       : system_top
@@ -31,16 +31,16 @@ Table of Contents
 +----------------------------+-------+-------+-----------+-------+
 |          Site Type         |  Used | Fixed | Available | Util% |
 +----------------------------+-------+-------+-----------+-------+
-| CLB LUTs*                  | 11818 |     0 |    214604 |  5.51 |
-|   LUT as Logic             |  9968 |     0 |    214604 |  4.64 |
-|   LUT as Memory            |  1850 |     0 |    144000 |  1.28 |
+| CLB LUTs*                  | 10651 |     0 |    214604 |  4.96 |
+|   LUT as Logic             |  8944 |     0 |    214604 |  4.17 |
+|   LUT as Memory            |  1707 |     0 |    144000 |  1.19 |
 |     LUT as Distributed RAM |  1330 |     0 |           |       |
-|     LUT as Shift Register  |   520 |     0 |           |       |
-| CLB Registers              | 16437 |     0 |    429208 |  3.83 |
-|   Register as Flip Flop    | 16437 |     0 |    429208 |  3.83 |
+|     LUT as Shift Register  |   377 |     0 |           |       |
+| CLB Registers              | 14691 |     0 |    429208 |  3.42 |
+|   Register as Flip Flop    | 14691 |     0 |    429208 |  3.42 |
 |   Register as Latch        |     0 |     0 |    429208 |  0.00 |
-| CARRY8                     |    54 |     0 |     34260 |  0.16 |
-| F7 Muxes                   |    18 |     0 |    137040 |  0.01 |
+| CARRY8                     |    28 |     0 |     34260 |  0.08 |
+| F7 Muxes                   |    15 |     0 |    137040 |  0.01 |
 | F8 Muxes                   |     0 |     0 |     68520 |  0.00 |
 | F9 Muxes                   |     0 |     0 |     34260 |  0.00 |
 +----------------------------+-------+-------+-----------+-------+
@@ -61,8 +61,8 @@ Table of Contents
 | 0     |          Yes |           - |            - |
 | 90    |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
-| 601   |          Yes |         Set |            - |
-| 15746 |          Yes |       Reset |            - |
+| 591   |          Yes |         Set |            - |
+| 14010 |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -72,11 +72,10 @@ Table of Contents
 +-------------------+------+-------+-----------+-------+
 |     Site Type     | Used | Fixed | Available | Util% |
 +-------------------+------+-------+-----------+-------+
-| Block RAM Tile    |  5.5 |     0 |       714 |  0.77 |
-|   RAMB36/FIFO*    |    5 |     0 |       714 |  0.70 |
-|     RAMB36E2 only |    5 |       |           |       |
-|   RAMB18          |    1 |     0 |      1428 |  0.07 |
-|     RAMB18E2 only |    1 |       |           |       |
+| Block RAM Tile    |    2 |     0 |       714 |  0.28 |
+|   RAMB36/FIFO*    |    2 |     0 |       714 |  0.28 |
+|     RAMB36E2 only |    2 |       |           |       |
+|   RAMB18          |    0 |     0 |      1428 |  0.00 |
 +-------------------+------+-------+-----------+-------+
 * Note: Each Block RAM Tile only has one FIFO logic available and therefore can accommodate only one FIFO36E2 or one FIFO18E2. However, if a FIFO18E2 occupies a Block RAM Tile, that tile can still accommodate a RAMB18E2
 
@@ -156,36 +155,34 @@ Table of Contents
 +------------+-------+---------------------+
 |  Ref Name  |  Used | Functional Category |
 +------------+-------+---------------------+
-| FDRE       | 15746 |            Register |
-| LUT6       |  4190 |                 CLB |
-| LUT3       |  3012 |                 CLB |
+| FDRE       | 14010 |            Register |
+| LUT6       |  3572 |                 CLB |
+| LUT3       |  2889 |                 CLB |
 | RAMD32     |  2314 |                 CLB |
-| LUT4       |  1517 |                 CLB |
-| LUT5       |  1497 |                 CLB |
-| LUT1       |  1185 |                 CLB |
-| LUT2       |   827 |                 CLB |
-| FDSE       |   601 |            Register |
-| SRL16E     |   330 |                 CLB |
+| LUT5       |  1403 |                 CLB |
+| LUT4       |  1330 |                 CLB |
+| LUT1       |  1142 |                 CLB |
+| LUT2       |   768 |                 CLB |
+| FDSE       |   591 |            Register |
 | RAMS32     |   328 |                 CLB |
-| SRLC32E    |   276 |                 CLB |
+| SRL16E     |   224 |                 CLB |
+| SRLC32E    |   153 |                 CLB |
 | FDPE       |    90 |            Register |
-| CARRY8     |    54 |                 CLB |
 | IBUFCTRL   |    40 |              Others |
 | DIFFINBUF  |    31 |                 I/O |
 | ISERDESE3  |    30 |                 I/O |
 | IDELAYE3   |    30 |                 I/O |
-| MUXF7      |    18 |                 CLB |
+| CARRY8     |    28 |                 CLB |
+| MUXF7      |    15 |                 CLB |
 | OBUFT      |     9 |                 I/O |
 | INBUF      |     9 |                 I/O |
 | OBUF       |     8 |                 I/O |
-| RAMB36E2   |     5 |           Block Ram |
-| SRLC16E    |     2 |                 CLB |
+| RAMB36E2   |     2 |           Block Ram |
 | OSERDESE3  |     2 |                 I/O |
 | BUFG_PS    |     2 |               Clock |
 | BUFGCE_DIV |     2 |               Clock |
 | BUFGCE     |     2 |               Clock |
 | SYSMONE4   |     1 |            Advanced |
-| RAMB18E2   |     1 |           Block Ram |
 | PS8        |     1 |            Advanced |
 +------------+-------+---------------------+
 
@@ -196,7 +193,6 @@ Table of Contents
 +-----------------------+------+
 |        Ref Name       | Used |
 +-----------------------+------+
-| dbg_hub_CV            |    1 |
 | clk_wiz_1_b64_b66_pll |    1 |
 | clk_wiz_0_b65_mmcm    |    1 |
 +-----------------------+------+

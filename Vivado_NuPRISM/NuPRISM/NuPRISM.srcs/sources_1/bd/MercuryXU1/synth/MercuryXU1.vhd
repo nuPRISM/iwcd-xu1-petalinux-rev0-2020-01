@@ -1,7 +1,7 @@
 --Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2020.1.1 (lin64) Build 2960000 Wed Aug  5 22:57:21 MDT 2020
---Date        : Fri Feb 12 16:20:03 2021
+--Date        : Fri Feb 19 10:24:29 2021
 --Host        : edev running 64-bit Ubuntu 18.04.5 LTS
 --Command     : generate_target MercuryXU1.bd
 --Design      : MercuryXU1
@@ -2955,7 +2955,7 @@ entity MercuryXU1 is
     ps_spi_1_ss_t : out STD_LOGIC
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of MercuryXU1 : entity is "MercuryXU1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=MercuryXU1,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=25,numReposBlks=16,numNonXlnxBlks=0,numHierBlks=9,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=8,da_clkrst_cnt=7,synth_mode=Global}";
+  attribute CORE_GENERATION_INFO of MercuryXU1 : entity is "MercuryXU1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=MercuryXU1,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=24,numReposBlks=15,numNonXlnxBlks=0,numHierBlks=9,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=8,da_clkrst_cnt=7,synth_mode=Global}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of MercuryXU1 : entity is "MercuryXU1.hwdef";
 end MercuryXU1;
@@ -3453,25 +3453,6 @@ architecture STRUCTURE of MercuryXU1 is
     dout : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component MercuryXU1_xlconstant_5_0;
-  component MercuryXU1_system_ila_0_0 is
-  port (
-    clk : in STD_LOGIC;
-    probe0 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe1 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    SLOT_0_SPI_ss_i : in STD_LOGIC;
-    SLOT_0_SPI_ss_o : in STD_LOGIC;
-    SLOT_0_SPI_ss_t : in STD_LOGIC;
-    SLOT_0_SPI_sck_i : in STD_LOGIC;
-    SLOT_0_SPI_sck_o : in STD_LOGIC;
-    SLOT_0_SPI_sck_t : in STD_LOGIC;
-    SLOT_0_SPI_io0_i : in STD_LOGIC;
-    SLOT_0_SPI_io0_o : in STD_LOGIC;
-    SLOT_0_SPI_io0_t : in STD_LOGIC;
-    SLOT_0_SPI_io1_i : in STD_LOGIC;
-    SLOT_0_SPI_io1_o : in STD_LOGIC;
-    SLOT_0_SPI_io1_t : in STD_LOGIC
-  );
-  end component MercuryXU1_system_ila_0_0;
   signal axi_dma_0_M_AXI_S2MM_AWADDR : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal axi_dma_0_M_AXI_S2MM_AWBURST : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal axi_dma_0_M_AXI_S2MM_AWCACHE : STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -3730,44 +3711,14 @@ architecture STRUCTURE of MercuryXU1 is
   signal zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_WSTRB : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_WVALID : STD_LOGIC;
   signal zynq_ultra_ps_e_0_SPI_0_IO0_I : STD_LOGIC;
-  attribute CONN_BUS_INFO : string;
-  attribute CONN_BUS_INFO of zynq_ultra_ps_e_0_SPI_0_IO0_I : signal is "zynq_ultra_ps_e_0_SPI_0 xilinx.com:interface:spi:1.0 None IO0_I";
-  attribute DEBUG : string;
-  attribute DEBUG of zynq_ultra_ps_e_0_SPI_0_IO0_I : signal is "true";
-  attribute MARK_DEBUG : boolean;
-  attribute MARK_DEBUG of zynq_ultra_ps_e_0_SPI_0_IO0_I : signal is std.standard.true;
   signal zynq_ultra_ps_e_0_SPI_0_IO0_O : STD_LOGIC;
-  attribute CONN_BUS_INFO of zynq_ultra_ps_e_0_SPI_0_IO0_O : signal is "zynq_ultra_ps_e_0_SPI_0 xilinx.com:interface:spi:1.0 None IO0_O";
-  attribute DEBUG of zynq_ultra_ps_e_0_SPI_0_IO0_O : signal is "true";
-  attribute MARK_DEBUG of zynq_ultra_ps_e_0_SPI_0_IO0_O : signal is std.standard.true;
   signal zynq_ultra_ps_e_0_SPI_0_IO0_T : STD_LOGIC;
-  attribute CONN_BUS_INFO of zynq_ultra_ps_e_0_SPI_0_IO0_T : signal is "zynq_ultra_ps_e_0_SPI_0 xilinx.com:interface:spi:1.0 None IO0_T";
-  attribute DEBUG of zynq_ultra_ps_e_0_SPI_0_IO0_T : signal is "true";
-  attribute MARK_DEBUG of zynq_ultra_ps_e_0_SPI_0_IO0_T : signal is std.standard.true;
   signal zynq_ultra_ps_e_0_SPI_0_IO1_I : STD_LOGIC;
-  attribute CONN_BUS_INFO of zynq_ultra_ps_e_0_SPI_0_IO1_I : signal is "zynq_ultra_ps_e_0_SPI_0 xilinx.com:interface:spi:1.0 None IO1_I";
-  attribute DEBUG of zynq_ultra_ps_e_0_SPI_0_IO1_I : signal is "true";
-  attribute MARK_DEBUG of zynq_ultra_ps_e_0_SPI_0_IO1_I : signal is std.standard.true;
   signal zynq_ultra_ps_e_0_SPI_0_IO1_O : STD_LOGIC;
-  attribute CONN_BUS_INFO of zynq_ultra_ps_e_0_SPI_0_IO1_O : signal is "zynq_ultra_ps_e_0_SPI_0 xilinx.com:interface:spi:1.0 None IO1_O";
-  attribute DEBUG of zynq_ultra_ps_e_0_SPI_0_IO1_O : signal is "true";
-  attribute MARK_DEBUG of zynq_ultra_ps_e_0_SPI_0_IO1_O : signal is std.standard.true;
   signal zynq_ultra_ps_e_0_SPI_0_IO1_T : STD_LOGIC;
-  attribute CONN_BUS_INFO of zynq_ultra_ps_e_0_SPI_0_IO1_T : signal is "zynq_ultra_ps_e_0_SPI_0 xilinx.com:interface:spi:1.0 None IO1_T";
-  attribute DEBUG of zynq_ultra_ps_e_0_SPI_0_IO1_T : signal is "true";
-  attribute MARK_DEBUG of zynq_ultra_ps_e_0_SPI_0_IO1_T : signal is std.standard.true;
   signal zynq_ultra_ps_e_0_SPI_0_SCK_I : STD_LOGIC;
-  attribute CONN_BUS_INFO of zynq_ultra_ps_e_0_SPI_0_SCK_I : signal is "zynq_ultra_ps_e_0_SPI_0 xilinx.com:interface:spi:1.0 None SCK_I";
-  attribute DEBUG of zynq_ultra_ps_e_0_SPI_0_SCK_I : signal is "true";
-  attribute MARK_DEBUG of zynq_ultra_ps_e_0_SPI_0_SCK_I : signal is std.standard.true;
   signal zynq_ultra_ps_e_0_SPI_0_SCK_O : STD_LOGIC;
-  attribute CONN_BUS_INFO of zynq_ultra_ps_e_0_SPI_0_SCK_O : signal is "zynq_ultra_ps_e_0_SPI_0 xilinx.com:interface:spi:1.0 None SCK_O";
-  attribute DEBUG of zynq_ultra_ps_e_0_SPI_0_SCK_O : signal is "true";
-  attribute MARK_DEBUG of zynq_ultra_ps_e_0_SPI_0_SCK_O : signal is std.standard.true;
   signal zynq_ultra_ps_e_0_SPI_0_SCK_T : STD_LOGIC;
-  attribute CONN_BUS_INFO of zynq_ultra_ps_e_0_SPI_0_SCK_T : signal is "zynq_ultra_ps_e_0_SPI_0 xilinx.com:interface:spi:1.0 None SCK_T";
-  attribute DEBUG of zynq_ultra_ps_e_0_SPI_0_SCK_T : signal is "true";
-  attribute MARK_DEBUG of zynq_ultra_ps_e_0_SPI_0_SCK_T : signal is std.standard.true;
   signal zynq_ultra_ps_e_0_SPI_1_IO0_I : STD_LOGIC;
   signal zynq_ultra_ps_e_0_SPI_1_IO0_O : STD_LOGIC;
   signal zynq_ultra_ps_e_0_SPI_1_IO0_T : STD_LOGIC;
@@ -3781,13 +3732,7 @@ architecture STRUCTURE of MercuryXU1 is
   signal zynq_ultra_ps_e_0_SPI_1_SS_O : STD_LOGIC;
   signal zynq_ultra_ps_e_0_SPI_1_SS_T : STD_LOGIC;
   signal zynq_ultra_ps_e_0_emio_spi0_ss_n_t : STD_LOGIC;
-  attribute CONN_BUS_INFO of zynq_ultra_ps_e_0_emio_spi0_ss_n_t : signal is "zynq_ultra_ps_e_0_SPI_0 xilinx.com:interface:spi:1.0 None SS_T";
-  attribute DEBUG of zynq_ultra_ps_e_0_emio_spi0_ss_n_t : signal is "true";
-  attribute MARK_DEBUG of zynq_ultra_ps_e_0_emio_spi0_ss_n_t : signal is std.standard.true;
   signal zynq_ultra_ps_e_0_emio_spi0_ss_o_n : STD_LOGIC;
-  attribute CONN_BUS_INFO of zynq_ultra_ps_e_0_emio_spi0_ss_o_n : signal is "zynq_ultra_ps_e_0_SPI_0 xilinx.com:interface:spi:1.0 None SS_O";
-  attribute DEBUG of zynq_ultra_ps_e_0_emio_spi0_ss_o_n : signal is "true";
-  attribute MARK_DEBUG of zynq_ultra_ps_e_0_emio_spi0_ss_o_n : signal is std.standard.true;
   signal zynq_ultra_ps_e_0_pl_clk0 : STD_LOGIC;
   signal zynq_ultra_ps_e_0_pl_clk1 : STD_LOGIC;
   signal zynq_ultra_ps_e_0_pl_resetn0 : STD_LOGIC;
@@ -4361,24 +4306,6 @@ ps8_0_axi_periph: entity work.MercuryXU1_ps8_0_axi_periph_0
       S02_AXI_wready => zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_WREADY,
       S02_AXI_wstrb(3 downto 0) => zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_WSTRB(3 downto 0),
       S02_AXI_wvalid => zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_WVALID
-    );
-system_ila_0: component MercuryXU1_system_ila_0_0
-     port map (
-      SLOT_0_SPI_io0_i => zynq_ultra_ps_e_0_SPI_0_IO0_I,
-      SLOT_0_SPI_io0_o => zynq_ultra_ps_e_0_SPI_0_IO0_O,
-      SLOT_0_SPI_io0_t => zynq_ultra_ps_e_0_SPI_0_IO0_T,
-      SLOT_0_SPI_io1_i => zynq_ultra_ps_e_0_SPI_0_IO1_I,
-      SLOT_0_SPI_io1_o => zynq_ultra_ps_e_0_SPI_0_IO1_O,
-      SLOT_0_SPI_io1_t => zynq_ultra_ps_e_0_SPI_0_IO1_T,
-      SLOT_0_SPI_sck_i => zynq_ultra_ps_e_0_SPI_0_SCK_I,
-      SLOT_0_SPI_sck_o => zynq_ultra_ps_e_0_SPI_0_SCK_O,
-      SLOT_0_SPI_sck_t => zynq_ultra_ps_e_0_SPI_0_SCK_T,
-      SLOT_0_SPI_ss_i => '0',
-      SLOT_0_SPI_ss_o => '0',
-      SLOT_0_SPI_ss_t => '0',
-      clk => zynq_ultra_ps_e_0_pl_clk0,
-      probe0(0) => zynq_ultra_ps_e_0_emio_spi0_ss_o_n,
-      probe1(0) => zynq_ultra_ps_e_0_emio_spi0_ss_n_t
     );
 system_management_wiz_0: component MercuryXU1_system_management_wiz_0_0
      port map (

@@ -17,7 +17,7 @@ proc create_report { reportName command } {
   }
 }
 namespace eval ::optrace {
-  variable script "/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.runs/MercuryNuPRISM_impl/system_top.tcl"
+  variable script "/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.runs/MercuryNuPRISM_impl/system_top.tcl"
   variable category "vivado_impl"
 }
 
@@ -125,10 +125,12 @@ set rc [catch {
   set_param power.enableLutRouteBelPower 1
   set_param power.enableCarry8RouteBelPower 1
   set_param power.enableUnconnectedCarry8PinPower 1
+  set_param tcl.collectionResultDisplayLimit 0
+  set_param xicom.use_bs_reader 1
   set_param chipscope.maxJobs 2
   set_param power.BramSDPPropagationFix 1
   open_checkpoint system_top_routed.dcp
-  set_property webtalk.parent_dir /home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.cache/wt [current_project]
+  set_property webtalk.parent_dir /home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.cache/wt [current_project]
 set_property TOP system_top [current_fileset]
 OPTRACE "read constraints: write_bitstream" START { }
 OPTRACE "read constraints: write_bitstream" END { }

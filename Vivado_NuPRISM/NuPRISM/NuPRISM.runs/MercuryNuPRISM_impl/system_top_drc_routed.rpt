@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.1.1 (lin64) Build 2960000 Wed Aug  5 22:57:21 MDT 2020
-| Date         : Tue Feb 16 09:42:49 2021
+| Date         : Fri Feb 19 10:39:38 2021
 | Host         : edev running 64-bit Ubuntu 18.04.5 LTS
 | Command      : report_drc -file system_top_drc_routed.rpt -pb system_top_drc_routed.pb -rpx system_top_drc_routed.rpx
 | Design       : system_top
@@ -401,11 +401,11 @@ Related violations: <none>
 
 RTSTAT-10#1 Warning
 No routable loads  
-514 net(s) have no routable loads. The problem bus(es) and/or net(s) are adc0_da_pardata_j4[0][11:0], adc0_da_pardata_j4[1][11:0], adc0_db_pardata_j3[0][11:0],
+508 net(s) have no routable loads. The problem bus(es) and/or net(s) are adc0_da_pardata_j4[0][11:0], adc0_da_pardata_j4[1][11:0], adc0_db_pardata_j3[0][11:0],
 adc0_db_pardata_j3[1][11:0], adc0_dc_pardata_j2[0][11:0], adc0_dc_pardata_j2[1][11:0],
 adc0_dd_pardata_j1[0][11:0], adc0_dd_pardata_j1[1][11:0], adc1_da_pardata_j8[0][11:0],
 adc1_da_pardata_j8[1][11:0], adc1_db_pardata_j7[0][11:0], adc1_db_pardata_j7[1][11:0],
-adc1_dc_pardata_j6[0][11:0], adc1_dc_pardata_j6[1][11:0], adc3_da_pardata_j16[0][11:0] (the first 15 of 72 listed).
+adc1_dc_pardata_j6[0][11:0], adc1_dc_pardata_j6[1][11:0], adc3_da_pardata_j16[0][11:0] (the first 15 of 66 listed).
 Related violations: <none>
 
 REQP-1935#1 Advisory

@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.1.1 (lin64) Build 2960000 Wed Aug  5 22:57:21 MDT 2020
-| Date         : Tue Feb 16 09:42:58 2021
+| Date         : Fri Feb 19 10:39:47 2021
 | Host         : edev running 64-bit Ubuntu 18.04.5 LTS
 | Command      : report_methodology -file system_top_methodology_drc_routed.rpt -pb system_top_methodology_drc_routed.pb -rpx system_top_methodology_drc_routed.rpx
 | Design       : system_top
@@ -23,7 +23,7 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 138
+             Violations found: 135
 +-----------+------------------+------------------------------------------------------------------+------------+
 | Rule      | Severity         | Description                                                      | Violations |
 +-----------+------------------+------------------------------------------------------------------+------------+
@@ -33,7 +33,7 @@ Table of Contents
 | BSCK-10   | Warning          | ISERDESE3_parallel_clock_nets                                    | 30         |
 | CKLD-2    | Warning          | Clock Net has IO Driver, not a Clock Buf, and/or non-Clock loads | 2          |
 | LUTAR-1   | Warning          | LUT drives async reset alert                                     | 5          |
-| TIMING-18 | Warning          | Missing input or output delay                                    | 71         |
+| TIMING-18 | Warning          | Missing input or output delay                                    | 68         |
 | CLKC-5    | Advisory         | BUFGCE with constant CE has BUFG driver                          | 2          |
 | CLKC-24   | Advisory         | MMCME4 with ZHOLD drives sequential IO not with CLKOUT0          | 1          |
 | CLKC-26   | Advisory         | MMCME4 with BUF_IN drives sequential IO with CLKOUT0             | 1          |
@@ -701,21 +701,6 @@ An input delay is missing on ADC_RST relative to clock(s) clk_pl_0
 Related violations: <none>
 
 TIMING-18#68 Warning
-Missing input or output delay  
-An input delay is missing on ADC_SCLK relative to clock(s) clk_pl_0
-Related violations: <none>
-
-TIMING-18#69 Warning
-Missing input or output delay  
-An input delay is missing on ADC_SDATA relative to clock(s) clk_pl_0
-Related violations: <none>
-
-TIMING-18#70 Warning
-Missing input or output delay  
-An input delay is missing on ADC_SDOUT relative to clock(s) clk_pl_0
-Related violations: <none>
-
-TIMING-18#71 Warning
 Missing input or output delay  
 An output delay is missing on Led2_N relative to clock(s) clk_pl_0, clk_pl_1
 Related violations: <none>

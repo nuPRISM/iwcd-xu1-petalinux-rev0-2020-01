@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------
 | Tool Version              : Vivado v.2020.1.1 (lin64) Build 2960000 Wed Aug  5 22:57:21 MDT 2020
-| Date                      : Tue Feb 16 09:41:38 2021
+| Date                      : Fri Feb 19 10:38:39 2021
 | Host                      : edev running 64-bit Ubuntu 18.04.5 LTS
 | Command                   : report_io -file system_top_io_placed.rpt
 | Design                    : system_top

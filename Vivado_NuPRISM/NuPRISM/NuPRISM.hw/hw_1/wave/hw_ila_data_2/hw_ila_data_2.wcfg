@@ -3,67 +3,60 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.hw/hw_1/wave/hw_ila_data_2/hw_ila_data_2.wdb" id="1">
+      <db_ref path="C:/Repos/rev0-2020.1-petalinux/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.hw/hw_1/wave/hw_ila_data_2/hw_ila_data_2.wdb" id="1">
          <top_modules>
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="2551908fs"></ZoomEndTime>
+      <ZoomEndTime time="1025fs"></ZoomEndTime>
       <Cursor1Time time="0fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="404"></NameColumnWidth>
-      <ValueColumnWidth column_width="160"></ValueColumnWidth>
+      <ValueColumnWidth column_width="196"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="7" />
-   <wvobject type="logic" fp_name="ADC_PDN_OBUF">
+   <WVObjectSize size="5" />
+   <wave_markers>
+   </wave_markers>
+   <wvobject fp_name="MercuryXU1_i/MercuryXU1_i/Net" type="array">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">ADC_PDN_OBUF</obj_property>
-      <obj_property name="ObjectShortName">ADC_PDN_OBUF</obj_property>
+      <obj_property name="ElementShortName">MercuryXU1_i/MercuryXU1_i/Net[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Net[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="ADC_RST_OBUF">
+   <wvobject fp_name="MercuryXU1_i/MercuryXU1_i/sample_generator_0_m_axis_tstrb" type="array">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">ADC_RST_OBUF</obj_property>
-      <obj_property name="ObjectShortName">ADC_RST_OBUF</obj_property>
+      <obj_property name="ElementShortName">MercuryXU1_i/MercuryXU1_i/sample_generator_0_m_axis_tstrb[3:0]</obj_property>
+      <obj_property name="ObjectShortName">sample_generator_0_m_axis_tstrb[3:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="ADC0_SEN_OBUF">
+   <wvobject fp_name="MercuryXU1_i/MercuryXU1_i/sample_generator_0_m_axis_tlast" type="logic">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">ADC0_SEN_OBUF</obj_property>
-      <obj_property name="ObjectShortName">ADC0_SEN_OBUF</obj_property>
+      <obj_property name="ElementShortName">MercuryXU1_i/MercuryXU1_i/sample_generator_0_m_axis_tlast</obj_property>
+      <obj_property name="ObjectShortName">sample_generator_0_m_axis_tlast</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="ADC1_SEN_OBUF">
+   <wvobject fp_name="MercuryXU1_i/MercuryXU1_i/axis_data_fifo_0_s_axis_tready" type="logic">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">ADC1_SEN_OBUF</obj_property>
-      <obj_property name="ObjectShortName">ADC1_SEN_OBUF</obj_property>
+      <obj_property name="ElementShortName">MercuryXU1_i/MercuryXU1_i/axis_data_fifo_0_s_axis_tready</obj_property>
+      <obj_property name="ObjectShortName">axis_data_fifo_0_s_axis_tready</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="ADC2_SEN_OBUF">
+   <wvobject fp_name="MercuryXU1_i/MercuryXU1_i/sample_generator_0_m_axis_tvalid" type="logic">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">ADC2_SEN_OBUF</obj_property>
-      <obj_property name="ObjectShortName">ADC2_SEN_OBUF</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="ADC3_SEN_OBUF">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">ADC3_SEN_OBUF</obj_property>
-      <obj_property name="ObjectShortName">ADC3_SEN_OBUF</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="ADC4_SEN_OBUF">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">ADC4_SEN_OBUF</obj_property>
-      <obj_property name="ObjectShortName">ADC4_SEN_OBUF</obj_property>
+      <obj_property name="ElementShortName">MercuryXU1_i/MercuryXU1_i/sample_generator_0_m_axis_tvalid</obj_property>
+      <obj_property name="ObjectShortName">sample_generator_0_m_axis_tvalid</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
