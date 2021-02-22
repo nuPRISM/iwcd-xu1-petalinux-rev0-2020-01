@@ -8,7 +8,7 @@
      };
 };
 
-&spi0{
+&spi0 {
   is-decoded-cs = <0>;
   num-cs = <1>;
   status = "okay";
@@ -23,18 +23,17 @@
   };
 };
 
-&spi1{
-   status = "okay";
+&spi1 {
    is-decoded-cs = <0>;
    num-cs = <1>;
    status = "okay";
    bus-num = <1>;
    spidev@0x00 {
-     compatible = "linux,spidev";
-     spi-max-frequency = <1000000>;
-     spi-cpol;
-     spi-cpha;
-     reg = <0>;
-     bus-num = <1>;
+    compatible = "linux,spidev";
+    spi-max-frequency = <1000000>;
+    spi-cpol = <0>;
+    spi-cpha = <0>;
+    reg = <0>;
+    bus-num = <0>;
   };
 };

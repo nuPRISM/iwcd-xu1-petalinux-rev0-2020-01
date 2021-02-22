@@ -273,8 +273,8 @@ static int release(struct inode *ino, struct file *file)
 	/* Stop all the activity when the channel is closed assuming this
 	 * may help if the application is aborted without normal closure
 	 */
-
-	/*dma_device->device_terminate_all(pchannel_p->channel_p);*/
+	// Remove this line?
+	dma_device->device_terminate_all(pchannel_p->channel_p);
 	return 0;
 }
 

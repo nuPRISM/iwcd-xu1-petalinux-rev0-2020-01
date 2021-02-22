@@ -51,6 +51,7 @@ uint8_t adc_cfg_data[]  = {0xFF, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x
 
 uint8_t adc_register_count = ARRAY_SIZE(adc_reg_addr);
 
+
 void adc_set_mode(int spidev_mode)
 {
     mode = spidev_mode;
@@ -213,12 +214,12 @@ int adc_read(uint16_t address, uint8_t* data)
 int adc_write(uint16_t address, uint8_t data)
 {
     uint8_t txbuf[3] = TX_BUFFER(SPI_WRITE_CMD, address, data);
-    uint8_t rxbuf[3] = {0};
+    //uint8_t rxbuf[3] = {0};
     DBG("adc_write(): address=0x%x, data=0x%x\n", address, data);
 
     struct spi_ioc_transfer tr = {
 		.tx_buf = (unsigned long)txbuf,
-		.rx_buf = (unsigned long)rxbuf,
+		.rx_buf = (unsigned long)NULL, //rxbuf,
 		.len = 3,
 		.delay_usecs = delay,
 		.speed_hz = speed,
@@ -278,7 +279,7 @@ int adc_read_back(int adc_num, uint8_t cfg_data[], uint8_t data_size)
     {
         ret |= adc_read(adc_reg_addr[i], &return_data);
         
-        printf("Read-back %s for register, 0x%x (sent=0x%x, returned=0x%x\n", 
+        printf("Read-back %s for register, 0x%x (sent=0x%x, returned=0x%x)\n", 
                 (return_data == cfg_data[i] ? "PASSED":"FAILED"), 
                 adc_reg_addr[i], cfg_data[i], return_data);
 
