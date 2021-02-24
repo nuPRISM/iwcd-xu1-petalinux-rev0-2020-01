@@ -6,6 +6,7 @@
 .
 ├── documents
 ├── enclustra_scripts
+├── GP_xsa
 ├── lib
 ├── petalinux_midas
 ├── pmufw
@@ -16,28 +17,38 @@
 ├── Vitis_NUPRISM
 ├── Vivado_NuPRISM
 ├── Vivado_NuPRISM_AddingDMA
-└── wut_petalinux
+├── wut_petalinux
+└── wut_petalinux-2018.3
 </pre>  
+`GP_xsa` and `wut_petalinux-2018.2` not added to repo
 
 ## petalinux
 
 
+
 ### hardware configuration
 
-Export hardware from the Vivado project in `Vivado_NuPRISM`. Verify if the above forlder contains the `system_top.xsa` file. Configure petalinux project:
+Export hardware from the Vivado project in `GP_xsa`. Verify if the above forlder contains the `system_top.xsa` file. Configure petalinux project:
 <pre>  
-petalinux-config --get-hw-description ../Vivado_NuPRISM
+petalinux-config --get-hw-description ../GP_xsa/
 </pre>
 
 ### rootfs configuration
 
 ### kernel configuration
 
+<pre>
+petalinux-config -c kernel
+</pre>
+Select `User mode SPI driver support` in the `Device drivers` section.
+
 ### device tree customization
 
+Generate current device tree info:
 <pre>  
 dtc -I dtb -O dts -o system.dts images/linux/system.dtb
 </pre>  
+If any modification is required insert device tree data into `*.dtsi` file in the `wut_petalinux/project-spec/meta-user/recipes-bsp/device-tree/files` directory.
 
 ### Project build
 
