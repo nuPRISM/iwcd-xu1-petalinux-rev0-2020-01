@@ -1,12 +1,13 @@
 /**
- * adc-spi.h
+ * @file adc-spi.h
+ * @author Jake Cronin (jcronin@triumf.ca)
+ * @brief ADC SPI control API. Supports read and write operations to all 
+ *        registers in the ADC array
+ * @version 0.1
+ * @date 2021-02-23
  * 
- * Author: Jake Cronin
- * Company: TRIUMF
- * Date: Feb 16, 2021
+ * @copyright Copyright (c) 2021
  * 
- * Purpose: An API to interface with the NuPRISM ADC array 
- *          via spi-dev Linux kernel driver
  */
 
 #ifndef _ADC_SPI_H_
@@ -16,6 +17,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
+// #include <errno.h>
 
 #include <linux/spi/spidev.h>
 

@@ -1,30 +1,3 @@
-/*
-* Copyright (C) 2013 - 2016  Xilinx, Inc.  All rights reserved.
-*
-* Permission is hereby granted, free of charge, to any person
-* obtaining a copy of this software and associated documentation
-* files (the "Software"), to deal in the Software without restriction,
-* including without limitation the rights to use, copy, modify, merge,
-* publish, distribute, sublicense, and/or sell copies of the Software,
-* and to permit persons to whom the Software is furnished to do so,
-* subject to the following conditions:
-*
-* The above copyright notice and this permission notice shall be included
-* in all copies or substantial portions of the Software.
-*
-* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-* IN NO EVENT SHALL XILINX  BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-* WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
-* CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-*
-* Except as contained in this notice, the name of the Xilinx shall not be used
-* in advertising or otherwise to promote the sale, use or other dealings in this
-* Software without prior written authorization from Xilinx.
-*
-*/
-
 #include <stdio.h>
 #include <unistd.h>
 
@@ -90,9 +63,9 @@ void get_opts(int argc, char **argv)
 {
     int opt;
 
-	while((opt = getopt(argc, argv, "n:d:m:b:s:a:v:")) != -1)
+	while ((opt = getopt(argc, argv, "n:d:m:b:s:a:v:")) != -1)
     {
-        switch(opt)
+        switch (opt)
         {
             case 'n':
                 adc_num = atoi(optarg);
@@ -130,17 +103,15 @@ int main(int argc, char **argv)
 {
     int ret = 0;
 
-    // These values will be set by default
-
-
     get_opts(argc, argv);
 
+    // These values will be set by default
     adc_set_mode(mode);
     adc_set_bits(bits);
     adc_set_speed(speed);
     adc_set_delay(delay);
     
-    if(optind < argc)
+    if (optind < argc)
     {
         if (adc_open(device_name) != 0)
         {
@@ -155,58 +126,58 @@ int main(int argc, char **argv)
 	    printf("bits per word: %d\n", bits);
 	    printf("max speed: %d Hz (%d KHz)\n", speed, speed/1000);
 
-        if(strcmp(argv[optind], "pdn") == 0)
+        if (strcmp(argv[optind], "pdn") == 0)
         {
             ret = adc_power_down();
         }
-        else if(strcmp(argv[optind], "pup") == 0)
+        else if (strcmp(argv[optind], "pup") == 0)
         {
             ret = adc_power_up();
         }
-        else if(strcmp(argv[optind], "rst") == 0)
+        else if (strcmp(argv[optind], "rst") == 0)
         {
             ret = adc_reset();
         }
-        else if(strcmp(argv[optind], "init") == 0)
+        else if (strcmp(argv[optind], "init") == 0)
         {
             ret = adc_init(adc_num, adc_cfg_data, adc_register_count);
         }
-        else if(strcmp(argv[optind], "rb") == 0)
+        else if (strcmp(argv[optind], "rb") == 0)
         {
             ret = adc_read_back(adc_num, adc_cfg_data, adc_register_count);
         }
-        else if(strcmp(argv[optind], "read") == 0)
+        else if (strcmp(argv[optind], "read") == 0)
         {
             uint8_t data = 0xCC;
             adc_enable(adc_num);
 
-            int ret = adc_read(addr, &data);
+            ret = adc_read(addr, &data);
             DBG("address=%d, ret=%d, value=0x%x\n", addr, ret, data);
             
             adc_disable(adc_num);
         }
-        else if(strcmp(argv[optind], "wr") == 0)
+        else if (strcmp(argv[optind], "write") == 0)
         {
             adc_enable(adc_num);
 
-            int ret = adc_write(addr, value);
+            ret = adc_write(addr, value);
             DBG("address=%d, value=%d, ret=%d\n", addr, value, ret);
 
             adc_disable(adc_num);
         }
-        else if(strcmp(argv[optind], "nom") == 0)
+        else if (strcmp(argv[optind], "nom") == 0)
         {
             adc_nominal_mode(adc_num);
         }
-        else if(strcmp(argv[optind], "tst") == 0)
+        else if (strcmp(argv[optind], "tst") == 0)
         {
             ret = adc_test(adc_num, TOGGLE_TEST_PATTERN);
         }
-        else if(strcmp(argv[optind], "tst0") == 0)
+        else if (strcmp(argv[optind], "tst0") == 0)
         {
             ret = adc_test(adc_num, ALL_ZEROS_TEST_PATTERN);
         }
-        else if(strcmp(argv[optind], "tst1") == 0)
+        else if (strcmp(argv[optind], "tst1") == 0)
         {
             ret = adc_test(adc_num, ALL_ONES_TEST_PATTERN);
         } 
