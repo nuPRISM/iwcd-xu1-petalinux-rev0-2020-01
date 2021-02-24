@@ -1,6 +1,6 @@
 PETALINUX_VER=2020.1
 VALIDATE_HW_CHKSUM=1
-HARDWARE_PATH=/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/GP_xsa/system_top_2021-02-11.xsa
-HARDWARE_CHECKSUM=cba2220e7aa178ddfe5728da75ce02c6
+HARDWARE_PATH=/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/GP_xsa/system_top_2021-02-24.xsa
+HARDWARE_CHECKSUM=eb5e25d718d0ba8e7c2d9fff64b207a0
 YOCTO_SDK=b034efc026f5f7d24a4732927cb62e43
 RFSCONFIG_CHKSUM=3a373e4f1461b166df58b761bd814fdd
