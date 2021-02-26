@@ -14,19 +14,24 @@ static uint16_t delay = 0;
 
 static int fd;
 
-uint16_t adc_reg_addr[] = {
-    0x001,0x003,0x004,0x005,0x006,0x007,0x009,0x00A,0x00B,0x00E,0x00F,0x013,0x015,0x025,0x027,0x11D,
-    0x122,0x134,0x139,0x21D,0x222,0x234,0x239,0x308,0x41D,0x422,0x434,0x439,0x51D,0x522,0x534,0x539,
-    0x608,0x70A
+struct init_sequence {
+    uint16_t reg;
+    uint8_t data;
 };
 
-uint8_t adc_cfg_data[]  = {
-    0xFF, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
-    0x02, 0x28, 0x08, 0x00, 0x02, 0x28, 0x08, 0x00, 0x00, 0x02, 0x28, 0x08, 0x00, 0x02, 0x28, 0x08, 
-    0x00, 0x01
+struct init_sequence adc_init_sequence [] = {
+    {0x001, 0xFF}, {0x003, 0x00}, {0x004, 0x00}, {0x005, 0x00}, 
+    {0x006, 0x00}, {0x007, 0x00}, {0x009, 0x00}, {0x00a, 0x00}, 
+    {0x00b, 0x00}, {0x00e, 0x00}, {0x00f, 0x00}, {0x013, 0x00}, 
+    {0x015, 0x00}, {0x025, 0x00}, {0x027, 0x00}, {0x11d, 0x00}, 
+    {0x122, 0x02}, {0x134, 0x28}, {0x139, 0x08}, {0x21d, 0x00}, 
+    {0x222, 0x02}, {0x234, 0x28}, {0x239, 0x08}, {0x308, 0x00}, 
+    {0x41d, 0x00}, {0x422, 0x02}, {0x434, 0x28}, {0x439, 0x08}, 
+    {0x51d, 0x00}, {0x522, 0x02}, {0x534, 0x28}, {0x539, 0x08}, 
+    {0x608, 0x00}, {0x70a, 0x01},
 };
 
-uint8_t adc_register_count = ARRAY_SIZE(adc_reg_addr);
+uint8_t adc_reg_count = ARRAY_SIZE(adc_init_sequence);
 
 
 void adc_set_mode(int spidev_mode)
@@ -176,16 +181,18 @@ int adc_read(uint16_t address, uint8_t* data)
         .tx_nbits = 1,
         .rx_nbits = 1
 	};
-    int ret = ioctl(fd, SPI_IOC_MESSAGE(1), &tr);
 
-    DBG("adc_read(): ret=%d\n", ret);
-
-    if (ret >= 0)
+    if (ioctl(fd, SPI_IOC_MESSAGE(1), &tr) < 0)
+    {
+        DBG("ERR could not read adc register: %s\n", strerror(errno));
+        return -1;
+    }
+    else
     {
         *data = rxbuf[2];
     }
 
-    return ret;
+    return 0;
 }
 
 
@@ -206,32 +213,26 @@ int adc_write(uint16_t address, uint8_t data)
         .rx_nbits = 1
 	};
 
-    int ret = ioctl(fd, SPI_IOC_MESSAGE(1), &tr);
+    if (ioctl(fd, SPI_IOC_MESSAGE(1), &tr) < 0)
+    {
+        DBG("ERR could not write to adc register: %s\n", strerror(errno));
+        return -1;
+    }
 
-    DBG("adc_write(): ret=%d\n", ret);
-
-    return ret;
+    return 0;
 }
 
 
-int adc_init(int adc_num, uint8_t cfg_data[], uint8_t data_size)
+int adc_init(int adc_num)
 {
     int ret = 0;
-
-    if (data_size != adc_register_count)
-    {
-        DBG("adc_read_back(): Size mismatch between data (%d) and register map (%d).\n",
-            data_size,
-            adc_register_count);
-        return -1;
-    }
 
     DBG("adc_init(): num=%d\n", adc_num);
     adc_enable(adc_num);
 
-    for (uint8_t i = 0; i < adc_register_count; i++)
+    for (uint8_t i = 0; i < adc_reg_count; i++)
     {
-        ret |= adc_write(adc_reg_addr[i], cfg_data[i]);
+        ret |= adc_write(adc_init_sequence[i].reg, adc_init_sequence[i].data);
     }
 
     adc_disable(adc_num);
@@ -241,29 +242,21 @@ int adc_init(int adc_num, uint8_t cfg_data[], uint8_t data_size)
 }
 
 
-int adc_read_back(int adc_num, uint8_t cfg_data[], uint8_t data_size)
+int adc_read_back(int adc_num)
 {
     uint8_t return_data = 0xCC;
     int ret = 0;
 
-    if (data_size != adc_register_count)
-    {
-        DBG("adc_read_back(): Size mismatch between data (%d) and register map (%d).\n",
-            data_size,
-            adc_register_count);
-        return -1;
-    }
-
     DBG("adc_read_back(): num=%d\n", adc_num);
     adc_enable(adc_num);
 
-    for (uint8_t i = 0; i < adc_register_count; i++)
+    for (uint8_t i = 0; i < adc_reg_count; i++)
     {
-        ret |= adc_read(adc_reg_addr[i], &return_data);
+        ret |= adc_read(adc_init_sequence[i].reg, &return_data);
         
         DBG("Read-back %s for register, 0x%x (sent=0x%x, returned=0x%x)\n",
-            (return_data == cfg_data[i] ? "PASSED":"FAILED"),
-            adc_reg_addr[i], cfg_data[i], return_data);
+            (return_data == adc_init_sequence[i].data ? "PASSED":"FAILED"),
+            adc_init_sequence[i].reg, adc_init_sequence[i].data, return_data);
 
         return_data = 0xCC;
     }

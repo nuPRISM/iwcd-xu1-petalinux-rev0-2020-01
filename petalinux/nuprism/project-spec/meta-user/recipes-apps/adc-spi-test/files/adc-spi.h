@@ -17,7 +17,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
-// #include <errno.h>
+#include <errno.h>
 
 #include <linux/spi/spidev.h>
 
@@ -36,7 +36,7 @@
 #define DEFAULT_SPI_BITS_PER_WORD 8
 
 // Read and write commands as specified in the TI ADC342x datasheet
-#define SPI_READ_CMD	          0xC0
+#define SPI_READ_CMD	            0xC0
 #define SPI_WRITE_CMD             0x40
 
 // Used to specify relevant GPIO pins 
@@ -88,7 +88,7 @@ void adc_set_bits(int spidev_bits_per_byte);
 /**
  * @brief Set speed for spi transfers
  * 
- * @param adc_num New transfer speed
+ * @param spidev_speed New transfer speed
  */
 void adc_set_speed(int spidev_speed);
 
@@ -96,7 +96,7 @@ void adc_set_speed(int spidev_speed);
 /**
  * @brief Set mode for spi transfers
  * 
- * @param adc_num New delay between last bit transferred and chip deselect
+ * @param spidev_delay New delay between last bit transferred and chip deselect
  */
 void adc_set_delay(int spidev_delay);
 
@@ -189,12 +189,10 @@ int adc_write(uint16_t address, uint8_t data);
  * @brief Populate all registers of a specific ADC with specific data values
  * 
  * @param adc_num   The ADC to write to
- * @param cfg_data  Array containing the data to write to each register
- * @param data_size The size of the data array param, must match the register array size
  * 
  * @return          Return number of bytes per transfer if all registers were successfully populated.
  */
-int adc_init(int adc_num, uint8_t cfg_data[], uint8_t data_size);
+int adc_init(int adc_num);
 
 
 /**
@@ -205,7 +203,7 @@ int adc_init(int adc_num, uint8_t cfg_data[], uint8_t data_size);
  * 
  * @return          Return number of bytes per transfer if all registers were successfully read.
  */
-int adc_read_back(int adc_num, uint8_t cfg_data[], uint8_t data_size);
+int adc_read_back(int adc_num);
 
 
 /**

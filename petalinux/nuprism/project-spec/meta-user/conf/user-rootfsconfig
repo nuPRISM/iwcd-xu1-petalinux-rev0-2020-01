@@ -11,3 +11,4 @@ CONFIG_fifo-gen-test
 CONFIG_mfe
 CONFIG_midas
 CONFIG_spi-dev-test
+CONFIG_clock-cleaner-i2c

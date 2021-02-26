@@ -19,10 +19,6 @@ static uint8_t value;
 static int adc_num;
 static char device_name[64] = DEFAULT_SPI_DEVICE;
 
-// Use config data defined in adc-spi
-extern uint8_t adc_cfg_data[];
-extern uint8_t adc_register_count;
-
 
 int adc_test(int adc_num, uint8_t test_pattern)
 {
@@ -140,11 +136,11 @@ int main(int argc, char **argv)
         }
         else if (strcmp(argv[optind], "init") == 0)
         {
-            ret = adc_init(adc_num, adc_cfg_data, adc_register_count);
+            ret = adc_init(adc_num);
         }
         else if (strcmp(argv[optind], "rb") == 0)
         {
-            ret = adc_read_back(adc_num, adc_cfg_data, adc_register_count);
+            ret = adc_read_back(adc_num);
         }
         else if (strcmp(argv[optind], "read") == 0)
         {
