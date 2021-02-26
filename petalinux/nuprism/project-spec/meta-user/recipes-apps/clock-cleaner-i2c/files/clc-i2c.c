@@ -180,21 +180,21 @@ int clc_read_id(struct clock_cleaner_id* clc_id)
 
 int clc_read_status(struct clock_cleaner_status* clc_status)
 {
-    uint8_t id[4];
+    uint8_t status[4];
     uint16_t status_registers[3] = {0x20C, 0x20D, 0X210, 0X211};
 
     for (uint8_t i = 0; i < 4; i++)
     {
-        if (clc_read(CLOCK_CLEANER_SLAVE_ADDR, status_registers[i], id+i) != 0)
+        if (clc_read(CLOCK_CLEANER_SLAVE_ADDR, status_registers[i], status+i) != 0)
         {
             return -1;
         }
     }
-    clc_status->gpio = data[0] & 0x0F; 
-    clc_status->INT = (bool)(data[1] & 0x01);
-    clc_status->eep_err = (bool)((data[2] & 0x02) >> 1);
-    clc_status->boot_fail = (bool)((data[2] & 0x01);
-    clc_status->eep_done = (bool)(data[3] & 0x01);
+    clc_status->gpio = status[0] & 0x0F; 
+    clc_status->INT = (bool)(status[1] & 0x01);
+    clc_status->eep_err = (bool)((status[2] & 0x02) >> 1);
+    clc_status->boot_fail = (bool)(status[2] & 0x01);
+    clc_status->eep_done = (bool)(status[3] & 0x01);
 
     return 0;
 }
