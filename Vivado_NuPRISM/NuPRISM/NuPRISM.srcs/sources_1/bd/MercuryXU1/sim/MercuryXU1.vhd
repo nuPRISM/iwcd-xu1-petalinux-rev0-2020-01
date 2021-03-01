@@ -1,7 +1,7 @@
 --Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2020.1.1 (lin64) Build 2960000 Wed Aug  5 22:57:21 MDT 2020
---Date        : Fri Feb 19 10:24:30 2021
+--Date        : Mon Mar  1 11:42:38 2021
 --Host        : edev running 64-bit Ubuntu 18.04.5 LTS
 --Command     : generate_target MercuryXU1.bd
 --Design      : MercuryXU1
@@ -3240,6 +3240,7 @@ architecture STRUCTURE of MercuryXU1 is
   port (
     s_axi_lite_aclk : in STD_LOGIC;
     m_axi_sg_aclk : in STD_LOGIC;
+    m_axi_mm2s_aclk : in STD_LOGIC;
     m_axi_s2mm_aclk : in STD_LOGIC;
     axi_resetn : in STD_LOGIC;
     s_axi_lite_awvalid : in STD_LOGIC;
@@ -3287,6 +3288,25 @@ architecture STRUCTURE of MercuryXU1 is
     m_axi_sg_rlast : in STD_LOGIC;
     m_axi_sg_rvalid : in STD_LOGIC;
     m_axi_sg_rready : out STD_LOGIC;
+    m_axi_mm2s_araddr : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    m_axi_mm2s_arlen : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    m_axi_mm2s_arsize : out STD_LOGIC_VECTOR ( 2 downto 0 );
+    m_axi_mm2s_arburst : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    m_axi_mm2s_arprot : out STD_LOGIC_VECTOR ( 2 downto 0 );
+    m_axi_mm2s_arcache : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    m_axi_mm2s_arvalid : out STD_LOGIC;
+    m_axi_mm2s_arready : in STD_LOGIC;
+    m_axi_mm2s_rdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    m_axi_mm2s_rresp : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    m_axi_mm2s_rlast : in STD_LOGIC;
+    m_axi_mm2s_rvalid : in STD_LOGIC;
+    m_axi_mm2s_rready : out STD_LOGIC;
+    mm2s_prmry_reset_out_n : out STD_LOGIC;
+    m_axis_mm2s_tdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    m_axis_mm2s_tkeep : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    m_axis_mm2s_tvalid : out STD_LOGIC;
+    m_axis_mm2s_tready : in STD_LOGIC;
+    m_axis_mm2s_tlast : out STD_LOGIC;
     m_axi_s2mm_awaddr : out STD_LOGIC_VECTOR ( 31 downto 0 );
     m_axi_s2mm_awlen : out STD_LOGIC_VECTOR ( 7 downto 0 );
     m_axi_s2mm_awsize : out STD_LOGIC_VECTOR ( 2 downto 0 );
@@ -3309,6 +3329,7 @@ architecture STRUCTURE of MercuryXU1 is
     s_axis_s2mm_tvalid : in STD_LOGIC;
     s_axis_s2mm_tready : out STD_LOGIC;
     s_axis_s2mm_tlast : in STD_LOGIC;
+    mm2s_introut : out STD_LOGIC;
     s2mm_introut : out STD_LOGIC
   );
   end component MercuryXU1_axi_dma_0_0;
@@ -3498,6 +3519,7 @@ architecture STRUCTURE of MercuryXU1 is
   signal axi_dma_0_M_AXI_SG_WREADY : STD_LOGIC;
   signal axi_dma_0_M_AXI_SG_WSTRB : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal axi_dma_0_M_AXI_SG_WVALID : STD_LOGIC;
+  signal axi_dma_0_mm2s_introut : STD_LOGIC;
   signal axi_dma_0_s2mm_introut : STD_LOGIC;
   signal axi_gpio_0_GPIO_TRI_O : STD_LOGIC_VECTOR ( 19 downto 0 );
   signal axi_smc_M00_AXI_ARADDR : STD_LOGIC_VECTOR ( 48 downto 0 );
@@ -3736,7 +3758,20 @@ architecture STRUCTURE of MercuryXU1 is
   signal zynq_ultra_ps_e_0_pl_clk0 : STD_LOGIC;
   signal zynq_ultra_ps_e_0_pl_clk1 : STD_LOGIC;
   signal zynq_ultra_ps_e_0_pl_resetn0 : STD_LOGIC;
+  signal NLW_axi_dma_0_m_axi_mm2s_arvalid_UNCONNECTED : STD_LOGIC;
+  signal NLW_axi_dma_0_m_axi_mm2s_rready_UNCONNECTED : STD_LOGIC;
+  signal NLW_axi_dma_0_m_axis_mm2s_tlast_UNCONNECTED : STD_LOGIC;
+  signal NLW_axi_dma_0_m_axis_mm2s_tvalid_UNCONNECTED : STD_LOGIC;
+  signal NLW_axi_dma_0_mm2s_prmry_reset_out_n_UNCONNECTED : STD_LOGIC;
   signal NLW_axi_dma_0_s2mm_prmry_reset_out_n_UNCONNECTED : STD_LOGIC;
+  signal NLW_axi_dma_0_m_axi_mm2s_araddr_UNCONNECTED : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal NLW_axi_dma_0_m_axi_mm2s_arburst_UNCONNECTED : STD_LOGIC_VECTOR ( 1 downto 0 );
+  signal NLW_axi_dma_0_m_axi_mm2s_arcache_UNCONNECTED : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal NLW_axi_dma_0_m_axi_mm2s_arlen_UNCONNECTED : STD_LOGIC_VECTOR ( 7 downto 0 );
+  signal NLW_axi_dma_0_m_axi_mm2s_arprot_UNCONNECTED : STD_LOGIC_VECTOR ( 2 downto 0 );
+  signal NLW_axi_dma_0_m_axi_mm2s_arsize_UNCONNECTED : STD_LOGIC_VECTOR ( 2 downto 0 );
+  signal NLW_axi_dma_0_m_axis_mm2s_tdata_UNCONNECTED : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal NLW_axi_dma_0_m_axis_mm2s_tkeep_UNCONNECTED : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal NLW_axi_smc_S01_AXI_arready_UNCONNECTED : STD_LOGIC;
   signal NLW_axi_smc_S01_AXI_rlast_UNCONNECTED : STD_LOGIC;
   signal NLW_axi_smc_S01_AXI_rvalid_UNCONNECTED : STD_LOGIC;
@@ -3862,6 +3897,20 @@ begin
 axi_dma_0: component MercuryXU1_axi_dma_0_0
      port map (
       axi_resetn => proc_sys_reset_0_peripheral_aresetn(0),
+      m_axi_mm2s_aclk => zynq_ultra_ps_e_0_pl_clk0,
+      m_axi_mm2s_araddr(31 downto 0) => NLW_axi_dma_0_m_axi_mm2s_araddr_UNCONNECTED(31 downto 0),
+      m_axi_mm2s_arburst(1 downto 0) => NLW_axi_dma_0_m_axi_mm2s_arburst_UNCONNECTED(1 downto 0),
+      m_axi_mm2s_arcache(3 downto 0) => NLW_axi_dma_0_m_axi_mm2s_arcache_UNCONNECTED(3 downto 0),
+      m_axi_mm2s_arlen(7 downto 0) => NLW_axi_dma_0_m_axi_mm2s_arlen_UNCONNECTED(7 downto 0),
+      m_axi_mm2s_arprot(2 downto 0) => NLW_axi_dma_0_m_axi_mm2s_arprot_UNCONNECTED(2 downto 0),
+      m_axi_mm2s_arready => '0',
+      m_axi_mm2s_arsize(2 downto 0) => NLW_axi_dma_0_m_axi_mm2s_arsize_UNCONNECTED(2 downto 0),
+      m_axi_mm2s_arvalid => NLW_axi_dma_0_m_axi_mm2s_arvalid_UNCONNECTED,
+      m_axi_mm2s_rdata(31 downto 0) => B"00000000000000000000000000000000",
+      m_axi_mm2s_rlast => '0',
+      m_axi_mm2s_rready => NLW_axi_dma_0_m_axi_mm2s_rready_UNCONNECTED,
+      m_axi_mm2s_rresp(1 downto 0) => B"00",
+      m_axi_mm2s_rvalid => '0',
       m_axi_s2mm_aclk => zynq_ultra_ps_e_0_pl_clk0,
       m_axi_s2mm_awaddr(31 downto 0) => axi_dma_0_M_AXI_S2MM_AWADDR(31 downto 0),
       m_axi_s2mm_awburst(1 downto 0) => axi_dma_0_M_AXI_S2MM_AWBURST(1 downto 0),
@@ -3909,6 +3958,13 @@ axi_dma_0: component MercuryXU1_axi_dma_0_0
       m_axi_sg_wready => axi_dma_0_M_AXI_SG_WREADY,
       m_axi_sg_wstrb(3 downto 0) => axi_dma_0_M_AXI_SG_WSTRB(3 downto 0),
       m_axi_sg_wvalid => axi_dma_0_M_AXI_SG_WVALID,
+      m_axis_mm2s_tdata(31 downto 0) => NLW_axi_dma_0_m_axis_mm2s_tdata_UNCONNECTED(31 downto 0),
+      m_axis_mm2s_tkeep(3 downto 0) => NLW_axi_dma_0_m_axis_mm2s_tkeep_UNCONNECTED(3 downto 0),
+      m_axis_mm2s_tlast => NLW_axi_dma_0_m_axis_mm2s_tlast_UNCONNECTED,
+      m_axis_mm2s_tready => '1',
+      m_axis_mm2s_tvalid => NLW_axi_dma_0_m_axis_mm2s_tvalid_UNCONNECTED,
+      mm2s_introut => axi_dma_0_mm2s_introut,
+      mm2s_prmry_reset_out_n => NLW_axi_dma_0_mm2s_prmry_reset_out_n_UNCONNECTED,
       s2mm_introut => axi_dma_0_s2mm_introut,
       s2mm_prmry_reset_out_n => NLW_axi_dma_0_s2mm_prmry_reset_out_n_UNCONNECTED,
       s_axi_lite_aclk => zynq_ultra_ps_e_0_pl_clk0,
@@ -4346,7 +4402,7 @@ system_management_wiz_0: component MercuryXU1_system_management_wiz_0_0
     );
 xlconcat_0: component MercuryXU1_xlconcat_0_0
      port map (
-      In0(0) => '0',
+      In0(0) => axi_dma_0_mm2s_introut,
       In1(0) => axi_dma_0_s2mm_introut,
       dout(1 downto 0) => xlconcat_0_dout(1 downto 0)
     );

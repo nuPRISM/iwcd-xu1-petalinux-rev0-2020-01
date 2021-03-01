@@ -20,7 +20,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM_AddingDMA/NuPRISM/NuPRISM.runs/MercuryNuPRISM_synth'
+HD_PWD='/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.runs/MercuryNuPRISM_synth'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

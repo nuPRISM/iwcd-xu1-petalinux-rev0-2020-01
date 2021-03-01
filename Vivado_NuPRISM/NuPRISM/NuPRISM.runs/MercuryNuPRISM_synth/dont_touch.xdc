@@ -164,17 +164,17 @@ set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {R
 # XDC: bd/MercuryXU1/ip/MercuryXU1_zynq_ultra_ps_e_0_0/MercuryXU1_zynq_ultra_ps_e_0_0_ooc.xdc
 
 # XDC: bd/MercuryXU1/ip/MercuryXU1_zynq_ultra_ps_e_0_0/MercuryXU1_zynq_ultra_ps_e_0_0.xdc
-set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==MercuryXU1_zynq_ultra_ps_e_0_0 || ORIG_REF_NAME==MercuryXU1_zynq_ultra_ps_e_0_0} -quiet] {/U0 } ]/U0 ] -quiet] -quiet
+set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==MercuryXU1_zynq_ultra_ps_e_0_0 || ORIG_REF_NAME==MercuryXU1_zynq_ultra_ps_e_0_0} -quiet] {/inst } ]/inst ] -quiet] -quiet
 
 # XDC: bd/MercuryXU1/ip/MercuryXU1_xbar_1/MercuryXU1_xbar_1_ooc.xdc
 
 # XDC: bd/MercuryXU1/ip/MercuryXU1_system_management_wiz_0_0_1/MercuryXU1_system_management_wiz_0_0_board.xdc
-set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==MercuryXU1_system_management_wiz_0_0 || ORIG_REF_NAME==MercuryXU1_system_management_wiz_0_0} -quiet] {/U0 } ]/U0 ] -quiet] -quiet
+set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==MercuryXU1_system_management_wiz_0_0 || ORIG_REF_NAME==MercuryXU1_system_management_wiz_0_0} -quiet] {/inst } ]/inst ] -quiet] -quiet
 
 # XDC: bd/MercuryXU1/ip/MercuryXU1_system_management_wiz_0_0_1/MercuryXU1_system_management_wiz_0_0_ooc.xdc
 
 # XDC: bd/MercuryXU1/ip/MercuryXU1_system_management_wiz_0_0_1/MercuryXU1_system_management_wiz_0_0.xdc
-#dup# set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==MercuryXU1_system_management_wiz_0_0 || ORIG_REF_NAME==MercuryXU1_system_management_wiz_0_0} -quiet] {/U0 } ]/U0 ] -quiet] -quiet
+#dup# set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==MercuryXU1_system_management_wiz_0_0 || ORIG_REF_NAME==MercuryXU1_system_management_wiz_0_0} -quiet] {/inst } ]/inst ] -quiet] -quiet
 
 # XDC: bd/MercuryXU1/ip/MercuryXU1_axi_dma_0_0/MercuryXU1_axi_dma_0_0.xdc
 set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==MercuryXU1_axi_dma_0_0 || ORIG_REF_NAME==MercuryXU1_axi_dma_0_0} -quiet] {/U0 } ]/U0 ] -quiet] -quiet
