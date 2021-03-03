@@ -274,7 +274,7 @@ static int release(struct inode *ino, struct file *file)
 	 * may help if the application is aborted without normal closure
 	 */
 
-	dma_device->device_terminate_all(pchannel_p->channel_p);
+	/*dma_device->device_terminate_all(pchannel_p->channel_p);*/    // https://forums.xilinx.com/t5/Embedded-Linux/DMA-proxy-driver-runs-once-but-subsquently-continuously-times/td-p/1025315
 	return 0;
 }
 
