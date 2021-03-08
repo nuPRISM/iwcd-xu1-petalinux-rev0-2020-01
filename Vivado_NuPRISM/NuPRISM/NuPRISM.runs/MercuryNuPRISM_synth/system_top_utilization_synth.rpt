@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.1.1 (lin64) Build 2960000 Wed Aug  5 22:57:21 MDT 2020
-| Date         : Mon Mar  1 15:11:00 2021
+| Date         : Mon Mar  8 11:10:45 2021
 | Host         : edev running 64-bit Ubuntu 18.04.5 LTS
 | Command      : report_utilization -file system_top_utilization_synth.rpt -pb system_top_utilization_synth.pb
 | Design       : system_top
@@ -31,13 +31,13 @@ Table of Contents
 +----------------------------+-------+-------+-----------+-------+
 |          Site Type         |  Used | Fixed | Available | Util% |
 +----------------------------+-------+-------+-----------+-------+
-| CLB LUTs*                  | 11418 |     0 |    214604 |  5.32 |
-|   LUT as Logic             |  9629 |     0 |    214604 |  4.49 |
-|   LUT as Memory            |  1789 |     0 |    144000 |  1.24 |
-|     LUT as Distributed RAM |  1330 |     0 |           |       |
-|     LUT as Shift Register  |   459 |     0 |           |       |
-| CLB Registers              | 15787 |     0 |    429208 |  3.68 |
-|   Register as Flip Flop    | 15787 |     0 |    429208 |  3.68 |
+| CLB LUTs*                  | 11962 |     0 |    214604 |  5.57 |
+|   LUT as Logic             |  9961 |     0 |    214604 |  4.64 |
+|   LUT as Memory            |  2001 |     0 |    144000 |  1.39 |
+|     LUT as Distributed RAM |  1540 |     0 |           |       |
+|     LUT as Shift Register  |   461 |     0 |           |       |
+| CLB Registers              | 16537 |     0 |    429208 |  3.85 |
+|   Register as Flip Flop    | 16537 |     0 |    429208 |  3.85 |
 |   Register as Latch        |     0 |     0 |    429208 |  0.00 |
 | CARRY8                     |    38 |     0 |     34260 |  0.11 |
 | F7 Muxes                   |    15 |     0 |    137040 |  0.01 |
@@ -61,8 +61,8 @@ Table of Contents
 | 0     |          Yes |           - |            - |
 | 90    |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
-| 639   |          Yes |         Set |            - |
-| 15058 |          Yes |       Reset |            - |
+| 653   |          Yes |         Set |            - |
+| 15794 |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -72,11 +72,10 @@ Table of Contents
 +-------------------+------+-------+-----------+-------+
 |     Site Type     | Used | Fixed | Available | Util% |
 +-------------------+------+-------+-----------+-------+
-| Block RAM Tile    |  2.5 |     0 |       714 |  0.35 |
-|   RAMB36/FIFO*    |    2 |     0 |       714 |  0.28 |
-|     RAMB36E2 only |    2 |       |           |       |
-|   RAMB18          |    1 |     0 |      1428 |  0.07 |
-|     RAMB18E2 only |    1 |       |           |       |
+| Block RAM Tile    |    3 |     0 |       714 |  0.42 |
+|   RAMB36/FIFO*    |    3 |     0 |       714 |  0.42 |
+|     RAMB36E2 only |    3 |       |           |       |
+|   RAMB18          |    0 |     0 |      1428 |  0.00 |
 +-------------------+------+-------+-----------+-------+
 * Note: Each Block RAM Tile only has one FIFO logic available and therefore can accommodate only one FIFO36E2 or one FIFO18E2. However, if a FIFO18E2 occupies a Block RAM Tile, that tile can still accommodate a RAMB18E2
 
@@ -156,17 +155,17 @@ Table of Contents
 +------------+-------+---------------------+
 |  Ref Name  |  Used | Functional Category |
 +------------+-------+---------------------+
-| FDRE       | 15058 |            Register |
-| LUT6       |  3818 |                 CLB |
-| LUT3       |  3148 |                 CLB |
-| RAMD32     |  2314 |                 CLB |
-| LUT5       |  1511 |                 CLB |
-| LUT4       |  1487 |                 CLB |
-| LUT1       |  1162 |                 CLB |
-| LUT2       |   875 |                 CLB |
-| FDSE       |   639 |            Register |
-| RAMS32     |   328 |                 CLB |
-| SRL16E     |   306 |                 CLB |
+| FDRE       | 15794 |            Register |
+| LUT6       |  3922 |                 CLB |
+| LUT3       |  3318 |                 CLB |
+| RAMD32     |  2680 |                 CLB |
+| LUT5       |  1600 |                 CLB |
+| LUT4       |  1526 |                 CLB |
+| LUT1       |  1192 |                 CLB |
+| LUT2       |   910 |                 CLB |
+| FDSE       |   653 |            Register |
+| RAMS32     |   380 |                 CLB |
+| SRL16E     |   308 |                 CLB |
 | SRLC32E    |   153 |                 CLB |
 | FDPE       |    90 |            Register |
 | IBUFCTRL   |    40 |              Others |
@@ -178,13 +177,12 @@ Table of Contents
 | OBUFT      |     9 |                 I/O |
 | INBUF      |     9 |                 I/O |
 | OBUF       |     8 |                 I/O |
-| RAMB36E2   |     2 |           Block Ram |
+| RAMB36E2   |     3 |           Block Ram |
 | OSERDESE3  |     2 |                 I/O |
 | BUFG_PS    |     2 |               Clock |
 | BUFGCE_DIV |     2 |               Clock |
 | BUFGCE     |     2 |               Clock |
 | SYSMONE4   |     1 |            Advanced |
-| RAMB18E2   |     1 |           Block Ram |
 | PS8        |     1 |            Advanced |
 +------------+-------+---------------------+
 

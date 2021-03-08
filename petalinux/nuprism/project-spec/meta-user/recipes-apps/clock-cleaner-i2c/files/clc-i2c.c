@@ -152,6 +152,9 @@ int clc_init()
         _DEBUG("reg=%04x data=%02x ret=%d\n", clc_boot_program[i].reg, clc_boot_program[i].data, status);
 
         ret |= status;
+  #ifdef DEBUG
+        usleep(5000);
+  #endif // DEBUG
     }
 
     return ret;

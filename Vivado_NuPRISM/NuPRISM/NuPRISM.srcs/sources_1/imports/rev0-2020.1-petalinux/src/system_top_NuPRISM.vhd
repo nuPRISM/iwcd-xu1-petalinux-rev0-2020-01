@@ -399,7 +399,7 @@ architecture rtl of system_top is
     signal adc_ss_in  : std_logic;
     signal adc_ss_tri : std_logic;
     signal adc_ss_out : std_logic;
-
+    
     -- mark debug
     attribute mark_debug : string;
 
@@ -428,9 +428,9 @@ architecture rtl of system_top is
     attribute mark_debug of adc3_dc_pardata_j14: signal is "true";
 
     -- mark debug
-    attribute mark_debug of ADC_SDATA: signal is "true";
-    attribute mark_debug of ADC_SDOUT: signal is "true";
-    attribute mark_debug of ADC_SCLK: signal is "true";
+    -- attribute mark_debug of ADC_SDATA: signal is "true";
+    -- attribute mark_debug of ADC_SDOUT: signal is "true";
+    -- attribute mark_debug of ADC_SCLK: signal is "true";
     attribute mark_debug of ADC_PDN: signal is "true";
     attribute mark_debug of ADC_RST: signal is "true";
     attribute mark_debug of ADC0_SEN: signal is "true";
@@ -489,6 +489,7 @@ begin
   	I  => RJ45_LVDS_TRIG_p,
   	IB => RJ45_LVDS_TRIG_n
     );
+
     ------------------------------------------------------------------------------------------------
     --  Clock and Reset
     ------------------------------------------------------------------------------------------------

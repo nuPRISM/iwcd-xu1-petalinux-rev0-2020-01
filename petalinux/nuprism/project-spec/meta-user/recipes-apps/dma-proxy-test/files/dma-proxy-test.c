@@ -168,12 +168,14 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 
+	/*
 	// Read data from file and put it in transmit buffer
 	printf("Reading input data from %s... \n", argv[3]);
 	result = read_file(test_size, argv[2]);
 	if (result != 0) {
 		exit(EXIT_FAILURE);
 	}
+	*/
 
 	printf("\nInitiating data transfer...\n");
 

@@ -89,9 +89,7 @@
   "../../../bd/MercuryXU1/ip/MercuryXU1_system_management_wiz_0_0_1/axi_lite_ipif_v1_31_a/hdl/src/vhdl/MercuryXU1_system_management_wiz_0_0_axi_lite_ipif.vhd" \
   "../../../bd/MercuryXU1/ip/MercuryXU1_system_management_wiz_0_0_1/MercuryXU1_system_management_wiz_0_0_xadc_core_drp.vhd" \
   "../../../bd/MercuryXU1/ip/MercuryXU1_system_management_wiz_0_0_1/MercuryXU1_system_management_wiz_0_0_axi_xadc.vhd" \
--endlib
--makelib ies_lib/xil_defaultlib \
-  "../../../bd/MercuryXU1/ip/MercuryXU1_system_management_wiz_0_0_1/MercuryXU1_system_management_wiz_0_0.v" \
+  "../../../bd/MercuryXU1/ip/MercuryXU1_system_management_wiz_0_0_1/MercuryXU1_system_management_wiz_0_0.vhd" \
 -endlib
 -makelib ies_lib/lib_pkg_v1_0_2 \
   "../../../../NuPRISM.srcs/sources_1/bd/MercuryXU1/ipshared/0513/hdl/lib_pkg_v1_0_rfs.vhd" \
@@ -170,30 +168,36 @@
   "../../../bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_13/sim/bd_cc23_sawn_0.sv" \
   "../../../bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_14/sim/bd_cc23_swn_0.sv" \
   "../../../bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_15/sim/bd_cc23_sbn_0.sv" \
-  "../../../bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_16/sim/bd_cc23_s02mmu_0.sv" \
-  "../../../bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_17/sim/bd_cc23_s02tr_0.sv" \
-  "../../../bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_18/sim/bd_cc23_s02sic_0.sv" \
-  "../../../bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_19/sim/bd_cc23_s02a2s_0.sv" \
-  "../../../bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_20/sim/bd_cc23_sawn_1.sv" \
-  "../../../bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_21/sim/bd_cc23_swn_1.sv" \
-  "../../../bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_22/sim/bd_cc23_sbn_1.sv" \
+  "../../../bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_16/sim/bd_cc23_s01mmu_0.sv" \
+  "../../../bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_17/sim/bd_cc23_s01tr_0.sv" \
+  "../../../bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_18/sim/bd_cc23_s01sic_0.sv" \
+  "../../../bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_19/sim/bd_cc23_s01a2s_0.sv" \
+  "../../../bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_20/sim/bd_cc23_sarn_1.sv" \
+  "../../../bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_21/sim/bd_cc23_srn_1.sv" \
+  "../../../bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_22/sim/bd_cc23_s02mmu_0.sv" \
+  "../../../bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_23/sim/bd_cc23_s02tr_0.sv" \
+  "../../../bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_24/sim/bd_cc23_s02sic_0.sv" \
+  "../../../bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_25/sim/bd_cc23_s02a2s_0.sv" \
+  "../../../bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_26/sim/bd_cc23_sawn_1.sv" \
+  "../../../bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_27/sim/bd_cc23_swn_1.sv" \
+  "../../../bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_28/sim/bd_cc23_sbn_1.sv" \
 -endlib
 -makelib ies_lib/smartconnect_v1_0 -sv \
   "../../../../NuPRISM.srcs/sources_1/bd/MercuryXU1/ipshared/7005/hdl/sc_sc2axi_v1_0_vl_rfs.sv" \
 -endlib
 -makelib ies_lib/xil_defaultlib -sv \
-  "../../../bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_23/sim/bd_cc23_m00s2a_0.sv" \
-  "../../../bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_24/sim/bd_cc23_m00arn_0.sv" \
-  "../../../bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_25/sim/bd_cc23_m00rn_0.sv" \
-  "../../../bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_26/sim/bd_cc23_m00awn_0.sv" \
-  "../../../bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_27/sim/bd_cc23_m00wn_0.sv" \
-  "../../../bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_28/sim/bd_cc23_m00bn_0.sv" \
+  "../../../bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_29/sim/bd_cc23_m00s2a_0.sv" \
+  "../../../bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_30/sim/bd_cc23_m00arn_0.sv" \
+  "../../../bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_31/sim/bd_cc23_m00rn_0.sv" \
+  "../../../bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_32/sim/bd_cc23_m00awn_0.sv" \
+  "../../../bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_33/sim/bd_cc23_m00wn_0.sv" \
+  "../../../bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_34/sim/bd_cc23_m00bn_0.sv" \
 -endlib
 -makelib ies_lib/smartconnect_v1_0 -sv \
   "../../../../NuPRISM.srcs/sources_1/bd/MercuryXU1/ipshared/7af8/hdl/sc_exit_v1_0_vl_rfs.sv" \
 -endlib
 -makelib ies_lib/xil_defaultlib -sv \
-  "../../../bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_29/sim/bd_cc23_m00e_0.sv" \
+  "../../../bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_35/sim/bd_cc23_m00e_0.sv" \
 -endlib
 -makelib ies_lib/xil_defaultlib \
   "../../../bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/sim/MercuryXU1_axi_smc_0.v" \
@@ -216,6 +220,9 @@
   "../../../bd/MercuryXU1/ip/MercuryXU1_xlconstant_4_0/sim/MercuryXU1_xlconstant_4_0.v" \
   "../../../bd/MercuryXU1/ip/MercuryXU1_xlconstant_5_0/sim/MercuryXU1_xlconstant_5_0.v" \
 -endlib
+-makelib ies_lib/xil_defaultlib \
+  "../../../bd/MercuryXU1/sim/MercuryXU1.vhd" \
+-endlib
 -makelib ies_lib/axi_protocol_converter_v2_1_21 \
   "../../../../NuPRISM.srcs/sources_1/bd/MercuryXU1/ipshared/8dfa/hdl/axi_protocol_converter_v2_1_vl_rfs.v" \
 -endlib
@@ -223,7 +230,6 @@
   "../../../bd/MercuryXU1/ip/MercuryXU1_auto_pc_0/sim/MercuryXU1_auto_pc_0.v" \
   "../../../bd/MercuryXU1/ip/MercuryXU1_auto_pc_1/sim/MercuryXU1_auto_pc_1.v" \
   "../../../bd/MercuryXU1/ip/MercuryXU1_auto_pc_2/sim/MercuryXU1_auto_pc_2.v" \
-  "../../../bd/MercuryXU1/sim/MercuryXU1.v" \
 -endlib
 -makelib ies_lib/xil_defaultlib \
   glbl.v

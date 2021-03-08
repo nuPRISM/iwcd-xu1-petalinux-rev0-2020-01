@@ -70,11 +70,6 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "clk_wiz_1_b64_b66_pll_synth_1" START { ROLLUP_AUTO }
-set_param power.enableLutRouteBelPower 1
-set_param power.enableCarry8RouteBelPower 1
-set_param power.enableUnconnectedCarry8PinPower 1
-set_param chipscope.maxJobs 2
-set_param power.BramSDPPropagationFix 1
 set_param project.vivado.isBlockSynthRun true
 set_msg_config -msgmgr_mode ooc_run
 OPTRACE "Creating in-memory project" START { }
@@ -88,7 +83,7 @@ set_property webtalk.parent_dir /home/edev/Source/iwcd-xu1-petalinux-rev0-2020-0
 set_property parent.project_path /home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.xpr [current_project]
 set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
-set_property target_language Verilog [current_project]
+set_property target_language VHDL [current_project]
 set_property ip_repo_paths /home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/ip_repo [current_project]
 update_ip_catalog
 set_property ip_output_repo /home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.cache/ip [current_project]

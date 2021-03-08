@@ -3,6 +3,26 @@
 	"modules": {
 		"MercuryXU1": {
 			"proto_instances": {
+				"/axi_dma_0/M_AXI_MM2S": {
+					"interface": "xilinx.com:interface:aximm:1.0",
+					"ports": {
+						"ACLK": { "actual": "m_axi_mm2s_aclk"},
+						"ARADDR": { "actual": "m_axi_mm2s_araddr"},
+						"ARBURST": { "actual": "m_axi_mm2s_arburst"},
+						"ARCACHE": { "actual": "m_axi_mm2s_arcache"},
+						"ARESETN": { "actual": "mm2s_prmry_reset_out_n"},
+						"ARLEN": { "actual": "m_axi_mm2s_arlen"},
+						"ARPROT": { "actual": "m_axi_mm2s_arprot"},
+						"ARREADY": { "actual": "m_axi_mm2s_arready"},
+						"ARSIZE": { "actual": "m_axi_mm2s_arsize"},
+						"ARVALID": { "actual": "m_axi_mm2s_arvalid"},
+						"RDATA": { "actual": "m_axi_mm2s_rdata"},
+						"RLAST": { "actual": "m_axi_mm2s_rlast"},
+						"RREADY": { "actual": "m_axi_mm2s_rready"},
+						"RRESP": { "actual": "m_axi_mm2s_rresp"},
+						"RVALID": { "actual": "m_axi_mm2s_rvalid"}
+					}
+				},
 				"/axi_dma_0/M_AXI_S2MM": {
 					"interface": "xilinx.com:interface:aximm:1.0",
 					"ports": {
@@ -196,6 +216,27 @@
 						"WREADY": { "actual": "S00_AXI_wready"},
 						"WSTRB": { "actual": "S00_AXI_wstrb"},
 						"WVALID": { "actual": "S00_AXI_wvalid"}
+					}
+				},
+				"/axi_smc/S01_AXI": {
+					"interface": "xilinx.com:interface:aximm:1.0",
+					"ports": {
+						"ACLK": { "actual": "aclk"},
+						"ARADDR": { "actual": "S01_AXI_araddr"},
+						"ARBURST": { "actual": "S01_AXI_arburst"},
+						"ARCACHE": { "actual": "S01_AXI_arcache"},
+						"ARLEN": { "actual": "S01_AXI_arlen"},
+						"ARLOCK": { "actual": "S01_AXI_arlock"},
+						"ARPROT": { "actual": "S01_AXI_arprot"},
+						"ARQOS": { "actual": "S01_AXI_arqos"},
+						"ARREADY": { "actual": "S01_AXI_arready"},
+						"ARSIZE": { "actual": "S01_AXI_arsize"},
+						"ARVALID": { "actual": "S01_AXI_arvalid"},
+						"RDATA": { "actual": "S01_AXI_rdata"},
+						"RLAST": { "actual": "S01_AXI_rlast"},
+						"RREADY": { "actual": "S01_AXI_rready"},
+						"RRESP": { "actual": "S01_AXI_rresp"},
+						"RVALID": { "actual": "S01_AXI_rvalid"}
 					}
 				},
 				"/axi_smc/S02_AXI": {

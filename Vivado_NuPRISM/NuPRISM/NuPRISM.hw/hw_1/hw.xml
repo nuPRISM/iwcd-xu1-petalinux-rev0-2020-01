@@ -4,7 +4,7 @@
 <!-- Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.        -->
 
 <hwsession version="1" minor="2">
-  <device name="xczu6_0" gui_info="dashboard1=hw_ila_1[xczu6_0/hw_ila_1/Status=ILA_STATUS_1;xczu6_0/hw_ila_1/Settings=ILA_SETTINGS_1;xczu6_0/hw_ila_1/Capture Setup=ILA_CAPTURE_1;xczu6_0/hw_ila_1/Trigger Setup=ILA_TRIGGER_1;xczu6_0/hw_ila_1/Waveform=ILA_WAVE_1;]"/>
+  <device name="xczu6_1" gui_info="dashboard1=hw_ila_1[xczu6_0/hw_ila_1/Status=ILA_STATUS_1;xczu6_0/hw_ila_1/Settings=ILA_SETTINGS_1;xczu6_0/hw_ila_1/Capture Setup=ILA_CAPTURE_1;xczu6_0/hw_ila_1/Trigger Setup=ILA_TRIGGER_1;xczu6_0/hw_ila_1/Waveform=ILA_WAVE_1;],dashboard2=hw_ila_2[xczu6_0/hw_ila_2/Capture Setup=ILA_CAPTURE_1;xczu6_0/hw_ila_2/Waveform=ILA_WAVE_1;xczu6_0/hw_ila_2/Status=ILA_STATUS_1;xczu6_0/hw_ila_2/Settings=ILA_SETTINGS_1;xczu6_0/hw_ila_2/Trigger Setup=ILA_TRIGGER_1;]"/>
   <ObjectList object_type="hw_device" gui_info="">
     <Object name="xczu6_0" gui_info="">
       <Properties Property="FULL_PROBES.FILE" value="$_project_name_.runs/Mercury$_project_name__impl/debug_nets.ltx"/>
@@ -30,6 +30,10 @@
     </Object>
     <Object name="MercuryXU1_i/MercuryXU1_i/ila_1" gui_info="">
       <Properties Property="CONTROL.TRIGGER_CONDITION" value="OR"/>
+      <Properties Property="CORE_REFRESH_RATE_MS" value="500"/>
+    </Object>
+    <Object name="MercuryXU1_i/MercuryXU1_i/system_ila_0/U0/ila_lib" gui_info="">
+      <Properties Property="CONTROL.TRIGGER_CONDITION" value="AND"/>
       <Properties Property="CORE_REFRESH_RATE_MS" value="500"/>
     </Object>
     <Object name="u_ila_0" gui_info="">
@@ -106,7 +110,7 @@
         <Option Id="DISPLAY_HINT" value=""/>
         <Option Id="DISPLAY_RADIX" value="HEX"/>
         <Option Id="DISPLAY_VISIBILITY" value=""/>
-        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="HW_ILA" value="hw_ila_2"/>
         <Option Id="LINK_TO_WAVEFORM" value="1"/>
         <Option Id="MAP" value="probe1[0]"/>
         <Option Id="NAME.CUSTOM" value=""/>
@@ -127,7 +131,7 @@
         <Option Id="DISPLAY_HINT" value=""/>
         <Option Id="DISPLAY_RADIX" value="HEX"/>
         <Option Id="DISPLAY_VISIBILITY" value=""/>
-        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="HW_ILA" value="hw_ila_2"/>
         <Option Id="LINK_TO_WAVEFORM" value="1"/>
         <Option Id="MAP" value="probe2[0]"/>
         <Option Id="NAME.CUSTOM" value=""/>
@@ -148,7 +152,7 @@
         <Option Id="DISPLAY_HINT" value=""/>
         <Option Id="DISPLAY_RADIX" value="HEX"/>
         <Option Id="DISPLAY_VISIBILITY" value=""/>
-        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="HW_ILA" value="hw_ila_2"/>
         <Option Id="LINK_TO_WAVEFORM" value="1"/>
         <Option Id="MAP" value="probe3[0]"/>
         <Option Id="NAME.CUSTOM" value=""/>
@@ -169,7 +173,7 @@
         <Option Id="DISPLAY_HINT" value=""/>
         <Option Id="DISPLAY_RADIX" value="HEX"/>
         <Option Id="DISPLAY_VISIBILITY" value=""/>
-        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="HW_ILA" value="hw_ila_2"/>
         <Option Id="LINK_TO_WAVEFORM" value="1"/>
         <Option Id="MAP" value="probe4[0]"/>
         <Option Id="NAME.CUSTOM" value=""/>
@@ -190,7 +194,7 @@
         <Option Id="DISPLAY_HINT" value=""/>
         <Option Id="DISPLAY_RADIX" value="HEX"/>
         <Option Id="DISPLAY_VISIBILITY" value=""/>
-        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="HW_ILA" value="hw_ila_2"/>
         <Option Id="LINK_TO_WAVEFORM" value="1"/>
         <Option Id="MAP" value="probe5[0]"/>
         <Option Id="NAME.CUSTOM" value=""/>
@@ -211,7 +215,7 @@
         <Option Id="DISPLAY_HINT" value=""/>
         <Option Id="DISPLAY_RADIX" value="HEX"/>
         <Option Id="DISPLAY_VISIBILITY" value=""/>
-        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="HW_ILA" value="hw_ila_2"/>
         <Option Id="LINK_TO_WAVEFORM" value="1"/>
         <Option Id="MAP" value="probe6[0]"/>
         <Option Id="NAME.CUSTOM" value=""/>
@@ -232,7 +236,7 @@
         <Option Id="DISPLAY_HINT" value=""/>
         <Option Id="DISPLAY_RADIX" value="HEX"/>
         <Option Id="DISPLAY_VISIBILITY" value=""/>
-        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="HW_ILA" value="hw_ila_2"/>
         <Option Id="LINK_TO_WAVEFORM" value="1"/>
         <Option Id="MAP" value="probe7[0]"/>
         <Option Id="NAME.CUSTOM" value=""/>
@@ -485,7 +489,7 @@
         <Option Id="DISPLAY_HINT" value=""/>
         <Option Id="DISPLAY_RADIX" value="HEX"/>
         <Option Id="DISPLAY_VISIBILITY" value=""/>
-        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="HW_ILA" value="hw_ila_2"/>
         <Option Id="LINK_TO_WAVEFORM" value="1"/>
         <Option Id="MAP" value="probe0[19:0]"/>
         <Option Id="NAME.CUSTOM" value=""/>
@@ -932,6 +936,94 @@
       </probeOptions>
       <nets>
         <net name="MercuryXU1_i/MercuryXU1_i/sample_generator_0_m_axis_tvalid"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq16&apos;hXXXX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq16&apos;hXXXX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe0[15:0]"/>
+        <Option Id="NAME.CUSTOM" value="Q"/>
+        <Option Id="NAME.SELECT" value="Custom"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq16&apos;hXXXX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="MercuryXU1_i/MercuryXU1_i/system_ila_0/U0/probe0_1[15]"/>
+        <net name="MercuryXU1_i/MercuryXU1_i/system_ila_0/U0/probe0_1[14]"/>
+        <net name="MercuryXU1_i/MercuryXU1_i/system_ila_0/U0/probe0_1[13]"/>
+        <net name="MercuryXU1_i/MercuryXU1_i/system_ila_0/U0/probe0_1[12]"/>
+        <net name="MercuryXU1_i/MercuryXU1_i/system_ila_0/U0/probe0_1[11]"/>
+        <net name="MercuryXU1_i/MercuryXU1_i/system_ila_0/U0/probe0_1[10]"/>
+        <net name="MercuryXU1_i/MercuryXU1_i/system_ila_0/U0/probe0_1[9]"/>
+        <net name="MercuryXU1_i/MercuryXU1_i/system_ila_0/U0/probe0_1[8]"/>
+        <net name="MercuryXU1_i/MercuryXU1_i/system_ila_0/U0/probe0_1[7]"/>
+        <net name="MercuryXU1_i/MercuryXU1_i/system_ila_0/U0/probe0_1[6]"/>
+        <net name="MercuryXU1_i/MercuryXU1_i/system_ila_0/U0/probe0_1[5]"/>
+        <net name="MercuryXU1_i/MercuryXU1_i/system_ila_0/U0/probe0_1[4]"/>
+        <net name="MercuryXU1_i/MercuryXU1_i/system_ila_0/U0/probe0_1[3]"/>
+        <net name="MercuryXU1_i/MercuryXU1_i/system_ila_0/U0/probe0_1[2]"/>
+        <net name="MercuryXU1_i/MercuryXU1_i/system_ila_0/U0/probe0_1[1]"/>
+        <net name="MercuryXU1_i/MercuryXU1_i/system_ila_0/U0/probe0_1[0]"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe0[31:0]"/>
+        <Option Id="NAME.CUSTOM" value="Q"/>
+        <Option Id="NAME.SELECT" value="Custom"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="MercuryXU1_i/MercuryXU1_i/system_ila_0/U0/probe0_1[31]"/>
+        <net name="MercuryXU1_i/MercuryXU1_i/system_ila_0/U0/probe0_1[30]"/>
+        <net name="MercuryXU1_i/MercuryXU1_i/system_ila_0/U0/probe0_1[29]"/>
+        <net name="MercuryXU1_i/MercuryXU1_i/system_ila_0/U0/probe0_1[28]"/>
+        <net name="MercuryXU1_i/MercuryXU1_i/system_ila_0/U0/probe0_1[27]"/>
+        <net name="MercuryXU1_i/MercuryXU1_i/system_ila_0/U0/probe0_1[26]"/>
+        <net name="MercuryXU1_i/MercuryXU1_i/system_ila_0/U0/probe0_1[25]"/>
+        <net name="MercuryXU1_i/MercuryXU1_i/system_ila_0/U0/probe0_1[24]"/>
+        <net name="MercuryXU1_i/MercuryXU1_i/system_ila_0/U0/probe0_1[23]"/>
+        <net name="MercuryXU1_i/MercuryXU1_i/system_ila_0/U0/probe0_1[22]"/>
+        <net name="MercuryXU1_i/MercuryXU1_i/system_ila_0/U0/probe0_1[21]"/>
+        <net name="MercuryXU1_i/MercuryXU1_i/system_ila_0/U0/probe0_1[20]"/>
+        <net name="MercuryXU1_i/MercuryXU1_i/system_ila_0/U0/probe0_1[19]"/>
+        <net name="MercuryXU1_i/MercuryXU1_i/system_ila_0/U0/probe0_1[18]"/>
+        <net name="MercuryXU1_i/MercuryXU1_i/system_ila_0/U0/probe0_1[17]"/>
+        <net name="MercuryXU1_i/MercuryXU1_i/system_ila_0/U0/probe0_1[16]"/>
+        <net name="MercuryXU1_i/MercuryXU1_i/system_ila_0/U0/probe0_1[15]"/>
+        <net name="MercuryXU1_i/MercuryXU1_i/system_ila_0/U0/probe0_1[14]"/>
+        <net name="MercuryXU1_i/MercuryXU1_i/system_ila_0/U0/probe0_1[13]"/>
+        <net name="MercuryXU1_i/MercuryXU1_i/system_ila_0/U0/probe0_1[12]"/>
+        <net name="MercuryXU1_i/MercuryXU1_i/system_ila_0/U0/probe0_1[11]"/>
+        <net name="MercuryXU1_i/MercuryXU1_i/system_ila_0/U0/probe0_1[10]"/>
+        <net name="MercuryXU1_i/MercuryXU1_i/system_ila_0/U0/probe0_1[9]"/>
+        <net name="MercuryXU1_i/MercuryXU1_i/system_ila_0/U0/probe0_1[8]"/>
+        <net name="MercuryXU1_i/MercuryXU1_i/system_ila_0/U0/probe0_1[7]"/>
+        <net name="MercuryXU1_i/MercuryXU1_i/system_ila_0/U0/probe0_1[6]"/>
+        <net name="MercuryXU1_i/MercuryXU1_i/system_ila_0/U0/probe0_1[5]"/>
+        <net name="MercuryXU1_i/MercuryXU1_i/system_ila_0/U0/probe0_1[4]"/>
+        <net name="MercuryXU1_i/MercuryXU1_i/system_ila_0/U0/probe0_1[3]"/>
+        <net name="MercuryXU1_i/MercuryXU1_i/system_ila_0/U0/probe0_1[2]"/>
+        <net name="MercuryXU1_i/MercuryXU1_i/system_ila_0/U0/probe0_1[1]"/>
+        <net name="MercuryXU1_i/MercuryXU1_i/system_ila_0/U0/probe0_1[0]"/>
       </nets>
     </probe>
     <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
