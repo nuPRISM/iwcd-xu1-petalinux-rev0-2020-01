@@ -210,7 +210,7 @@ int clc_init() {
     for(uint16_t reg = 0; reg < sizeof(init_clock_cleaner_settings)/sizeof(uint8_t); reg++) {
         ret |= i2c_write(fd, CLOCK_CLEANER_SLAVE_ADDR, reg, init_clock_cleaner_settings[reg]);
         _DEBUG("reg=%04x data=%02x ret=%d\n", reg, init_clock_cleaner_settings[reg], ret);
-        usleep(500);
+        usleep(5000);
     }
 
     close(fd);
@@ -228,6 +228,7 @@ int clc_set_state(int state) {
     }
 
     int ret = i2c_write(fd, CLOCK_CLEANER_SLAVE_ADDR, CLOCK_CLEANER_INIT_REG, state ? CLOCK_CLEANER_INIT_VAL : CLOCK_CLEANER_STOP_VAL);
+    usleep(5000);
     close(fd);
 
     return ret;
