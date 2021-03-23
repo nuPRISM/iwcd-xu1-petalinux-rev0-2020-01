@@ -48,6 +48,18 @@
 #define RESET_GPIO                497
 #define PDN_GPIO                  498
 
+#define ADC_COUNT                 5
+
+#define ADC_TP_NOMINAL            0x0
+#define ADC_TP_ZERO               0x1
+#define ADC_TP_ONES               0X2
+#define ADC_TP_ALTERNATE          0x3
+#define ADC_TP_RAMP               0x4
+#define ADC_TP_CUSTOM             0x5
+#define ADC_TP_DESKEW             0x6
+#define ADC_TP_PRBS               0x8
+#define ADC_TP_SINE               0x9
+
 /**
  * @brief Create a TX buffer to read or write data to a register within the ADC peripheral
  * 
@@ -67,6 +79,19 @@
  * @brief Returns the size of an array
  */
 #define ARRAY_SIZE(a) (sizeof(a) / sizeof((a)[0]))
+
+
+/**
+ * @brief Structure used to specify data and register when interacting with ADC
+ * 
+ */
+struct adc_spi_transfer {
+    // Register to access within ADC
+    uint16_t reg;
+
+    // Data returned or written
+    uint8_t data;
+};
 
 
 /**
@@ -161,12 +186,11 @@ int adc_reset(void);
  *  6. The external controller can latch the contents at the SCLK rising edge.
  *  7. To enable register writes, reset the R/W register bit to 0.
  * 
- * @param address   Address of the register being read
- * @param data      Address to store data returned from transfer
+ * @param request   Struct containing register to read and returned data
  * 
  * @return          ioctl returns the number of bytes transferred upon success
 */
-int adc_read(uint16_t address, uint8_t* data);
+int adc_read(struct adc_spi_transfer* request);
 
 
 /**
@@ -177,12 +201,11 @@ int adc_read(uint16_t address, uint8_t* data);
  *  4. Initiate a serial interface cycle by specifying the address of the register (A13 to A0) whose content must be written, and
  *  5. Write the 8-bit data that are latched in on the SCLK rising edge.
  * 
- * @param address   Address of the register being written to
- * @param data      Data being transferred
+ * @param command   Struct containing register to write and data
  * 
  * @return          ioctl returns the number of bytes transferred upon success
  */
-int adc_write(uint16_t address, uint8_t data);
+int adc_write(struct adc_spi_transfer* command);
 
 
 /**
@@ -193,6 +216,14 @@ int adc_write(uint16_t address, uint8_t data);
  * @return          Return number of bytes per transfer if all registers were successfully populated.
  */
 int adc_init(int adc_num);
+
+
+/**
+ * @brief Initialize all 5 ADCs in one call
+ * 
+ * @return OR'd status of each init call, zero if all are successful
+ */
+int adc_init_all(void);
 
 
 /**
@@ -212,6 +243,18 @@ int adc_read_back(int adc_num);
  * @param adc_num   The ADC to write to 
  */
 void adc_nominal_mode(int adc_num);
+
+
+/**
+ * @brief 
+ * 
+ * @param adc_num 
+ * @param test_patterns
+ * @param custom_tp
+ * @return int 
+ */
+int adc_set_test_pattern(int adc_num, uint8_t* test_patterns, uint16_t custom_tp);
+
 
 /** 
  * @brief Open SPI device

@@ -14,12 +14,8 @@ static uint16_t delay = 0;
 
 static int fd;
 
-struct init_sequence {
-    uint16_t reg;
-    uint8_t data;
-};
-
-struct init_sequence adc_init_sequence [] = {
+// Nominal mode init sequence
+struct adc_spi_transfer adc_init_sequence [] = {
     {0x001, 0xFF}, {0x003, 0x00}, {0x004, 0x00}, {0x005, 0x00}, 
     {0x006, 0x00}, {0x007, 0x00}, {0x009, 0x00}, {0x00a, 0x00}, 
     {0x00b, 0x00}, {0x00e, 0x00}, {0x00f, 0x00}, {0x013, 0x00}, 
@@ -164,12 +160,12 @@ int adc_reset()
 }
 
 
-int adc_read(uint16_t address, uint8_t* data)
+int adc_read(struct adc_spi_transfer* request)
 {
     // For an adc register read, the data in the TX buffer is ignored by the adc
-    uint8_t txbuf[3] = TX_BUFFER(SPI_READ_CMD, address, 0xFF);
+    uint8_t txbuf[3] = TX_BUFFER(SPI_READ_CMD, request->reg, 0xFF);
     uint8_t rxbuf[3] = {0};
-    DBG("adc_read(): address=0x%x\n", address);
+    DBG("adc_read(): address=0x%x\n", request->reg);
 
     struct spi_ioc_transfer tr = {
 		.tx_buf = (unsigned long)txbuf,
@@ -189,18 +185,18 @@ int adc_read(uint16_t address, uint8_t* data)
     }
     else
     {
-        *data = rxbuf[2];
+        request->data = rxbuf[2];
     }
 
     return 0;
 }
 
 
-int adc_write(uint16_t address, uint8_t data)
+int adc_write(struct adc_spi_transfer* command)
 {
-    uint8_t txbuf[3] = TX_BUFFER(SPI_WRITE_CMD, address, data);
+    uint8_t txbuf[3] = TX_BUFFER(SPI_WRITE_CMD, command->reg, command->data);
 
-    DBG("adc_write(): address=0x%x, data=0x%x\n", address, data);
+    DBG("adc_write(): address=0x%x, data=0x%x\n", command->reg, command->data);
 
     struct spi_ioc_transfer tr = {
 		.tx_buf = (unsigned long)txbuf,
@@ -232,19 +228,32 @@ int adc_init(int adc_num)
 
     for (uint8_t i = 0; i < adc_reg_count; i++)
     {
-        ret |= adc_write(adc_init_sequence[i].reg, adc_init_sequence[i].data);
+        ret |= adc_write(&adc_init_sequence[i]);
     }
 
     adc_disable(adc_num);
     DBG("adc_init(): ret=%d\n", ret);
-    
+
+    return ret;
+}
+
+
+int adc_init_all()
+{
+    int ret = 0; 
+
+    for (int adc = 0; adc < ADC_COUNT; adc++)
+    {
+        ret |= adc_init(adc);
+    }
+
     return ret;
 }
 
 
 int adc_read_back(int adc_num)
 {
-    uint8_t return_data = 0xCC;
+    struct adc_spi_transfer read_cmd;
     int ret = 0;
 
     DBG("adc_read_back(): num=%d\n", adc_num);
@@ -252,13 +261,14 @@ int adc_read_back(int adc_num)
 
     for (uint8_t i = 0; i < adc_reg_count; i++)
     {
-        ret |= adc_read(adc_init_sequence[i].reg, &return_data);
+        read_cmd.reg = adc_init_sequence[i].reg;
+        read_cmd.data = 0xCC;
+
+        ret |= adc_read(&read_cmd);
         
         DBG("Read-back %s for register, 0x%x (sent=0x%x, returned=0x%x)\n",
-            (return_data == adc_init_sequence[i].data ? "PASSED":"FAILED"),
-            adc_init_sequence[i].reg, adc_init_sequence[i].data, return_data);
-
-        return_data = 0xCC;
+            (read_cmd.data == adc_init_sequence[i].data ? "PASSED":"FAILED"),
+            adc_init_sequence[i].reg, adc_init_sequence[i].data, read_cmd.data);
     }
 
     adc_disable(adc_num);
@@ -274,10 +284,38 @@ void adc_nominal_mode(int adc_num)
 
     adc_enable(adc_num);
 
-    int ret = adc_write(0x06, 0x00); // Register 06h: normal output
+    struct adc_spi_transfer nominal_mode = {.reg = 0x06, .data = 0x00};
+
+    int ret = adc_write(&nominal_mode); // Register 06h: normal output
+
     DBG("adc_test: reg 06h, ret=%d\n", ret);
     
     adc_disable(adc_num);
+}
+
+
+int adc_set_test_pattern(int adc_num, uint8_t* test_patterns, uint16_t custom_tp)
+{
+    DBG("adc_set_test_pattern(): num=%d\n", adc_num);
+    int ret = 0;
+    struct adc_spi_transfer set_test_pattern[5] = {
+        {0x06, 0x02},
+        {0X0A, (test_patterns[0] & 0x0F) << 4 | (test_patterns[1] & 0x0F)},
+        {0x0B, (test_patterns[2] & 0x0F) << 4 | (test_patterns[3] & 0x0F)},
+        {0x0E, custom_tp >> 4},
+        {0x0F, (custom_tp & 0X00F) << 4},
+    };
+
+    adc_enable(adc_num);
+
+    for (int i = 0; i < 5; i++)
+    {
+        ret |= adc_write(&set_test_pattern[i]);
+    }
+
+    adc_disable(adc_num);
+
+    return ret;
 }
 
 

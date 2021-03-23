@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<Checkpoint Version="14" Minor="0">
+	<BUILD_NUMBER Name="2960000"/>
+	<FULL_BUILD Name="SW Build 2960000 on Wed Aug  5 22:57:21 MDT 2020"/>
+	<PRODUCT Name="Vivado v2020.1.1 (64-bit)"/>
+	<Part Name="xczu6eg-ffvc900-1-i"/>
+	<Top Name="result"/>
+	<OrigTop Name="u_ila_0"/>
+	<RenamePrefix Name="result_"/>
+	<DisableAutoIOBuffers Name="1"/>
+	<OutOfContext Name="1"/>
+	<IpOocRunGenerated Name="1"/>
+	<HDPlatform Name="0"/>
+	<File Type="VERILOG_STUB" Name="u_ila_0_stub.v" ModTime="1616457158"/>
+	<File Type="VHDL_STUB" Name="u_ila_0_stub.vhdl" ModTime="1616457158"/>
+	<File Type="XDC_IN_CONTEXT" Name="u_ila_0_in_context.xdc" ModTime="1616457158"/>
+	<File Type="SHAPE" Name="u_ila_0.shape" ModTime="1616457158"/>
+	<File Type="EDIF" Name="u_ila_0.edf" ModTime="1616457158"/>
+	<File Type="XN" Name="u_ila_0.xn" ModTime="1616457158"/>
+	<File Type="INCR" Name="u_ila_0.incr" ModTime="1616457158"/>
+	<File Type="RDA" Name="u_ila_0.rda" ModTime="1616457158"/>
+	<File Type="WDF" Name="u_ila_0.wdf" ModTime="1616457158"/>
+	<File Type="RESOURSES" Name="u_ila_0.resources" ModTime="1616457158"/>
+</Checkpoint>
+

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="MercuryNuPRISM_synth" LaunchPart="xczu6eg-ffvc900-1-i" LaunchTime="1615230406">
+<GenRun Id="MercuryNuPRISM_synth" LaunchPart="xczu6eg-ffvc900-1-i" LaunchTime="1616521423">
   <File Type="VDS-TIMINGSUMMARY" Name="system_top_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="system_top.dcp"/>
   <File Type="RDS-UTIL-PB" Name="system_top_utilization_synth.pb"/>
@@ -17,22 +17,6 @@
         <Attr Name="ImportTime" Val="1600377988"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/bd/MercuryXU1/hdl/MercuryXU1_wrapper.vhd">
-      <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/hdl/MercuryXU1_wrapper.vhd"/>
-        <Attr Name="ImportTime" Val="1600377990"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/imports/rev0-2020.1-petalinux/src/system_top_NuPRISM.vhd">
-      <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../../src/system_top_NuPRISM.vhd"/>
-        <Attr Name="ImportTime" Val="1604945981"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
@@ -686,6 +670,20 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/bd/MercuryXU1/hdl/MercuryXU1_wrapper.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/rev0-2020.1-petalinux/src/system_top_NuPRISM.sv">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
       <Option Name="TopModule" Val="system_top"/>
@@ -715,7 +713,18 @@
     <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017"/>
     <Step Id="synth_design"/>
   </Strategy>
+  <BlockFileSet Type="BlockSrcs" Name="MercuryXU1_auto_pc_2"/>
+  <BlockFileSet Type="BlockSrcs" Name="MercuryXU1_axis_data_fifo_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="MercuryXU1_auto_pc_1"/>
+  <BlockFileSet Type="BlockSrcs" Name="MercuryXU1_axi_smc_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="MercuryXU1_axi_dma_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="MercuryXU1_system_management_wiz_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="MercuryXU1_xbar_1"/>
+  <BlockFileSet Type="BlockSrcs" Name="MercuryXU1_proc_sys_reset_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="MercuryXU1_axi_gpio_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="clk_divider_pll"/>
+  <BlockFileSet Type="BlockSrcs" Name="MercuryXU1_auto_pc_0"/>
   <BlockFileSet Type="BlockSrcs" Name="clk_wiz_0_b65_mmcm"/>
+  <BlockFileSet Type="BlockSrcs" Name="MercuryXU1_zynq_ultra_ps_e_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="clk_wiz_1_b64_b66_pll"/>
 </GenRun>

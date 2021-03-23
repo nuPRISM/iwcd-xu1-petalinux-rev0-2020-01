@@ -56,6 +56,18 @@ int main(int argc, char **argv)
     {
         ret = clc_init();
     }
+    else if (strcmp(argv[1], "status") == 0)
+    {
+        struct clock_cleaner_status stat; 
+        ret = clc_read_status(&stat);
+
+        printf("***Clock Cleaner Status***\n");
+        printf("\tGPIO Pin Values, GPIO[3:0] = %x\n", stat.gpio);
+        printf("\tDevice Interrupt Status: %s\n", (stat.INT) ? "true":"false");
+        printf("\tCRC Mismatch on EEPROM Read: %s\n", (stat.eep_err) ? "true":"false");
+        printf("\tSerial EEPROM Read Fail: %s\n", (stat.boot_fail) ? "true":"false");
+        printf("\tSerial EEPROM Read Cycle Complete: %s\n", (stat.eep_done) ? "true":"false");
+    }
     else if (strcmp(argv[1], "write") == 0)
     {
         ret = clc_write(CLOCK_CLEANER_SLAVE_ADDR, (uint16_t)atoi(argv[2]), (uint8_t)atoi(argv[3]));

@@ -79,13 +79,13 @@ struct clock_cleaner_status {
 /**
  * @brief Open the i2c device file and store the file descriptor
  * 
- * @param device 
+ * @param device string containing the device file name 
  */
 void clc_open(char device[]);
 
 
 /**
- * @brief 
+ * @brief Clode the Clock Cleaner file descriptor 
  * 
  */
 void clc_close(void);
@@ -94,10 +94,10 @@ void clc_close(void);
 /**
  * @brief Read one byte of data from the 8T49N241 clock cleaner via I2C 
  * 
- * @param slave_addr 
- * @param reg 
- * @param return_data 
- * @return int 
+ * @param slave_addr  I2C address of the Clock Cleaner 
+ * @param reg         Clock Cleaner register to read from
+ * @param return_data Data returned from register 
+ * @return int        Status flag
  */
 int clc_read(uint8_t slave_addr, uint16_t reg, uint8_t *return_data);
 
@@ -105,10 +105,10 @@ int clc_read(uint8_t slave_addr, uint16_t reg, uint8_t *return_data);
 /**
  * @brief Write one byte of data to the 8T49N241 clock cleaner via I2C 
  * 
- * @param slave_addr Address 
- * @param reg 
- * @param data 
- * @return int 
+ * @param slave_addr I2C address of the Clock Cleaner  
+ * @param reg        Clock Cleaner register to write to
+ * @param data       Data sent to register 
+ * @return int       Status flag
  */
 int clc_write(uint8_t slave_addr, uint16_t reg, uint8_t data);
 

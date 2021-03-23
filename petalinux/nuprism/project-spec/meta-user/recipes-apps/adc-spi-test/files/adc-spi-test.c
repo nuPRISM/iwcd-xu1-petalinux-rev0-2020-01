@@ -4,39 +4,17 @@
 #define DEBUG
 #include "adc-spi.h"
 
-#define NORMAL_OP_TEST_PATTERN  0x00
-#define ALL_ZEROS_TEST_PATTERN  0x11
-#define ALL_ONES_TEST_PATTERN   0x22
-#define TOGGLE_TEST_PATTERN     0x33
-
 static uint32_t mode = SPI_CS_HIGH;
 static uint8_t  bits = 8;
 static uint32_t speed = 500000;
 static uint16_t delay = 0;
 
-static uint16_t addr;
+static uint16_t _register;
 static uint8_t value;
 static int adc_num;
+static uint8_t pattern [4];
+static uint16_t custom_pattern;
 static char device_name[64] = DEFAULT_SPI_DEVICE;
-
-
-int adc_test(int adc_num, uint8_t test_pattern)
-{
-    DBG("adc_test(): num=%d\n", adc_num);
-
-    adc_enable(adc_num);
-
-    int ret = adc_write(0x06, 0x02);           // Register 06h: Test pattern output enabled
-    DBG("adc_test: reg 06h, ret=%d\n", ret);
-    ret = adc_write(0x0A, test_pattern);       // Register 0Ah: test pattern for channel A, B Toggle pattern: data alternate between 101010101010 and 010101010101 
-    DBG("adc_test: reg 0Ah, ret=%d\n", ret);
-    ret = adc_write(0x0B, test_pattern);       // Register 0Ah: test pattern for channel C, D Toggle pattern: data alternate between 101010101010 and 010101010101 
-    DBG("adc_test: reg 0AB, ret=%d\n", ret);
-
-    adc_disable(adc_num);
-
-    return 0;
-}
 
 
 void print_usage()
@@ -59,7 +37,7 @@ void get_opts(int argc, char **argv)
 {
     int opt;
 
-	while ((opt = getopt(argc, argv, "n:d:m:b:s:a:v:")) != -1)
+	while ((opt = getopt(argc, argv, "n:d:m:b:s:r:A:B:C:D:C:p:v:")) != -1)
     {
         switch (opt)
         {
@@ -75,8 +53,28 @@ void get_opts(int argc, char **argv)
                 strcpy(device_name, optarg);
                 break;
 
-            case 'a':
-                addr = atoi(optarg);
+            case 'r':
+                _register = atoi(optarg);
+                break;
+
+            case 'A':
+                pattern[0] = atoi(optarg);
+                break;
+
+            case 'B':
+                pattern[1] = atoi(optarg);
+                break;
+
+            case 'C':
+                pattern[2] = atoi(optarg);
+                break;
+
+            case 'D':
+                pattern[3] = atoi(optarg);
+                break;
+
+            case 'p':
+                custom_pattern = atoi(optarg);
                 break;
 
             case 'v':
@@ -144,20 +142,27 @@ int main(int argc, char **argv)
         }
         else if (strcmp(argv[optind], "read") == 0)
         {
-            uint8_t data = 0xCC;
+            struct adc_spi_transfer read_req = {
+                .reg = _register,
+                .data = 0xCC,
+            }; 
             adc_enable(adc_num);
 
-            ret = adc_read(addr, &data);
-            DBG("address=%d, ret=%d, value=0x%x\n", addr, ret, data);
+            ret = adc_read(&read_req);
+            DBG("register=%d, ret=%d, value=0x%x\n", read_req.reg, ret, read_req.data);
             
             adc_disable(adc_num);
         }
         else if (strcmp(argv[optind], "write") == 0)
         {
+            struct adc_spi_transfer write_cmd = {
+                .reg = _register,
+                .data = value,
+            };
             adc_enable(adc_num);
 
-            ret = adc_write(addr, value);
-            DBG("address=%d, value=%d, ret=%d\n", addr, value, ret);
+            ret = adc_write(&write_cmd);
+            DBG("register=%d, value=%d, ret=%d\n", write_cmd.reg, write_cmd.data, ret);
 
             adc_disable(adc_num);
         }
@@ -167,15 +172,22 @@ int main(int argc, char **argv)
         }
         else if (strcmp(argv[optind], "tst") == 0)
         {
-            ret = adc_test(adc_num, TOGGLE_TEST_PATTERN);
+            ret = adc_set_test_pattern(adc_num, pattern, custom_pattern);
         }
         else if (strcmp(argv[optind], "tst0") == 0)
         {
-            ret = adc_test(adc_num, ALL_ZEROS_TEST_PATTERN);
+            uint8_t patterns[4] = {ADC_TP_ALTERNATE};
+            ret = adc_set_test_pattern(adc_num, patterns, 0);
         }
         else if (strcmp(argv[optind], "tst1") == 0)
         {
-            ret = adc_test(adc_num, ALL_ONES_TEST_PATTERN);
+            uint8_t patterns[4] = {ADC_TP_ZERO};
+            ret = adc_set_test_pattern(adc_num, patterns, 0);
+        }
+        else if (strcmp(argv[optind], "tst2") == 0)
+        {
+            uint8_t patterns[4] = {ADC_TP_ONES};
+            ret = adc_set_test_pattern(adc_num, patterns, 0);
         } 
         else
         {

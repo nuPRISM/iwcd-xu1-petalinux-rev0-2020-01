@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2020 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2021 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -50,9 +50,9 @@
 // IP VLNV: xilinx.com:ip:xlconstant:1.1
 // IP Revision: 7
 
-(* X_CORE_INFO = "xlconstant_v1_1_7_xlconstant,Vivado 2020.1" *)
+(* X_CORE_INFO = "xlconstant_v1_1_7_xlconstant,Vivado 2020.1.1" *)
 (* CHECK_LICENSE_TYPE = "MercuryXU1_xlconstant_3_0,xlconstant_v1_1_7_xlconstant,{}" *)
-(* CORE_GENERATION_INFO = "MercuryXU1_xlconstant_3_0,xlconstant_v1_1_7_xlconstant,{x_ipProduct=Vivado 2020.1,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=xlconstant,x_ipVersion=1.1,x_ipCoreRevision=7,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED,CONST_WIDTH=32,CONST_VAL=0xDEADBEEF}" *)
+(* CORE_GENERATION_INFO = "MercuryXU1_xlconstant_3_0,xlconstant_v1_1_7_xlconstant,{x_ipProduct=Vivado 2020.1.1,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=xlconstant,x_ipVersion=1.1,x_ipCoreRevision=7,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,CONST_WIDTH=32,CONST_VAL=0xDEADBEEF}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module MercuryXU1_xlconstant_3_0 (
   dout

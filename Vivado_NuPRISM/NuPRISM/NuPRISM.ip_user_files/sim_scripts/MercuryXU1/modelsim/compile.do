@@ -150,7 +150,9 @@ vcom -work xil_defaultlib -64 -93 \
 "../../../bd/MercuryXU1/ip/MercuryXU1_system_management_wiz_0_0_1/axi_lite_ipif_v1_31_a/hdl/src/vhdl/MercuryXU1_system_management_wiz_0_0_axi_lite_ipif.vhd" \
 "../../../bd/MercuryXU1/ip/MercuryXU1_system_management_wiz_0_0_1/MercuryXU1_system_management_wiz_0_0_xadc_core_drp.vhd" \
 "../../../bd/MercuryXU1/ip/MercuryXU1_system_management_wiz_0_0_1/MercuryXU1_system_management_wiz_0_0_axi_xadc.vhd" \
-"../../../bd/MercuryXU1/ip/MercuryXU1_system_management_wiz_0_0_1/MercuryXU1_system_management_wiz_0_0.vhd" \
+
+vlog -work xil_defaultlib -64 -incr "+incdir+../../../../NuPRISM.srcs/sources_1/bd/MercuryXU1/ipshared/ec67/hdl" "+incdir+../../../../NuPRISM.srcs/sources_1/bd/MercuryXU1/ipshared/e257/hdl" "+incdir+../../../../NuPRISM.srcs/sources_1/bd/MercuryXU1/ipshared/2702/hdl/verilog" "+incdir+../../../../NuPRISM.srcs/sources_1/bd/MercuryXU1/ipshared/4676/hdl/verilog" "+incdir+../../../../NuPRISM.srcs/sources_1/bd/MercuryXU1/ipshared/8713/hdl" "+incdir+/home/edev/tools/Xilinx/Vivado/2020.1/data/xilinx_vip/include" \
+"../../../bd/MercuryXU1/ip/MercuryXU1_system_management_wiz_0_0_1/MercuryXU1_system_management_wiz_0_0.v" \
 
 vcom -work lib_pkg_v1_0_2 -64 -93 \
 "../../../../NuPRISM.srcs/sources_1/bd/MercuryXU1/ipshared/0513/hdl/lib_pkg_v1_0_rfs.vhd" \
@@ -281,9 +283,6 @@ vlog -work xil_defaultlib -64 -incr "+incdir+../../../../NuPRISM.srcs/sources_1/
 "../../../bd/MercuryXU1/ip/MercuryXU1_xlconstant_4_0/sim/MercuryXU1_xlconstant_4_0.v" \
 "../../../bd/MercuryXU1/ip/MercuryXU1_xlconstant_5_0/sim/MercuryXU1_xlconstant_5_0.v" \
 
-vcom -work xil_defaultlib -64 -93 \
-"../../../bd/MercuryXU1/sim/MercuryXU1.vhd" \
-
 vlog -work axi_protocol_converter_v2_1_21 -64 -incr "+incdir+../../../../NuPRISM.srcs/sources_1/bd/MercuryXU1/ipshared/ec67/hdl" "+incdir+../../../../NuPRISM.srcs/sources_1/bd/MercuryXU1/ipshared/e257/hdl" "+incdir+../../../../NuPRISM.srcs/sources_1/bd/MercuryXU1/ipshared/2702/hdl/verilog" "+incdir+../../../../NuPRISM.srcs/sources_1/bd/MercuryXU1/ipshared/4676/hdl/verilog" "+incdir+../../../../NuPRISM.srcs/sources_1/bd/MercuryXU1/ipshared/8713/hdl" "+incdir+/home/edev/tools/Xilinx/Vivado/2020.1/data/xilinx_vip/include" \
 "../../../../NuPRISM.srcs/sources_1/bd/MercuryXU1/ipshared/8dfa/hdl/axi_protocol_converter_v2_1_vl_rfs.v" \
 
@@ -291,6 +290,7 @@ vlog -work xil_defaultlib -64 -incr "+incdir+../../../../NuPRISM.srcs/sources_1/
 "../../../bd/MercuryXU1/ip/MercuryXU1_auto_pc_0/sim/MercuryXU1_auto_pc_0.v" \
 "../../../bd/MercuryXU1/ip/MercuryXU1_auto_pc_1/sim/MercuryXU1_auto_pc_1.v" \
 "../../../bd/MercuryXU1/ip/MercuryXU1_auto_pc_2/sim/MercuryXU1_auto_pc_2.v" \
+"../../../bd/MercuryXU1/sim/MercuryXU1.v" \
 
 vlog -work xil_defaultlib \
 "glbl.v"

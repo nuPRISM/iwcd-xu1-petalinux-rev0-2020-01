@@ -1,7 +1,7 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"0.812248",
-   "Default View_TopLeft":"222,170",
+   "Default View_ScaleFactor":"0.685938",
+   "Default View_TopLeft":"-105,0",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:9.0 TLS
 #  -string -flagsOSRD
@@ -14,48 +14,48 @@ preplace port pl_resetn0 -pg 1 -lvl 6 -x 2320 -y 560 -defaultsOSRD
 preplace port emio_spi0_ss_out -pg 1 -lvl 6 -x 2320 -y 480 -defaultsOSRD
 preplace port emio_spi0_ss_tri -pg 1 -lvl 6 -x 2320 -y 500 -defaultsOSRD
 preplace port emio_spi0_ss_in -pg 1 -lvl 6 -x 2320 -y 460 -defaultsOSRD -right
-preplace inst proc_sys_reset_0 -pg 1 -lvl 1 -x 210 -y 320 -defaultsOSRD
-preplace inst axi_gpio_0 -pg 1 -lvl 5 -x 1920 -y 1200 -defaultsOSRD
-preplace inst zynq_ultra_ps_e_0 -pg 1 -lvl 5 -x 1920 -y 480 -defaultsOSRD
-preplace inst ps8_0_axi_periph -pg 1 -lvl 4 -x 1340 -y 1020 -defaultsOSRD
-preplace inst system_management_wiz_0 -pg 1 -lvl 5 -x 1920 -y 930 -defaultsOSRD
-preplace inst axi_dma_0 -pg 1 -lvl 3 -x 940 -y 460 -defaultsOSRD
-preplace inst axi_smc -pg 1 -lvl 4 -x 1340 -y 430 -defaultsOSRD
-preplace inst xlconcat_0 -pg 1 -lvl 4 -x 1340 -y 210 -defaultsOSRD
-preplace inst axis_data_fifo_0 -pg 1 -lvl 2 -x 580 -y 440 -defaultsOSRD
-preplace inst xlconstant_3 -pg 1 -lvl 1 -x 210 -y 60 -defaultsOSRD
-preplace inst xlconstant_4 -pg 1 -lvl 1 -x 210 -y 160 -defaultsOSRD
-preplace inst xlconstant_5 -pg 1 -lvl 1 -x 210 -y 540 -defaultsOSRD
-preplace netloc proc_sys_reset_0_peripheral_aresetn 1 1 4 400 570 750 590 1150 760 1500
+preplace inst proc_sys_reset_0 -pg 1 -lvl 1 -x 180 -y 320 -defaultsOSRD
+preplace inst axi_gpio_0 -pg 1 -lvl 5 -x 1910 -y 1200 -defaultsOSRD
+preplace inst zynq_ultra_ps_e_0 -pg 1 -lvl 5 -x 1910 -y 480 -defaultsOSRD
+preplace inst ps8_0_axi_periph -pg 1 -lvl 4 -x 1330 -y 1020 -defaultsOSRD
+preplace inst system_management_wiz_0 -pg 1 -lvl 5 -x 1910 -y 930 -defaultsOSRD
+preplace inst axi_dma_0 -pg 1 -lvl 3 -x 930 -y 460 -defaultsOSRD
+preplace inst axi_smc -pg 1 -lvl 4 -x 1330 -y 430 -defaultsOSRD
+preplace inst xlconcat_0 -pg 1 -lvl 4 -x 1330 -y 210 -defaultsOSRD
+preplace inst axis_data_fifo_0 -pg 1 -lvl 2 -x 550 -y 420 -defaultsOSRD
+preplace inst xlconstant_3 -pg 1 -lvl 1 -x 180 -y 60 -defaultsOSRD
+preplace inst xlconstant_4 -pg 1 -lvl 1 -x 180 -y 160 -defaultsOSRD
+preplace inst xlconstant_5 -pg 1 -lvl 1 -x 180 -y 540 -defaultsOSRD
+preplace netloc proc_sys_reset_0_peripheral_aresetn 1 1 4 380 310 700 590 1140 760 1490
 preplace netloc zynq_ultra_ps_e_0_pl_clk1 1 5 1 NJ 600
-preplace netloc zynq_ultra_ps_e_0_pl_resetn0 1 0 6 30 660 NJ 660 NJ 660 NJ 660 NJ 660 2300
+preplace netloc zynq_ultra_ps_e_0_pl_resetn0 1 0 6 0 670 NJ 670 NJ 670 NJ 670 NJ 670 2300
 preplace netloc zynq_ultra_ps_e_0_emio_spi0_ss_o_n 1 5 1 NJ 480
 preplace netloc zynq_ultra_ps_e_0_emio_spi0_ss_n_t 1 5 1 NJ 500
 preplace netloc emio_spi0_ss_i_n_0_1 1 5 1 NJ 460
-preplace netloc zynq_ultra_ps_e_0_pl_clk0 1 0 6 20 420 390 560 740 330 1130 330 1520 670 2280
-preplace netloc xlconcat_0_dout 1 4 1 1530 210n
-preplace netloc axi_dma_0_s2mm_introut 1 3 1 1140 220n
-preplace netloc xlconstant_4_dout 1 1 1 410J 160n
-preplace netloc xlconstant_5_dout 1 1 1 420J 460n
-preplace netloc axi_dma_0_mm2s_introut 1 3 1 1120 200n
-preplace netloc xlconstant_3_dout 1 1 1 420 60n
-preplace netloc zynq_ultra_ps_e_0_SPI_0 1 5 1 NJ 440
-preplace netloc axi_smc_M00_AXI 1 4 1 N 430
-preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_LPD 1 3 3 1160 290 NJ 290 2300
-preplace netloc zynq_ultra_ps_e_0_SPI_1 1 5 1 NJ 520
-preplace netloc zynq_ultra_ps_e_0_IIC_0 1 5 1 NJ 420
-preplace netloc ps8_0_axi_periph_M00_AXI 1 4 1 1510 980n
-preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_FPD 1 3 3 1170 280 NJ 280 2290
-preplace netloc axi_dma_0_M_AXI_SG 1 3 1 N 390
-preplace netloc axi_dma_0_M_AXI_S2MM 1 3 1 N 430
-preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM1_FPD 1 3 3 1180 300 NJ 300 2280
-preplace netloc ps8_0_axi_periph_M01_AXI 1 4 1 1530 900n
-preplace netloc ps8_0_axi_periph_M02_AXI 1 2 3 750 320 NJ 320 1490
-preplace netloc axi_gpio_0_GPIO 1 5 1 N 1200
-preplace netloc axis_data_fifo_0_M_AXIS 1 2 1 730 420n
+preplace netloc zynq_ultra_ps_e_0_pl_clk0 1 0 6 -10 420 360 530 710 330 1120 330 1510 680 2270
+preplace netloc xlconcat_0_dout 1 4 1 1520 210n
+preplace netloc axi_dma_0_s2mm_introut 1 3 1 1130 220n
+preplace netloc xlconstant_4_dout 1 1 1 360J 160n
+preplace netloc xlconstant_5_dout 1 1 1 370J 430n
+preplace netloc axi_dma_0_mm2s_introut 1 3 1 1110 200n
+preplace netloc xlconstant_3_dout 1 1 1 390 60n
 preplace netloc axi_dma_0_M_AXI_MM2S 1 3 1 N 410
-levelinfo -pg 1 0 210 580 940 1340 1920 2320
-pagesize -pg 1 -db -bbox -sgen 0 -170 2500 1530
+preplace netloc axi_dma_0_M_AXI_SG 1 3 1 N 390
+preplace netloc ps8_0_axi_periph_M02_AXI 1 2 3 720 280 NJ 280 1480
+preplace netloc axi_smc_M00_AXI 1 4 1 N 430
+preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_LPD 1 3 3 1150 300 NJ 300 2290
+preplace netloc zynq_ultra_ps_e_0_SPI_0 1 5 1 NJ 440
+preplace netloc axi_dma_0_M_AXI_S2MM 1 3 1 N 430
+preplace netloc zynq_ultra_ps_e_0_SPI_1 1 5 1 NJ 520
+preplace netloc ps8_0_axi_periph_M01_AXI 1 4 1 1520 900n
+preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_FPD 1 3 3 1160 290 NJ 290 2300
+preplace netloc axi_gpio_0_GPIO 1 5 1 N 1200
+preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM1_FPD 1 3 3 1170 660 NJ 660 2280
+preplace netloc zynq_ultra_ps_e_0_IIC_0 1 5 1 NJ 420
+preplace netloc ps8_0_axi_periph_M00_AXI 1 4 1 1500 980n
+preplace netloc axis_data_fifo_0_M_AXIS 1 2 1 N 420
+levelinfo -pg 1 -30 180 550 930 1330 1910 2320
+pagesize -pg 1 -db -bbox -sgen -30 -180 2500 1550
 "
 }
 {
