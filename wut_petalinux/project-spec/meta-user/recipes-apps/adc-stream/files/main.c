@@ -183,15 +183,23 @@ int main(int argc, char **argv)
 {
     if(argc < 3) {
         printf("Usage:\n\t%s adc_num dst_ip_addr dst_port_num\n\n", basename(argv[0]));
+        printf("\tadc_num=0..4\n");
+        printf("\tadc_mode: 0 - tst0, 1 - tst1, 2 - toggle test pattern, 3 nominal mode\n");
         return 1;
     }
   
     // verify cmd line params    
     int adc_num = atoi(argv[1]);
     if(adc_num < 0 || adc_num > 4) {
-        printf("ADC #%d not found, terminating ... \n", adc_num);
+        printf("ADC #%d not found\n", adc_num);
         return 2;
     }
+    
+    int adc_mode = atoi(argv[2]);
+    if(adc_mode < 0 || adc_mode > 3) {
+        printf("Illegal ADC mode: %d\n", adc_mode);
+        return 2;
+    } 
 
     // initialize/start clock cleaner
     int ret_val = clc_init();                     // \todo terminate if ret_val != 0
@@ -207,7 +215,23 @@ int main(int argc, char **argv)
     }
     adc_reset();
     adc_init(fd, adc_num);
-    // adc_nominal_mode()? adc_test()?  \todo add cmd line param to select ADC mode
+    switch(adc_mode) {
+        case 0:
+            adc_test(fd, adc_num, ALL_ZEROS_TEST_PATTERN);
+            break; 
+
+        case 1:
+            adc_test(fd, adc_num, ALL_ONES_TEST_PATTERN);
+            break;
+
+        case 2:
+            adc_test(fd, adc_num, TOGGLE_TEST_PATTERN);
+            break;
+
+        default:
+            adc_nominal_mode(fd, adc_num);
+            break;
+    }    
     close(fd);
     
     // main loop 
@@ -217,8 +241,8 @@ int main(int argc, char **argv)
         char c = getchar();
         switch(c) {
             case 's':
-                DBG("Starting streaming thread: adc_num=%d dst_ip_addr=%s dst_port_num=%s\n", adc_num, argv[2], argv[3]);
-                start_thread(adc_num, argv[2], argv[3]);     // \todo read address, port from cmd line !!
+                DBG("Starting streaming thread: adc_num=%d dst_ip_addr=%s dst_port_num=%s\n", adc_num, argv[3], argv[4]);
+                start_thread(adc_num, argv[3], argv[4]);     
                 break;
                 
             case 'p':

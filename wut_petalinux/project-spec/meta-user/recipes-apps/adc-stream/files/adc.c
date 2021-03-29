@@ -57,11 +57,6 @@
 #define RESET_GPIO 497
 #define PDN_GPIO   498
 
-#define NORMAL_OP_TEST_PATTERN 0x00
-#define ALL_ZEROS_TEST_PATTERN 0x11
-#define ALL_ONES_TEST_PATTERN  0x22
-#define TOGGLE_TEST_PATTERN    0x33
-
 static uint32_t mode;
 static uint8_t bits = 8;
 static uint32_t speed = 500000;
