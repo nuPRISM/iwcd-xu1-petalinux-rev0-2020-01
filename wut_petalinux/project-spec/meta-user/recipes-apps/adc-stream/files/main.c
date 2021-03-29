@@ -98,8 +98,21 @@ int main(int argc, char **argv)
         printf("Usage:\n\t%s adc_num dst_ip_addr dst_port_num\n\n", basename(argv[0]));
         return 1;
     }
-    
+  
+    // verify cmd line params    
     int adc_num = atoi(argv[1]);
+    if(adc_num < 0 || adc_num > 4) {
+        printf("ADC #%d not found, terminating ... \n", adc_num);
+        return 2;
+    }
+
+    // initialize/start clock cleaner
+    int ret_val = clc_init();                     // \todo terminate if ret_val != 0
+    DBG("clc_init(): ret_val=%d\n", ret_val);
+    ret_val = clc_set_state(CLC_ON);
+    DBG("clc_state(ON): ret_val=%d\n", ret_val);
+
+    // main loop 
     bool terminate = false;
     while(!terminate) {
         printf(">> ");
@@ -129,6 +142,9 @@ int main(int argc, char **argv)
         }
     }
     
+    // stop clock cleaner
+    ret_val =clc_set_state(CLC_ON);    
+    DBG("clc_state(OFF): ret_val=%d\n", ret_val);
     
     return 0;
 }
