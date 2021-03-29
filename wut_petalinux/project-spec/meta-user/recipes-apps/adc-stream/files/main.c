@@ -27,22 +27,22 @@
 
 #include <stdio.h>
 #include <stdbool.h>
+#include <stdint.h>
 #include <pthread.h>
 #include <unistd.h>
 #include <libgen.h>
 
 #define DEBUG
+#include "dbg.h"
 
-#ifdef DEBUG
-    #define DBG(fmt, args...) printf("DBG: " fmt, args)                                                                          
-#else
-    #define DBG(fmt, args...)
-#endif    
+#include "adc.h"
+#include "clc.h"
 
 typedef struct {
+    int adc_num;
     char* address;
     char* port;
-} dst_info;
+} thread_data;
 
 
 static pthread_t thread;
@@ -51,9 +51,9 @@ static bool stop = false;
 
 
 void *thread_fun( void *ptr ) {
-    dst_info* info_ptr = (dst_info*)ptr;
+    thread_data* data_ptr = (thread_data*)ptr;
     
-    DBG("Entering thread loop: address=%s port=%s\n", info_ptr->address, info_ptr->port);
+    DBG("Entering thread loop: adc_num=%d address=%s port=%s\n", data_ptr->adc_num, data_ptr->address, data_ptr->port);
     int i = 0;
     while(!stop) {                  // \todo read only - mutex required?
         printf("i=%d\n", i++);
@@ -64,18 +64,19 @@ void *thread_fun( void *ptr ) {
 }
 
 
-void start_thread(char* address, char* port) {               // \todo add address, port
-    DBG("start_thread()\n", NULL);
-    static dst_info info;
-    info.address = address;
-    info.port = port;
+void start_thread(int adc_num, char* address, char* port) {               
+    DBG("start_thread(): adc_num=%d address=%s port=%s\n", adc_num, address, port);
+    static thread_data data;
+    data.adc_num = adc_num;
+    data.address = address;
+    data.port = port;
     
     pthread_mutex_lock(&mutex);
     stop = false;
     pthread_mutex_unlock(&mutex);
     
-    DBG("Starting thread ...\n", &info);
-    pthread_create(&thread, NULL, thread_fun, (void*)(&info));
+    DBG("Starting thread ...\n", NULL);
+    pthread_create(&thread, NULL, thread_fun, (void*)(&data));
 }
 
 
@@ -94,18 +95,19 @@ void stop_thread() {
 int main(int argc, char **argv)
 {
     if(argc < 3) {
-        printf("Usage:\n\t%s dst_ip_addr dst_port_num\n\n", basename(argv[0]));
+        printf("Usage:\n\t%s adc_num dst_ip_addr dst_port_num\n\n", basename(argv[0]));
         return 1;
     }
     
+    int adc_num = atoi(argv[1]);
     bool terminate = false;
     while(!terminate) {
         printf(">> ");
         char c = getchar();
         switch(c) {
             case 's':
-                DBG("Starting streaming thread: dst_ip_addr=%s dst_port_num=%s\n", argv[1], argv[2]);
-                start_thread(argv[1], argv[2]);     // \todo read address, port from cmd line !!
+                DBG("Starting streaming thread: adc_num=%d dst_ip_addr=%s dst_port_num=%s\n", adc_num, argv[2], argv[3]);
+                start_thread(adc_num, argv[2], argv[3]);     // \todo read address, port from cmd line !!
                 break;
                 
             case 'p':

@@ -1,7 +1,7 @@
 APP = adc-stream
 
 # Add any other object files to this list below
-APP_OBJS = adc-stream.o
+APP_OBJS = main.o adc.o clc.o
 LDLIBS=-lpthread
 
 all: build
