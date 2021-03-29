@@ -36,12 +36,12 @@
 #include <linux/spi/spidev.h>
 #include <sys/ioctl.h>
 
+# include "adc.h"
+
 #define DEBUG
 #include "dbg.h"
 
 
-
-#define DEFAULT_SPI_DEVICE "/dev/spidev1.0"
 #define DEFAULT_SPI_DELAY 0
 #define DEFAULT_SPI_SPEED 500000
 #define DEFAULT_SPI_BITS_PER_WORD 8
@@ -66,7 +66,7 @@ static uint32_t mode;
 static uint8_t bits = 8;
 static uint32_t speed = 500000;
 static uint16_t delay;
-
+static int fd;
 
 
 // DO NOT USE! GPIOs are initialized by gpio_init.sh 
@@ -101,6 +101,61 @@ static int adc_gpio_init() {               // \todo use WZAB GPIO module
     
     return 0;       // \todo verify all system commands
 }
+
+
+int spi_init(char* device_name) {
+    fd = open(device_name, O_RDWR);
+    if(fd == -1) {
+        DBG("can not open device: %s\n", device_name);
+        return -1;
+    }
+
+    // spi mode
+    int ret = ioctl(fd, SPI_IOC_WR_MODE32, &mode);
+    if (ret == -1) {
+	    DBG("can't set spi mode", NULL);
+        return -1;
+    }
+
+    ret = ioctl(fd, SPI_IOC_RD_MODE32, &mode);
+    if (ret == -1) {
+	    DBG("can't get spi mode", NULL);
+        return -1;
+    }
+
+    // bits per word
+    ret = ioctl(fd, SPI_IOC_WR_BITS_PER_WORD, &bits);
+    if (ret == -1) {
+	    DBG("can't set bits per word", NULL);
+        return -1;
+    }
+
+    ret = ioctl(fd, SPI_IOC_RD_BITS_PER_WORD, &bits);
+    if (ret == -1) {
+	    DBG("can't get bits per word", NULL);
+        return -1;
+    }
+    
+    //max speed hz
+	ret = ioctl(fd, SPI_IOC_WR_MAX_SPEED_HZ, &speed);
+    if (ret == -1) {
+	    DBG("can't set max speed hz", NULL);
+        return -1;
+    }
+
+    ret = ioctl(fd, SPI_IOC_RD_MAX_SPEED_HZ, &speed);
+    if (ret == -1) {
+	    DBG("can't get max speed hz", NULL);
+        return -1;
+    }
+
+    DBG("spi mode: 0x%x\n", mode);
+    DBG("bits per word: %d\n", bits);
+    DBG("max speed: %d Hz (%d KHz)\n", speed, speed/1000);
+
+    return fd;
+}
+
 
 
 int adc_enable(int adc_num, bool state) {
@@ -204,9 +259,13 @@ int adc_nominal_mode(int fd, int adc_num) {
 
     adc_enable(adc_num, true);
 
-    int ret = adc_write(fd, 0x06, 0x00);          // Register 06h: normal output
+    int ret = adc_write(fd, 0x06, 0x00);             // Register 06h: normal output
     DBG("adc_test: reg 06h, ret=%d\n", ret);
-    
+    ret = adc_write(fd, 0x0A, 0);                   // Register 0Ah: nominal mode for channel A, B 
+    DBG("adc_test: reg 0Ah, ret=%d\n", ret);
+    ret = adc_write(fd, 0x0B, 0);                   // Register 0Bh: nominal mode for channel C, D 
+    DBG("adc_test: reg 0Bh, ret=%d\n", ret);
+
     adc_enable(adc_num, false);
     
     return 0;
@@ -220,10 +279,10 @@ int adc_test(int fd, int adc_num, uint8_t test_pattern) {
 
     int ret = adc_write(fd, 0x06, 0x02);           // Register 06h: Test pattern output enabled
     DBG("adc_test: reg 06h, ret=%d\n", ret);
-    ret = adc_write(fd, 0x0A, test_pattern);       // Register 0Ah: test pattern for channel A, B Toggle pattern: data alternate between 101010101010 and 010101010101 
+    ret = adc_write(fd, 0x0A, test_pattern);       // Register 0Ah: test pattern for channel A, B 
     DBG("adc_test: reg 0Ah, ret=%d\n", ret);
-    ret = adc_write(fd, 0x0B, test_pattern);       // Register 0Ah: test pattern for channel C, D Toggle pattern: data alternate between 101010101010 and 010101010101 
-    DBG("adc_test: reg 0AB, ret=%d\n", ret);
+    ret = adc_write(fd, 0x0B, test_pattern);       // Register 0Ah: test pattern for channel C, D 
+    DBG("adc_test: reg 0Bh, ret=%d\n", ret);
 
     adc_enable(adc_num, false);
 

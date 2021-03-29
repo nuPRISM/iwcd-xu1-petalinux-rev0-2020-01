@@ -1,6 +1,10 @@
 #ifndef ADC_H
 #define ADC_H
 
+#define DEFAULT_SPI_DEVICE "/dev/spidev1.0"
+
+int spi_init(char* device_name);
+
 int adc_enable(int adc_num, bool state);
 int adc_read(int fd, uint16_t address, uint8_t* data);
 int adc_write(int fd, uint16_t address, uint8_t data);

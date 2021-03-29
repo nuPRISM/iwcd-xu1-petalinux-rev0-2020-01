@@ -26,6 +26,7 @@
 */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <stdbool.h>
 #include <stdint.h>
 #include <pthread.h>
@@ -90,7 +91,7 @@ void stop_thread() {
     pthread_join(thread, NULL);
     DBG("Thread joined\n", NULL);
 }
- 
+
 
 int main(int argc, char **argv)
 {
@@ -112,6 +113,17 @@ int main(int argc, char **argv)
     ret_val = clc_set_state(CLC_ON);
     DBG("clc_state(ON): ret_val=%d\n", ret_val);
 
+    // initilize SPI/ADC
+    int fd = spi_init(DEFAULT_SPI_DEVICE);          // \todo optional param in cmd line to change device name
+    if(fd < 0) {
+        printf("SPI device not openend/configured - terminating ... \n");
+        return 3;                                   // \toco clse SPI device if opened
+    }
+    adc_reset();
+    adc_init(fd, adc_num);
+    // adc_nominal_mode()? adc_test()?  \todo add cmd line param to select ADC mode
+    close(fd);
+    
     // main loop 
     bool terminate = false;
     while(!terminate) {
