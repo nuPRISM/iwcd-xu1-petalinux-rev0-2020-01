@@ -13,6 +13,7 @@ SRC_URI = "file://main.c \
            file://adc.c \
            file://clc.h \
            file://clc.c \
+           file://dma-proxy.h \            
 	       file://Makefile \
 		  "
 
