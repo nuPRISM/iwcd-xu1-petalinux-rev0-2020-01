@@ -38,6 +38,7 @@
 #include <assert.h>
 #include <sys/mman.h>
 #include <errno.h>
+#include <time.h>
 
 #define DEBUG
 #include "dbg.h"
@@ -118,6 +119,7 @@ void *thread_fun( void *ptr ) {
     DBG("Entering thread loop\n", NULL);
     system("echo 0 > /sys/class/gpio/gpio473/value"); // unset ADC supress bit
     int counter = 0;
+    clock_t begin = clock();
     while(!stop) {                                  // \todo read only - mutex required?
         int dummy;
     
@@ -135,8 +137,11 @@ void *thread_fun( void *ptr ) {
             }
         }
     }
+    clock_t end = clock();
     system("echo 1 > /sys/class/gpio/gpio473/value");     // reset ADC supress bit
-    DBG("Leaving thread loop, %d bytes received/sent\n", counter * test_size);
+
+    double elapsed_time = (double)(end - begin) / CLOCKS_PER_SEC;
+    DBG("Leaving thread loop, %d bytes received/sent in %f [s] (%f Mb/s) \n", counter * test_size, elapsed_time, counter * test_size * 8 / 1024 / 1024 / elapsed_time);
 
     // Unmap the proxy channel interface memory 
 	munmap(rx_proxy_interface_p, sizeof(struct dma_proxy_channel_interface));
