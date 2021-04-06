@@ -1,7 +1,8 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include <unistd.h>
 
-#define DEBUG
 #include "adc-spi.h"
 
 static uint32_t mode = SPI_CS_HIGH;
@@ -96,6 +97,7 @@ void get_opts(int argc, char **argv)
 int main(int argc, char **argv)
 {
     int ret = 0;
+    int spi_fd;
 
     get_opts(argc, argv);
 
@@ -105,13 +107,17 @@ int main(int argc, char **argv)
     adc_set_speed(speed);
     adc_set_delay(delay);
     
+    // Open I2C device file, exit if not successful
+    spi_fd = open(device_name, O_RDWR);
+    if (spi_fd < 0)
+    {
+        printf("Cannot open device, \"%s\"\n", device_name);
+        return -1;
+    }
+
     if (optind < argc)
     {
-        if (adc_open(device_name) != 0)
-        {
-            return -1;
-        }
-        if (adc_spi_init() != 0)
+        if (adc_spi_init(spi_fd) != 0)
         {
             return -1;
         }
@@ -134,69 +140,63 @@ int main(int argc, char **argv)
         }
         else if (strcmp(argv[optind], "init") == 0)
         {
-            ret = adc_init(adc_num);
+            ret = adc_init(spi_fd, adc_num);
         }
         else if (strcmp(argv[optind], "rb") == 0)
         {
-            ret = adc_read_back(adc_num);
+            ret = adc_read_back(spi_fd, adc_num);
         }
         else if (strcmp(argv[optind], "read") == 0)
         {
-            struct adc_spi_transfer read_req = {
-                .reg = _register,
-                .data = 0xCC,
-            }; 
+            uint8_t return_data = 0xCC;
             adc_enable(adc_num);
 
-            ret = adc_read(&read_req);
-            DBG("register=%d, ret=%d, value=0x%x\n", read_req.reg, ret, read_req.data);
+            ret = adc_read(spi_fd, _register, &return_data);
+            printf("register=%d, ret=%d, value=0x%x\n", _register, ret, return_data);
             
             adc_disable(adc_num);
         }
         else if (strcmp(argv[optind], "write") == 0)
         {
-            struct adc_spi_transfer write_cmd = {
-                .reg = _register,
-                .data = value,
-            };
             adc_enable(adc_num);
 
-            ret = adc_write(&write_cmd);
-            DBG("register=%d, value=%d, ret=%d\n", write_cmd.reg, write_cmd.data, ret);
+            ret = adc_write(spi_fd, _register, value);
+            DBG("register=%d, value=%d, ret=%d\n", _register, value, ret);
 
             adc_disable(adc_num);
         }
         else if (strcmp(argv[optind], "nom") == 0)
         {
-            adc_nominal_mode(adc_num);
+            adc_nominal_mode(spi_fd, adc_num);
         }
         else if (strcmp(argv[optind], "tst") == 0)
         {
-            ret = adc_set_test_pattern(adc_num, pattern, custom_pattern);
+            ret = adc_set_test_pattern(spi_fd, adc_num, pattern, custom_pattern);
         }
         else if (strcmp(argv[optind], "tst0") == 0)
         {
             uint8_t patterns[4] = {ADC_TP_ALTERNATE};
-            ret = adc_set_test_pattern(adc_num, patterns, 0);
+            ret = adc_set_test_pattern(spi_fd, adc_num, patterns, 0);
         }
         else if (strcmp(argv[optind], "tst1") == 0)
         {
             uint8_t patterns[4] = {ADC_TP_ZERO};
-            ret = adc_set_test_pattern(adc_num, patterns, 0);
+            ret = adc_set_test_pattern(spi_fd, adc_num, patterns, 0);
         }
         else if (strcmp(argv[optind], "tst2") == 0)
         {
             uint8_t patterns[4] = {ADC_TP_ONES};
-            ret = adc_set_test_pattern(adc_num, patterns, 0);
+            ret = adc_set_test_pattern(spi_fd, adc_num, patterns, 0);
         } 
         else
         {
             printf("Unrecognized cmd: %s\n", argv[optind]);
             print_usage();
+            close(spi_fd);
             return -1;
         }
 
-        adc_close();
+        close(spi_fd);
         return ret;
     }
     else

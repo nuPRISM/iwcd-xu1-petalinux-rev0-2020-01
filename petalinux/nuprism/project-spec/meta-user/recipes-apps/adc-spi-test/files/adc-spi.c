@@ -1,21 +1,15 @@
 #include <stdio.h>
 #include <unistd.h>
-#include <fcntl.h>
-#define DEBUG // this should be defined in adc-spi-test.c
 #include <sys/ioctl.h>
 
 #include "adc-spi.h"
 
-// spi-dev configurations
-static uint32_t mode = SPI_CS_HIGH;
-static uint8_t bits = 8;
-static uint32_t speed = 500000;
-static uint16_t delay = 0;
-
-static int fd;
-
 // Nominal mode init sequence
-struct adc_spi_transfer adc_init_sequence [] = {
+static struct adc_spi_prog
+{
+    uint16_t reg;
+    uint8_t data;
+} adc_init_sequence [] = {
     {0x001, 0xFF}, {0x003, 0x00}, {0x004, 0x00}, {0x005, 0x00}, 
     {0x006, 0x00}, {0x007, 0x00}, {0x009, 0x00}, {0x00a, 0x00}, 
     {0x00b, 0x00}, {0x00e, 0x00}, {0x00f, 0x00}, {0x013, 0x00}, 
@@ -27,22 +21,32 @@ struct adc_spi_transfer adc_init_sequence [] = {
     {0x608, 0x00}, {0x70a, 0x01},
 };
 
+// spi-dev configurations
+static struct spi_configuration
+{
+    uint32_t mode;
+    uint8_t bits;
+    uint32_t speed;
+    uint16_t delay;
+} spi_config = {SPI_CS_HIGH, 8, 500000, 0};
+
+
 uint8_t adc_reg_count = ARRAY_SIZE(adc_init_sequence);
 
 
-void adc_set_mode(int spidev_mode)
+void adc_set_mode (int spidev_mode)
 {
-    mode = spidev_mode;
+    spi_config.mode = spidev_mode;
 }
 
 
-void adc_set_bits(int spidev_bits_per_word)
+void adc_set_bits (int spidev_bits_per_word)
 {
-    bits = spidev_bits_per_word;
+    spi_config.bits = spidev_bits_per_word;
 }
 
 
-void adc_set_speed(int spidev_speed)
+void adc_set_speed (int spidev_speed)
 {
     if (spidev_speed > MAX_SPI_SPEED_HZ || spidev_speed < MIN_SPI_SPEED_HZ)
     {
@@ -50,17 +54,17 @@ void adc_set_speed(int spidev_speed)
         return;
     }
 
-    speed = spidev_speed;
+    spi_config.speed = spidev_speed;
 }
 
 
-void adc_set_delay(int spidev_delay)
+void adc_set_delay (int spidev_delay)
 {
-    delay = spidev_delay;
+    spi_config.delay = spidev_delay;
 }
 
 
-int adc_enable(int adc_num)
+int adc_enable (int adc_num)
 {
     int ret;
     DBG("adc_enable(): adc_num=%d\n", adc_num);
@@ -81,7 +85,7 @@ int adc_enable(int adc_num)
 }
 
 
-int adc_disable(int adc_num)
+int adc_disable (int adc_num)
 {
     int ret;
     DBG("adc_disable(): adc_num=%d\n", adc_num);
@@ -102,7 +106,7 @@ int adc_disable(int adc_num)
 }
 
 
-int adc_power_down()
+int adc_power_down ()
 {
     int ret;
     DBG("adc_power_down(): Write true to GPIO[%d].\n", PDN_GPIO);
@@ -117,7 +121,7 @@ int adc_power_down()
 }
 
 
-int adc_power_up()
+int adc_power_up ()
 {
     int ret;
     DBG("adc_power_up(): Write false to GPIO[%d].\n", PDN_GPIO);
@@ -132,7 +136,7 @@ int adc_power_up()
 }
 
 
-int adc_reset()
+int adc_reset ()
 {
     int ret = 0;
     DBG("adc_reset(): toggle GPIO[%d] to perform a hardware reset.\n", RESET_GPIO);
@@ -160,58 +164,60 @@ int adc_reset()
 }
 
 
-int adc_read(struct adc_spi_transfer* request)
+int adc_read (int fd, uint16_t reg, uint8_t* data)
 {
     // For an adc register read, the data in the TX buffer is ignored by the adc
-    uint8_t txbuf[3] = TX_BUFFER(SPI_READ_CMD, request->reg, 0xFF);
+    uint8_t txbuf[3] = TX_BUFFER(SPI_READ_CMD, reg, 0xFF);
     uint8_t rxbuf[3] = {0};
-    DBG("adc_read(): address=0x%x\n", request->reg);
+    DBG("adc_read(): address=0x%x\n", reg);
 
     struct spi_ioc_transfer tr = {
 		.tx_buf = (unsigned long)txbuf,
 		.rx_buf = (unsigned long)rxbuf,
 		.len = 3,
-		.delay_usecs = delay,
-		.speed_hz = speed,
-		.bits_per_word = bits,
+		.delay_usecs = spi_config.delay,
+		.speed_hz = spi_config.speed,
+		.bits_per_word = spi_config.bits,
         .tx_nbits = 1,
         .rx_nbits = 1
 	};
 
     if (ioctl(fd, SPI_IOC_MESSAGE(1), &tr) < 0)
     {
-        DBG("ERR could not read adc register: %s\n", strerror(errno));
+        perror("ioctl(SPI_IOC_MESSAGE) in adc_read\n");
+        printf("ERR couldn't read: %s\n", strerror(errno));
         return -1;
     }
     else
     {
-        request->data = rxbuf[2];
+        *data = rxbuf[2];
     }
 
     return 0;
 }
 
 
-int adc_write(struct adc_spi_transfer* command)
+int adc_write (int fd, uint16_t reg, uint8_t data)
 {
-    uint8_t txbuf[3] = TX_BUFFER(SPI_WRITE_CMD, command->reg, command->data);
+    uint8_t txbuf[3] = TX_BUFFER(SPI_WRITE_CMD, reg, data);
 
-    DBG("adc_write(): address=0x%x, data=0x%x\n", command->reg, command->data);
+    DBG("adc_write(): address=0x%x, data=0x%x\n", reg, data);
 
     struct spi_ioc_transfer tr = {
 		.tx_buf = (unsigned long)txbuf,
 		.rx_buf = (unsigned long)NULL,
 		.len = 3,
-		.delay_usecs = delay,
-		.speed_hz = speed,
-		.bits_per_word = bits,
+		.delay_usecs = spi_config.delay,
+		.speed_hz = spi_config.speed,
+		.bits_per_word = spi_config.bits,
         .tx_nbits = 1,
         .rx_nbits = 1
 	};
 
     if (ioctl(fd, SPI_IOC_MESSAGE(1), &tr) < 0)
     {
-        DBG("ERR could not write to adc register: %s\n", strerror(errno));
+        perror("ioctl(SPI_IOC_MESSAGE) in adc_write\n");
+        printf("ERR couldn't write: %s\n", strerror(errno));
         return -1;
     }
 
@@ -219,7 +225,7 @@ int adc_write(struct adc_spi_transfer* command)
 }
 
 
-int adc_init(int adc_num)
+int adc_init (int fd, int adc_num)
 {
     int ret = 0;
 
@@ -228,7 +234,7 @@ int adc_init(int adc_num)
 
     for (uint8_t i = 0; i < adc_reg_count; i++)
     {
-        ret |= adc_write(&adc_init_sequence[i]);
+        ret |= adc_write(fd, adc_init_sequence[i].reg, adc_init_sequence[i].data);
     }
 
     adc_disable(adc_num);
@@ -238,22 +244,23 @@ int adc_init(int adc_num)
 }
 
 
-int adc_init_all()
+int adc_init_all (int fd)
 {
     int ret = 0; 
 
     for (int adc = 0; adc < ADC_COUNT; adc++)
     {
-        ret |= adc_init(adc);
+        ret |= adc_init(fd, adc);
     }
 
     return ret;
 }
 
 
-int adc_read_back(int adc_num)
+int adc_read_back (int fd, int adc_num)
 {
-    struct adc_spi_transfer read_cmd;
+    uint16_t reg;
+    uint8_t data;
     int ret = 0;
 
     DBG("adc_read_back(): num=%d\n", adc_num);
@@ -261,14 +268,14 @@ int adc_read_back(int adc_num)
 
     for (uint8_t i = 0; i < adc_reg_count; i++)
     {
-        read_cmd.reg = adc_init_sequence[i].reg;
-        read_cmd.data = 0xCC;
+        reg = adc_init_sequence[i].reg;
+        data = 0xCC;
 
-        ret |= adc_read(&read_cmd);
+        ret |= adc_read(fd, reg, &data);
         
         DBG("Read-back %s for register, 0x%x (sent=0x%x, returned=0x%x)\n",
-            (read_cmd.data == adc_init_sequence[i].data ? "PASSED":"FAILED"),
-            adc_init_sequence[i].reg, adc_init_sequence[i].data, read_cmd.data);
+            (data == adc_init_sequence[i].data ? "PASSED":"FAILED"),
+            adc_init_sequence[i].reg, adc_init_sequence[i].data, data);
     }
 
     adc_disable(adc_num);
@@ -278,15 +285,13 @@ int adc_read_back(int adc_num)
 }
 
 
-void adc_nominal_mode(int adc_num)
+void adc_nominal_mode (int fd, int adc_num)
 {
     DBG("adc_nominal_mode(): num=%d\n", adc_num);
 
     adc_enable(adc_num);
 
-    struct adc_spi_transfer nominal_mode = {.reg = 0x06, .data = 0x00};
-
-    int ret = adc_write(&nominal_mode); // Register 06h: normal output
+    int ret = adc_write(fd, 0x06, 0x00); // Register 06h: normal output
 
     DBG("adc_test: reg 06h, ret=%d\n", ret);
     
@@ -294,23 +299,24 @@ void adc_nominal_mode(int adc_num)
 }
 
 
-int adc_set_test_pattern(int adc_num, uint8_t* test_patterns, uint16_t custom_tp)
+int adc_set_test_pattern (int fd, int adc_num, uint8_t* test_patterns, uint16_t custom_tp)
 {
     DBG("adc_set_test_pattern(): num=%d\n", adc_num);
     int ret = 0;
-    struct adc_spi_transfer set_test_pattern[5] = {
-        {0x06, 0x02},
-        {0X0A, (test_patterns[0] & 0x0F) << 4 | (test_patterns[1] & 0x0F)},
-        {0x0B, (test_patterns[2] & 0x0F) << 4 | (test_patterns[3] & 0x0F)},
-        {0x0E, custom_tp >> 4},
-        {0x0F, (custom_tp & 0X00F) << 4},
+    uint16_t regs[5] = {0x06, 0X0A, 0x0B, 0x0E, 0x0F};
+    uint8_t data[5] = {
+        0x02,
+        (test_patterns[0] & 0x0F) << 4 | (test_patterns[1] & 0x0F),
+        (test_patterns[2] & 0x0F) << 4 | (test_patterns[3] & 0x0F),
+        custom_tp >> 4,
+        (custom_tp & 0X00F) << 4
     };
 
     adc_enable(adc_num);
 
     for (int i = 0; i < 5; i++)
     {
-        ret |= adc_write(&set_test_pattern[i]);
+        ret |= adc_write(fd, regs[i], data[i]);
     }
 
     adc_disable(adc_num);
@@ -319,39 +325,20 @@ int adc_set_test_pattern(int adc_num, uint8_t* test_patterns, uint16_t custom_tp
 }
 
 
-int adc_spi_slave_mode(int adc_num, bool value)
+int adc_spi_slave_mode (int adc_num, bool value)
 {
     DBG("adc_spi_slave_mode(%d, %d) - not implemented\n", adc_num, value);
     return 0;
 }
 
 
-int adc_open(char device_name[])
-{
-    fd = open(device_name, O_RDWR);
-    if (fd == -1)
-    {
-        printf("Cannot open device, \"%s\"\n", device_name);
-        return -1;
-    }
-
-    return 0;
-}
-
-
-void adc_close()
-{
-    close(fd);
-}
-
-
-int adc_spi_init()
+int adc_spi_init (int fd)
 {
     int status = 0;
 
     // spi mode
-    status |= ioctl(fd, SPI_IOC_WR_MODE32, &mode);
-    status |= ioctl(fd, SPI_IOC_RD_MODE32, &mode);
+    status |= ioctl(fd, SPI_IOC_WR_MODE32, &spi_config.mode);
+    status |= ioctl(fd, SPI_IOC_RD_MODE32, &spi_config.mode);
     if (status == -1)
     {
         printf("can't get spi mode\n");
@@ -359,8 +346,8 @@ int adc_spi_init()
     }
 
     // bits per word
-    status |= ioctl(fd, SPI_IOC_WR_BITS_PER_WORD, &bits);
-    status |= ioctl(fd, SPI_IOC_RD_BITS_PER_WORD, &bits);
+    status |= ioctl(fd, SPI_IOC_WR_BITS_PER_WORD, &spi_config.bits);
+    status |= ioctl(fd, SPI_IOC_RD_BITS_PER_WORD, &spi_config.bits);
     if (status == -1)
     {
         printf("can't get bits per word\n");
@@ -368,8 +355,8 @@ int adc_spi_init()
     }
 
     // max speed hz
-    status |= ioctl(fd, SPI_IOC_WR_MAX_SPEED_HZ, &speed);
-    status |= ioctl(fd, SPI_IOC_RD_MAX_SPEED_HZ, &speed);
+    status |= ioctl(fd, SPI_IOC_WR_MAX_SPEED_HZ, &spi_config.speed);
+    status |= ioctl(fd, SPI_IOC_RD_MAX_SPEED_HZ, &spi_config.speed);
     if (status == -1)
     {
         printf("can't get max speed hz\n");

@@ -1,124 +1,139 @@
-/*
-* Copyright (C) 2013 - 2016  Xilinx, Inc.  All rights reserved.
-*
-* Permission is hereby granted, free of charge, to any person
-* obtaining a copy of this software and associated documentation
-* files (the "Software"), to deal in the Software without restriction,
-* including without limitation the rights to use, copy, modify, merge,
-* publish, distribute, sublicense, and/or sell copies of the Software,
-* and to permit persons to whom the Software is furnished to do so,
-* subject to the following conditions:
-*
-* The above copyright notice and this permission notice shall be included
-* in all copies or substantial portions of the Software.
-*
-* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-* IN NO EVENT SHALL XILINX  BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-* WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
-* CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-*
-* Except as contained in this notice, the name of the Xilinx shall not be used
-* in advertising or otherwise to promote the sale, use or other dealings in this
-* Software without prior written authorization from Xilinx.
-*
-*/
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 
 #include "clc-i2c.h"
+
+static uint8_t data;
+static uint16_t reg;
+static bool mode;
 
 
 void print_usage()
 {
-    printf("Clock cleaner - available commands:\n");
-    printf("\tid\n");
-    printf("\tinit\n");
-    printf("\tstart\n");
-    printf("\tstop\n");
+    printf("Clock cleaner Test App - available commands:\n");
+    printf("\twrite - Write a byte of data (-d) to a register (-r)\n");
+    printf("\tread - Read a byte of data from a register (-r)\n");
+    printf("\tinit - Program the clock cleaner unit");
+    printf("\tstart - Enable the clock cleaner (default)");
+    printf("\tstop - Disable the clock cleaner");
+    printf("\tstatus - Read status flags");
+    printf("\tid - Read clock cleaner identification");
+}
+
+
+void get_opts(int argc, char **argv)
+{
+    int opt;
+
+    while ((opt = getopt(argc, argv, "d:r:m:")) != -1)
+    {
+        switch (opt)
+        {
+            case 'd':
+                data = atoi(optarg);
+                break;
+
+            case 'r':
+                reg = atoi(optarg);
+                break;
+
+            case 'm':
+                mode = atoi(optarg);
+                break;
+
+            case ':':
+                printf("option value not specified\n");
+                break;
+                
+            case '?':
+                printf("unknown option: %c\n", optopt);
+                break;
+        }
+    }
 }
 
 
 int main(int argc, char **argv)
 {
-	if (argc == 1)
+    int ret;
+    int i2c_fd;
+
+    get_opts(argc, argv);
+
+    // Open I2C device file, exit if not successful
+    i2c_fd = open(I2C_DEVICE, O_RDWR);
+    if (i2c_fd < 0)
     {
-        print_usage();
+        printf("Error opening I2C Device file, exiting.");
         return 1;
     }
-    clc_open(CLOCK_CLEANER_I2C_DEVICE);
-    
-    int ret;
-    if (strcmp(argv[1], "init") == 0) 
-    {
-        ret = clc_init();
-    }
-    else if (strcmp(argv[1], "status") == 0)
-    {
-        struct clock_cleaner_status stat; 
-        ret = clc_read_status(&stat);
 
-        printf("***Clock Cleaner Status***\n");
-        printf("\tGPIO Pin Values, GPIO[3:0] = %x\n", stat.gpio);
-        printf("\tDevice Interrupt Status: %s\n", (stat.INT) ? "true":"false");
-        printf("\tCRC Mismatch on EEPROM Read: %s\n", (stat.eep_err) ? "true":"false");
-        printf("\tSerial EEPROM Read Fail: %s\n", (stat.boot_fail) ? "true":"false");
-        printf("\tSerial EEPROM Read Cycle Complete: %s\n", (stat.eep_done) ? "true":"false");
-    }
-    else if (strcmp(argv[1], "write") == 0)
+    if (optind < argc)
     {
-        ret = clc_write(CLOCK_CLEANER_SLAVE_ADDR, (uint16_t)atoi(argv[2]), (uint8_t)atoi(argv[3]));
-        printf("Register=0x%x, Data=0x%x\n", (uint16_t)atoi(argv[2]), (uint8_t)atoi(argv[3]));
-    }
-    else if (strcmp(argv[1], "read") == 0)
-    {
-        uint8_t return_data = 0xCC; 
-        ret = clc_read(CLOCK_CLEANER_SLAVE_ADDR, (uint16_t)atoi(argv[2]), &return_data);
-        printf("Register=0x%x, Data=0x%x\n", (uint16_t)atoi(argv[2]), return_data);
-        return_data = 0xCC;
-    }
-    else if (strcmp(argv[1], "start") == 0)
-    {
-        ret = clc_set_state(ON);
-    }
-    else if (strcmp(argv[1], "stop") == 0)
-    {
-        ret = clc_set_state(OFF);
-    }
-    else if (strcmp(argv[1], "id") == 0)
-    {
-        struct clock_cleaner_id clc_id;
-        ret = clc_read_id(&clc_id);
-        if (ret == 0)
+        if (strcmp(argv[optind], "write") == 0)
         {
-            printf("CLC id:\n\tREV_ID=%02x\n\tDEV_ID=%02x\n\tDASH_CODE=%02x\n", 
-                    clc_id.rev_id, clc_id.dev_id, clc_id.dash_code);
+            ret = clc_write(i2c_fd, CLOCK_CLEANER_SLAVE_ADDR, reg, data);
+            printf("Register=0x%x, Data=0x%x\n", reg, data);
+        }
+        else if (strcmp(argv[optind], "read") == 0)
+        {
+            uint8_t return_data = 0xCC; 
+            ret = clc_read(i2c_fd, CLOCK_CLEANER_SLAVE_ADDR, reg, &return_data);
+            printf("Register=0x%x, Data=0x%x\n", reg, return_data);
+        }
+        else if (strcmp(argv[optind], "init") == 0) 
+        {
+            ret = clc_init(i2c_fd);
+        }
+        else if (strcmp(argv[optind], "start") == 0)
+        {
+            ret = clc_set_state(i2c_fd, ON);
+        }
+        else if (strcmp(argv[optind], "stop") == 0)
+        {
+            ret = clc_set_state(i2c_fd, OFF);
+        }
+        else if (strcmp(argv[optind], "status") == 0)
+        {
+            struct clock_cleaner_status stat; 
+            ret = clc_read_status(i2c_fd, &stat);
+
+            printf("***Clock Cleaner Status***\n");
+            printf("\tGPIO Pin Values, GPIO[3:0] = %x\n", stat.gpio);
+            printf("\tDevice Interrupt Status: %s\n", (stat.INT) ? "true":"false");
+            printf("\tCRC Mismatch on EEPROM Read: %s\n", (stat.eep_err) ? "true":"false");
+            printf("\tSerial EEPROM Read Fail: %s\n", (stat.boot_fail) ? "true":"false");
+            printf("\tSerial EEPROM Read Cycle Complete: %s\n", (stat.eep_done) ? "true":"false");
+        }
+        else if (strcmp(argv[optind], "id") == 0)
+        {
+            struct clock_cleaner_id clc_id;
+            ret = clc_read_id(i2c_fd, &clc_id);
+            if (ret == 0)
+            {
+                printf("CLC id:\n\tREV_ID=%02x\n\tDEV_ID=%02x\n\tDASH_CODE=%02x\n", 
+                        clc_id.rev_id, clc_id.dev_id, clc_id.dash_code);
+            }
+            else
+            {
+                printf("CLC/I2C error\n");
+            }
         }
         else
         {
-            printf("CLC/I2C error\n");
+            printf("Unrecognized cmd: %s\n", argv[optind]);
+            print_usage();
+            ret = 1;
         }
+        close(i2c_fd);
+        return ret;
     }
     else
     {
-        // unrecognized command
+        printf("No command specified!\n");
         print_usage();
-        clc_close();
-	    return 1;
-    }
-    clc_close();
-
-    if (ret == 0)
-    {
-        printf("OK\n");
-        return 0;
-    }
-    else
-    {
-        printf("ERROR! ret=%d\n", ret);   
         return 1;
     }
 }

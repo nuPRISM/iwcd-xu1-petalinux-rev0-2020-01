@@ -3,10 +3,10 @@
  * @author Jake Cronin (jcronin@triumf.ca)
  * @brief ADC SPI control API. Supports read and write operations to all 
  *        registers in the ADC array
+ * Datasheet: https://www.ti.com/lit/ds/symlink/adc3424.pdf?ts=1611786006264&ref_url=https%253A%252F%252Fwww.ti.com%252Fstore%252Fti%252Fen%252Fp%252Fproduct%252F%253Fp%253DADC3424IRTQT%2526HQS%253Dcorp-tistore-null-storeinv-invf-store-findchips-wwe
+ * 
  * @version 0.1
  * @date 2021-02-23
- * 
- * @copyright Copyright (c) 2021
  * 
  */
 
@@ -18,6 +18,7 @@
 #include <string.h>
 #include <stdbool.h>
 #include <errno.h>
+#include <fcntl.h>
 
 #include <linux/spi/spidev.h>
 
@@ -78,53 +79,37 @@
 /**
  * @brief Returns the size of an array
  */
-#define ARRAY_SIZE(a) (sizeof(a) / sizeof((a)[0]))
-
-
-/**
- * @brief Structure used to specify data and register when interacting with ADC
- * 
- */
-struct adc_spi_transfer {
-    // Register to access within ADC
-    uint16_t reg;
-
-    // Data returned or written
-    uint8_t data;
-};
-
+#ifndef ARRAY_SIZE
+  #define ARRAY_SIZE(a) (sizeof(a) / sizeof((a)[0]))
+#endif // ARRAY_SIZE
 
 /**
  * @brief Set mode for spi transfers
  * 
  * @param spidev_mode New mode configuration
  */
-void adc_set_mode(int spidev_mode);
-
+void adc_set_mode (int spidev_mode);
 
 /**
  * @brief Set bits per word for spi transfers
  * 
  * @param spidev_bits_per_byte New bits per word for transfers
  */
-void adc_set_bits(int spidev_bits_per_byte);
-
+void adc_set_bits (int spidev_bits_per_byte);
 
 /**
  * @brief Set speed for spi transfers
  * 
  * @param spidev_speed New transfer speed
  */
-void adc_set_speed(int spidev_speed);
-
+void adc_set_speed (int spidev_speed);
 
 /**
  * @brief Set mode for spi transfers
  * 
  * @param spidev_delay New delay between last bit transferred and chip deselect
  */
-void adc_set_delay(int spidev_delay);
-
+void adc_set_delay (int spidev_delay);
 
 /**
  * @brief Verify ADC selection and enable the device for read/write transfer
@@ -133,8 +118,7 @@ void adc_set_delay(int spidev_delay);
  * 
  * @return          Zero on success, uses negative numbers as error codes
  */
-int adc_enable(int adc_num);
-
+int adc_enable (int adc_num);
 
 /**
  * @brief Verify ADC selection and disable the device for read/write transfer
@@ -143,24 +127,21 @@ int adc_enable(int adc_num);
  * 
  * @return          Zero on success, uses negative numbers as error codes
  */
-int adc_disable(int adc_num);
-
+int adc_disable (int adc_num);
 
 /**
  * @brief Power down all ADC peripherals by setting GPIO 498
  * 
  * @return Zero on success, uses negative numbers as error codes
  */
-int adc_power_down(void);
-
+int adc_power_down (void);
 
 /**
  * @brief Power up all ADC peripherals by clearing GPIO 498
  * 
  * @return Zero on success, uses negative numbers as error codes
  */
-int adc_power_up(void);
-
+int adc_power_up (void);
 
 /**
  * @brief Perform a hardware reset for all ADC peripherals
@@ -171,8 +152,7 @@ int adc_power_up(void);
  * 
  * @return Zero if a successful reset occures, uses negative numbers as error codes
  */
-int adc_reset(void);
-
+int adc_reset (void);
 
 /**
  * The device includes a mode where the contents of the internal registers can be read back using the SDOUT pin.
@@ -186,12 +166,13 @@ int adc_reset(void);
  *  6. The external controller can latch the contents at the SCLK rising edge.
  *  7. To enable register writes, reset the R/W register bit to 0.
  * 
- * @param request   Struct containing register to read and returned data
+ * @param fd
+ * @param reg
+ * @param data
  * 
  * @return          ioctl returns the number of bytes transferred upon success
 */
-int adc_read(struct adc_spi_transfer* request);
-
+int adc_read (int fd, uint16_t reg, uint8_t* data);
 
 /**
  * The device internal register can be programmed with these steps:
@@ -201,12 +182,13 @@ int adc_read(struct adc_spi_transfer* request);
  *  4. Initiate a serial interface cycle by specifying the address of the register (A13 to A0) whose content must be written, and
  *  5. Write the 8-bit data that are latched in on the SCLK rising edge.
  * 
- * @param command   Struct containing register to write and data
+ * @param fd
+ * @param reg
+ * @param data
  * 
  * @return          ioctl returns the number of bytes transferred upon success
  */
-int adc_write(struct adc_spi_transfer* command);
-
+int adc_write (int fd, uint16_t reg, uint8_t data);
 
 /**
  * @brief Populate all registers of a specific ADC with specific data values
@@ -215,16 +197,14 @@ int adc_write(struct adc_spi_transfer* command);
  * 
  * @return          Return number of bytes per transfer if all registers were successfully populated.
  */
-int adc_init(int adc_num);
-
+int adc_init (int fd, int adc_num);
 
 /**
  * @brief Initialize all 5 ADCs in one call
  * 
  * @return OR'd status of each init call, zero if all are successful
  */
-int adc_init_all(void);
-
+int adc_init_all (int fd);
 
 /**
  * @brief Read back the contents of each ADC register and compare with the data sent in adc_init()
@@ -234,16 +214,14 @@ int adc_init_all(void);
  * 
  * @return          Return number of bytes per transfer if all registers were successfully read.
  */
-int adc_read_back(int adc_num);
-
+int adc_read_back (int fd, int adc_num);
 
 /**
  * @brief Write 0x00 t0 register 0x06, placing the ADC in nominal mode
  * 
  * @param adc_num   The ADC to write to 
  */
-void adc_nominal_mode(int adc_num);
-
+void adc_nominal_mode (int fd, int adc_num);
 
 /**
  * @brief 
@@ -253,28 +231,13 @@ void adc_nominal_mode(int adc_num);
  * @param custom_tp
  * @return int 
  */
-int adc_set_test_pattern(int adc_num, uint8_t* test_patterns, uint16_t custom_tp);
-
-
-/** 
- * @brief Open SPI device
- * 
- * @param device_name Filename for the ADC SPI driver
- */
-int adc_open(char device_name[]);
-
-
-/** 
- * @brief Close SPI device
- */
-void adc_close(void);
-
+int adc_set_test_pattern (int fd, int adc_num, uint8_t* test_patterns, uint16_t custom_tp);
 
 /**
  * @brief Configure SPI driver by setting the default mode, bits per word and speed for a transfer
  * 
  * @return On successful configuration, zero is returned
  */
-int adc_spi_init(void);
+int adc_spi_init (int fd);
 
 #endif // _ADC_SPI_H_
