@@ -18,16 +18,16 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <stdbool.h>
-
 #include <string.h>
-
 #include <fcntl.h>
 
-#define TEMP_SENSOR_ARRAY_BASE  0x90  // First temperature sensor address
-#define SENSOR_COUNT            3
+#define MAX30205_ARRAY_BASE       0x90  // First temperature sensor address
+#define MAX30205_SENSOR_COUNT     3
 
-#define TEMP_REG                0x00
-#define CONFIG_REG              0x01
+#define MAX30205_TEMP_REGISTER    0x00
+#define MAX30205_CONFIG_REGISTER  0x01
+#define MAX30205_T_HYST_REGISTER  0X02
+#define MAX30205_T_OS_REGISTER    0X03
 
 // I2C_DEVICE is defined the same in each sensor header
 #ifndef I2C_DEVICE
@@ -49,7 +49,7 @@
  * @param sensor_no Sensor index number
  * @return uint8_t  I2C address
  */
-uint8_t max_get_i2c_address (uint8_t sensor_no);
+uint8_t max30205_get_i2c_address (uint8_t sensor_no);
 
 /**
  * @brief Get A temperature reading from the MAX30205 sensor.
@@ -59,7 +59,7 @@ uint8_t max_get_i2c_address (uint8_t sensor_no);
  * @param temperature Temperature data as floating point number
  * @return int        Return status, zero on success
  */
-int get_temp (int fd, uint8_t sensor_no, float* temperature);
+int max30205_get_temp (int fd, uint8_t sensor_no, float* temperature);
 
 /**
  * @brief Read the configuration register (Reads a byte rather than a word)
@@ -69,7 +69,7 @@ int get_temp (int fd, uint8_t sensor_no, float* temperature);
  * @param data        Returned byte
  * @return int        Return status, zero on success
  */
-int max_get_config (int fd, uint8_t sensor_no, uint8_t* data);
+int max30205_get_config (int fd, uint8_t sensor_no, uint8_t* data);
 
 /**
  * @brief Write to the configuration register (write a byte rather than a word)
@@ -79,52 +79,46 @@ int max_get_config (int fd, uint8_t sensor_no, uint8_t* data);
  * @param data        Data to write
  * @return int        Return status, zero on success
  */
-int max_set_config (int fd, uint8_t sensor_no, uint8_t data);
+int max30205_set_config (int fd, uint8_t sensor_no, uint8_t data);
 
 /**
- * @brief Simplified read function, reads a word of data from a register and flips bytes
+ * @brief Get the current value of the T_HYST register as a converted floating-point number
  * 
  * @param fd          File descriptor for the I2C bus 
  * @param sensor_no   The selected sensor unit 
- * @param reg         Register to read
- * @param data        Returned word of data
- * @return int        Return status, zero on success 
- */
-int max_get_register (int fd, uint8_t sensor_no, uint8_t reg, uint16_t* data);
-
-/**
- * @brief Simplified write function, flip bytes and write a word to a register
- * 
- * @param fd          File descriptor for the I2C bus 
- * @param sensor_no   The selected sensor unit  
- * @param reg         Register to write to 
- * @param data        Word of data to write 
- * @return int        Return status, zero on success  
- */
-int max_set_register (int fd, uint8_t sensor_no, uint8_t reg, uint16_t data);
-
-/**
- * @brief Read a word of data from the selected MAX30205 sensor
- * 
- * @param fd          File descriptor for the I2C bus 
- * @param sensor_no   The selected sensor unit 
- * @param reg         Starting register to read from 
- * @param data        Pointer to returned data array
- * @param bytes       Number of bytes to write
+ * @param t_hyst      Floating-point representation of the register contents
  * @return int        Return status, zero on success
  */
-int max_read (int fd, uint8_t sensor_no, uint8_t reg, uint8_t* data, uint8_t bytes);
+int max30205_get_t_hyst (int fd, uint8_t sensor_no, float* t_hyst);
 
 /**
- * @brief Write a byte array of data to a specified register (reg >= 1, bytes <= 6)
+ * @brief Write a floating point number to the T_HYST register, conversion is handled by function
  * 
  * @param fd          File descriptor for the I2C bus 
  * @param sensor_no   The selected sensor unit 
- * @param reg         Starting register to write to
- * @param data        Byte array to write, every two bytes will be written to incrementing registers
- * @param bytes       Number of bytes to write
+ * @param t_hyst      Floating point number to write
  * @return int        Return status, zero on success
  */
-int max_write (int fd, uint8_t sensor_no, uint8_t reg, uint8_t* data, uint8_t bytes);
+int max30205_set_t_hyst (int fd, uint8_t sensor_no, float t_hyst);
+
+/**
+ * @brief Get the current value of the T_OS register as a converted floating-point number
+ * 
+ * @param fd          File descriptor for the I2C bus 
+ * @param sensor_no   The selected sensor unit 
+ * @param t_os        Floating-point representation of the register contents
+ * @return int        Return status, zero on success
+ */
+int max30205_get_t_os (int fd, uint8_t sensor_no, float* t_os);
+
+/**
+ * @brief Write a floating point number to the T_OS register, conversion is handled by function 
+ * 
+ * @param fd          File descriptor for the I2C bus 
+ * @param sensor_no   The selected sensor unit 
+ * @param t_os        Floating point number to write
+ * @return int        Return status, zero on success
+ */
+int max30205_set_t_os (int fd, uint8_t sensor_no, float t_os);
 
 #endif // _MAX30205_I2C_H_

@@ -23,6 +23,16 @@
 
 #define LPS25HB_I2C_ADDRESS 0xB8
 
+#define LPS25HB_STATUS_P_OR 0x20
+#define LPS25HB_STATUS_T_OR 0x10
+#define LPS25HB_STATUS_P_DA 0x02
+#define LPS25HB_STATUS_T_DA 0x01
+
+#define LPS25HB_CONFIG_REGISTER_1 0X20
+#define LPS25HB_CONFIG_REGISTER_2 0X21
+#define LPS25HB_CONFIG_REGISTER_3 0X22
+#define LPS25HB_CONFIG_REGISTER_4 0X23
+
 // I2C_DEVICE is defined the same in each sensor header
 #ifndef I2C_DEVICE
   #define I2C_DEVICE "/dev/i2c-0"
@@ -36,6 +46,58 @@
     #define _DEBUG(fmt, args...)
   #endif // DEBUG
 #endif // _DEBUG
+
+/**
+ * @brief Read a single byte of data from the LPS25HB.
+ * 
+ * @param fd        File descriptor for the I2C bus
+ * @param reg       Register to read data from
+ * @param data      Pointer to returned byte of data
+ * @return int      Status flag, zero on success and -1 otherwise
+ */
+int lps25hb_byte_read (int fd, uint8_t reg, uint8_t* data);
+
+/**
+ * @brief Write a single byte of data to the PS25HB.
+ * 
+ * @param fd        File descriptor for the I2C bus
+ * @param reg       Register to write data to
+ * @param data      Byte of data to write
+ * @return int      Status flag, zero on success and -1 otherwise
+ */
+int lps25hb_byte_write (int fd, uint8_t reg, uint8_t data);
+
+/**
+ * @brief Read an array of data from the LPS25HB.
+ * 
+ * @param fd        File descriptor for the I2C bus
+ * @param base_reg  First register to read data from
+ * @param data      Pointer to an array of bytes populated by LPS25HB
+ * @param bytes     Size of byte array
+ * @return int      Status flag, zero on success and -1 otherwise
+ */
+int lps25hb_array_read (int fd, uint8_t base_reg, uint8_t* data, uint8_t bytes);
+
+/**
+ * @brief Write an array of data to the LPS25HB.
+ * 
+ * @param fd        File descriptor for the I2C bus
+ * @param base_reg  First register to write data to
+ * @param data      Pointer to an array of bytes to write
+ * @param bytes     Size of byte array
+ * @return int      Status flag, zero on success and -1 otherwise
+ */
+int lps25hb_array_write (int fd, uint8_t base_reg, uint8_t* data, uint8_t bytes);
+
+/**
+ * @brief Reads current output data rate config, waits for desired status flag 
+ * 
+ * @param fd          File descriptor for the I2C bus 
+ * @param status_bit  The bit (position in byte) to wait for
+ * @param status      On success, this will be set
+ * @return int        Status flag, zero on success   
+ */
+int lps25hb_wait_for_status_ok (int fd, uint8_t status_bit, bool* status);
 
 /**
  * @brief Get pressure reading from the LPS25HB.
@@ -53,25 +115,7 @@ int get_pressure (int fd, float* pressure);
  * @param temperature Pointer to returned temperature reading
  * @return int        Status flag, zero on success and -1 otherwise 
  */
-int get_pressure_sensor_temp (int fd, uint16_t* temperature);
-
-/**
- * @brief Set the pressure reference registers (0x08 - 0x0A)
- * 
- * @param fd        File descriptor for the I2C bus
- * @param reference Byte array to write to registers 
- * @return int      Status flag, zero on success and -1 otherwise 
- */
-int set_pressure_ref (int fd, uint8_t* reference);
-
-/**
- * @brief Read the pressure reference registers (0x08 - 0x0A)
- * 
- * @param fd        File descriptor for the I2C bus
- * @param reference Byte array containing registers readout
- * @return int      Status flag, zero on success and -1 otherwise 
- */
-int get_pressure_ref (int fd, uint8_t* reference);
+int get_pressure_sensor_temp (int fd, float* temperature);
 
 /**
  * @brief Returns the contents on the who_am_i register. (hard-coded to 0XBD)
@@ -80,66 +124,6 @@ int get_pressure_ref (int fd, uint8_t* reference);
  * @param address   Address returned from who_am_i
  * @return int      Status flag, zero on success and -1 otherwise 
  */
-int lps_who_am_i (int fd, uint8_t* address);
-
-/**
- * @brief Write directly to the four control registers of the LPS25HB.
- * 
- * @param fd        File descriptor for the I2C bus
- * @param config    pointer to config data, base address corresponds to 0x20
- * @return int      Status flag, zero on success and -1 otherwise 
- */
-int lps_set_ctrl (int fd, uint8_t* config);
-
-/**
- * @brief Read directly from the four control registers of the LPS25HB.
- * 
- * @param fd        File descriptor for the I2C bus
- * @param config    pointer to config data, base address corresponds to 0x20
- * @return int      Status flag, zero on success and -1 otherwise 
- */
-int lps_get_ctrl (int fd, uint8_t* config);
-
-/**
- * @brief Read a single byte of data from the LPS25HB.
- * 
- * @param fd        File descriptor for the I2C bus
- * @param reg       Register to read data from
- * @param data      Pointer to returned byte of data
- * @return int      Status flag, zero on success and -1 otherwise
- */
-int lps_byte_read (int fd, uint8_t reg, uint8_t* data);
-
-/**
- * @brief Write a single byte of data to the PS25HB.
- * 
- * @param fd        File descriptor for the I2C bus
- * @param reg       Register to write data to
- * @param data      Byte of data to write
- * @return int      Status flag, zero on success and -1 otherwise
- */
-int lps_byte_write (int fd, uint8_t reg, uint8_t data);
-
-/**
- * @brief Read an arbitrarily large array of data from the LPS25HB.
- * 
- * @param fd        File descriptor for the I2C bus
- * @param start_reg First register to read data from
- * @param data      Pointer to an array of bytes populated by LPS25HB
- * @param bytes     Size of byte array
- * @return int      Status flag, zero on success and -1 otherwise
- */
-int lps_array_read (int fd, uint8_t start_reg, uint8_t* data, uint8_t bytes);
-
-/**
- * @brief Write an arbitrarily large array of data to the LPS25HB.
- * 
- * @param fd        File descriptor for the I2C bus
- * @param start_reg First register to write data to
- * @param data      Pointer to an array of bytes to write
- * @param bytes     Size of byte array
- * @return int      Status flag, zero on success and -1 otherwise
- */
-int lps_array_write (int fd, uint8_t start_reg, uint8_t* data, uint8_t bytes);
+int lps25hb_who_am_i (int fd, uint8_t* address);
 
 #endif // _LPS25HB_I2C_H_

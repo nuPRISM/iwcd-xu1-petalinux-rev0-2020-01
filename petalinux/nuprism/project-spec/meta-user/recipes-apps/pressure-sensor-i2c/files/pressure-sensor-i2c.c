@@ -25,8 +25,7 @@ void print_usage()
     printf("\tread - Read a byte of data from a register (-r)\n");
     printf("\tget_temp - Read temperature registers\n");
     printf("\tget_pres - Read pressure registers\n");
-    printf("\tset_ctrl - Demonstrate multi-byte transfer, writes 4 hard-coded bytes to ctrl regs\n");
-    printf("\tget_ctrl - Demonstrate multi-byte transfer, reads from ctrl regs\n");
+    printf("\tsuto - Test all functions\n");
 }
 
 
@@ -77,47 +76,87 @@ int main(int argc, char **argv)
     {
         if (strcmp(argv[optind], "write") == 0)
         {
-            ret = lps_byte_write(i2c_fd, reg, data);
+            ret = lps25hb_byte_write(i2c_fd, reg, data);
         }
         else if (strcmp(argv[optind], "read") == 0)
         {
             uint8_t return_data = 0xCC;
-            ret = lps_byte_read(i2c_fd, reg, &return_data);
+            ret = lps25hb_byte_read(i2c_fd, reg, &return_data);
             printf("Returned data=0x%x\n", return_data);
         }
         else if (strcmp(argv[optind], "get_temp") == 0)
         {
-            uint16_t temp;
+            float temp;
+            // power on device
+            ret = lps25hb_byte_write(i2c_fd, LPS25HB_CONFIG_REGISTER_1, 0x80);
+            usleep(5000);
+            // Set config register to one-shot mode
+            ret |= lps25hb_byte_write(i2c_fd, LPS25HB_CONFIG_REGISTER_2, 0x01);
+            usleep(1000);
+            // Read pressure
             ret = get_pressure_sensor_temp(i2c_fd, &temp);
-            printf("Returned data = %d\n", temp);
+            printf("Returned data = %f\n", temp);
         }
         else if (strcmp(argv[optind], "get_pres") == 0)
         {
             float pres;
-            ret = get_pressure(i2c_fd, &pres);
+            // power on device
+            ret = lps25hb_byte_write(i2c_fd, LPS25HB_CONFIG_REGISTER_1, 0x80);
+            usleep(5000);
+            // Set config register to one-shot mode
+            ret |= lps25hb_byte_write(i2c_fd, LPS25HB_CONFIG_REGISTER_2, 0x01);
+            // Read pressure
+            ret |= get_pressure(i2c_fd, &pres);
             printf("Returned data = %f hPa\n", pres);
         }
-        else if (strcmp(argv[optind], "set_ctrl") == 0)
+        else if (strcmp(argv[optind], "auto") == 0)
         {
-            uint8_t config[4] = {1, 2, 3, 4};
-            ret = lps_array_write(i2c_fd, 0x20, config, 4);
-            printf("Writing ");
-            for (uint8_t r = 0; r < 4; r++)
+            uint8_t test_reg = 0x0F;
+            uint8_t data = 0xCC;
+            // power on device
+            ret = lps25hb_byte_write(i2c_fd, LPS25HB_CONFIG_REGISTER_1, 0x80);
+    
+            // Read a register
+            printf("Testing byte read with 0x0F.\n");
+            lps25hb_byte_read(i2c_fd, test_reg, &data);
+            printf("Returned Data: 0x%x, %s\n", data, (data == 0xBD)? "PASSED" : "Failed");
+
+            test_reg = 0x20;
+            data = 0x0D;
+
+            // write to a register
+            printf("Testing byte write with r=0x%x d=0x%x.\n", test_reg, data);
+            lps25hb_byte_write(i2c_fd, test_reg, data);
+            data = 0xCC;
+            lps25hb_byte_read(i2c_fd, test_reg, &data);
+            printf("Returned Data: 0x%x, %s\n", data, (data == 0x0D)? "PASSED" : "Failed");
+
+            uint8_t config_data[4] = {0x80, 0x01, 0, 0};
+            printf("Testing aray write.\n");
+            lps25hb_array_write(i2c_fd, test_reg, config_data, 4);
+            for (uint8_t i = 0; i < 4; i++)
             {
-                printf("%x, ", config[r]);
+                config_data[i] = 0;
+            }
+            lps25hb_array_read(i2c_fd, test_reg, config_data, 4);
+            printf("Returned Data:\n");
+            for (uint8_t i = 0; i < 4; i++)
+            {
+                printf("0x%x, ", config_data[i]);
             }
             printf("\n");
-        }
-        else if (strcmp(argv[optind], "get_ctrl") == 0)
-        {
-            uint8_t return_data[4];
-            ret = lps_array_read(i2c_fd, 0x20, return_data, 4);
-            printf("Current control reg values: ");
-            for (uint8_t r = 0; r < 4; r++)
-            {
-                printf("%x, ", return_data[r]);
-            }
-            printf("\n");
+
+            float temp;
+            // Read pressure
+            ret = get_pressure_sensor_temp(i2c_fd, &temp);
+            printf("Returned temperature data = %f\n", temp);
+
+            float pres;
+            // Set config register to one-shot mode
+            ret |= lps25hb_byte_write(i2c_fd, LPS25HB_CONFIG_REGISTER_2, 0x01);
+            // Read pressure
+            ret |= get_pressure(i2c_fd, &pres);
+            printf("Returned pressure data = %f hPa\n", pres);
         }
         else
         {

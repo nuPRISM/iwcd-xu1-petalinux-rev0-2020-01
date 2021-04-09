@@ -16,7 +16,6 @@
 
 static uint16_t data;
 static uint8_t reg;
-static bool mode;
 
 
 void print_usage()
@@ -46,10 +45,6 @@ void get_opts(int argc, char **argv)
 
             case 'r':
                 reg = atoi(optarg);
-                break;
-
-            case 'm':
-                mode = atoi(optarg);
                 break;
 
             case ':':
@@ -83,31 +78,24 @@ int main(int argc, char **argv)
     {
         if (strcmp(argv[optind], "write") == 0)
         {
-            ret = hdc_write(i2c_fd, reg, data);
+            ret = hdc1080_write(i2c_fd, reg, data);
         }
         else if (strcmp(argv[optind], "read") == 0)
         {
             uint16_t return_data = 0xCCCC; // if this value is returned, read is likely not working
-            ret = hdc_read(i2c_fd, reg, &return_data);
+            ret = hdc1080_read(i2c_fd, reg, &return_data);
             printf("Returned data=0x%x\n", return_data);
         }
         else if (strcmp(argv[optind], "set_mode") == 0)
         {
-            enum resolution t_res = HIGH;
-            enum resolution h_res = HIGH;
-
-            ret = hdc_set_mode(i2c_fd, mode, 0, t_res, h_res);
-
-            if (ret == 0)
-            {
-                printf("Mode Set temp_res = high, humid_res = high, dual = %d\n", mode);
-            }
+            ret = hdc1080_set_configuration(i2c_fd, data);
+            printf("New config: 0x%X\n", data);
         }
         else if (strcmp(argv[optind], "get_mode") == 0)
         {
             uint16_t config;
 
-            ret = hdc_get_mode(i2c_fd, &config);
+            ret = hdc1080_get_configuration(i2c_fd, &config);
 
             if (ret == 0)
             {
@@ -118,18 +106,19 @@ int main(int argc, char **argv)
         {
             float temp;
 
-            ret = get_hdc1080_temp(i2c_fd, &temp);
-            if (ret < 0)
-            {
-                printf("Test failed, make sure set_mode has been executed first.\n");
-            }
+            ret = hdc1080_set_configuration(i2c_fd, 0x0000);
+
+            ret |= get_hdc1080_temp(i2c_fd, &temp);
+
             printf("Returned data = %f degC\n", temp);
         }
         else if (strcmp(argv[optind], "get_hum") == 0)
         {
             float humid;
 
-            ret = get_humidity(i2c_fd, &humid);
+            ret = hdc1080_set_configuration(i2c_fd, 0x0000);
+
+            ret |= get_humidity(i2c_fd, &humid);
             printf("Returned data = %f %%RH\n", humid);
         }
         else if (strcmp(argv[optind], "get_all") == 0)
@@ -137,7 +126,9 @@ int main(int argc, char **argv)
             float humid;
             float temp;
 
-            ret = hdc_get_all(i2c_fd, &temp, &humid);
+            ret = hdc1080_set_configuration(i2c_fd, 0x1000);
+
+            ret |= hdc1080_get_all(i2c_fd, &temp, &humid);
 
             printf("humidity = %f %%RH\n", humid);
             printf("temperature = %f degC\n", temp);

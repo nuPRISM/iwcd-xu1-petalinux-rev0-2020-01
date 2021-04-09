@@ -106,7 +106,7 @@ int adc_disable (int adc_num)
 }
 
 
-int adc_power_down ()
+int adc_power_down (void)
 {
     int ret;
     DBG("adc_power_down(): Write true to GPIO[%d].\n", PDN_GPIO);
@@ -121,7 +121,7 @@ int adc_power_down ()
 }
 
 
-int adc_power_up ()
+int adc_power_up (void)
 {
     int ret;
     DBG("adc_power_up(): Write false to GPIO[%d].\n", PDN_GPIO);
@@ -136,7 +136,7 @@ int adc_power_up ()
 }
 
 
-int adc_reset ()
+int adc_reset (void)
 {
     int ret = 0;
     DBG("adc_reset(): toggle GPIO[%d] to perform a hardware reset.\n", RESET_GPIO);

@@ -11,8 +11,8 @@
  * @copyright Copyright (c) 2021
  * 
  */
-#ifndef _HDC_1080_I2C_H_
-#define _HDC_1080_I2C_H_
+#ifndef _hdc1080_1080_I2C_H_
+#define _hdc1080_1080_I2C_H_
 
 #include <stdio.h>
 #include <stdint.h>
@@ -57,58 +57,53 @@ enum resolution { HIGH, MED, LOW };
  * 
  * @return enum resolution 
  */
-enum resolution hdc_get_temp_resolution (void);
+enum resolution hdc1080_get_temp_resolution (void);
 
 /**
  * @brief Shows the current humidity resolution
  * 
  * @return enum resolution 
  */
-enum resolution hdc_get_humid_resolution (void);
+enum resolution hdc1080_get_humid_resolution (void);
+
 
 /**
- * @brief Shows whether the HDC1080 is in dual (true) or single (false)
+ * @brief Read a word of data from a register of the HDC1080
  * 
- * @return true 
- * @return false 
+ * @param fd        File descriptor for the I2C bus 
+ * @param reg       Register to read from
+ * @param data      Returned data
+ * @return int      Status, zero on success
  */
-bool hdc_get_dual (void);
-
-/**
- * @brief Shows if the heater is enabled (true) or disabled (false)
- * 
- * @return uint16_t 
- */
-bool hdc_get_heater (void);
-
-/**
- * @brief Perform a software reset by setting the MSB config bit 
- *        Software reset is self-clearing
- * 
- * @param fd         File descriptor for the I2C bus
- * @return int       Status, zero on success
- */
-int hdc_sw_reset (int fd);
+int hdc1080_read (int fd, uint8_t reg, uint16_t* data);
 
 /**
  * @brief 
  * 
- * @param fd          File descriptor for the I2C bus 
- * @param dual        Dual mode setting
- * @param temp_config Temperature resolution
- * @param hum_config  Humidity resolution
- * @return int        Status, zero on success
+ * @param fd        File descriptor for the I2C bus 
+ * @param reg       Register to write to
+ * @param data      Data to write 
+ * @return int      Status, zero on success
  */
-int hdc_set_mode (int fd, bool dual, bool heater, enum resolution temp_config, enum resolution humid_config);
+int hdc1080_write (int fd, uint8_t reg, uint16_t data);
+
+/**
+ * @brief 
+ * 
+ * @param fd              File descriptor for the I2C bus 
+ * @param config_setting  Word containing new config
+ * @return int            Status, zero on success
+ */
+int hdc1080_set_configuration (int fd, uint16_t config_setting);
 
 /**
  * @brief Returns a humidity measurement
  * 
- * @param fd          File descriptor for the I2C bus 
- * @param config      Configuration word
- * @return int        Status, zero on success
+ * @param fd              File descriptor for the I2C bus 
+ * @param config_setting  Configuration word
+ * @return int            Status, zero on success
  */
-int hdc_get_mode (int fd, uint16_t* config);
+int hdc1080_get_configuration (int fd, uint16_t* config_setting);
 
 /**
  * @brief Get the hdc1080 temperature reading 
@@ -136,32 +131,6 @@ int get_humidity (int fd, float* humidity);
  * @param humidity    Temperature measurement
  * @return int        Status, zero on success
  */
-int hdc_get_all (int fd, float* temperature, float* humidity);
+int hdc1080_get_all (int fd, float* temperature, float* humidity);
 
-///////////////////////////////////////////////////////////////////
-//
-// General I2C write/read function - Do not recomment using these
-//
-///////////////////////////////////////////////////////////////////
-
-/**
- * @brief Read a word of data from a register of the HDC1080
- * 
- * @param fd        File descriptor for the I2C bus 
- * @param reg       Register to read from
- * @param data      Returned data
- * @return int      Status, zero on success
- */
-int hdc_read (int fd, uint8_t reg, uint16_t* data);
-
-/**
- * @brief 
- * 
- * @param fd        File descriptor for the I2C bus 
- * @param reg       Register to write to
- * @param data      Data to write 
- * @return int      Status, zero on success
- */
-int hdc_write (int fd, uint8_t reg, uint16_t data);
-
-#endif // _HDC_1080_I2C_H_
+#endif // _hdc1080_1080_I2C_H_

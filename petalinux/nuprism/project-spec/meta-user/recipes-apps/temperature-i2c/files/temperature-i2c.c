@@ -79,49 +79,47 @@ int main(int argc, char **argv)
 
     if (optind < argc)
     {
-        if (strcmp(argv[optind], "write") == 0)
+        if (strcmp(argv[optind], "show_temp") == 0)
         {
-            ret = max_set_register(i2c_fd, sensor_no, reg, data);
-        }
-        else if (strcmp(argv[optind], "read") == 0)
-        {
-            uint16_t return_data = 0xCCCC;
-            ret = max_get_register(i2c_fd, sensor_no, reg, &return_data);
-            printf("Returned data=0x%x\n", return_data);
-        }
-        else if (strcmp(argv[optind], "wr_arr") == 0)
-        {
-            uint8_t _reg = 0x02;
-            uint8_t _data[4] = {0xAA, 0xBB, 0xCC, 0xDD};
-            ret = max_write(i2c_fd, sensor_no, _reg, _data, 4);
-        }
-        else if (strcmp(argv[optind], "re_arr") == 0)
-        {
-            uint8_t _reg = 0x02;
-            uint8_t _data[4];
-            ret = max_read(i2c_fd, sensor_no, _reg, _data, 4);
-
-            printf("Returned data:\n");
-            for (int i = 0; i < 4; i++)
-            {
-                printf("0x%x, ", _data[i]);
-            }
-            printf("\n");
-        }
-        else if (strcmp(argv[optind], "show_temp") == 0)
-        {
-            float return_data[SENSOR_COUNT];
+            float return_data[MAX30205_SENSOR_COUNT];
         
-            for (uint8_t i = 0; i < SENSOR_COUNT; i++)
+            for (uint8_t i = 0; i < MAX30205_SENSOR_COUNT; i++)
             {
-                ret |= get_temp(i2c_fd, i, (return_data+i));
+                ret |= max30205_get_temp(i2c_fd, i, (return_data+i));
             }
             // Seperate debug statements from printed result
-            for (uint8_t i = 0; i < SENSOR_COUNT; i++)
+            for (uint8_t i = 0; i < MAX30205_SENSOR_COUNT; i++)
             {
                 printf("%f\t", return_data[i]);
             }
             printf("\n");
+        }
+        else if (strcmp(argv[optind], "auto") == 0)
+        {
+            float data;
+        
+            ret |= max30205_get_temp(i2c_fd, sensor_no, &data);
+            printf("%f\t", data);
+
+            uint8_t conf_data = 0x80;
+            ret |= max30205_set_config(i2c_fd, sensor_no, conf_data);
+            conf_data = 0xCC;
+            ret |= max30205_get_config(i2c_fd, sensor_no, &conf_data);
+            printf("%x, %s\n", conf_data, (conf_data == 0x80) ? "PASSED" : "FAILED");
+
+            data = -10.125;
+            printf("Testing read/write to 0x02.\n");
+            ret |= max30205_set_t_hyst(i2c_fd, sensor_no, data);
+            data = 0.00;
+            ret |= max30205_get_t_hyst(i2c_fd, sensor_no, &data);
+            printf("%f, %s\n", data, (data == 10.125) ? "PASSED" : "FAILED");
+
+            data = 10.125;
+            printf("Testing read/write to 0x03.\n");
+            ret |= max30205_set_t_os(i2c_fd, sensor_no, data);
+            data = 0.00;
+            ret |= max30205_get_t_os(i2c_fd, sensor_no, &data);
+            printf("%f, %s\n", data, (data == 10.125) ? "PASSED" : "FAILED");
         }
         else
         {

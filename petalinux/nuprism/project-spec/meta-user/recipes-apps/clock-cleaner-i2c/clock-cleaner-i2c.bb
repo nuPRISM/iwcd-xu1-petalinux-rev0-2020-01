@@ -8,8 +8,8 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 
 SRC_URI = "file://clock-cleaner-i2c.c \
-		   file://clc-i2c.c \
-		   file://clc-i2c.h \
+		   file://idt8T49n241-i2c.c \
+		   file://idt8T49n241-i2c.h \
 		   file://clock-cleaner-config.h \
 	   	   file://Makefile \
 		  "

@@ -1,12 +1,14 @@
+#include <stdlib.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
 
-#include "clc-i2c.h"
+#include "idt8T49n241-i2c.h"
 
 static uint8_t data;
 static uint16_t reg;
+static uint16_t bytes;
 static bool mode;
 
 
@@ -27,7 +29,7 @@ void get_opts(int argc, char **argv)
 {
     int opt;
 
-    while ((opt = getopt(argc, argv, "d:r:m:")) != -1)
+    while ((opt = getopt(argc, argv, "d:r:m:b:")) != -1)
     {
         switch (opt)
         {
@@ -41,6 +43,10 @@ void get_opts(int argc, char **argv)
 
             case 'm':
                 mode = atoi(optarg);
+                break;
+
+            case 'b':
+                bytes = atoi(optarg);
                 break;
 
             case ':':
@@ -74,31 +80,42 @@ int main(int argc, char **argv)
     {
         if (strcmp(argv[optind], "write") == 0)
         {
-            ret = clc_write(i2c_fd, CLOCK_CLEANER_SLAVE_ADDR, reg, data);
+            ret = idt8T49n241_byte_write(i2c_fd, reg, data);
             printf("Register=0x%x, Data=0x%x\n", reg, data);
         }
         else if (strcmp(argv[optind], "read") == 0)
         {
             uint8_t return_data = 0xCC; 
-            ret = clc_read(i2c_fd, CLOCK_CLEANER_SLAVE_ADDR, reg, &return_data);
+            ret = idt8T49n241_byte_read(i2c_fd, reg, &return_data);
             printf("Register=0x%x, Data=0x%x\n", reg, return_data);
+        }
+        else if (strcmp(argv[optind], "arr_read") == 0)
+        {
+            uint8_t* return_data = (uint8_t*)malloc(bytes * sizeof(uint8_t));
+            ret = idt8T49n241_array_read(i2c_fd, reg, return_data, bytes);
+
+            for (int i = 0; i < bytes; i ++)
+            {
+                printf("%x, ", return_data[i]);
+            }
+            printf("\n");
         }
         else if (strcmp(argv[optind], "init") == 0) 
         {
-            ret = clc_init(i2c_fd);
+            ret = idt8T49n241_init(i2c_fd);
         }
         else if (strcmp(argv[optind], "start") == 0)
         {
-            ret = clc_set_state(i2c_fd, ON);
+            ret = idt8T49n241_set_state(i2c_fd, ON);
         }
         else if (strcmp(argv[optind], "stop") == 0)
         {
-            ret = clc_set_state(i2c_fd, OFF);
+            ret = idt8T49n241_set_state(i2c_fd, OFF);
         }
         else if (strcmp(argv[optind], "status") == 0)
         {
-            struct clock_cleaner_status stat; 
-            ret = clc_read_status(i2c_fd, &stat);
+            struct clock_cleaner_status_s stat; 
+            ret = idt8T49n241_read_status(i2c_fd, &stat);
 
             printf("***Clock Cleaner Status***\n");
             printf("\tGPIO Pin Values, GPIO[3:0] = %x\n", stat.gpio);
@@ -109,17 +126,21 @@ int main(int argc, char **argv)
         }
         else if (strcmp(argv[optind], "id") == 0)
         {
-            struct clock_cleaner_id clc_id;
-            ret = clc_read_id(i2c_fd, &clc_id);
+            struct clock_cleaner_id_s idt8T49n241_id;
+            ret = idt8T49n241_read_id(i2c_fd, &idt8T49n241_id);
             if (ret == 0)
             {
                 printf("CLC id:\n\tREV_ID=%02x\n\tDEV_ID=%02x\n\tDASH_CODE=%02x\n", 
-                        clc_id.rev_id, clc_id.dev_id, clc_id.dash_code);
+                        idt8T49n241_id.rev_id, idt8T49n241_id.dev_id, idt8T49n241_id.dash_code);
             }
             else
             {
                 printf("CLC/I2C error\n");
             }
+        }
+        else if (strcmp(argv[optind], "auto") == 0)
+        {
+            // test all functions
         }
         else
         {

@@ -10,8 +10,8 @@
  * 
  */
 
-#ifndef _CLC_I2C_H_
-#define _CLC_I2C_H_
+#ifndef _IDT8T49N241_I2C_H_
+#define _idt8T49n241_I2C_H_
 
 #include <stdio.h>
 #include <stdint.h>
@@ -24,10 +24,10 @@
   #define I2C_DEVICE "/dev/i2c-0"
 #endif // I2C_DEVICE
 
-#define CLOCK_CLEANER_SLAVE_ADDR	0x7C
+#define CLOCK_CLEANER_SLAVE_ADDR	0xF8
 #define CLOCK_CLEANER_SCLK_RATE		100000
 #define CLOCK_CLEANER_INIT_REG		0x0039
-#define CLOCK_CLEANER_INIT_VAL		0x0F
+#define CLOCK_CLEANER_START_VAL		0x0F
 #define CLOCK_CLEANER_STOP_VAL		0x00
 
 #define ON                          true
@@ -61,7 +61,7 @@
 #define DASH_CODE(id_data)  (((uint16_t)(id_data[2] & 0xFF) << 7) |  ((uint16_t)id_data[3] >> 1))
 
 // Structure definitions for reading device ID and internal status registers
-struct clock_cleaner_id
+struct clock_cleaner_id_s
 {
     uint8_t rev_id; 
     uint16_t dev_id; 
@@ -69,7 +69,7 @@ struct clock_cleaner_id
 };
 
 
-struct clock_cleaner_status
+struct clock_cleaner_status_s
 {
     uint8_t gpio;
     bool INT; 
@@ -78,30 +78,47 @@ struct clock_cleaner_status
     bool eep_done;
 };
 
-
 /**
  * @brief Read one byte of data from the 8T49N241 clock cleaner via I2C 
  * 
- * @param fd          File descriptor for the I2C bus
- * @param slave_addr  I2C address of the Clock Cleaner 
- * @param reg         Clock Cleaner register to read from
- * @param return_data Data returned from register 
- * @return int        Status flag
+ * @param fd         File descriptor for the I2C bus
+ * @param reg        Clock Cleaner register to read from
+ * @param data       Data returned from register 
+ * @return int       Status flag
  */
-int clc_read (int fd, uint8_t slave_addr, uint16_t reg, uint8_t *return_data);
-
+int idt8T49n241_byte_read (int fd, uint16_t reg, uint8_t *data);
 
 /**
  * @brief Write one byte of data to the 8T49N241 clock cleaner via I2C 
  * 
- * @param fd          File descriptor for the I2C bus
- * @param slave_addr I2C address of the Clock Cleaner  
+ * @param fd         File descriptor for the I2C bus
  * @param reg        Clock Cleaner register to write to
  * @param data       Data sent to register 
  * @return int       Status flag
  */
-int clc_write (int fd, uint8_t slave_addr, uint16_t reg, uint8_t data);
+int idt8T49n241_byte_write (int fd, uint16_t reg, uint8_t data);
 
+/**
+ * @brief Read an array of data from the clock cleaner starting from a specfied address
+ * 
+ * @param fd          File descriptor for the I2C bus
+ * @param reg         Start register for the block read
+ * @param data        Pointer to returned data array
+ * @param bytes       Number of bytes/registers to read
+ * @return int       Status flag
+ */
+int idt8T49n241_array_read (int fd, uint16_t reg, uint8_t* data, uint16_t bytes);
+
+/**
+ * @brief Write an array of data to the clock cleaner starting from a specified address 
+ * 
+ * @param fd          File descriptor for the I2C bus
+ * @param reg         Start register for the block write
+ * @param data        Pointer to data array to write
+ * @param bytes       Number of bytes/registers to write
+ * @return int        Status flag
+ */
+int idt8T49n241_array_write (int fd, uint16_t reg, uint8_t* data, uint16_t bytes);
 
 /**
  * @brief Turn the clock cleaner on or off
@@ -110,7 +127,7 @@ int clc_write (int fd, uint8_t slave_addr, uint16_t reg, uint8_t data);
  * @param state       on/off state
  * @return int        Status flag
  */
-int clc_set_state (int fd, int state);
+int idt8T49n241_set_state (int fd, bool state);
 
 
 /**
@@ -119,26 +136,25 @@ int clc_set_state (int fd, int state);
  * @param fd          File descriptor for the I2C bus
  * @return int        Status flag
  */
-int clc_init (int fd);
-
+int idt8T49n241_init (int fd);
 
 /**
  * @brief 
  * 
- * @param fd          File descriptor for the I2C bus
- * @param clc_id      Clock Cleaner id inforamtion structure
- * @return int        Status flag
+ * @param fd              File descriptor for the I2C bus
+ * @param idt8T49n241_id  Clock Cleaner id inforamtion structure
+ * @return int            Status flag
  */
-int clc_read_id (int fd, struct clock_cleaner_id* clc_id);
+int idt8T49n241_read_id (int fd, struct clock_cleaner_id_s* idt8T49n241_id);
 
 
 /**
  * @brief Read the status flags 
  * 
  * @param fd          File descriptor for the I2C bus
- * @param clc_status  Clock cleaner status flags structure 
+ * @param idt8T49n241_status  Clock cleaner status flags structure 
  * @return int        Status flag
  */
-int clc_read_status (int fd, struct clock_cleaner_status* clc_status);
+int idt8T49n241_read_status (int fd, struct clock_cleaner_status_s* idt8T49n241_status);
 
-#endif // _CLC_I2C_H_
+#endif // _IDT8T49N241_I2C_H_

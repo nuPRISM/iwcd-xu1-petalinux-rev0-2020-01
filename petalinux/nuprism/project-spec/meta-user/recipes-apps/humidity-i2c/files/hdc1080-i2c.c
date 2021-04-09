@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include <sys/ioctl.h>
 #include <linux/i2c.h>
 #include <unistd.h>
@@ -6,16 +7,15 @@
 
 #include "hdc1080-i2c.h"
 
-// Create a byte array using register byte and data word
-#define WR_BUFF(reg, data)  {reg, (uint8_t)(data >> 8), (uint8_t)(data & 0xFF)}
+#define TO_BYTES(word)      {(uint8_t)(word >> 8), (uint8_t)(word & 0xFF)}
+#define TO_WORD(bytes)      (((uint16_t)bytes[0] << 8) | (uint16_t)bytes[1])
 
-// Swap bytes of a 2-byte array
-#define R_BUFF_DATA(data)   (((uint16_t)data[0] << 8) | (uint16_t)data[1])
+#define TEMPERATURE(temp)   ((temp * 165.0F / 65536.0F) - 40.0F)
+#define HUMIDITY(humid)     (humid * 100.0F / 65536.0F)
 
-
-///////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
 // Static Definitions
-///////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
 
 static void reverse_bytes (uint8_t* array, uint8_t bytes)
 {
@@ -27,17 +27,16 @@ static void reverse_bytes (uint8_t* array, uint8_t bytes)
     }
 }
 
-// Internal structure for configureation 
-static struct hdc1080_configuration
+
+static struct hdc1080_i2c_transfer
 {
-    enum resolution temp;
-    enum resolution humid;
-    bool dual;
-    bool heater;
-} config = {HIGH, HIGH, true, false};
+    uint8_t base_reg;
+    uint8_t* data;
+    uint8_t bytes;
+};
 
 
-static void hdc_usleep (enum resolution res)
+static void hdc1080_usleep (enum resolution res)
 {
     int delay;
     int padding = 2500; // Datasheet specified values didn't work
@@ -60,136 +59,218 @@ static void hdc_usleep (enum resolution res)
     usleep(delay + padding);
 }
 
-///////////////////////////////////////////////////////////////////
-// API functions
-///////////////////////////////////////////////////////////////////
-
-/**
- * @brief API to read current HDC1080 configuration 
- * 
- */
-
-enum resolution hdc_get_temp_resolution ()
-{
-    return config.temp;
-}
-
-
-enum resolution hdc_get_humid_resolution ()
-{
-    return config.humid;
-}
-
-
-bool hdc_get_dual ()
-{
-    return config.dual;
-}
-
-
-bool hdc_get_heater ()
-{
-    return config.heater;
-}
-
-// End of config API
-
-int hdc_sw_reset (int fd)
-{
-    uint16_t rst = 0x8000;
-    int status = hdc_write(fd, 0x02, rst);
-
-    if (status == 0)
-    {
-        config.dual = true;
-        config.temp = HIGH;
-        config.humid = HIGH;
-        config.heater = false;
-    }
-
-    return status;
-}
-
-
-int hdc_set_mode (int fd, bool dual, bool heater, enum resolution temp_config, enum resolution humid_config)
-{
-    uint16_t settings = 0;
-    int status;
-
-    // Enable/disable heater
-    settings |= (uint16_t)heater << 13;
-    // Set acquisition mode
-    settings |= (uint16_t)dual << 12;
-    // Set temperature resolution
-    settings |= (uint16_t)temp_config << 10;
-    // Set humidity resolution
-    settings |= (uint16_t)humid_config << 8;
-
-    status = hdc_write(fd, 0x02, settings);
-
-    if (status == 0)
-    {
-        config.dual = dual;
-        config.temp = temp_config;
-        config.humid = humid_config;
-        config.heater = heater;
-    }
-
-    return status;
-}
-
-
-int hdc_get_mode (int fd, uint16_t* config)
-{
-    return hdc_read(fd, 0x02, config);
-}
-
-
-int get_hdc1080_temp (int fd, float* temperature)
+// Setting pointer resgister is a seperate function to allow for delayed reads
+static int hdc1080_i2c_set_pointer (int fd, struct hdc1080_i2c_transfer* pointer)
 {
     uint8_t sensor_addr = HDC1080_I2C_ADDRESS >> 1;
-    uint8_t data_buffer[2];
-    uint8_t reg = 0x00;
-    _DEBUG("Address=0x%x, Register=0x%x\n", HDC1080_I2C_ADDRESS, reg);
 
-    if (config.dual == false)
-    {
-        perror("HDC1080 is currently in dual mode.\n");
-        return -1;
-    }
-
-    struct i2c_msg msgs[2] = {
-        {sensor_addr, 0, 1, &reg},
-        {sensor_addr, I2C_M_RD, 2, data_buffer}
+    struct i2c_msg msg = {
+        .addr = sensor_addr,
+        .flags = 0,
+        .len = 1,
+        .buf = &(pointer->base_reg),
     };
     struct i2c_rdwr_ioctl_data msgset = {
-        .msgs = msgs,
+        .msgs = &msg,
         .nmsgs = 1,
     };
 
     if (ioctl(fd, I2C_RDWR, &msgset) < 0)
     {
-        perror("ioctl(I2C_RDWR) in hdc_read\n");
-        printf("ERR couldn't read: %s\n", strerror(errno));
+        perror("ioctl(I2C_RDWR) in hdc1080_i2c_set_pointer\n");
+        printf("ERR couldn't set pointer register: %s\n", strerror(errno));
+        return -1;
+    }
+
+    return 0;
+}
+
+
+static int hdc1080_i2c_read_transfer (int fd, struct hdc1080_i2c_transfer* request)
+{
+    uint8_t sensor_addr = HDC1080_I2C_ADDRESS >> 1;
+    uint8_t data_buffer[2];
+
+    struct i2c_msg msg = {
+        .addr = sensor_addr,
+        .flags = I2C_M_RD,
+        .len = request->bytes,
+        .buf = request->data,
     };
-
-    hdc_usleep(config.temp);
-
-    msgset.msgs = (msgs+1);
-    msgset.nmsgs = 1;
+    struct i2c_rdwr_ioctl_data msgset = {
+        .msgs = &msg,
+        .nmsgs = 1,
+    };
 
     if (ioctl(fd, I2C_RDWR, &msgset) < 0)
     {
-        perror("ioctl(I2C_RDWR) in hdc_read\n");
+        perror("ioctl(I2C_RDWR) in hdc1080_read\n");
         printf("ERR couldn't read: %s\n", strerror(errno));
         return -1;
     }
-    *temperature = (float)R_BUFF_DATA(data_buffer);
 
-    // Per datasheet
-    *temperature /= (1 << 16);
-    *temperature *= (float)165.00;
-    *temperature -= (float)40.00;
+    return 0;
+}
+
+
+static int hdc1080_i2c_write_transfer (int fd, struct hdc1080_i2c_transfer* command)
+{
+    uint8_t sensor_addr = HDC1080_I2C_ADDRESS >> 1;
+    _DEBUG("Address=0x%x, Register=0x%x\n", HDC1080_I2C_ADDRESS, command->base_reg);
+
+    uint8_t* buffer = (uint8_t*)malloc((command->bytes + 1) * sizeof(uint8_t));
+
+    buffer[0] = command->base_reg;
+    memcpy(buffer+1, command->data, command->bytes * sizeof(uint8_t));
+
+    struct i2c_msg msg = {
+        .addr = sensor_addr,
+        .flags = 0,
+        .len = command->bytes + 1,
+        .buf = buffer,
+    };
+    struct i2c_rdwr_ioctl_data msgset = {
+        .msgs = &msg,
+        .nmsgs = 1,
+    };
+
+    if (ioctl(fd, I2C_RDWR, &msgset) < 0)
+    {
+        perror("ioctl(I2C_RDWR) in hdc1080_write\n");
+        printf("ERR couldn't write: %s\n", strerror(errno));
+        return -1;
+    }
+
+    free(buffer);
+
+    return 0;
+}
+
+//////////////////////////////////////////////////////////////////////////////////
+// API functions
+//////////////////////////////////////////////////////////////////////////////////
+
+int hdc1080_read (int fd, uint8_t reg, uint16_t* data)
+{
+    uint8_t data_buffer[2];
+    struct hdc1080_i2c_transfer read = {
+        .base_reg = reg,
+        .data = data_buffer,
+        .bytes = 2,
+    };
+    int ret;
+
+    ret = hdc1080_i2c_set_pointer(fd, &read);
+    ret |= hdc1080_i2c_read_transfer(fd, &read);
+
+    if (ret == 0)
+    {
+        *data = TO_WORD(data_buffer);
+    }
+
+    return ret;
+}
+
+
+int hdc1080_write (int fd, uint8_t reg, uint16_t data)
+{
+    uint8_t data_buffer[2] = TO_BYTES(data);
+
+    struct hdc1080_i2c_transfer write = {
+        .base_reg = reg,
+        .data = data_buffer,
+        .bytes = 2,
+    };
+
+    return hdc1080_i2c_write_transfer(fd, &write);
+}
+
+
+int hdc1080_sw_reset (int fd)
+{
+    uint8_t rst[2] = {0x80, 0x00};
+    struct hdc1080_i2c_transfer reset = {
+        .base_reg = 0x02,
+        .data = rst,
+        .bytes = 2,
+    };
+
+    return hdc1080_i2c_write_transfer(fd, &reset);
+}
+
+
+int hdc1080_set_configuration (int fd, uint16_t config_setting)
+{
+    uint8_t byte_array[2] = {(uint8_t)(config_setting >> 8), (uint8_t)(config_setting & 0x00FF)};
+    struct hdc1080_i2c_transfer config = {
+        .base_reg = 0x02,
+        .data = byte_array,
+        .bytes = 2,
+    };
+
+    return hdc1080_i2c_write_transfer(fd, &config);
+}
+
+
+int hdc1080_get_configuration (int fd, uint16_t* config)
+{
+    uint8_t byte_array[2];
+    int ret;
+    struct hdc1080_i2c_transfer read_config = {
+        .base_reg = 0x02,
+        .data = byte_array,
+        .bytes = 2,
+    };
+
+    ret = hdc1080_i2c_set_pointer(fd, &read_config);
+    ret |= hdc1080_i2c_read_transfer(fd, &read_config);
+
+    if (ret == 0)
+    {
+        *config = TO_WORD(byte_array);
+    }
+
+    return ret;
+}
+
+
+int get_hdc1080_temp (int fd, float* temperature)
+{
+    uint8_t data_buffer[2];
+    uint16_t config;
+    enum resolution resolution;
+    bool dual;
+    int ret;
+
+    struct hdc1080_i2c_transfer get_temp = {
+        .base_reg = 0x00,
+        .data = data_buffer,
+        .bytes = 2,
+    };
+
+    ret = hdc1080_get_configuration(fd, &config);
+
+    dual = (bool)((config >> 12) & 0x0001);
+    resolution = (config >> 10) & 0x0001;
+
+    printf("%d\n", config);
+
+    if ((config & 0x1000) > 0 || ret != 0)
+    {
+        perror("HDC1080 is currently in dual mode.\n");
+        return -1;
+    }
+
+    ret = hdc1080_i2c_set_pointer(fd, &get_temp);
+
+    hdc1080_usleep(resolution);
+
+    ret |= hdc1080_i2c_read_transfer(fd, &get_temp);
+
+    if (ret == 0)
+    {
+        *temperature = TEMPERATURE((float)TO_WORD(data_buffer));
+    }
 
     return 0;
 }
@@ -197,162 +278,88 @@ int get_hdc1080_temp (int fd, float* temperature)
 
 int get_humidity (int fd, float* humidity)
 {
-    uint8_t sensor_addr = HDC1080_I2C_ADDRESS >> 1;
     uint8_t data_buffer[2];
-    uint8_t reg = 0x01;
-    _DEBUG("Address=0x%x, Register=0x%x\n", HDC1080_I2C_ADDRESS, reg);
+    uint16_t config;
+    enum resolution resolution;
+    bool dual;
+    int ret;
 
-    if (config.dual == false)
+    struct hdc1080_i2c_transfer get_humid = {
+        .base_reg = 0x01,
+        .data = data_buffer,
+        .bytes = 2,
+    };
+
+    ret = hdc1080_get_configuration(fd, &config);
+
+    dual = (bool)((config >> 12) & 0x0001);
+    resolution = (config >> 8) & 0x0003;
+
+    printf("%d\n", config);
+
+    if ((config & 0x1000) > 0 || ret != 0)
     {
         perror("HDC1080 is currently in dual mode.\n");
         return -1;
     }
 
-    struct i2c_msg msgs[2] = {
-        {sensor_addr, 0, 1, &reg},
-        {sensor_addr, I2C_M_RD, 2, data_buffer}
-    };
-    struct i2c_rdwr_ioctl_data msgset = {
-        .msgs = msgs,
-        .nmsgs = 1,
-    };
+    ret = hdc1080_i2c_set_pointer(fd, &get_humid);
 
-    if (ioctl(fd, I2C_RDWR, &msgset) < 0)
+    hdc1080_usleep(resolution);
+
+    ret |= hdc1080_i2c_read_transfer(fd, &get_humid);
+
+    if (ret == 0)
     {
-        perror("ioctl(I2C_RDWR) in hdc_read\n");
-        printf("ERR couldn't read: %s\n", strerror(errno));
-    };
-
-    hdc_usleep(config.humid);
-
-    msgset.msgs = (msgs+1);
-    msgset.nmsgs = 1;
-
-    if (ioctl(fd, I2C_RDWR, &msgset) < 0)
-    {
-        perror("ioctl(I2C_RDWR) in hdc_read\n");
-        printf("ERR couldn't read: %s\n", strerror(errno));
-        return -1;
+        *humidity = HUMIDITY((float)TO_WORD(data_buffer));
     }
-    *humidity = (float)R_BUFF_DATA(data_buffer);
-
-    // Per datasheet
-    *humidity /= (1 << 16);
-    *humidity *= (float)100.00;
 
     return 0;
 }
 
 
-int hdc_get_all (int fd, float* temperature, float* humidity)
+int hdc1080_get_all (int fd, float* temperature, float* humidity)
 {
-    uint8_t sensor_addr = HDC1080_I2C_ADDRESS >> 1;
     uint8_t data_buffer[4];
-    uint8_t reg = 0x00;
-    _DEBUG("Address=0x%x, Register=0x%x\n", HDC1080_I2C_ADDRESS, reg);
+    uint16_t config;
+    enum resolution temp_res, humid_res;
+    bool dual;
+    int ret;
 
-    if (config.dual == false)
+    struct hdc1080_i2c_transfer get_all = {
+        .base_reg = 0x00,
+        .data = data_buffer,
+        .bytes = 4,
+    };
+
+    ret = hdc1080_get_configuration(fd, &config);
+
+    dual = (bool)((config >> 12) & 0x0001);
+    temp_res = (config >> 10) & 0x0001;
+    humid_res = (config >> 8) & 0x0003;
+
+    printf("%d\n", config);
+
+    if ((config & 0x1000) == 0 || ret != 0)
     {
         perror("HDC1080 is currently in single mode.\n");
         return -1;
     }
 
-    struct i2c_msg msgs[2] = {
-        {sensor_addr, 0, 1, &reg},
-        {sensor_addr, I2C_M_RD, 4, data_buffer}
-    };
-    struct i2c_rdwr_ioctl_data msgset = {
-        .msgs = msgs,
-        .nmsgs = 1,
-    };
+    ret = hdc1080_i2c_set_pointer(fd, &get_all);
 
-    if (ioctl(fd, I2C_RDWR, &msgset) < 0)
+    hdc1080_usleep(temp_res);
+    hdc1080_usleep(humid_res);
+
+    ret |= hdc1080_i2c_read_transfer(fd, &get_all);
+
+    *temperature = (float)TO_WORD(data_buffer);
+    *humidity = (float)TO_WORD((uint8_t*)(data_buffer+2));
+
+    if (ret == 0)
     {
-        perror("ioctl(I2C_RDWR) in hdc_read\n");
-        printf("ERR couldn't read: %s\n", strerror(errno));
-    };
-
-    hdc_usleep(config.temp);
-    hdc_usleep(config.humid);
-
-    msgset.msgs = (msgs+1);
-    msgset.nmsgs = 1;
-
-    if (ioctl(fd, I2C_RDWR, &msgset) < 0)
-    {
-        perror("ioctl(I2C_RDWR) in hdc_read\n");
-        printf("ERR couldn't read: %s\n", strerror(errno));
-        return -1;
-    }
-
-    uint8_t* temp = data_buffer;
-    uint8_t* humid = (data_buffer+2);
-
-    *temperature = (float)R_BUFF_DATA(temp);
-    *humidity = (float)R_BUFF_DATA(humid);
-
-    // Per datasheet
-    *temperature /= (1 << 16);
-    *temperature *= (float)165.00;
-    *temperature -= (float)40.00;
-
-    // Per datasheet
-    *humidity /= (1 << 16);
-    *humidity *= (float)100.00;
-
-    return 0;
-}
-
-
-int hdc_read (int fd, uint8_t reg, uint16_t* data)
-{
-    uint8_t sensor_addr = HDC1080_I2C_ADDRESS >> 1;
-    uint8_t data_buffer[2];
-    _DEBUG("Address=0x%x, Register=0x%x\n", HDC1080_I2C_ADDRESS, reg);
-
-    struct i2c_msg msgs[2] = {
-        {sensor_addr, 0, 1, &reg},
-        {sensor_addr, I2C_M_RD, 2, data_buffer}
-    };
-    struct i2c_rdwr_ioctl_data msgset = {
-        .msgs = msgs,
-        .nmsgs = 2,
-    };
-
-    if (ioctl(fd, I2C_RDWR, &msgset) < 0)
-    {
-        perror("ioctl(I2C_RDWR) in hdc_read\n");
-        printf("ERR couldn't read: %s\n", strerror(errno));
-        return -1;
-    }
-    *data = R_BUFF_DATA(data_buffer);
-
-    return 0;
-}
-
-
-int hdc_write (int fd, uint8_t reg, uint16_t data)
-{
-    uint8_t sensor_addr = HDC1080_I2C_ADDRESS >> 1;
-    uint8_t buffer[3] = WR_BUFF(reg, data);
-    _DEBUG("Address=0x%x, Register=0x%x, Data=0x%x\n", HDC1080_I2C_ADDRESS, reg, data);
-
-    struct i2c_msg msgs = {
-        .addr = sensor_addr,
-        .flags = 0,
-        .len = 3,
-        .buf = buffer,
-    };
-    struct i2c_rdwr_ioctl_data msgset = {
-        .msgs = &msgs,
-        .nmsgs = 1,
-    };
-
-    if (ioctl(fd, I2C_RDWR, &msgset) < 0)
-    {
-        perror("ioctl(I2C_RDWR) in hdc_write\n");
-        printf("ERR couldn't write: %s\n", strerror(errno));
-        return -1;
+        *temperature = TEMPERATURE(*temperature);
+        *humidity = HUMIDITY(*humidity);
     }
 
     return 0;
