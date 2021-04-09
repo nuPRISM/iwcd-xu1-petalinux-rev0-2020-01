@@ -11,8 +11,8 @@
  * @copyright Copyright (c) 2021
  * 
  */
-#ifndef _hdc1080_1080_I2C_H_
-#define _hdc1080_1080_I2C_H_
+#ifndef _hdc_1080_I2C_H_
+#define _hdc_1080_I2C_H_
 
 #include <stdio.h>
 #include <stdint.h>
@@ -47,25 +47,6 @@
  * 
  */
 enum resolution { HIGH, MED, LOW };
-
-///////////////////////////////////////////////////////////////////
-// Internal struct access function
-///////////////////////////////////////////////////////////////////
-
-/**
- * @brief Shows the current temperature resolution
- * 
- * @return enum resolution 
- */
-enum resolution hdc1080_get_temp_resolution (void);
-
-/**
- * @brief Shows the current humidity resolution
- * 
- * @return enum resolution 
- */
-enum resolution hdc1080_get_humid_resolution (void);
-
 
 /**
  * @brief Read a word of data from a register of the HDC1080
@@ -133,4 +114,4 @@ int get_humidity (int fd, float* humidity);
  */
 int hdc1080_get_all (int fd, float* temperature, float* humidity);
 
-#endif // _hdc1080_1080_I2C_H_
+#endif // _hdc_1080_I2C_H_

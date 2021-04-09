@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.1.1 (lin64) Build 2960000 Wed Aug  5 22:57:21 MDT 2020
-| Date         : Tue Mar 23 10:45:32 2021
+| Date         : Mon Apr  5 10:55:36 2021
 | Host         : edev running 64-bit Ubuntu 18.04.5 LTS
 | Command      : report_utilization -file system_top_utilization_synth.rpt -pb system_top_utilization_synth.pb
 | Design       : system_top
@@ -28,22 +28,22 @@ Table of Contents
 1. CLB Logic
 ------------
 
-+----------------------------+------+-------+-----------+-------+
-|          Site Type         | Used | Fixed | Available | Util% |
-+----------------------------+------+-------+-----------+-------+
-| CLB LUTs*                  | 3567 |     0 |    214604 |  1.66 |
-|   LUT as Logic             | 3327 |     0 |    214604 |  1.55 |
-|   LUT as Memory            |  240 |     0 |    144000 |  0.17 |
-|     LUT as Distributed RAM |  240 |     0 |           |       |
-|     LUT as Shift Register  |    0 |     0 |           |       |
-| CLB Registers              | 4159 |     0 |    429208 |  0.97 |
-|   Register as Flip Flop    | 4159 |     0 |    429208 |  0.97 |
-|   Register as Latch        |    0 |     0 |    429208 |  0.00 |
-| CARRY8                     |    5 |     0 |     34260 |  0.01 |
-| F7 Muxes                   |    0 |     0 |    137040 |  0.00 |
-| F8 Muxes                   |    0 |     0 |     68520 |  0.00 |
-| F9 Muxes                   |    0 |     0 |     34260 |  0.00 |
-+----------------------------+------+-------+-----------+-------+
++----------------------------+-------+-------+-----------+-------+
+|          Site Type         |  Used | Fixed | Available | Util% |
++----------------------------+-------+-------+-----------+-------+
+| CLB LUTs*                  | 13063 |     0 |    214604 |  6.09 |
+|   LUT as Logic             | 10928 |     0 |    214604 |  5.09 |
+|   LUT as Memory            |  2135 |     0 |    144000 |  1.48 |
+|     LUT as Distributed RAM |  1540 |     0 |           |       |
+|     LUT as Shift Register  |   595 |     0 |           |       |
+| CLB Registers              | 18220 |     0 |    429208 |  4.25 |
+|   Register as Flip Flop    | 18220 |     0 |    429208 |  4.25 |
+|   Register as Latch        |     0 |     0 |    429208 |  0.00 |
+| CARRY8                     |    64 |     0 |     34260 |  0.19 |
+| F7 Muxes                   |    35 |     0 |    137040 |  0.03 |
+| F8 Muxes                   |     0 |     0 |     68520 |  0.00 |
+| F9 Muxes                   |     0 |     0 |     34260 |  0.00 |
++----------------------------+-------+-------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
 
 
@@ -59,23 +59,25 @@ Table of Contents
 | 0     |            _ |         Set |            - |
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
-| 100   |          Yes |           - |          Set |
+| 90    |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
-| 210   |          Yes |         Set |            - |
-| 3849  |          Yes |       Reset |            - |
+| 663   |          Yes |         Set |            - |
+| 17467 |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
 2. BLOCKRAM
 -----------
 
-+----------------+------+-------+-----------+-------+
-|    Site Type   | Used | Fixed | Available | Util% |
-+----------------+------+-------+-----------+-------+
-| Block RAM Tile |    0 |     0 |       714 |  0.00 |
-|   RAMB36/FIFO* |    0 |     0 |       714 |  0.00 |
-|   RAMB18       |    0 |     0 |      1428 |  0.00 |
-+----------------+------+-------+-----------+-------+
++-------------------+------+-------+-----------+-------+
+|     Site Type     | Used | Fixed | Available | Util% |
++-------------------+------+-------+-----------+-------+
+| Block RAM Tile    |  6.5 |     0 |       714 |  0.91 |
+|   RAMB36/FIFO*    |    6 |     0 |       714 |  0.84 |
+|     RAMB36E2 only |    6 |       |           |       |
+|   RAMB18          |    1 |     0 |      1428 |  0.07 |
+|     RAMB18E2 only |    1 |       |           |       |
++-------------------+------+-------+-----------+-------+
 * Note: Each Block RAM Tile only has one FIFO logic available and therefore can accommodate only one FIFO36E2 or one FIFO18E2. However, if a FIFO18E2 occupies a Block RAM Tile, that tile can still accommodate a RAMB18E2
 
 
@@ -105,11 +107,11 @@ Table of Contents
 +----------------------+------+-------+-----------+-------+
 |       Site Type      | Used | Fixed | Available | Util% |
 +----------------------+------+-------+-----------+-------+
-| GLOBAL CLOCK BUFFERs |    4 |     0 |       404 |  0.99 |
+| GLOBAL CLOCK BUFFERs |    6 |     0 |       404 |  1.49 |
 |   BUFGCE             |    2 |     0 |       116 |  1.72 |
 |   BUFGCE_DIV         |    2 |     0 |        16 | 12.50 |
 |   BUFG_GT            |    0 |     0 |       168 |  0.00 |
-|   BUFG_PS            |    0 |     0 |        72 |  0.00 |
+|   BUFG_PS            |    2 |     0 |        72 |  2.78 |
 |   BUFGCTRL*          |    0 |     0 |        32 |  0.00 |
 | PLL                  |    0 |     0 |         8 |  0.00 |
 | MMCM                 |    0 |     0 |         4 |  0.00 |
@@ -120,16 +122,16 @@ Table of Contents
 6. ADVANCED
 -----------
 
-+-----------------+------+-------+-----------+-------+
-|    Site Type    | Used | Fixed | Available | Util% |
-+-----------------+------+-------+-----------+-------+
-| GTHE4_CHANNEL   |    0 |     0 |        16 |  0.00 |
-| GTHE4_COMMON    |    0 |     0 |         4 |  0.00 |
-| OBUFDS_GTE4     |    0 |     0 |         8 |  0.00 |
-| OBUFDS_GTE4_ADV |    0 |     0 |         8 |  0.00 |
-| PS8             |    0 |     0 |         1 |  0.00 |
-| SYSMONE4        |    0 |     0 |         1 |  0.00 |
-+-----------------+------+-------+-----------+-------+
++-----------------+------+-------+-----------+--------+
+|    Site Type    | Used | Fixed | Available |  Util% |
++-----------------+------+-------+-----------+--------+
+| GTHE4_CHANNEL   |    0 |     0 |        16 |   0.00 |
+| GTHE4_COMMON    |    0 |     0 |         4 |   0.00 |
+| OBUFDS_GTE4     |    0 |     0 |         8 |   0.00 |
+| OBUFDS_GTE4_ADV |    0 |     0 |         8 |   0.00 |
+| PS8             |    1 |     0 |         1 | 100.00 |
+| SYSMONE4        |    1 |     0 |         1 | 100.00 |
++-----------------+------+-------+-----------+--------+
 
 
 7. CONFIGURATION
@@ -151,54 +153,53 @@ Table of Contents
 8. Primitives
 -------------
 
-+------------+------+---------------------+
-|  Ref Name  | Used | Functional Category |
-+------------+------+---------------------+
-| FDRE       | 3849 |            Register |
-| LUT6       | 1965 |                 CLB |
-| LUT5       |  551 |                 CLB |
-| RAMD32     |  420 |                 CLB |
-| LUT1       |  373 |                 CLB |
-| LUT3       |  366 |                 CLB |
-| LUT4       |  298 |                 CLB |
-| FDSE       |  210 |            Register |
-| LUT2       |  161 |                 CLB |
-| FDPE       |  100 |            Register |
-| RAMS32     |   60 |                 CLB |
-| IBUFCTRL   |   40 |              Others |
-| DIFFINBUF  |   31 |                 I/O |
-| ISERDESE3  |   30 |                 I/O |
-| IDELAYE3   |   30 |                 I/O |
-| OBUFT      |    9 |                 I/O |
-| INBUF      |    9 |                 I/O |
-| OBUF       |    8 |                 I/O |
-| CARRY8     |    5 |                 CLB |
-| OSERDESE3  |    2 |                 I/O |
-| BUFGCE_DIV |    2 |               Clock |
-| BUFGCE     |    2 |               Clock |
-+------------+------+---------------------+
++------------+-------+---------------------+
+|  Ref Name  |  Used | Functional Category |
++------------+-------+---------------------+
+| FDRE       | 17467 |            Register |
+| LUT6       |  4488 |                 CLB |
+| LUT3       |  3420 |                 CLB |
+| RAMD32     |  2680 |                 CLB |
+| LUT5       |  1716 |                 CLB |
+| LUT4       |  1702 |                 CLB |
+| LUT1       |  1233 |                 CLB |
+| LUT2       |   977 |                 CLB |
+| FDSE       |   663 |            Register |
+| SRL16E     |   406 |                 CLB |
+| RAMS32     |   380 |                 CLB |
+| SRLC32E    |   275 |                 CLB |
+| FDPE       |    90 |            Register |
+| CARRY8     |    64 |                 CLB |
+| IBUFCTRL   |    40 |              Others |
+| MUXF7      |    35 |                 CLB |
+| DIFFINBUF  |    31 |                 I/O |
+| ISERDESE3  |    30 |                 I/O |
+| IDELAYE3   |    30 |                 I/O |
+| OBUFT      |     9 |                 I/O |
+| INBUF      |     9 |                 I/O |
+| OBUF       |     8 |                 I/O |
+| RAMB36E2   |     6 |           Block Ram |
+| SRLC16E    |     2 |                 CLB |
+| OSERDESE3  |     2 |                 I/O |
+| BUFG_PS    |     2 |               Clock |
+| BUFGCE_DIV |     2 |               Clock |
+| BUFGCE     |     2 |               Clock |
+| SYSMONE4   |     1 |            Advanced |
+| RAMB18E2   |     1 |           Block Ram |
+| PS8        |     1 |            Advanced |
++------------+-------+---------------------+
 
 
 9. Black Boxes
 --------------
 
-+--------------------------------------+------+
-|               Ref Name               | Used |
-+--------------------------------------+------+
-| clk_wiz_1_b64_b66_pll                |    1 |
-| clk_wiz_0_b65_mmcm                   |    1 |
-| MercuryXU1_zynq_ultra_ps_e_0_0       |    1 |
-| MercuryXU1_xbar_1                    |    1 |
-| MercuryXU1_system_management_wiz_0_0 |    1 |
-| MercuryXU1_proc_sys_reset_0_0        |    1 |
-| MercuryXU1_axis_data_fifo_0_0        |    1 |
-| MercuryXU1_axi_smc_0                 |    1 |
-| MercuryXU1_axi_gpio_0_0              |    1 |
-| MercuryXU1_axi_dma_0_0               |    1 |
-| MercuryXU1_auto_pc_2                 |    1 |
-| MercuryXU1_auto_pc_1                 |    1 |
-| MercuryXU1_auto_pc_0                 |    1 |
-+--------------------------------------+------+
++-----------------------+------+
+|        Ref Name       | Used |
++-----------------------+------+
+| dbg_hub_CV            |    1 |
+| clk_wiz_1_b64_b66_pll |    1 |
+| clk_wiz_0_b65_mmcm    |    1 |
++-----------------------+------+
 
 
 10. Instantiated Netlists

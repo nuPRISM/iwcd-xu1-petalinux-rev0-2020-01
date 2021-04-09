@@ -5,11 +5,11 @@
 #
 #    Modified by diana.ungureanu@enclustra.com
 
-source scripts/settings.tcl
+source enclustra_scripts/settings.tcl
 
 set project_base_name ${hw_base_platform}${module_name}
 
-set VivadoVersion 2017
+set VivadoVersion 2020
 
 foreach hw_platform $hw_platforms {
 
@@ -41,22 +41,173 @@ foreach hw_platform $hw_platforms {
     
     # Set 'sources_1' fileset object
     set obj [get_filesets sources_1]
-    set files [list \
-    "[file normalize "$origin_dir/src/system_top_${hw_platform}.vhd"]"\
-    ]
+    set files [list "[file normalize "$origin_dir/src/system_top_${hw_platform}.sv"]"]
     add_files -norecurse -fileset $obj $files
     
     
-    set file "$origin_dir/src/system_top_${hw_platform}.vhd"
+    set file "$origin_dir/src/system_top_${hw_platform}.sv"
     set file [file normalize $file]
     set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
-    set_property "file_type" "VHDL" $file_obj
-    
+    set_property "file_type" "systemverilog" $file_obj
+
+    #add_files {
+    #    ./src/ip/clk_divider_pll/clk_divider_pll.xci \
+    #    ./src/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm.xci \
+    #    ./src/ip/clk_wiz_1_b64_b66_pll/clk_wiz_1_b64_b66_pll.xci \
+    #}
+
+    # Add amc_carrier_core library 
+    add_files { \
+        ./lib/amc_carrier_core/Ad9229Core.vhd \
+        ./lib/amc_carrier_core/Ad9229Deserializer.vhd \
+    }
+    set_property "library" "amc_carrier_core" [ get_files { \
+        ./lib/amc_carrier_core/Ad9229Core.vhd \
+        ./lib/amc_carrier_core/Ad9229Deserializer.vhd \
+    }]
+
+    # Add SURF library 
+    add_files { \
+        ./lib/surf/base/general/rtl/SlvDelay.vhd \
+        ./lib/surf/base/ram/xilinx/TrueDualPortRamXpm.vhd \
+        ./lib/surf/base/sync/rtl/SynchronizerEdge.vhd \
+        ./lib/surf/base/fifo/rtl/inferred/FifoSync.vhd \
+        ./lib/surf/base/sync/rtl/SynchronizerOneShotCntVector.vhd \
+        ./lib/surf/base/general/rtl/Gearbox.vhd \
+        ./lib/surf/base/ram/inferred/DualPortRam.vhd \
+        ./lib/surf/base/sync/rtl/SyncTrigRateVector.vhd \
+        ./lib/surf/base/general/rtl/TextUtilPkg.vhd \
+        ./lib/surf/base/sync/rtl/SyncStatusVector.vhd \
+        ./lib/surf/xilinx/general/rtl/DeviceDna.vhd \
+        ./lib/surf/base/sync/rtl/SynchronizerVector.vhd \
+        ./lib/surf/base/sync/rtl/SynchronizerOneShotCnt.vhd \
+        ./lib/surf/base/general/tb/ClkRst.vhd \
+        ./lib/surf/base/ram/inferred/SimpleDualPortRam.vhd \
+        ./lib/surf/base/general/rtl/CRC32Rtl.vhd \
+        ./lib/surf/base/general/rtl/Arbiter.vhd \
+        ./lib/surf/base/general/rtl/Crc32.vhd \
+        ./lib/surf/base/general/rtl/RstPipelineVector.vhd \
+        ./lib/surf/base/general/rtl/PwrUpRst.vhd \
+        ./lib/surf/base/sync/rtl/SyncMinMax.vhd \
+        ./lib/surf/base/general/rtl/ArbiterPkg.vhd \
+        ./lib/surf/base/fifo/rtl/xilinx/FifoXpm.vhd \
+        ./lib/surf/base/sync/rtl/SyncTrigPeriod.vhd \
+        ./lib/surf/base/general/rtl/PrbsPkg.vhd \
+        ./lib/surf/base/sync/rtl/Synchronizer.vhd \
+        ./lib/surf/base/sync/rtl/RstSync.vhd \
+        ./lib/surf/base/sync/rtl/SyncTrigRate.vhd \
+        ./lib/surf/base/fifo/rtl/FifoOutputPipeline.vhd \
+        ./lib/surf/base/general/tb/GearboxTb.vhd \
+        ./lib/surf/base/general/rtl/Crc32Parallel.vhd \
+        ./lib/surf/base/general/rtl/StdRtlPkg.vhd \
+        ./lib/surf/base/general/rtl/RstPipeline.vhd \
+        ./lib/surf/base/ram/inferred/QuadPortRam.vhd \
+        ./lib/surf/base/sync/tb/SynchronizerFifoTb.vhd \
+        ./lib/surf/xilinx/general/rtl/ClkOutBufDiff.vhd \
+        ./lib/surf/base/fifo/rtl/Fifo.vhd \
+        ./lib/surf/base/sync/rtl/SynchronizerOneShotVector.vhd \
+        ./lib/surf/base/fifo/rtl/inferred/FifoRdFsm.vhd \
+        ./lib/surf/base/general/rtl/Scrambler.vhd \
+        ./lib/surf/base/ram/xilinx/SimpleDualPortRamAlteraMfDummy.vhd \
+        ./lib/surf/base/sync/rtl/SynchronizerOneShot.vhd \
+        ./lib/surf/xilinx/general/rtl/Iprog.vhd \
+        ./lib/surf/base/general/rtl/AsyncGearbox.vhd \
+        ./lib/surf/base/general/rtl/OneShot.vhd \
+        ./lib/surf/base/ram/inferred/TrueDualPortRam.vhd \
+        ./lib/surf/base/fifo/rtl/inferred/FifoAsync.vhd \
+        ./lib/surf/base/fifo/rtl/FifoMux.vhd \
+        ./lib/surf/base/sync/rtl/SyncClockFreq.vhd \
+        ./lib/surf/base/sync/tb/SynchronizerOneShotTb.vhd \
+        ./lib/surf/base/fifo/rtl/xilinx/FifoAlteraMfDummy.vhd \
+        ./lib/surf/base/ram/xilinx/TrueDualPortRamXpmAlteraMfDummy.vhd \
+        ./lib/surf/base/sync/rtl/SynchronizerFifo.vhd \
+        ./lib/surf/xilinx/general/rtl/ClkOutBufSingle.vhd \
+        ./lib/surf/base/general/rtl/Heartbeat.vhd \
+        ./lib/surf/base/general/tb/glbl.vhd \
+        ./lib/surf/base/general/tb/HeartbeatTb.vhd \
+        ./lib/surf/base/general/rtl/SlvDelayFifo.vhd \
+        ./lib/surf/base/general/rtl/RegisterVector.vhd \
+        ./lib/surf/base/ram/inferred/OctalPortRam.vhd \
+        ./lib/surf/base/general/rtl/Debouncer.vhd \
+        ./lib/surf/base/fifo/rtl/FifoCascade.vhd \
+        ./lib/surf/base/general/rtl/WatchDogRst.vhd \
+        ./lib/surf/base/general/rtl/CrcPkg.vhd \
+    }
+    set_property "library" "surf" [ get_files { \
+        ./lib/surf/base/general/rtl/SlvDelay.vhd \
+        ./lib/surf/base/ram/xilinx/TrueDualPortRamXpm.vhd \
+        ./lib/surf/base/sync/rtl/SynchronizerEdge.vhd \
+        ./lib/surf/base/fifo/rtl/inferred/FifoSync.vhd \
+        ./lib/surf/base/sync/rtl/SynchronizerOneShotCntVector.vhd \
+        ./lib/surf/base/general/rtl/Gearbox.vhd \
+        ./lib/surf/base/ram/inferred/DualPortRam.vhd \
+        ./lib/surf/base/sync/rtl/SyncTrigRateVector.vhd \
+        ./lib/surf/base/general/rtl/TextUtilPkg.vhd \
+        ./lib/surf/base/sync/rtl/SyncStatusVector.vhd \
+        ./lib/surf/xilinx/general/rtl/DeviceDna.vhd \
+        ./lib/surf/base/sync/rtl/SynchronizerVector.vhd \
+        ./lib/surf/base/sync/rtl/SynchronizerOneShotCnt.vhd \
+        ./lib/surf/base/general/tb/ClkRst.vhd \
+        ./lib/surf/base/ram/inferred/SimpleDualPortRam.vhd \
+        ./lib/surf/base/general/rtl/CRC32Rtl.vhd \
+        ./lib/surf/base/general/rtl/Arbiter.vhd \
+        ./lib/surf/base/general/rtl/Crc32.vhd \
+        ./lib/surf/base/general/rtl/RstPipelineVector.vhd \
+        ./lib/surf/base/general/rtl/PwrUpRst.vhd \
+        ./lib/surf/base/sync/rtl/SyncMinMax.vhd \
+        ./lib/surf/base/general/rtl/ArbiterPkg.vhd \
+        ./lib/surf/base/fifo/rtl/xilinx/FifoXpm.vhd \
+        ./lib/surf/base/sync/rtl/SyncTrigPeriod.vhd \
+        ./lib/surf/base/general/rtl/PrbsPkg.vhd \
+        ./lib/surf/base/sync/rtl/Synchronizer.vhd \
+        ./lib/surf/base/sync/rtl/RstSync.vhd \
+        ./lib/surf/base/sync/rtl/SyncTrigRate.vhd \
+        ./lib/surf/base/fifo/rtl/FifoOutputPipeline.vhd \
+        ./lib/surf/base/general/tb/GearboxTb.vhd \
+        ./lib/surf/base/general/rtl/Crc32Parallel.vhd \
+        ./lib/surf/base/general/rtl/StdRtlPkg.vhd \
+        ./lib/surf/base/general/rtl/RstPipeline.vhd \
+        ./lib/surf/base/general/rtl/ClockDivider.vhd \
+        ./lib/surf/base/ram/xilinx/SimpleDualPortRamXpm.vhd \
+        ./lib/surf/base/fifo/rtl/inferred/FifoWrFsm.vhd \
+        ./lib/surf/base/ram/inferred/QuadPortRam.vhd \
+        ./lib/surf/base/sync/tb/SynchronizerFifoTb.vhd \
+        ./lib/surf/xilinx/general/rtl/ClkOutBufDiff.vhd \
+        ./lib/surf/base/fifo/rtl/Fifo.vhd \
+        ./lib/surf/base/sync/rtl/SynchronizerOneShotVector.vhd \
+        ./lib/surf/base/fifo/rtl/inferred/FifoRdFsm.vhd \
+        ./lib/surf/base/general/rtl/Scrambler.vhd \
+        ./lib/surf/base/ram/xilinx/SimpleDualPortRamAlteraMfDummy.vhd \
+        ./lib/surf/base/sync/rtl/SynchronizerOneShot.vhd \
+        ./lib/surf/xilinx/general/rtl/Iprog.vhd \
+        ./lib/surf/base/general/rtl/AsyncGearbox.vhd \
+        ./lib/surf/base/general/rtl/OneShot.vhd \
+        ./lib/surf/base/ram/inferred/TrueDualPortRam.vhd \
+        ./lib/surf/base/fifo/rtl/inferred/FifoAsync.vhd \
+        ./lib/surf/base/fifo/rtl/FifoMux.vhd \
+        ./lib/surf/base/sync/rtl/SyncClockFreq.vhd \
+        ./lib/surf/base/sync/tb/SynchronizerOneShotTb.vhd \
+        ./lib/surf/base/fifo/rtl/xilinx/FifoAlteraMfDummy.vhd \
+        ./lib/surf/base/ram/xilinx/TrueDualPortRamXpmAlteraMfDummy.vhd \
+        ./lib/surf/base/sync/rtl/SynchronizerFifo.vhd \
+        ./lib/surf/xilinx/general/rtl/ClkOutBufSingle.vhd \
+        ./lib/surf/base/general/rtl/Heartbeat.vhd \
+        ./lib/surf/base/general/tb/glbl.vhd \
+        ./lib/surf/base/general/tb/HeartbeatTb.vhd \
+        ./lib/surf/base/general/rtl/SlvDelayFifo.vhd \
+        ./lib/surf/base/general/rtl/RegisterVector.vhd \
+        ./lib/surf/base/ram/inferred/OctalPortRam.vhd \
+        ./lib/surf/base/general/rtl/Debouncer.vhd \
+        ./lib/surf/base/fifo/rtl/FifoCascade.vhd \
+        ./lib/surf/base/general/rtl/WatchDogRst.vhd \
+        ./lib/surf/base/general/rtl/CrcPkg.vhd \
+    }]
+
     #############################################
     #
     #
     #create BD creation script
-    source scripts/${project_base_name}_bd_${hw_platform}.tcl
+    source enclustra_scripts/${project_base_name}.tcl
     #
     #
     #############################################

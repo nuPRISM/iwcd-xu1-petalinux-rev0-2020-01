@@ -1,7 +1,7 @@
 //Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2020.1.1 (lin64) Build 2960000 Wed Aug  5 22:57:21 MDT 2020
-//Date        : Mon Mar 22 16:05:32 2021
+//Date        : Wed Mar 31 09:06:00 2021
 //Host        : edev running 64-bit Ubuntu 18.04.5 LTS
 //Command     : generate_target MercuryXU1.bd
 //Design      : MercuryXU1
@@ -9,7 +9,7 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "MercuryXU1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=MercuryXU1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=24,numReposBlks=15,numNonXlnxBlks=0,numHierBlks=9,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=8,da_clkrst_cnt=7,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "MercuryXU1.hwdef" *) 
+(* CORE_GENERATION_INFO = "MercuryXU1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=MercuryXU1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=25,numReposBlks=16,numNonXlnxBlks=0,numHierBlks=9,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=8,da_clkrst_cnt=7,synth_mode=Global}" *) (* HW_HANDOFF = "MercuryXU1.hwdef" *) 
 module MercuryXU1
    (GPIO_tri_o,
     emio_spi0_ss_in,
@@ -232,12 +232,12 @@ module MercuryXU1
   wire [31:0]xlconstant_3_dout;
   wire [0:0]xlconstant_4_dout;
   wire [0:0]xlconstant_5_dout;
-  wire zynq_ultra_ps_e_0_IIC_0_SCL_I;
-  wire zynq_ultra_ps_e_0_IIC_0_SCL_O;
-  wire zynq_ultra_ps_e_0_IIC_0_SCL_T;
-  wire zynq_ultra_ps_e_0_IIC_0_SDA_I;
-  wire zynq_ultra_ps_e_0_IIC_0_SDA_O;
-  wire zynq_ultra_ps_e_0_IIC_0_SDA_T;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_IIC_0 xilinx.com:interface:iic:1.0 None SCL_I" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_IIC_0_SCL_I;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_IIC_0 xilinx.com:interface:iic:1.0 None SCL_O" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_IIC_0_SCL_O;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_IIC_0 xilinx.com:interface:iic:1.0 None SCL_T" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_IIC_0_SCL_T;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_IIC_0 xilinx.com:interface:iic:1.0 None SDA_I" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_IIC_0_SDA_I;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_IIC_0 xilinx.com:interface:iic:1.0 None SDA_O" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_IIC_0_SDA_O;
+  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_IIC_0 xilinx.com:interface:iic:1.0 None SDA_T" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_IIC_0_SDA_T;
   wire [39:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARADDR;
   wire [1:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARBURST;
   wire [3:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARCACHE;
@@ -833,6 +833,14 @@ module MercuryXU1
         .S02_AXI_wready(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_WREADY),
         .S02_AXI_wstrb(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_WSTRB),
         .S02_AXI_wvalid(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_WVALID));
+  MercuryXU1_system_ila_0_1 system_ila_0
+       (.SLOT_0_IIC_scl_i(zynq_ultra_ps_e_0_IIC_0_SCL_I),
+        .SLOT_0_IIC_scl_o(zynq_ultra_ps_e_0_IIC_0_SCL_O),
+        .SLOT_0_IIC_scl_t(zynq_ultra_ps_e_0_IIC_0_SCL_T),
+        .SLOT_0_IIC_sda_i(zynq_ultra_ps_e_0_IIC_0_SDA_I),
+        .SLOT_0_IIC_sda_o(zynq_ultra_ps_e_0_IIC_0_SDA_O),
+        .SLOT_0_IIC_sda_t(zynq_ultra_ps_e_0_IIC_0_SDA_T),
+        .clk(zynq_ultra_ps_e_0_pl_clk0));
   MercuryXU1_system_management_wiz_0_0 system_management_wiz_0
        (.s_axi_aclk(zynq_ultra_ps_e_0_pl_clk0),
         .s_axi_araddr(ps8_0_axi_periph_M01_AXI_ARADDR[12:0]),

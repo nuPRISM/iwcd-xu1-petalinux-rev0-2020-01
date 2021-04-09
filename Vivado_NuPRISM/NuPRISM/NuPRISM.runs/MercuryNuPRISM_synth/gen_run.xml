@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="MercuryNuPRISM_synth" LaunchPart="xczu6eg-ffvc900-1-i" LaunchTime="1616521423">
-  <File Type="VDS-TIMINGSUMMARY" Name="system_top_timing_summary_synth.rpt"/>
+<GenRun Id="MercuryNuPRISM_synth" LaunchPart="xczu6eg-ffvc900-1-i" LaunchTime="1617659871">
   <File Type="RDS-DCP" Name="system_top.dcp"/>
   <File Type="RDS-UTIL-PB" Name="system_top_utilization_synth.pb"/>
-  <File Type="RDS-UTIL" Name="system_top_utilization_synth.rpt"/>
-  <File Type="RDS-PROPCONSTRS" Name="system_top_drc_synth.rpt"/>
-  <File Type="RDS-RDS" Name="system_top.vds"/>
-  <File Type="REPORTS-TCL" Name="system_top_reports.tcl"/>
-  <File Type="VDS-TIMING-PB" Name="system_top_timing_summary_synth.pb"/>
   <File Type="PA-TCL" Name="system_top.tcl"/>
+  <File Type="RDS-UTIL" Name="system_top_utilization_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="system_top_reports.tcl"/>
+  <File Type="RDS-RDS" Name="system_top.vds"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/bd/MercuryXU1/MercuryXU1.bd">
@@ -713,18 +710,7 @@
     <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017"/>
     <Step Id="synth_design"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="MercuryXU1_auto_pc_2"/>
-  <BlockFileSet Type="BlockSrcs" Name="MercuryXU1_axis_data_fifo_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="MercuryXU1_auto_pc_1"/>
-  <BlockFileSet Type="BlockSrcs" Name="MercuryXU1_axi_smc_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="MercuryXU1_axi_dma_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="MercuryXU1_system_management_wiz_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="MercuryXU1_xbar_1"/>
-  <BlockFileSet Type="BlockSrcs" Name="MercuryXU1_proc_sys_reset_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="MercuryXU1_axi_gpio_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="clk_divider_pll"/>
-  <BlockFileSet Type="BlockSrcs" Name="MercuryXU1_auto_pc_0"/>
   <BlockFileSet Type="BlockSrcs" Name="clk_wiz_0_b65_mmcm"/>
-  <BlockFileSet Type="BlockSrcs" Name="MercuryXU1_zynq_ultra_ps_e_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="clk_wiz_1_b64_b66_pll"/>
 </GenRun>

@@ -1,3 +1,0 @@
-# Ignore arguments to dockerfile
-*.tar.gz
-*.run

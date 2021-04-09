@@ -10,46 +10,75 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="95210986fs"></ZoomEndTime>
+      <ZoomEndTime time="226075fs"></ZoomEndTime>
       <Cursor1Time time="0fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="404"></NameColumnWidth>
-      <ValueColumnWidth column_width="92"></ValueColumnWidth>
+      <NameColumnWidth column_width="378"></NameColumnWidth>
+      <ValueColumnWidth column_width="66"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="5" />
-   <wvobject type="logic" fp_name="ADC0_SEN_OBUF">
+   <WVObjectSize size="8" />
+   <wvobject type="array" fp_name="adc0_da_pardata_j4[0]">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">ADC0_SEN_OBUF</obj_property>
-      <obj_property name="ObjectShortName">ADC0_SEN_OBUF</obj_property>
+      <obj_property name="ElementShortName">adc0_da_pardata_j4[0][11:0]</obj_property>
+      <obj_property name="ObjectShortName">adc0_da_pardata_j4[0][11:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="ADC1_SEN_OBUF">
+   <wvobject type="array" fp_name="adc0_da_pardata_j4[1]">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">ADC1_SEN_OBUF</obj_property>
-      <obj_property name="ObjectShortName">ADC1_SEN_OBUF</obj_property>
+      <obj_property name="ElementShortName">adc0_da_pardata_j4[1][11:0]</obj_property>
+      <obj_property name="ObjectShortName">adc0_da_pardata_j4[1][11:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="ADC2_SEN_OBUF">
+   <wvobject type="array" fp_name="adc0_db_pardata_j3[0]">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">ADC2_SEN_OBUF</obj_property>
-      <obj_property name="ObjectShortName">ADC2_SEN_OBUF</obj_property>
+      <obj_property name="ElementShortName">adc0_db_pardata_j3[0][11:0]</obj_property>
+      <obj_property name="ObjectShortName">adc0_db_pardata_j3[0][11:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="ADC3_SEN_OBUF">
+   <wvobject type="array" fp_name="adc0_db_pardata_j3[1]">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">ADC3_SEN_OBUF</obj_property>
-      <obj_property name="ObjectShortName">ADC3_SEN_OBUF</obj_property>
+      <obj_property name="ElementShortName">adc0_db_pardata_j3[1][11:0]</obj_property>
+      <obj_property name="ObjectShortName">adc0_db_pardata_j3[1][11:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="ADC4_SEN_OBUF">
+   <wvobject type="array" fp_name="adc0_dc_pardata_j2[0]">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">ADC4_SEN_OBUF</obj_property>
-      <obj_property name="ObjectShortName">ADC4_SEN_OBUF</obj_property>
+      <obj_property name="ElementShortName">adc0_dc_pardata_j2[0][11:0]</obj_property>
+      <obj_property name="ObjectShortName">adc0_dc_pardata_j2[0][11:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="adc0_dd_pardata_j1[1]">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">adc0_dd_pardata_j1[1][11:0]</obj_property>
+      <obj_property name="ObjectShortName">adc0_dd_pardata_j1[1][11:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="adc0_dc_pardata_j2[1]">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">adc0_dc_pardata_j2[1][11:0]</obj_property>
+      <obj_property name="ObjectShortName">adc0_dc_pardata_j2[1][11:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="adc0_dd_pardata_j1[0]">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">adc0_dd_pardata_j1[0][11:0]</obj_property>
+      <obj_property name="ObjectShortName">adc0_dd_pardata_j1[0][11:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>

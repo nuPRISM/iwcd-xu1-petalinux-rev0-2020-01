@@ -17,17 +17,6 @@
 // Static Definitions
 //////////////////////////////////////////////////////////////////////////////////
 
-static void reverse_bytes (uint8_t* array, uint8_t bytes)
-{
-    for (uint8_t i = 0; i < bytes / 2; i++)
-    {
-        array[bytes-i-1] = array[bytes-i-1] ^ array[i];
-        array[i]         = array[bytes-i-1] ^ array[i];
-        array[bytes-i-1] = array[bytes-i-1] ^ array[i];
-    }
-}
-
-
 static struct hdc1080_i2c_transfer
 {
     uint8_t base_reg;
