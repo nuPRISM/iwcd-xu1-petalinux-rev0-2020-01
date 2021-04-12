@@ -7,7 +7,8 @@
 #define ALL_ZEROS_TEST_PATTERN 0x11
 #define ALL_ONES_TEST_PATTERN  0x22
 #define TOGGLE_TEST_PATTERN    0x33
-
+#define DIGITAL_RAMP_PATTERN   0x44
+#define SINE_WAVE_PATTERN      0x99
 
 int spi_init(char* device_name);
 

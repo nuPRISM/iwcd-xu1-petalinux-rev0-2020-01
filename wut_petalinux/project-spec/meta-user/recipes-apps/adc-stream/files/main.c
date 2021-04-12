@@ -187,9 +187,9 @@ void stop_thread() {
 int main(int argc, char **argv)
 {
     if(argc < 3) {
-        printf("Usage:\n\t%s adc_num dst_ip_addr dst_port_num\n\n", basename(argv[0]));
+        printf("Usage:\n\t%s adc_num adc_mode dst_ip_addr dst_port_num\n\n", basename(argv[0]));
         printf("\tadc_num=0..4\n");
-        printf("\tadc_mode: 0 - tst0, 1 - tst1, 2 - toggle test pattern, 3 nominal mode\n");
+        printf("\tadc_mode: 0 - tst0, 1 - tst1, 2 - toggle test pattern, 3 - digital ramp pattern, 4 -sine wave pattern, 5 - nominal mode \n");
         return 1;
     }
   
@@ -201,7 +201,7 @@ int main(int argc, char **argv)
     }
     
     int adc_mode = atoi(argv[2]);
-    if(adc_mode < 0 || adc_mode > 3) {
+    if(adc_mode < 0 || adc_mode > 5) {
         printf("Illegal ADC mode: %d\n", adc_mode);
         return 2;
     } 
@@ -231,6 +231,14 @@ int main(int argc, char **argv)
 
         case 2:
             adc_test(fd, adc_num, TOGGLE_TEST_PATTERN);
+            break;
+
+        case 3:
+            adc_test(fd, adc_num, DIGITAL_RAMP_PATTERN);
+            break;
+
+        case 4:
+            adc_test(fd, adc_num, SINE_WAVE_PATTERN);
             break;
 
         default:
