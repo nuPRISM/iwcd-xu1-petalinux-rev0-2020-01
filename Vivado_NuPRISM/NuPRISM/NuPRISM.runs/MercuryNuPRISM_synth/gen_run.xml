@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="MercuryNuPRISM_synth" LaunchPart="xczu6eg-ffvc900-1-i" LaunchTime="1617659871">
+<GenRun Id="MercuryNuPRISM_synth" LaunchPart="xczu6eg-ffvc900-1-i" LaunchTime="1618358094">
+  <File Type="VDS-TIMINGSUMMARY" Name="system_top_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="system_top.dcp"/>
   <File Type="RDS-UTIL-PB" Name="system_top_utilization_synth.pb"/>
-  <File Type="PA-TCL" Name="system_top.tcl"/>
   <File Type="RDS-UTIL" Name="system_top_utilization_synth.rpt"/>
-  <File Type="REPORTS-TCL" Name="system_top_reports.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="system_top_drc_synth.rpt"/>
   <File Type="RDS-RDS" Name="system_top.vds"/>
+  <File Type="REPORTS-TCL" Name="system_top_reports.tcl"/>
+  <File Type="VDS-TIMING-PB" Name="system_top_timing_summary_synth.pb"/>
+  <File Type="PA-TCL" Name="system_top.tcl"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/bd/MercuryXU1/MercuryXU1.bd">

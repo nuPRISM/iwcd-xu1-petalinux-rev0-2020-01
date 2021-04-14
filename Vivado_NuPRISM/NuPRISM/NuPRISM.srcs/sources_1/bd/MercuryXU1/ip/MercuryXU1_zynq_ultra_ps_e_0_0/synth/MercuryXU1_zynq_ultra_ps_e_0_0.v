@@ -236,18 +236,6 @@ module MercuryXU1_zynq_ultra_ps_e_0_0 (
   emio_spi0_ss_i_n,
   emio_spi0_ss_o_n,
   emio_spi0_ss_n_t,
-  emio_spi1_sclk_i,
-  emio_spi1_sclk_o,
-  emio_spi1_sclk_t,
-  emio_spi1_m_i,
-  emio_spi1_m_o,
-  emio_spi1_mo_t,
-  emio_spi1_s_i,
-  emio_spi1_s_o,
-  emio_spi1_so_t,
-  emio_spi1_ss_i_n,
-  emio_spi1_ss_o_n,
-  emio_spi1_ss_n_t,
   pl_ps_irq0,
   pl_resetn0,
   pl_clk0,
@@ -623,30 +611,6 @@ input wire emio_spi0_ss_i_n;
 output wire emio_spi0_ss_o_n;
 (* X_INTERFACE_INFO = "xilinx.com:interface:spi:1.0 SPI_0 SS_T" *)
 output wire emio_spi0_ss_n_t;
-(* X_INTERFACE_INFO = "xilinx.com:interface:spi:1.0 SPI_1 SCK_I" *)
-input wire emio_spi1_sclk_i;
-(* X_INTERFACE_INFO = "xilinx.com:interface:spi:1.0 SPI_1 SCK_O" *)
-output wire emio_spi1_sclk_o;
-(* X_INTERFACE_INFO = "xilinx.com:interface:spi:1.0 SPI_1 SCK_T" *)
-output wire emio_spi1_sclk_t;
-(* X_INTERFACE_INFO = "xilinx.com:interface:spi:1.0 SPI_1 IO1_I" *)
-input wire emio_spi1_m_i;
-(* X_INTERFACE_INFO = "xilinx.com:interface:spi:1.0 SPI_1 IO0_O" *)
-output wire emio_spi1_m_o;
-(* X_INTERFACE_INFO = "xilinx.com:interface:spi:1.0 SPI_1 IO0_T" *)
-output wire emio_spi1_mo_t;
-(* X_INTERFACE_INFO = "xilinx.com:interface:spi:1.0 SPI_1 IO0_I" *)
-input wire emio_spi1_s_i;
-(* X_INTERFACE_INFO = "xilinx.com:interface:spi:1.0 SPI_1 IO1_O" *)
-output wire emio_spi1_s_o;
-(* X_INTERFACE_INFO = "xilinx.com:interface:spi:1.0 SPI_1 IO1_T" *)
-output wire emio_spi1_so_t;
-(* X_INTERFACE_INFO = "xilinx.com:interface:spi:1.0 SPI_1 SS_I" *)
-input wire emio_spi1_ss_i_n;
-(* X_INTERFACE_INFO = "xilinx.com:interface:spi:1.0 SPI_1 SS_O" *)
-output wire emio_spi1_ss_o_n;
-(* X_INTERFACE_INFO = "xilinx.com:interface:spi:1.0 SPI_1 SS_T" *)
-output wire emio_spi1_ss_n_t;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME PL_PS_IRQ0, SENSITIVITY LEVEL_HIGH:LEVEL_HIGH, PortWidth 2" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:interrupt:1.0 PL_PS_IRQ0 INTERRUPT" *)
 input wire [1 : 0] pl_ps_irq0;
@@ -1540,20 +1504,20 @@ output wire pl_clk1;
     .emio_spi0_ss1_o_n(),
     .emio_spi0_ss2_o_n(),
     .emio_spi0_ss_n_t(emio_spi0_ss_n_t),
-    .emio_spi1_sclk_i(emio_spi1_sclk_i),
-    .emio_spi1_sclk_o(emio_spi1_sclk_o),
-    .emio_spi1_sclk_t(emio_spi1_sclk_t),
-    .emio_spi1_m_i(emio_spi1_m_i),
-    .emio_spi1_m_o(emio_spi1_m_o),
-    .emio_spi1_mo_t(emio_spi1_mo_t),
-    .emio_spi1_s_i(emio_spi1_s_i),
-    .emio_spi1_s_o(emio_spi1_s_o),
-    .emio_spi1_so_t(emio_spi1_so_t),
-    .emio_spi1_ss_i_n(emio_spi1_ss_i_n),
-    .emio_spi1_ss_o_n(emio_spi1_ss_o_n),
+    .emio_spi1_sclk_i(1'B0),
+    .emio_spi1_sclk_o(),
+    .emio_spi1_sclk_t(),
+    .emio_spi1_m_i(1'B0),
+    .emio_spi1_m_o(),
+    .emio_spi1_mo_t(),
+    .emio_spi1_s_i(1'B0),
+    .emio_spi1_s_o(),
+    .emio_spi1_so_t(),
+    .emio_spi1_ss_i_n(1'B1),
+    .emio_spi1_ss_o_n(),
     .emio_spi1_ss1_o_n(),
     .emio_spi1_ss2_o_n(),
-    .emio_spi1_ss_n_t(emio_spi1_ss_n_t),
+    .emio_spi1_ss_n_t(),
     .pl_ps_trace_clk(1'B0),
     .ps_pl_tracectl(),
     .ps_pl_tracedata(),

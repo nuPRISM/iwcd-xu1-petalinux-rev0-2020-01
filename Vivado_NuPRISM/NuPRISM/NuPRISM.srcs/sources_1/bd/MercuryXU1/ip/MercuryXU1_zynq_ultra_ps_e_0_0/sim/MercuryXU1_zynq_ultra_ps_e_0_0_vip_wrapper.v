@@ -237,18 +237,6 @@ emio_spi0_so_t,
 emio_spi0_ss_i_n, 
 emio_spi0_ss_o_n, 
 emio_spi0_ss_n_t, 
-emio_spi1_sclk_i, 
-emio_spi1_sclk_o, 
-emio_spi1_sclk_t, 
-emio_spi1_m_i, 
-emio_spi1_m_o, 
-emio_spi1_mo_t, 
-emio_spi1_s_i, 
-emio_spi1_s_o, 
-emio_spi1_so_t, 
-emio_spi1_ss_i_n, 
-emio_spi1_ss_o_n, 
-emio_spi1_ss_n_t, 
 pl_ps_irq0, 
 pl_resetn0, 
 pl_clk0, 
@@ -433,18 +421,6 @@ output emio_spi0_so_t;
 input emio_spi0_ss_i_n;
 output emio_spi0_ss_o_n;
 output emio_spi0_ss_n_t;
-input emio_spi1_sclk_i;
-output emio_spi1_sclk_o;
-output emio_spi1_sclk_t;
-input emio_spi1_m_i;
-output emio_spi1_m_o;
-output emio_spi1_mo_t;
-input emio_spi1_s_i;
-output emio_spi1_s_o;
-output emio_spi1_so_t;
-input emio_spi1_ss_i_n;
-output emio_spi1_ss_o_n;
-output emio_spi1_ss_n_t;
 input [1 : 0] pl_ps_irq0;
 output pl_resetn0;
 output pl_clk0;

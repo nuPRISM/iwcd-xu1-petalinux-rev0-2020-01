@@ -1,7 +1,7 @@
 //Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2020.1.1 (lin64) Build 2960000 Wed Aug  5 22:57:21 MDT 2020
-//Date        : Wed Mar 31 09:06:00 2021
+//Date        : Mon Apr 12 17:27:01 2021
 //Host        : edev running 64-bit Ubuntu 18.04.5 LTS
 //Command     : generate_target MercuryXU1.bd
 //Design      : MercuryXU1
@@ -9,7 +9,7 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "MercuryXU1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=MercuryXU1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=25,numReposBlks=16,numNonXlnxBlks=0,numHierBlks=9,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=8,da_clkrst_cnt=7,synth_mode=Global}" *) (* HW_HANDOFF = "MercuryXU1.hwdef" *) 
+(* CORE_GENERATION_INFO = "MercuryXU1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=MercuryXU1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=24,numReposBlks=15,numNonXlnxBlks=0,numHierBlks=9,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=8,da_clkrst_cnt=7,synth_mode=Global}" *) (* HW_HANDOFF = "MercuryXU1.hwdef" *) 
 module MercuryXU1
    (GPIO_tri_o,
     emio_spi0_ss_in,
@@ -31,19 +31,7 @@ module MercuryXU1
     ps_spi_0_io1_t,
     ps_spi_0_sck_i,
     ps_spi_0_sck_o,
-    ps_spi_0_sck_t,
-    ps_spi_1_io0_i,
-    ps_spi_1_io0_o,
-    ps_spi_1_io0_t,
-    ps_spi_1_io1_i,
-    ps_spi_1_io1_o,
-    ps_spi_1_io1_t,
-    ps_spi_1_sck_i,
-    ps_spi_1_sck_o,
-    ps_spi_1_sck_t,
-    ps_spi_1_ss_i,
-    ps_spi_1_ss_o,
-    ps_spi_1_ss_t);
+    ps_spi_0_sck_t);
   (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 GPIO TRI_O" *) output [19:0]GPIO_tri_o;
   input emio_spi0_ss_in;
   output emio_spi0_ss_out;
@@ -65,18 +53,6 @@ module MercuryXU1
   (* X_INTERFACE_INFO = "xilinx.com:interface:spi:1.0 ps_spi_0 SCK_I" *) input ps_spi_0_sck_i;
   (* X_INTERFACE_INFO = "xilinx.com:interface:spi:1.0 ps_spi_0 SCK_O" *) output ps_spi_0_sck_o;
   (* X_INTERFACE_INFO = "xilinx.com:interface:spi:1.0 ps_spi_0 SCK_T" *) output ps_spi_0_sck_t;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:spi:1.0 ps_spi_1 IO0_I" *) input ps_spi_1_io0_i;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:spi:1.0 ps_spi_1 IO0_O" *) output ps_spi_1_io0_o;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:spi:1.0 ps_spi_1 IO0_T" *) output ps_spi_1_io0_t;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:spi:1.0 ps_spi_1 IO1_I" *) input ps_spi_1_io1_i;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:spi:1.0 ps_spi_1 IO1_O" *) output ps_spi_1_io1_o;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:spi:1.0 ps_spi_1 IO1_T" *) output ps_spi_1_io1_t;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:spi:1.0 ps_spi_1 SCK_I" *) input ps_spi_1_sck_i;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:spi:1.0 ps_spi_1 SCK_O" *) output ps_spi_1_sck_o;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:spi:1.0 ps_spi_1 SCK_T" *) output ps_spi_1_sck_t;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:spi:1.0 ps_spi_1 SS_I" *) input ps_spi_1_ss_i;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:spi:1.0 ps_spi_1 SS_O" *) output ps_spi_1_ss_o;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:spi:1.0 ps_spi_1 SS_T" *) output ps_spi_1_ss_t;
 
   wire [31:0]axi_dma_0_M_AXI_MM2S_ARADDR;
   wire [1:0]axi_dma_0_M_AXI_MM2S_ARBURST;
@@ -232,12 +208,12 @@ module MercuryXU1
   wire [31:0]xlconstant_3_dout;
   wire [0:0]xlconstant_4_dout;
   wire [0:0]xlconstant_5_dout;
-  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_IIC_0 xilinx.com:interface:iic:1.0 None SCL_I" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_IIC_0_SCL_I;
-  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_IIC_0 xilinx.com:interface:iic:1.0 None SCL_O" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_IIC_0_SCL_O;
-  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_IIC_0 xilinx.com:interface:iic:1.0 None SCL_T" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_IIC_0_SCL_T;
-  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_IIC_0 xilinx.com:interface:iic:1.0 None SDA_I" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_IIC_0_SDA_I;
-  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_IIC_0 xilinx.com:interface:iic:1.0 None SDA_O" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_IIC_0_SDA_O;
-  (* CONN_BUS_INFO = "zynq_ultra_ps_e_0_IIC_0 xilinx.com:interface:iic:1.0 None SDA_T" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire zynq_ultra_ps_e_0_IIC_0_SDA_T;
+  wire zynq_ultra_ps_e_0_IIC_0_SCL_I;
+  wire zynq_ultra_ps_e_0_IIC_0_SCL_O;
+  wire zynq_ultra_ps_e_0_IIC_0_SCL_T;
+  wire zynq_ultra_ps_e_0_IIC_0_SDA_I;
+  wire zynq_ultra_ps_e_0_IIC_0_SDA_O;
+  wire zynq_ultra_ps_e_0_IIC_0_SDA_T;
   wire [39:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARADDR;
   wire [1:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARBURST;
   wire [3:0]zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARCACHE;
@@ -358,18 +334,6 @@ module MercuryXU1
   wire zynq_ultra_ps_e_0_SPI_0_SCK_I;
   wire zynq_ultra_ps_e_0_SPI_0_SCK_O;
   wire zynq_ultra_ps_e_0_SPI_0_SCK_T;
-  wire zynq_ultra_ps_e_0_SPI_1_IO0_I;
-  wire zynq_ultra_ps_e_0_SPI_1_IO0_O;
-  wire zynq_ultra_ps_e_0_SPI_1_IO0_T;
-  wire zynq_ultra_ps_e_0_SPI_1_IO1_I;
-  wire zynq_ultra_ps_e_0_SPI_1_IO1_O;
-  wire zynq_ultra_ps_e_0_SPI_1_IO1_T;
-  wire zynq_ultra_ps_e_0_SPI_1_SCK_I;
-  wire zynq_ultra_ps_e_0_SPI_1_SCK_O;
-  wire zynq_ultra_ps_e_0_SPI_1_SCK_T;
-  wire zynq_ultra_ps_e_0_SPI_1_SS_I;
-  wire zynq_ultra_ps_e_0_SPI_1_SS_O;
-  wire zynq_ultra_ps_e_0_SPI_1_SS_T;
   wire zynq_ultra_ps_e_0_emio_spi0_ss_n_t;
   wire zynq_ultra_ps_e_0_emio_spi0_ss_o_n;
   wire zynq_ultra_ps_e_0_pl_clk0;
@@ -392,23 +356,11 @@ module MercuryXU1
   assign ps_spi_0_io1_t = zynq_ultra_ps_e_0_SPI_0_IO1_T;
   assign ps_spi_0_sck_o = zynq_ultra_ps_e_0_SPI_0_SCK_O;
   assign ps_spi_0_sck_t = zynq_ultra_ps_e_0_SPI_0_SCK_T;
-  assign ps_spi_1_io0_o = zynq_ultra_ps_e_0_SPI_1_IO0_O;
-  assign ps_spi_1_io0_t = zynq_ultra_ps_e_0_SPI_1_IO0_T;
-  assign ps_spi_1_io1_o = zynq_ultra_ps_e_0_SPI_1_IO1_O;
-  assign ps_spi_1_io1_t = zynq_ultra_ps_e_0_SPI_1_IO1_T;
-  assign ps_spi_1_sck_o = zynq_ultra_ps_e_0_SPI_1_SCK_O;
-  assign ps_spi_1_sck_t = zynq_ultra_ps_e_0_SPI_1_SCK_T;
-  assign ps_spi_1_ss_o = zynq_ultra_ps_e_0_SPI_1_SS_O;
-  assign ps_spi_1_ss_t = zynq_ultra_ps_e_0_SPI_1_SS_T;
   assign zynq_ultra_ps_e_0_IIC_0_SCL_I = ps_master_i2c_scl_i;
   assign zynq_ultra_ps_e_0_IIC_0_SDA_I = ps_master_i2c_sda_i;
   assign zynq_ultra_ps_e_0_SPI_0_IO0_I = ps_spi_0_io0_i;
   assign zynq_ultra_ps_e_0_SPI_0_IO1_I = ps_spi_0_io1_i;
   assign zynq_ultra_ps_e_0_SPI_0_SCK_I = ps_spi_0_sck_i;
-  assign zynq_ultra_ps_e_0_SPI_1_IO0_I = ps_spi_1_io0_i;
-  assign zynq_ultra_ps_e_0_SPI_1_IO1_I = ps_spi_1_io1_i;
-  assign zynq_ultra_ps_e_0_SPI_1_SCK_I = ps_spi_1_sck_i;
-  assign zynq_ultra_ps_e_0_SPI_1_SS_I = ps_spi_1_ss_i;
   MercuryXU1_axi_dma_0_0 axi_dma_0
        (.axi_resetn(proc_sys_reset_0_peripheral_aresetn),
         .m_axi_mm2s_aclk(zynq_ultra_ps_e_0_pl_clk0),
@@ -833,14 +785,6 @@ module MercuryXU1
         .S02_AXI_wready(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_WREADY),
         .S02_AXI_wstrb(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_WSTRB),
         .S02_AXI_wvalid(zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_WVALID));
-  MercuryXU1_system_ila_0_1 system_ila_0
-       (.SLOT_0_IIC_scl_i(zynq_ultra_ps_e_0_IIC_0_SCL_I),
-        .SLOT_0_IIC_scl_o(zynq_ultra_ps_e_0_IIC_0_SCL_O),
-        .SLOT_0_IIC_scl_t(zynq_ultra_ps_e_0_IIC_0_SCL_T),
-        .SLOT_0_IIC_sda_i(zynq_ultra_ps_e_0_IIC_0_SDA_I),
-        .SLOT_0_IIC_sda_o(zynq_ultra_ps_e_0_IIC_0_SDA_O),
-        .SLOT_0_IIC_sda_t(zynq_ultra_ps_e_0_IIC_0_SDA_T),
-        .clk(zynq_ultra_ps_e_0_pl_clk0));
   MercuryXU1_system_management_wiz_0_0 system_management_wiz_0
        (.s_axi_aclk(zynq_ultra_ps_e_0_pl_clk0),
         .s_axi_araddr(ps8_0_axi_periph_M01_AXI_ARADDR[12:0]),
@@ -892,18 +836,6 @@ module MercuryXU1
         .emio_spi0_ss_i_n(emio_spi0_ss_i_n_0_1),
         .emio_spi0_ss_n_t(zynq_ultra_ps_e_0_emio_spi0_ss_n_t),
         .emio_spi0_ss_o_n(zynq_ultra_ps_e_0_emio_spi0_ss_o_n),
-        .emio_spi1_m_i(zynq_ultra_ps_e_0_SPI_1_IO1_I),
-        .emio_spi1_m_o(zynq_ultra_ps_e_0_SPI_1_IO0_O),
-        .emio_spi1_mo_t(zynq_ultra_ps_e_0_SPI_1_IO0_T),
-        .emio_spi1_s_i(zynq_ultra_ps_e_0_SPI_1_IO0_I),
-        .emio_spi1_s_o(zynq_ultra_ps_e_0_SPI_1_IO1_O),
-        .emio_spi1_sclk_i(zynq_ultra_ps_e_0_SPI_1_SCK_I),
-        .emio_spi1_sclk_o(zynq_ultra_ps_e_0_SPI_1_SCK_O),
-        .emio_spi1_sclk_t(zynq_ultra_ps_e_0_SPI_1_SCK_T),
-        .emio_spi1_so_t(zynq_ultra_ps_e_0_SPI_1_IO1_T),
-        .emio_spi1_ss_i_n(zynq_ultra_ps_e_0_SPI_1_SS_I),
-        .emio_spi1_ss_n_t(zynq_ultra_ps_e_0_SPI_1_SS_T),
-        .emio_spi1_ss_o_n(zynq_ultra_ps_e_0_SPI_1_SS_O),
         .maxigp0_araddr(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARADDR),
         .maxigp0_arburst(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARBURST),
         .maxigp0_arcache(zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_ARCACHE),

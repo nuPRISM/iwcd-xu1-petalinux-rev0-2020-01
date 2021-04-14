@@ -10,53 +10,62 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="266518fs"></ZoomEndTime>
+      <ZoomEndTime time="1025fs"></ZoomEndTime>
       <Cursor1Time time="14390fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="247"></NameColumnWidth>
+      <NameColumnWidth column_width="243"></NameColumnWidth>
       <ValueColumnWidth column_width="66"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="6" />
-   <wvobject type="logic" fp_name="MercuryXU1_i/MercuryXU1_i/system_ila_0/inst/SLOT_0_IIC_scl_i_1">
+   <WVObjectSize size="7" />
+   <wave_markers>
+   </wave_markers>
+   <wvobject type="logic" fp_name="ADC_PDn_OBUF">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">MercuryXU1_i/MercuryXU1_i/system_ila_0/inst/SLOT_0_IIC_scl_i_1</obj_property>
-      <obj_property name="ObjectShortName">SLOT_0_IIC_scl_i_1</obj_property>
+      <obj_property name="ElementShortName">ADC_PDn_OBUF</obj_property>
+      <obj_property name="ObjectShortName">ADC_PDn_OBUF</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="MercuryXU1_i/MercuryXU1_i/system_ila_0/inst/SLOT_0_IIC_scl_o_1">
+   <wvobject type="logic" fp_name="ADC_RESET_OBUF">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">MercuryXU1_i/MercuryXU1_i/system_ila_0/inst/SLOT_0_IIC_scl_o_1</obj_property>
-      <obj_property name="ObjectShortName">SLOT_0_IIC_scl_o_1</obj_property>
+      <obj_property name="ElementShortName">ADC_RESET_OBUF</obj_property>
+      <obj_property name="ObjectShortName">ADC_RESET_OBUF</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="MercuryXU1_i/MercuryXU1_i/system_ila_0/inst/SLOT_0_IIC_scl_t_1">
+   <wvobject type="logic" fp_name="ADC_SEN0_OBUF">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">MercuryXU1_i/MercuryXU1_i/system_ila_0/inst/SLOT_0_IIC_scl_t_1</obj_property>
-      <obj_property name="ObjectShortName">SLOT_0_IIC_scl_t_1</obj_property>
+      <obj_property name="ElementShortName">ADC_SEN0_OBUF</obj_property>
+      <obj_property name="ObjectShortName">ADC_SEN0_OBUF</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="MercuryXU1_i/MercuryXU1_i/system_ila_0/inst/SLOT_0_IIC_sda_i_1">
+   <wvobject type="logic" fp_name="ADC_SEN1_OBUF">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">MercuryXU1_i/MercuryXU1_i/system_ila_0/inst/SLOT_0_IIC_sda_i_1</obj_property>
-      <obj_property name="ObjectShortName">SLOT_0_IIC_sda_i_1</obj_property>
+      <obj_property name="ElementShortName">ADC_SEN1_OBUF</obj_property>
+      <obj_property name="ObjectShortName">ADC_SEN1_OBUF</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="MercuryXU1_i/MercuryXU1_i/system_ila_0/inst/SLOT_0_IIC_sda_o_1">
+   <wvobject type="logic" fp_name="ADC_SEN2_OBUF">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">MercuryXU1_i/MercuryXU1_i/system_ila_0/inst/SLOT_0_IIC_sda_o_1</obj_property>
-      <obj_property name="ObjectShortName">SLOT_0_IIC_sda_o_1</obj_property>
+      <obj_property name="ElementShortName">ADC_SEN2_OBUF</obj_property>
+      <obj_property name="ObjectShortName">ADC_SEN2_OBUF</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="MercuryXU1_i/MercuryXU1_i/system_ila_0/inst/SLOT_0_IIC_sda_t_1">
+   <wvobject type="logic" fp_name="ADC_SEN3_OBUF">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">MercuryXU1_i/MercuryXU1_i/system_ila_0/inst/SLOT_0_IIC_sda_t_1</obj_property>
-      <obj_property name="ObjectShortName">SLOT_0_IIC_sda_t_1</obj_property>
+      <obj_property name="ElementShortName">ADC_SEN3_OBUF</obj_property>
+      <obj_property name="ObjectShortName">ADC_SEN3_OBUF</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="ADC_SEN4_OBUF">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">ADC_SEN4_OBUF</obj_property>
+      <obj_property name="ObjectShortName">ADC_SEN4_OBUF</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>

@@ -156,15 +156,6 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==MercuryXU1_xlco
 # IP: bd/MercuryXU1/ip/MercuryXU1_xlconstant_5_0/MercuryXU1_xlconstant_5_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==MercuryXU1_xlconstant_5_0 || ORIG_REF_NAME==MercuryXU1_xlconstant_5_0} -quiet] -quiet
 
-# IP: bd/MercuryXU1/ip/MercuryXU1_system_ila_0_1/MercuryXU1_system_ila_0_1.xci
-set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==MercuryXU1_system_ila_0_1 || ORIG_REF_NAME==MercuryXU1_system_ila_0_1} -quiet] -quiet
-
-# Block Designs: bd/MercuryXU1/ip/MercuryXU1_system_ila_0_1/bd_0/bd_a452.bd
-set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==bd_a452 || ORIG_REF_NAME==bd_a452} -quiet] -quiet
-
-# IP: bd/MercuryXU1/ip/MercuryXU1_system_ila_0_1/bd_0/ip/ip_0/bd_a452_ila_lib_0.xci
-set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==bd_a452_ila_lib_0 || ORIG_REF_NAME==bd_a452_ila_lib_0} -quiet] -quiet
-
 # IP: bd/MercuryXU1/ip/MercuryXU1_auto_pc_0/MercuryXU1_auto_pc_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==MercuryXU1_auto_pc_0 || ORIG_REF_NAME==MercuryXU1_auto_pc_0} -quiet] -quiet
 
@@ -262,18 +253,6 @@ set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {R
 # XDC: bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_34/bd_cc23_m00bn_0_ooc.xdc
 
 # XDC: bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/ooc.xdc
-
-# XDC: bd/MercuryXU1/ip/MercuryXU1_system_ila_0_1/bd_0/ip/ip_0/ila_v6_2/constraints/ila_impl.xdc
-set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==bd_a452_ila_lib_0 || ORIG_REF_NAME==bd_a452_ila_lib_0} -quiet] {/inst } ]/inst ] -quiet] -quiet
-
-# XDC: bd/MercuryXU1/ip/MercuryXU1_system_ila_0_1/bd_0/ip/ip_0/ila_v6_2/constraints/ila.xdc
-#dup# set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==bd_a452_ila_lib_0 || ORIG_REF_NAME==bd_a452_ila_lib_0} -quiet] {/inst } ]/inst ] -quiet] -quiet
-
-# XDC: bd/MercuryXU1/ip/MercuryXU1_system_ila_0_1/bd_0/ip/ip_0/bd_a452_ila_lib_0_ooc.xdc
-
-# XDC: bd/MercuryXU1/ip/MercuryXU1_system_ila_0_1/bd_0/bd_a452_ooc.xdc
-
-# XDC: bd/MercuryXU1/ip/MercuryXU1_system_ila_0_1/MercuryXU1_system_ila_0_1_ooc.xdc
 
 # XDC: bd/MercuryXU1/ip/MercuryXU1_auto_pc_0/MercuryXU1_auto_pc_0_ooc.xdc
 
