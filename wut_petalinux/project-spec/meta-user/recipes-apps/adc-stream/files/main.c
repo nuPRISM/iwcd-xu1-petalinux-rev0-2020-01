@@ -74,7 +74,7 @@ typedef struct {
 } thread_data;
 
 
-static pthread_t thread;
+static pthread_t thread = NULL;
 static pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 static bool stop = false;
 
@@ -179,7 +179,8 @@ void stop_thread() {
     pthread_mutex_unlock(&mutex);
     
     DBG("Waiting for thread to join ...\n", NULL);
-    pthread_join(thread, NULL);
+    if(thread != NULL)
+        pthread_join(thread, NULL);
     DBG("Thread joined\n", NULL);
 }
 
@@ -238,7 +239,7 @@ int main(int argc, char **argv)
             break;
 
         case 4:
-            adc_test(fd, adc_num, SINE_WAVE_PATTERN);
+            adc_sine_wave_test(fd, adc_num);
             break;
 
         default:
@@ -278,7 +279,7 @@ int main(int argc, char **argv)
     }
     
     // stop clock cleaner
-    ret_val =clc_set_state(CLC_ON);    
+    ret_val =clc_set_state(CLC_OFF);    
     DBG("clc_state(OFF): ret_val=%d\n", ret_val);
     
     return 0;

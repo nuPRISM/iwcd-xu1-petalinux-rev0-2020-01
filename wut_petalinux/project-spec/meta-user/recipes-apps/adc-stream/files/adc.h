@@ -8,7 +8,8 @@
 #define ALL_ONES_TEST_PATTERN  0x22
 #define TOGGLE_TEST_PATTERN    0x33
 #define DIGITAL_RAMP_PATTERN   0x44
-#define SINE_WAVE_PATTERN      0x99
+#define SINE_WAVE_PATTERN_AB   0x99
+#define SINE_WAVE_PATTERN_CD   0xbb
 
 int spi_init(char* device_name);
 
@@ -24,6 +25,7 @@ int adc_init(int fd, int adc_num);
 
 int adc_nominal_mode(int fd, int adc_num);
 int adc_test(int fd, int adc_num, uint8_t test_pattern);
+int adc_sine_wave_test(int fd, int adc_num);
 
 
 
