@@ -73,7 +73,6 @@ OPTRACE "MercuryNuPRISM_synth" START { ROLLUP_AUTO }
 set_param power.enableLutRouteBelPower 1
 set_param power.enableCarry8RouteBelPower 1
 set_param power.enableUnconnectedCarry8PinPower 1
-set_param xicom.use_bs_reader 1
 set_param chipscope.maxJobs 2
 set_param power.BramSDPPropagationFix 1
 OPTRACE "Creating in-memory project" START { }
@@ -221,20 +220,10 @@ set_property used_in_implementation false [get_files -all /home/edev/Source/iwcd
 set_property used_in_implementation false [get_files -all /home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_auto_pc_2/MercuryXU1_auto_pc_2_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/MercuryXU1_ooc.xdc]
 
-read_ip -quiet /home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/ip/clk_wiz_1_b64_b66_pll/clk_wiz_1_b64_b66_pll.xci
-set_property used_in_implementation false [get_files -all /home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/ip/clk_wiz_1_b64_b66_pll/clk_wiz_1_b64_b66_pll_board.xdc]
-set_property used_in_implementation false [get_files -all /home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/ip/clk_wiz_1_b64_b66_pll/clk_wiz_1_b64_b66_pll.xdc]
-set_property used_in_implementation false [get_files -all /home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/ip/clk_wiz_1_b64_b66_pll/clk_wiz_1_b64_b66_pll_ooc.xdc]
-
-read_ip -quiet /home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm.xci
-set_property used_in_implementation false [get_files -all /home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm_board.xdc]
-set_property used_in_implementation false [get_files -all /home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm.xdc]
-set_property used_in_implementation false [get_files -all /home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm_ooc.xdc]
-
-read_ip -quiet /home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/ip/clk_divider_pll/clk_divider_pll.xci
-set_property used_in_implementation false [get_files -all /home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/ip/clk_divider_pll/clk_divider_pll_board.xdc]
-set_property used_in_implementation false [get_files -all /home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/ip/clk_divider_pll/clk_divider_pll.xdc]
-set_property used_in_implementation false [get_files -all /home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/ip/clk_divider_pll/clk_divider_pll_ooc.xdc]
+read_ip -quiet /home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/ip/adc_sample_clk_gen/adc_sample_clk_gen.xci
+set_property used_in_implementation false [get_files -all /home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/ip/adc_sample_clk_gen/adc_sample_clk_gen_board.xdc]
+set_property used_in_implementation false [get_files -all /home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/ip/adc_sample_clk_gen/adc_sample_clk_gen.xdc]
+set_property used_in_implementation false [get_files -all /home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/ip/adc_sample_clk_gen/adc_sample_clk_gen_ooc.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being

@@ -1,7 +1,0 @@
-verilog xil_defaultlib --include "../../../ipstatic" \
-"../../../../NuPRISM.srcs/sources_1/ip/clk_wiz_b64_b65_b66_mmcm/clk_wiz_b64_b65_b66_mmcm_clk_wiz.v" \
-"../../../../NuPRISM.srcs/sources_1/ip/clk_wiz_b64_b65_b66_mmcm/clk_wiz_b64_b65_b66_mmcm.v" \
-
-verilog xil_defaultlib "glbl.v"
-
-nosort
