@@ -3,11 +3,14 @@ APP = mfe
 # Add any other object files to this list below
 APP_OBJS = mfe.o
 
+LDLIBS = -lmidas -lmfe -lpthread -lrt -lutil
+
 all: build
 
 build: $(APP)
 
-$(APP): $(APP_OBJS)
-	$(CXX) -o $@ $(APP_OBJS) $(LDFLAGS) $(LDLIBS)
 clean:
-	rm -f $(APP) *.o
+	rm -f $(APP) $(APP_OBJS)
+
+$(APP): $(APP_OBJS)
+	$(CXX) $(LDFLAGS) -o $@ $(APP_OBJS) $(LDLIBS)

@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.1.1 (lin64) Build 2960000 Wed Aug  5 22:57:21 MDT 2020
-| Date         : Mon Apr 19 17:32:42 2021
+| Date         : Wed Apr 21 09:01:49 2021
 | Host         : edev running 64-bit Ubuntu 18.04.5 LTS
 | Command      : report_drc -file system_top_drc_opted.rpt -pb system_top_drc_opted.pb -rpx system_top_drc_opted.rpx
 | Design       : system_top
@@ -24,12 +24,12 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 104
+             Violations found: 106
 +-----------+----------+--------------------------------------+------------+
 | Rule      | Severity | Description                          | Violations |
 +-----------+----------+--------------------------------------+------------+
 | LVDS-1    | Warning  | Bidirection LVDS IOs                 | 1          |
-| RPBF-3    | Warning  | IO port buffering is incomplete      | 101        |
+| RPBF-3    | Warning  | IO port buffering is incomplete      | 103        |
 | REQP-1935 | Advisory | RAMB36E2_nochange_collision_advisory | 2          |
 +-----------+----------+--------------------------------------+------------+
 
@@ -40,7 +40,7 @@ Bidirection LVDS IOs
 The following port(s) use the LVDS I/O standard and have bi-directional differential usage. Please note that LVDS is a fixed impedance structure optimized to 100ohm differential. This is only intended to be used in point-to-point transmissions that do not have turn around timing requirements. If the intended usage is a bus structure, please use BLVDS/BLVDS_25, instead. ADC_DATA0_DA0_n, ADC_DATA0_DA0_p, ADC_DATA0_DA1_n, ADC_DATA0_DA1_p,
 ADC_DATA0_DB0_n, ADC_DATA0_DB0_p, ADC_DATA0_DB1_n, ADC_DATA0_DB1_p,
 ADC_DATA0_DC0_n, ADC_DATA0_DC0_p, ADC_DATA0_DC1_n, ADC_DATA0_DC1_p,
-ADC_DATA0_DCLK_n, ADC_DATA0_DCLK_p, ADC_DATA0_DD0_n (the first 15 of 116 listed).
+ADC_DATA0_DCLK_n, ADC_DATA0_DCLK_p, ADC_DATA0_DD0_n (the first 15 of 106 listed).
 Related violations: <none>
 
 RPBF-3#1 Warning
@@ -495,55 +495,65 @@ Related violations: <none>
 
 RPBF-3#91 Warning
 IO port buffering is incomplete  
-Device port ADC_DATA4_DD0_n expects both input and output buffering but the buffers are incomplete.
+Device port ADC_DATA4_DCLK_n expects both input and output buffering but the buffers are incomplete.
 Related violations: <none>
 
 RPBF-3#92 Warning
 IO port buffering is incomplete  
-Device port ADC_DATA4_DD0_p expects both input and output buffering but the buffers are incomplete.
+Device port ADC_DATA4_DCLK_p expects both input and output buffering but the buffers are incomplete.
 Related violations: <none>
 
 RPBF-3#93 Warning
 IO port buffering is incomplete  
-Device port ADC_DATA4_DD1_n expects both input and output buffering but the buffers are incomplete.
+Device port ADC_DATA4_DD0_n expects both input and output buffering but the buffers are incomplete.
 Related violations: <none>
 
 RPBF-3#94 Warning
 IO port buffering is incomplete  
-Device port ADC_DATA4_DD1_p expects both input and output buffering but the buffers are incomplete.
+Device port ADC_DATA4_DD0_p expects both input and output buffering but the buffers are incomplete.
 Related violations: <none>
 
 RPBF-3#95 Warning
 IO port buffering is incomplete  
-Device port ADC_PDn expects both input and output buffering but the buffers are incomplete.
+Device port ADC_DATA4_DD1_n expects both input and output buffering but the buffers are incomplete.
 Related violations: <none>
 
 RPBF-3#96 Warning
 IO port buffering is incomplete  
-Device port ADC_RESET expects both input and output buffering but the buffers are incomplete.
+Device port ADC_DATA4_DD1_p expects both input and output buffering but the buffers are incomplete.
 Related violations: <none>
 
 RPBF-3#97 Warning
 IO port buffering is incomplete  
-Device port ADC_SEN0 expects both input and output buffering but the buffers are incomplete.
+Device port ADC_PDn expects both input and output buffering but the buffers are incomplete.
 Related violations: <none>
 
 RPBF-3#98 Warning
 IO port buffering is incomplete  
-Device port ADC_SEN1 expects both input and output buffering but the buffers are incomplete.
+Device port ADC_RESET expects both input and output buffering but the buffers are incomplete.
 Related violations: <none>
 
 RPBF-3#99 Warning
 IO port buffering is incomplete  
-Device port ADC_SEN2 expects both input and output buffering but the buffers are incomplete.
+Device port ADC_SEN0 expects both input and output buffering but the buffers are incomplete.
 Related violations: <none>
 
 RPBF-3#100 Warning
 IO port buffering is incomplete  
-Device port ADC_SEN3 expects both input and output buffering but the buffers are incomplete.
+Device port ADC_SEN1 expects both input and output buffering but the buffers are incomplete.
 Related violations: <none>
 
 RPBF-3#101 Warning
+IO port buffering is incomplete  
+Device port ADC_SEN2 expects both input and output buffering but the buffers are incomplete.
+Related violations: <none>
+
+RPBF-3#102 Warning
+IO port buffering is incomplete  
+Device port ADC_SEN3 expects both input and output buffering but the buffers are incomplete.
+Related violations: <none>
+
+RPBF-3#103 Warning
 IO port buffering is incomplete  
 Device port ADC_SEN4 expects both input and output buffering but the buffers are incomplete.
 Related violations: <none>

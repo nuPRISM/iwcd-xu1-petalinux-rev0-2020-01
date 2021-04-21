@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.1.1 (lin64) Build 2960000 Wed Aug  5 22:57:21 MDT 2020
-| Date         : Mon Apr 19 17:35:13 2021
+| Date         : Wed Apr 21 09:03:49 2021
 | Host         : edev running 64-bit Ubuntu 18.04.5 LTS
 | Command      : report_drc -file system_top_drc_routed.rpt -pb system_top_drc_routed.pb -rpx system_top_drc_routed.rpx
 | Design       : system_top
@@ -24,12 +24,12 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 105
+             Violations found: 107
 +-----------+----------+--------------------------------------+------------+
 | Rule      | Severity | Description                          | Violations |
 +-----------+----------+--------------------------------------+------------+
 | LVDS-1    | Warning  | Bidirection LVDS IOs                 | 1          |
-| RPBF-3    | Warning  | IO port buffering is incomplete      | 101        |
+| RPBF-3    | Warning  | IO port buffering is incomplete      | 103        |
 | RTSTAT-10 | Warning  | No routable loads                    | 1          |
 | REQP-1935 | Advisory | RAMB36E2_nochange_collision_advisory | 2          |
 +-----------+----------+--------------------------------------+------------+
@@ -41,7 +41,7 @@ Bidirection LVDS IOs
 The following port(s) use the LVDS I/O standard and have bi-directional differential usage. Please note that LVDS is a fixed impedance structure optimized to 100ohm differential. This is only intended to be used in point-to-point transmissions that do not have turn around timing requirements. If the intended usage is a bus structure, please use BLVDS/BLVDS_25, instead. ADC_DATA0_DA0_n, ADC_DATA0_DA0_p, ADC_DATA0_DA1_n, ADC_DATA0_DA1_p,
 ADC_DATA0_DB0_n, ADC_DATA0_DB0_p, ADC_DATA0_DB1_n, ADC_DATA0_DB1_p,
 ADC_DATA0_DC0_n, ADC_DATA0_DC0_p, ADC_DATA0_DC1_n, ADC_DATA0_DC1_p,
-ADC_DATA0_DCLK_n, ADC_DATA0_DCLK_p, ADC_DATA0_DD0_n (the first 15 of 116 listed).
+ADC_DATA0_DCLK_n, ADC_DATA0_DCLK_p, ADC_DATA0_DD0_n (the first 15 of 106 listed).
 Related violations: <none>
 
 RPBF-3#1 Warning
@@ -496,76 +496,76 @@ Related violations: <none>
 
 RPBF-3#91 Warning
 IO port buffering is incomplete  
-Device port ADC_DATA4_DD0_n expects both input and output buffering but the buffers are incomplete.
+Device port ADC_DATA4_DCLK_n expects both input and output buffering but the buffers are incomplete.
 Related violations: <none>
 
 RPBF-3#92 Warning
 IO port buffering is incomplete  
-Device port ADC_DATA4_DD0_p expects both input and output buffering but the buffers are incomplete.
+Device port ADC_DATA4_DCLK_p expects both input and output buffering but the buffers are incomplete.
 Related violations: <none>
 
 RPBF-3#93 Warning
 IO port buffering is incomplete  
-Device port ADC_DATA4_DD1_n expects both input and output buffering but the buffers are incomplete.
+Device port ADC_DATA4_DD0_n expects both input and output buffering but the buffers are incomplete.
 Related violations: <none>
 
 RPBF-3#94 Warning
 IO port buffering is incomplete  
-Device port ADC_DATA4_DD1_p expects both input and output buffering but the buffers are incomplete.
+Device port ADC_DATA4_DD0_p expects both input and output buffering but the buffers are incomplete.
 Related violations: <none>
 
 RPBF-3#95 Warning
 IO port buffering is incomplete  
-Device port ADC_PDn expects both input and output buffering but the buffers are incomplete.
+Device port ADC_DATA4_DD1_n expects both input and output buffering but the buffers are incomplete.
 Related violations: <none>
 
 RPBF-3#96 Warning
 IO port buffering is incomplete  
-Device port ADC_RESET expects both input and output buffering but the buffers are incomplete.
+Device port ADC_DATA4_DD1_p expects both input and output buffering but the buffers are incomplete.
 Related violations: <none>
 
 RPBF-3#97 Warning
 IO port buffering is incomplete  
-Device port ADC_SEN0 expects both input and output buffering but the buffers are incomplete.
+Device port ADC_PDn expects both input and output buffering but the buffers are incomplete.
 Related violations: <none>
 
 RPBF-3#98 Warning
 IO port buffering is incomplete  
-Device port ADC_SEN1 expects both input and output buffering but the buffers are incomplete.
+Device port ADC_RESET expects both input and output buffering but the buffers are incomplete.
 Related violations: <none>
 
 RPBF-3#99 Warning
 IO port buffering is incomplete  
-Device port ADC_SEN2 expects both input and output buffering but the buffers are incomplete.
+Device port ADC_SEN0 expects both input and output buffering but the buffers are incomplete.
 Related violations: <none>
 
 RPBF-3#100 Warning
 IO port buffering is incomplete  
-Device port ADC_SEN3 expects both input and output buffering but the buffers are incomplete.
+Device port ADC_SEN1 expects both input and output buffering but the buffers are incomplete.
 Related violations: <none>
 
 RPBF-3#101 Warning
+IO port buffering is incomplete  
+Device port ADC_SEN2 expects both input and output buffering but the buffers are incomplete.
+Related violations: <none>
+
+RPBF-3#102 Warning
+IO port buffering is incomplete  
+Device port ADC_SEN3 expects both input and output buffering but the buffers are incomplete.
+Related violations: <none>
+
+RPBF-3#103 Warning
 IO port buffering is incomplete  
 Device port ADC_SEN4 expects both input and output buffering but the buffers are incomplete.
 Related violations: <none>
 
 RTSTAT-10#1 Warning
 No routable loads  
-188 net(s) have no routable loads. The problem bus(es) and/or net(s) are adc_b65_b64_mmcm_dclk,
-dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i,
-dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg[2:0],
-dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg_en_2[1],
-dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD1/ctl_reg_en_2[1],
-MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/inst/AXI_SYSMON_CORE_I/daddr_C_master_reg2[7:0],
-MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/inst/AXI_SYSMON_CORE_I/daddr_C_master_reg[7:0],
-MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/inst/AXI_SYSMON_CORE_I/daddr_C_slave0_reg2[7:0],
-MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/inst/AXI_SYSMON_CORE_I/daddr_C_slave0_reg[7:0],
-MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/inst/AXI_SYSMON_CORE_I/daddr_C_slave1_reg2[7:0],
-MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/inst/AXI_SYSMON_CORE_I/daddr_C_slave1_reg[7:0],
-MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/inst/AXI_SYSMON_CORE_I/di_C_master_reg2[15:0],
-MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/inst/AXI_SYSMON_CORE_I/di_C_master_reg[15:0],
-MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/inst/AXI_SYSMON_CORE_I/di_C_slave0_reg2[15:0],
-MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/inst/AXI_SYSMON_CORE_I/di_C_slave0_reg[15:0] (the first 15 of 54 listed).
+630 net(s) have no routable loads. The problem bus(es) and/or net(s) are adc0_da_pardata_j3[0][11:0], adc0_da_pardata_j3[1][11:0], adc0_db_pardata_j2[0][11:0],
+adc0_db_pardata_j2[1][11:0], adc0_dc_pardata_j1[0][11:0], adc0_dc_pardata_j1[1][11:0],
+adc0_dd_pardata_j0[0][11:0], adc0_dd_pardata_j0[1][11:0], adc1_da_pardata_j7[0][11:0],
+adc1_da_pardata_j7[1][11:0], adc1_db_pardata_j6[0][11:0], adc1_db_pardata_j6[1][11:0],
+adc1_dc_pardata_j5[0][11:0], adc1_dc_pardata_j5[1][11:0], adc1_dd_pardata_j4[0][11:0] (the first 15 of 58 listed).
 Related violations: <none>
 
 REQP-1935#1 Advisory

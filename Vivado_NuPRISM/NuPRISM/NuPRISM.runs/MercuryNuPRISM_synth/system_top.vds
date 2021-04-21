@@ -2,8 +2,8 @@
 # Vivado v2020.1.1 (64-bit)
 # SW Build 2960000 on Wed Aug  5 22:57:21 MDT 2020
 # IP Build 2956692 on Thu Aug  6 01:41:30 MDT 2020
-# Start of session at: Mon Apr 19 17:21:50 2021
-# Process ID: 4389
+# Start of session at: Wed Apr 21 08:56:07 2021
+# Process ID: 30593
 # Current directory: /home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.runs/MercuryNuPRISM_synth
 # Command line: vivado -log system_top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source system_top.tcl
 # Log file: /home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.runs/MercuryNuPRISM_synth/system_top.vds
@@ -21,10 +21,10 @@ INFO: [Common 17-1540] The version limit for your license is '2021.01' and has e
 INFO: [Device 21-403] Loading part xczu6eg-ffvc900-1-i
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 4456
+INFO: [Synth 8-7075] Helper process launched with PID 30652
 WARNING: [Synth 8-2507] parameter declaration becomes local in sample_generator_v1_0_S_AXIS with formal parameter declaration list [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/ip_repo/sample_generator_1.0/hdl/sample_generator_v1_0_S_AXIS.v:53]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:10 . Memory (MB): peak = 2593.641 ; gain = 12.902 ; free physical = 6053 ; free virtual = 20352
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:10 . Memory (MB): peak = 2593.547 ; gain = 12.902 ; free physical = 4733 ; free virtual = 21909
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'system_top' [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/imports/rev0-2020.1-petalinux/src/system_top_NuPRISM.sv:31]
 	Parameter ADC_DATA_WIDTH bound to: 12 - type: integer 
@@ -5642,7 +5642,7 @@ INFO: [Synth 8-638] synthesizing module 'Ad9229Core' [/home/edev/Source/iwcd-xu1
 	Parameter N_CHANNELS_G bound to: 16 - type: integer 
 INFO: [Synth 8-638] synthesizing module 'ClkOutBufDiff' [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/imports/rev0-2020.1-petalinux/lib/surf/xilinx/general/rtl/ClkOutBufDiff.vhd:38]
 	Parameter TPD_G bound to: 64'b0000000000000000000000000000000000000000000011110100001001000000 
-	Parameter XIL_DEVICE_G bound to: ULTRASCALE - type: string 
+	Parameter XIL_DEVICE_G bound to: ULTRASCALE_PLUS - type: string 
 	Parameter RST_POLARITY_G bound to: 1'b1 
 	Parameter INVERT_G bound to: 0 - type: bool 
 	Parameter IS_C_INVERTED bound to: 1'b0 
@@ -6050,24 +6050,24 @@ INFO: [Synth 8-638] synthesizing module 'Ad9229Core__parameterized0' [/home/edev
 	Parameter IFD_DELAY_VALUE bound to: AUTO - type: string 
 	Parameter IOSTANDARD bound to: DEFAULT - type: string 
 INFO: [Synth 8-256] done synthesizing module 'Ad9229Core__parameterized0' (264#1) [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/imports/rev0-2020.1-petalinux/lib/amc_carrier_core/Ad9229Core.vhd:68]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'MercuryXU1_i'. This will prevent further optimization [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/imports/rev0-2020.1-petalinux/src/system_top_NuPRISM.sv:362]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'serdes_clock_b65'. This will prevent further optimization [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/imports/rev0-2020.1-petalinux/src/system_top_NuPRISM.sv:439]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'Ad9229Core_b66'. This will prevent further optimization [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/imports/rev0-2020.1-petalinux/src/system_top_NuPRISM.sv:656]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'Ad9229Core_b65'. This will prevent further optimization [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/imports/rev0-2020.1-petalinux/src/system_top_NuPRISM.sv:578]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'Ad9229Core_b64'. This will prevent further optimization [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/imports/rev0-2020.1-petalinux/src/system_top_NuPRISM.sv:492]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'MercuryXU1_i'. This will prevent further optimization [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/imports/rev0-2020.1-petalinux/src/system_top_NuPRISM.sv:269]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'serdes_clock_b64_b66'. This will prevent further optimization [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/imports/rev0-2020.1-petalinux/src/system_top_NuPRISM.sv:360]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'Ad9229Core_b66'. This will prevent further optimization [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/imports/rev0-2020.1-petalinux/src/system_top_NuPRISM.sv:575]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'Ad9229Core_b65'. This will prevent further optimization [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/imports/rev0-2020.1-petalinux/src/system_top_NuPRISM.sv:497]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'Ad9229Core_b64'. This will prevent further optimization [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/imports/rev0-2020.1-petalinux/src/system_top_NuPRISM.sv:411]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:20 ; elapsed = 00:00:30 . Memory (MB): peak = 3062.992 ; gain = 482.254 ; free physical = 5821 ; free virtual = 20130
+Finished RTL Elaboration : Time (s): cpu = 00:00:21 ; elapsed = 00:00:30 . Memory (MB): peak = 3062.898 ; gain = 482.254 ; free physical = 4498 ; free virtual = 21684
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:23 ; elapsed = 00:00:32 . Memory (MB): peak = 3074.867 ; gain = 494.129 ; free physical = 5878 ; free virtual = 20187
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:23 ; elapsed = 00:00:32 . Memory (MB): peak = 3074.773 ; gain = 494.129 ; free physical = 4550 ; free virtual = 21736
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:23 ; elapsed = 00:00:32 . Memory (MB): peak = 3074.867 ; gain = 494.129 ; free physical = 5878 ; free virtual = 20187
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:23 ; elapsed = 00:00:32 . Memory (MB): peak = 3074.773 ; gain = 494.129 ; free physical = 4550 ; free virtual = 21736
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 3197.422 ; gain = 0.000 ; free physical = 5471 ; free virtual = 19779
+Netlist sorting complete. Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 3197.328 ; gain = 0.000 ; free physical = 4143 ; free virtual = 21328
 INFO: [Netlist 29-17] Analyzing 873 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -6164,8 +6164,12 @@ Parsing XDC File [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRI
 WARNING: [Vivado 12-584] No ports matched ''. [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/ip/adc_sample_clk_gen/adc_sample_clk_gen/adc_sample_clk_gen_in_context.xdc:1]
 WARNING: [Vivado 12-584] No ports matched ''. [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/ip/adc_sample_clk_gen/adc_sample_clk_gen/adc_sample_clk_gen_in_context.xdc:4]
 WARNING: [Vivado 12-584] No ports matched ''. [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/ip/adc_sample_clk_gen/adc_sample_clk_gen/adc_sample_clk_gen_in_context.xdc:6]
-WARNING: [Vivado 12-584] No ports matched ''. [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/ip/adc_sample_clk_gen/adc_sample_clk_gen/adc_sample_clk_gen_in_context.xdc:8]
 Finished Parsing XDC File [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/ip/adc_sample_clk_gen/adc_sample_clk_gen/adc_sample_clk_gen_in_context.xdc] for cell 'serdes_clock_b65'
+Parsing XDC File [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/ip/adc_sample_clk_gen/adc_sample_clk_gen/adc_sample_clk_gen_in_context.xdc] for cell 'serdes_clock_b64_b66'
+WARNING: [Vivado 12-584] No ports matched ''. [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/ip/adc_sample_clk_gen/adc_sample_clk_gen/adc_sample_clk_gen_in_context.xdc:1]
+WARNING: [Vivado 12-584] No ports matched ''. [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/ip/adc_sample_clk_gen/adc_sample_clk_gen/adc_sample_clk_gen_in_context.xdc:4]
+WARNING: [Vivado 12-584] No ports matched ''. [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/ip/adc_sample_clk_gen/adc_sample_clk_gen/adc_sample_clk_gen_in_context.xdc:6]
+Finished Parsing XDC File [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/ip/adc_sample_clk_gen/adc_sample_clk_gen/adc_sample_clk_gen_in_context.xdc] for cell 'serdes_clock_b64_b66'
 Parsing XDC File [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_gpio_0_0/MercuryXU1_axi_gpio_0_0_board.xdc] for cell 'MercuryXU1_i/MercuryXU1_i/axi_gpio_0/U0'
 Finished Parsing XDC File [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_gpio_0_0/MercuryXU1_axi_gpio_0_0_board.xdc] for cell 'MercuryXU1_i/MercuryXU1_i/axi_gpio_0/U0'
 Parsing XDC File [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_gpio_0_0/MercuryXU1_axi_gpio_0_0.xdc] for cell 'MercuryXU1_i/MercuryXU1_i/axi_gpio_0/U0'
@@ -6195,20 +6199,7 @@ Finished Parsing XDC File [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Viv
 Parsing XDC File [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_1/bd_cc23_psr_aclk_0.xdc] for cell 'MercuryXU1_i/MercuryXU1_i/axi_smc/inst/clk_map/psr_aclk/U0'
 Finished Parsing XDC File [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_smc_0/bd_0/ip/ip_1/bd_cc23_psr_aclk_0.xdc] for cell 'MercuryXU1_i/MercuryXU1_i/axi_smc/inst/clk_map/psr_aclk/U0'
 Parsing XDC File [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/MercuryNuPRISM/imports/src/MercuryXU1_NuPRISM.xdc]
-WARNING: [Vivado 12-584] No ports matched 'IO_B66_L12_GC_W7_P'. [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/MercuryNuPRISM/imports/src/MercuryXU1_NuPRISM.xdc:299]
-WARNING: [Vivado 12-584] No ports matched 'IO_B66_L12_GC_W6_N'. [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/MercuryNuPRISM/imports/src/MercuryXU1_NuPRISM.xdc:300]
-WARNING: [Vivado 12-584] No ports matched 'IO_B66_L17_AD10_U9_P'. [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/MercuryNuPRISM/imports/src/MercuryXU1_NuPRISM.xdc:309]
-WARNING: [Vivado 12-584] No ports matched 'IO_B66_L17_AD10_V9_N'. [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/MercuryNuPRISM/imports/src/MercuryXU1_NuPRISM.xdc:310]
-WARNING: [Vivado 12-584] No ports matched 'IO_B66_L18_AD2_T11_P'. [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/MercuryNuPRISM/imports/src/MercuryXU1_NuPRISM.xdc:311]
-WARNING: [Vivado 12-584] No ports matched 'IO_B66_L18_AD2_U10_N'. [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/MercuryNuPRISM/imports/src/MercuryXU1_NuPRISM.xdc:312]
-WARNING: [Vivado 12-584] No ports matched 'IO_B66_L12_GC_W7_P'. [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/MercuryNuPRISM/imports/src/MercuryXU1_NuPRISM.xdc:350]
-WARNING: [Vivado 12-584] No ports matched 'IO_B66_L12_GC_W6_N'. [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/MercuryNuPRISM/imports/src/MercuryXU1_NuPRISM.xdc:351]
-WARNING: [Vivado 12-584] No ports matched 'IO_B66_L17_AD10_U9_P'. [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/MercuryNuPRISM/imports/src/MercuryXU1_NuPRISM.xdc:360]
-WARNING: [Vivado 12-584] No ports matched 'IO_B66_L17_AD10_V9_N'. [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/MercuryNuPRISM/imports/src/MercuryXU1_NuPRISM.xdc:361]
-WARNING: [Vivado 12-584] No ports matched 'IO_B66_L18_AD2_T11_P'. [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/MercuryNuPRISM/imports/src/MercuryXU1_NuPRISM.xdc:362]
-WARNING: [Vivado 12-584] No ports matched 'IO_B66_L18_AD2_U10_N'. [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/MercuryNuPRISM/imports/src/MercuryXU1_NuPRISM.xdc:363]
 Finished Parsing XDC File [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/MercuryNuPRISM/imports/src/MercuryXU1_NuPRISM.xdc]
-WARNING: [Project 1-498] One or more constraints failed evaluation while reading constraint file [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/MercuryNuPRISM/imports/src/MercuryXU1_NuPRISM.xdc] and the design contains unresolved black boxes. These constraints will be read post-synthesis (as long as their source constraint file is marked as used_in_implementation) and should be applied correctly then. You should review the constraints listed in the file [.Xil/system_top_propImpl.xdc] and check the run log file to verify that these constraints were correctly applied.
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/MercuryNuPRISM/imports/src/MercuryXU1_NuPRISM.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/system_top_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/system_top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Parsing XDC File [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.runs/MercuryNuPRISM_synth/dont_touch.xdc]
@@ -6334,7 +6325,7 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/system_top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3684.461 ; gain = 0.000 ; free physical = 5095 ; free virtual = 19404
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3684.367 ; gain = 0.000 ; free physical = 3769 ; free virtual = 20955
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 827 instances were transformed.
   BUFG => BUFGCE: 3 instances
@@ -6345,9 +6336,9 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   ODDRE1 => OSERDESE3: 3 instances
   SRL16 => SRL16E: 2 instances
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.58 ; elapsed = 00:00:00.58 . Memory (MB): peak = 3684.461 ; gain = 0.000 ; free physical = 5095 ; free virtual = 19404
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.58 ; elapsed = 00:00:00.58 . Memory (MB): peak = 3684.367 ; gain = 0.000 ; free physical = 3769 ; free virtual = 20955
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:55 ; elapsed = 00:01:03 . Memory (MB): peak = 3684.461 ; gain = 1103.723 ; free physical = 5825 ; free virtual = 20135
+Finished Constraint Validation : Time (s): cpu = 00:00:54 ; elapsed = 00:01:02 . Memory (MB): peak = 3684.367 ; gain = 1103.723 ; free physical = 4510 ; free virtual = 21696
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
@@ -6355,15 +6346,19 @@ Start Loading Part and Timing Information
 Loading part: xczu6eg-ffvc900-1-i
 INFO: [Synth 8-6742] Reading net delay rules and data
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:55 ; elapsed = 00:01:03 . Memory (MB): peak = 3684.461 ; gain = 1103.723 ; free physical = 5825 ; free virtual = 20135
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:54 ; elapsed = 00:01:02 . Memory (MB): peak = 3684.367 ; gain = 1103.723 ; free physical = 4510 ; free virtual = 21696
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property IO_BUFFER_TYPE = NONE for ADC_DATA1_DCLK_n. (constraint file  /home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/ip/adc_sample_clk_gen/adc_sample_clk_gen/adc_sample_clk_gen_in_context.xdc, line 9).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for ADC_DATA1_DCLK_n. (constraint file  /home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/ip/adc_sample_clk_gen/adc_sample_clk_gen/adc_sample_clk_gen_in_context.xdc, line 10).
-Applied set_property IO_BUFFER_TYPE = NONE for ADC_DATA1_DCLK_p. (constraint file  /home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/ip/adc_sample_clk_gen/adc_sample_clk_gen/adc_sample_clk_gen_in_context.xdc, line 11).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for ADC_DATA1_DCLK_p. (constraint file  /home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/ip/adc_sample_clk_gen/adc_sample_clk_gen/adc_sample_clk_gen_in_context.xdc, line 12).
+Applied set_property IO_BUFFER_TYPE = NONE for ADC_DATA1_DCLK_n. (constraint file  /home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/ip/adc_sample_clk_gen/adc_sample_clk_gen/adc_sample_clk_gen_in_context.xdc, line 7).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for ADC_DATA1_DCLK_n. (constraint file  /home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/ip/adc_sample_clk_gen/adc_sample_clk_gen/adc_sample_clk_gen_in_context.xdc, line 8).
+Applied set_property IO_BUFFER_TYPE = NONE for ADC_DATA1_DCLK_p. (constraint file  /home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/ip/adc_sample_clk_gen/adc_sample_clk_gen/adc_sample_clk_gen_in_context.xdc, line 9).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for ADC_DATA1_DCLK_p. (constraint file  /home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/ip/adc_sample_clk_gen/adc_sample_clk_gen/adc_sample_clk_gen_in_context.xdc, line 10).
+Applied set_property IO_BUFFER_TYPE = NONE for ADC_DATA4_DCLK_n. (constraint file  /home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/ip/adc_sample_clk_gen/adc_sample_clk_gen/adc_sample_clk_gen_in_context.xdc, line 7).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for ADC_DATA4_DCLK_n. (constraint file  /home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/ip/adc_sample_clk_gen/adc_sample_clk_gen/adc_sample_clk_gen_in_context.xdc, line 8).
+Applied set_property IO_BUFFER_TYPE = NONE for ADC_DATA4_DCLK_p. (constraint file  /home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/ip/adc_sample_clk_gen/adc_sample_clk_gen/adc_sample_clk_gen_in_context.xdc, line 9).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for ADC_DATA4_DCLK_p. (constraint file  /home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/ip/adc_sample_clk_gen/adc_sample_clk_gen/adc_sample_clk_gen_in_context.xdc, line 10).
 Applied set_property DONT_TOUCH = true for MercuryXU1_i/MercuryXU1_i/zynq_ultra_ps_e_0/inst/PS8_i. (constraint file  /home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_zynq_ultra_ps_e_0_0/MercuryXU1_zynq_ultra_ps_e_0_0.xdc, line 26).
 Applied set_property DONT_TOUCH = true for MercuryXU1_i/MercuryXU1_i/axi_gpio_0/U0. (constraint file  /home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.runs/MercuryNuPRISM_synth/dont_touch.xdc, line 169).
 Applied set_property DONT_TOUCH = true for MercuryXU1_i/MercuryXU1_i/proc_sys_reset_0/U0. (constraint file  /home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.runs/MercuryNuPRISM_synth/dont_touch.xdc, line 177).
@@ -6387,6 +6382,7 @@ Applied set_property DONT_TOUCH = true for MercuryXU1_i/MercuryXU1_i/xlconstant_
 Applied set_property DONT_TOUCH = true for MercuryXU1_i/MercuryXU1_i/ps8_0_axi_periph/s00_couplers/auto_pc. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for MercuryXU1_i/MercuryXU1_i/ps8_0_axi_periph/s01_couplers/auto_pc. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for MercuryXU1_i/MercuryXU1_i/ps8_0_axi_periph/s02_couplers/auto_pc. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for serdes_clock_b64_b66. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for serdes_clock_b65. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for MercuryXU1_i/MercuryXU1_i/axis_data_fifo_0/inst/\gen_fifo.xpm_fifo_axis_inst /\gaxis_rst_sync.xpm_cdc_sync_rst_inst . (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for MercuryXU1_i/MercuryXU1_i/axis_data_fifo_0/inst/\gen_fifo.xpm_fifo_axis_inst . (constraint file  auto generated constraint, line ).
@@ -6427,7 +6423,7 @@ Applied set_property DONT_TOUCH = true for MercuryXU1_i/MercuryXU1_i/axi_smc/ins
 Applied set_property DONT_TOUCH = true for MercuryXU1_i/MercuryXU1_i/axi_smc/inst/s00_nodes/s00_w_node/inst/inst_mi_handler/\gen_normal_area.inst_fifo_node_payld /\gen_xpm_memory_fifo.inst_fifo /\gen_mem_rep[0].inst_xpm_memory . (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for MercuryXU1_i/MercuryXU1_i/axi_smc/inst/s02_nodes/s02_w_node/inst/inst_mi_handler/\gen_normal_area.inst_fifo_node_payld /\gen_xpm_memory_fifo.inst_fifo /\gen_mem_rep[0].inst_xpm_memory . (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:55 ; elapsed = 00:01:03 . Memory (MB): peak = 3684.461 ; gain = 1103.723 ; free physical = 5818 ; free virtual = 20128
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:55 ; elapsed = 00:01:03 . Memory (MB): peak = 3684.367 ; gain = 1103.723 ; free physical = 4503 ; free virtual = 21689
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'pntr_cs_reg' in module 'axi_sg_updt_queue'
 INFO: [Synth 8-802] inferred FSM for state register 'mm2s_cs_reg' in module 'axi_dma_mm2s_sm'
@@ -6608,7 +6604,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'MercuryXU1_system_management_wiz_0_0_slave_attachment'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:06 ; elapsed = 00:01:16 . Memory (MB): peak = 3684.461 ; gain = 1103.723 ; free physical = 5782 ; free virtual = 20101
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:06 ; elapsed = 00:01:15 . Memory (MB): peak = 3684.367 ; gain = 1103.723 ; free physical = 4463 ; free virtual = 21660
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5775] Found 'rw_addr_collision' attribute set to 'no' on SDP RAM gen_wr_a.gen_word_narrow.mem_reg. Setting write mode to NO_CHANGE 
 INFO: [Synth 8-5775] Found 'rw_addr_collision' attribute set to 'no' on SDP RAM gen_wr_a.gen_word_narrow.mem_reg. Setting write mode to NO_CHANGE 
@@ -6781,7 +6777,7 @@ INFO: [Synth 8-5775] Found 'rw_addr_collision' attribute set to 'no' on SDP RAM 
 INFO: [Synth 8-5775] Found 'rw_addr_collision' attribute set to 'no' on SDP RAM gen_wr_a.gen_word_narrow.mem_reg. Setting write mode to NO_CHANGE 
 INFO: [Synth 8-5775] Found 'rw_addr_collision' attribute set to 'no' on SDP RAM gen_wr_a.gen_word_narrow.mem_reg. Setting write mode to NO_CHANGE 
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:01 ; elapsed = 00:02:14 . Memory (MB): peak = 3684.461 ; gain = 1103.723 ; free physical = 5636 ; free virtual = 20034
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:01 ; elapsed = 00:02:14 . Memory (MB): peak = 3684.367 ; gain = 1103.723 ; free physical = 4286 ; free virtual = 21560
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5775] Found 'rw_addr_collision' attribute set to 'no' on SDP RAM gen_wr_a.gen_word_narrow.mem_reg. Setting write mode to NO_CHANGE 
 INFO: [Synth 8-5775] Found 'rw_addr_collision' attribute set to 'no' on SDP RAM gen_wr_a.gen_word_narrow.mem_reg. Setting write mode to NO_CHANGE 
@@ -6893,7 +6889,7 @@ Finished ROM, RAM, DSP and Shift Register Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:22 ; elapsed = 00:02:48 . Memory (MB): peak = 4656.445 ; gain = 2075.707 ; free physical = 4053 ; free virtual = 18451
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:23 ; elapsed = 00:02:49 . Memory (MB): peak = 4657.352 ; gain = 2076.707 ; free physical = 2636 ; free virtual = 19917
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
@@ -6903,7 +6899,7 @@ INFO: [Synth 8-5775] Found 'rw_addr_collision' attribute set to 'no' on SDP RAM 
 INFO: [Synth 8-5775] Found 'rw_addr_collision' attribute set to 'no' on SDP RAM gen_wr_a.gen_word_narrow.mem_reg. Setting write mode to NO_CHANGE 
 INFO: [Synth 8-5775] Found 'rw_addr_collision' attribute set to 'no' on SDP RAM gen_wr_a.gen_word_narrow.mem_reg. Setting write mode to NO_CHANGE 
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:02:28 ; elapsed = 00:02:54 . Memory (MB): peak = 4772.500 ; gain = 2191.762 ; free physical = 3953 ; free virtual = 18352
+Finished Timing Optimization : Time (s): cpu = 00:02:29 ; elapsed = 00:02:56 . Memory (MB): peak = 4773.406 ; gain = 2192.762 ; free physical = 2544 ; free virtual = 19813
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -7009,7 +7005,7 @@ Finished ROM, RAM, DSP and Shift Register Reporting
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:02:46 ; elapsed = 00:03:15 . Memory (MB): peak = 4788.516 ; gain = 2207.777 ; free physical = 4001 ; free virtual = 18399
+Finished Technology Mapping : Time (s): cpu = 00:02:48 ; elapsed = 00:03:17 . Memory (MB): peak = 4789.422 ; gain = 2208.777 ; free physical = 2570 ; free virtual = 19840
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -7130,37 +7126,37 @@ INFO: [Common 17-14] Message 'Synth 8-3295' appears 100 times and further instan
 WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/imports/rev0-2020.1-petalinux/lib/amc_carrier_core/Ad9229Core.vhd:266]
 WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/imports/rev0-2020.1-petalinux/lib/amc_carrier_core/Ad9229Core.vhd:266]
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:02:52 ; elapsed = 00:03:21 . Memory (MB): peak = 4788.516 ; gain = 2207.777 ; free physical = 4001 ; free virtual = 18399
+Finished IO Insertion : Time (s): cpu = 00:02:54 ; elapsed = 00:03:23 . Memory (MB): peak = 4789.422 ; gain = 2208.777 ; free physical = 2555 ; free virtual = 19817
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:02:52 ; elapsed = 00:03:21 . Memory (MB): peak = 4788.516 ; gain = 2207.777 ; free physical = 4001 ; free virtual = 18399
+Finished Renaming Generated Instances : Time (s): cpu = 00:02:54 ; elapsed = 00:03:23 . Memory (MB): peak = 4789.422 ; gain = 2208.777 ; free physical = 2555 ; free virtual = 19817
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:55 ; elapsed = 00:03:24 . Memory (MB): peak = 4788.516 ; gain = 2207.777 ; free physical = 4002 ; free virtual = 18400
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:57 ; elapsed = 00:03:26 . Memory (MB): peak = 4789.422 ; gain = 2208.777 ; free physical = 2569 ; free virtual = 19832
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:02:55 ; elapsed = 00:03:24 . Memory (MB): peak = 4788.516 ; gain = 2207.777 ; free physical = 4002 ; free virtual = 18400
+Finished Renaming Generated Ports : Time (s): cpu = 00:02:57 ; elapsed = 00:03:26 . Memory (MB): peak = 4789.422 ; gain = 2208.777 ; free physical = 2569 ; free virtual = 19832
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:02:56 ; elapsed = 00:03:25 . Memory (MB): peak = 4788.516 ; gain = 2207.777 ; free physical = 3999 ; free virtual = 18398
+Finished Handling Custom Attributes : Time (s): cpu = 00:02:58 ; elapsed = 00:03:27 . Memory (MB): peak = 4789.422 ; gain = 2208.777 ; free physical = 2567 ; free virtual = 19829
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:02:56 ; elapsed = 00:03:25 . Memory (MB): peak = 4788.516 ; gain = 2207.777 ; free physical = 3999 ; free virtual = 18398
+Finished Renaming Generated Nets : Time (s): cpu = 00:02:58 ; elapsed = 00:03:27 . Memory (MB): peak = 4789.422 ; gain = 2208.777 ; free physical = 2568 ; free virtual = 19831
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -7199,54 +7195,55 @@ Report BlackBoxes:
 +------+-------------------+----------+
 |      |BlackBox name      |Instances |
 +------+-------------------+----------+
-|1     |adc_sample_clk_gen |         1|
+|1     |adc_sample_clk_gen |         2|
 +------+-------------------+----------+
 
 Report Cell Usage: 
-+------+-------------------+------+
-|      |Cell               |Count |
-+------+-------------------+------+
-|1     |adc_sample_clk_gen |     1|
-|2     |BUFG               |     3|
-|3     |BUFGCE_DIV         |     3|
-|4     |BUFG_PS            |     2|
-|5     |CARRY8             |    38|
-|6     |IDELAYE3           |    43|
-|7     |ISERDESE3          |    43|
-|8     |LUT1               |  1353|
-|9     |LUT2               |   977|
-|10    |LUT3               |  3414|
-|11    |LUT4               |  1660|
-|12    |LUT5               |  1744|
-|13    |LUT6               |  4760|
-|14    |MUXF7              |    15|
-|15    |ODDRE1             |     3|
-|16    |PS8                |     1|
-|17    |RAM16X1D           |     3|
-|18    |RAM32M16           |   203|
-|19    |RAM32X1D           |     7|
-|20    |RAMB36E2           |     3|
-|22    |SRL16              |     2|
-|23    |SRL16E             |   306|
-|24    |SRLC32E            |   153|
-|25    |SYSMONE4           |     1|
-|26    |FDPE               |   129|
-|27    |FDR                |   275|
-|28    |FDRE               | 17070|
-|29    |FDSE               |   744|
-|30    |IBUFDS             |    47|
-|31    |IOBUF              |     5|
-|32    |OBUF               |     8|
-|33    |OBUFTDS            |     3|
-+------+-------------------+------+
++------+--------------------+------+
+|      |Cell                |Count |
++------+--------------------+------+
+|1     |adc_sample_clk_gen  |     1|
+|2     |adc_sample_clk_gen_ |     1|
+|3     |BUFG                |     3|
+|4     |BUFGCE_DIV          |     3|
+|5     |BUFG_PS             |     2|
+|6     |CARRY8              |    38|
+|7     |IDELAYE3            |    43|
+|8     |ISERDESE3           |    43|
+|9     |LUT1                |  1352|
+|10    |LUT2                |   977|
+|11    |LUT3                |  3414|
+|12    |LUT4                |  1660|
+|13    |LUT5                |  1744|
+|14    |LUT6                |  4760|
+|15    |MUXF7               |    15|
+|16    |ODDRE1              |     3|
+|17    |PS8                 |     1|
+|18    |RAM16X1D            |     3|
+|19    |RAM32M16            |   203|
+|20    |RAM32X1D            |     7|
+|21    |RAMB36E2            |     3|
+|23    |SRL16               |     2|
+|24    |SRL16E              |   306|
+|25    |SRLC32E             |   153|
+|26    |SYSMONE4            |     1|
+|27    |FDPE                |   129|
+|28    |FDR                 |   275|
+|29    |FDRE                | 17070|
+|30    |FDSE                |   744|
+|31    |IBUFDS              |    47|
+|32    |IOBUF               |     5|
+|33    |OBUF                |     8|
+|34    |OBUFTDS             |     3|
++------+--------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:02:56 ; elapsed = 00:03:25 . Memory (MB): peak = 4788.516 ; gain = 2207.777 ; free physical = 3999 ; free virtual = 18398
+Finished Writing Synthesis Report : Time (s): cpu = 00:02:58 ; elapsed = 00:03:27 . Memory (MB): peak = 4789.422 ; gain = 2208.777 ; free physical = 2568 ; free virtual = 19831
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 423 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:02:27 ; elapsed = 00:02:59 . Memory (MB): peak = 4788.516 ; gain = 1598.184 ; free physical = 4036 ; free virtual = 18434
-Synthesis Optimization Complete : Time (s): cpu = 00:02:56 ; elapsed = 00:03:25 . Memory (MB): peak = 4788.523 ; gain = 2207.777 ; free physical = 4036 ; free virtual = 18434
+Synthesis finished with 0 errors, 0 critical warnings and 422 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:02:31 ; elapsed = 00:03:01 . Memory (MB): peak = 4789.422 ; gain = 1599.184 ; free physical = 2605 ; free virtual = 19867
+Synthesis Optimization Complete : Time (s): cpu = 00:02:58 ; elapsed = 00:03:27 . Memory (MB): peak = 4789.430 ; gain = 2208.777 ; free physical = 2605 ; free virtual = 19867
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00.47 ; elapsed = 00:00:00.48 . Memory (MB): peak = 4788.523 ; gain = 0.000 ; free physical = 4063 ; free virtual = 18462
+Netlist sorting complete. Time (s): cpu = 00:00:00.47 ; elapsed = 00:00:00.46 . Memory (MB): peak = 4789.430 ; gain = 0.000 ; free physical = 2652 ; free virtual = 19914
 INFO: [Netlist 29-17] Analyzing 647 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -7272,7 +7269,7 @@ Resolution: It is recommended to apply the I/O constraint directly to the top le
 WARNING: [Constraints 18-549] Could not create 'SLEW' constraint because cell 'Ad9229Core_b66/U_ClkOutBufDiff/OBUFDS_I' is not directly connected to top level port. 'SLEW' is ignored by Vivado but preserved inside the database.
 Resolution: It is recommended to apply the I/O constraint directly to the top level port instead of applying the constraint to the cell connected to the port.
 INFO: [Opt 31-138] Pushed 3 inverter(s) to 43 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 4870.250 ; gain = 0.000 ; free physical = 3972 ; free virtual = 18371
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 4868.156 ; gain = 0.000 ; free physical = 2494 ; free virtual = 19824
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 548 instances were transformed.
   BUFG => BUFGCE: 3 instances
@@ -7286,11 +7283,12 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   SRL16 => SRL16E: 2 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-858 Infos, 373 Warnings, 2 Critical Warnings and 0 Errors encountered.
+858 Infos, 362 Warnings, 2 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:03:14 ; elapsed = 00:03:45 . Memory (MB): peak = 4870.250 ; gain = 2716.918 ; free physical = 5226 ; free virtual = 19625
+synth_design: Time (s): cpu = 00:03:17 ; elapsed = 00:03:47 . Memory (MB): peak = 4868.156 ; gain = 2714.918 ; free physical = 3746 ; free virtual = 21076
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint '/home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.runs/MercuryNuPRISM_synth/system_top.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 4900.172 ; gain = 32.016 ; free physical = 3696 ; free virtual = 21044
 INFO: [runtcl-4] Executing : report_utilization -file system_top_utilization_synth.rpt -pb system_top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Mon Apr 19 17:25:51 2021...
+INFO: [Common 17-206] Exiting Vivado at Wed Apr 21 09:00:11 2021...

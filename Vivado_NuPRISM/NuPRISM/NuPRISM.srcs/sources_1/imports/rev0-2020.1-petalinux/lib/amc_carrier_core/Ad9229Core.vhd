@@ -103,7 +103,7 @@ begin
     U_ClkOutBufDiff : entity surf.ClkOutBufDiff
         generic map (
             TPD_G        => TPD_G,
-            XIL_DEVICE_G => "ULTRASCALE")
+            XIL_DEVICE_G => "ULTRASCALE_PLUS")
         port map (
             clkIn   => sampleClk,
             rstIn   => sampleRst,

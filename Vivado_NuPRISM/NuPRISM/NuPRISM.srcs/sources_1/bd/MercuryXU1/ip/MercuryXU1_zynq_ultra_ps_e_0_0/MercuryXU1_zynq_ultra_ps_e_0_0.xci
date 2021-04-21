@@ -284,8 +284,8 @@
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.PL_CLK1.PHASE">0.000</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.PL_CLK2.ASSOCIATED_BUSIF"/>
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.PL_CLK2.ASSOCIATED_RESET"/>
-        <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.PL_CLK2.CLK_DOMAIN"/>
-        <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.PL_CLK2.FREQ_HZ">100000000</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.PL_CLK2.CLK_DOMAIN">MercuryXU1_zynq_ultra_ps_e_0_0_pl_clk2</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.PL_CLK2.FREQ_HZ">62499374</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.PL_CLK2.FREQ_TOLERANCE_HZ">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.PL_CLK2.INSERT_VIP">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.PL_CLK2.PHASE">0.000</spirit:configurableElementValue>
@@ -1687,8 +1687,8 @@ gpio1[42]#gpio1[43]#gpio1[44]#gpio1[45]#sdio1_data_out[0]#sdio1_data_out[1]#sdio
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PSU__CRL_APB__PL1_REF_CTRL__DIVISOR1">1</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PSU__CRL_APB__PL1_REF_CTRL__FREQMHZ">50</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PSU__CRL_APB__PL1_REF_CTRL__SRCSEL">RPLL</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PSU__CRL_APB__PL2_REF_CTRL__ACT_FREQMHZ">100</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PSU__CRL_APB__PL2_REF_CTRL__DIVISOR0">4</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PSU__CRL_APB__PL2_REF_CTRL__ACT_FREQMHZ">62.499374</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PSU__CRL_APB__PL2_REF_CTRL__DIVISOR0">16</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PSU__CRL_APB__PL2_REF_CTRL__DIVISOR1">1</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PSU__CRL_APB__PL2_REF_CTRL__FREQMHZ">100</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PSU__CRL_APB__PL2_REF_CTRL__SRCSEL">RPLL</spirit:configurableElementValue>
@@ -1725,7 +1725,7 @@ gpio1[42]#gpio1[43]#gpio1[44]#gpio1[45]#sdio1_data_out[0]#sdio1_data_out[1]#sdio
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PSU__CRL_APB__SPI0_REF_CTRL__FREQMHZ">200</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PSU__CRL_APB__SPI0_REF_CTRL__SRCSEL">RPLL</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PSU__CRL_APB__SPI1_REF_CTRL__ACT_FREQMHZ">199.998001</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PSU__CRL_APB__SPI1_REF_CTRL__DIVISOR0">5</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PSU__CRL_APB__SPI1_REF_CTRL__DIVISOR0">7</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PSU__CRL_APB__SPI1_REF_CTRL__DIVISOR1">1</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PSU__CRL_APB__SPI1_REF_CTRL__FREQMHZ">200</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PSU__CRL_APB__SPI1_REF_CTRL__SRCSEL">RPLL</spirit:configurableElementValue>
@@ -2751,6 +2751,12 @@ _DMA;FFC80000;FFC9FFFF;1|LPD;CSU;FFCA0000;FFCAFFFF;1|LPD;CRL_APB;FF5E0000;FF85FF
             <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.PL_CLK1.FREQ_HZ" xilinx:valueSource="user" xilinx:valuePermission="bd"/>
             <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.PL_CLK1.FREQ_TOLERANCE_HZ" xilinx:valuePermission="bd"/>
             <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.PL_CLK1.PHASE" xilinx:valuePermission="bd"/>
+            <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.PL_CLK2.ASSOCIATED_BUSIF" xilinx:valuePermission="bd"/>
+            <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.PL_CLK2.ASSOCIATED_RESET" xilinx:valuePermission="bd"/>
+            <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.PL_CLK2.CLK_DOMAIN" xilinx:valuePermission="bd"/>
+            <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.PL_CLK2.FREQ_HZ" xilinx:valueSource="user" xilinx:valuePermission="bd"/>
+            <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.PL_CLK2.FREQ_TOLERANCE_HZ" xilinx:valuePermission="bd"/>
+            <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.PL_CLK2.PHASE" xilinx:valuePermission="bd"/>
             <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.PL_PS_IRQ0.PortWidth" xilinx:valueSource="ip_propagated" xilinx:valuePermission="bd"/>
             <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.PL_PS_IRQ0.SENSITIVITY" xilinx:valueSource="ip_propagated" xilinx:valuePermission="bd"/>
             <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.PL_PS_IRQ1.PortWidth" xilinx:valuePermission="bd"/>

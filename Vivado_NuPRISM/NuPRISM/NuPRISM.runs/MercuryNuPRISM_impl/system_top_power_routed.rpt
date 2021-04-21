@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2020.1.1 (lin64) Build 2960000 Wed Aug  5 22:57:21 MDT 2020
-| Date             : Mon Apr 19 17:35:32 2021
+| Date             : Wed Apr 21 09:04:06 2021
 | Host             : edev running 64-bit Ubuntu 18.04.5 LTS
 | Command          : report_power -file system_top_power_routed.rpt -pb system_top_power_summary_routed.pb -rpx system_top_power_routed.rpx
 | Design           : system_top
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 3.917        |
+| Total On-Chip Power (W)  | 3.981        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 3.180        |
+| Dynamic (W)              | 3.244        |
 | Device Static (W)        | 0.737        |
 | Effective TJA (C/W)      | 1.4          |
-| Max Ambient (C)          | 94.5         |
-| Junction Temperature (C) | 30.5         |
+| Max Ambient (C)          | 94.4         |
+| Junction Temperature (C) | 30.6         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,26 +52,26 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.060 |       15 |       --- |             --- |
-| CLB Logic                |     0.117 |    47842 |       --- |             --- |
-|   LUT as Logic           |     0.070 |    13346 |    214604 |            6.22 |
-|   LUT as Distributed RAM |     0.038 |     1228 |    144000 |            0.85 |
-|   Register               |     0.006 |    23838 |    429208 |            5.55 |
-|   LUT as Shift Register  |     0.003 |     1169 |    144000 |            0.81 |
-|   CARRY8                 |    <0.001 |      149 |     34260 |            0.43 |
+| Clocks                   |     0.039 |       11 |       --- |             --- |
+| CLB Logic                |     0.113 |    33175 |       --- |             --- |
+|   LUT as Logic           |     0.068 |     9620 |    214604 |            4.48 |
+|   LUT as Distributed RAM |     0.037 |     1196 |    144000 |            0.83 |
+|   Register               |     0.006 |    16072 |    429208 |            3.74 |
+|   LUT as Shift Register  |     0.001 |      350 |    144000 |            0.24 |
+|   CARRY8                 |    <0.001 |       32 |     34260 |            0.09 |
 |   BUFG                   |    <0.001 |        6 |        32 |           18.75 |
-|   Others                 |     0.000 |     2646 |       --- |             --- |
-|   F7/F8 Muxes            |     0.000 |      112 |    274080 |            0.04 |
-| Signals                  |     0.078 |    36125 |       --- |             --- |
-| Block RAM                |     0.009 |     17.5 |       714 |            2.45 |
-| MMCM                     |     0.098 |        0 |       --- |             --- |
-| I/O                      |     0.168 |      107 |       204 |           52.45 |
+|   Others                 |     0.000 |     1727 |       --- |             --- |
+|   F7/F8 Muxes            |     0.000 |       15 |    274080 |           <0.01 |
+| Signals                  |     0.074 |    24690 |       --- |             --- |
+| Block RAM                |     0.003 |        3 |       714 |            0.42 |
+| MMCM                     |     0.195 |        0 |       --- |             --- |
+| I/O                      |     0.170 |      109 |       204 |           53.43 |
 | SYSMON                   |     0.005 |        1 |       --- |             --- |
 | PS8                      |     2.645 |        1 |       --- |             --- |
 | Static Power             |     0.737 |          |           |                 |
 |   PS Static              |     0.100 |          |           |                 |
-|   PL Static              |     0.636 |          |           |                 |
-| Total                    |     3.917 |          |           |                 |
+|   PL Static              |     0.637 |          |           |                 |
+| Total                    |     3.981 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -81,11 +81,11 @@ Table of Contents
 +-----------------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source          | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint          |       0.850 |     0.532 |       0.316 |      0.216 |       NA    | Unspecified | NA         |
-| Vccint_io       |       0.850 |     0.055 |       0.019 |      0.036 |       NA    | Unspecified | NA         |
-| Vccbram         |       0.850 |     0.005 |       0.001 |      0.003 |       NA    | Unspecified | NA         |
-| Vccaux          |       1.800 |     0.246 |       0.054 |      0.192 |       NA    | Unspecified | NA         |
-| Vccaux_io       |       1.800 |     0.083 |       0.050 |      0.033 |       NA    | Unspecified | NA         |
+| Vccint          |       0.850 |     0.492 |       0.275 |      0.217 |       NA    | Unspecified | NA         |
+| Vccint_io       |       0.850 |     0.056 |       0.020 |      0.036 |       NA    | Unspecified | NA         |
+| Vccbram         |       0.850 |     0.004 |       0.000 |      0.003 |       NA    | Unspecified | NA         |
+| Vccaux          |       1.800 |     0.300 |       0.108 |      0.192 |       NA    | Unspecified | NA         |
+| Vccaux_io       |       1.800 |     0.084 |       0.051 |      0.033 |       NA    | Unspecified | NA         |
 | Vcco33          |       3.300 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco25          |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco18          |       1.800 |     0.034 |       0.034 |      0.000 |       NA    | Unspecified | NA         |
@@ -152,23 +152,19 @@ Table of Contents
 2.2 Clock Constraints
 ---------------------
 
-+-----------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+-----------------+
-| Clock                                                                                               | Domain                                                                | Constraint (ns) |
-+-----------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+-----------------+
-| ADC_DATA1_DCLK_p                                                                                    | ADC_DATA1_DCLK_p                                                      |             2.7 |
-| clk_out1_62p5_adc_sample_clk_gen                                                                    | serdes_clock_b65/inst/clk_out1_62p5_adc_sample_clk_gen                |            16.0 |
-| clk_out1_62p5_adc_sample_clk_gen_1                                                                  | serdes_clock_b65/inst/clk_out1_62p5_adc_sample_clk_gen                |            16.0 |
-| clk_out2_62p5_adc_sample_clk_gen                                                                    | serdes_clock_b65/inst/clk_out2_62p5_adc_sample_clk_gen                |            16.0 |
-| clk_out2_62p5_adc_sample_clk_gen_1                                                                  | serdes_clock_b65/inst/clk_out2_62p5_adc_sample_clk_gen                |            16.0 |
-| clk_out3_62p5_adc_sample_clk_gen                                                                    | serdes_clock_b65/inst/clk_out3_62p5_adc_sample_clk_gen                |            16.0 |
-| clk_out3_62p5_adc_sample_clk_gen_1                                                                  | serdes_clock_b65/inst/clk_out3_62p5_adc_sample_clk_gen                |            16.0 |
-| clk_pl_0                                                                                            | MercuryXU1_i/MercuryXU1_i/zynq_ultra_ps_e_0/inst/pl_clk_unbuffered[0] |            10.0 |
-| clk_pl_1                                                                                            | MercuryXU1_i/MercuryXU1_i/zynq_ultra_ps_e_0/inst/pl_clk_unbuffered[1] |            20.0 |
-| clkfbout_adc_sample_clk_gen                                                                         | serdes_clock_b65/inst/clkfbout_adc_sample_clk_gen                     |             8.0 |
-| clkfbout_adc_sample_clk_gen_1                                                                       | serdes_clock_b65/inst/clkfbout_adc_sample_clk_gen                     |             8.0 |
-| clkin1                                                                                              | ADC_DATA1_DCLK_p                                                      |             2.7 |
-| dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/SERIES7_BSCAN.bscan_inst/INTERNAL_TCK | dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/in0     |            50.0 |
-+-----------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+-----------------+
++------------------------------------+-----------------------------------------------------------------------+-----------------+
+| Clock                              | Domain                                                                | Constraint (ns) |
++------------------------------------+-----------------------------------------------------------------------+-----------------+
+| ADC_DATA1_DCLK_p                   | ADC_DATA1_DCLK_p                                                      |             2.7 |
+| ADC_DATA4_DCLK_p                   | ADC_DATA4_DCLK_p                                                      |             2.7 |
+| clk_out1_62p5_adc_sample_clk_gen   | serdes_clock_b64_b66/inst/clk_out1_62p5_adc_sample_clk_gen            |            16.0 |
+| clk_out1_62p5_adc_sample_clk_gen_1 | serdes_clock_b65/inst/clk_out1_62p5_adc_sample_clk_gen                |            16.0 |
+| clk_out2_62p5_adc_sample_clk_gen   | serdes_clock_b64_b66/inst/clk_out2_62p5_adc_sample_clk_gen            |            16.0 |
+| clk_pl_0                           | MercuryXU1_i/MercuryXU1_i/zynq_ultra_ps_e_0/inst/pl_clk_unbuffered[0] |            10.0 |
+| clk_pl_1                           | MercuryXU1_i/MercuryXU1_i/zynq_ultra_ps_e_0/inst/pl_clk_unbuffered[1] |            20.0 |
+| clkfbout_adc_sample_clk_gen        | serdes_clock_b64_b66/inst/clkfbout_adc_sample_clk_gen                 |             8.0 |
+| clkfbout_adc_sample_clk_gen_1      | serdes_clock_b65/inst/clkfbout_adc_sample_clk_gen                     |             8.0 |
++------------------------------------+-----------------------------------------------------------------------+-----------------+
 
 
 3. Detailed Reports
@@ -180,8 +176,8 @@ Table of Contents
 +------------------------------------------+-----------+
 | Name                                     | Power (W) |
 +------------------------------------------+-----------+
-| system_top                               |     3.180 |
-|   Ad9229Core_b64                         |     0.115 |
+| system_top                               |     3.244 |
+|   Ad9229Core_b64                         |     0.112 |
 |     Ad9229Deserializer_INST              |     0.003 |
 |       U_SyncFifo                         |     0.003 |
 |     GEN_DATA[0].Ad9229Deserializer_INST  |     0.003 |
@@ -199,13 +195,13 @@ Table of Contents
 |     GEN_DATA[13].Ad9229Deserializer_INST |     0.003 |
 |       U_SyncFifo                         |     0.003 |
 |     GEN_DATA[13].U_DataIn                |     0.003 |
-|     GEN_DATA[14].Ad9229Deserializer_INST |     0.004 |
+|     GEN_DATA[14].Ad9229Deserializer_INST |     0.003 |
 |       U_SyncFifo                         |     0.003 |
 |     GEN_DATA[14].U_DataIn                |     0.003 |
 |     GEN_DATA[15].Ad9229Deserializer_INST |     0.003 |
 |       U_SyncFifo                         |     0.003 |
 |     GEN_DATA[15].U_DataIn                |     0.003 |
-|     GEN_DATA[1].Ad9229Deserializer_INST  |     0.004 |
+|     GEN_DATA[1].Ad9229Deserializer_INST  |     0.003 |
 |       U_SyncFifo                         |     0.003 |
 |     GEN_DATA[1].U_DataIn                 |     0.003 |
 |     GEN_DATA[2].Ad9229Deserializer_INST  |     0.003 |
@@ -214,8 +210,8 @@ Table of Contents
 |     GEN_DATA[3].Ad9229Deserializer_INST  |     0.003 |
 |       U_SyncFifo                         |     0.003 |
 |     GEN_DATA[3].U_DataIn                 |     0.003 |
-|     GEN_DATA[4].Ad9229Deserializer_INST  |     0.004 |
-|       U_SyncFifo                         |     0.004 |
+|     GEN_DATA[4].Ad9229Deserializer_INST  |     0.003 |
+|       U_SyncFifo                         |     0.003 |
 |     GEN_DATA[4].U_DataIn                 |     0.003 |
 |     GEN_DATA[5].Ad9229Deserializer_INST  |     0.003 |
 |       U_SyncFifo                         |     0.003 |
@@ -234,13 +230,13 @@ Table of Contents
 |     GEN_DATA[9].U_DataIn                 |     0.003 |
 |     U_FrameIn                            |     0.003 |
 |     U_IBUFDS                             |     0.002 |
-|   Ad9229Core_b65                         |     0.117 |
+|   Ad9229Core_b65                         |     0.114 |
 |     Ad9229Deserializer_INST              |     0.003 |
 |       U_SyncFifo                         |     0.003 |
 |     GEN_DATA[0].Ad9229Deserializer_INST  |     0.003 |
 |       U_SyncFifo                         |     0.003 |
 |     GEN_DATA[0].U_DataIn                 |     0.003 |
-|     GEN_DATA[10].Ad9229Deserializer_INST |     0.004 |
+|     GEN_DATA[10].Ad9229Deserializer_INST |     0.003 |
 |       U_SyncFifo                         |     0.003 |
 |     GEN_DATA[10].U_DataIn                |     0.003 |
 |     GEN_DATA[11].Ad9229Deserializer_INST |     0.003 |
@@ -255,7 +251,7 @@ Table of Contents
 |     GEN_DATA[14].Ad9229Deserializer_INST |     0.003 |
 |       U_SyncFifo                         |     0.003 |
 |     GEN_DATA[14].U_DataIn                |     0.003 |
-|     GEN_DATA[15].Ad9229Deserializer_INST |     0.004 |
+|     GEN_DATA[15].Ad9229Deserializer_INST |     0.003 |
 |       U_SyncFifo                         |     0.003 |
 |     GEN_DATA[15].U_DataIn                |     0.003 |
 |     GEN_DATA[1].Ad9229Deserializer_INST  |     0.003 |
@@ -287,7 +283,7 @@ Table of Contents
 |     GEN_DATA[9].U_DataIn                 |     0.003 |
 |     U_FrameIn                            |     0.003 |
 |     U_IBUFDS                             |     0.003 |
-|   Ad9229Core_b66                         |     0.061 |
+|   Ad9229Core_b66                         |     0.060 |
 |     Ad9229Deserializer_INST              |     0.003 |
 |       U_SyncFifo                         |     0.003 |
 |     GEN_DATA[0].Ad9229Deserializer_INST  |     0.003 |
@@ -316,29 +312,20 @@ Table of Contents
 |     GEN_DATA[7].U_DataIn                 |     0.003 |
 |     U_FrameIn                            |     0.003 |
 |     U_IBUFDS                             |     0.002 |
-|   MercuryXU1_i                           |     2.744 |
-|     MercuryXU1_i                         |     2.739 |
+|   MercuryXU1_i                           |     2.749 |
+|     MercuryXU1_i                         |     2.744 |
 |       axi_dma_0                          |     0.011 |
 |       axi_smc                            |     0.060 |
 |       axis_data_fifo_0                   |     0.003 |
 |       ps8_0_axi_periph                   |     0.012 |
 |       system_management_wiz_0            |     0.006 |
-|       zynq_ultra_ps_e_0                  |     2.647 |
-|   dbg_hub                                |     0.002 |
-|     inst                                 |     0.002 |
-|       BSCANID.u_xsdbm_id                 |     0.002 |
-|   serdes_clock_b65                       |     0.103 |
-|     inst                                 |     0.103 |
+|       zynq_ultra_ps_e_0                  |     2.651 |
+|   serdes_clock_b64_b66                   |     0.101 |
+|     inst                                 |     0.101 |
+|       clkin1_ibufds                      |     0.003 |
+|   serdes_clock_b65                       |     0.101 |
+|     inst                                 |     0.101 |
 |       clkin1_ibufds                      |     0.004 |
-|   u_ila_0                                |     0.015 |
-|     inst                                 |     0.015 |
-|       ila_core_inst                      |     0.015 |
-|   u_ila_1                                |     0.011 |
-|     inst                                 |     0.011 |
-|       ila_core_inst                      |     0.011 |
-|   u_ila_2                                |     0.005 |
-|     inst                                 |     0.005 |
-|       ila_core_inst                      |     0.005 |
 +------------------------------------------+-----------+
 
 

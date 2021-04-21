@@ -1,7 +1,7 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.1.1 (lin64) Build 2960000 Wed Aug  5 22:57:21 MDT 2020
-// Date        : Mon Apr 19 17:04:03 2021
+// Date        : Tue Apr 20 11:05:12 2021
 // Host        : edev running 64-bit Ubuntu 18.04.5 LTS
 // Command     : write_verilog -force -mode funcsim
 //               /home/edev/Source/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/NuPRISM/NuPRISM.srcs/sources_1/ip/adc_sample_clk_gen/adc_sample_clk_gen_sim_netlist.v
@@ -16,14 +16,12 @@
 module adc_sample_clk_gen
    (clk_out1_62p5,
     clk_out2_62p5,
-    clk_out3_62p5,
     reset,
     locked,
     clk_in1_p,
     clk_in1_n);
   output clk_out1_62p5;
   output clk_out2_62p5;
-  output clk_out3_62p5;
   input reset;
   output locked;
   input clk_in1_p;
@@ -33,7 +31,6 @@ module adc_sample_clk_gen
   (* IBUF_LOW_PWR *) wire clk_in1_p;
   wire clk_out1_62p5;
   wire clk_out2_62p5;
-  wire clk_out3_62p5;
   wire locked;
   wire reset;
 
@@ -42,7 +39,6 @@ module adc_sample_clk_gen
         .clk_in1_p(clk_in1_p),
         .clk_out1_62p5(clk_out1_62p5),
         .clk_out2_62p5(clk_out2_62p5),
-        .clk_out3_62p5(clk_out3_62p5),
         .locked(locked),
         .reset(reset));
 endmodule
@@ -51,14 +47,12 @@ endmodule
 module adc_sample_clk_gen_adc_sample_clk_gen_clk_wiz
    (clk_out1_62p5,
     clk_out2_62p5,
-    clk_out3_62p5,
     reset,
     locked,
     clk_in1_p,
     clk_in1_n);
   output clk_out1_62p5;
   output clk_out2_62p5;
-  output clk_out3_62p5;
   input reset;
   output locked;
   input clk_in1_p;
@@ -71,8 +65,6 @@ module adc_sample_clk_gen_adc_sample_clk_gen_clk_wiz
   wire clk_out1_62p5_adc_sample_clk_gen;
   wire clk_out2_62p5;
   wire clk_out2_62p5_adc_sample_clk_gen;
-  wire clk_out3_62p5;
-  wire clk_out3_62p5_adc_sample_clk_gen;
   wire clkfbout_adc_sample_clk_gen;
   wire clkfbout_buf_adc_sample_clk_gen;
   wire locked;
@@ -83,6 +75,7 @@ module adc_sample_clk_gen_adc_sample_clk_gen_clk_wiz
   wire NLW_mmcme4_adv_inst_CLKINSTOPPED_UNCONNECTED;
   wire NLW_mmcme4_adv_inst_CLKOUT0B_UNCONNECTED;
   wire NLW_mmcme4_adv_inst_CLKOUT1B_UNCONNECTED;
+  wire NLW_mmcme4_adv_inst_CLKOUT2_UNCONNECTED;
   wire NLW_mmcme4_adv_inst_CLKOUT2B_UNCONNECTED;
   wire NLW_mmcme4_adv_inst_CLKOUT3_UNCONNECTED;
   wire NLW_mmcme4_adv_inst_CLKOUT3B_UNCONNECTED;
@@ -132,15 +125,6 @@ module adc_sample_clk_gen_adc_sample_clk_gen_clk_wiz
         .I(clk_out2_62p5_adc_sample_clk_gen),
         .O(clk_out2_62p5));
   (* BOX_TYPE = "PRIMITIVE" *) 
-  (* XILINX_LEGACY_PRIM = "BUFG" *) 
-  BUFGCE #(
-    .CE_TYPE("ASYNC"),
-    .SIM_DEVICE("ULTRASCALE_PLUS")) 
-    clkout3_buf
-       (.CE(1'b1),
-        .I(clk_out3_62p5_adc_sample_clk_gen),
-        .O(clk_out3_62p5));
-  (* BOX_TYPE = "PRIMITIVE" *) 
   MMCME4_ADV #(
     .BANDWIDTH("OPTIMIZED"),
     .CLKFBOUT_MULT_F(9.500000),
@@ -156,7 +140,7 @@ module adc_sample_clk_gen_adc_sample_clk_gen_clk_wiz
     .CLKOUT1_DUTY_CYCLE(0.500000),
     .CLKOUT1_PHASE(0.000000),
     .CLKOUT1_USE_FINE_PS("FALSE"),
-    .CLKOUT2_DIVIDE(19),
+    .CLKOUT2_DIVIDE(1),
     .CLKOUT2_DUTY_CYCLE(0.500000),
     .CLKOUT2_PHASE(0.000000),
     .CLKOUT2_USE_FINE_PS("FALSE"),
@@ -208,7 +192,7 @@ module adc_sample_clk_gen_adc_sample_clk_gen_clk_wiz
         .CLKOUT0B(NLW_mmcme4_adv_inst_CLKOUT0B_UNCONNECTED),
         .CLKOUT1(clk_out2_62p5_adc_sample_clk_gen),
         .CLKOUT1B(NLW_mmcme4_adv_inst_CLKOUT1B_UNCONNECTED),
-        .CLKOUT2(clk_out3_62p5_adc_sample_clk_gen),
+        .CLKOUT2(NLW_mmcme4_adv_inst_CLKOUT2_UNCONNECTED),
         .CLKOUT2B(NLW_mmcme4_adv_inst_CLKOUT2B_UNCONNECTED),
         .CLKOUT3(NLW_mmcme4_adv_inst_CLKOUT3_UNCONNECTED),
         .CLKOUT3B(NLW_mmcme4_adv_inst_CLKOUT3B_UNCONNECTED),

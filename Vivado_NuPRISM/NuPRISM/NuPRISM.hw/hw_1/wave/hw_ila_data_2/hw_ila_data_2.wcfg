@@ -10,140 +10,76 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="7fs"></ZoomEndTime>
+      <ZoomEndTime time="1025fs"></ZoomEndTime>
       <Cursor1Time time="522fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="370"></NameColumnWidth>
+      <NameColumnWidth column_width="366"></NameColumnWidth>
       <ValueColumnWidth column_width="66"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="16" />
+   <WVObjectSize size="8" />
    <wave_markers>
    </wave_markers>
-   <wvobject type="array" fp_name="adc3_da_pardata_j15[0]">
+   <wvobject type="array" fp_name="adc2_da_pardata_j11[0]">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">adc3_da_pardata_j15[0][11:0]</obj_property>
-      <obj_property name="ObjectShortName">adc3_da_pardata_j15[0][11:0]</obj_property>
+      <obj_property name="ElementShortName">adc2_da_pardata_j11[0][11:0]</obj_property>
+      <obj_property name="ObjectShortName">adc2_da_pardata_j11[0][11:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="adc3_da_pardata_j15[1]">
+   <wvobject type="array" fp_name="adc2_da_pardata_j11[1]">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">adc3_da_pardata_j15[1][11:0]</obj_property>
-      <obj_property name="ObjectShortName">adc3_da_pardata_j15[1][11:0]</obj_property>
+      <obj_property name="ElementShortName">adc2_da_pardata_j11[1][11:0]</obj_property>
+      <obj_property name="ObjectShortName">adc2_da_pardata_j11[1][11:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="adc3_db_pardata_j14[0]">
+   <wvobject type="array" fp_name="adc2_db_pardata_j10[0]">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">adc3_db_pardata_j14[0][11:0]</obj_property>
-      <obj_property name="ObjectShortName">adc3_db_pardata_j14[0][11:0]</obj_property>
+      <obj_property name="ElementShortName">adc2_db_pardata_j10[0][11:0]</obj_property>
+      <obj_property name="ObjectShortName">adc2_db_pardata_j10[0][11:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="adc3_db_pardata_j14[1]">
+   <wvobject type="array" fp_name="adc2_db_pardata_j10[1]">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">adc3_db_pardata_j14[1][11:0]</obj_property>
-      <obj_property name="ObjectShortName">adc3_db_pardata_j14[1][11:0]</obj_property>
+      <obj_property name="ElementShortName">adc2_db_pardata_j10[1][11:0]</obj_property>
+      <obj_property name="ObjectShortName">adc2_db_pardata_j10[1][11:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="adc3_dc_pardata_j13[0]">
+   <wvobject type="array" fp_name="adc2_dc_pardata_j9[0]">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">adc3_dc_pardata_j13[0][11:0]</obj_property>
-      <obj_property name="ObjectShortName">adc3_dc_pardata_j13[0][11:0]</obj_property>
+      <obj_property name="ElementShortName">adc2_dc_pardata_j9[0][11:0]</obj_property>
+      <obj_property name="ObjectShortName">adc2_dc_pardata_j9[0][11:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="adc3_dc_pardata_j13[1]">
+   <wvobject type="array" fp_name="adc2_dc_pardata_j9[1]">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">adc3_dc_pardata_j13[1][11:0]</obj_property>
-      <obj_property name="ObjectShortName">adc3_dc_pardata_j13[1][11:0]</obj_property>
+      <obj_property name="ElementShortName">adc2_dc_pardata_j9[1][11:0]</obj_property>
+      <obj_property name="ObjectShortName">adc2_dc_pardata_j9[1][11:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="adc3_dd_pardata_j12[0]">
+   <wvobject type="array" fp_name="adc2_dd_pardata_j8[0]">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">adc3_dd_pardata_j12[0][11:0]</obj_property>
-      <obj_property name="ObjectShortName">adc3_dd_pardata_j12[0][11:0]</obj_property>
+      <obj_property name="ElementShortName">adc2_dd_pardata_j8[0][11:0]</obj_property>
+      <obj_property name="ObjectShortName">adc2_dd_pardata_j8[0][11:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="adc3_dd_pardata_j12[1]">
+   <wvobject type="array" fp_name="adc2_dd_pardata_j8[1]">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">adc3_dd_pardata_j12[1][11:0]</obj_property>
-      <obj_property name="ObjectShortName">adc3_dd_pardata_j12[1][11:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="adc4_da_pardata_j19[0]">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">adc4_da_pardata_j19[0][11:0]</obj_property>
-      <obj_property name="ObjectShortName">adc4_da_pardata_j19[0][11:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="adc4_da_pardata_j19[1]">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">adc4_da_pardata_j19[1][11:0]</obj_property>
-      <obj_property name="ObjectShortName">adc4_da_pardata_j19[1][11:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="adc4_db_pardata_j18[0]">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">adc4_db_pardata_j18[0][11:0]</obj_property>
-      <obj_property name="ObjectShortName">adc4_db_pardata_j18[0][11:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="adc4_db_pardata_j18[1]">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">adc4_db_pardata_j18[1][11:0]</obj_property>
-      <obj_property name="ObjectShortName">adc4_db_pardata_j18[1][11:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="adc4_dc_pardata_j17[0]">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">adc4_dc_pardata_j17[0][11:0]</obj_property>
-      <obj_property name="ObjectShortName">adc4_dc_pardata_j17[0][11:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="adc4_dc_pardata_j17[1]">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">adc4_dc_pardata_j17[1][11:0]</obj_property>
-      <obj_property name="ObjectShortName">adc4_dc_pardata_j17[1][11:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="adc4_dd_pardata_j16[0]">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">adc4_dd_pardata_j16[0][11:0]</obj_property>
-      <obj_property name="ObjectShortName">adc4_dd_pardata_j16[0][11:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="adc4_dd_pardata_j16[1]">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">adc4_dd_pardata_j16[1][11:0]</obj_property>
-      <obj_property name="ObjectShortName">adc4_dd_pardata_j16[1][11:0]</obj_property>
+      <obj_property name="ElementShortName">adc2_dd_pardata_j8[1][11:0]</obj_property>
+      <obj_property name="ObjectShortName">adc2_dd_pardata_j8[1][11:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>

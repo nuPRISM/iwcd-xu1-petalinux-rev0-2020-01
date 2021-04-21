@@ -1175,87 +1175,6 @@
         </spirit:parameter>
       </spirit:parameters>
     </spirit:busInterface>
-    <spirit:busInterface>
-      <spirit:name>clock_CLK_OUT3</spirit:name>
-      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
-      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
-      <spirit:master/>
-      <spirit:portMaps>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>CLK_OUT3</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>clk_out3_62p5</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-      </spirit:portMaps>
-      <spirit:parameters>
-        <spirit:parameter>
-          <spirit:name>FREQ_HZ</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLOCK_CLK_OUT3.FREQ_HZ">100000000</spirit:value>
-          <spirit:vendorExtensions>
-            <xilinx:parameterInfo>
-              <xilinx:parameterUsage>none</xilinx:parameterUsage>
-            </xilinx:parameterInfo>
-          </spirit:vendorExtensions>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>FREQ_TOLERANCE_HZ</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLOCK_CLK_OUT3.FREQ_TOLERANCE_HZ">0</spirit:value>
-          <spirit:vendorExtensions>
-            <xilinx:parameterInfo>
-              <xilinx:parameterUsage>none</xilinx:parameterUsage>
-            </xilinx:parameterInfo>
-          </spirit:vendorExtensions>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>PHASE</spirit:name>
-          <spirit:value spirit:format="float" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLOCK_CLK_OUT3.PHASE">0.000</spirit:value>
-          <spirit:vendorExtensions>
-            <xilinx:parameterInfo>
-              <xilinx:parameterUsage>none</xilinx:parameterUsage>
-            </xilinx:parameterInfo>
-          </spirit:vendorExtensions>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>CLK_DOMAIN</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLOCK_CLK_OUT3.CLK_DOMAIN"/>
-          <spirit:vendorExtensions>
-            <xilinx:parameterInfo>
-              <xilinx:parameterUsage>none</xilinx:parameterUsage>
-            </xilinx:parameterInfo>
-          </spirit:vendorExtensions>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>ASSOCIATED_BUSIF</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLOCK_CLK_OUT3.ASSOCIATED_BUSIF"/>
-          <spirit:vendorExtensions>
-            <xilinx:parameterInfo>
-              <xilinx:parameterUsage>none</xilinx:parameterUsage>
-            </xilinx:parameterInfo>
-          </spirit:vendorExtensions>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>ASSOCIATED_RESET</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLOCK_CLK_OUT3.ASSOCIATED_RESET"/>
-          <spirit:vendorExtensions>
-            <xilinx:parameterInfo>
-              <xilinx:parameterUsage>none</xilinx:parameterUsage>
-            </xilinx:parameterInfo>
-          </spirit:vendorExtensions>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>INSERT_VIP</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.CLOCK_CLK_OUT3.INSERT_VIP">0</spirit:value>
-          <spirit:vendorExtensions>
-            <xilinx:parameterInfo>
-              <xilinx:parameterUsage>simulation.rtl</xilinx:parameterUsage>
-            </xilinx:parameterInfo>
-          </spirit:vendorExtensions>
-        </spirit:parameter>
-      </spirit:parameters>
-    </spirit:busInterface>
   </spirit:busInterfaces>
   <spirit:model>
     <spirit:views>
@@ -1266,7 +1185,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:15622fce</spirit:value>
+            <spirit:value>9:df00a1ba</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1282,11 +1201,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Apr 20 00:02:46 UTC 2021</spirit:value>
+            <spirit:value>Tue Apr 20 18:03:54 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:28410e32</spirit:value>
+            <spirit:value>9:edc0d87f</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1301,11 +1220,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Apr 20 00:02:46 UTC 2021</spirit:value>
+            <spirit:value>Tue Apr 20 18:03:54 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:28410e32</spirit:value>
+            <spirit:value>9:edc0d87f</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1316,7 +1235,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:28410e32</spirit:value>
+            <spirit:value>9:edc0d87f</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1331,11 +1250,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Apr 20 00:02:46 UTC 2021</spirit:value>
+            <spirit:value>Tue Apr 20 18:03:54 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:28410e32</spirit:value>
+            <spirit:value>9:edc0d87f</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1350,11 +1269,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Apr 20 00:02:46 UTC 2021</spirit:value>
+            <spirit:value>Tue Apr 20 18:03:54 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:513bfe1e</spirit:value>
+            <spirit:value>9:93d23715</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1369,11 +1288,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Apr 20 00:02:46 UTC 2021</spirit:value>
+            <spirit:value>Tue Apr 20 18:03:54 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:513bfe1e</spirit:value>
+            <spirit:value>9:93d23715</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1387,11 +1306,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Apr 20 00:02:46 UTC 2021</spirit:value>
+            <spirit:value>Tue Apr 20 18:03:54 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:28410e32</spirit:value>
+            <spirit:value>9:edc0d87f</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1405,11 +1324,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Apr 20 00:02:46 UTC 2021</spirit:value>
+            <spirit:value>Tue Apr 20 18:03:54 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:28410e32</spirit:value>
+            <spirit:value>9:edc0d87f</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1423,11 +1342,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Apr 20 00:04:03 UTC 2021</spirit:value>
+            <spirit:value>Tue Apr 20 18:05:12 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:28410e32</spirit:value>
+            <spirit:value>9:edc0d87f</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -2344,19 +2263,6 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>clk_out3_62p5</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
         <spirit:name>locked</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
@@ -2433,7 +2339,7 @@
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="INTEGER">
         <spirit:name>C_CLKOUT3_USED</spirit:name>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_CLKOUT3_USED" spirit:order="195">1</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_CLKOUT3_USED" spirit:order="195">0</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="INTEGER">
         <spirit:name>C_CLKOUT4_USED</spirit:name>
@@ -2609,7 +2515,7 @@
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="INTEGER">
         <spirit:name>C_NUM_OUT_CLKS</spirit:name>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_NUM_OUT_CLKS" spirit:order="234">3</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_NUM_OUT_CLKS" spirit:order="234">2</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="STRING">
         <spirit:name>C_CLKOUT1_DRIVES</spirit:name>
@@ -2670,7 +2576,7 @@
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="STRING">
         <spirit:name>C_OUTCLK_SUM_ROW3</spirit:name>
-        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_OUTCLK_SUM_ROW3" spirit:order="249">clk_out3_62p5__62.50000______0.000______50.0______122.619_____86.070</spirit:value>
+        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_OUTCLK_SUM_ROW3" spirit:order="249">no_CLK_OUT3_output</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="STRING">
         <spirit:name>C_OUTCLK_SUM_ROW4</spirit:name>
@@ -2950,7 +2856,7 @@
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="STRING">
         <spirit:name>C_MMCM_CLKOUT2_DIVIDE</spirit:name>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_MMCM_CLKOUT2_DIVIDE" spirit:order="310">19</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_MMCM_CLKOUT2_DIVIDE" spirit:order="310">1</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="STRING">
         <spirit:name>C_MMCM_CLKOUT3_DIVIDE</spirit:name>
@@ -4151,7 +4057,7 @@
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>CLKOUT3_USED</spirit:name>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.CLKOUT3_USED" spirit:order="30" spirit:configGroups="0 NoDisplay">true</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.CLKOUT3_USED" spirit:order="30" spirit:configGroups="0 NoDisplay">false</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>CLKOUT4_USED</spirit:name>
@@ -4171,7 +4077,7 @@
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>NUM_OUT_CLKS</spirit:name>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.NUM_OUT_CLKS" spirit:order="407" spirit:configGroups="0 NoDisplay" spirit:minimum="1" spirit:maximum="7" spirit:rangeType="long">3</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.NUM_OUT_CLKS" spirit:order="407" spirit:configGroups="0 NoDisplay" spirit:minimum="1" spirit:maximum="7" spirit:rangeType="long">2</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>CLK_OUT1_USE_FINE_PS_GUI</spirit:name>
@@ -4643,7 +4549,7 @@
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>MMCM_CLKOUT2_DIVIDE</spirit:name>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.MMCM_CLKOUT2_DIVIDE" spirit:order="145" spirit:configGroups="0 NoDisplay">19</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.MMCM_CLKOUT2_DIVIDE" spirit:order="145" spirit:configGroups="0 NoDisplay">1</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>MMCM_CLKOUT2_DUTY_CYCLE</spirit:name>

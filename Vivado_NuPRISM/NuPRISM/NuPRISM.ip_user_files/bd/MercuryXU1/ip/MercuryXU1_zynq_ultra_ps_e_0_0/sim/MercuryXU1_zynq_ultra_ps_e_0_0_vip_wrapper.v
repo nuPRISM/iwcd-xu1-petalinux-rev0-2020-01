@@ -489,7 +489,7 @@ assign pl_clk0 = pl_clk_t[0] ;
     .C_S_AXI_GP6_DATA_WIDTH(128),
     .C_FCLK_CLK0_FREQ(99.999001),
     .C_FCLK_CLK1_FREQ(49.999500),
-    .C_FCLK_CLK2_FREQ(100),
+    .C_FCLK_CLK2_FREQ(62.499374),
     .C_FCLK_CLK3_FREQ(100)
   ) inst (
     .MAXIGP0ARVALID(maxigp0_arvalid),

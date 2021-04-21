@@ -83,13 +83,8 @@ module system_top (
     inout logic POE_LVDS_TRIG_p,
     inout logic POE_LVDS_TRIG_n,
     inout logic PMT_BOOT,
-    inout logic B64_AF11AG11_p,
-    inout logic B64_AF11AG11_n,
-    inout logic B64_AG13AH13_p,
-    inout logic B64_AG13AH13_n,
     inout logic B64_AH11_PMT_RX,
     inout logic B64_AG9_PMT_TXRX,
-    inout logic IO_B64_AJ1,
 
     // Bank 65
     inout logic ADC_DATA0_DA0_p,
@@ -134,14 +129,6 @@ module system_top (
     inout logic ADC_DATA1_FCLK_n,
     inout logic LVDS_MEZZ_RJ45_CLK1_p,
     inout logic LVDS_MEZZ_RJ45_CLK1_n,
-    inout logic B65_LV_IO1,
-    inout logic B65_LV_IO2,
-    inout logic B65_LV_IO3,
-    inout logic B65_LV_IO4,
-    inout logic B65_LV_IO5,
-    inout logic B65_LV_IO6,
-    inout logic B65_AE13AF13_p,
-    inout logic B65_AE13AF13_n,
 
     // Bank 66
     (* mark_debug = "true" *) inout logic ADC_PDn,
@@ -174,52 +161,9 @@ module system_top (
     inout logic ADC_DATA2_DCLK_n,
     inout logic ADC_DATA2_FCLK_p,
     inout logic ADC_DATA2_FCLK_n,
-    inout logic B66_Y4Y3_p,
-    inout logic B66_Y4Y3_n,
-    inout logic B66_Y2Y1_p,
-    inout logic B66_Y2Y1_n,
-    inout logic B66_V1V2_p,
-    inout logic B66_V1V2_n,
-    inout logic B66_W2W1_p,
-    inout logic B66_W2W1_n,
-    inout logic B66_U2U3_p,
-    inout logic B66_U2U3_n,
-    inout logic B66_V7V6_p,
-    inout logic B66_V7V6_n,
-    inout logic B66_Y10N11_p,
-    inout logic B66_Y10N11_n,
-    inout logic B66_W6W7_p,
-    inout logic B66_W6W7_n,
-    inout logic B66_L17_AD10_U9_p,
-    inout logic B66_L17_AD10_V9_n,
-    inout logic B66_L18_AD2_T11_p,
-    inout logic B66_L18_AD2_U10_n,
 
     // Bank 48
     inout logic SPI_Switch_RDBK,
-    inout logic B48_B11_n,
-    inout logic B48_C12_p,
-    inout logic B47_A11_n,
-    inout logic B48_A12_p,
-    inout logic B48_A10_n,
-    inout logic B48_B10_p,
-    inout logic B48_C11_n,
-    inout logic B48_D11_p,
-    inout logic B48_D12_n,
-    inout logic B48_E12_p,
-    inout logic B48_D10_n,
-    inout logic B48_E10_p,
-    inout logic B48_F11_n,
-    inout logic B48_F12_p,
-    inout logic B48_GC_F10_n,
-    inout logic B48_K12_n,
-    inout logic B48_K13_p,
-    inout logic B48_G11_n,
-    inout logic B48_H12_p,
-    inout logic B48_H11_n,
-    inout logic B48_J12_p,
-    inout logic B48_J10_n,
-    inout logic B48_J11_p,
 
     // Bank 47
     inout logic SFP_TX_Fault,
@@ -237,33 +181,7 @@ module system_top (
     inout logic CLNR_nRST,
     inout logic CLNR_nINT,
     inout logic SFP_ModDet,
-    inout logic SFP_LOS,
-    inout logic B47_GC_F13_n,
-    inout logic B47_GC_G13_p,
-    inout logic B47_GC_E13_n,
-    inout logic B47_GC_E14_p,
-    inout logic B47_J15_n,
-    inout logic B47_K15_p,
-    inout logic B47_J14_n,
-    inout logic B47_K14_p,
-
-    // Bank 228
-    inout logic B228_MGT_REFCLK1_p,
-    inout logic B228_MGT_REFCLK1_n,
-    inout logic B228_MGT_REFCLK0_p,
-    inout logic B228_MGT_REFCLK0_n,
-
-    // Bank 229
-    inout logic LVDS_CLNR0_p,
-    inout logic LVDS_CLNR0_n,
-    inout logic B229_MGT_REFCLK1_p,
-    inout logic B229_MGT_REFCLK1_n,
-
-    // Bank 230 
-    inout logic B230_MGT_REFCLK1_p,
-    inout logic B230_MGT_REFCLK1_n,
-    inout logic B230_MGT_REFCLK0_p,
-    inout logic B230_MGT_REFCLK0_n
+    inout logic SFP_LOS
 
 );
 
@@ -280,6 +198,7 @@ module system_top (
 
     // ps
     (* mark_debug = "true" *) logic [19:0] Gpio;
+
     // LVDS output signals
     logic RJ45_LVDS_TRIG;
 
@@ -288,15 +207,11 @@ module system_top (
     // b66 SERDES
     parameter B66_SERDES_WIDTH = 8;
     (* mark_debug = "true" *) logic adc_b66_sample_clock;
-    logic adc_b66_pll_dclk_p;
-    logic adc_b66_pll_dclk_n;
     logic adc_b66_serdes_locked;
     logic [8 : 0] adc_b66_serdes_setDelay [B66_SERDES_WIDTH : 0];
     logic [B66_SERDES_WIDTH-1 : 0] adc_b66_serdata_diff_p; 
     logic [B66_SERDES_WIDTH-1 : 0] adc_b66_serdata_diff_n; 
     (* mark_debug = "true" *) logic [ADC_DATA_WIDTH-1 : 0] adc_b66_par_data [B66_SERDES_WIDTH-1 : 0];
-    logic adc_b66_mmcm_dclk_p;
-    logic adc_b66_mmcm_dclk_n;
 
     // b65 SERDES
     parameter B65_SERDES_WIDTH = 16;
@@ -306,23 +221,15 @@ module system_top (
     logic [B65_SERDES_WIDTH-1 : 0] adc_b65_serdata_diff_n;
     (* mark_debug = "true" *) logic [ADC_DATA_WIDTH-1 : 0] adc_b65_par_data [B65_SERDES_WIDTH-1 : 0];
     logic adc_b65_sample_clock;
-    logic adc_b65_mmcm_dclk_p;
-    logic adc_b65_mmcm_dclk_n;
-    (* mark_debug = "true" *) logic adc_b65_b64_mmcm_dclk;
-    logic adc_b65_b66_mmcm_dclk;
 
     // b64 SERDES
     parameter B64_SERDES_WIDTH = 16; // ADC3 (DA,DB) {4}, ADC4 (!DA) {6}
     (* mark_debug = "true" *) logic adc_b64_sample_clock;
-    logic adc_b64_pll_dclk_p;
-    logic adc_b64_pll_dclk_n;
     logic adc_b64_serdes_locked;
     logic [8 : 0] adc_b64_serdes_setDelay [B64_SERDES_WIDTH : 0];
     logic [B64_SERDES_WIDTH-1 : 0] adc_b64_serdata_diff_p; 
     logic [B64_SERDES_WIDTH-1 : 0] adc_b64_serdata_diff_n; 
     (* mark_debug = "true" *) logic [ADC_DATA_WIDTH-1 : 0] adc_b64_par_data [B64_SERDES_WIDTH-1 : 0];
-    logic adc_b64_mmcm_dclk_p;
-    logic adc_b64_mmcm_dclk_n;
 
     // SERDES parllel data
     (* mark_debug = "true" *) logic [1 : 0][ADC_DATA_WIDTH-1 : 0] adc0_da_pardata_j3;
@@ -438,9 +345,8 @@ module system_top (
 
     adc_sample_clk_gen serdes_clock_b65 (
         // Clock out ports
-        .clk_out1_62p5(adc_b64_sample_clock),
-        .clk_out2_62p5(adc_b65_sample_clock),
-        .clk_out3_62p5(adc_b66_sample_clock),
+        .clk_out1_62p5(adc_b65_sample_clock),
+        .clk_out2_62p5(),
 
         // Status and control signals
         .reset(1'b0),
@@ -451,11 +357,24 @@ module system_top (
         .clk_in1_n(ADC_DATA1_DCLK_n)
     );
 
+    adc_sample_clk_gen serdes_clock_b64_b66 (
+        // Clock out ports
+        .clk_out1_62p5(adc_b64_sample_clock),
+        .clk_out2_62p5(adc_b66_sample_clock),
+
+        // Status and control signals
+        .reset(1'b0),
+        .locked(),
+
+        // Clock in ports
+        .clk_in1_p(ADC_DATA4_DCLK_p),
+        .clk_in1_n(ADC_DATA4_DCLK_n)
+    );
+
     ///////////////////////////////////////////////////////////////////////////////////////////
     // b64 Serdes inst
     ///////////////////////////////////////////////////////////////////////////////////////////
 
-    // ADC3 (DA,DB) {4}, ADC4 (!DA) {6}
     always_comb
     begin
         for (integer i = 0; i <= B64_SERDES_WIDTH; i++)
@@ -497,10 +416,10 @@ module system_top (
         // Direct To the Chip Interface IO
         .fadcClkP_o(),
         .fadcClkN_o(),
-        .fadcFrameClkP_i(ADC_DATA3_FCLK_p),          // ADC Frame Clock, frame pattern is internal
-        .fadcFrameClkN_i(ADC_DATA3_FCLK_n),          // ADC Frame Clock
-        .fadcDataClkP_i(ADC_DATA3_DCLK_p),    // ADC DCLK, from MMCM
-        .fadcDataClkN_i(ADC_DATA3_DCLK_n),    // ADC DCLK, from MMCM
+        .fadcFrameClkP_i(ADC_DATA3_FCLK_p),     // ADC Frame Clock, frame pattern is internal
+        .fadcFrameClkN_i(ADC_DATA3_FCLK_n),     // ADC Frame Clock
+        .fadcDataClkP_i(ADC_DATA3_DCLK_p),      // ADC DCLK, from MMCM
+        .fadcDataClkN_i(ADC_DATA3_DCLK_n),      // ADC DCLK, from MMCM
         .serDataP_i(adc_b64_serdata_diff_p),    // ADC serial data array
         .serDataN_i(adc_b64_serdata_diff_n),    // ADC serial data array
 
