@@ -86,3 +86,9 @@
 !*.elf
 !*.bmm
 !*.xmp
+
+#########
+#Flow-generated
+#########
+NuPRISM/NuPRISM.cache/
+NuPRISM/NuPRISM.runs/
