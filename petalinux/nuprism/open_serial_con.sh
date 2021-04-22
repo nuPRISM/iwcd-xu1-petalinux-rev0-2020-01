@@ -1,1 +1,0 @@
-sudo putty /dev/ttyACM1 -serial -sercfg 115200,8,n,1,N

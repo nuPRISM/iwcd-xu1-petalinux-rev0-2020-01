@@ -5,7 +5,7 @@
 #include <linux/i2c-dev.h>
 #include <errno.h>
 
-#include "ina219-i2c.h"
+#include "24aa02e48-i2c.h"
 
 #define TO_BYTES(word)      {(uint8_t)(word >> 8), (uint8_t)(word & 0xFF)}
 #define TO_WORD(bytes)      (((uint16_t)bytes[0] << 8) | (uint16_t)bytes[1])
@@ -14,7 +14,7 @@
 // Static Definitions
 //////////////////////////////////////////////////////////////////////////////////
 
-static struct ina219_i2c_transfer
+static struct mac_24aa02e48_i2c_transfer
 {
     uint8_t i2c_address;
     uint8_t base_reg;
@@ -24,7 +24,7 @@ static struct ina219_i2c_transfer
 
 
 // Setting pointer resgister is a seperate function to allow for delayed reads
-static int ina219_i2c_set_pointer (int fd, struct ina219_i2c_transfer* pointer)
+static int mac_24aa02e48_i2c_set_pointer (int fd, struct mac_24aa02e48_i2c_transfer* pointer)
 {
     uint8_t sensor_addr = pointer->i2c_address >> 1;
 
@@ -41,7 +41,7 @@ static int ina219_i2c_set_pointer (int fd, struct ina219_i2c_transfer* pointer)
 
     if (ioctl(fd, I2C_RDWR, &msgset) < 0)
     {
-        perror("ioctl(I2C_RDWR) in ina219_i2c_set_pointer\n");
+        perror("ioctl(I2C_RDWR) in mac_24aa02e48_i2c_set_pointer\n");
         printf("ERR couldn't set pointer register: %s\n", strerror(errno));
         return -1;
     }
@@ -50,7 +50,7 @@ static int ina219_i2c_set_pointer (int fd, struct ina219_i2c_transfer* pointer)
 }
 
 
-static int ina219_i2c_read_transfer (int fd, struct ina219_i2c_transfer* request)
+static int mac_24aa02e48_i2c_read_transfer (int fd, struct mac_24aa02e48_i2c_transfer* request)
 {
     uint8_t sensor_addr = request->i2c_address >> 1;
     uint8_t data_buffer[2];
@@ -68,7 +68,7 @@ static int ina219_i2c_read_transfer (int fd, struct ina219_i2c_transfer* request
 
     if (ioctl(fd, I2C_RDWR, &msgset) < 0)
     {
-        perror("ioctl(I2C_RDWR) in ina219_read\n");
+        perror("ioctl(I2C_RDWR) in mac_24aa02e48_read\n");
         printf("ERR couldn't read: %s\n", strerror(errno));
         return -1;
     }
@@ -77,7 +77,7 @@ static int ina219_i2c_read_transfer (int fd, struct ina219_i2c_transfer* request
 }
 
 
-static int ina219_i2c_write_transfer (int fd, struct ina219_i2c_transfer* command)
+static int mac_24aa02e48_i2c_write_transfer (int fd, struct mac_24aa02e48_i2c_transfer* command)
 {
     uint8_t sensor_addr = command->i2c_address >> 1;
     _DEBUG("Address=0x%x, Register=0x%x\n", command->i2c_address, command->base_reg);
@@ -100,7 +100,7 @@ static int ina219_i2c_write_transfer (int fd, struct ina219_i2c_transfer* comman
 
     if (ioctl(fd, I2C_RDWR, &msgset) < 0)
     {
-        perror("ioctl(I2C_RDWR) in ina219_write\n");
+        perror("ioctl(I2C_RDWR) in mac_24aa02e48_write\n");
         printf("ERR couldn't write: %s\n", strerror(errno));
         return -1;
     }
@@ -114,19 +114,19 @@ static int ina219_i2c_write_transfer (int fd, struct ina219_i2c_transfer* comman
 // API functions
 //////////////////////////////////////////////////////////////////////////////////
 
-int ina219_read (int fd, uint8_t reg, uint16_t* data)
+int mac_24aa02e48_read (int fd, uint8_t reg, uint16_t* data)
 {
     uint8_t data_buffer[2];
-    struct ina219_i2c_transfer read = {
-        .i2c_address = INA219_LDO5_I2C_ADDRESS,
+    struct mac_24aa02e48_i2c_transfer read = {
+        .i2c_address = MAC_24AA02E48_I2C_ADDRESS,
         .base_reg = reg,
         .data = data_buffer,
         .bytes = 2,
     };
     int ret;
 
-    ret = ina219_i2c_set_pointer(fd, &read);
-    ret |= ina219_i2c_read_transfer(fd, &read);
+    ret = mac_24aa02e48_i2c_set_pointer(fd, &read);
+    ret |= mac_24aa02e48_i2c_read_transfer(fd, &read);
 
     if (ret == 0)
     {
@@ -137,16 +137,16 @@ int ina219_read (int fd, uint8_t reg, uint16_t* data)
 }
 
 
-int ina219_write (int fd, uint8_t reg, uint16_t data)
+int mac_24aa02e48_write (int fd, uint8_t reg, uint16_t data)
 {
     uint8_t data_buffer[2] = TO_BYTES(data);
 
-    struct ina219_i2c_transfer write = {
-        .i2c_address = INA219_LDO5_I2C_ADDRESS,
+    struct mac_24aa02e48_i2c_transfer write = {
+        .i2c_address = MAC_24AA02E48_I2C_ADDRESS,
         .base_reg = reg,
         .data = data_buffer,
         .bytes = 2,
     };
 
-    return ina219_i2c_write_transfer(fd, &write);
+    return mac_24aa02e48_i2c_write_transfer(fd, &write);
 }

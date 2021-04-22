@@ -1,0 +1,4 @@
+# NuPRISM Developemnt Xilinx Firmware Components
+
+This file contains the commands needed to build and run the petalinux image on the NuPRISM rev 1a mainboard.
+

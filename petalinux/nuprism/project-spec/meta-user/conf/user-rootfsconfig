@@ -16,3 +16,4 @@ CONFIG_pressure-sensor-i2c
 CONFIG_temperature-i2c
 CONFIG_humidity-i2c
 CONFIG_current-i2c
+CONFIG_eeprom-i2c
