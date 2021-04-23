@@ -46,7 +46,7 @@ static int max30205_i2c_read_transfer (int fd, struct max30205_i2c_transfer_s* r
 
     if (ioctl(fd, I2C_RDWR, &msgset) < 0)
     {
-        perror("ioctl(I2C_RDWR) in max30205_read\n");
+        perror("ioctl(I2C_RDWR) in max30205_i2c_read_transfer\n");
         printf("ERR couldn't read: %s\n", strerror(errno));
         return -1;
     }
@@ -76,14 +76,14 @@ static int max30205_i2c_write_transfer (int fd, struct max30205_i2c_transfer_s* 
         .nmsgs = 1,
     };
 
+    free(buffer);
+
     if (ioctl(fd, I2C_RDWR, &msgset) < 0)
     {
-        perror("ioctl(I2C_RDWR) in max30205_write\n");
+        perror("ioctl(I2C_RDWR) in max30205_i2c_write_transfer\n");
         printf("ERR couldn't write: %s\n", strerror(errno));
         return -1;
     }
-
-    free(buffer);
 
     return 0;
 }
