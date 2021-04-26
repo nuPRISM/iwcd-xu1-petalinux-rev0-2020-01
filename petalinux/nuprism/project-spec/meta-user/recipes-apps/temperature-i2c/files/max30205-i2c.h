@@ -22,7 +22,7 @@
 #include <fcntl.h>
 
 #define MAX30205_ARRAY_BASE       0x90  // First temperature sensor address
-#define MAX30205_SENSOR_COUNT     3
+#define MAX30205_SENSOR_COUNT     3     // Number of sensors 
 
 #define MAX30205_TEMP_REGISTER    0x00
 #define MAX30205_CONFIG_REGISTER  0x01

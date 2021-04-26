@@ -25,7 +25,7 @@ void print_usage()
     printf("\tread - Read a byte of data from a register (-r)\n");
     printf("\tget_temp - Read temperature registers\n");
     printf("\tget_pres - Read pressure registers\n");
-    printf("\tsuto - Test all functions\n");
+    printf("\tauto - Test all functions\n");
 }
 
 

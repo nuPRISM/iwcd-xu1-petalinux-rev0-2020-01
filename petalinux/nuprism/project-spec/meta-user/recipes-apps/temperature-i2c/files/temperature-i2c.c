@@ -15,18 +15,17 @@
 
 
 static uint16_t data;
-static uint8_t reg;
 static uint8_t sensor_no;
 
 
 void print_usage()
 {
-    printf("Pressure Sensor Test App - available commands:\n");
-    printf("\twrite - Write a byte of data (-d) to a register (-r)\n");
-    printf("\tread - Read a byte of data from a register (-r)\n");
-    printf("\twr_arr - Demonstrates how write can be used with arrays\n");
-    printf("\tre_arr - Demonstrates how read can be used with arrays\n");
-    printf("\tshow_temp - Read temperature registers\n");
+    printf("Temperature Sensor Test App - available commands:\n");
+    printf("\tshow_temp - Read temperature registers for all units.\n");
+    printf("\tshow_addr - Display the I2C address of the selected sensor.\n");
+    printf("\tget_config - Show the current configuration.\n");
+    printf("\tset_config - Set a new configuration for a selected sensor.\n");
+    printf("\tauto - Test all functions sequentially.\n");
 }
 
 
@@ -40,10 +39,6 @@ void get_opts(int argc, char **argv)
         {
             case 'd':
                 data = atoi(optarg);
-                break;
-
-            case 'r':
-                reg = atoi(optarg);
                 break;
 
             case 'n':
@@ -94,6 +89,30 @@ int main(int argc, char **argv)
             }
             printf("\n");
         }
+        else if (strcmp(argv[optind], "show_addr") == 0)
+        {
+            printf("I2C Address for sensor %d: 0x%X\n", sensor_no, 
+                    max30205_get_i2c_address(sensor_no));
+        }
+        else if (strcmp(argv[optind], "get_config") == 0)
+        {
+            uint8_t return_data;
+            ret = max30205_get_config(i2c_fd, sensor_no, &return_data);
+            printf("Config for sensor %d, 0x%X\n", sensor_no, return_data);
+        }
+        else if (strcmp(argv[optind], "set_config") == 0)
+        {
+            ret = max30205_set_config(i2c_fd, sensor_no, (uint8_t)data);
+            
+            if (ret == 0)
+            {
+                printf("Config for sensor %d, 0x%X\n", sensor_no, (uint8_t)data);
+            }
+            else
+            {
+                printf("Failed!\n");
+            }
+        }
         else if (strcmp(argv[optind], "auto") == 0)
         {
             float data;
@@ -125,7 +144,7 @@ int main(int argc, char **argv)
         {
             printf("Unrecognized cmd: %s\n", argv[optind]);
             print_usage();
-            ret = 1;
+            ret = -1;
         }
         close(i2c_fd);
         return ret;
@@ -134,6 +153,6 @@ int main(int argc, char **argv)
     {
         printf("No command specified!\n");
         print_usage();
-        return 1;
+        return -1;
     }
 }

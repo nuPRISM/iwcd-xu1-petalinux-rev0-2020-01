@@ -7,6 +7,8 @@
 
 #include "lps25hb-i2c.h"
 
+#define REGISTER_MAX 0x3B
+
 //////////////////////////////////////////////////////////////////////////////////
 // Static Definitions
 //////////////////////////////////////////////////////////////////////////////////
@@ -24,7 +26,7 @@ static struct lps25hb_i2c_transfer_s
 };
 
 // Primative hash map indicating which registers can be written to
-static bool valid_lps25hb_registers[59];
+static bool valid_lps25hb_registers[REGISTER_MAX];
 static bool lps25hb_registers_ready = false;
 
 /** 
@@ -63,6 +65,11 @@ static bool is_valid_lps25hb_register (uint8_t base_register, uint8_t register_o
 {
     for (uint8_t reg = base_register; (reg - base_register) < register_offset; reg++)
     {
+        // Ensure register is in range
+        if (reg > REGISTER_MAX)
+        {
+            return false;
+        }
         if (!valid_lps25hb_registers[reg])
         {
             return false;
@@ -153,14 +160,14 @@ static int lps25hb_i2c_write_transfer (int fd, struct lps25hb_i2c_transfer_s* co
         .nmsgs = 1,
     };
 
+    free(buffer);
+
     if (ioctl(fd, I2C_RDWR, &msgset) < 0)
     {
         perror("ioctl(I2C_RDWR) in lps25hb_i2c_write_transfer\n");
         printf("ERR couldn't write: %s\n", strerror(errno));
         return -1;
     }
-
-    free(buffer);
 
     return 0;
 }
@@ -231,12 +238,14 @@ int lps25hb_wait_for_status_ok (int fd, uint8_t status_bit, bool* status)
     uint8_t odr;
     uint32_t data_rate;
     uint8_t register_data;
+    // First get the current output data rate (ODR) to determine the time to measure
     struct lps25hb_i2c_transfer_s read_odr = {
         .base_register = LPS25HB_CONFIG_REGISTER_1,
         .data = &odr,
         .bytes = 1,
         .auto_increment = false,
     };
+    // Read status register to determine when data is ready
     struct lps25hb_i2c_transfer_s status_reg = {
         .base_register = lps25hb_status_register,
         .data = &register_data,
