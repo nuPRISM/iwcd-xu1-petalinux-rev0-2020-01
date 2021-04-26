@@ -175,17 +175,17 @@ int main(int argc, char **argv)
         }
         else if (strcmp(argv[optind], "tst0") == 0)
         {
-            uint8_t patterns[4] = {ADC_TP_ALTERNATE};
+            uint8_t patterns[4] = {ADC_TP_ALTERNATE, ADC_TP_ZERO, ADC_TP_ZERO, ADC_TP_ZERO};
             ret = adc_set_test_pattern(spi_fd, adc_num, patterns, 0);
         }
         else if (strcmp(argv[optind], "tst1") == 0)
         {
-            uint8_t patterns[4] = {ADC_TP_ZERO};
+            uint8_t patterns[4] = {ADC_TP_ZERO, ADC_TP_ZERO, ADC_TP_ZERO, ADC_TP_ZERO};
             ret = adc_set_test_pattern(spi_fd, adc_num, patterns, 0);
         }
         else if (strcmp(argv[optind], "tst2") == 0)
         {
-            uint8_t patterns[4] = {ADC_TP_ONES};
+            uint8_t patterns[4] = {ADC_TP_ONES, ADC_TP_ONES, ADC_TP_ONES, ADC_TP_ONES};
             ret = adc_set_test_pattern(spi_fd, adc_num, patterns, 0);
         } 
         else

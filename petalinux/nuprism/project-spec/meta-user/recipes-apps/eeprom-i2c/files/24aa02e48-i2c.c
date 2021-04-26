@@ -27,6 +27,7 @@ static struct mac_24aa02e48_i2c_transfer
 static int mac_24aa02e48_i2c_set_pointer (int fd, struct mac_24aa02e48_i2c_transfer* pointer)
 {
     uint8_t sensor_addr = pointer->i2c_address >> 1;
+    int status;
 
     struct i2c_msg msg = {
         .addr = sensor_addr,
@@ -39,21 +40,22 @@ static int mac_24aa02e48_i2c_set_pointer (int fd, struct mac_24aa02e48_i2c_trans
         .nmsgs = 1,
     };
 
-    if (ioctl(fd, I2C_RDWR, &msgset) < 0)
+    status = ioctl(fd, I2C_RDWR, &msgset);
+
+    if (status < 0)
     {
-        perror("ioctl(I2C_RDWR) in mac_24aa02e48_i2c_set_pointer\n");
-        printf("ERR couldn't set pointer register: %s\n", strerror(errno));
-        return -1;
+        perror("ioctl(I2C_RDWR) in ina219_write\n");
+        printf("ERR couldn't write: %s\n", strerror(errno));
     }
 
-    return 0;
+    return status;
 }
 
 
 static int mac_24aa02e48_i2c_read_transfer (int fd, struct mac_24aa02e48_i2c_transfer* request)
 {
     uint8_t sensor_addr = request->i2c_address >> 1;
-    uint8_t data_buffer[2];
+    int status;
 
     struct i2c_msg msg = {
         .addr = sensor_addr,
@@ -66,21 +68,23 @@ static int mac_24aa02e48_i2c_read_transfer (int fd, struct mac_24aa02e48_i2c_tra
         .nmsgs = 1,
     };
 
-    if (ioctl(fd, I2C_RDWR, &msgset) < 0)
+    status = ioctl(fd, I2C_RDWR, &msgset);
+
+    if (status < 0)
     {
-        perror("ioctl(I2C_RDWR) in mac_24aa02e48_read\n");
-        printf("ERR couldn't read: %s\n", strerror(errno));
-        return -1;
+        perror("ioctl(I2C_RDWR) in ina219_write\n");
+        printf("ERR couldn't write: %s\n", strerror(errno));
     }
 
-    return 0;
+    return status;
 }
 
 
 static int mac_24aa02e48_i2c_write_transfer (int fd, struct mac_24aa02e48_i2c_transfer* command)
 {
-    uint8_t sensor_addr = command->i2c_address >> 1;
     _DEBUG("Address=0x%x, Register=0x%x\n", command->i2c_address, command->base_reg);
+    uint8_t sensor_addr = command->i2c_address >> 1;
+    int status;
 
     uint8_t* buffer = (uint8_t*)malloc((command->bytes + 1) * sizeof(uint8_t));
 
@@ -98,54 +102,47 @@ static int mac_24aa02e48_i2c_write_transfer (int fd, struct mac_24aa02e48_i2c_tr
         .nmsgs = 1,
     };
 
-    if (ioctl(fd, I2C_RDWR, &msgset) < 0)
-    {
-        perror("ioctl(I2C_RDWR) in mac_24aa02e48_write\n");
-        printf("ERR couldn't write: %s\n", strerror(errno));
-        return -1;
-    }
+    status = ioctl(fd, I2C_RDWR, &msgset);
 
     free(buffer);
 
-    return 0;
+    if (status < 0)
+    {
+        perror("ioctl(I2C_RDWR) in ina219_write\n");
+        printf("ERR couldn't write: %s\n", strerror(errno));
+    }
+
+    return status;
 }
 
 //////////////////////////////////////////////////////////////////////////////////
 // API functions
 //////////////////////////////////////////////////////////////////////////////////
 
-int mac_24aa02e48_read (int fd, uint8_t reg, uint16_t* data)
+int mac_24aa02e48_read (int fd, uint8_t reg, uint8_t* data)
 {
-    uint8_t data_buffer[2];
     struct mac_24aa02e48_i2c_transfer read = {
         .i2c_address = MAC_24AA02E48_I2C_ADDRESS,
         .base_reg = reg,
-        .data = data_buffer,
-        .bytes = 2,
+        .data = data,
+        .bytes = 1,
     };
     int ret;
 
     ret = mac_24aa02e48_i2c_set_pointer(fd, &read);
     ret |= mac_24aa02e48_i2c_read_transfer(fd, &read);
 
-    if (ret == 0)
-    {
-        *data = TO_WORD(data_buffer);
-    }
-
     return ret;
 }
 
 
-int mac_24aa02e48_write (int fd, uint8_t reg, uint16_t data)
+int mac_24aa02e48_write (int fd, uint8_t reg, uint8_t data)
 {
-    uint8_t data_buffer[2] = TO_BYTES(data);
-
     struct mac_24aa02e48_i2c_transfer write = {
         .i2c_address = MAC_24AA02E48_I2C_ADDRESS,
         .base_reg = reg,
-        .data = data_buffer,
-        .bytes = 2,
+        .data = &data,
+        .bytes = 1,
     };
 
     return mac_24aa02e48_i2c_write_transfer(fd, &write);

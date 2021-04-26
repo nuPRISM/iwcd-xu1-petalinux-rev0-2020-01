@@ -54,6 +54,7 @@ static int ina219_i2c_read_transfer (int fd, struct ina219_i2c_transfer* request
 {
     uint8_t sensor_addr = request->i2c_address >> 1;
     uint8_t data_buffer[2];
+    int status;
 
     struct i2c_msg msg = {
         .addr = sensor_addr,
@@ -66,21 +67,23 @@ static int ina219_i2c_read_transfer (int fd, struct ina219_i2c_transfer* request
         .nmsgs = 1,
     };
 
-    if (ioctl(fd, I2C_RDWR, &msgset) < 0)
+    status = ioctl(fd, I2C_RDWR, &msgset);
+
+    if (status < 0)
     {
-        perror("ioctl(I2C_RDWR) in ina219_read\n");
-        printf("ERR couldn't read: %s\n", strerror(errno));
-        return -1;
+        perror("ioctl(I2C_RDWR) in ina219_write\n");
+        printf("ERR couldn't write: %s\n", strerror(errno));
     }
 
-    return 0;
+    return status;
 }
 
 
 static int ina219_i2c_write_transfer (int fd, struct ina219_i2c_transfer* command)
 {
-    uint8_t sensor_addr = command->i2c_address >> 1;
     _DEBUG("Address=0x%x, Register=0x%x\n", command->i2c_address, command->base_reg);
+    uint8_t sensor_addr = command->i2c_address >> 1;
+    int status;
 
     uint8_t* buffer = (uint8_t*)malloc((command->bytes + 1) * sizeof(uint8_t));
 
@@ -98,16 +101,17 @@ static int ina219_i2c_write_transfer (int fd, struct ina219_i2c_transfer* comman
         .nmsgs = 1,
     };
 
-    if (ioctl(fd, I2C_RDWR, &msgset) < 0)
-    {
-        perror("ioctl(I2C_RDWR) in ina219_write\n");
-        printf("ERR couldn't write: %s\n", strerror(errno));
-        return -1;
-    }
+    status = ioctl(fd, I2C_RDWR, &msgset);
 
     free(buffer);
 
-    return 0;
+    if (status < 0)
+    {
+        perror("ioctl(I2C_RDWR) in ina219_write\n");
+        printf("ERR couldn't write: %s\n", strerror(errno));
+    }
+
+    return status;
 }
 
 //////////////////////////////////////////////////////////////////////////////////

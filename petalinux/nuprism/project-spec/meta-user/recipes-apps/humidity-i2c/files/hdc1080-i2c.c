@@ -52,6 +52,7 @@ static void hdc1080_usleep (enum resolution res)
 static int hdc1080_i2c_set_pointer (int fd, struct hdc1080_i2c_transfer* pointer)
 {
     uint8_t sensor_addr = HDC1080_I2C_ADDRESS >> 1;
+    int status;
 
     struct i2c_msg msg = {
         .addr = sensor_addr,
@@ -64,14 +65,15 @@ static int hdc1080_i2c_set_pointer (int fd, struct hdc1080_i2c_transfer* pointer
         .nmsgs = 1,
     };
 
-    if (ioctl(fd, I2C_RDWR, &msgset) < 0)
+    status = ioctl(fd, I2C_RDWR, &msgset);
+
+    if (status < 0)
     {
-        perror("ioctl(I2C_RDWR) in hdc1080_i2c_set_pointer\n");
-        printf("ERR couldn't set pointer register: %s\n", strerror(errno));
-        return -1;
+        perror("ioctl(I2C_RDWR) in ina219_write\n");
+        printf("ERR couldn't write: %s\n", strerror(errno));
     }
 
-    return 0;
+    return status;
 }
 
 
@@ -79,6 +81,7 @@ static int hdc1080_i2c_read_transfer (int fd, struct hdc1080_i2c_transfer* reque
 {
     uint8_t sensor_addr = HDC1080_I2C_ADDRESS >> 1;
     uint8_t data_buffer[2];
+    int status;
 
     struct i2c_msg msg = {
         .addr = sensor_addr,
@@ -91,21 +94,23 @@ static int hdc1080_i2c_read_transfer (int fd, struct hdc1080_i2c_transfer* reque
         .nmsgs = 1,
     };
 
-    if (ioctl(fd, I2C_RDWR, &msgset) < 0)
+    status = ioctl(fd, I2C_RDWR, &msgset);
+
+    if (status < 0)
     {
-        perror("ioctl(I2C_RDWR) in hdc1080_read\n");
-        printf("ERR couldn't read: %s\n", strerror(errno));
-        return -1;
+        perror("ioctl(I2C_RDWR) in ina219_write\n");
+        printf("ERR couldn't write: %s\n", strerror(errno));
     }
 
-    return 0;
+    return status;
 }
 
 
 static int hdc1080_i2c_write_transfer (int fd, struct hdc1080_i2c_transfer* command)
 {
-    uint8_t sensor_addr = HDC1080_I2C_ADDRESS >> 1;
     _DEBUG("Address=0x%x, Register=0x%x\n", HDC1080_I2C_ADDRESS, command->base_reg);
+    uint8_t sensor_addr = HDC1080_I2C_ADDRESS >> 1;
+    int status;
 
     uint8_t* buffer = (uint8_t*)malloc((command->bytes + 1) * sizeof(uint8_t));
 
@@ -123,16 +128,17 @@ static int hdc1080_i2c_write_transfer (int fd, struct hdc1080_i2c_transfer* comm
         .nmsgs = 1,
     };
 
-    if (ioctl(fd, I2C_RDWR, &msgset) < 0)
-    {
-        perror("ioctl(I2C_RDWR) in hdc1080_write\n");
-        printf("ERR couldn't write: %s\n", strerror(errno));
-        return -1;
-    }
+    status = ioctl(fd, I2C_RDWR, &msgset);
 
     free(buffer);
 
-    return 0;
+    if (status < 0)
+    {
+        perror("ioctl(I2C_RDWR) in ina219_write\n");
+        printf("ERR couldn't write: %s\n", strerror(errno));
+    }
+
+    return status;
 }
 
 //////////////////////////////////////////////////////////////////////////////////

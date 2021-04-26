@@ -20,12 +20,12 @@ static uint8_t reg;
 
 void print_usage()
 {
-    printf("Pressure Sensor Test App - available commands:\n");
+    printf("Humidity Sensor Test App - available commands:\n");
     printf("\twrite - Write a byte of data (-d) to a register (-r)\n");
     printf("\tread - Read a byte of data from a register (-r)\n");
     printf("\tget_temp - Read temperature registers, mode must be set correctly\n");
     printf("\tget_hum - Read humidity registers, mode must be set correctly\n");
-    printf("\tget_al - Read both temperature and humidity registers, mode must be set correctly\n");
+    printf("\tget_all - Read both temperature and humidity registers, mode must be set correctly\n");
     printf("\tset_mode - Demonstrate multi-byte transfer, writes 4 hard-coded bytes to ctrl regs\n");
     printf("\tget_mode - Demonstrate multi-byte transfer, reads from ctrl regs\n");
 }

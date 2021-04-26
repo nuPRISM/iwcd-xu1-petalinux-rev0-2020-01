@@ -292,11 +292,11 @@ module system_top (
     // spi (must correctly set in ps)
     assign ADC_PDn = Gpio[6];
     assign ADC_RESET = Gpio[5];
-    assign ADC_SEN4 = Gpio[4] || adc_ss_in;
-    assign ADC_SEN3 = Gpio[3] || adc_ss_in;
-    assign ADC_SEN2 = Gpio[2] || adc_ss_in;
-    assign ADC_SEN1 = Gpio[1] || adc_ss_in;
-    assign ADC_SEN0 = Gpio[0] || adc_ss_in;
+    assign ADC_SEN4 = Gpio[4] && adc_ss_in;
+    assign ADC_SEN3 = Gpio[3] && adc_ss_in;
+    assign ADC_SEN2 = Gpio[2] && adc_ss_in;
+    assign ADC_SEN1 = Gpio[1] && adc_ss_in;
+    assign ADC_SEN0 = Gpio[0] && adc_ss_in;
 
     ///////////////////////////////////////////////////////////////////////////////////////////
     // RJ45 Trigger

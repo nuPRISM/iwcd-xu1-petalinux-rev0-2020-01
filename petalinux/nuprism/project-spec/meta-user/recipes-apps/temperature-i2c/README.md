@@ -1,6 +1,7 @@
 # MAX30205 Temperature Sensor I2C Test
 
-### Usage
+## Usage
+
 Temperature Sensor Test App - available commands:
 `show_temp` - Read temperature registers for all units.
 `show_addr` - Display the I2C address of the selected sensor.
@@ -8,11 +9,13 @@ Temperature Sensor Test App - available commands:
 `set_config` - Set a new configuration for a selected sensor.
 `auto` - Test all functions sequentially.
 
-### Arguments
+## Arguments
+
 `-d` Data to write
 `-n` Sensor number
 
-### Examples 
+## Examples
+
 - Show temperature reading for each sensor
 `temperature-i2c show_temp`
 - Test all functions sequentially

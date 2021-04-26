@@ -2,7 +2,7 @@ APP = clock-cleaner-i2c
 
 # Add any other object files to this list below
 APP_OBJS = clock-cleaner-i2c.o
-APP_OBJS += idt8T49n241-i2c.o
+APP_OBJS += idt8t49n241-i2c.o
 
 all: build
 

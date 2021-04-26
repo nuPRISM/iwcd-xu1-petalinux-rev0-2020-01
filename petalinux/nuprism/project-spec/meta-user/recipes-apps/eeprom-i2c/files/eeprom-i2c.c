@@ -6,7 +6,7 @@
 #include "24aa02e48-i2c.h"
 
 
-static uint16_t data;
+static uint8_t data;
 static uint8_t reg;
 
 
@@ -65,11 +65,14 @@ int main(int argc, char **argv)
     {
         if (strcmp(argv[optind], "write") == 0)
         {
+            printf("Register: 0x%x\n", reg);
+            printf("Data: 0x%x\n", data);
             ret = mac_24aa02e48_write(i2c_fd, reg, data);
         }
         else if (strcmp(argv[optind], "read") == 0)
         {
-            uint16_t return_data = 0xCCCC;
+            uint8_t return_data = 0xCC;
+            printf("Register: 0x%x\n", reg);
             ret = mac_24aa02e48_read(i2c_fd, reg, &return_data);
             printf("Returned data=0x%x\n", return_data);
         }

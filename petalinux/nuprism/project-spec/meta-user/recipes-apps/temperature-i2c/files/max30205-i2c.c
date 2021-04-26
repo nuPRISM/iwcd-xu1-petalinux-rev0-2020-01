@@ -33,6 +33,7 @@ static int max30205_i2c_read_transfer (int fd, struct max30205_i2c_transfer_s* r
 {
     uint8_t sensor_addr = MAX30205_ADDRESS(request->sensor_index);
     uint8_t pointer_register = request->base_register;
+    int status;
     _DEBUG("Address=0x%x, Register=0x%x\n", sensor_addr << 1, reg);
 
     struct i2c_msg msgs[2] = {
@@ -44,14 +45,15 @@ static int max30205_i2c_read_transfer (int fd, struct max30205_i2c_transfer_s* r
         .nmsgs = 2,
     };
 
-    if (ioctl(fd, I2C_RDWR, &msgset) < 0)
+    status = ioctl(fd, I2C_RDWR, &msgset);
+
+    if (status < 0)
     {
-        perror("ioctl(I2C_RDWR) in max30205_i2c_read_transfer\n");
-        printf("ERR couldn't read: %s\n", strerror(errno));
-        return -1;
+        perror("ioctl(I2C_RDWR) in ina219_write\n");
+        printf("ERR couldn't write: %s\n", strerror(errno));
     }
 
-    return 0;
+    return status;
 }
 
 
@@ -59,6 +61,7 @@ static int max30205_i2c_write_transfer (int fd, struct max30205_i2c_transfer_s* 
 {
     uint8_t sensor_addr = MAX30205_ADDRESS(command->sensor_index);
     uint8_t* buffer = (uint8_t*)malloc((command->bytes + 1) * sizeof(uint8_t));
+    int status;
 
     buffer[0] = command->base_register;
     memcpy(buffer+1, command->data, command->bytes * sizeof(uint8_t));
@@ -76,16 +79,17 @@ static int max30205_i2c_write_transfer (int fd, struct max30205_i2c_transfer_s* 
         .nmsgs = 1,
     };
 
+    status = ioctl(fd, I2C_RDWR, &msgset);
+
     free(buffer);
 
-    if (ioctl(fd, I2C_RDWR, &msgset) < 0)
+    if (status < 0)
     {
-        perror("ioctl(I2C_RDWR) in max30205_i2c_write_transfer\n");
+        perror("ioctl(I2C_RDWR) in ina219_write\n");
         printf("ERR couldn't write: %s\n", strerror(errno));
-        return -1;
     }
 
-    return 0;
+    return status;
 }
 
 //////////////////////////////////////////////////////////////////////////////////

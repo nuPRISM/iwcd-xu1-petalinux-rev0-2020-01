@@ -90,6 +90,7 @@ static int lps25hb_i2c_read_transfer (int fd, struct lps25hb_i2c_transfer_s* req
 {
     uint8_t slave_addr = (uint8_t)(LPS25HB_I2C_ADDRESS >> 1);
     uint8_t reg = request->base_register;
+    int status;
 
     if (request->auto_increment)
     {
@@ -105,14 +106,15 @@ static int lps25hb_i2c_read_transfer (int fd, struct lps25hb_i2c_transfer_s* req
         .nmsgs = 2,
     };
 
-    if (ioctl(fd, I2C_RDWR, &msgset) < 0)
+    status = ioctl(fd, I2C_RDWR, &msgset);
+
+    if (status < 0)
     {
-        perror("ioctl(I2C_RDWR) in lps25hb_i2c_read_transfer\n");
-        printf("ERR couldn't read: %s\n", strerror(errno));
-        return -1;
+        perror("ioctl(I2C_RDWR) in ina219_write\n");
+        printf("ERR couldn't write: %s\n", strerror(errno));
     }
 
-    return 0;
+    return status;
 }
 
 /**
@@ -125,6 +127,7 @@ static int lps25hb_i2c_read_transfer (int fd, struct lps25hb_i2c_transfer_s* req
 static int lps25hb_i2c_write_transfer (int fd, struct lps25hb_i2c_transfer_s* command)
 {
     uint8_t slave_addr = (uint8_t)(LPS25HB_I2C_ADDRESS >> 1);
+    int status;
 
     // Check registers are valid to write to 
     if (!lps25hb_registers_ready)
@@ -160,16 +163,17 @@ static int lps25hb_i2c_write_transfer (int fd, struct lps25hb_i2c_transfer_s* co
         .nmsgs = 1,
     };
 
+    status = ioctl(fd, I2C_RDWR, &msgset);
+
     free(buffer);
 
-    if (ioctl(fd, I2C_RDWR, &msgset) < 0)
+    if (status < 0)
     {
-        perror("ioctl(I2C_RDWR) in lps25hb_i2c_write_transfer\n");
+        perror("ioctl(I2C_RDWR) in ina219_write\n");
         printf("ERR couldn't write: %s\n", strerror(errno));
-        return -1;
     }
 
-    return 0;
+    return status;
 }
 
 //////////////////////////////////////////////////////////////////////////////////

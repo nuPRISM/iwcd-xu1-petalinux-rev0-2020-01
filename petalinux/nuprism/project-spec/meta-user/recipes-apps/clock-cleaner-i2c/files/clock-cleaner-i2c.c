@@ -4,12 +4,11 @@
 #include <string.h>
 #include <unistd.h>
 
-#include "idt8T49n241-i2c.h"
+#include "idt8t49n241-i2c.h"
 
 static uint8_t data;
 static uint16_t reg;
 static uint16_t bytes;
-static bool mode;
 
 
 void print_usage()
@@ -17,11 +16,11 @@ void print_usage()
     printf("Clock cleaner Test App - available commands:\n");
     printf("\twrite - Write a byte of data (-d) to a register (-r)\n");
     printf("\tread - Read a byte of data from a register (-r)\n");
-    printf("\tinit - Program the clock cleaner unit");
-    printf("\tstart - Enable the clock cleaner (default)");
-    printf("\tstop - Disable the clock cleaner");
-    printf("\tstatus - Read status flags");
-    printf("\tid - Read clock cleaner identification");
+    printf("\tinit - Program the clock cleaner unit\n");
+    printf("\tstart - Enable the clock cleaner (default)\n");
+    printf("\tstop - Disable the clock cleaner\n");
+    printf("\tstatus - Read status flags\n");
+    printf("\tid - Read clock cleaner identification\n");
 }
 
 
@@ -39,10 +38,6 @@ void get_opts(int argc, char **argv)
 
             case 'r':
                 reg = atoi(optarg);
-                break;
-
-            case 'm':
-                mode = atoi(optarg);
                 break;
 
             case 'b':
@@ -99,6 +94,7 @@ int main(int argc, char **argv)
                 printf("%x, ", return_data[i]);
             }
             printf("\n");
+            free(return_data);
         }
         else if (strcmp(argv[optind], "init") == 0) 
         {
@@ -137,10 +133,6 @@ int main(int argc, char **argv)
             {
                 printf("CLC/I2C error\n");
             }
-        }
-        else if (strcmp(argv[optind], "auto") == 0)
-        {
-            // test all functions
         }
         else
         {

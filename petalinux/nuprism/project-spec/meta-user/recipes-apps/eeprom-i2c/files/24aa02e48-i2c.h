@@ -7,7 +7,7 @@
 #include <string.h>
 #include <fcntl.h>
 
-#define MAC_24AA02E48_I2C_ADDRESS 0xA1
+#define MAC_24AA02E48_I2C_ADDRESS 0xA2
 
 // I2C_DEVICE is defined the same in each sensor header
 #ifndef I2C_DEVICE
@@ -23,24 +23,10 @@
   #endif // DEBUG
 #endif // _DEBUG
 
-/**
- * @brief Read a word of data from a register of the HDC1080
- * 
- * @param fd        File descriptor for the I2C bus 
- * @param reg       Register to read from
- * @param data      Returned data
- * @return int      Status, zero on success
- */
-int mac_24aa02e48_read (int fd, uint8_t reg, uint16_t* data);
 
-/**
- * @brief 
- * 
- * @param fd        File descriptor for the I2C bus 
- * @param reg       Register to write to
- * @param data      Data to write 
- * @return int      Status, zero on success
- */
-int mac_24aa02e48_write (int fd, uint8_t reg, uint16_t data);
+int mac_24aa02e48_read (int fd, uint8_t reg, uint8_t* data);
+
+
+int mac_24aa02e48_write (int fd, uint8_t reg, uint8_t data);
 
 #endif // _24AA02E48_I2C_H_
