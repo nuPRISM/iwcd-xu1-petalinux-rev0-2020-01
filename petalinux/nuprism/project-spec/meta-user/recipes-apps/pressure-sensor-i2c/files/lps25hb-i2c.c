@@ -236,7 +236,7 @@ int lps25hb_array_write (int fd, uint8_t base_reg, uint8_t* data, uint8_t bytes)
 }
 
 
-int lps25hb_wait_for_status_ok (int fd, uint8_t status_bit, bool* status)
+int lps25hb_wait_for_status_ok (int fd, uint8_t status_bit, bool* status_ready)
 {
     uint8_t lps25hb_status_register = 0x27;
     uint8_t odr;
@@ -256,12 +256,12 @@ int lps25hb_wait_for_status_ok (int fd, uint8_t status_bit, bool* status)
         .bytes = 1,
         .auto_increment = false,
     };
-    int ret = lps25hb_i2c_read_transfer(fd, &read_odr);
+    int status = lps25hb_i2c_read_transfer(fd, &read_odr);
 
-    if (ret != 0)
+    if (status < 0)
     {
         printf("Failed to read odr configuration.\n");
-        return ret;
+        return status;
     }
 
     odr = (*(read_odr.data) & 0x7F) >> 4;
@@ -289,23 +289,23 @@ int lps25hb_wait_for_status_ok (int fd, uint8_t status_bit, bool* status)
         break;
     }
 
-    *status = false;
+    *status_ready = false;
 
     // Check once, if not available, wait datasheet specifed delay and check once more before exiting 
-    ret = lps25hb_i2c_read_transfer(fd, &status_reg);
+    status = lps25hb_i2c_read_transfer(fd, &status_reg);
 
-    *status = ((register_data & status_bit) > 0) ? true : false;
+    *status_ready = ((register_data & status_bit) > 0) ? true : false;
 
-    if (*status == false || ret != 0)
+    if (*status_ready == false || status < 0)
     {
         usleep(data_rate);
         
-        ret = lps25hb_i2c_read_transfer(fd, &status_reg);
+        status = lps25hb_i2c_read_transfer(fd, &status_reg);
 
-        *status = ((register_data & status_bit) > 0) ? true : false;
+        *status_ready = ((register_data & status_bit) > 0) ? true : false;
     }
 
-    return ret;
+    return status;
 }
 
 
@@ -320,20 +320,20 @@ int get_pressure (int fd, float* pressure)
         .bytes = 3,
         .auto_increment = true,
     };
-    int ret;
+    int status;
     bool measure_ready;
 
-    ret = lps25hb_wait_for_status_ok(fd, LPS25HB_STATUS_P_DA, &measure_ready);
+    status = lps25hb_wait_for_status_ok(fd, LPS25HB_STATUS_P_DA, &measure_ready);
 
-    if (ret != 0 || measure_ready != true)
+    if (status < 0 || measure_ready != true)
     {
         printf("Failed to read pressure.\n");
-        return ret;
+        return status;
     }
 
-    ret = lps25hb_i2c_read_transfer(fd, &read_pressure);
+    status = lps25hb_i2c_read_transfer(fd, &read_pressure);
 
-    if (ret == 0)
+    if (status >= 0)
     {
         signed_data = (int)raw_pressure_data[2] << 16;
         signed_data |= (int)raw_pressure_data[1] << 8;
@@ -348,7 +348,7 @@ int get_pressure (int fd, float* pressure)
         *pressure = (float)signed_data / 4096.0F;
     }
 
-    return ret;
+    return status;
 }
 
 
@@ -363,20 +363,20 @@ int get_pressure_sensor_temp (int fd, float* temperature)
         .bytes = 2,
         .auto_increment = true,
     };
-    int ret;
+    int status;
     bool measure_ready;
 
-    ret = lps25hb_wait_for_status_ok(fd, LPS25HB_STATUS_T_DA, &measure_ready);
+    status = lps25hb_wait_for_status_ok(fd, LPS25HB_STATUS_T_DA, &measure_ready);
 
-    if (ret != 0 || measure_ready != true)
+    if (status < 0 || measure_ready != true)
     {
         printf("Failed to read temperature.\n");
-        return ret;
+        return status;
     }
 
-    ret = lps25hb_i2c_read_transfer(fd, &read_temperature);
+    status = lps25hb_i2c_read_transfer(fd, &read_temperature);
 
-    if (ret == 0)
+    if (status >= 0)
     {
         signed_data = (int)raw_temperature_data[1] << 8;
         signed_data |= (int)raw_temperature_data[0];
@@ -390,7 +390,7 @@ int get_pressure_sensor_temp (int fd, float* temperature)
         *temperature = ((float)signed_data / 480.0F) + 42.5F;
     }
 
-    return ret;
+    return status;
 }
 
 

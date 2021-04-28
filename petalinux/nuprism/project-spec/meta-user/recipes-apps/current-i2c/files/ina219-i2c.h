@@ -7,14 +7,6 @@
 #include <string.h>
 #include <fcntl.h>
 
-#define INA219_LDO5_I2C_ADDRESS 0x82
-#define INA219_LDO1_I2C_ADDRESS 0x84
-#define INA219_LDO3_I2C_ADDRESS 0x86
-#define INA219_LDO2_I2C_ADDRESS 0x88
-#define INA219_LDO6_I2C_ADDRESS 0x8A
-#define INA219_LDO4_I2C_ADDRESS 0x8C
-#define INA219_POE_I2C_ADDRESS  0x8E
-
 // I2C_DEVICE is defined the same in each sensor header
 #ifndef I2C_DEVICE
   #define I2C_DEVICE "/dev/i2c-0"
@@ -30,23 +22,35 @@
 #endif // _DEBUG
 
 /**
- * @brief Read a word of data from a register of the HDC1080
+ * @brief Struct containing shunt resistor and I2C address for each sensor
  * 
- * @param fd        File descriptor for the I2C bus 
- * @param reg       Register to read from
- * @param data      Returned data
- * @return int      Status, zero on success
  */
-int ina219_read (int fd, uint8_t reg, uint16_t* data);
+struct ina219_profile_s
+{
+    uint8_t i2c_address;
+    float shunt_resistor;
+};
 
 /**
- * @brief 
+ * @brief Read a single byte of data from a register of the INA219
  * 
- * @param fd        File descriptor for the I2C bus 
- * @param reg       Register to write to
- * @param data      Data to write 
- * @return int      Status, zero on success
+ * @param fd      File descriptor for the I2C bus
+ * @param unit    The sensor to interact with, contained resistor value and addr        
+ * @param reg     Register to read from
+ * @param data    Pointer to retunred data
+ * @return int    Status flag
  */
-int ina219_write (int fd, uint8_t reg, uint16_t data);
+int ina219_read (int fd, const struct ina219_profile_s unit, uint8_t reg, uint16_t* data);
+
+/**
+ * @brief Write a single byte of data to a register of the INA219
+ * 
+ * @param fd      File descriptor for the I2C bus
+ * @param unit    The sensor to interact with, contained resistor value and addr        
+ * @param reg     Register to write to
+ * @param data    Pointer to retunred data
+ * @return int    Status flag
+ */
+int ina219_write (int fd, const struct ina219_profile_s unit, uint8_t reg, uint16_t data);
 
 #endif // _INA219_I2C_H_

@@ -31,3 +31,6 @@
 *.exe
 *.out
 *.app
+
+# Folder created by vscode
+.vscode

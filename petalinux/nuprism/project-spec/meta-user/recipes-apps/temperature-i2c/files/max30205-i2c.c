@@ -111,11 +111,11 @@ int max30205_get_temp (int fd, uint8_t sensor_no, float* temperature)
         .data = raw_temperature_data,
         .bytes = 2
     };
-    int ret;
+    int status;
 
-    ret = max30205_i2c_read_transfer(fd, &get_temp);
+    status = max30205_i2c_read_transfer(fd, &get_temp);
 
-    if (ret == 0)
+    if (status >= 0)
     {
         *temperature = (float)(raw_temperature_data[0] << 8);
         *temperature += (float)(raw_temperature_data[1]);
@@ -123,7 +123,7 @@ int max30205_get_temp (int fd, uint8_t sensor_no, float* temperature)
         *temperature /= max30205_temperature_conversion;
     }
 
-    return ret;
+    return status;
 }
 
 
@@ -135,6 +135,7 @@ int max30205_get_config (int fd, uint8_t sensor_no, uint8_t* data)
         .data = data,
         .bytes = 1
     };
+
     return max30205_i2c_read_transfer(fd, &get_config);
 }
 
@@ -147,6 +148,7 @@ int max30205_set_config (int fd, uint8_t sensor_no, uint8_t data)
         .data = &data,
         .bytes = 1
     };
+
     return max30205_i2c_write_transfer(fd, &set_config);
 }
 
@@ -160,11 +162,11 @@ int max30205_get_t_hyst (int fd, uint8_t sensor_no, float* t_hyst)
         .data = raw_temperature_data,
         .bytes = 2
     };
-    int ret;
+    int status;
 
-    ret = max30205_i2c_read_transfer(fd, &get_t_hyst);
+    status = max30205_i2c_read_transfer(fd, &get_t_hyst);
 
-    if (ret == 0)
+    if (status >= 0)
     {
         *t_hyst = (float)(raw_temperature_data[0] << 8);
         *t_hyst += (float)(raw_temperature_data[1]);
@@ -172,7 +174,7 @@ int max30205_get_t_hyst (int fd, uint8_t sensor_no, float* t_hyst)
         *t_hyst /= max30205_temperature_conversion;
     }
 
-    return ret;
+    return status;
 }
 
 
@@ -200,11 +202,11 @@ int max30205_get_t_os (int fd, uint8_t sensor_no, float* t_os)
         .data = raw_temperature_data,
         .bytes = 2
     };
-    int ret;
+    int status;
 
-    ret = max30205_i2c_read_transfer(fd, &get_t_os);
+    status = max30205_i2c_read_transfer(fd, &get_t_os);
 
-    if (ret == 0)
+    if (status >= 0)
     {
         *t_os = (float)(raw_temperature_data[0] << 8);
         *t_os += (float)(raw_temperature_data[1]);
@@ -212,7 +214,7 @@ int max30205_get_t_os (int fd, uint8_t sensor_no, float* t_os)
         *t_os /= max30205_temperature_conversion;
     }
 
-    return ret;
+    return status;
 }
 
 

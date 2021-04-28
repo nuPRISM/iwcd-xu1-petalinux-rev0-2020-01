@@ -222,9 +222,6 @@
   "../../../bd/MercuryXU1/ip/MercuryXU1_xlconstant_4_0/sim/MercuryXU1_xlconstant_4_0.v" \
   "../../../bd/MercuryXU1/ip/MercuryXU1_xlconstant_5_0/sim/MercuryXU1_xlconstant_5_0.v" \
   "../../../bd/MercuryXU1/sim/MercuryXU1.v" \
-  "../../../bd/MercuryXU1/ip/MercuryXU1_system_ila_0_0/bd_0/ip/ip_0/sim/bd_6493_ila_lib_0.v" \
-  "../../../bd/MercuryXU1/ip/MercuryXU1_system_ila_0_0/bd_0/sim/bd_6493.v" \
-  "../../../bd/MercuryXU1/ip/MercuryXU1_system_ila_0_0/sim/MercuryXU1_system_ila_0_0.v" \
 -endlib
 -makelib ies_lib/axi_protocol_converter_v2_1_21 \
   "../../../../NuPRISM.srcs/sources_1/bd/MercuryXU1/ipshared/8dfa/hdl/axi_protocol_converter_v2_1_vl_rfs.v" \

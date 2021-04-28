@@ -119,7 +119,7 @@ static int mac_24aa02e48_i2c_write_transfer (int fd, struct mac_24aa02e48_i2c_tr
 // API functions
 //////////////////////////////////////////////////////////////////////////////////
 
-int mac_24aa02e48_read (int fd, uint8_t reg, uint8_t* data)
+int mac_24aa02e48_byte_read (int fd, uint8_t reg, uint8_t* data)
 {
     struct mac_24aa02e48_i2c_transfer read = {
         .i2c_address = MAC_24AA02E48_I2C_ADDRESS,
@@ -127,22 +127,72 @@ int mac_24aa02e48_read (int fd, uint8_t reg, uint8_t* data)
         .data = data,
         .bytes = 1,
     };
-    int ret;
+    int status;
 
-    ret = mac_24aa02e48_i2c_set_pointer(fd, &read);
-    ret |= mac_24aa02e48_i2c_read_transfer(fd, &read);
+    status = mac_24aa02e48_i2c_set_pointer(fd, &read);
 
-    return ret;
+    if (status < 0)
+    {
+        perror("Failed to set address pointer.\n");
+        return status;
+    }
+
+    status = mac_24aa02e48_i2c_read_transfer(fd, &read);
+
+    return status;
 }
 
 
-int mac_24aa02e48_write (int fd, uint8_t reg, uint8_t data)
+int mac_24aa02e48_byte_write (int fd, uint8_t reg, uint8_t data)
 {
     struct mac_24aa02e48_i2c_transfer write = {
         .i2c_address = MAC_24AA02E48_I2C_ADDRESS,
         .base_reg = reg,
         .data = &data,
         .bytes = 1,
+    };
+
+    return mac_24aa02e48_i2c_write_transfer(fd, &write);
+}
+
+
+int mac_24aa02e48_sequential_read (int fd, uint8_t reg_start, uint8_t* data, uint8_t bytes)
+{
+    struct mac_24aa02e48_i2c_transfer read = {
+        .i2c_address = MAC_24AA02E48_I2C_ADDRESS,
+        .base_reg = reg_start,
+        .data = data,
+        .bytes = bytes,
+    };
+    int status;
+
+    status = mac_24aa02e48_i2c_set_pointer(fd, &read);
+
+    if (status < 0)
+    {
+        perror("Failed to set address pointer.\n");
+        return status;
+    }
+
+    status = mac_24aa02e48_i2c_read_transfer(fd, &read);
+
+    return status;
+}
+
+
+int mac_24aa02e48_page_write (int fd, uint8_t reg_start, uint8_t* data, uint8_t bytes)
+{
+    if (bytes > 8)
+    {
+        perror("Byte array size exceeds maximum page size, exiting.\n");
+        return -1;
+    }
+
+    struct mac_24aa02e48_i2c_transfer write = {
+        .i2c_address = MAC_24AA02E48_I2C_ADDRESS,
+        .base_reg = reg_start,
+        .data = data,
+        .bytes = bytes,
     };
 
     return mac_24aa02e48_i2c_write_transfer(fd, &write);

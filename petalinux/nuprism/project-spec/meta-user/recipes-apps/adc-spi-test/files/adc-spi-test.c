@@ -3,7 +3,7 @@
 #include <string.h>
 #include <unistd.h>
 
-#include "adc-spi.h"
+#include "adc3424-spi.h"
 
 static uint32_t mode = SPI_CS_HIGH;
 static uint8_t  bits = 8;
@@ -96,16 +96,10 @@ void get_opts(int argc, char **argv)
 
 int main(int argc, char **argv)
 {
-    int ret = 0;
+    int status = 0;
     int spi_fd;
 
     get_opts(argc, argv);
-
-    // These values will be set by default
-    adc_set_mode(mode);
-    adc_set_bits(bits);
-    adc_set_speed(speed);
-    adc_set_delay(delay);
     
     // Open I2C device file, exit if not successful
     spi_fd = open(device_name, O_RDWR);
@@ -117,7 +111,7 @@ int main(int argc, char **argv)
 
     if (optind < argc)
     {
-        if (adc_spi_init(spi_fd) != 0)
+        if (adc3424_spi_init(spi_fd, mode, bits, speed, delay) != 0)
         {
             return -1;
         }
@@ -128,65 +122,64 @@ int main(int argc, char **argv)
 
         if (strcmp(argv[optind], "pdn") == 0)
         {
-            ret = adc_power_down();
+            status = adc3424_power_down();
         }
         else if (strcmp(argv[optind], "pup") == 0)
         {
-            ret = adc_power_up();
+            status = adc3424_power_up();
         }
         else if (strcmp(argv[optind], "rst") == 0)
         {
-            ret = adc_reset();
+            status = adc3424_reset();
         }
         else if (strcmp(argv[optind], "init") == 0)
         {
-            ret = adc_init(spi_fd, adc_num);
-        }
-        else if (strcmp(argv[optind], "rb") == 0)
-        {
-            ret = adc_read_back(spi_fd, adc_num);
+            for (int i = 0; i < 5; i++)
+            {
+                status |= adc3424_init(spi_fd, i);
+            }
         }
         else if (strcmp(argv[optind], "read") == 0)
         {
             uint8_t return_data = 0xCC;
-            adc_enable(adc_num);
+            adc3424_enable(adc_num);
 
-            ret = adc_read(spi_fd, _register, &return_data);
-            printf("register=%d, ret=%d, value=0x%x\n", _register, ret, return_data);
+            status = adc3424_read(spi_fd, _register, &return_data);
+            printf("register=%d, status=%d, value=0x%x\n", _register, status, return_data);
             
-            adc_disable(adc_num);
+            adc3424_disable(adc_num);
         }
         else if (strcmp(argv[optind], "write") == 0)
         {
-            adc_enable(adc_num);
+            adc3424_enable(adc_num);
 
-            ret = adc_write(spi_fd, _register, value);
-            DBG("register=%d, value=%d, ret=%d\n", _register, value, ret);
+            status = adc3424_write(spi_fd, _register, value);
+            printf("register=%d, value=%d, status=%d\n", _register, value, status);
 
-            adc_disable(adc_num);
+            adc3424_disable(adc_num);
         }
         else if (strcmp(argv[optind], "nom") == 0)
         {
-            adc_nominal_mode(spi_fd, adc_num);
+            adc3424_nominal_mode(spi_fd, adc_num);
         }
         else if (strcmp(argv[optind], "tst") == 0)
         {
-            ret = adc_set_test_pattern(spi_fd, adc_num, pattern, custom_pattern);
+            status = adc3424_set_test_pattern(spi_fd, adc_num, pattern, custom_pattern);
         }
         else if (strcmp(argv[optind], "tst0") == 0)
         {
             uint8_t patterns[4] = {ADC_TP_ALTERNATE, ADC_TP_ZERO, ADC_TP_ZERO, ADC_TP_ZERO};
-            ret = adc_set_test_pattern(spi_fd, adc_num, patterns, 0);
+            status = adc3424_set_test_pattern(spi_fd, adc_num, patterns, 0);
         }
         else if (strcmp(argv[optind], "tst1") == 0)
         {
             uint8_t patterns[4] = {ADC_TP_ZERO, ADC_TP_ZERO, ADC_TP_ZERO, ADC_TP_ZERO};
-            ret = adc_set_test_pattern(spi_fd, adc_num, patterns, 0);
+            status = adc3424_set_test_pattern(spi_fd, adc_num, patterns, 0);
         }
         else if (strcmp(argv[optind], "tst2") == 0)
         {
             uint8_t patterns[4] = {ADC_TP_ONES, ADC_TP_ONES, ADC_TP_ONES, ADC_TP_ONES};
-            ret = adc_set_test_pattern(spi_fd, adc_num, patterns, 0);
+            status = adc3424_set_test_pattern(spi_fd, adc_num, patterns, 0);
         } 
         else
         {
@@ -197,7 +190,7 @@ int main(int argc, char **argv)
         }
 
         close(spi_fd);
-        return ret;
+        return status;
     }
     else
     {

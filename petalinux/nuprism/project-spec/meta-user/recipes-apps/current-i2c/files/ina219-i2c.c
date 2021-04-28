@@ -7,8 +7,18 @@
 
 #include "ina219-i2c.h"
 
-#define TO_BYTES(word)      {(uint8_t)(word >> 8), (uint8_t)(word & 0xFF)}
-#define TO_WORD(bytes)      (((uint16_t)bytes[0] << 8) | (uint16_t)bytes[1])
+#define TO_BYTES(word)  {(uint8_t)(word >> 8), (uint8_t)(word & 0xFF)}
+#define TO_WORD(bytes)  (((uint16_t)bytes[0] << 8) | (uint16_t)bytes[1])
+
+const struct ina219_profile_s current_ldo1 = { 0x84, 0.100F};
+const struct ina219_profile_s current_ldo2 = { 0x88, 1.000F};
+const struct ina219_profile_s current_ldo3 = { 0x86, 200.0F};
+const struct ina219_profile_s current_ldo4 = { 0x8C, 1.000F};
+const struct ina219_profile_s current_ldo5 = { 0x82, 1.000F};
+const struct ina219_profile_s current_ldo6 = { 0x8A, 0.100F};
+
+const struct ina219_profile_s current_poe12 = { 0x8E, 0.050F};
+const struct ina219_profile_s current_poe3p3 = { 0x90, 0.050F};
 
 //////////////////////////////////////////////////////////////////////////////////
 // Static Definitions
@@ -21,7 +31,6 @@ static struct ina219_i2c_transfer
     uint8_t* data;
     uint8_t bytes;
 };
-
 
 // Setting pointer resgister is a seperate function to allow for delayed reads
 static int ina219_i2c_set_pointer (int fd, struct ina219_i2c_transfer* pointer)
@@ -118,36 +127,88 @@ static int ina219_i2c_write_transfer (int fd, struct ina219_i2c_transfer* comman
 // API functions
 //////////////////////////////////////////////////////////////////////////////////
 
-int ina219_read (int fd, uint8_t reg, uint16_t* data)
+int ina219_read (int fd, const struct ina219_profile_s unit, uint8_t reg, uint16_t* data)
 {
     uint8_t data_buffer[2];
     struct ina219_i2c_transfer read = {
-        .i2c_address = INA219_LDO5_I2C_ADDRESS,
+        .i2c_address = unit.i2c_address,
         .base_reg = reg,
         .data = data_buffer,
         .bytes = 2,
     };
-    int ret;
+    int status;
 
-    ret = ina219_i2c_set_pointer(fd, &read);
-    ret |= ina219_i2c_read_transfer(fd, &read);
+    status = ina219_i2c_set_pointer(fd, &read);
 
-    if (ret == 0)
+    if (status < 0)
+    {
+        perror("Failed to set pointer address.\n");
+        return status;
+    }
+
+    status = ina219_i2c_read_transfer(fd, &read);
+
+    if (status >= 0)
     {
         *data = TO_WORD(data_buffer);
     }
 
-    return ret;
+    return status;
 }
 
 
-int ina219_write (int fd, uint8_t reg, uint16_t data)
+int ina219_write (int fd, const struct ina219_profile_s unit, uint8_t reg, uint16_t data)
 {
     uint8_t data_buffer[2] = TO_BYTES(data);
 
     struct ina219_i2c_transfer write = {
-        .i2c_address = INA219_LDO5_I2C_ADDRESS,
+        .i2c_address = unit.i2c_address,
         .base_reg = reg,
+        .data = data_buffer,
+        .bytes = 2,
+    };
+
+    return ina219_i2c_write_transfer(fd, &write);
+}
+
+
+int ina219_get_calibration (int fd, const struct ina219_profile_s unit, uint16_t* data)
+{
+    uint8_t data_buffer[2];
+    struct ina219_i2c_transfer read = {
+        .i2c_address = unit.i2c_address,
+        .base_reg = 0x5,
+        .data = data_buffer,
+        .bytes = 2,
+    };
+    int status;
+
+    status = ina219_i2c_set_pointer(fd, &read);
+
+    if (status < 0)
+    {
+        perror("Failed to set pointer address.\n");
+        return status;
+    }
+
+    status = ina219_i2c_read_transfer(fd, &read);
+
+    if (status >= 0)
+    {
+        *data = TO_WORD(data_buffer);
+    }
+
+    return status;
+}
+
+
+int ina219_set_calibration (int fd, const struct ina219_profile_s unit, uint16_t data)
+{
+    uint8_t data_buffer[2] = TO_BYTES(data & 0xFFFE);
+
+    struct ina219_i2c_transfer write = {
+        .i2c_address = unit.i2c_address,
+        .base_reg = 0x5,
         .data = data_buffer,
         .bytes = 2,
     };

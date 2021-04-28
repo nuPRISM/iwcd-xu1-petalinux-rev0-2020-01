@@ -8,8 +8,8 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 
 SRC_URI = "file://adc-spi-test.c \
-		   file://adc-spi.c \
-		   file://adc-spi.h \
+		   file://adc3424-spi.c \
+		   file://adc3424-spi.h \
 		   file://gpio_init.sh \
 	   	   file://Makefile \
 		  "

@@ -2,7 +2,7 @@ APP = adc-spi-test
 
 # Add any other object files to this list below
 APP_OBJS = adc-spi-test.o
-APP_OBJS += adc-spi.o
+APP_OBJS += adc3424-spi.o
 
 all: build
 

@@ -9,10 +9,20 @@
 static uint16_t data;
 static uint8_t reg;
 
+extern struct ina219_profile_s current_ldo1;
+extern struct ina219_profile_s current_ldo2;
+extern struct ina219_profile_s current_ldo3;
+extern struct ina219_profile_s current_ldo4;
+extern struct ina219_profile_s current_ldo5;
+extern struct ina219_profile_s current_ldo6;
+
+extern struct ina219_profile_s current_poe12;
+extern struct ina219_profile_s current_poe3p3;
+
 
 void print_usage()
 {
-    printf("Pressure Sensor Test App - available commands:\n");
+    printf("Current Sensor Test App - available commands:\n");
     printf("\twrite - Write a byte of data (-d) to a register (-r)\n");
     printf("\tread - Read a byte of data from a register (-r)\n");
 }
@@ -65,12 +75,12 @@ int main(int argc, char **argv)
     {
         if (strcmp(argv[optind], "write") == 0)
         {
-            ret = ina219_write(i2c_fd, reg, data);
+            ret = ina219_write(i2c_fd, current_ldo5, reg, data);
         }
         else if (strcmp(argv[optind], "read") == 0)
         {
             uint16_t return_data = 0xCCCC;
-            ret = ina219_read(i2c_fd, reg, &return_data);
+            ret = ina219_read(i2c_fd, current_ldo5, reg, &return_data);
             printf("Returned data=0x%x\n", return_data);
         }
         else

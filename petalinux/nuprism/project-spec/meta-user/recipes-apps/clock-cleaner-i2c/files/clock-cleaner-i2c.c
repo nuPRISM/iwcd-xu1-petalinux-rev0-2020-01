@@ -84,6 +84,17 @@ int main(int argc, char **argv)
             ret = idt8T49n241_byte_read(i2c_fd, reg, &return_data);
             printf("Register=0x%x, Data=0x%x\n", reg, return_data);
         }
+        else if (strcmp(argv[optind], "arr_write") == 0)
+        {
+            uint8_t arr_data[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+            ret = idt8T49n241_array_read(i2c_fd, reg, arr_data, 9);
+
+            for (int i = 0; i < 9; i ++)
+            {
+                printf("%x, ", arr_data[i]);
+            }
+            printf("\n");
+        }
         else if (strcmp(argv[optind], "arr_read") == 0)
         {
             uint8_t* return_data = (uint8_t*)malloc(bytes * sizeof(uint8_t));
@@ -124,7 +135,7 @@ int main(int argc, char **argv)
         {
             struct clock_cleaner_id_s idt8T49n241_id;
             ret = idt8T49n241_read_id(i2c_fd, &idt8T49n241_id);
-            if (ret == 0)
+            if (ret >= 0)
             {
                 printf("CLC id:\n\tREV_ID=%02x\n\tDEV_ID=%02x\n\tDASH_CODE=%02x\n", 
                         idt8T49n241_id.rev_id, idt8T49n241_id.dev_id, idt8T49n241_id.dash_code);

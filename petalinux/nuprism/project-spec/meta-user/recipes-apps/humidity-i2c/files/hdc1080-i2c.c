@@ -28,7 +28,7 @@ static struct hdc1080_i2c_transfer
 static void hdc1080_usleep (enum resolution res)
 {
     int delay;
-    int padding = 2500; // Datasheet specified values didn't work
+    int dely_buffer = 2500; // Datasheet specified values didn't work
 
     switch (res)
     {
@@ -45,7 +45,7 @@ static void hdc1080_usleep (enum resolution res)
         break;
     }
 
-    usleep(delay + padding);
+    usleep(delay + dely_buffer);
 }
 
 // Setting pointer resgister is a seperate function to allow for delayed reads
@@ -153,17 +153,24 @@ int hdc1080_read (int fd, uint8_t reg, uint16_t* data)
         .data = data_buffer,
         .bytes = 2,
     };
-    int ret;
+    int status;
 
-    ret = hdc1080_i2c_set_pointer(fd, &read);
-    ret |= hdc1080_i2c_read_transfer(fd, &read);
+    status = hdc1080_i2c_set_pointer(fd, &read);
 
-    if (ret == 0)
+    if (status < 0)
+    {
+        perror("Failed to set pointer register.\n");
+        return status;
+    }
+
+    status = hdc1080_i2c_read_transfer(fd, &read);
+
+    if (status >= 0)
     {
         *data = TO_WORD(data_buffer);
     }
 
-    return ret;
+    return status;
 }
 
 
@@ -210,22 +217,29 @@ int hdc1080_set_configuration (int fd, uint16_t config_setting)
 int hdc1080_get_configuration (int fd, uint16_t* config)
 {
     uint8_t byte_array[2];
-    int ret;
+    int status;
     struct hdc1080_i2c_transfer read_config = {
         .base_reg = 0x02,
         .data = byte_array,
         .bytes = 2,
     };
 
-    ret = hdc1080_i2c_set_pointer(fd, &read_config);
-    ret |= hdc1080_i2c_read_transfer(fd, &read_config);
+    status = hdc1080_i2c_set_pointer(fd, &read_config);
 
-    if (ret == 0)
+    if (status < 0)
+    {
+        perror("Failed to set pointer register.\n");
+        return status;
+    }
+
+    status = hdc1080_i2c_read_transfer(fd, &read_config);
+
+    if (status >= 0)
     {
         *config = TO_WORD(byte_array);
     }
 
-    return ret;
+    return status;
 }
 
 
@@ -235,7 +249,7 @@ int get_hdc1080_temp (int fd, float* temperature)
     uint16_t config;
     enum resolution resolution;
     bool dual;
-    int ret;
+    int status;
 
     struct hdc1080_i2c_transfer get_temp = {
         .base_reg = 0x00,
@@ -243,31 +257,29 @@ int get_hdc1080_temp (int fd, float* temperature)
         .bytes = 2,
     };
 
-    ret = hdc1080_get_configuration(fd, &config);
+    status = hdc1080_get_configuration(fd, &config);
 
     dual = (bool)((config >> 12) & 0x0001);
     resolution = (config >> 10) & 0x0001;
 
-    printf("%d\n", config);
-
-    if ((config & 0x1000) > 0 || ret != 0)
+    if ((config & 0x1000) > 0 || status < 0)
     {
         perror("HDC1080 is currently in dual mode.\n");
         return -1;
     }
 
-    ret = hdc1080_i2c_set_pointer(fd, &get_temp);
+    status = hdc1080_i2c_set_pointer(fd, &get_temp);
 
     hdc1080_usleep(resolution);
 
-    ret |= hdc1080_i2c_read_transfer(fd, &get_temp);
+    status |= hdc1080_i2c_read_transfer(fd, &get_temp);
 
-    if (ret == 0)
+    if (status >= 0)
     {
         *temperature = TEMPERATURE((float)TO_WORD(data_buffer));
     }
 
-    return 0;
+    return status;
 }
 
 
@@ -277,7 +289,7 @@ int get_humidity (int fd, float* humidity)
     uint16_t config;
     enum resolution resolution;
     bool dual;
-    int ret;
+    int status;
 
     struct hdc1080_i2c_transfer get_humid = {
         .base_reg = 0x01,
@@ -285,31 +297,29 @@ int get_humidity (int fd, float* humidity)
         .bytes = 2,
     };
 
-    ret = hdc1080_get_configuration(fd, &config);
+    status = hdc1080_get_configuration(fd, &config);
 
     dual = (bool)((config >> 12) & 0x0001);
     resolution = (config >> 8) & 0x0003;
 
-    printf("%d\n", config);
-
-    if ((config & 0x1000) > 0 || ret != 0)
+    if ((config & 0x1000) > 0 || status < 0)
     {
         perror("HDC1080 is currently in dual mode.\n");
         return -1;
     }
 
-    ret = hdc1080_i2c_set_pointer(fd, &get_humid);
+    status = hdc1080_i2c_set_pointer(fd, &get_humid);
 
     hdc1080_usleep(resolution);
 
-    ret |= hdc1080_i2c_read_transfer(fd, &get_humid);
+    status |= hdc1080_i2c_read_transfer(fd, &get_humid);
 
-    if (ret == 0)
+    if (status >= 0)
     {
         *humidity = HUMIDITY((float)TO_WORD(data_buffer));
     }
 
-    return 0;
+    return status;
 }
 
 
@@ -319,7 +329,7 @@ int hdc1080_get_all (int fd, float* temperature, float* humidity)
     uint16_t config;
     enum resolution temp_res, humid_res;
     bool dual;
-    int ret;
+    int status;
 
     struct hdc1080_i2c_transfer get_all = {
         .base_reg = 0x00,
@@ -327,35 +337,33 @@ int hdc1080_get_all (int fd, float* temperature, float* humidity)
         .bytes = 4,
     };
 
-    ret = hdc1080_get_configuration(fd, &config);
+    status = hdc1080_get_configuration(fd, &config);
 
     dual = (bool)((config >> 12) & 0x0001);
     temp_res = (config >> 10) & 0x0001;
     humid_res = (config >> 8) & 0x0003;
 
-    printf("%d\n", config);
-
-    if ((config & 0x1000) == 0 || ret != 0)
+    if ((config & 0x1000) == 0 || status < 0)
     {
         perror("HDC1080 is currently in single mode.\n");
         return -1;
     }
 
-    ret = hdc1080_i2c_set_pointer(fd, &get_all);
+    status = hdc1080_i2c_set_pointer(fd, &get_all);
 
     hdc1080_usleep(temp_res);
     hdc1080_usleep(humid_res);
 
-    ret |= hdc1080_i2c_read_transfer(fd, &get_all);
+    status |= hdc1080_i2c_read_transfer(fd, &get_all);
 
     *temperature = (float)TO_WORD(data_buffer);
     *humidity = (float)TO_WORD((uint8_t*)(data_buffer+2));
 
-    if (ret == 0)
+    if (status >= 0)
     {
         *temperature = TEMPERATURE(*temperature);
         *humidity = HUMIDITY(*humidity);
     }
 
-    return 0;
+    return status;
 }

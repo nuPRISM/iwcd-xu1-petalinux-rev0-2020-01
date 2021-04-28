@@ -70,7 +70,7 @@ static struct idt8T49n241_i2c_transfer
 };
 
 // Developed by Luke Bidulka, TRIUMF
-// Read the given I2C slave device's register and return the read value in `*result`:
+// Read the given I2C slave device's register and return the read value in `*data`:
 static int idt8T49n241_i2c_read_transfer (int fd, struct idt8T49n241_i2c_transfer* request)
 {
     uint8_t slave_addr = CLOCK_CLEANER_SLAVE_ADDR >> 1;
@@ -206,24 +206,24 @@ int idt8T49n241_set_state (int fd, bool state)
 
 int idt8T49n241_init (int fd)
 {
-    int ret;
+    int status;
     struct idt8T49n241_i2c_transfer init_program = {
         .base_reg = 0x0000,
         .data = idt8T49n241_init_program,
         .bytes = init_prog_size,
         .auto_increment = false,
     };
-    ret = idt8T49n241_i2c_write_transfer(fd, &init_program);
+    status = idt8T49n241_i2c_write_transfer(fd, &init_program);
 
     _DEBUG("idt8T49n241_init(), write to 0x00 - 0x200, ret=%d\n", ret);
 
-    if (ret == 0)
+    if (status >= 0)
     {
         // If init sequence is successful, enable Clock cleaner
-        ret = idt8T49n241_set_state(fd, ON);
+        status = idt8T49n241_set_state(fd, ON);
     }
 
-    return ret;
+    return status;
 }
 
 
@@ -232,7 +232,7 @@ int idt8T49n241_read_id (int fd, struct clock_cleaner_id_s* idt8T49n241_id)
     uint8_t id[4];
     uint16_t id_base_reg = 0x2;
 
-    if (idt8T49n241_array_read(fd, id_base_reg, id, 4) != 0)
+    if (idt8T49n241_array_read(fd, id_base_reg, id, 4) < 0)
     {
         return -1;
     }

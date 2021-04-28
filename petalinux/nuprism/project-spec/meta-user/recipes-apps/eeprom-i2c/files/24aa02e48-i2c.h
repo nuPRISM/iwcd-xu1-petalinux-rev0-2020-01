@@ -23,10 +23,46 @@
   #endif // DEBUG
 #endif // _DEBUG
 
+/**
+ * @brief Read a single byte from a register of the EEPROM
+ * 
+ * @param fd      File descriptor for the I2C bus
+ * @param reg     Specified register to read
+ * @param data    Pointer to returned data
+ * @return int    Return status
+ */
+int mac_24aa02e48_byte_read (int fd, uint8_t reg, uint8_t* data);
 
-int mac_24aa02e48_read (int fd, uint8_t reg, uint8_t* data);
+/**
+ * @brief Write single byte to a register of the EEPROM
+ * 
+ * @param fd      File descriptor for the I2C bus
+ * @param reg     Specified register to write to
+ * @param data    Data to write
+ * @return int    Return status
+ */
+int mac_24aa02e48_byte_write (int fd, uint8_t reg, uint8_t data);
 
+/**
+ * @brief Read a byte array from the EEPROM
+ * 
+ * @param fd        File descriptor for the I2C bus
+ * @param reg_start First register to read, registers auto increment 
+ * @param data      Pointer to byte array containing register data
+ * @param bytes     Number of data bytes in transfer
+ * @return int      Return status
+ */
+int mac_24aa02e48_sequential_read (int fd, uint8_t reg_start, uint8_t* data, uint8_t bytes);
 
-int mac_24aa02e48_write (int fd, uint8_t reg, uint8_t data);
+/**
+ * @brief Write up to 8-bytes sequentially to the EEPROM
+ * 
+ * @param fd        File descriptor for the I2C bus
+ * @param reg_start First register to read, registers auto increment 
+ * @param data      Pointer to byte array containing register data
+ * @param bytes     Number of data bytes in transfer
+ * @return int      Return status
+ */
+int mac_24aa02e48_page_write (int fd, uint8_t reg_start, uint8_t* data, uint8_t bytes);
 
 #endif // _24AA02E48_I2C_H_

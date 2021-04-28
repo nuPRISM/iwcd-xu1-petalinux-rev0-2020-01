@@ -14,7 +14,7 @@
 #########
 #Source files:
 #########
-#Do NOT ignore VHDL, Verilog, block diagrams or EDIF files.
+#Do NOT ignore VHDL, (Systen)Verilog, block diagrams or EDIF files.
 !*.vhd
 !*.v
 !*.sv
@@ -67,10 +67,6 @@
 #TCL - files
 #########
 !*.tcl
-#########
-#Journal - files
-#########
-#!*.jou
 #########
 #Reports
 #########

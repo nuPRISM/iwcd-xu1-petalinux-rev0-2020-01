@@ -3,7 +3,6 @@
  * @author Jake Cronin (jcronin@triumf.ca)
  * @brief Register configuration data for the clock cleaner module, 
  * stored in a seperate file for readability 
- * @version 0.1
  * @date 2021-02-23
  * 
  */
