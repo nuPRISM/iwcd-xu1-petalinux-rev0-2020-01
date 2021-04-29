@@ -1,15 +1,14 @@
 /**
- * @file clc-i2c.h
+ * @file idt8t49n241-i2c.h
  * @author Luke Bidulka, Jake Cronin (jcronin@triumf.ca)
- * @brief Clock Cleaner userspace driver API, contains read/write function definitions
+ * @brief Clock Cleaner user space driver API, contains read/write function definitions
  * and programming data
+ * Datasheet: https://www.renesas.com/us/en/document/dst/8t49n241-datasheet
+ * 
  * @version 0.1
  * @date 2021-02-25
  * 
- * @copyright Copyright (c) 2021
- * 
  */
-
 #ifndef _IDT8T49N241_I2C_H_
 #define _idt8T49n241_I2C_H_
 

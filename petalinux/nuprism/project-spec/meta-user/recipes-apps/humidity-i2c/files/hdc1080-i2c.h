@@ -1,14 +1,12 @@
 /**
  * @file hdc1080-i2c.h
  * @author Jacob Cronin
- * @brief 
+ * @brief Humidity sensor API functions. Contains I2C control code and higher level functionality
  * 
- *  Datasheet: https://www.ti.com/lit/ds/symlink/hdc1080.pdf?HQS=dis-dk-null-digikeymode-dsf-pf-null-wwe&ts=1616613245121
+ * Datasheet: https://www.ti.com/lit/ds/symlink/hdc1080.pdf?HQS=dis-dk-null-digikeymode-dsf-pf-null-wwe&ts=1616613245121
  * 
  * @version 0.1
  * @date 2021-03-30
- * 
- * @copyright Copyright (c) 2021
  * 
  */
 #ifndef _hdc_1080_I2C_H_

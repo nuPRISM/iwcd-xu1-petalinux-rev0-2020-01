@@ -1,3 +1,14 @@
+/**
+ * @file 24aa02e48-i2c.h
+ * @author Jake Cronin (jcronin@triumf.ca)
+ * @brief EEPROM user space driver API, contains read/write function definitions
+ * and programming data
+ * Datasheet: https://ww1.microchip.com/downloads/en/DeviceDoc/24AA02E48-24AA025E48-24AA02E64-24AA025E64-Data-Sheet-20002124H.pdf
+ * 
+ * @version 0.1
+ * @date 2021-04-29
+ * 
+ */
 #ifndef _24AA02E48_I2C_H_
 #define _24AA02E48_I2C_H_
 

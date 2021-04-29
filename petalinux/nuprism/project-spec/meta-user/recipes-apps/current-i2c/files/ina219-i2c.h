@@ -1,3 +1,14 @@
+/**
+ * @file ina219-i2c.h
+ * @author Jake Cronin (jcronin@triumf.ca)
+ * @brief  Current/Voltage sensor user space driver API, contains read/write function definitions
+ * and programming data
+ * Datasheet: https://learn.adafruit.com/adafruit-ina219-current-sensor-breakout/downloads
+ * 
+ * @version 0.1
+ * @date 2021-04-29
+ * 
+ */
 #ifndef _INA219_I2C_H_
 #define _INA219_I2C_H_
 

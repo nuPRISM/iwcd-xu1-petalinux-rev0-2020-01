@@ -8,10 +8,7 @@
  * @version 0.1
  * @date 2021-03-24
  * 
- * @copyright Copyright (c) 2021
- * 
  */
-
 #ifndef _MAX30205_I2C_H_
 #define _MAX30205_I2C_H_
 

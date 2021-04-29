@@ -9,7 +9,6 @@
  * @date 2021-03-24
  * 
  */
-
 #ifndef _LPS25HB_I2C_H_
 #define _LPS25HB_I2C_H_
 
