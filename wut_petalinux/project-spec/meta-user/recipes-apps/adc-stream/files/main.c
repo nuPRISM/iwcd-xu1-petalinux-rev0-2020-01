@@ -37,6 +37,7 @@
 #include <netdb.h>
 #include <assert.h>
 #include <sys/mman.h>
+#include <sys/ioctl.h>
 #include <errno.h>
 #include <time.h>
 
@@ -69,6 +70,7 @@ int send_data(int sock_fd, uint8_t* buf, uint buf_size, struct addrinfo *pRes) {
 
 typedef struct {
     int adc_num;
+    unsigned int test_size;
     char* address;
     char* port;
 } thread_data;
@@ -78,10 +80,12 @@ static pthread_t thread = NULL;
 static pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 static bool stop = false;
 
+static struct dma_proxy_channel_interface *rx_proxy_interface_p;
+
 
 void *thread_fun( void *ptr ) {
     thread_data* data_ptr = (thread_data*)ptr;
-    DBG("thread_fun(): adc_num=%d address=%s port=%s\n", data_ptr->adc_num, data_ptr->address, data_ptr->port);
+    DBG("thread_fun(): adc_num=%d test_size=%d address=%s port=%s\n", data_ptr->adc_num, data_ptr->test_size, data_ptr->address, data_ptr->port);
 
     // configure network connection
     struct addrinfo hints, *pRes;
@@ -97,7 +101,6 @@ void *thread_fun( void *ptr ) {
     int sock_fd = socket(AF_INET, SOCK_DGRAM, 0);
 
     // open DMA proxy device
-    struct dma_proxy_channel_interface *rx_proxy_interface_p;
 	int rx_proxy_fd = open("/dev/dma_proxy_rx", O_RDWR);
 	if (rx_proxy_fd < 1) {
 		DBG("Unable to open DMA proxy device file\n", NULL);
@@ -113,12 +116,11 @@ void *thread_fun( void *ptr ) {
 	}
     
     // set num bytes to receive 
-    int test_size = 1024;             // \todo add field ind trhead_data, param in cmd line
-	rx_proxy_interface_p->length = test_size;
+	rx_proxy_interface_p->length = data_ptr->test_size;
 
     DBG("Entering thread loop\n", NULL);
     system("echo 0 > /sys/class/gpio/gpio473/value"); // unset ADC supress bit
-    int counter = 0;
+    unsigned long counter = 0;
     clock_t begin = clock();
     while(!stop) {                                  // \todo read only - mutex required?
         int dummy;
@@ -129,7 +131,7 @@ void *thread_fun( void *ptr ) {
 	    if (rx_proxy_interface_p->status != PROXY_NO_ERROR) {
 		    DBG("DMA proxy RX transfer error\n", NULL);
         } else {
-            int ret_val = send_data(sock_fd, rx_proxy_interface_p->buffer, test_size, pRes);
+            int ret_val = send_data(sock_fd, rx_proxy_interface_p->buffer, data_ptr->test_size, pRes);
             if(ret_val != 0) {
                 DBG("Data not sent: ret_val=%d\n", ret_val);
             } else {
@@ -141,7 +143,8 @@ void *thread_fun( void *ptr ) {
     system("echo 1 > /sys/class/gpio/gpio473/value");     // reset ADC supress bit
 
     double elapsed_time = (double)(end - begin) / CLOCKS_PER_SEC;
-    DBG("Leaving thread loop, %d bytes received/sent in %f [s] (%f Mb/s) \n", counter * test_size, elapsed_time, counter * test_size * 8 / 1024 / 1024 / elapsed_time);
+    DBG("Leaving thread loop, %lu bytes received/sent in %f [s] (%f Mb/s) \n", counter * data_ptr->test_size, 
+         elapsed_time, counter * data_ptr->test_size * 8 / 1024 / 1024 / elapsed_time);
 
     // Unmap the proxy channel interface memory 
 	munmap(rx_proxy_interface_p, sizeof(struct dma_proxy_channel_interface));
@@ -156,10 +159,11 @@ void *thread_fun( void *ptr ) {
 }
 
 
-void start_thread(int adc_num, char* address, char* port) {               
-    DBG("start_thread(): adc_num=%d address=%s port=%s\n", adc_num, address, port);
+void start_thread(int adc_num, unsigned int test_size, char* address, char* port) {               
+    DBG("start_thread(): adc_num=%d test_size=%d address=%s port=%s\n", adc_num, test_size, address, port);
     static thread_data data;
     data.adc_num = adc_num;
+    data.test_size = test_size;
     data.address = address;
     data.port = port;
     
@@ -187,8 +191,8 @@ void stop_thread() {
 
 int main(int argc, char **argv)
 {
-    if(argc < 3) {
-        printf("Usage:\n\t%s adc_num adc_mode dst_ip_addr dst_port_num\n\n", basename(argv[0]));
+    if(argc < 6) {
+        printf("Usage:\n\t%s adc_num adc_mode test_size_in_kB dst_ip_addr dst_port_num\n\n", basename(argv[0]));
         printf("\tadc_num=0..4\n");
         printf("\tadc_mode: 0 - tst0, 1 - tst1, 2 - toggle test pattern, 3 - digital ramp pattern, 4 -sine wave pattern, 5 - nominal mode \n");
         return 1;
@@ -206,6 +210,12 @@ int main(int argc, char **argv)
         printf("Illegal ADC mode: %d\n", adc_mode);
         return 2;
     } 
+
+    unsigned int test_size = atoi(argv[3]) * 1024;
+    if(test_size == 0 || test_size > TEST_SIZE) {
+        printf("Illegal test size %d\n", test_size);
+        return 2;
+    }
 
     // initialize/start clock cleaner
     int ret_val = clc_init();                     // \todo terminate if ret_val != 0
@@ -255,8 +265,8 @@ int main(int argc, char **argv)
         char c = getchar();
         switch(c) {
             case 's':
-                DBG("Starting streaming thread: adc_num=%d dst_ip_addr=%s dst_port_num=%s\n", adc_num, argv[3], argv[4]);
-                start_thread(adc_num, argv[3], argv[4]);     
+                DBG("Starting streaming thread: adc_num=%d test_size=%d dst_ip_addr=%s dst_port_num=%s\n", adc_num, test_size, argv[4], argv[5]);
+                start_thread(adc_num, test_size, argv[4], argv[5]);     
                 break;
                 
             case 'p':
