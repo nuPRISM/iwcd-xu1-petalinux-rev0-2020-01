@@ -119,14 +119,17 @@ void *thread_fun( void *ptr ) {
 	rx_proxy_interface_p->length = data_ptr->test_size;
 
     DBG("Entering thread loop\n", NULL);
-    system("echo 0 > /sys/class/gpio/gpio473/value"); // unset ADC supress bit
+    system("echo 0 > /sys/class/gpio/gpio441/value"); // unset ADC supress bit
     unsigned long counter = 0;
     clock_t begin = clock();
     while(!stop) {                                  // \todo read only - mutex required?
         int dummy;
     
+        system("echo 1 > /sys/class/gpio/gpio442/value");     // set trigger
         // Perform a receive DMA transfer and after it finishes check the status 
 	    ioctl(rx_proxy_fd, 0, &dummy);
+        system("echo 0 > /sys/class/gpio/gpio442/value");     // unset trigger
+
 
 	    if (rx_proxy_interface_p->status != PROXY_NO_ERROR) {
 		    DBG("DMA proxy RX transfer error\n", NULL);
@@ -140,7 +143,7 @@ void *thread_fun( void *ptr ) {
         }
     }
     clock_t end = clock();
-    system("echo 1 > /sys/class/gpio/gpio473/value");     // reset ADC supress bit
+    system("echo 1 > /sys/class/gpio/gpio441/value");     // reset ADC supress bit
 
     double elapsed_time = (double)(end - begin) / CLOCKS_PER_SEC;
     DBG("Leaving thread loop, %lu bytes received/sent in %f [s] (%f Mb/s) \n", counter * data_ptr->test_size, 
@@ -189,6 +192,23 @@ void stop_thread() {
 }
 
 
+int gpio_init() {
+    // \todo implement using WZAB multi_gpio module
+}
+
+
+int dma_reset() {
+    system("echo 0 > /sys/class/gpio/gpio499/value"); 
+    usleep(500 * 1000);
+    system("echo 1 > /sys/class/gpio/gpio499/value"); 
+}
+
+
+int set_dma_buffer_size(test_size) {
+    // \todo immpelement
+}
+
+
 int main(int argc, char **argv)
 {
     if(argc < 6) {
@@ -217,6 +237,9 @@ int main(int argc, char **argv)
         return 2;
     }
 
+    // initialize GPIO
+    gpio_init();
+
     // initialize/start clock cleaner
     int ret_val = clc_init();                     // \todo terminate if ret_val != 0
     DBG("clc_init(): ret_val=%d\n", ret_val);
@@ -230,7 +253,9 @@ int main(int argc, char **argv)
         return 3;                                   // \toco clse SPI device if opened
     }
     adc_reset();
-    adc_init(fd, adc_num);
+    
+    // set ADC mode
+    adc_init(fd, adc_num);        
     switch(adc_mode) {
         case 0:
             adc_test(fd, adc_num, ALL_ZEROS_TEST_PATTERN);
@@ -257,6 +282,10 @@ int main(int argc, char **argv)
             break;
     }    
     close(fd);
+
+    set_dma_buffer_size(test_size);
+
+    dma_reset();
     
     // main loop 
     bool terminate = false;

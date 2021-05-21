@@ -42,6 +42,7 @@ void *tx_thread(int dma_count)
 	tx_proxy_interface_p->length = test_size;
 
 	for (counter = 0; counter < dma_count; counter++) {
+        printf("tx_thread: counter=%d test_size=%d\n", counter, test_size);
     		for (i = 0; i < test_size; i++)
        			tx_proxy_interface_p->buffer[i] = counter + i;
 
@@ -125,7 +126,7 @@ int main(int argc, char *argv[])
 			rx_proxy_interface_p->buffer[i] = 0;
 
 		rx_proxy_interface_p->length = test_size;
-
+        printf("rx_proxy: counter=%d test_size=%d\n", counter, test_size);
 		/* Perform a receive DMA transfer and after it finishes check the status
 		 */
 		ioctl(rx_proxy_fd, 0, &dummy);
