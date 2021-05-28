@@ -80,10 +80,22 @@ static pthread_t thread = NULL;
 static pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 static bool stop = false;
 
-static struct dma_proxy_channel_interface *rx_proxy_interface_p;
+//static struct dma_proxy_channel_interface *rx_proxy_interface_p;
 
 
-void *thread_fun( void *ptr ) {
+static pthread_t trigger_thread = NULL;
+
+void *trigger_thread_fun( void *ptr ) {
+    DBG("delay start\n", NULL);
+    usleep(100 * 1000);
+    system("echo 1 > /sys/class/gpio/gpio442/value");     // set trigger
+    system("echo 0 > /sys/class/gpio/gpio442/value");     // unset trigger
+    DBG("delay end\n", NULL);
+}
+
+
+
+/*void *thread_fun( void *ptr ) {
     thread_data* data_ptr = (thread_data*)ptr;
     DBG("thread_fun(): adc_num=%d test_size=%d address=%s port=%s\n", data_ptr->adc_num, data_ptr->test_size, data_ptr->address, data_ptr->port);
 
@@ -118,18 +130,17 @@ void *thread_fun( void *ptr ) {
     // set num bytes to receive 
 	rx_proxy_interface_p->length = data_ptr->test_size;
 
-    DBG("Entering thread loop\n", NULL);
+    DBG("Entering thread loop: test_size=%d\n", rx_proxy_interface_p->length);
     system("echo 0 > /sys/class/gpio/gpio441/value"); // unset ADC supress bit
     unsigned long counter = 0;
     clock_t begin = clock();
     while(!stop) {                                  // \todo read only - mutex required?
         int dummy;
     
-        system("echo 1 > /sys/class/gpio/gpio442/value");     // set trigger
+        pthread_create(&trigger_thread, NULL, trigger_thread_fun, (void*)(NULL));
         // Perform a receive DMA transfer and after it finishes check the status 
 	    ioctl(rx_proxy_fd, 0, &dummy);
-        system("echo 0 > /sys/class/gpio/gpio442/value");     // unset trigger
-
+        pthread_join(trigger_thread, NULL);
 
 	    if (rx_proxy_interface_p->status != PROXY_NO_ERROR) {
 		    DBG("DMA proxy RX transfer error\n", NULL);
@@ -190,10 +201,105 @@ void stop_thread() {
         pthread_join(thread, NULL);
     DBG("Thread joined\n", NULL);
 }
+*/
+
+#define ADC_SEL0_GPIO      492
+#define ADC_SEL1_GPIO      493
+#define ADC_SEL2_GPIO      494
+#define ADC_SEL3_GPIO      495
+#define ADC_SEL4_GPIO      496
+#define ADC_RESET_GPIO     497
+#define ADC_PWRDN_GPIO     498
+#define ADC_DMA_RESET_GPIO 499
+
+#define ADC_GPIO_START ADC_SEL0_GPIO
+#define ADC_GPIO_END   ADC_DMA_RESET_GPIO
+
+#define SUPPRESS_LSB_GPIO 440
+#define SUPPRESS_MSB_GPIO 441
+#define ADC_TRIGGER_GPIO  442
+
+#define SUPPRESS_GPIO_START SUPPRESS_LSB_GPIO
+#define SUPPRESS_GPIO_END   ADC_TRIGGER_GPIO
+
+#define DMA_BUF_SIZE_GPIO_START 460
+#define DMA_BUF_SIZE_GPIO_END   491
 
 
 int gpio_init() {
-    // \todo implement using WZAB multi_gpio module
+    for(int i = ADC_GPIO_START; i <= ADC_GPIO_END; i++) {
+        char cmd[64];
+        
+        sprintf(cmd, "echo %d > /sys/class/gpio/export", i);
+        DBG("%s\n", cmd);
+        system(cmd);
+        
+        sprintf(cmd, "echo out > /sys/class/gpio/gpio%d/direction", i);
+        DBG("%s\n", cmd);
+        system(cmd);
+        
+        // \todo set default values
+    }
+    
+    for(int i = SUPPRESS_LSB_GPIO; i <= SUPPRESS_GPIO_END; i++) {
+        char cmd[64];
+        
+        sprintf(cmd, "echo %d > /sys/class/gpio/export", i);
+        DBG("%s\n", cmd);
+        system(cmd);
+        
+        sprintf(cmd, "echo out > /sys/class/gpio/gpio%d/direction", i);
+        DBG("%s\n", cmd);
+        system(cmd);   
+        
+        switch(i) {
+            case SUPPRESS_LSB_GPIO:
+            case SUPPRESS_MSB_GPIO:
+                sprintf(cmd, "echo 1 > /sys/class/gpio/gpio%d/value", i);
+                break;
+                
+            case ADC_TRIGGER_GPIO:
+                sprintf(cmd, "echo 0 > /sys/class/gpio/gpio%d/value", i);
+                break;
+        }
+        DBG("%s\n", cmd);
+        system(cmd);
+    }
+    
+    for(int i = DMA_BUF_SIZE_GPIO_START; i <= DMA_BUF_SIZE_GPIO_END; i++) {
+        char cmd[64];
+        
+        sprintf(cmd, "echo %d > /sys/class/gpio/export", i);
+        DBG("%s\n", cmd);
+        system(cmd);
+        
+        sprintf(cmd, "echo out > /sys/class/gpio/gpio%d/direction", i);
+        DBG("%s\n", cmd);
+        system(cmd);
+        
+        sprintf(cmd, "echo 0 > /sys/class/gpio/gpio%d/value", i);        
+        DBG("%s\n", cmd);
+        system(cmd);
+    }
+    
+    return 0;       // \todo verify system cmd error codes, return appropiate value
+}
+
+
+int set_dma_buf_size(int buf_size) {
+    buf_size = buf_size >> 2;           // buffer size must be set a a number of 4 byte words
+    
+    for(int i = DMA_BUF_SIZE_GPIO_START; i <= DMA_BUF_SIZE_GPIO_END; i++) {
+        char cmd[64];
+    
+        sprintf(cmd, "echo %d > /sys/class/gpio/gpio%d/value", (buf_size & 0x01), i);        
+        DBG("%s\n", cmd);
+        system(cmd);
+        
+        buf_size = buf_size >> 1;
+    }
+    
+    return 0;       // \todo verify system cmd error codes, return appropiate value
 }
 
 
@@ -201,12 +307,10 @@ int dma_reset() {
     system("echo 0 > /sys/class/gpio/gpio499/value"); 
     usleep(500 * 1000);
     system("echo 1 > /sys/class/gpio/gpio499/value"); 
+
+    return 0;       // \todo verify system cmd error codes, return appropiate value
 }
 
-
-int set_dma_buffer_size(test_size) {
-    // \todo immpelement
-}
 
 
 int main(int argc, char **argv)
@@ -240,6 +344,9 @@ int main(int argc, char **argv)
     // initialize GPIO
     gpio_init();
 
+    // set DMA buuffer size
+    set_dma_buf_size(test_size);
+
     // initialize/start clock cleaner
     int ret_val = clc_init();                     // \todo terminate if ret_val != 0
     DBG("clc_init(): ret_val=%d\n", ret_val);
@@ -249,7 +356,7 @@ int main(int argc, char **argv)
     // initilize SPI/ADC
     int fd = spi_init(DEFAULT_SPI_DEVICE);          // \todo optional param in cmd line to change device name
     if(fd < 0) {
-        printf("SPI device not openend/configured - terminating ... \n");
+        printf("SPI device not opened/configured - terminating ... \n");
         return 3;                                   // \toco clse SPI device if opened
     }
     adc_reset();
@@ -283,11 +390,54 @@ int main(int argc, char **argv)
     }    
     close(fd);
 
-    set_dma_buffer_size(test_size);
-
     dma_reset();
+
+    int	rx_proxy_fd = open("/dev/dma_proxy_rx", O_RDWR);
+	if (rx_proxy_fd < 1) {
+		printf("Unable to open DMA proxy device file");
+		exit(EXIT_FAILURE);
+	}
+
+    struct dma_proxy_channel_interface *rx_proxy_interface_p;
+    int dummy;
+
+    rx_proxy_interface_p = (struct dma_proxy_channel_interface *)mmap(NULL, sizeof(struct dma_proxy_channel_interface),
+									PROT_READ | PROT_WRITE, MAP_SHARED, rx_proxy_fd, 0);
+	if (rx_proxy_interface_p == MAP_FAILED) {
+		printf("Failed to mmap\n");
+		exit(EXIT_FAILURE);
+	}
+    rx_proxy_interface_p->length = test_size;
+    printf("Test size=%d\n", rx_proxy_interface_p->length);
+
+    system("echo 0 > /sys/class/gpio/gpio441/value"); // unset ADC supress bit
     
-    // main loop 
+    pthread_create(&trigger_thread, NULL, trigger_thread_fun, (void*)(NULL));
+    ioctl(rx_proxy_fd, 0, &dummy);
+    pthread_join(trigger_thread, NULL);
+
+    system("echo 1 > /sys/class/gpio/gpio441/value"); // set ADC supress bit
+
+	if (rx_proxy_interface_p->status != PROXY_NO_ERROR) {
+		printf("Proxy rx transfer error\n");
+    } else {
+        FILE *fp = fopen("dma_proxy.bin", "wb");
+        if(fp == NULL) {
+            printf("ERROR! can not open file for writting\n");
+        } else {
+            int ret_val = fwrite(rx_proxy_interface_p->buffer, 1, test_size, fp);
+            fclose(fp);
+            printf("%d byte(s) written to the output file\n", ret_val);
+        }
+    }
+
+    munmap(rx_proxy_interface_p, sizeof(struct dma_proxy_channel_interface));
+    
+    close(rx_proxy_fd);
+
+
+    
+    /* // main loop 
     bool terminate = false;
     while(!terminate) {
         printf(">> ");
@@ -319,7 +469,7 @@ int main(int argc, char **argv)
     
     // stop clock cleaner
     ret_val =clc_set_state(CLC_OFF);    
-    DBG("clc_state(OFF): ret_val=%d\n", ret_val);
+    DBG("clc_state(OFF): ret_val=%d\n", ret_val); */
     
     return 0;
 }
