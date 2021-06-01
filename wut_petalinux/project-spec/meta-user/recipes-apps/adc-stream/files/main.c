@@ -397,8 +397,6 @@ int main(int argc, char **argv)
     }    
     close(fd);
 
-    dma_reset();
-
     int	rx_proxy_fd = open("/dev/dma_proxy_rx", O_RDWR);
 	if (rx_proxy_fd < 1) {
 		printf("Unable to open DMA proxy device file");
@@ -416,6 +414,8 @@ int main(int argc, char **argv)
 	}
     rx_proxy_interface_p->length = test_size;
     printf("Test size=%d\n", rx_proxy_interface_p->length);
+
+    dma_reset();
 
     system("echo 0 > /sys/class/gpio/gpio441/value"); // unset ADC supress bit
     
