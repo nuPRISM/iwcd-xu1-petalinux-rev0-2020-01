@@ -38,6 +38,7 @@
 #include <assert.h>
 #include <sys/mman.h>
 #include <sys/ioctl.h>
+#include <sys/stat.h>  
 #include <errno.h>
 #include <time.h>
 
@@ -226,7 +227,13 @@ void stop_thread() {
 #define DMA_BUF_SIZE_GPIO_END   491
 
 
-int gpio_init() {
+int gpio_init() {               // \todo rewrite using WZAB GPIO module
+    struct stat stat_buf;   
+    if(stat("/sys/class/gpio/gpio492/value", &stat_buf) == 0) {
+        DBG("GPIO already initialized\n", NULL);
+        return 1;
+    }
+
     for(int i = ADC_GPIO_START; i <= ADC_GPIO_END; i++) {
         char cmd[64];
         
