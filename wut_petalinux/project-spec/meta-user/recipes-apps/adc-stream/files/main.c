@@ -40,7 +40,7 @@
 #include <sys/ioctl.h>
 #include <sys/stat.h>  
 #include <errno.h>
-#include <time.h>
+#include <sys/time.h>
 
 #define DEBUG
 #include "dbg.h"
@@ -157,8 +157,8 @@ int set_dma_buf_size(int buf_size) {
 
 
 int dma_reset() {
+    system("echo 1 > /sys/class/gpio/gpio499/value"); 
     system("echo 0 > /sys/class/gpio/gpio499/value"); 
-    usleep(500 * 1000);
     system("echo 1 > /sys/class/gpio/gpio499/value"); 
 
     return 0;       // \todo verify system cmd error codes, return appropiate value
@@ -246,14 +246,16 @@ void *thread_fun( void *ptr ) {
     rx_proxy_interface_p->length = data_ptr->test_size;
     DBG("thrad_fun(): test size=%d\n", rx_proxy_interface_p->length);
 
+    struct timeval begin, end;
+    gettimeofday(&begin, 0);
+
     unsigned long counter = 0;
-    clock_t begin = clock();    
     while(!stop) {                                  // \todo read only - mutex required?
         int dummy;
 
-        dma_reset();
-
         system("echo 0 > /sys/class/gpio/gpio441/value"); // unset ADC supress bit
+
+        dma_reset();
         
         pthread_create(&trigger_thread, NULL, trigger_thread_fun, (void*)(NULL));
         ioctl(rx_proxy_fd, 0, &dummy);
@@ -272,7 +274,7 @@ void *thread_fun( void *ptr ) {
             }
         }            
     }
-    clock_t end = clock();
+    gettimeofday(&end, 0);
 
     // Unmap the proxy channel interface memory     
     munmap(rx_proxy_interface_p, sizeof(struct dma_proxy_channel_interface));
@@ -283,9 +285,11 @@ void *thread_fun( void *ptr ) {
     // close network socket
     close(sock_fd);
 
-    double elapsed_time = ((double)end - begin) / CLOCKS_PER_SEC;
+    long seconds = end.tv_sec - begin.tv_sec;
+    long microseconds = end.tv_usec - begin.tv_usec;
+    double elapsed_time = seconds + microseconds*1e-6;
     DBG("Leaving thread loop, %lu bytes received/sent in %f [s] (%f Mb/s) \n", counter * data_ptr->test_size, 
-         elapsed_time, counter * data_ptr->test_size * 8 / 1024 / 1024 / elapsed_time);
+         elapsed_time, (double)counter * data_ptr->test_size * 8 / 1024 / 1024 / elapsed_time);
 
     return NULL;
 }
