@@ -50,160 +50,6 @@
 #include "dma-proxy.h"
 
 
-int send_data(int sock_fd, uint8_t* buf, uint buf_size, struct addrinfo *pRes) {
-    unsigned to_send = buf_size;
-	unsigned offset = 0;
-	const unsigned chunk = 1400;        // almost equal but less than MTU
-
-    while(to_send > 0) {
-		unsigned len = to_send > chunk ? chunk : to_send;
-    	ssize_t numBytes = sendto(sock_fd, buf + offset, len, 0, pRes->ai_addr, pRes->ai_addrlen);
-        if(numBytes < 0) {
-            DBG("ERROR! sento.errno=%d (%s)\n", errno, strerror(errno));
-            break; 
-        } 
-    	to_send -= len;
-    	offset += len;
-	}
-    return to_send;
-}
-
-
-typedef struct {
-    int adc_num;
-    unsigned int test_size;
-    char* address;
-    char* port;
-} thread_data;
-
-
-static pthread_t thread = NULL;
-static pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
-static bool stop = false;
-
-//static struct dma_proxy_channel_interface *rx_proxy_interface_p;
-
-
-static pthread_t trigger_thread = NULL;
-
-void *trigger_thread_fun( void *ptr ) {
-    DBG("delay start\n", NULL);
-    usleep(100 * 1000);
-    system("echo 1 > /sys/class/gpio/gpio442/value");     // set trigger
-    system("echo 0 > /sys/class/gpio/gpio442/value");     // unset trigger
-    DBG("delay end\n", NULL);
-}
-
-
-
-/*void *thread_fun( void *ptr ) {
-    thread_data* data_ptr = (thread_data*)ptr;
-    DBG("thread_fun(): adc_num=%d test_size=%d address=%s port=%s\n", data_ptr->adc_num, data_ptr->test_size, data_ptr->address, data_ptr->port);
-
-    // configure network connection
-    struct addrinfo hints, *pRes;
-
-    memset(&hints, 0, sizeof(hints));
-    hints.ai_family = AF_INET; //AF_UNSPEC;
-    hints.ai_socktype = SOCK_DGRAM;
-    hints.ai_protocol = IPPROTO_UDP;
-    hints.ai_flags = AI_ADDRCONFIG;    
-    assert(getaddrinfo(data_ptr->address, data_ptr->port, &hints, &pRes) == 0);
-    
-    // create network socket    	
-    int sock_fd = socket(AF_INET, SOCK_DGRAM, 0);
-
-    // open DMA proxy device
-	int rx_proxy_fd = open("/dev/dma_proxy_rx", O_RDWR);
-	if (rx_proxy_fd < 1) {
-		DBG("Unable to open DMA proxy device file\n", NULL);
-		return NULL;
-	}
-
-    // Map the receive channels memory into user space so it's accessible 
-	rx_proxy_interface_p = (struct dma_proxy_channel_interface *)mmap(NULL, sizeof(struct dma_proxy_channel_interface),
-									PROT_READ | PROT_WRITE, MAP_SHARED, rx_proxy_fd, 0);
-	if ((rx_proxy_interface_p == MAP_FAILED)) {
-		DBG("Failed to mmap\n", NULL);
-		return NULL;
-	}
-    
-    // set num bytes to receive 
-	rx_proxy_interface_p->length = data_ptr->test_size;
-
-    DBG("Entering thread loop: test_size=%d\n", rx_proxy_interface_p->length);
-    system("echo 0 > /sys/class/gpio/gpio441/value"); // unset ADC supress bit
-    unsigned long counter = 0;
-    clock_t begin = clock();
-    while(!stop) {                                  // \todo read only - mutex required?
-        int dummy;
-    
-        pthread_create(&trigger_thread, NULL, trigger_thread_fun, (void*)(NULL));
-        // Perform a receive DMA transfer and after it finishes check the status 
-	    ioctl(rx_proxy_fd, 0, &dummy);
-        pthread_join(trigger_thread, NULL);
-
-	    if (rx_proxy_interface_p->status != PROXY_NO_ERROR) {
-		    DBG("DMA proxy RX transfer error\n", NULL);
-        } else {
-            int ret_val = send_data(sock_fd, rx_proxy_interface_p->buffer, data_ptr->test_size, pRes);
-            if(ret_val != 0) {
-                DBG("Data not sent: ret_val=%d\n", ret_val);
-            } else {
-                counter++; 
-            }
-        }
-    }
-    clock_t end = clock();
-    system("echo 1 > /sys/class/gpio/gpio441/value");     // reset ADC supress bit
-
-    double elapsed_time = (double)(end - begin) / CLOCKS_PER_SEC;
-    DBG("Leaving thread loop, %lu bytes received/sent in %f [s] (%f Mb/s) \n", counter * data_ptr->test_size, 
-         elapsed_time, counter * data_ptr->test_size * 8 / 1024 / 1024 / elapsed_time);
-
-    // Unmap the proxy channel interface memory 
-	munmap(rx_proxy_interface_p, sizeof(struct dma_proxy_channel_interface));
-
-    // close DMA proxy device
-    close(rx_proxy_fd);
-
-    // close network socket
-    close(sock_fd);
-
-    return NULL;
-}
-
-
-void start_thread(int adc_num, unsigned int test_size, char* address, char* port) {               
-    DBG("start_thread(): adc_num=%d test_size=%d address=%s port=%s\n", adc_num, test_size, address, port);
-    static thread_data data;
-    data.adc_num = adc_num;
-    data.test_size = test_size;
-    data.address = address;
-    data.port = port;
-    
-    pthread_mutex_lock(&mutex);
-    stop = false;
-    pthread_mutex_unlock(&mutex);
-    
-    DBG("Starting thread ...\n", NULL);
-    pthread_create(&thread, NULL, thread_fun, (void*)(&data));
-}
-
-
-void stop_thread() {
-    DBG("stop_thread()\n", NULL);
-    pthread_mutex_lock(&mutex);
-    stop = true;
-    pthread_mutex_unlock(&mutex);
-    
-    DBG("Waiting for thread to join ...\n", NULL);
-    if(thread != NULL)
-        pthread_join(thread, NULL);
-    DBG("Thread joined\n", NULL);
-}
-*/
-
 #define ADC_SEL0_GPIO      492
 #define ADC_SEL1_GPIO      493
 #define ADC_SEL2_GPIO      494
@@ -319,6 +165,163 @@ int dma_reset() {
 }
 
 
+static pthread_t trigger_thread = NULL;
+
+void *trigger_thread_fun( void *ptr ) {
+    DBG("delay start\n", NULL);
+    usleep(100 * 1000);
+    system("echo 1 > /sys/class/gpio/gpio442/value");     // set trigger
+    system("echo 0 > /sys/class/gpio/gpio442/value");     // unset trigger
+    DBG("delay end\n", NULL);
+}
+
+
+int send_data(int sock_fd, uint8_t* buf, uint buf_size, struct addrinfo *pRes) {
+    unsigned to_send = buf_size;
+	unsigned offset = 0;
+	const unsigned chunk = 1400;        // almost equal but less than MTU
+
+    while(to_send > 0) {
+		unsigned len = to_send > chunk ? chunk : to_send;
+    	ssize_t numBytes = sendto(sock_fd, buf + offset, len, 0, pRes->ai_addr, pRes->ai_addrlen);
+        if(numBytes < 0) {
+            DBG("ERROR! sento.errno=%d (%s)\n", errno, strerror(errno));
+            break; 
+        } 
+    	to_send -= len;
+    	offset += len;
+	}
+    return to_send;
+}
+
+
+typedef struct {
+    int adc_num;
+    unsigned int test_size;
+    char* address;
+    char* port;
+} thread_data;
+
+
+static pthread_t thread = NULL;
+static pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
+static bool stop = false;
+
+//static struct dma_proxy_channel_interface *rx_proxy_interface_p;
+
+
+void *thread_fun( void *ptr ) {
+    thread_data* data_ptr = (thread_data*)ptr;
+    DBG("thread_fun(): adc_num=%d test_size=%d address=%s port=%s\n", data_ptr->adc_num, data_ptr->test_size, data_ptr->address, data_ptr->port);
+
+    while(!stop) {                                  // \todo read only - mutex required?
+        usleep(500 * 1000);
+        DBG("thread_fun(): loop finished\n", NULL);
+    }
+
+/*    // configure network connection
+    struct addrinfo hints, *pRes;
+
+    memset(&hints, 0, sizeof(hints));
+    hints.ai_family = AF_INET; //AF_UNSPEC;
+    hints.ai_socktype = SOCK_DGRAM;
+    hints.ai_protocol = IPPROTO_UDP;
+    hints.ai_flags = AI_ADDRCONFIG;    
+    assert(getaddrinfo(data_ptr->address, data_ptr->port, &hints, &pRes) == 0);
+    
+    // create network socket    	
+    int sock_fd = socket(AF_INET, SOCK_DGRAM, 0);
+
+    // open DMA proxy device
+	int rx_proxy_fd = open("/dev/dma_proxy_rx", O_RDWR);
+	if (rx_proxy_fd < 1) {
+		DBG("Unable to open DMA proxy device file\n", NULL);
+		return NULL;
+	}
+
+    // Map the receive channels memory into user space so it's accessible 
+	rx_proxy_interface_p = (struct dma_proxy_channel_interface *)mmap(NULL, sizeof(struct dma_proxy_channel_interface),
+									PROT_READ | PROT_WRITE, MAP_SHARED, rx_proxy_fd, 0);
+	if ((rx_proxy_interface_p == MAP_FAILED)) {
+		DBG("Failed to mmap\n", NULL);
+		return NULL;
+	}
+    
+    // set num bytes to receive 
+	rx_proxy_interface_p->length = data_ptr->test_size;
+
+    DBG("Entering thread loop: test_size=%d\n", rx_proxy_interface_p->length);
+    system("echo 0 > /sys/class/gpio/gpio441/value"); // unset ADC supress bit
+    unsigned long counter = 0;
+    clock_t begin = clock();
+    while(!stop) {                                  // \todo read only - mutex required?
+        int dummy;
+    
+        pthread_create(&trigger_thread, NULL, trigger_thread_fun, (void*)(NULL));
+        // Perform a receive DMA transfer and after it finishes check the status 
+	    ioctl(rx_proxy_fd, 0, &dummy);
+        pthread_join(trigger_thread, NULL);
+
+	    if (rx_proxy_interface_p->status != PROXY_NO_ERROR) {
+		    DBG("DMA proxy RX transfer error\n", NULL);
+        } else {
+            int ret_val = send_data(sock_fd, rx_proxy_interface_p->buffer, data_ptr->test_size, pRes);
+            if(ret_val != 0) {
+                DBG("Data not sent: ret_val=%d\n", ret_val);
+            } else {
+                counter++; 
+            }
+        }
+    }
+    clock_t end = clock();
+    system("echo 1 > /sys/class/gpio/gpio441/value");     // reset ADC supress bit
+
+    double elapsed_time = (double)(end - begin) / CLOCKS_PER_SEC;
+    DBG("Leaving thread loop, %lu bytes received/sent in %f [s] (%f Mb/s) \n", counter * data_ptr->test_size, 
+         elapsed_time, counter * data_ptr->test_size * 8 / 1024 / 1024 / elapsed_time);
+
+    // Unmap the proxy channel interface memory 
+	munmap(rx_proxy_interface_p, sizeof(struct dma_proxy_channel_interface));
+
+    // close DMA proxy device
+    close(rx_proxy_fd);
+
+    // close network socket
+    close(sock_fd);
+
+    return NULL; */
+} 
+
+
+void start_thread(int adc_num, unsigned int test_size, char* address, char* port) {               
+    DBG("start_thread(): adc_num=%d test_size=%d address=%s port=%s\n", adc_num, test_size, address, port);
+    static thread_data data;
+    data.adc_num = adc_num;
+    data.test_size = test_size;
+    data.address = address;
+    data.port = port;
+    
+    pthread_mutex_lock(&mutex);
+    stop = false;
+    pthread_mutex_unlock(&mutex);
+    
+    DBG("Starting thread ...\n", NULL);
+    pthread_create(&thread, NULL, thread_fun, (void*)(&data));
+}
+
+
+void stop_thread() {
+    DBG("stop_thread()\n", NULL);
+    pthread_mutex_lock(&mutex);
+    stop = true;
+    pthread_mutex_unlock(&mutex);
+    
+    DBG("Waiting for thread to join ...\n", NULL);
+    if(thread != NULL)
+        pthread_join(thread, NULL);
+    DBG("Thread joined\n", NULL);
+}
+
 
 int main(int argc, char **argv)
 {
@@ -397,7 +400,7 @@ int main(int argc, char **argv)
     }    
     close(fd);
 
-    int	rx_proxy_fd = open("/dev/dma_proxy_rx", O_RDWR);
+    /*int	rx_proxy_fd = open("/dev/dma_proxy_rx", O_RDWR);
 	if (rx_proxy_fd < 1) {
 		printf("Unable to open DMA proxy device file");
 		exit(EXIT_FAILURE);
@@ -445,23 +448,30 @@ int main(int argc, char **argv)
     munmap(rx_proxy_interface_p, sizeof(struct dma_proxy_channel_interface));
     
     close(rx_proxy_fd);
-
+*/
 
     
-    /* // main loop 
+    // main loop 
     bool terminate = false;
+    bool running = false;
     while(!terminate) {
         printf(">> ");
         char c = getchar();
         switch(c) {
             case 's':
-                DBG("Starting streaming thread: adc_num=%d test_size=%d dst_ip_addr=%s dst_port_num=%s\n", adc_num, test_size, argv[4], argv[5]);
-                start_thread(adc_num, test_size, argv[4], argv[5]);     
+                if(!running) {
+                    running = true;
+                    DBG("Starting streaming thread: adc_num=%d test_size=%d dst_ip_addr=%s dst_port_num=%s\n", adc_num, test_size, argv[4], argv[5]);
+                    start_thread(adc_num, test_size, argv[4], argv[5]);     
+                } else {
+                    DBG("Streaming thread already running\n", NULL);
+                }
                 break;
                 
             case 'p':
                 DBG("Stopping streaming thread\n", NULL);
                 stop_thread();
+                running = false;
                 break;
                 
             case 'q':
@@ -480,7 +490,7 @@ int main(int argc, char **argv)
     
     // stop clock cleaner
     ret_val =clc_set_state(CLC_OFF);    
-    DBG("clc_state(OFF): ret_val=%d\n", ret_val); */
+    DBG("clc_state(OFF): ret_val=%d\n", ret_val); 
     
     return 0;
 }
