@@ -415,29 +415,33 @@ int main(int argc, char **argv)
     rx_proxy_interface_p->length = test_size;
     printf("Test size=%d\n", rx_proxy_interface_p->length);
 
-    dma_reset();
+    for(int i = 0; i < 5; i++) {    
+        dma_reset();
 
-    system("echo 0 > /sys/class/gpio/gpio441/value"); // unset ADC supress bit
-    
-    pthread_create(&trigger_thread, NULL, trigger_thread_fun, (void*)(NULL));
-    ioctl(rx_proxy_fd, 0, &dummy);
-    pthread_join(trigger_thread, NULL);
+        system("echo 0 > /sys/class/gpio/gpio441/value"); // unset ADC supress bit
+        
+        pthread_create(&trigger_thread, NULL, trigger_thread_fun, (void*)(NULL));
+        ioctl(rx_proxy_fd, 0, &dummy);
+        pthread_join(trigger_thread, NULL);
 
-    system("echo 1 > /sys/class/gpio/gpio441/value"); // set ADC supress bit
+        system("echo 1 > /sys/class/gpio/gpio441/value"); // set ADC supress bit
 
-	if (rx_proxy_interface_p->status != PROXY_NO_ERROR) {
-		printf("Proxy rx transfer error\n");
-    } else {
-        FILE *fp = fopen("dma_proxy.bin", "wb");
-        if(fp == NULL) {
-            printf("ERROR! can not open file for writting\n");
+	    if (rx_proxy_interface_p->status != PROXY_NO_ERROR) {
+		    printf("Proxy rx transfer error\n");
         } else {
-            int ret_val = fwrite(rx_proxy_interface_p->buffer, 1, test_size, fp);
-            fclose(fp);
-            printf("%d byte(s) written to the output file\n", ret_val);
+            char filename[64];
+            sprintf(filename, "dma_proxy_%02d.bin", i);
+
+            FILE *fp = fopen(filename, "wb");
+            if(fp == NULL) {
+                printf("ERROR! can not open file for writting\n");
+            } else {
+                int ret_val = fwrite(rx_proxy_interface_p->buffer, 1, test_size, fp);
+                fclose(fp);
+                printf("%d byte(s) written to the output file %s\n", ret_val, filename);
+            }
         }
     }
-
     munmap(rx_proxy_interface_p, sizeof(struct dma_proxy_channel_interface));
     
     close(rx_proxy_fd);
