@@ -207,19 +207,14 @@ static pthread_t thread = NULL;
 static pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 static bool stop = false;
 
-//static struct dma_proxy_channel_interface *rx_proxy_interface_p;
+static struct dma_proxy_channel_interface *rx_proxy_interface_p;
 
 
 void *thread_fun( void *ptr ) {
     thread_data* data_ptr = (thread_data*)ptr;
     DBG("thread_fun(): adc_num=%d test_size=%d address=%s port=%s\n", data_ptr->adc_num, data_ptr->test_size, data_ptr->address, data_ptr->port);
 
-    while(!stop) {                                  // \todo read only - mutex required?
-        usleep(500 * 1000);
-        DBG("thread_fun(): loop finished\n", NULL);
-    }
-
-/*    // configure network connection
+     // configure network connection
     struct addrinfo hints, *pRes;
 
     memset(&hints, 0, sizeof(hints));
@@ -231,6 +226,71 @@ void *thread_fun( void *ptr ) {
     
     // create network socket    	
     int sock_fd = socket(AF_INET, SOCK_DGRAM, 0);
+
+    // open DMA device
+    int	rx_proxy_fd = open("/dev/dma_proxy_rx", O_RDWR);
+	if (rx_proxy_fd < 1) {
+		DBG("Unable to open DMA proxy device file", NULL);
+		return (void*)1;
+	}
+
+    // map DMA buffer    
+    //struct dma_proxy_channel_interface *rx_proxy_interface_p;
+    
+    rx_proxy_interface_p = (struct dma_proxy_channel_interface *)mmap(NULL, sizeof(struct dma_proxy_channel_interface),
+									PROT_READ | PROT_WRITE, MAP_SHARED, rx_proxy_fd, 0);
+	if (rx_proxy_interface_p == MAP_FAILED) {
+		DBG("Failed to mmap\n", NULL);
+		return (void*)1;
+	}
+    rx_proxy_interface_p->length = data_ptr->test_size;
+    DBG("thrad_fun(): test size=%d\n", rx_proxy_interface_p->length);
+
+    unsigned long counter = 0;
+    clock_t begin = clock();    
+    while(!stop) {                                  // \todo read only - mutex required?
+        int dummy;
+
+        dma_reset();
+
+        system("echo 0 > /sys/class/gpio/gpio441/value"); // unset ADC supress bit
+        
+        pthread_create(&trigger_thread, NULL, trigger_thread_fun, (void*)(NULL));
+        ioctl(rx_proxy_fd, 0, &dummy);
+        pthread_join(trigger_thread, NULL);
+
+        system("echo 1 > /sys/class/gpio/gpio441/value"); // set ADC supress bit
+
+	    if (rx_proxy_interface_p->status != PROXY_NO_ERROR) {
+		    DBG("Proxy rx transfer error: status=%d\n", rx_proxy_interface_p->status);
+        } else {
+            int ret_val = send_data(sock_fd, rx_proxy_interface_p->buffer, data_ptr->test_size, pRes);
+            if(ret_val != 0) {
+                DBG("Data not sent: ret_val=%d\n", ret_val);
+            } else {
+                counter++; 
+            }
+        }            
+    }
+    clock_t end = clock();
+
+    // Unmap the proxy channel interface memory     
+    munmap(rx_proxy_interface_p, sizeof(struct dma_proxy_channel_interface));
+    
+    // close DMA proxy device
+    close(rx_proxy_fd);
+
+    // close network socket
+    close(sock_fd);
+
+    double elapsed_time = ((double)end - begin) / CLOCKS_PER_SEC;
+    DBG("Leaving thread loop, %lu bytes received/sent in %f [s] (%f Mb/s) \n", counter * data_ptr->test_size, 
+         elapsed_time, counter * data_ptr->test_size * 8 / 1024 / 1024 / elapsed_time);
+
+    return NULL;
+}
+
+/*  
 
     // open DMA proxy device
 	int rx_proxy_fd = open("/dev/dma_proxy_rx", O_RDWR);
@@ -275,22 +335,7 @@ void *thread_fun( void *ptr ) {
     }
     clock_t end = clock();
     system("echo 1 > /sys/class/gpio/gpio441/value");     // reset ADC supress bit
-
-    double elapsed_time = (double)(end - begin) / CLOCKS_PER_SEC;
-    DBG("Leaving thread loop, %lu bytes received/sent in %f [s] (%f Mb/s) \n", counter * data_ptr->test_size, 
-         elapsed_time, counter * data_ptr->test_size * 8 / 1024 / 1024 / elapsed_time);
-
-    // Unmap the proxy channel interface memory 
-	munmap(rx_proxy_interface_p, sizeof(struct dma_proxy_channel_interface));
-
-    // close DMA proxy device
-    close(rx_proxy_fd);
-
-    // close network socket
-    close(sock_fd);
-
-    return NULL; */
-} 
+}      */
 
 
 void start_thread(int adc_num, unsigned int test_size, char* address, char* port) {               
@@ -371,7 +416,7 @@ int main(int argc, char **argv)
     }
     adc_reset();
     
-    // set ADC mode
+    // configure & set ADC mode
     adc_init(fd, adc_num);        
     switch(adc_mode) {
         case 0:
@@ -399,56 +444,6 @@ int main(int argc, char **argv)
             break;
     }    
     close(fd);
-
-    /*int	rx_proxy_fd = open("/dev/dma_proxy_rx", O_RDWR);
-	if (rx_proxy_fd < 1) {
-		printf("Unable to open DMA proxy device file");
-		exit(EXIT_FAILURE);
-	}
-
-    struct dma_proxy_channel_interface *rx_proxy_interface_p;
-    int dummy;
-
-    rx_proxy_interface_p = (struct dma_proxy_channel_interface *)mmap(NULL, sizeof(struct dma_proxy_channel_interface),
-									PROT_READ | PROT_WRITE, MAP_SHARED, rx_proxy_fd, 0);
-	if (rx_proxy_interface_p == MAP_FAILED) {
-		printf("Failed to mmap\n");
-		exit(EXIT_FAILURE);
-	}
-    rx_proxy_interface_p->length = test_size;
-    printf("Test size=%d\n", rx_proxy_interface_p->length);
-
-    for(int i = 0; i < 5; i++) {    
-        dma_reset();
-
-        system("echo 0 > /sys/class/gpio/gpio441/value"); // unset ADC supress bit
-        
-        pthread_create(&trigger_thread, NULL, trigger_thread_fun, (void*)(NULL));
-        ioctl(rx_proxy_fd, 0, &dummy);
-        pthread_join(trigger_thread, NULL);
-
-        system("echo 1 > /sys/class/gpio/gpio441/value"); // set ADC supress bit
-
-	    if (rx_proxy_interface_p->status != PROXY_NO_ERROR) {
-		    printf("Proxy rx transfer error\n");
-        } else {
-            char filename[64];
-            sprintf(filename, "dma_proxy_%02d.bin", i);
-
-            FILE *fp = fopen(filename, "wb");
-            if(fp == NULL) {
-                printf("ERROR! can not open file for writting\n");
-            } else {
-                int ret_val = fwrite(rx_proxy_interface_p->buffer, 1, test_size, fp);
-                fclose(fp);
-                printf("%d byte(s) written to the output file %s\n", ret_val, filename);
-            }
-        }
-    }
-    munmap(rx_proxy_interface_p, sizeof(struct dma_proxy_channel_interface));
-    
-    close(rx_proxy_fd);
-*/
 
     
     // main loop 
