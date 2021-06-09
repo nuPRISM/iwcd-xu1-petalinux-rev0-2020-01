@@ -157,8 +157,8 @@ int set_dma_buf_size(int buf_size) {
 
 
 int dma_reset() {
-    system("echo 1 > /sys/class/gpio/gpio499/value"); 
     system("echo 0 > /sys/class/gpio/gpio499/value"); 
+    usleep(500 * 1000);
     system("echo 1 > /sys/class/gpio/gpio499/value"); 
 
     return 0;       // \todo verify system cmd error codes, return appropiate value
@@ -169,7 +169,7 @@ static pthread_t trigger_thread = NULL;
 
 void *trigger_thread_fun( void *ptr ) {
     DBG("delay start\n", NULL);
-    usleep(100 * 1000);
+    usleep(10 * 1000);
     system("echo 1 > /sys/class/gpio/gpio442/value");     // set trigger
     system("echo 0 > /sys/class/gpio/gpio442/value");     // unset trigger
     DBG("delay end\n", NULL);
@@ -207,7 +207,7 @@ static pthread_t thread = NULL;
 static pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 static bool stop = false;
 
-static struct dma_proxy_channel_interface *rx_proxy_interface_p;
+//static struct dma_proxy_channel_interface *rx_proxy_interface_p;
 
 
 void *thread_fun( void *ptr ) {
@@ -235,7 +235,7 @@ void *thread_fun( void *ptr ) {
 	}
 
     // map DMA buffer    
-    //struct dma_proxy_channel_interface *rx_proxy_interface_p;
+    struct dma_proxy_channel_interface *rx_proxy_interface_p;
     
     rx_proxy_interface_p = (struct dma_proxy_channel_interface *)mmap(NULL, sizeof(struct dma_proxy_channel_interface),
 									PROT_READ | PROT_WRITE, MAP_SHARED, rx_proxy_fd, 0);
@@ -246,6 +246,8 @@ void *thread_fun( void *ptr ) {
     rx_proxy_interface_p->length = data_ptr->test_size;
     DBG("thrad_fun(): test size=%d\n", rx_proxy_interface_p->length);
 
+    system("echo 0 > /sys/class/gpio/gpio441/value"); // unset ADC supress bit        
+
     struct timeval begin, end;
     gettimeofday(&begin, 0);
 
@@ -253,15 +255,9 @@ void *thread_fun( void *ptr ) {
     while(!stop) {                                  // \todo read only - mutex required?
         int dummy;
 
-        system("echo 0 > /sys/class/gpio/gpio441/value"); // unset ADC supress bit
-
-        dma_reset();
-        
         pthread_create(&trigger_thread, NULL, trigger_thread_fun, (void*)(NULL));
         ioctl(rx_proxy_fd, 0, &dummy);
         pthread_join(trigger_thread, NULL);
-
-        system("echo 1 > /sys/class/gpio/gpio441/value"); // set ADC supress bit
 
 	    if (rx_proxy_interface_p->status != PROXY_NO_ERROR) {
 		    DBG("Proxy rx transfer error: status=%d\n", rx_proxy_interface_p->status);
@@ -275,6 +271,8 @@ void *thread_fun( void *ptr ) {
         }            
     }
     gettimeofday(&end, 0);
+
+    system("echo 1 > /sys/class/gpio/gpio441/value"); // set ADC supress bit
 
     // Unmap the proxy channel interface memory     
     munmap(rx_proxy_interface_p, sizeof(struct dma_proxy_channel_interface));
@@ -293,53 +291,6 @@ void *thread_fun( void *ptr ) {
 
     return NULL;
 }
-
-/*  
-
-    // open DMA proxy device
-	int rx_proxy_fd = open("/dev/dma_proxy_rx", O_RDWR);
-	if (rx_proxy_fd < 1) {
-		DBG("Unable to open DMA proxy device file\n", NULL);
-		return NULL;
-	}
-
-    // Map the receive channels memory into user space so it's accessible 
-	rx_proxy_interface_p = (struct dma_proxy_channel_interface *)mmap(NULL, sizeof(struct dma_proxy_channel_interface),
-									PROT_READ | PROT_WRITE, MAP_SHARED, rx_proxy_fd, 0);
-	if ((rx_proxy_interface_p == MAP_FAILED)) {
-		DBG("Failed to mmap\n", NULL);
-		return NULL;
-	}
-    
-    // set num bytes to receive 
-	rx_proxy_interface_p->length = data_ptr->test_size;
-
-    DBG("Entering thread loop: test_size=%d\n", rx_proxy_interface_p->length);
-    system("echo 0 > /sys/class/gpio/gpio441/value"); // unset ADC supress bit
-    unsigned long counter = 0;
-    clock_t begin = clock();
-    while(!stop) {                                  // \todo read only - mutex required?
-        int dummy;
-    
-        pthread_create(&trigger_thread, NULL, trigger_thread_fun, (void*)(NULL));
-        // Perform a receive DMA transfer and after it finishes check the status 
-	    ioctl(rx_proxy_fd, 0, &dummy);
-        pthread_join(trigger_thread, NULL);
-
-	    if (rx_proxy_interface_p->status != PROXY_NO_ERROR) {
-		    DBG("DMA proxy RX transfer error\n", NULL);
-        } else {
-            int ret_val = send_data(sock_fd, rx_proxy_interface_p->buffer, data_ptr->test_size, pRes);
-            if(ret_val != 0) {
-                DBG("Data not sent: ret_val=%d\n", ret_val);
-            } else {
-                counter++; 
-            }
-        }
-    }
-    clock_t end = clock();
-    system("echo 1 > /sys/class/gpio/gpio441/value");     // reset ADC supress bit
-}      */
 
 
 void start_thread(int adc_num, unsigned int test_size, char* address, char* port) {               
@@ -449,6 +400,7 @@ int main(int argc, char **argv)
     }    
     close(fd);
 
+    dma_reset();
     
     // main loop 
     bool terminate = false;
