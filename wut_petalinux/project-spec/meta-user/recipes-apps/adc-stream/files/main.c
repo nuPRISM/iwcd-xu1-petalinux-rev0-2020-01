@@ -216,11 +216,13 @@ void stop_thread() {
 #define ADC_GPIO_START ADC_SEL0_GPIO
 #define ADC_GPIO_END   ADC_DMA_RESET_GPIO
 
-#define SUPPRESS_LSB_GPIO 440
-#define SUPPRESS_MSB_GPIO 441
-#define ADC_TRIGGER_GPIO  442
+#define SUPPRESS_LSB_GPIO        440
+#define SUPPRESS_MSB_GPIO        441
+#define ADC_TRIGGER_GPIO         442
+#define ADC_TRIGGER_ENABLE_GPIO  443
 
 #define SUPPRESS_GPIO_START SUPPRESS_LSB_GPIO
+//#define SUPPRESS_GPIO_END   ADC_TRIGGER_ENABLE_GPIO
 #define SUPPRESS_GPIO_END   ADC_TRIGGER_GPIO
 
 #define DMA_BUF_SIZE_GPIO_START 460
@@ -342,7 +344,7 @@ int main(int argc, char **argv)
         return 2;
     } 
 
-    unsigned int test_size = atoi(argv[3]) * 1024;
+    unsigned int test_size = atoi(argv[3]); // * 1024;
     if(test_size == 0 || test_size > TEST_SIZE) {
         printf("Illegal test size %d\n", test_size);
         return 2;
@@ -397,7 +399,9 @@ int main(int argc, char **argv)
     }    
     close(fd);
 
-    int	rx_proxy_fd = open("/dev/dma_proxy_rx", O_RDWR);
+    dma_reset();
+
+    /*int	rx_proxy_fd = open("/dev/dma_proxy_rx", O_RDWR);
 	if (rx_proxy_fd < 1) {
 		printf("Unable to open DMA proxy device file");
 		exit(EXIT_FAILURE);
@@ -415,22 +419,18 @@ int main(int argc, char **argv)
     rx_proxy_interface_p->length = test_size;
     printf("Test size=%d\n", rx_proxy_interface_p->length);
 
-    for(int i = 0; i < 5; i++) {    
-        dma_reset();
-
-        system("echo 0 > /sys/class/gpio/gpio441/value"); // unset ADC supress bit
-        
+    system("echo 0 > /sys/class/gpio/gpio441/value"); // unset ADC supress bit    
+    for(int i = 0; i < 50; i++) {    
+        DBG("i=%d\n", i);
         pthread_create(&trigger_thread, NULL, trigger_thread_fun, (void*)(NULL));
         ioctl(rx_proxy_fd, 0, &dummy);
         pthread_join(trigger_thread, NULL);
-
-        system("echo 1 > /sys/class/gpio/gpio441/value"); // set ADC supress bit
 
 	    if (rx_proxy_interface_p->status != PROXY_NO_ERROR) {
 		    printf("Proxy rx transfer error\n");
         } else {
             char filename[64];
-            sprintf(filename, "dma_proxy_%02d.bin", i);
+            sprintf(filename, "dma_proxy_%02d.bin", i % 5);
 
             FILE *fp = fopen(filename, "wb");
             if(fp == NULL) {
@@ -442,9 +442,11 @@ int main(int argc, char **argv)
             }
         }
     }
+    system("echo 1 > /sys/class/gpio/gpio441/value"); // set ADC supress bit
+
     munmap(rx_proxy_interface_p, sizeof(struct dma_proxy_channel_interface));
     
-    close(rx_proxy_fd);
+    close(rx_proxy_fd); */
 
 
     
