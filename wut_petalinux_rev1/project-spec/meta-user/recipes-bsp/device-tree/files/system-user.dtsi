@@ -1,0 +1,43 @@
+/include/ "system-conf.dtsi"
+/ {
+};
+
+&spi0{
+  is-decoded-cs = <0>;
+  num-cs = <1>;
+  status = "okay";
+  bus-num = <0>;
+  spidev@0x00 {
+    compatible = "spidev";
+    spi-max-frequency = <1000000>;
+    spi-cpol;
+    spi-cpha;
+    reg = <0>;
+    bus-num = <0>;
+  };
+};
+
+&spi1{
+   status = "okay";
+   is-decoded-cs = <0>;
+   num-cs = <1>;
+   status = "okay";
+   bus-num = <1>;
+   spidev@0x00 {
+     compatible = "spidev";
+     spi-max-frequency = <1000000>;
+     spi-cpol;
+     spi-cpha;
+     reg = <0>;
+     bus-num = <1>;
+  };
+};
+
+&amba_pl {
+    dma_proxy{
+        compatible ="xlnx,dma_proxy";
+        dmas = <&axi_dma_0 0
+                &axi_dma_0 1>;
+        dma-names = "dma_proxy_tx", "dma_proxy_rx";
+    };
+};
