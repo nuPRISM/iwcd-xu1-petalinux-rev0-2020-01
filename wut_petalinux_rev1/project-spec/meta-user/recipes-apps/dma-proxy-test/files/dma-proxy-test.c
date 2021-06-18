@@ -80,14 +80,14 @@ int main(int argc, char *argv[])
 
 	/* Open the DMA proxy device for the transmit and receive channels
  	 */
-	tx_proxy_fd = open("/dev/dma_proxy_tx", O_RDWR);
+	tx_proxy_fd = open("/dev/dma_proxy_tx_0", O_RDWR);
 
 	if (tx_proxy_fd < 1) {
 		printf("Unable to open DMA proxy device file");
 		exit(EXIT_FAILURE);
 	}
 
-	rx_proxy_fd = open("/dev/dma_proxy_rx", O_RDWR);
+	rx_proxy_fd = open("/dev/dma_proxy_rx_0", O_RDWR);
 	if (tx_proxy_fd < 1) {
 		printf("Unable to open DMA proxy device file");
 		exit(EXIT_FAILURE);

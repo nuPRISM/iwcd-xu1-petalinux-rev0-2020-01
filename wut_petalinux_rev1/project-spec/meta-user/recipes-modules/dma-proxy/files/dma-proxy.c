@@ -59,12 +59,13 @@
 MODULE_LICENSE("GPL");
 
 #define DRIVER_NAME 		"dma_proxy"
-#define CHANNEL_COUNT 		2
-#define TX_CHANNEL		0
-#define RX_CHANNEL		1
+#define CHANNEL_COUNT 		3
+#define TX_CHANNEL_0		0
+#define RX_CHANNEL_0		1
+#define RX_CHANNEL_1		2
 #define ERROR 			-1
 #define NOT_LAST_CHANNEL 	0
-#define LAST_CHANNEL 		1
+#define LAST_CHANNEL 		2
 
 /* The following module parameter controls if the internal test runs when the module is inserted.
  */
@@ -198,8 +199,8 @@ static void transfer(struct dma_proxy_channel *pchannel_p)
  */
 static void tx_test(struct work_struct *unused)
 {
-	channels[TX_CHANNEL].interface_p->length = TEST_SIZE;
-	transfer(&channels[TX_CHANNEL]);
+	channels[TX_CHANNEL_0].interface_p->length = TEST_SIZE;
+	transfer(&channels[TX_CHANNEL_0]);
 }
 static void test(void)
 {
@@ -211,8 +212,9 @@ static void test(void)
 	/* Initialize the buffers for the test
 	 */
 	for (i = 0; i < TEST_SIZE; i++) {
-		channels[TX_CHANNEL].interface_p->buffer[i] = i;
-		channels[RX_CHANNEL].interface_p->buffer[i] = 0;
+		channels[TX_CHANNEL_0].interface_p->buffer[i] = i;
+		channels[RX_CHANNEL_0].interface_p->buffer[i] = 0;
+ 		channels[RX_CHANNEL_1].interface_p->buffer[i] = 0;
 	}
 
 	/* Since the transfer function is blocking the transmit channel is started from a worker
@@ -230,8 +232,8 @@ static void test(void)
 	 * verify the transfer was good
 	 */
 	for (i = 0; i < TEST_SIZE; i++)
-		if (channels[TX_CHANNEL].interface_p->buffer[i] !=
-			channels[RX_CHANNEL].interface_p->buffer[i]) {
+		if (channels[TX_CHANNEL_0].interface_p->buffer[i] !=
+			channels[RX_CHANNEL_0].interface_p->buffer[i]) {
 			printk("buffers not equal, first index = %d\n", i);
 			break;
 		}
@@ -438,14 +440,19 @@ static int dma_proxy_probe(struct platform_device *pdev)
 
 	/* Create the transmit and receive channels.
 	 */
-	rc = create_channel(pdev, &channels[TX_CHANNEL], "dma_proxy_tx", DMA_MEM_TO_DEV);
+	rc = create_channel(pdev, &channels[TX_CHANNEL_0], "dma_proxy_tx_0", DMA_MEM_TO_DEV);
 
 	if (rc) 
 		return rc;
 
-	rc = create_channel(pdev, &channels[RX_CHANNEL], "dma_proxy_rx", DMA_DEV_TO_MEM);
+	rc = create_channel(pdev, &channels[RX_CHANNEL_0], "dma_proxy_rx_0", DMA_DEV_TO_MEM);
 	if (rc) 
 		return rc;
+
+    rc = create_channel(pdev, &channels[RX_CHANNEL_1], "dma_proxy_rx_1", DMA_DEV_TO_MEM);
+	if (rc) 
+		return rc;
+
 
 	if (internal_test)
 		test();

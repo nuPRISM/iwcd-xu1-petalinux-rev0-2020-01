@@ -228,7 +228,7 @@ void *thread_fun( void *ptr ) {
     int sock_fd = socket(AF_INET, SOCK_DGRAM, 0);
 
     // open DMA device
-    int	rx_proxy_fd = open("/dev/dma_proxy_rx", O_RDWR);
+    int	rx_proxy_fd = open("/dev/dma_proxy_rx_0", O_RDWR);
 	if (rx_proxy_fd < 1) {
 		DBG("Unable to open DMA proxy device file", NULL);
 		return (void*)1;
