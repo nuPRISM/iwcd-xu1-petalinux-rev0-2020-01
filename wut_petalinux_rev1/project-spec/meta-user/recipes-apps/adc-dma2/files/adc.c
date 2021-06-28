@@ -36,17 +36,12 @@
 #include <linux/spi/spidev.h>
 #include <sys/ioctl.h>
 
+# include "adc.h"
+
 #define DEBUG
-
-#ifdef DEBUG
-    #define DBG(fmt, args...) printf("DBG: " fmt, args)                                                                          
-#else
-    #define DBG(fmt, args...)
-#endif
+#include "dbg.h"
 
 
-#define DEFAULT_ADC_NUM 0
-#define DEFAULT_SPI_DEVICE "/dev/spidev1.0"
 #define DEFAULT_SPI_DELAY 0
 #define DEFAULT_SPI_SPEED 500000
 #define DEFAULT_SPI_BITS_PER_WORD 8
@@ -62,20 +57,15 @@
 #define RESET_GPIO 497
 #define PDN_GPIO   498
 
-#define NORMAL_OP_TEST_PATTERN 0x00
-#define ALL_ZEROS_TEST_PATTERN 0x11
-#define ALL_ONES_TEST_PATTERN  0x22
-#define TOGGLE_TEST_PATTERN    0x33
-
 static uint32_t mode;
 static uint8_t bits = 8;
 static uint32_t speed = 500000;
 static uint16_t delay;
+static int fd;
 
 
-
-
-int adc_gpio_init() {               // \todo use WZAB GPIO module
+// DO NOT USE! GPIOs are initialized by gpio_init.sh 
+static int adc_gpio_init() {               // \todo use WZAB GPIO module
     // export gpios
     system("echo 492 > /sys/class/gpio/export");       // GPIO 0: SEL0
     system("echo 493 > /sys/class/gpio/export");       // GPIO 1: SEL1
@@ -106,6 +96,61 @@ int adc_gpio_init() {               // \todo use WZAB GPIO module
     
     return 0;       // \todo verify all system commands
 }
+
+
+int spi_init(char* device_name) {
+    fd = open(device_name, O_RDWR);
+    if(fd == -1) {
+        DBG("can not open device: %s\n", device_name);
+        return -1;
+    }
+
+    // spi mode
+    int ret = ioctl(fd, SPI_IOC_WR_MODE32, &mode);
+    if (ret == -1) {
+	    DBG("can't set spi mode", NULL);
+        return -1;
+    }
+
+    ret = ioctl(fd, SPI_IOC_RD_MODE32, &mode);
+    if (ret == -1) {
+	    DBG("can't get spi mode", NULL);
+        return -1;
+    }
+
+    // bits per word
+    ret = ioctl(fd, SPI_IOC_WR_BITS_PER_WORD, &bits);
+    if (ret == -1) {
+	    DBG("can't set bits per word", NULL);
+        return -1;
+    }
+
+    ret = ioctl(fd, SPI_IOC_RD_BITS_PER_WORD, &bits);
+    if (ret == -1) {
+	    DBG("can't get bits per word", NULL);
+        return -1;
+    }
+    
+    //max speed hz
+	ret = ioctl(fd, SPI_IOC_WR_MAX_SPEED_HZ, &speed);
+    if (ret == -1) {
+	    DBG("can't set max speed hz", NULL);
+        return -1;
+    }
+
+    ret = ioctl(fd, SPI_IOC_RD_MAX_SPEED_HZ, &speed);
+    if (ret == -1) {
+	    DBG("can't get max speed hz", NULL);
+        return -1;
+    }
+
+    DBG("spi mode: 0x%x\n", mode);
+    DBG("bits per word: %d\n", bits);
+    DBG("max speed: %d Hz (%d KHz)\n", speed, speed/1000);
+
+    return fd;
+}
+
 
 
 int adc_enable(int adc_num, bool state) {
@@ -209,9 +254,13 @@ int adc_nominal_mode(int fd, int adc_num) {
 
     adc_enable(adc_num, true);
 
-    int ret = adc_write(fd, 0x06, 0x00);          // Register 06h: normal output
+    int ret = adc_write(fd, 0x06, 0x00);             // Register 06h: normal output
     DBG("adc_test: reg 06h, ret=%d\n", ret);
-    
+    ret = adc_write(fd, 0x0A, 0);                   // Register 0Ah: nominal mode for channel A, B 
+    DBG("adc_test: reg 0Ah, ret=%d\n", ret);
+    ret = adc_write(fd, 0x0B, 0);                   // Register 0Bh: nominal mode for channel C, D 
+    DBG("adc_test: reg 0Bh, ret=%d\n", ret);
+
     adc_enable(adc_num, false);
     
     return 0;
@@ -225,10 +274,10 @@ int adc_test(int fd, int adc_num, uint8_t test_pattern) {
 
     int ret = adc_write(fd, 0x06, 0x02);           // Register 06h: Test pattern output enabled
     DBG("adc_test: reg 06h, ret=%d\n", ret);
-    ret = adc_write(fd, 0x0A, test_pattern);       // Register 0Ah: test pattern for channel A, B Toggle pattern: data alternate between 101010101010 and 010101010101 
+    ret = adc_write(fd, 0x0A, test_pattern);       // Register 0Ah: test pattern for channel A, B 
     DBG("adc_test: reg 0Ah, ret=%d\n", ret);
-    ret = adc_write(fd, 0x0B, test_pattern);       // Register 0Ah: test pattern for channel C, D Toggle pattern: data alternate between 101010101010 and 010101010101 
-    DBG("adc_test: reg 0AB, ret=%d\n", ret);
+    ret = adc_write(fd, 0x0B, test_pattern);       // Register 0Ah: test pattern for channel C, D 
+    DBG("adc_test: reg 0Bh, ret=%d\n", ret);
 
     adc_enable(adc_num, false);
 
@@ -236,12 +285,31 @@ int adc_test(int fd, int adc_num, uint8_t test_pattern) {
 }
 
 
+int adc_sine_wave_test(int fd, int adc_num) {
+    DBG("adc_test(): num=%d\n", adc_num);
+
+    adc_enable(adc_num, true);
+
+    int ret = adc_write(fd, 0x06, 0x02);           // Register 06h: Test pattern output enabled
+    DBG("adc_test: reg 06h, ret=%d\n", ret);
+    ret = adc_write(fd, 0x0A, SINE_WAVE_PATTERN_AB);       // Register 0Ah: test pattern for channel A, B 
+    DBG("adc_test: reg 0Ah, ret=%d\n", ret);
+    ret = adc_write(fd, 0x0B, SINE_WAVE_PATTERN_CD);       // Register 0Ah: test pattern for channel C, D 
+    DBG("adc_test: reg 0Bh, ret=%d\n", ret);
+
+    adc_enable(adc_num, false);
+
+    return 0;
+}
+
+
+
 int adc_init(int fd, int adc_num) {
     uint16_t adc_init_cfg_addr [] = {0x1, 0x3, 0x4, 0x5, 0x6, 0x7, 0x9, 0xa, 0xb, 0xe, 0xf, 0x13, 0x15, 0x25, 0x27,
                                      0x11d, 0x122, 0x134, 0x139, 0x21d, 0x222, 0x234, 0x239, 0x308, 0x41d, 0x422,
                                      0x434, 0x439, 0x51d, 0x522, 0x534, 0x539, 0x608, 0x70a};
 
-    uint8_t adc_init_cfg_data [] =  {0xFF, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0,
+    uint8_t adc_init_cfg_data [] =  {0xFF, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0,
                                      0x0, 0x2, 0x28, 0x8, 0x0, 0x2, 0x28, 0x8, 0x0, 0x0, 0x2, 0x28, 0x8, 0x0, 0x2,
                                      0x28, 0x8, 0x0, 0x1};
     DBG("adc_init(): num=%d\n", adc_num);
@@ -262,13 +330,9 @@ int adc_spi_slave_mode(int fd, int adc_num, bool value) {
     return 0;
 }
 
-
+/*
 void print_usage() {
-    printf("Usage:\n\tadc [-n adc_num] [-d SPI_devname] cmd\n\n");
-    printf("Default ADC num: %d\n", DEFAULT_ADC_NUM);
-    printf("Default SPI device: %s\n", DEFAULT_SPI_DEVICE);
-    printf("Available commands:\n");
-    printf("\tgpio - init ADC's GPIO\n");
+    printf("ADC controller - available commands:\n");
     printf("\tpdn  - power down\n");
     printf("\tpup  - power up\n");
     printf("\trst  - reset\n");
@@ -286,7 +350,7 @@ int main(int argc, char **argv)
 {
     int opt;
     char device_name[64] = DEFAULT_SPI_DEVICE;    
-	int adc_num = DEFAULT_ADC_NUM;
+	int adc_num = 0;
     
 	while((opt = getopt(argc, argv, "n:d:")) != -1) {
         switch(opt) {
@@ -317,11 +381,11 @@ int main(int argc, char **argv)
             DBG("can not open device: %s\n", device_name);
             return -1;
         }
-
+*/
         /*
 	     * spi mode
 	     */
-	    int ret = ioctl(fd, SPI_IOC_WR_MODE32, &mode);
+/*	    int ret = ioctl(fd, SPI_IOC_WR_MODE32, &mode);
 	    if (ret == -1) {
 		    printf("can't set spi mode");
             return -1;
@@ -333,10 +397,10 @@ int main(int argc, char **argv)
             return -1;
         }
 
-	    /*
+*/	    /*
 	     * bits per word
 	     */
-	    ret = ioctl(fd, SPI_IOC_WR_BITS_PER_WORD, &bits);
+/*	    ret = ioctl(fd, SPI_IOC_WR_BITS_PER_WORD, &bits);
 	    if (ret == -1) {
 		    printf("can't set bits per word");
             return -1;
@@ -347,11 +411,11 @@ int main(int argc, char **argv)
 		    printf("can't get bits per word");
             return -1;
         }
-
+*/
 	    /*
 	     * max speed hz
 	     */
-	    ret = ioctl(fd, SPI_IOC_WR_MAX_SPEED_HZ, &speed);
+/*	    ret = ioctl(fd, SPI_IOC_WR_MAX_SPEED_HZ, &speed);
 	    if (ret == -1) {
 		    printf("can't set max speed hz");
             return -1;
@@ -367,9 +431,7 @@ int main(int argc, char **argv)
 	    printf("bits per word: %d\n", bits);
 	    printf("max speed: %d Hz (%d KHz)\n", speed, speed/1000);
 
-        if(strcmp(argv[optind], "gpio") == 0) {
-            ret = adc_gpio_init();
-        } else if(strcmp(argv[optind], "pdn") == 0) {
+        if(strcmp(argv[optind], "pdn") == 0) {
             ret = adc_power_down();
         } else if(strcmp(argv[optind], "pup") == 0) {
             ret = adc_power_up();
@@ -401,4 +463,4 @@ int main(int argc, char **argv)
         return -1;
     }
 }
-
+*/

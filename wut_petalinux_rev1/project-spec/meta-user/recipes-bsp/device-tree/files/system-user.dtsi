@@ -46,8 +46,8 @@
 &amba_pl {
     multigpio {
         compatible = "wzab,multi-gpio";
-        suppress_lsb_gpio   = <&axi_gpio_suppres 0 0>;
-        suppress_msb_gpio   = <&axi_gpio_suppres 1 0>;
-        adc_trigger_gpio    = <&axi_gpio_suppres 2 0>;
+        suppress_lsb-gpios   = <&axi_gpio_suppres 0 0>;
+        suppress_msb-gpios   = <&axi_gpio_suppres 1 0>;
+        adc_trigger-gpios    = <&axi_gpio_suppres 2 0>;
     };
 };

@@ -38,9 +38,9 @@ typedef struct {
 } my_attr_t;
 
 static my_attr_t my_attrs[]={
-  {"suppress_lsb_gpio",      GPIOD_OUT_HIGH, NULL},
-  {"suppress_msb_gpio",      GPIOD_OUT_HIGH, NULL},
-  {"adc_trigger_gpio",       GPIOD_OUT_LOW, NULL},  
+  {"suppress_lsb-gpios",      GPIOD_OUT_HIGH, NULL},
+  {"suppress_msb-gpios",      GPIOD_OUT_HIGH, NULL},
+  {"adc_trigger-gpios",       GPIOD_OUT_LOW, NULL},  
   {NULL,GPIOD_ASIS,NULL}
 };
 
