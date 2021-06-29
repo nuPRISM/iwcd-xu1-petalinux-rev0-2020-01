@@ -4,9 +4,11 @@
 #include <stdbool.h>
 #include <string.h>
 #include <unistd.h>
+#include <fcntl.h>
 #include <pthread.h>
 #include <sys/ioctl.h>
 #include <sys/stat.h>  
+#include <sys/mman.h>
 
 #include "adc.h"
 #include "clc.h"
@@ -54,6 +56,7 @@ static pthread_t acq_ch1_thread = 0;
 typedef struct {
     char dma_dev[32];
     char filename[32];
+    unsigned int buf_size;
     int status;
 } AcqData;
 
@@ -72,10 +75,62 @@ void *trigger_thread_fun( void *ptr ) {
 
 void *acquisition_thread_fun(void *ptr) {
     AcqData *data_ptr = (AcqData*)ptr;
-    DBG("acquisition start: dev_name=%s, filename=%s\n", data_ptr->dma_dev, data_ptr->filename);
-    usleep(10 * 1000);
-    DBG("acquisition end\n", NULL);
-    data_ptr->status = 1;
+    DBG("acq start: dev_name=%s, filename=%s buf_siez=%d\n", data_ptr->dma_dev, data_ptr->filename, data_ptr->buf_size);
+
+    // open DMA device
+    int	rx_proxy_fd = open(data_ptr->dma_dev, O_RDWR);
+	if (rx_proxy_fd < 1) {
+		DBG("Unable to open DMA proxy device file: %s", data_ptr->dma_dev);
+        data_ptr->status = 1;
+		return NULL;
+	}
+
+    // map DMA buffer    
+    struct dma_proxy_channel_interface *rx_proxy_interface_p;
+    
+    rx_proxy_interface_p = (struct dma_proxy_channel_interface *)mmap(NULL, sizeof(struct dma_proxy_channel_interface),
+									PROT_READ | PROT_WRITE, MAP_SHARED, rx_proxy_fd, 0);
+	if (rx_proxy_interface_p == MAP_FAILED) {
+		DBG("Failed to mmap buf for device %s\n", data_ptr->dma_dev);
+        data_ptr->status = 2;
+		return NULL;
+	}
+
+    // set buf size
+    rx_proxy_interface_p->length = data_ptr->buf_size;
+    DBG("thread_fun(): buf size=%d\n", rx_proxy_interface_p->length);
+
+    // DMA transfer    
+    int dummy;
+    ioctl(rx_proxy_fd, 0, &dummy);
+    if (rx_proxy_interface_p->status != PROXY_NO_ERROR) {
+	    DBG("Proxy rx transfer error: status=%d device=%s\n", rx_proxy_interface_p->status, data_ptr->dma_dev);
+        data_ptr->status = 3;
+		return NULL;
+    } 
+    DBG("DMA transfer OK, storing data in file\n", data_ptr->filename);
+
+    // saving received data
+    FILE* file = fopen(data_ptr->filename, "wb");
+    if(file == NULL) {
+   	    DBG("can not open file %s\n", data_ptr->filename);
+        data_ptr->status = 4;
+		return NULL;
+    } 
+    if (!fwrite( rx_proxy_interface_p->buffer, 1, data_ptr->buf_size, file)) {
+   	    DBG("File %s write error\n", data_ptr->filename);
+        data_ptr->status = 5;           // \todo #define THREAD_SATUS_xxx
+		return NULL;
+    } 
+    fclose(file);
+
+    // Unmap the proxy channel interface memory     
+    munmap(rx_proxy_interface_p, sizeof(struct dma_proxy_channel_interface));
+    
+    // close DMA proxy device
+    close(rx_proxy_fd);
+   
+    data_ptr->status = 0;
     
     return NULL;
 }
@@ -226,8 +281,19 @@ int adc_config(int fd, int adc_num, int adc_mode) {
 }
 
 
+int dma_reset() {
+    system("echo 0 > /sys/class/gpio/gpio499/value"); 
+    usleep(500 * 1000);
+    system("echo 1 > /sys/class/gpio/gpio499/value"); 
+
+    return 0;       // \todo verify system cmd error codes, return appropiate value
+}
+
+
 void print_usage() {
     printf("Usage:\n\tadc_stream2 -m ADC_num_ch1 -n ADC_num_ch2 -p ADC_mode_ch0 -q ADC_mode_ch1 -b buf_size [init]\n");
+    printf("\tADC_num_chx=0..19\n");
+    printf("\tadc_mode: 0 - tst0, 1 - tst1, 2 - toggle test pattern, 3 - digital ramp pattern, 4 -sine wave pattern, 5 - nominal mode \n");
 }
 
 
@@ -327,17 +393,27 @@ int main(int argc, char **argv)
     // close SPI dev
     close(fd);
 
+    // reset DMA
+    dma_reset();
                 
     // configure acqusition threads
     strcpy(acq_ch0_data.dma_dev, "/dev/dma_proxy_rx_0");
     strcpy(acq_ch1_data.dma_dev, "/dev/dma_proxy_rx_1");
     strcpy(acq_ch0_data.filename, "dma_ch0.bin");
     strcpy(acq_ch1_data.filename, "dma_ch1.bin");
-    
+    acq_ch1_data.buf_size = acq_ch0_data.buf_size = buf_size;
+
+    printf("Press ENTER to continue...");
+    int c = getchar();
+        
+    // start all threads
+    system("echo 0 > /sys/class/gpio/gpio441/value");        // unset ADC supress bit        
     pthread_create(&trigger_thread, NULL, trigger_thread_fun, (void*)(NULL));
     pthread_create(&acq_ch0_thread, NULL, acquisition_thread_fun, (void*)(&acq_ch0_data));
     pthread_create(&acq_ch1_thread, NULL, acquisition_thread_fun, (void*)(&acq_ch1_data));
+    system("echo 1 > /sys/class/gpio/gpio441/value");        // reset ADC supress bit        
     
+    // wait for all threads to finish executing
     pthread_join(trigger_thread, NULL);
     pthread_join(acq_ch0_thread, NULL);
     pthread_join(acq_ch1_thread, NULL);
