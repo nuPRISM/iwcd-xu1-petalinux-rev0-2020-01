@@ -64,8 +64,8 @@ typedef struct {
 void *trigger_thread_fun( void *ptr ) {
     DBG("delay start\n", NULL);
     usleep(10 * 1000);
-    // system("echo 1 > /sys/class/gpio/gpio442/value");     // set trigger
-    // system("echo 0 > /sys/class/gpio/gpio442/value");     // unset trigger
+    system("echo 1 > /sys/class/gpio/gpio442/value");     // set trigger
+    system("echo 0 > /sys/class/gpio/gpio442/value");     // unset trigger
     DBG("delay end\n", NULL);
     
     
@@ -171,6 +171,7 @@ int init_gpio() {
         switch(i) {
             case SUPPRESS_LSB_GPIO:
             case SUPPRESS_MSB_GPIO:
+			case ADC_TRIGGER_ENABLE_GPI0:
                 sprintf(cmd, "echo 1 > /sys/class/gpio/gpio%d/value", i);
                 break;
                 
@@ -291,7 +292,7 @@ int dma_reset() {
 
 
 void print_usage() {
-    printf("Usage:\n\tadc_stream2 -m ADC_num_ch1 -n ADC_num_ch2 -p ADC_mode_ch0 -q ADC_mode_ch1 -b buf_size [init]\n");
+    printf("Usage:\n\tadc_stream2 -m ADC_num_ch1 -n ADC_num_ch2 -p ADC_mode -b buf_size [init]\n");
     printf("\tADC_num_chx=0..19\n");
     printf("\tadc_mode: 0 - tst0, 1 - tst1, 2 - toggle test pattern, 3 - digital ramp pattern, 4 -sine wave pattern, 5 - nominal mode \n");
 }
@@ -301,13 +302,13 @@ int main(int argc, char **argv)
 {
 	int opt;
     int adc_ch0_num, adc_ch1_num;
-    int adc_ch0_mode, adc_ch1_mode;
+    int adc_mode;
     int buf_size;
     static AcqData acq_ch0_data, acq_ch1_data;
     
     
     adc_ch0_num = adc_ch1_num = buf_size = -1;
-    while((opt = getopt(argc, argv, "m:n:p:q:b:")) != -1) {
+    while((opt = getopt(argc, argv, "m:n:p:b:")) != -1) {
         switch(opt) {
             case 'm':
                 adc_ch0_num = atoi(optarg);
@@ -318,11 +319,7 @@ int main(int argc, char **argv)
                 break;
 
             case 'p':
-                adc_ch0_mode = atoi(optarg);
-                break;
-
-            case 'q':
-                adc_ch1_mode = atoi(optarg);
+                adc_mode = atoi(optarg);
                 break;
                 
             case 'b':
@@ -357,13 +354,14 @@ int main(int argc, char **argv)
         exit(1);
     }
 
-    for(int index = optind; index < argc; index++) {
+    /*for(int index = optind; index < argc; index++) {
         if(strcmp(argv[index], "init") == 0) {
             init_gpio();
         }
-    }
+    }*/
+    init_gpio();        // \todo use WZAB multi-gpio module !!!
     
-    printf("ADC_num_ch0=%d, ADC_num_ch1=%d, adc_ch0_mode=%d, adc_ch1_mode=%dbuf_size=%d\n", adc_ch0_num, adc_ch1_num, adc_ch0_mode, adc_ch1_mode, buf_size);
+    printf("ADC_num_ch0=%d, ADC_num_ch1=%d, adc_mode=%d, buf_size=%d\n", adc_ch0_num, adc_ch1_num, adc_mode, buf_size);
     
     // set ADC num for DMA channels
     set_adc_num(0, adc_ch0_num);
@@ -378,17 +376,18 @@ int main(int argc, char **argv)
     ret_val = clc_set_state(CLC_ON);
     DBG("clc_state(ON): ret_val=%d\n", ret_val);
 
-    // initilize SPI/ADC
+    // open SPI dev
     int fd = spi_init(DEFAULT_SPI_DEVICE);          // \todo optional param in cmd line to change device name
     if(fd < 0) {
         printf("SPI device not opened/configured - terminating ... \n");
         return 3;                                   // \todo close SPI device if opened
     }
-    adc_reset();
 
-    // configure & set ADC mode
-    adc_config(fd, adc_ch0_num, adc_ch0_mode);          // \todo verify config_adc() return code
-    adc_config(fd, adc_ch1_num, adc_ch1_mode);    
+    // configure & set all ADCs
+    adc_reset();
+    for(int i = 0; i <= 4; i++) {
+        adc_config(fd, i, adc_mode);          // \todo verify config_adc() return code
+    }
 
     // close SPI dev
     close(fd);
@@ -411,12 +410,12 @@ int main(int argc, char **argv)
     pthread_create(&trigger_thread, NULL, trigger_thread_fun, (void*)(NULL));
     pthread_create(&acq_ch0_thread, NULL, acquisition_thread_fun, (void*)(&acq_ch0_data));
     pthread_create(&acq_ch1_thread, NULL, acquisition_thread_fun, (void*)(&acq_ch1_data));
-    system("echo 1 > /sys/class/gpio/gpio441/value");        // reset ADC supress bit        
     
     // wait for all threads to finish executing
     pthread_join(trigger_thread, NULL);
     pthread_join(acq_ch0_thread, NULL);
     pthread_join(acq_ch1_thread, NULL);
+	system("echo 1 > /sys/class/gpio/gpio441/value");        // reset ADC supress bit        
     DBG("DMA threads joined: status ch0=%d, ch1=%d\n", acq_ch0_data.status, acq_ch1_data.status);
     
 	return 0;
