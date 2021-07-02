@@ -38,9 +38,9 @@ typedef struct {
 } my_attr_t;
 
 static my_attr_t my_attrs[]={
-  {"suppress_lsb-gpios",      GPIOD_OUT_HIGH, NULL},
-  {"suppress_msb-gpios",      GPIOD_OUT_HIGH, NULL},
-  {"adc_trigger-gpios",       GPIOD_OUT_LOW, NULL},  
+  {"suppress_lsb",      GPIOD_OUT_HIGH, NULL},
+  {"suppress_msb",      GPIOD_OUT_HIGH, NULL},
+  {"adc_trigger",       GPIOD_OUT_LOW, NULL},  
   {NULL,GPIOD_ASIS,NULL}
 };
 
@@ -234,6 +234,7 @@ static int tst1_probe(struct platform_device *pdev)
   }
   //Now we connect the GPIOs
   while(mattr->name) {
+    printk(KERN_ERR "GPIO name: %s flag=%d\n", mattr->name, mattr->flags); 
     struct gpio_descs * gds = devm_gpiod_get_array(&pdev->dev, mattr->name, mattr->flags);
     if(IS_ERR(gds)) {
       res = (int) gds;
