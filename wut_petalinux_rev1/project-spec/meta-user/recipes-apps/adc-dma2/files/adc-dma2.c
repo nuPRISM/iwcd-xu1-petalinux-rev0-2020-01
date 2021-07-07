@@ -292,7 +292,7 @@ int dma_reset() {
 
 
 void print_usage() {
-    printf("Usage:\n\tadc_stream2 -m ADC_num_ch1 -n ADC_num_ch2 -p ADC_mode -b buf_size [init]\n");
+    printf("Usage:\n\tadc_stream2 -m ADC_num_ch1 -n ADC_num_ch2 -p ADC_mode -q num_iter -b buf_size\n");
     printf("\tADC_num_chx=0..19\n");
     printf("\tadc_mode: 0 - tst0, 1 - tst1, 2 - toggle test pattern, 3 - digital ramp pattern, 4 -sine wave pattern, 5 - nominal mode \n");
 }
@@ -304,11 +304,12 @@ int main(int argc, char **argv)
     int adc_ch0_num, adc_ch1_num;
     int adc_mode;
     int buf_size;
+	int num_iter;
     static AcqData acq_ch0_data, acq_ch1_data;
     
     
     adc_ch0_num = adc_ch1_num = buf_size = -1;
-    while((opt = getopt(argc, argv, "m:n:p:b:")) != -1) {
+    while((opt = getopt(argc, argv, "m:n:p:q:b:")) != -1) {
         switch(opt) {
             case 'm':
                 adc_ch0_num = atoi(optarg);
@@ -325,7 +326,11 @@ int main(int argc, char **argv)
             case 'b':
                 buf_size = atoi(optarg);
                 break;
-            
+
+           case 'q':
+                num_iter = atoi(optarg);
+                break;
+
             case ':':
                 printf("option value not specified\n");
                 print_usage();
@@ -360,8 +365,6 @@ int main(int argc, char **argv)
         }
     }*/
     init_gpio();        // \todo use WZAB multi-gpio module !!!
-    
-    printf("ADC_num_ch0=%d, ADC_num_ch1=%d, adc_mode=%d, buf_size=%d\n", adc_ch0_num, adc_ch1_num, adc_mode, buf_size);
     
     // set ADC num for DMA channels
     set_adc_num(0, adc_ch0_num);
@@ -402,21 +405,23 @@ int main(int argc, char **argv)
     strcpy(acq_ch1_data.filename, "dma_ch1.bin");
     acq_ch1_data.buf_size = acq_ch0_data.buf_size = buf_size;
 
-    printf("Press ENTER to continue...");
-    int c = getchar();
-        
-    // start all threads
-    system("echo 0 > /sys/class/gpio/gpio441/value");        // unset ADC supress bit        
-    pthread_create(&trigger_thread, NULL, trigger_thread_fun, (void*)(NULL));
-    pthread_create(&acq_ch0_thread, NULL, acquisition_thread_fun, (void*)(&acq_ch0_data));
-    pthread_create(&acq_ch1_thread, NULL, acquisition_thread_fun, (void*)(&acq_ch1_data));
-    
-    // wait for all threads to finish executing
-    pthread_join(trigger_thread, NULL);
-    pthread_join(acq_ch0_thread, NULL);
-    pthread_join(acq_ch1_thread, NULL);
-	system("echo 1 > /sys/class/gpio/gpio441/value");        // reset ADC supress bit        
-    DBG("DMA threads joined: status ch0=%d, ch1=%d\n", acq_ch0_data.status, acq_ch1_data.status);
-    
+	printf("ADC_num_ch0=%d, ADC_num_ch1=%d, adc_mode=%d, buf_size=%d num_iter=%d\n", adc_ch0_num, adc_ch1_num, adc_mode, buf_size, num_iter);    
+	printf("Press ENTER to continue...");
+	int c = getchar();
+		    
+	for(int i = 0; i < num_iter; i++) {
+		// start all threads
+		system("echo 0 > /sys/class/gpio/gpio441/value");        // unset ADC supress bit        
+		pthread_create(&trigger_thread, NULL, trigger_thread_fun, (void*)(NULL));
+		pthread_create(&acq_ch0_thread, NULL, acquisition_thread_fun, (void*)(&acq_ch0_data));
+		pthread_create(&acq_ch1_thread, NULL, acquisition_thread_fun, (void*)(&acq_ch1_data));
+		
+		// wait for all threads to finish executing
+		pthread_join(trigger_thread, NULL);
+		pthread_join(acq_ch0_thread, NULL);
+		pthread_join(acq_ch1_thread, NULL);
+		system("echo 1 > /sys/class/gpio/gpio441/value");        // reset ADC supress bit        
+		DBG("DMA threads joined: status ch0=%d, ch1=%d\n", acq_ch0_data.status, acq_ch1_data.status);
+	}    
 	return 0;
 }
