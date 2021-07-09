@@ -167,7 +167,7 @@ CONFIG_haveged=y
 #
 # i2c-tools 
 #
-# CONFIG_i2c-tools is not set
+CONFIG_i2c-tools=y
 # CONFIG_i2c-tools-dev is not set
 # CONFIG_i2c-tools-misc is not set
 # CONFIG_i2c-tools-dbg is not set
@@ -4216,10 +4216,25 @@ CONFIG_imagefeature-debug-tweaks=y
 # CONFIG_auto-login is not set
 
 #
-# user packages 
+# apps 
 #
+CONFIG_adc=y
+CONFIG_adc-dma=y
+CONFIG_adc-dma2=y
+CONFIG_adc-stream=y
+CONFIG_clc=y
+CONFIG_dma-proxy-test=y
 # CONFIG_gpio-demo is not set
 # CONFIG_peekpoke is not set
+
+#
+# modules 
+#
+CONFIG_dma-proxy=y
+
+#
+# user packages 
+#
 
 #
 # PetaLinux RootFS Settings

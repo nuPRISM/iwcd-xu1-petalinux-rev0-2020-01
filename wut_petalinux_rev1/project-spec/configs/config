@@ -235,13 +235,13 @@ CONFIG_SUBSYSTEM_UIMAGE_NAME="image.ub"
 CONFIG_SUBSYSTEM_RFS_FORMATS="cpio cpio.gz cpio.gz.u-boot tar.gz jffs2"
 CONFIG_SUBSYSTEM_DTB_PADDING_SIZE=0x1000
 CONFIG_SUBSYSTEM_COPY_TO_TFTPBOOT=y
-CONFIG_SUBSYSTEM_TFTPBOOT_DIR="/tftpboot"
+CONFIG_SUBSYSTEM_TFTPBOOT_DIR="/var/lib/tftpboot"
 
 #
 # Firmware Version Configuration
 #
-CONFIG_SUBSYSTEM_HOSTNAME="test"
-CONFIG_SUBSYSTEM_PRODUCT="test"
+CONFIG_SUBSYSTEM_HOSTNAME="wut_petalinux_rev1"
+CONFIG_SUBSYSTEM_PRODUCT="wut_petalinux_rev1"
 CONFIG_SUBSYSTEM_FW_VERSION="1.00"
 
 #
@@ -288,4 +288,7 @@ CONFIG_YOCTO_NETWORK_SSTATE_FEEDS_URL="http://petalinux.xilinx.com/sswreleases/r
 # User Layers
 #
 CONFIG_USER_LAYER_0=""
+
+
+
 CONFIG_SUBSYSTEM_BOOTARGS_GENERATED=" earlycon console=ttyPS0,115200 clk_ignore_unused root=/dev/ram0 rw"

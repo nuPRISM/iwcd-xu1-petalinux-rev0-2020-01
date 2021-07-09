@@ -3,3 +3,11 @@
 
 CONFIG_gpio-demo
 CONFIG_peekpoke
+CONFIG_clc
+CONFIG_adc
+CONFIG_dma-proxy
+CONFIG_adc-dma
+CONFIG_adc-stream
+CONFIG_dma-proxy-test
+CONFIG_adc-dma2
+CONFIG_adc-dma

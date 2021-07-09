@@ -1,6 +1,6 @@
 #!/bin/sh
 
-VIVADO_PROJECT_DIR=//home/ab/Desktop/XU1_petalinux_rev6/Vivado_NuPRISM
+VIVADO_PROJECT_DIR=//home/ab/Desktop/XU1_petalinux_rev6.1/Vivado_NuPRISM
 TIMESTAMP=`date +"%Y-%m-%d_%H-%M-%S"`
 
 # backup hardware/bitstrem file
