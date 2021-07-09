@@ -292,7 +292,7 @@ int dma_reset() {
 
 
 void print_usage() {
-    printf("Usage:\n\tadc_stream2 -m ADC_num_ch1 -n ADC_num_ch2 -p ADC_mode -q num_iter -b buf_size\n");
+    printf("Usage:\n\tadc_stream2 -m ADC_num_ch1 -n ADC_num_ch2 -p ADC_mode -q num_iter -b buf_size [-i]\n");
     printf("\tADC_num_chx=0..19\n");
     printf("\tadc_mode: 0 - tst0, 1 - tst1, 2 - toggle test pattern, 3 - digital ramp pattern, 4 -sine wave pattern, 5 - nominal mode \n");
 }
@@ -306,10 +306,11 @@ int main(int argc, char **argv)
     int buf_size;
 	int num_iter;
     static AcqData acq_ch0_data, acq_ch1_data;
+    int interactive = 0;
     
     
     adc_ch0_num = adc_ch1_num = buf_size = -1;
-    while((opt = getopt(argc, argv, "m:n:p:q:b:")) != -1) {
+    while((opt = getopt(argc, argv, "m:n:p:q:b:i:")) != -1) {
         switch(opt) {
             case 'm':
                 adc_ch0_num = atoi(optarg);
@@ -331,13 +332,18 @@ int main(int argc, char **argv)
                 num_iter = atoi(optarg);
                 break;
 
+            case 'i':
+                interactive = atoi(optarg);
+                break;
+
             case ':':
-                printf("option value not specified\n");
+                printf("? option value not specified: %c\n", optopt);
                 print_usage();
                 exit(1);
-                
+
+
             case '?':
-                printf("option value not specified: %c\n", optopt);
+                printf("? option value not specified: %c\n", optopt);
                 print_usage();
                 exit(1);
         }
@@ -405,9 +411,11 @@ int main(int argc, char **argv)
     strcpy(acq_ch1_data.filename, "dma_ch1.bin");
     acq_ch1_data.buf_size = acq_ch0_data.buf_size = buf_size;
 
-	printf("ADC_num_ch0=%d, ADC_num_ch1=%d, adc_mode=%d, buf_size=%d num_iter=%d\n", adc_ch0_num, adc_ch1_num, adc_mode, buf_size, num_iter);    
-	printf("Press ENTER to continue...");
-	int c = getchar();
+	fprintf(stderr, "ADC_num_ch0=%d, ADC_num_ch1=%d, adc_mode=%d, buf_size=%d num_iter=%d\n", adc_ch0_num, adc_ch1_num, adc_mode, buf_size, num_iter);    
+    if(interactive) {
+	    printf("Press ENTER to continue...");
+	    int c = getchar();
+    }
 		    
 	for(int i = 0; i < num_iter; i++) {
 		// start all threads
@@ -421,7 +429,7 @@ int main(int argc, char **argv)
 		pthread_join(acq_ch0_thread, NULL);
 		pthread_join(acq_ch1_thread, NULL);
 		system("echo 1 > /sys/class/gpio/gpio441/value");        // reset ADC supress bit        
-		DBG("DMA threads joined: status ch0=%d, ch1=%d\n", acq_ch0_data.status, acq_ch1_data.status);
+		fprintf(stderr, "DMA threads joined: status ch0=%d, ch1=%d\n", acq_ch0_data.status, acq_ch1_data.status);
 	}    
 	return 0;
 }
