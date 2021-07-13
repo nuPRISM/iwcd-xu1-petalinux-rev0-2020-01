@@ -1,0 +1,125 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
+| Date         : Wed Jul  7 13:28:38 2021
+| Host         : hyperk running 64-bit Ubuntu 18.04.5 LTS
+| Command      : report_drc -file system_top_drc_routed.rpt -pb system_top_drc_routed.pb -rpx system_top_drc_routed.rpx
+| Design       : system_top
+| Device       : xczu6eg-ffvc900-1-i
+| Speed File   : -1
+| Design State : Fully Routed
+------------------------------------------------------------------------------------------------------------------------
+
+Report DRC
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+           Ruledeck: default
+             Max violations: <unlimited>
+             Violations found: 14
++-----------+----------+--------------------------------------+------------+
+| Rule      | Severity | Description                          | Violations |
++-----------+----------+--------------------------------------+------------+
+| LVDS-1    | Warning  | Bidirection LVDS IOs                 | 1          |
+| REQP-1852 | Warning  | BUFGCE_cascade_from_clock_buf        | 5          |
+| REQP-1853 | Warning  | BUFGCE_DIV_cascade_from_clock_buf    | 4          |
+| RTSTAT-10 | Warning  | No routable loads                    | 1          |
+| REQP-1935 | Advisory | RAMB36E2_nochange_collision_advisory | 3          |
++-----------+----------+--------------------------------------+------------+
+
+2. REPORT DETAILS
+-----------------
+LVDS-1#1 Warning
+Bidirection LVDS IOs  
+The following port(s) use the LVDS I/O standard and have bi-directional differential usage. Please note that LVDS is a fixed impedance structure optimized to 100ohm differential. This is only intended to be used in point-to-point transmissions that do not have turn around timing requirements. If the intended usage is a bus structure, please use BLVDS/BLVDS_25, instead. LVDS_MEZZ_RJ45_CLK1_n, LVDS_MEZZ_RJ45_CLK1_p, POE_LVDS_TRIG_n,
+POE_LVDS_TRIG_p.
+Related violations: <none>
+
+REQP-1852#1 Warning
+BUFGCE_cascade_from_clock_buf  
+Cascaded clock buffers exist in the design with constant CE pin. This may result in large clock skew and timing violations. Cell BUFGCE B64_S[0].Ad9229Core_b/U_serClk I pin is driven by another clock buffer B64_C[1].serdes_clock/inst/clkout2_buf.
+Related violations: <none>
+
+REQP-1852#2 Warning
+BUFGCE_cascade_from_clock_buf  
+Cascaded clock buffers exist in the design with constant CE pin. This may result in large clock skew and timing violations. Cell BUFGCE B64_S[1].Ad9229Core_b/U_serClk I pin is driven by another clock buffer B64_C[1].serdes_clock/inst/clkout2_buf.
+Related violations: <none>
+
+REQP-1852#3 Warning
+BUFGCE_cascade_from_clock_buf  
+Cascaded clock buffers exist in the design with constant CE pin. This may result in large clock skew and timing violations. Cell BUFGCE B64_S[2].Ad9229Core_b/U_serClk I pin is driven by another clock buffer B64_C[2].serdes_clock/inst/clkout2_buf.
+Related violations: <none>
+
+REQP-1852#4 Warning
+BUFGCE_cascade_from_clock_buf  
+Cascaded clock buffers exist in the design with constant CE pin. This may result in large clock skew and timing violations. Cell BUFGCE B64_S[3].Ad9229Core_b/U_serClk I pin is driven by another clock buffer B64_C[3].serdes_clock/inst/clkout2_buf.
+Related violations: <none>
+
+REQP-1852#5 Warning
+BUFGCE_cascade_from_clock_buf  
+Cascaded clock buffers exist in the design with constant CE pin. This may result in large clock skew and timing violations. Cell BUFGCE B64_S[4].Ad9229Core_b/U_serClk I pin is driven by another clock buffer B64_C[3].serdes_clock/inst/clkout2_buf.
+Related violations: <none>
+
+REQP-1853#1 Warning
+BUFGCE_DIV_cascade_from_clock_buf  
+Cascaded clock buffers exist in the design with constant CE pin. This may result in large clock skew and timing violations. Cell BUFGCE_DIV B64_S[0].Ad9229Core_b/U_BUFGCE_DIV I pin is driven by another clock buffer B64_C[1].serdes_clock/inst/clkout2_buf.
+Related violations: <none>
+
+REQP-1853#2 Warning
+BUFGCE_DIV_cascade_from_clock_buf  
+Cascaded clock buffers exist in the design with constant CE pin. This may result in large clock skew and timing violations. Cell BUFGCE_DIV B64_S[1].Ad9229Core_b/U_BUFGCE_DIV I pin is driven by another clock buffer B64_C[1].serdes_clock/inst/clkout2_buf.
+Related violations: <none>
+
+REQP-1853#3 Warning
+BUFGCE_DIV_cascade_from_clock_buf  
+Cascaded clock buffers exist in the design with constant CE pin. This may result in large clock skew and timing violations. Cell BUFGCE_DIV B64_S[3].Ad9229Core_b/U_BUFGCE_DIV I pin is driven by another clock buffer B64_C[3].serdes_clock/inst/clkout2_buf.
+Related violations: <none>
+
+REQP-1853#4 Warning
+BUFGCE_DIV_cascade_from_clock_buf  
+Cascaded clock buffers exist in the design with constant CE pin. This may result in large clock skew and timing violations. Cell BUFGCE_DIV B64_S[4].Ad9229Core_b/U_BUFGCE_DIV I pin is driven by another clock buffer B64_C[3].serdes_clock/inst/clkout2_buf.
+Related violations: <none>
+
+RTSTAT-10#1 Warning
+No routable loads  
+217 net(s) have no routable loads. The problem bus(es) and/or net(s) are dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i,
+dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg[2:0],
+dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD1/ctl_reg_en_2[1],
+dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg_en_2[1],
+MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0/AXI_SYSMON_CORE_I/daddr_C_master_reg2[7:0],
+MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0/AXI_SYSMON_CORE_I/daddr_C_master_reg[7:0],
+MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0/AXI_SYSMON_CORE_I/daddr_C_slave0_reg2[7:0],
+MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0/AXI_SYSMON_CORE_I/daddr_C_slave0_reg[7:0],
+MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0/AXI_SYSMON_CORE_I/daddr_C_slave1_reg2[7:0],
+MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0/AXI_SYSMON_CORE_I/daddr_C_slave1_reg[7:0],
+MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0/AXI_SYSMON_CORE_I/di_C_master_reg2[15:0],
+MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0/AXI_SYSMON_CORE_I/di_C_master_reg[15:0],
+MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0/AXI_SYSMON_CORE_I/di_C_slave0_reg2[15:0],
+MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0/AXI_SYSMON_CORE_I/di_C_slave0_reg[15:0],
+MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0/AXI_SYSMON_CORE_I/di_C_slave1_reg2[15:0] (the first 15 of 83 listed).
+Related violations: <none>
+
+REQP-1935#1 Advisory
+RAMB36E2_nochange_collision_advisory  
+Synchronous clocking is detected for BRAM (MercuryXU1_i/MercuryXU1_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_MM2S_FULL.I_MM2S_FULL_WRAPPER/GEN_INCLUDE_MM2S_SF.I_RD_SF/I_DATA_FIFO/BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg) in SDP mode with NO_CHANGE write-mode. This is the preferred mode for best power characteristics. However, NO_CHANGE may exhibit address collisions if the same address appears on both read and write ports resulting in unknown or corrupted read data. It is suggested to confirm via simulation that an address collision never occurs and if so it is suggested to try and avoid this situation. If address collisions cannot be avoided, the write-mode may be set to READ_FIRST which guarantees that the read data is the prior contents of the memory at the cost of additional power in the design. See the FPGA Memory Resources User Guide for additional information.
+Related violations: <none>
+
+REQP-1935#2 Advisory
+RAMB36E2_nochange_collision_advisory  
+Synchronous clocking is detected for BRAM (MercuryXU1_i/MercuryXU1_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_DATA_FIFO/BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg) in SDP mode with NO_CHANGE write-mode. This is the preferred mode for best power characteristics. However, NO_CHANGE may exhibit address collisions if the same address appears on both read and write ports resulting in unknown or corrupted read data. It is suggested to confirm via simulation that an address collision never occurs and if so it is suggested to try and avoid this situation. If address collisions cannot be avoided, the write-mode may be set to READ_FIRST which guarantees that the read data is the prior contents of the memory at the cost of additional power in the design. See the FPGA Memory Resources User Guide for additional information.
+Related violations: <none>
+
+REQP-1935#3 Advisory
+RAMB36E2_nochange_collision_advisory  
+Synchronous clocking is detected for BRAM (MercuryXU1_i/MercuryXU1_i/axi_dma_1/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_DATA_FIFO/BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg) in SDP mode with NO_CHANGE write-mode. This is the preferred mode for best power characteristics. However, NO_CHANGE may exhibit address collisions if the same address appears on both read and write ports resulting in unknown or corrupted read data. It is suggested to confirm via simulation that an address collision never occurs and if so it is suggested to try and avoid this situation. If address collisions cannot be avoided, the write-mode may be set to READ_FIRST which guarantees that the read data is the prior contents of the memory at the cost of additional power in the design. See the FPGA Memory Resources User Guide for additional information.
+Related violations: <none>
+
+

@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2020.1.1 (64-bit)
+# SW Build 2960000 on Wed Aug  5 22:57:20 MDT 2020
+# IP Build 2956692 on Thu Aug  6 01:41:30 MDT 2020
+# Start of session at: Mon Nov  9 10:38:46 2020
+# Process ID: 632332
+# Current directory: D:/My_Designs/FPGA/xilinx/Fizyka/XU1_petalinux_rev0/Vivado_NuPRISM
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent632960 D:\My_Designs\FPGA\xilinx\Fizyka\XU1_petalinux_rev0\Vivado_NuPRISM\MercuryXU1_NuPRISM.xpr
+# Log file: D:/My_Designs/FPGA/xilinx/Fizyka/XU1_petalinux_rev0/Vivado_NuPRISM/vivado.log
+# Journal file: D:/My_Designs/FPGA/xilinx/Fizyka/XU1_petalinux_rev0/Vivado_NuPRISM\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/My_Designs/FPGA/xilinx/Fizyka/XU1_petalinux_rev0/Vivado_NuPRISM/MercuryXU1_NuPRISM.xpr

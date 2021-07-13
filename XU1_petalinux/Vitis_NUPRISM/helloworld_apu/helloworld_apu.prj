@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<sdkproject:SdkProject xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sdkproject="http://www.xilinx.com/sdkproject" name="helloworld_apu" location="C:/triumf/nuprism/xu1/rev2020/Vitis_NUPRISM/helloworld_apu" platform="C:/triumf/nuprism/xu1/rev2020/Vitis_NUPRISM/nuprism/export/nuprism/nuprism.xpfm" platformUID="xilinx:::0.0(custom)" systemProject="helloworld_apu_system" sysConfig="nuprism" runtime="C/C++" cpu="standalone_domain" cpuInstance="psu_cortexa53_0" os="standalone" mssSignature="8ee7eb357f3e028b65a8d9e5c6677ab5">
+  <configuration name="Debug" id="xilinx.gnu.arm.a53.exe.debug.1687206564">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+    <lastBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <configuration name="Release" id="xilinx.gnu.arm.a53.exe.release.228873442" dirty="true">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <template appTemplateName="hello_world"/>
+</sdkproject:SdkProject>
