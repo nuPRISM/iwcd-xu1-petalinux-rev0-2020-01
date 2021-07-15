@@ -57,6 +57,7 @@ typedef struct {
     char dma_dev[32];
     char filename[32];
     unsigned int buf_size;
+    int adc_mode;
     int status;
 } AcqData;
 
@@ -82,7 +83,9 @@ void *trigger_thread_fun( void *ptr ) {
 
 void *acquisition_thread_fun(void *ptr) {
     AcqData *data_ptr = (AcqData*)ptr;
-    DBG("acq start: dev_name=%s, filename=%s buf_siez=%d\n", data_ptr->dma_dev, data_ptr->filename, data_ptr->buf_size);
+    DBG("acq start: dev_name=%s, filename=%s buf_size=%d adc_mode=%d\n", data_ptr->dma_dev, data_ptr->filename, data_ptr->buf_size, data_ptr->adc_mode);
+
+    data_ptr->status = 0;
 
     // open DMA device
     int	rx_proxy_fd = open(data_ptr->dma_dev, O_RDWR);
@@ -113,7 +116,8 @@ void *acquisition_thread_fun(void *ptr) {
     if (rx_proxy_interface_p->status != PROXY_NO_ERROR) {
 	    DBG("Proxy rx transfer error: status=%d device=%s\n", rx_proxy_interface_p->status, data_ptr->dma_dev);
         data_ptr->status = 3;
-		return NULL;
+		//return NULL;
+        goto cleanup;
     } 
     DBG("DMA transfer OK, storing data in file\n", data_ptr->filename);
 
@@ -122,23 +126,48 @@ void *acquisition_thread_fun(void *ptr) {
     if(file == NULL) {
    	    DBG("can not open file %s\n", data_ptr->filename);
         data_ptr->status = 4;
-		return NULL;
+		//return NULL;
+        goto cleanup;
     } 
     if (!fwrite( rx_proxy_interface_p->buffer, 1, data_ptr->buf_size, file)) {
    	    DBG("File %s write error\n", data_ptr->filename);
-        data_ptr->status = 5;           // \todo #define THREAD_SATUS_xxx
-		return NULL;
+        data_ptr->status = 5;           // \todo #define THREAD_STTUS_xxx
+		//return NULL;
+        goto cleanup;
     } 
     fclose(file);
 
+    if(data_ptr->adc_mode == 2) {           // toggle test pattern
+        uint16_t* buf_uint_ptr = (uint16_t*)(rx_proxy_interface_p->buffer);
+        unsigned int num_samples = data_ptr->buf_size / 2;
+    
+        int pattern[2] = {0x0555, 0xfaaa};
+        int offset;
+
+        if(*buf_uint_ptr == pattern[0]) {
+            offset = 0;
+        } else if(*buf_uint_ptr == pattern[1]) {
+            offset = 1;
+        } else {
+            DBG("ERROR! inorrect sample #1\n", NULL);
+            data_ptr->status = 6;           // \todo #define THREAD_STTUS_xxx
+        }
+        for(int i = 0; i < num_samples; i++) {
+            if(buf_uint_ptr[i] != pattern[(i + offset) % 2]) {
+                DBG("ERROR! incorrect sample #%d\n", i);
+                data_ptr->status = 6;           // \todo #define THREAD_STTUS_xxx
+                break;
+            }
+        }
+    }
+
+cleanup:        
     // Unmap the proxy channel interface memory     
     munmap(rx_proxy_interface_p, sizeof(struct dma_proxy_channel_interface));
     
     // close DMA proxy device
     close(rx_proxy_fd);
    
-    data_ptr->status = 0;
-    
     return NULL;
 }
 
@@ -437,6 +466,7 @@ int main(int argc, char **argv)
     strcpy(acq_ch0_data.filename, "dma_ch0.bin");
     strcpy(acq_ch1_data.filename, "dma_ch1.bin");
     acq_ch1_data.buf_size = acq_ch0_data.buf_size = buf_size;
+    acq_ch1_data.adc_mode = acq_ch0_data.adc_mode = adc_mode;
 
 	fprintf(stderr, "ADC_num_ch0=%d, ADC_num_ch1=%d, adc_mode=%d, buf_size=%d num_iter=%d\n", adc_ch0_num, adc_ch1_num, adc_mode, buf_size, num_iter);    
     if(interactive) {
