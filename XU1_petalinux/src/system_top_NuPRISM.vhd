@@ -35,6 +35,7 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
+use IEEE.std_logic_unsigned.all;
 
 library unisim;
 use unisim.vcomponents.all;
@@ -262,6 +263,7 @@ architecture rtl of system_top is
     adc_sample_valid : in STD_LOGIC_VECTOR ( 19 downto 0 );
     emio_spi0_ss_out : out STD_LOGIC;
     gpio : out STD_LOGIC_VECTOR ( 19 downto 0 );
+    gpio_delay_ctrl : out STD_LOGIC_VECTOR ( 31 downto 0 );
     pl_clk1 : out STD_LOGIC;
     pl_resetn0 : out STD_LOGIC;
     ps_master_i2c_scl_io : inout STD_LOGIC;
@@ -303,6 +305,7 @@ architecture rtl of system_top is
 
     -- ps
     signal Gpio                : std_logic_vector (19 downto 0);
+    signal gpio_delay_ctrl     : std_logic_vector (31 downto 0);
     -- LVDS output signals
     signal RJ45_LVDS_TRIG : std_logic;
 
@@ -324,7 +327,8 @@ architecture rtl of system_top is
 --    signal adc_b64_pll_dclk_p           : sl;
 --    signal adc_b64_pll_dclk_n           : sl;
     signal adc_serdes_locked              : slv(4 downto 0);
-    signal adc_serdes_setDelay            : Slv9Array(8 downto 0);
+    --signal adc_serdes_setDelay            : Slv9Array(8 downto 0);
+    signal adc_serdes_loadDelay           : slv(44 downto 0);
     signal adc_serdata_diff_p             : slv(39 downto 0);
     signal adc_serdata_diff_n             : slv(39 downto 0);
     signal adc_par_data                   : slv12array(39 downto 0);
@@ -366,6 +370,7 @@ begin
   	 MercuryXU1_i: component MercuryXU1_wrapper
      port map (
      gpio(19 downto 0) => Gpio(19 downto 0),
+     gpio_delay_ctrl => gpio_delay_ctrl,
      pl_clk1                 => Clk,
      pl_resetn0              => Rst_N,
      ps_master_i2c_scl_io    => I2c_Scl,
@@ -492,7 +497,7 @@ begin
     -- -----------------------------------------------------------------------------------------------
     -- ADC3 (DA,DB) {4}, ADC4 (!DA) {6}
 
-    adc_serdes_setDelay <= (others => "000000000");
+    --adc_serdes_setDelay(0) <= gpio_delay_ctrl(8 downto 0) ;  -- (others => "000000000");
 
     adc_serdata_diff_p  <=  ADC4_DD1_p & ADC4_DD0_p & ADC4_DC1_p & ADC4_DC0_p & ADC4_DB1_p & ADC4_DB0_p & ADC4_DA1_p & ADC4_DA0_p
                           & ADC3_DD1_p & ADC3_DD0_p & ADC3_DC1_p & ADC3_DC0_p & ADC3_DB1_p & ADC3_DB0_p & ADC3_DA1_p & ADC3_DA0_p
@@ -509,8 +514,8 @@ begin
     adc_frame_diff_p <= ADC4_FCLK_p & ADC3_FCLK_p & ADC2_FCLK_p & ADC1_FCLK_p & ADC0_FCLK_p;
     adc_frame_diff_n <= ADC4_FCLK_n & ADC3_FCLK_n & ADC2_FCLK_n & ADC1_FCLK_n & ADC0_FCLK_n;
     
-    adc_dclk_diff_p <= ADC4_DCLK_p & ADC3_DCLK_p & ADC2_DCLK_p & ADC0_DCLK_p & ADC0_DCLK_p;
-    adc_dclk_diff_n <= ADC4_DCLK_n & ADC3_DCLK_n & ADC2_DCLK_n & ADC0_DCLK_n & ADC0_DCLK_n;
+    adc_dclk_diff_p <= ADC4_DCLK_p & ADC3_DCLK_p & ADC2_DCLK_p & ADC1_DCLK_p & ADC0_DCLK_p;
+    adc_dclk_diff_n <= ADC4_DCLK_n & ADC3_DCLK_n & ADC2_DCLK_n & ADC1_DCLK_n & ADC0_DCLK_n;
     
     adc_mmcm_dclk_n <= not(adc_mmcm_dclk_p);
 
@@ -560,10 +565,21 @@ begin
             locked_o        => adc_serdes_locked(adc),          -- ADC parallel data vector array
             -- IDelay control
             curDelay_o      => open,                -- Current delay for delay buffers
-            setDelay_i      => adc_serdes_setDelay,       -- Delay update vector array
-            setValid_i      => '0'                  -- Set delay signal
+            setDelay_i      => gpio_delay_ctrl(8 downto 0),--adc_serdes_setDelay,       -- Delay update vector array
+            setValid_i      => adc_serdes_loadDelay(8+9*adc downto 9*adc) --'0'                  -- Set delay signal
         );
         
+        adc_serdes_loadDelay(8+9*adc downto 9*adc) <= "000000000" when gpio_delay_ctrl(9) = '0' or gpio_delay_ctrl(16 downto 14) /= adc else
+                                                      "000000001" when gpio_delay_ctrl(13 downto 10) = 0 else
+                                                      "000000010" when gpio_delay_ctrl(13 downto 10) = 1 else
+                                                      "000000100" when gpio_delay_ctrl(13 downto 10) = 2 else
+                                                      "000001000" when gpio_delay_ctrl(13 downto 10) = 3 else
+                                                      "000010000" when gpio_delay_ctrl(13 downto 10) = 4 else
+                                                      "000100000" when gpio_delay_ctrl(13 downto 10) = 5 else
+                                                      "001000000" when gpio_delay_ctrl(13 downto 10) = 6 else
+                                                      "010000000" when gpio_delay_ctrl(13 downto 10) = 7 else
+                                                      "100000000" when gpio_delay_ctrl(13 downto 10) = 8 else
+                                                      "000000000";
         
         B64_A: for channel in 0 to 3 generate -- on ADC channels
           adc_sample_array(4*adc+channel)(27 downto 16) <= adc_par_data(8*adc+2*channel+1)(11 downto 6) & adc_par_data(8*adc+2*channel)(11 downto 6);

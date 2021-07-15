@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-| Date             : Wed Jul  7 13:29:11 2021
+| Date             : Tue Jul 13 12:34:11 2021
 | Host             : hyperk running 64-bit Ubuntu 18.04.5 LTS
 | Command          : report_power -file system_top_power_routed.rpt -pb system_top_power_summary_routed.pb -rpx system_top_power_routed.rpx
 | Design           : system_top
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 5.010        |
+| Total On-Chip Power (W)  | 5.048        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 4.258        |
+| Dynamic (W)              | 4.295        |
 | Device Static (W)        | 0.752        |
 | Effective TJA (C/W)      | 1.4          |
-| Max Ambient (C)          | 93.0         |
-| Junction Temperature (C) | 32.0         |
+| Max Ambient (C)          | 92.9         |
+| Junction Temperature (C) | 32.1         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,17 +52,17 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.326 |       31 |       --- |             --- |
-| CLB Logic                |     0.301 |   103580 |       --- |             --- |
+| Clocks                   |     0.341 |       31 |       --- |             --- |
+| CLB Logic                |     0.302 |   104182 |       --- |             --- |
 |   LUT as Distributed RAM |     0.172 |     2104 |    144000 |            1.46 |
-|   LUT as Logic           |     0.091 |    26656 |    214604 |           12.42 |
-|   LUT as Shift Register  |     0.025 |     3863 |    144000 |            2.68 |
-|   Register               |     0.012 |    50464 |    429208 |           11.76 |
-|   CARRY8                 |    <0.001 |      516 |     34260 |            1.51 |
-|   Others                 |     0.000 |     6320 |       --- |             --- |
-|   F7/F8 Muxes            |     0.000 |     1160 |    274080 |            0.42 |
-| Signals                  |     0.193 |    72653 |       --- |             --- |
-| Block RAM                |     0.311 |    309.5 |       714 |           43.35 |
+|   LUT as Logic           |     0.092 |    26845 |    214604 |           12.51 |
+|   LUT as Shift Register  |     0.025 |     3896 |    144000 |            2.71 |
+|   Register               |     0.012 |    50797 |    429208 |           11.84 |
+|   CARRY8                 |    <0.001 |      519 |     34260 |            1.51 |
+|   Others                 |     0.000 |     6340 |       --- |             --- |
+|   F7/F8 Muxes            |     0.000 |     1151 |    274080 |            0.42 |
+| Signals                  |     0.216 |    73118 |       --- |             --- |
+| Block RAM                |     0.311 |      310 |       714 |           43.42 |
 | MMCM                     |     0.283 |        0 |       --- |             --- |
 | I/O                      |     0.186 |      109 |       204 |           53.43 |
 | SYSMON                   |     0.005 |        1 |       --- |             --- |
@@ -70,7 +70,7 @@ Table of Contents
 | Static Power             |     0.752 |          |           |                 |
 |   PS Static              |     0.102 |          |           |                 |
 |   PL Static              |     0.650 |          |           |                 |
-| Total                    |     5.010 |          |           |                 |
+| Total                    |     5.048 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -80,7 +80,7 @@ Table of Contents
 +-----------------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source          | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint          |       0.850 |     1.528 |       1.295 |      0.233 |       NA    | Unspecified | NA         |
+| Vccint          |       0.850 |     1.572 |       1.338 |      0.234 |       NA    | Unspecified | NA         |
 | Vccint_io       |       0.850 |     0.073 |       0.037 |      0.036 |       NA    | Unspecified | NA         |
 | Vccbram         |       0.850 |     0.048 |       0.045 |      0.004 |       NA    | Unspecified | NA         |
 | Vccaux          |       1.800 |     0.348 |       0.156 |      0.191 |       NA    | Unspecified | NA         |
@@ -166,7 +166,7 @@ Table of Contents
 | clkfbout_clk_wiz_0_b65_mmcm_3                                                                       | B64_C[1].serdes_clock/inst/clkfbout_clk_wiz_0_b65_mmcm                    |             2.7 |
 | clkfbout_clk_wiz_0_b65_mmcm_4                                                                       | B64_C[2].serdes_clock/inst/clkfbout_clk_wiz_0_b65_mmcm                    |             2.7 |
 | clkfbout_clk_wiz_0_b65_mmcm_5                                                                       | B64_C[3].serdes_clock/inst/clkfbout_clk_wiz_0_b65_mmcm                    |             2.7 |
-| clkin0                                                                                              | ADC0_DCLK_p                                                               |             2.7 |
+| clkin1                                                                                              | ADC1_DCLK_p                                                               |             2.7 |
 | clkin2                                                                                              | ADC2_DCLK_p                                                               |             2.7 |
 | clkin3                                                                                              | ADC3_DCLK_p                                                               |             2.7 |
 | dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/SERIES7_BSCAN.bscan_inst/INTERNAL_TCK | dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/in0         |            50.0 |
@@ -187,7 +187,7 @@ Table of Contents
 +-----------------------------------------+-----------+
 | Name                                    | Power (W) |
 +-----------------------------------------+-----------+
-| system_top                              |     4.258 |
+| system_top                              |     4.295 |
 |   B64_C[1].serdes_clock                 |     0.099 |
 |     inst                                |     0.099 |
 |       clkin1_ibufds                     |     0.004 |
@@ -197,35 +197,7 @@ Table of Contents
 |   B64_C[3].serdes_clock                 |     0.099 |
 |     inst                                |     0.099 |
 |       clkin1_ibufds                     |     0.004 |
-|   B64_S[0].Ad9229Core_b                 |     0.067 |
-|     Ad9229Deserializer_INST             |     0.004 |
-|       U_SyncFifo                        |     0.003 |
-|     GEN_DATA[0].Ad9229Deserializer_INST |     0.004 |
-|       U_SyncFifo                        |     0.003 |
-|     GEN_DATA[0].U_DataIn                |     0.003 |
-|     GEN_DATA[1].Ad9229Deserializer_INST |     0.004 |
-|       U_SyncFifo                        |     0.003 |
-|     GEN_DATA[1].U_DataIn                |     0.003 |
-|     GEN_DATA[2].Ad9229Deserializer_INST |     0.004 |
-|       U_SyncFifo                        |     0.003 |
-|     GEN_DATA[2].U_DataIn                |     0.003 |
-|     GEN_DATA[3].Ad9229Deserializer_INST |     0.004 |
-|       U_SyncFifo                        |     0.003 |
-|     GEN_DATA[3].U_DataIn                |     0.003 |
-|     GEN_DATA[4].Ad9229Deserializer_INST |     0.004 |
-|       U_SyncFifo                        |     0.003 |
-|     GEN_DATA[4].U_DataIn                |     0.003 |
-|     GEN_DATA[5].Ad9229Deserializer_INST |     0.004 |
-|       U_SyncFifo                        |     0.003 |
-|     GEN_DATA[5].U_DataIn                |     0.003 |
-|     GEN_DATA[6].Ad9229Deserializer_INST |     0.004 |
-|       U_SyncFifo                        |     0.002 |
-|     GEN_DATA[6].U_DataIn                |     0.003 |
-|     GEN_DATA[7].Ad9229Deserializer_INST |     0.004 |
-|       U_SyncFifo                        |     0.003 |
-|     GEN_DATA[7].U_DataIn                |     0.003 |
-|     U_FrameIn                           |     0.003 |
-|   B64_S[1].Ad9229Core_b                 |     0.068 |
+|   B64_S[0].Ad9229Core_b                 |     0.070 |
 |     Ad9229Deserializer_INST             |     0.004 |
 |       U_SyncFifo                        |     0.003 |
 |     GEN_DATA[0].Ad9229Deserializer_INST |     0.004 |
@@ -253,7 +225,7 @@ Table of Contents
 |       U_SyncFifo                        |     0.003 |
 |     GEN_DATA[7].U_DataIn                |     0.003 |
 |     U_FrameIn                           |     0.003 |
-|   B64_S[2].Ad9229Core_b                 |     0.067 |
+|   B64_S[1].Ad9229Core_b                 |     0.069 |
 |     Ad9229Deserializer_INST             |     0.004 |
 |       U_SyncFifo                        |     0.003 |
 |     GEN_DATA[0].Ad9229Deserializer_INST |     0.004 |
@@ -281,8 +253,36 @@ Table of Contents
 |       U_SyncFifo                        |     0.003 |
 |     GEN_DATA[7].U_DataIn                |     0.003 |
 |     U_FrameIn                           |     0.003 |
-|   B64_S[3].Ad9229Core_b                 |     0.070 |
-|     Ad9229Deserializer_INST             |     0.004 |
+|   B64_S[2].Ad9229Core_b                 |     0.071 |
+|     Ad9229Deserializer_INST             |     0.005 |
+|       U_SyncFifo                        |     0.003 |
+|     GEN_DATA[0].Ad9229Deserializer_INST |     0.004 |
+|       U_SyncFifo                        |     0.003 |
+|     GEN_DATA[0].U_DataIn                |     0.003 |
+|     GEN_DATA[1].Ad9229Deserializer_INST |     0.004 |
+|       U_SyncFifo                        |     0.003 |
+|     GEN_DATA[1].U_DataIn                |     0.003 |
+|     GEN_DATA[2].Ad9229Deserializer_INST |     0.004 |
+|       U_SyncFifo                        |     0.003 |
+|     GEN_DATA[2].U_DataIn                |     0.003 |
+|     GEN_DATA[3].Ad9229Deserializer_INST |     0.004 |
+|       U_SyncFifo                        |     0.003 |
+|     GEN_DATA[3].U_DataIn                |     0.003 |
+|     GEN_DATA[4].Ad9229Deserializer_INST |     0.004 |
+|       U_SyncFifo                        |     0.003 |
+|     GEN_DATA[4].U_DataIn                |     0.003 |
+|     GEN_DATA[5].Ad9229Deserializer_INST |     0.004 |
+|       U_SyncFifo                        |     0.003 |
+|     GEN_DATA[5].U_DataIn                |     0.003 |
+|     GEN_DATA[6].Ad9229Deserializer_INST |     0.004 |
+|       U_SyncFifo                        |     0.003 |
+|     GEN_DATA[6].U_DataIn                |     0.003 |
+|     GEN_DATA[7].Ad9229Deserializer_INST |     0.004 |
+|       U_SyncFifo                        |     0.003 |
+|     GEN_DATA[7].U_DataIn                |     0.003 |
+|     U_FrameIn                           |     0.003 |
+|   B64_S[3].Ad9229Core_b                 |     0.071 |
+|     Ad9229Deserializer_INST             |     0.005 |
 |       U_SyncFifo                        |     0.003 |
 |     GEN_DATA[0].Ad9229Deserializer_INST |     0.004 |
 |       U_SyncFifo                        |     0.003 |
@@ -337,28 +337,28 @@ Table of Contents
 |       U_SyncFifo                        |     0.003 |
 |     GEN_DATA[7].U_DataIn                |     0.003 |
 |     U_FrameIn                           |     0.003 |
-|   MercuryXU1_i                          |     3.557 |
-|     MercuryXU1_i                        |     3.553 |
+|   MercuryXU1_i                          |     3.585 |
+|     MercuryXU1_i                        |     3.580 |
 |       axi_dma_0                         |     0.034 |
 |       axi_dma_1                         |     0.018 |
 |       axis_clock_converter_0            |     0.003 |
 |       axis_clock_converter_1            |     0.003 |
 |       axis_data_fifo_0                  |     0.002 |
-|       axis_interconnect_0               |     0.009 |
+|       axis_interconnect_0               |     0.008 |
 |       ps8_0_axi_periph                  |     0.005 |
-|       smartconnect_0                    |     0.199 |
-|       smartconnect_1                    |     0.169 |
-|       system_ila_50                     |     0.420 |
-|       system_ila_51                     |     0.011 |
-|       system_ila_60                     |     0.007 |
+|       smartconnect_0                    |     0.204 |
+|       smartconnect_1                    |     0.178 |
+|       system_ila_50                     |     0.424 |
+|       system_ila_51                     |     0.012 |
+|       system_ila_60                     |     0.009 |
 |       system_management_wiz_0           |     0.006 |
-|       zynq_ultra_ps_e_0                 |     2.664 |
+|       zynq_ultra_ps_e_0                 |     2.670 |
 |   dbg_hub                               |     0.002 |
 |     inst                                |     0.002 |
 |       BSCANID.u_xsdbm_id                |     0.002 |
-|   u_ila_0                               |     0.016 |
-|     inst                                |     0.016 |
-|       ila_core_inst                     |     0.016 |
+|   u_ila_0                               |     0.017 |
+|     inst                                |     0.017 |
+|       ila_core_inst                     |     0.017 |
 |   u_ila_1                               |     0.011 |
 |     inst                                |     0.011 |
 |       ila_core_inst                     |     0.011 |

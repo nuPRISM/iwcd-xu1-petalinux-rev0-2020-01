@@ -20,7 +20,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='/home/ab/Desktop/XU1_petalinux_rev6/Vivado_NuPRISM/MercuryXU1_NuPRISM.runs/MercuryNuPRISM_impl'
+HD_PWD='/home/ab/Desktop/XU1_petalinux_rev6.1/Vivado_NuPRISM/MercuryXU1_NuPRISM.runs/MercuryNuPRISM_impl'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

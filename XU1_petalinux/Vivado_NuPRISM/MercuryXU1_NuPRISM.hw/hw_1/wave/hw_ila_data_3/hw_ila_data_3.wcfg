@@ -3,7 +3,7 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="/home/ab/Desktop/XU1_petalinux_rev6/Vivado_NuPRISM/MercuryXU1_NuPRISM.hw/hw_1/wave/hw_ila_data_3/hw_ila_data_3.wdb" id="1">
+      <db_ref path="/home/ab/Desktop/XU1_petalinux_rev6.1/Vivado_NuPRISM/MercuryXU1_NuPRISM.hw/hw_1/wave/hw_ila_data_3/hw_ila_data_3.wdb" id="1">
          <top_modules>
          </top_modules>
       </db_ref>
@@ -11,23 +11,24 @@
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
       <ZoomEndTime time="1025fs"></ZoomEndTime>
-      <Cursor1Time time="599fs"></Cursor1Time>
+      <Cursor1Time time="213000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="326"></NameColumnWidth>
-      <ValueColumnWidth column_width="289"></ValueColumnWidth>
+      <ValueColumnWidth column_width="305"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="3" />
+   <WVObjectSize size="4" />
    <wave_markers>
    </wave_markers>
-   <wvobject type="array" fp_name="MercuryXU1_i/MercuryXU1_i/system_ila_60/U0/probe0_1">
+   <wvobject type="array" fp_name="MercuryXU1_i/MercuryXU1_i/system_ila_60/U0/probe1_1">
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">MercuryXU1_i/MercuryXU1_i/system_ila_60/U0/probe0_1[19:0]</obj_property>
-      <obj_property name="ObjectShortName">probe0_1[19:0]</obj_property>
+      <obj_property name="ElementShortName">MercuryXU1_i/MercuryXU1_i/system_ila_60/U0/probe1_1[19:0]</obj_property>
+      <obj_property name="ObjectShortName">probe1_1[19:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
-      <obj_property name="label">axi_gpio_suppres_gpio_io_o</obj_property>
+      <obj_property name="label">axi_gpio_0_gpio_io_o</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="isExpanded"></obj_property>
    </wvobject>
    <wvobject type="array" fp_name="MercuryXU1_i/MercuryXU1_i/system_ila_60/U0/probe2_1">
       <obj_property name="DisplayName">label</obj_property>
@@ -38,12 +39,22 @@
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="MercuryXU1_i/MercuryXU1_i/system_ila_60/U0/probe1_1">
+   <wvobject type="array" fp_name="MercuryXU1_i/MercuryXU1_i/system_ila_60/U0/probe0_1">
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">MercuryXU1_i/MercuryXU1_i/system_ila_60/U0/probe1_1[19:0]</obj_property>
-      <obj_property name="ObjectShortName">probe1_1[19:0]</obj_property>
+      <obj_property name="ElementShortName">MercuryXU1_i/MercuryXU1_i/system_ila_60/U0/probe0_1[19:0]</obj_property>
+      <obj_property name="ObjectShortName">probe0_1[19:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
-      <obj_property name="label">axi_gpio_0_gpio_io_o</obj_property>
+      <obj_property name="label">axi_gpio_suppres_gpio_io_o</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="MercuryXU1_i/MercuryXU1_i/system_ila_60/U0/probe3_1">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">MercuryXU1_i/MercuryXU1_i/system_ila_60/U0/probe3_1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">probe3_1[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="label">gpio_delay_ctrl</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>

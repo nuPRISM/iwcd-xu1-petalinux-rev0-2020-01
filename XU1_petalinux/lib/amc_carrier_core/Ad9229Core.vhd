@@ -60,8 +60,8 @@ entity Ad9229Core is
 
       -- IDelay control
       curDelay_o : out Slv9Array(N_CHANNELS_G downto 0);
-      setDelay_i : in  Slv9Array(N_CHANNELS_G downto 0);
-      setValid_i : in  sl
+      setDelay_i : in  slv(8 downto 0);
+      setValid_i : in  slv(N_CHANNELS_G downto 0)
    );
 end Ad9229Core;
 
@@ -174,8 +174,8 @@ begin
         rstPar     => sampleRst,
         slip       => r.slip,
         curDelay   => curDelay_o(i),
-        setDelay   => setDelay_i(i),
-        setValid   => setValid_i,
+        setDelay   => setDelay_i,
+        setValid   => setValid_i(i),
         iData      => s_serData(i),
         oData      => s_parData(i));
   end generate GEN_DATA;
@@ -207,8 +207,8 @@ begin
          rstPar     => sampleRst,
          slip       => r.slip,
          curDelay   => curDelay_o(N_CHANNELS_G),
-         setDelay   => setDelay_i(N_CHANNELS_G),
-         setValid   => setValid_i,
+         setDelay   => setDelay_i,
+         setValid   => setValid_i(N_CHANNELS_G),
          iData      => s_frameClk,
          oData      => s_parFrame);
 

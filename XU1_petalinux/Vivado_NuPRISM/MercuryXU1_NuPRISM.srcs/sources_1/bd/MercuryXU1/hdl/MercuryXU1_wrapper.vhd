@@ -1,7 +1,7 @@
 --Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
---Date        : Wed Jul  7 13:02:47 2021
+--Date        : Tue Jul 13 12:13:04 2021
 --Host        : hyperk running 64-bit Ubuntu 18.04.5 LTS
 --Command     : generate_target MercuryXU1_wrapper.bd
 --Design      : MercuryXU1_wrapper
@@ -36,6 +36,7 @@ entity MercuryXU1_wrapper is
     adc_sample_valid : in STD_LOGIC_VECTOR ( 19 downto 0 );
     emio_spi0_ss_out : out STD_LOGIC;
     gpio : out STD_LOGIC_VECTOR ( 19 downto 0 );
+    gpio_delay_ctrl : out STD_LOGIC_VECTOR ( 31 downto 0 );
     pl_clk1 : out STD_LOGIC;
     pl_resetn0 : out STD_LOGIC;
     ps_master_i2c_scl_io : inout STD_LOGIC;
@@ -77,12 +78,7 @@ architecture STRUCTURE of MercuryXU1_wrapper is
     adc6_sample : in STD_LOGIC_VECTOR ( 31 downto 0 );
     adc7_sample : in STD_LOGIC_VECTOR ( 31 downto 0 );
     adc15_sample : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    ps_master_i2c_scl_i : in STD_LOGIC;
-    ps_master_i2c_scl_o : out STD_LOGIC;
-    ps_master_i2c_scl_t : out STD_LOGIC;
-    ps_master_i2c_sda_i : in STD_LOGIC;
-    ps_master_i2c_sda_o : out STD_LOGIC;
-    ps_master_i2c_sda_t : out STD_LOGIC;
+    gpio_delay_ctrl : out STD_LOGIC_VECTOR ( 31 downto 0 );
     ps_spi_0_sck_i : in STD_LOGIC;
     ps_spi_0_sck_o : out STD_LOGIC;
     ps_spi_0_sck_t : out STD_LOGIC;
@@ -92,7 +88,13 @@ architecture STRUCTURE of MercuryXU1_wrapper is
     ps_spi_0_io0_i : in STD_LOGIC;
     ps_spi_0_io1_o : out STD_LOGIC;
     ps_spi_0_io1_t : out STD_LOGIC;
-    ps_spi_0_ss_t : out STD_LOGIC
+    ps_spi_0_ss_t : out STD_LOGIC;
+    ps_master_i2c_scl_i : in STD_LOGIC;
+    ps_master_i2c_scl_o : out STD_LOGIC;
+    ps_master_i2c_scl_t : out STD_LOGIC;
+    ps_master_i2c_sda_i : in STD_LOGIC;
+    ps_master_i2c_sda_o : out STD_LOGIC;
+    ps_master_i2c_sda_t : out STD_LOGIC
   );
   end component MercuryXU1;
   component IOBUF is
@@ -144,6 +146,7 @@ MercuryXU1_i: component MercuryXU1
       adc_sample_valid(19 downto 0) => adc_sample_valid(19 downto 0),
       emio_spi0_ss_out => emio_spi0_ss_out,
       gpio(19 downto 0) => gpio(19 downto 0),
+      gpio_delay_ctrl(31 downto 0) => gpio_delay_ctrl(31 downto 0),
       pl_clk1 => pl_clk1,
       pl_resetn0 => pl_resetn0,
       ps_master_i2c_scl_i => ps_master_i2c_scl_i,

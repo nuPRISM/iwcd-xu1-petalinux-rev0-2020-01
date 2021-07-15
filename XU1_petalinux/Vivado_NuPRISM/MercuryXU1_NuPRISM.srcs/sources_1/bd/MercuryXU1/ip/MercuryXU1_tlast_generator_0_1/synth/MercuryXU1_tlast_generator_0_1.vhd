@@ -92,11 +92,11 @@ ARCHITECTURE MercuryXU1_tlast_generator_0_1_arch OF MercuryXU1_tlast_generator_0
     );
   END COMPONENT tlast_generator;
   ATTRIBUTE X_CORE_INFO : STRING;
-  ATTRIBUTE X_CORE_INFO OF MercuryXU1_tlast_generator_0_1_arch: ARCHITECTURE IS "tlast_generator,Vivado 2020.1";
+  ATTRIBUTE X_CORE_INFO OF MercuryXU1_tlast_generator_0_1_arch: ARCHITECTURE IS "tlast_generator,Vivado 2020.1.1";
   ATTRIBUTE CHECK_LICENSE_TYPE : STRING;
   ATTRIBUTE CHECK_LICENSE_TYPE OF MercuryXU1_tlast_generator_0_1_arch : ARCHITECTURE IS "MercuryXU1_tlast_generator_0_1,tlast_generator,{}";
   ATTRIBUTE CORE_GENERATION_INFO : STRING;
-  ATTRIBUTE CORE_GENERATION_INFO OF MercuryXU1_tlast_generator_0_1_arch: ARCHITECTURE IS "MercuryXU1_tlast_generator_0_1,tlast_generator,{x_ipProduct=Vivado 2020.1,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=tlast_generator,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED}";
+  ATTRIBUTE CORE_GENERATION_INFO OF MercuryXU1_tlast_generator_0_1_arch: ARCHITECTURE IS "MercuryXU1_tlast_generator_0_1,tlast_generator,{x_ipProduct=Vivado 2020.1.1,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=tlast_generator,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED}";
   ATTRIBUTE IP_DEFINITION_SOURCE : STRING;
   ATTRIBUTE IP_DEFINITION_SOURCE OF MercuryXU1_tlast_generator_0_1_arch: ARCHITECTURE IS "module_ref";
   ATTRIBUTE X_INTERFACE_INFO : STRING;

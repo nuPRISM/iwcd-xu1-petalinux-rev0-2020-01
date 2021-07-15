@@ -29,20 +29,20 @@
 #define ADC_GPIO_START ADC_SEL0_GPIO
 #define ADC_GPIO_END   ADC_DMA_RESET_GPIO
 
-#define SUPPRESS_LSB_GPIO        440
-#define SUPPRESS_MSB_GPIO        441
-#define ADC_TRIGGER_GPIO         442
-#define ADC_TRIGGER_ENABLE_GPI0  443
-#define ADC_CH0_NUM_LSB          444
-#define ADC_CH0_NUM_MSB          448
-#define ADC_CH1_NUM_LSB          449
-#define ADC_CH1_NUM_MSB          453
+#define SUPPRESS_LSB_GPIO        408
+#define SUPPRESS_MSB_GPIO        409
+#define ADC_TRIGGER_GPIO         410
+#define ADC_TRIGGER_ENABLE_GPI0  411
+#define ADC_CH0_NUM_LSB          412
+#define ADC_CH0_NUM_MSB          416
+#define ADC_CH1_NUM_LSB          417
+#define ADC_CH1_NUM_MSB          421
 
 #define SUPPRESS_GPIO_START SUPPRESS_LSB_GPIO
 #define SUPPRESS_GPIO_END   ADC_CH1_NUM_MSB
 
-#define DMA_BUF_SIZE_GPIO_START 460
-#define DMA_BUF_SIZE_GPIO_END   491
+#define DMA_BUF_SIZE_GPIO_START 428
+#define DMA_BUF_SIZE_GPIO_END   459
 
 #define MIN_ADC_NUM  0
 #define MAX_ADC_NUM 19
@@ -64,10 +64,17 @@ typedef struct {
 void *trigger_thread_fun( void *ptr ) {
     DBG("delay start\n", NULL);
     usleep(10 * 1000);
-    system("echo 1 > /sys/class/gpio/gpio442/value");     // set trigger
-    system("echo 0 > /sys/class/gpio/gpio442/value");     // unset trigger
-    DBG("delay end\n", NULL);
     
+    char cmd[64];
+    //system("echo 1 > /sys/class/gpio/gpio442/value");     // set trigger
+    sprintf(cmd, "echo 1 > /sys/class/gpio/gpio%d/value", ADC_TRIGGER_GPIO);
+    DBG("%s\n", cmd);
+    system(cmd);
+    //system("echo 0 > /sys/class/gpio/gpio442/value");     // unset trigger
+    sprintf(cmd, "echo 0 > /sys/class/gpio/gpio%d/value", ADC_TRIGGER_GPIO);
+    DBG("%s\n", cmd);
+    system(cmd);
+    DBG("delay end\n", NULL);
     
     return NULL;
 }
@@ -89,7 +96,7 @@ void *acquisition_thread_fun(void *ptr) {
     struct dma_proxy_channel_interface *rx_proxy_interface_p;
     
     rx_proxy_interface_p = (struct dma_proxy_channel_interface *)mmap(NULL, sizeof(struct dma_proxy_channel_interface),
-									PROT_READ | PROT_WRITE, MAP_SHARED, rx_proxy_fd, 0);
+								PROT_READ | PROT_WRITE, MAP_SHARED, rx_proxy_fd, 0);
 	if (rx_proxy_interface_p == MAP_FAILED) {
 		DBG("Failed to mmap buf for device %s\n", data_ptr->dma_dev);
         data_ptr->status = 2;
@@ -138,7 +145,10 @@ void *acquisition_thread_fun(void *ptr) {
 
 int init_gpio() {
     struct stat stat_buf;   
-    if(stat("/sys/class/gpio/gpio492/value", &stat_buf) == 0) {
+    char gpio_dev_name[64];
+    sprintf(gpio_dev_name, "/sys/class/gpio/gpio%d/value", ADC_DMA_RESET_GPIO);
+    //if(stat("/sys/class/gpio/gpio492/value", &stat_buf) == 0) {
+    if(stat(gpio_dev_name, &stat_buf) == 0) {
         DBG("GPIO already initialized\n", NULL);
         return 1;
     }
@@ -283,19 +293,36 @@ int adc_config(int fd, int adc_num, int adc_mode) {
 
 
 int dma_reset() {
-    system("echo 0 > /sys/class/gpio/gpio499/value"); 
+    char cmd[64];
+    //system("echo 0 > /sys/class/gpio/gpio499/value"); 
+    sprintf(cmd, "echo 0 > /sys/class/gpio/gpio%d/value", ADC_DMA_RESET_GPIO);
+    system(cmd);
+    
     usleep(500 * 1000);
-    system("echo 1 > /sys/class/gpio/gpio499/value"); 
+    //system("echo 1 > /sys/class/gpio/gpio499/value"); 
+    sprintf(cmd, "echo 1 > /sys/class/gpio/gpio%d/value", ADC_DMA_RESET_GPIO);
+    system(cmd);
+    
+    return 0;       // \todo verify system cmd error codes, return appropiate value
+}
+
+
+int set_adc_suppress_bit(int state) {
+    char cmd[64];
+    sprintf(cmd, "echo %d > /sys/class/gpio/gpio%d/value", (state > 0 ? 1 : 0), SUPPRESS_MSB_GPIO);
+    DBG("%s\n", cmd);
+    system(cmd);
 
     return 0;       // \todo verify system cmd error codes, return appropiate value
 }
 
 
 void print_usage() {
-    printf("Usage:\n\tadc_stream2 -m ADC_num_ch1 -n ADC_num_ch2 -p ADC_mode -q num_iter -b buf_size [-i]\n");
+    printf("Usage:\n\tadc_stream2 -m ADC_num_ch1 -n ADC_num_ch2 -p ADC_mode -q num_iter -b buf_size -i [ 0 | 1 ]\n");
     printf("\tADC_num_chx=0..19\n");
     printf("\tadc_mode: 0 - tst0, 1 - tst1, 2 - toggle test pattern, 3 - digital ramp pattern, 4 -sine wave pattern, 5 - nominal mode \n");
 }
+
 
 
 int main(int argc, char **argv)
@@ -419,7 +446,8 @@ int main(int argc, char **argv)
 		    
 	for(int i = 0; i < num_iter; i++) {
 		// start all threads
-		system("echo 0 > /sys/class/gpio/gpio441/value");        // unset ADC supress bit        
+		//system("echo 0 > /sys/class/gpio/gpio441/value");        // unset ADC supress bit        
+        set_adc_suppress_bit(0);
 		pthread_create(&trigger_thread, NULL, trigger_thread_fun, (void*)(NULL));
 		pthread_create(&acq_ch0_thread, NULL, acquisition_thread_fun, (void*)(&acq_ch0_data));
 		pthread_create(&acq_ch1_thread, NULL, acquisition_thread_fun, (void*)(&acq_ch1_data));
@@ -428,8 +456,10 @@ int main(int argc, char **argv)
 		pthread_join(trigger_thread, NULL);
 		pthread_join(acq_ch0_thread, NULL);
 		pthread_join(acq_ch1_thread, NULL);
-		system("echo 1 > /sys/class/gpio/gpio441/value");        // reset ADC supress bit        
+		//system("echo 1 > /sys/class/gpio/gpio441/value");        // reset ADC supress bit        
+        set_adc_suppress_bit(1);
 		fprintf(stderr, "DMA threads joined: status ch0=%d, ch1=%d\n", acq_ch0_data.status, acq_ch1_data.status);
 	}    
 	return 0;
 }
+

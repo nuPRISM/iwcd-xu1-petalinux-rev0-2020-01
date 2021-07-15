@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <Runs Version="1" Minor="0">
-	<Run Id="MercuryNuPRISM_synth" LaunchDir="/home/ab/Desktop/XU1_petalinux_rev6/Vivado_NuPRISM/MercuryXU1_NuPRISM.runs/MercuryNuPRISM_synth" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
-	<Run Id="MercuryNuPRISM_impl" LaunchDir="/home/ab/Desktop/XU1_petalinux_rev6/Vivado_NuPRISM/MercuryXU1_NuPRISM.runs/MercuryNuPRISM_impl" FlowId="Vivado_Implementation" FromStepId="init_design" ToStepId="write_bitstream">
+	<Run Id="MercuryNuPRISM_synth" LaunchDir="/home/ab/Desktop/XU1_petalinux_rev6.1/Vivado_NuPRISM/MercuryXU1_NuPRISM.runs/MercuryNuPRISM_synth" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="MercuryNuPRISM_impl" LaunchDir="/home/ab/Desktop/XU1_petalinux_rev6.1/Vivado_NuPRISM/MercuryXU1_NuPRISM.runs/MercuryNuPRISM_impl" FlowId="Vivado_Implementation" FromStepId="init_design" ToStepId="write_bitstream">
 		<Parent Id="MercuryNuPRISM_synth"/>
 	</Run>
 	<Parameters>

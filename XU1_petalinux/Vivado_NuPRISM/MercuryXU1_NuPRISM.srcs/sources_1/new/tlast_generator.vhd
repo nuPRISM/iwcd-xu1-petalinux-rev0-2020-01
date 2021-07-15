@@ -59,7 +59,6 @@ m_axis_tdata <= data;
 m_axis_tvalid <= data_enable when sample_counter_r /= 0 else '0';
 m_axis_tlast <= data_enable when sample_counter_r = num_samples_per_packet else '0';
 counter <= sample_counter_r;
-
 triger_test(1 downto 0) <= triger_r;
 triger_test(2) <= triger_enable_r;
 
