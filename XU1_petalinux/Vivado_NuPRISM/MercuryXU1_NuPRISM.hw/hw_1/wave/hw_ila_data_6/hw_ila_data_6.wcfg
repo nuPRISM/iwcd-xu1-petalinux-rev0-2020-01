@@ -10,14 +10,16 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="196014fs"></ZoomEndTime>
+      <ZoomEndTime time="1024fs"></ZoomEndTime>
       <Cursor1Time time="0fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="236"></NameColumnWidth>
-      <ValueColumnWidth column_width="94"></ValueColumnWidth>
+      <ValueColumnWidth column_width="90"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="16" />
+   <wave_markers>
+   </wave_markers>
    <wvobject type="array" fp_name="adc_par_data[24]">
       <obj_property name="DisplayName">FullPathName</obj_property>
       <obj_property name="ElementShortName">adc_par_data[24][11:0]</obj_property>

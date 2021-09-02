@@ -55,7 +55,7 @@ The SD card used to boot the petalinux distrubution should be formatted as follo
 ```    
     boot    
 ```
-1. Linux starts to boot, wait for the shell prompt, write WTF command you want
+1. Linux starts to boot, wait for the shell prompt, write Linux command
 
 ### TFTP booting 
 
@@ -321,7 +321,59 @@ Run the following comands:
 
 
 
-## Measurement data streaming
+## Measurement data readout
+
+```
+root@wut_petalinux_rev1:~# adc-dma2                                                                                                                                          
+Illegal value: ADC_num_ch0=-1                                                                                                                                                
+Usage:                                                                                                                                                                       
+        adc_stream2 -m ADC_num_ch1 -n ADC_num_ch2 -p ADC_mode -q num_iter -b buf_size -i [ 0 | 1 ]                                                                           
+        ADC_num_chx=0..19                                                                                                                                                    
+        adc_mode: 0 - tst0, 1 - tst1, 2 - toggle test pattern, 3 - digital ramp pattern, 4 -sine wave pattern, 5 - nominal mode                                              
+```
+
+```
+root@wut_petalinux_rev1:~# adc-dma2 -m 0 -n 1 -p 2 -q 1 -b 1024 -i 1                                                                                                         
+DBG: GPIO already initialized                                                                                                                                                
+DBG: echo 0 > /sys/class/gpio/gpio412/value                                                                                                                                  
+DBG: echo 0 > /sys/class/gpio/gpio413/value                                                                                                                                  
+DBG: echo 0 > /sys/class/gpio/gpio414/value                                                                                                                                  
+DBG: echo 0 > /sys/class/gpio/gpio415/value
+
+[...]
+
+BG: adc_enable(): echo 0 > /sys/class/gpio/gpio496/value, ret=0                                                                                                             
+ADC_num_ch0=0, ADC_num_ch1=1, adc_mode=2, buf_size=1024 num_iter=1                                                                                                           
+Press ENTER to continue...                                                                                                                                                   
+DBG: echo 0 > /sys/class/gpio/gpio409/value                                                                                                                                  
+DBG: delay start                                                                                                                                                             
+DBG: acq start: dev_name=/dev/dma_proxy_rx_0, filename=dma_ch0.bin buf_size=1024 adc_mode=2                                                                                  
+DBG: acq start: dev_name=/dev/dma_proxy_rx_1, filename=dma_ch1.bin buf_size=1024 adc_mode=2                                                                                  
+DBG: thread_fun(): buf size=1024                                                                                                                                             
+DBG: thread_fun(): buf size=1024                                                                                                                                             
+DBG: echo 1 > /sys/class/gpio/gpio410/value                                                                                                                                  
+DBG: DMA transfer OK, storing data in file                                                                                                                                   
+DBG: DMA transfer OK, storing data in file                                                                                                                                   
+DBG: echo 0 > /sys/class/gpio/gpio410/value                                                                                                                                  
+DBG: delay end                                                                                                                                                               
+DBG: echo 1 > /sys/class/gpio/gpio409/value                                                                                                                                  
+DMA threads joined: status ch0=0, ch1=0
+```
+
+```
+root@wut_petalinux_rev1:~# ls -l                                                                                                                                             
+total 8                                                                                                                                                                      
+-rw-r--r--    1 root     root          1024 Jul 15 15:23 dma_ch0.bin                                                                                                         
+-rw-r--r--    1 root     root          1024 Jul 15 15:23 dma_ch1.bin                                                                                                         
+root@wut_petalinux_rev1:~# hexdump dma_ch0.bin                                                                                                                               
+0000000 faaa 0555 faaa 0555 faaa 0555 faaa 0555                                                                                                                              
+*                                                                                                                                                                            
+0000400                                                                                                                                                                      
+root@wut_petalinux_rev1:~# hexdump dma_ch1.bin                                                                                                                               
+0000000 0555 faaa 0555 faaa 0555 faaa 0555 faaa                                                                                                                              
+*                                                                                                                                                                            
+0000400
+```
 
 
 
