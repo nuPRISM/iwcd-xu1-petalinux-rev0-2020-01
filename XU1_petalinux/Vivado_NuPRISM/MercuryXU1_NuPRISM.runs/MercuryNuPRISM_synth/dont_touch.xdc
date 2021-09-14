@@ -3,7 +3,7 @@
 
 # XDC: new/debug.xdc
 
-# XDC: /home/ab/Desktop/XU1_petalinux_rev6.1/src/MercuryXU1_NuPRISM.xdc
+# XDC: /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/src/MercuryXU1_NuPRISM.xdc
 
 # Block Designs: bd/MercuryXU1/MercuryXU1.bd
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==MercuryXU1 || ORIG_REF_NAME==MercuryXU1} -quiet] -quiet

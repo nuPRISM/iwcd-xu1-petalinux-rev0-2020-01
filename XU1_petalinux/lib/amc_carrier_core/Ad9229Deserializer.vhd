@@ -109,7 +109,7 @@ begin
         DELAY_FORMAT => "COUNT", -- Units of the DELAY_VALUE (COUNT, TIME)
         DELAY_SRC => "IDATAIN", -- Delay input (DATAIN, IDATAIN)
         DELAY_TYPE => "VAR_LOAD", -- Set the type of tap delay line (FIXED, VARIABLE, VAR_LOAD)
-        DELAY_VALUE => 0, -- Input delay value setting
+        DELAY_VALUE => 256,--0, -- Input delay value setting
         IS_CLK_INVERTED => '0', -- Optional inversion for CLK
         IS_RST_INVERTED => '0', -- Optional inversion for RST
         REFCLK_FREQUENCY => IDELAYCTRL_FREQ_G, -- IDELAYCTRL clock input frequency in MHz (200.0-2400.0)

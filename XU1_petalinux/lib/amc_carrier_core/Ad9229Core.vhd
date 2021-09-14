@@ -121,10 +121,11 @@ begin
 
    fadcDataClk <= fadcDataClkP_i;
 
-   U_serClk : BUFG
-      port map (
-         I => fadcDataClk,
-         O => s_serClk);
+--   U_serClk : BUFG
+--      port map (
+--         I => fadcDataClk,
+--         O => s_serClk);
+   s_serClk <= fadcDataClk;
 
    -- Divide by 2
    U_BUFGCE_DIV : BUFGCE_DIV

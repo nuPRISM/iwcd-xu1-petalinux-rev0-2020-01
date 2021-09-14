@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-| Date         : Tue Jul 13 12:33:53 2021
+| Date         : Thu Sep  9 11:33:54 2021
 | Host         : hyperk running 64-bit Ubuntu 18.04.5 LTS
 | Command      : report_methodology -file system_top_methodology_drc_routed.rpt -pb system_top_methodology_drc_routed.pb -rpx system_top_methodology_drc_routed.rpx
 | Design       : system_top
@@ -23,7 +23,7 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 138
+             Violations found: 212
 +-----------+------------------+------------------------------------------------------------------+------------+
 | Rule      | Severity         | Description                                                      | Violations |
 +-----------+------------------+------------------------------------------------------------------+------------+
@@ -31,17 +31,16 @@ Table of Contents
 | TIMING-7  | Critical Warning | No common node between related clocks                            | 1          |
 | TIMING-8  | Critical Warning | No common period between related clocks                          | 1          |
 | TIMING-17 | Critical Warning | Non-clocked sequential cell                                      | 1          |
-| BSCK-10   | Warning          | ISERDESE3_parallel_clock_nets                                    | 9          |
+| BSCK-10   | Warning          | ISERDESE3_parallel_clock_nets                                    | 45         |
 | CKLD-2    | Warning          | Clock Net has IO Driver, not a Clock Buf, and/or non-Clock loads | 1          |
 | LUTAR-1   | Warning          | LUT drives async reset alert                                     | 5          |
 | TIMING-9  | Warning          | Unknown CDC Logic                                                | 1          |
 | TIMING-10 | Warning          | Missing property on synchronizer                                 | 1          |
+| TIMING-16 | Warning          | Large setup violation                                            | 45         |
 | TIMING-18 | Warning          | Missing input or output delay                                    | 98         |
 | TIMING-24 | Warning          | Overridden Max delay datapath only                               | 4          |
 | XDCC-7    | Warning          | Scoped Clock constraint overwritten on the same source           | 3          |
-| CLKC-5    | Advisory         | BUFGCE with constant CE has BUFG driver                          | 5          |
-| CLKC-8    | Advisory         | BUFGCE_DIV with active CE or DIVIDE not 1 has BUFG driver        | 4          |
-| CLKC-24   | Advisory         | MMCME4 with ZHOLD drives sequential IO not with CLKOUT0          | 3          |
+| CLKC-8    | Advisory         | BUFGCE_DIV with active CE or DIVIDE not 1 has BUFG driver        | 5          |
 +-----------+------------------+------------------------------------------------------------------+------------+
 
 2. REPORT DETAILS
@@ -68,47 +67,227 @@ Related violations: <none>
 
 BSCK-10#1 Warning
 ISERDESE3_parallel_clock_nets  
-ISERDESE3 cell B64_S[2].Ad9229Core_b/Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[2].Ad9229Core_b/Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_S[2].Ad9229Core_b/U_serClk) and B64_S[2].Ad9229Core_b/Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[2].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
+ISERDESE3 cell B64_S[0].Ad9229Core_b/Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[0].Ad9229Core_b/Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_C[1].serdes_clock/inst/clkout1_buf) and B64_S[0].Ad9229Core_b/Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[0].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
 Related violations: <none>
 
 BSCK-10#2 Warning
 ISERDESE3_parallel_clock_nets  
-ISERDESE3 cell B64_S[2].Ad9229Core_b/GEN_DATA[0].Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[2].Ad9229Core_b/GEN_DATA[0].Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_S[2].Ad9229Core_b/U_serClk) and B64_S[2].Ad9229Core_b/GEN_DATA[0].Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[2].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
+ISERDESE3 cell B64_S[0].Ad9229Core_b/GEN_DATA[0].Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[0].Ad9229Core_b/GEN_DATA[0].Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_C[1].serdes_clock/inst/clkout1_buf) and B64_S[0].Ad9229Core_b/GEN_DATA[0].Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[0].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
 Related violations: <none>
 
 BSCK-10#3 Warning
 ISERDESE3_parallel_clock_nets  
-ISERDESE3 cell B64_S[2].Ad9229Core_b/GEN_DATA[1].Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[2].Ad9229Core_b/GEN_DATA[1].Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_S[2].Ad9229Core_b/U_serClk) and B64_S[2].Ad9229Core_b/GEN_DATA[1].Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[2].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
+ISERDESE3 cell B64_S[0].Ad9229Core_b/GEN_DATA[1].Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[0].Ad9229Core_b/GEN_DATA[1].Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_C[1].serdes_clock/inst/clkout1_buf) and B64_S[0].Ad9229Core_b/GEN_DATA[1].Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[0].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
 Related violations: <none>
 
 BSCK-10#4 Warning
 ISERDESE3_parallel_clock_nets  
-ISERDESE3 cell B64_S[2].Ad9229Core_b/GEN_DATA[2].Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[2].Ad9229Core_b/GEN_DATA[2].Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_S[2].Ad9229Core_b/U_serClk) and B64_S[2].Ad9229Core_b/GEN_DATA[2].Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[2].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
+ISERDESE3 cell B64_S[0].Ad9229Core_b/GEN_DATA[2].Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[0].Ad9229Core_b/GEN_DATA[2].Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_C[1].serdes_clock/inst/clkout1_buf) and B64_S[0].Ad9229Core_b/GEN_DATA[2].Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[0].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
 Related violations: <none>
 
 BSCK-10#5 Warning
 ISERDESE3_parallel_clock_nets  
-ISERDESE3 cell B64_S[2].Ad9229Core_b/GEN_DATA[3].Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[2].Ad9229Core_b/GEN_DATA[3].Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_S[2].Ad9229Core_b/U_serClk) and B64_S[2].Ad9229Core_b/GEN_DATA[3].Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[2].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
+ISERDESE3 cell B64_S[0].Ad9229Core_b/GEN_DATA[3].Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[0].Ad9229Core_b/GEN_DATA[3].Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_C[1].serdes_clock/inst/clkout1_buf) and B64_S[0].Ad9229Core_b/GEN_DATA[3].Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[0].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
 Related violations: <none>
 
 BSCK-10#6 Warning
 ISERDESE3_parallel_clock_nets  
-ISERDESE3 cell B64_S[2].Ad9229Core_b/GEN_DATA[4].Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[2].Ad9229Core_b/GEN_DATA[4].Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_S[2].Ad9229Core_b/U_serClk) and B64_S[2].Ad9229Core_b/GEN_DATA[4].Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[2].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
+ISERDESE3 cell B64_S[0].Ad9229Core_b/GEN_DATA[4].Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[0].Ad9229Core_b/GEN_DATA[4].Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_C[1].serdes_clock/inst/clkout1_buf) and B64_S[0].Ad9229Core_b/GEN_DATA[4].Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[0].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
 Related violations: <none>
 
 BSCK-10#7 Warning
 ISERDESE3_parallel_clock_nets  
-ISERDESE3 cell B64_S[2].Ad9229Core_b/GEN_DATA[5].Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[2].Ad9229Core_b/GEN_DATA[5].Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_S[2].Ad9229Core_b/U_serClk) and B64_S[2].Ad9229Core_b/GEN_DATA[5].Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[2].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
+ISERDESE3 cell B64_S[0].Ad9229Core_b/GEN_DATA[5].Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[0].Ad9229Core_b/GEN_DATA[5].Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_C[1].serdes_clock/inst/clkout1_buf) and B64_S[0].Ad9229Core_b/GEN_DATA[5].Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[0].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
 Related violations: <none>
 
 BSCK-10#8 Warning
 ISERDESE3_parallel_clock_nets  
-ISERDESE3 cell B64_S[2].Ad9229Core_b/GEN_DATA[6].Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[2].Ad9229Core_b/GEN_DATA[6].Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_S[2].Ad9229Core_b/U_serClk) and B64_S[2].Ad9229Core_b/GEN_DATA[6].Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[2].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
+ISERDESE3 cell B64_S[0].Ad9229Core_b/GEN_DATA[6].Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[0].Ad9229Core_b/GEN_DATA[6].Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_C[1].serdes_clock/inst/clkout1_buf) and B64_S[0].Ad9229Core_b/GEN_DATA[6].Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[0].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
 Related violations: <none>
 
 BSCK-10#9 Warning
 ISERDESE3_parallel_clock_nets  
-ISERDESE3 cell B64_S[2].Ad9229Core_b/GEN_DATA[7].Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[2].Ad9229Core_b/GEN_DATA[7].Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_S[2].Ad9229Core_b/U_serClk) and B64_S[2].Ad9229Core_b/GEN_DATA[7].Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[2].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
+ISERDESE3 cell B64_S[0].Ad9229Core_b/GEN_DATA[7].Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[0].Ad9229Core_b/GEN_DATA[7].Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_C[1].serdes_clock/inst/clkout1_buf) and B64_S[0].Ad9229Core_b/GEN_DATA[7].Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[0].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
+Related violations: <none>
+
+BSCK-10#10 Warning
+ISERDESE3_parallel_clock_nets  
+ISERDESE3 cell B64_S[1].Ad9229Core_b/Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[1].Ad9229Core_b/Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_C[1].serdes_clock/inst/clkout1_buf) and B64_S[1].Ad9229Core_b/Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[1].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
+Related violations: <none>
+
+BSCK-10#11 Warning
+ISERDESE3_parallel_clock_nets  
+ISERDESE3 cell B64_S[1].Ad9229Core_b/GEN_DATA[0].Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[1].Ad9229Core_b/GEN_DATA[0].Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_C[1].serdes_clock/inst/clkout1_buf) and B64_S[1].Ad9229Core_b/GEN_DATA[0].Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[1].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
+Related violations: <none>
+
+BSCK-10#12 Warning
+ISERDESE3_parallel_clock_nets  
+ISERDESE3 cell B64_S[1].Ad9229Core_b/GEN_DATA[1].Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[1].Ad9229Core_b/GEN_DATA[1].Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_C[1].serdes_clock/inst/clkout1_buf) and B64_S[1].Ad9229Core_b/GEN_DATA[1].Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[1].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
+Related violations: <none>
+
+BSCK-10#13 Warning
+ISERDESE3_parallel_clock_nets  
+ISERDESE3 cell B64_S[1].Ad9229Core_b/GEN_DATA[2].Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[1].Ad9229Core_b/GEN_DATA[2].Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_C[1].serdes_clock/inst/clkout1_buf) and B64_S[1].Ad9229Core_b/GEN_DATA[2].Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[1].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
+Related violations: <none>
+
+BSCK-10#14 Warning
+ISERDESE3_parallel_clock_nets  
+ISERDESE3 cell B64_S[1].Ad9229Core_b/GEN_DATA[3].Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[1].Ad9229Core_b/GEN_DATA[3].Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_C[1].serdes_clock/inst/clkout1_buf) and B64_S[1].Ad9229Core_b/GEN_DATA[3].Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[1].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
+Related violations: <none>
+
+BSCK-10#15 Warning
+ISERDESE3_parallel_clock_nets  
+ISERDESE3 cell B64_S[1].Ad9229Core_b/GEN_DATA[4].Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[1].Ad9229Core_b/GEN_DATA[4].Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_C[1].serdes_clock/inst/clkout1_buf) and B64_S[1].Ad9229Core_b/GEN_DATA[4].Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[1].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
+Related violations: <none>
+
+BSCK-10#16 Warning
+ISERDESE3_parallel_clock_nets  
+ISERDESE3 cell B64_S[1].Ad9229Core_b/GEN_DATA[5].Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[1].Ad9229Core_b/GEN_DATA[5].Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_C[1].serdes_clock/inst/clkout1_buf) and B64_S[1].Ad9229Core_b/GEN_DATA[5].Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[1].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
+Related violations: <none>
+
+BSCK-10#17 Warning
+ISERDESE3_parallel_clock_nets  
+ISERDESE3 cell B64_S[1].Ad9229Core_b/GEN_DATA[6].Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[1].Ad9229Core_b/GEN_DATA[6].Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_C[1].serdes_clock/inst/clkout1_buf) and B64_S[1].Ad9229Core_b/GEN_DATA[6].Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[1].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
+Related violations: <none>
+
+BSCK-10#18 Warning
+ISERDESE3_parallel_clock_nets  
+ISERDESE3 cell B64_S[1].Ad9229Core_b/GEN_DATA[7].Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[1].Ad9229Core_b/GEN_DATA[7].Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_C[1].serdes_clock/inst/clkout1_buf) and B64_S[1].Ad9229Core_b/GEN_DATA[7].Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[1].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
+Related violations: <none>
+
+BSCK-10#19 Warning
+ISERDESE3_parallel_clock_nets  
+ISERDESE3 cell B64_S[2].Ad9229Core_b/Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[2].Ad9229Core_b/Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_C[2].serdes_clock/inst/clkout1_buf) and B64_S[2].Ad9229Core_b/Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[2].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
+Related violations: <none>
+
+BSCK-10#20 Warning
+ISERDESE3_parallel_clock_nets  
+ISERDESE3 cell B64_S[2].Ad9229Core_b/GEN_DATA[0].Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[2].Ad9229Core_b/GEN_DATA[0].Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_C[2].serdes_clock/inst/clkout1_buf) and B64_S[2].Ad9229Core_b/GEN_DATA[0].Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[2].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
+Related violations: <none>
+
+BSCK-10#21 Warning
+ISERDESE3_parallel_clock_nets  
+ISERDESE3 cell B64_S[2].Ad9229Core_b/GEN_DATA[1].Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[2].Ad9229Core_b/GEN_DATA[1].Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_C[2].serdes_clock/inst/clkout1_buf) and B64_S[2].Ad9229Core_b/GEN_DATA[1].Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[2].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
+Related violations: <none>
+
+BSCK-10#22 Warning
+ISERDESE3_parallel_clock_nets  
+ISERDESE3 cell B64_S[2].Ad9229Core_b/GEN_DATA[2].Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[2].Ad9229Core_b/GEN_DATA[2].Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_C[2].serdes_clock/inst/clkout1_buf) and B64_S[2].Ad9229Core_b/GEN_DATA[2].Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[2].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
+Related violations: <none>
+
+BSCK-10#23 Warning
+ISERDESE3_parallel_clock_nets  
+ISERDESE3 cell B64_S[2].Ad9229Core_b/GEN_DATA[3].Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[2].Ad9229Core_b/GEN_DATA[3].Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_C[2].serdes_clock/inst/clkout1_buf) and B64_S[2].Ad9229Core_b/GEN_DATA[3].Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[2].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
+Related violations: <none>
+
+BSCK-10#24 Warning
+ISERDESE3_parallel_clock_nets  
+ISERDESE3 cell B64_S[2].Ad9229Core_b/GEN_DATA[4].Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[2].Ad9229Core_b/GEN_DATA[4].Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_C[2].serdes_clock/inst/clkout1_buf) and B64_S[2].Ad9229Core_b/GEN_DATA[4].Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[2].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
+Related violations: <none>
+
+BSCK-10#25 Warning
+ISERDESE3_parallel_clock_nets  
+ISERDESE3 cell B64_S[2].Ad9229Core_b/GEN_DATA[5].Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[2].Ad9229Core_b/GEN_DATA[5].Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_C[2].serdes_clock/inst/clkout1_buf) and B64_S[2].Ad9229Core_b/GEN_DATA[5].Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[2].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
+Related violations: <none>
+
+BSCK-10#26 Warning
+ISERDESE3_parallel_clock_nets  
+ISERDESE3 cell B64_S[2].Ad9229Core_b/GEN_DATA[6].Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[2].Ad9229Core_b/GEN_DATA[6].Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_C[2].serdes_clock/inst/clkout1_buf) and B64_S[2].Ad9229Core_b/GEN_DATA[6].Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[2].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
+Related violations: <none>
+
+BSCK-10#27 Warning
+ISERDESE3_parallel_clock_nets  
+ISERDESE3 cell B64_S[2].Ad9229Core_b/GEN_DATA[7].Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[2].Ad9229Core_b/GEN_DATA[7].Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_C[2].serdes_clock/inst/clkout1_buf) and B64_S[2].Ad9229Core_b/GEN_DATA[7].Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[2].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
+Related violations: <none>
+
+BSCK-10#28 Warning
+ISERDESE3_parallel_clock_nets  
+ISERDESE3 cell B64_S[3].Ad9229Core_b/Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[3].Ad9229Core_b/Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_C[3].serdes_clock/inst/clkout1_buf) and B64_S[3].Ad9229Core_b/Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[3].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
+Related violations: <none>
+
+BSCK-10#29 Warning
+ISERDESE3_parallel_clock_nets  
+ISERDESE3 cell B64_S[3].Ad9229Core_b/GEN_DATA[0].Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[3].Ad9229Core_b/GEN_DATA[0].Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_C[3].serdes_clock/inst/clkout1_buf) and B64_S[3].Ad9229Core_b/GEN_DATA[0].Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[3].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
+Related violations: <none>
+
+BSCK-10#30 Warning
+ISERDESE3_parallel_clock_nets  
+ISERDESE3 cell B64_S[3].Ad9229Core_b/GEN_DATA[1].Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[3].Ad9229Core_b/GEN_DATA[1].Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_C[3].serdes_clock/inst/clkout1_buf) and B64_S[3].Ad9229Core_b/GEN_DATA[1].Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[3].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
+Related violations: <none>
+
+BSCK-10#31 Warning
+ISERDESE3_parallel_clock_nets  
+ISERDESE3 cell B64_S[3].Ad9229Core_b/GEN_DATA[2].Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[3].Ad9229Core_b/GEN_DATA[2].Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_C[3].serdes_clock/inst/clkout1_buf) and B64_S[3].Ad9229Core_b/GEN_DATA[2].Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[3].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
+Related violations: <none>
+
+BSCK-10#32 Warning
+ISERDESE3_parallel_clock_nets  
+ISERDESE3 cell B64_S[3].Ad9229Core_b/GEN_DATA[3].Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[3].Ad9229Core_b/GEN_DATA[3].Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_C[3].serdes_clock/inst/clkout1_buf) and B64_S[3].Ad9229Core_b/GEN_DATA[3].Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[3].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
+Related violations: <none>
+
+BSCK-10#33 Warning
+ISERDESE3_parallel_clock_nets  
+ISERDESE3 cell B64_S[3].Ad9229Core_b/GEN_DATA[4].Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[3].Ad9229Core_b/GEN_DATA[4].Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_C[3].serdes_clock/inst/clkout1_buf) and B64_S[3].Ad9229Core_b/GEN_DATA[4].Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[3].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
+Related violations: <none>
+
+BSCK-10#34 Warning
+ISERDESE3_parallel_clock_nets  
+ISERDESE3 cell B64_S[3].Ad9229Core_b/GEN_DATA[5].Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[3].Ad9229Core_b/GEN_DATA[5].Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_C[3].serdes_clock/inst/clkout1_buf) and B64_S[3].Ad9229Core_b/GEN_DATA[5].Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[3].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
+Related violations: <none>
+
+BSCK-10#35 Warning
+ISERDESE3_parallel_clock_nets  
+ISERDESE3 cell B64_S[3].Ad9229Core_b/GEN_DATA[6].Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[3].Ad9229Core_b/GEN_DATA[6].Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_C[3].serdes_clock/inst/clkout1_buf) and B64_S[3].Ad9229Core_b/GEN_DATA[6].Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[3].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
+Related violations: <none>
+
+BSCK-10#36 Warning
+ISERDESE3_parallel_clock_nets  
+ISERDESE3 cell B64_S[3].Ad9229Core_b/GEN_DATA[7].Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[3].Ad9229Core_b/GEN_DATA[7].Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_C[3].serdes_clock/inst/clkout1_buf) and B64_S[3].Ad9229Core_b/GEN_DATA[7].Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[3].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
+Related violations: <none>
+
+BSCK-10#37 Warning
+ISERDESE3_parallel_clock_nets  
+ISERDESE3 cell B64_S[4].Ad9229Core_b/Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[4].Ad9229Core_b/Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_C[3].serdes_clock/inst/clkout1_buf) and B64_S[4].Ad9229Core_b/Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[4].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
+Related violations: <none>
+
+BSCK-10#38 Warning
+ISERDESE3_parallel_clock_nets  
+ISERDESE3 cell B64_S[4].Ad9229Core_b/GEN_DATA[0].Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[4].Ad9229Core_b/GEN_DATA[0].Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_C[3].serdes_clock/inst/clkout1_buf) and B64_S[4].Ad9229Core_b/GEN_DATA[0].Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[4].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
+Related violations: <none>
+
+BSCK-10#39 Warning
+ISERDESE3_parallel_clock_nets  
+ISERDESE3 cell B64_S[4].Ad9229Core_b/GEN_DATA[1].Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[4].Ad9229Core_b/GEN_DATA[1].Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_C[3].serdes_clock/inst/clkout1_buf) and B64_S[4].Ad9229Core_b/GEN_DATA[1].Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[4].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
+Related violations: <none>
+
+BSCK-10#40 Warning
+ISERDESE3_parallel_clock_nets  
+ISERDESE3 cell B64_S[4].Ad9229Core_b/GEN_DATA[2].Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[4].Ad9229Core_b/GEN_DATA[2].Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_C[3].serdes_clock/inst/clkout1_buf) and B64_S[4].Ad9229Core_b/GEN_DATA[2].Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[4].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
+Related violations: <none>
+
+BSCK-10#41 Warning
+ISERDESE3_parallel_clock_nets  
+ISERDESE3 cell B64_S[4].Ad9229Core_b/GEN_DATA[3].Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[4].Ad9229Core_b/GEN_DATA[3].Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_C[3].serdes_clock/inst/clkout1_buf) and B64_S[4].Ad9229Core_b/GEN_DATA[3].Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[4].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
+Related violations: <none>
+
+BSCK-10#42 Warning
+ISERDESE3_parallel_clock_nets  
+ISERDESE3 cell B64_S[4].Ad9229Core_b/GEN_DATA[4].Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[4].Ad9229Core_b/GEN_DATA[4].Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_C[3].serdes_clock/inst/clkout1_buf) and B64_S[4].Ad9229Core_b/GEN_DATA[4].Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[4].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
+Related violations: <none>
+
+BSCK-10#43 Warning
+ISERDESE3_parallel_clock_nets  
+ISERDESE3 cell B64_S[4].Ad9229Core_b/GEN_DATA[5].Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[4].Ad9229Core_b/GEN_DATA[5].Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_C[3].serdes_clock/inst/clkout1_buf) and B64_S[4].Ad9229Core_b/GEN_DATA[5].Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[4].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
+Related violations: <none>
+
+BSCK-10#44 Warning
+ISERDESE3_parallel_clock_nets  
+ISERDESE3 cell B64_S[4].Ad9229Core_b/GEN_DATA[6].Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[4].Ad9229Core_b/GEN_DATA[6].Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_C[3].serdes_clock/inst/clkout1_buf) and B64_S[4].Ad9229Core_b/GEN_DATA[6].Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[4].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
+Related violations: <none>
+
+BSCK-10#45 Warning
+ISERDESE3_parallel_clock_nets  
+ISERDESE3 cell B64_S[4].Ad9229Core_b/GEN_DATA[7].Ad9229Deserializer_INST/U_ISERDESE3 has sub-optimal clocking topology for pins B64_S[4].Ad9229Core_b/GEN_DATA[7].Ad9229Deserializer_INST/U_ISERDESE3/CLK (driver: B64_C[3].serdes_clock/inst/clkout1_buf) and B64_S[4].Ad9229Core_b/GEN_DATA[7].Ad9229Deserializer_INST/U_ISERDESE3/CLKDIV (driver: B64_S[4].Ad9229Core_b/U_BUFGCE_DIV). These pins should be driven by parallel global clock buffers by utilizing BUFGCE_DIV cell for the ISERDESE3 CLKDIV pin.
 Related violations: <none>
 
 CKLD-2#1 Warning
@@ -166,6 +345,231 @@ Related violations: <none>
 TIMING-10#1 Warning
 Missing property on synchronizer  
 One or more logic synchronizer has been detected between 2 clock domains but the synchronizer does not have the property ASYNC_REG defined on one or both registers. It is recommended to run report_cdc for a complete and detailed CDC coverage
+Related violations: <none>
+
+TIMING-16#1 Warning
+Large setup violation  
+There is a large setup violation of -2.070 ns between ADC0_DA0_p (clocked by clkin1) and B64_S[0].Ad9229Core_b/GEN_DATA[0].Ad9229Deserializer_INST/U_ISERDESE3/D (clocked by clk_out1_375p0_clk_wiz_0_b65_mmcm_3). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#2 Warning
+Large setup violation  
+There is a large setup violation of -2.080 ns between ADC1_DB0_n (clocked by clkin1) and B64_S[1].Ad9229Core_b/GEN_DATA[2].Ad9229Deserializer_INST/U_ISERDESE3/D (clocked by clk_out1_375p0_clk_wiz_0_b65_mmcm_3). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#3 Warning
+Large setup violation  
+There is a large setup violation of -2.081 ns between ADC1_DA0_n (clocked by clkin1) and B64_S[1].Ad9229Core_b/GEN_DATA[0].Ad9229Deserializer_INST/U_ISERDESE3/D (clocked by clk_out1_375p0_clk_wiz_0_b65_mmcm_3). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#4 Warning
+Large setup violation  
+There is a large setup violation of -2.082 ns between ADC4_DA1_n (clocked by clkin3) and B64_S[4].Ad9229Core_b/GEN_DATA[1].Ad9229Deserializer_INST/U_ISERDESE3/D (clocked by clk_out1_375p0_clk_wiz_0_b65_mmcm_5). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#5 Warning
+Large setup violation  
+There is a large setup violation of -2.083 ns between ADC4_DD1_p (clocked by clkin3) and B64_S[4].Ad9229Core_b/GEN_DATA[7].Ad9229Deserializer_INST/U_ISERDESE3/D (clocked by clk_out1_375p0_clk_wiz_0_b65_mmcm_5). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#6 Warning
+Large setup violation  
+There is a large setup violation of -2.084 ns between ADC0_DA1_n (clocked by clkin1) and B64_S[0].Ad9229Core_b/GEN_DATA[1].Ad9229Deserializer_INST/U_ISERDESE3/D (clocked by clk_out1_375p0_clk_wiz_0_b65_mmcm_3). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#7 Warning
+Large setup violation  
+There is a large setup violation of -2.085 ns between ADC0_DB0_n (clocked by clkin1) and B64_S[0].Ad9229Core_b/GEN_DATA[2].Ad9229Deserializer_INST/U_ISERDESE3/D (clocked by clk_out1_375p0_clk_wiz_0_b65_mmcm_3). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#8 Warning
+Large setup violation  
+There is a large setup violation of -2.087 ns between ADC0_DB1_n (clocked by clkin1) and B64_S[0].Ad9229Core_b/GEN_DATA[3].Ad9229Deserializer_INST/U_ISERDESE3/D (clocked by clk_out1_375p0_clk_wiz_0_b65_mmcm_3). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#9 Warning
+Large setup violation  
+There is a large setup violation of -2.088 ns between ADC1_DC0_p (clocked by clkin1) and B64_S[1].Ad9229Core_b/GEN_DATA[4].Ad9229Deserializer_INST/U_ISERDESE3/D (clocked by clk_out1_375p0_clk_wiz_0_b65_mmcm_3). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#10 Warning
+Large setup violation  
+There is a large setup violation of -2.088 ns between ADC4_DA0_p (clocked by clkin3) and B64_S[4].Ad9229Core_b/GEN_DATA[0].Ad9229Deserializer_INST/U_ISERDESE3/D (clocked by clk_out1_375p0_clk_wiz_0_b65_mmcm_5). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#11 Warning
+Large setup violation  
+There is a large setup violation of -2.090 ns between ADC0_DD1_p (clocked by clkin1) and B64_S[0].Ad9229Core_b/GEN_DATA[7].Ad9229Deserializer_INST/U_ISERDESE3/D (clocked by clk_out1_375p0_clk_wiz_0_b65_mmcm_3). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#12 Warning
+Large setup violation  
+There is a large setup violation of -2.091 ns between ADC0_DC1_p (clocked by clkin1) and B64_S[0].Ad9229Core_b/GEN_DATA[5].Ad9229Deserializer_INST/U_ISERDESE3/D (clocked by clk_out1_375p0_clk_wiz_0_b65_mmcm_3). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#13 Warning
+Large setup violation  
+There is a large setup violation of -2.092 ns between ADC4_DC1_n (clocked by clkin3) and B64_S[4].Ad9229Core_b/GEN_DATA[5].Ad9229Deserializer_INST/U_ISERDESE3/D (clocked by clk_out1_375p0_clk_wiz_0_b65_mmcm_5). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#14 Warning
+Large setup violation  
+There is a large setup violation of -2.094 ns between ADC1_DD0_n (clocked by clkin1) and B64_S[1].Ad9229Core_b/GEN_DATA[6].Ad9229Deserializer_INST/U_ISERDESE3/D (clocked by clk_out1_375p0_clk_wiz_0_b65_mmcm_3). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#15 Warning
+Large setup violation  
+There is a large setup violation of -2.095 ns between ADC0_DD0_n (clocked by clkin1) and B64_S[0].Ad9229Core_b/GEN_DATA[6].Ad9229Deserializer_INST/U_ISERDESE3/D (clocked by clk_out1_375p0_clk_wiz_0_b65_mmcm_3). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#16 Warning
+Large setup violation  
+There is a large setup violation of -2.098 ns between ADC0_DC0_n (clocked by clkin1) and B64_S[0].Ad9229Core_b/GEN_DATA[4].Ad9229Deserializer_INST/U_ISERDESE3/D (clocked by clk_out1_375p0_clk_wiz_0_b65_mmcm_3). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#17 Warning
+Large setup violation  
+There is a large setup violation of -2.098 ns between ADC3_DD0_n (clocked by clkin3) and B64_S[3].Ad9229Core_b/GEN_DATA[6].Ad9229Deserializer_INST/U_ISERDESE3/D (clocked by clk_out1_375p0_clk_wiz_0_b65_mmcm_5). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#18 Warning
+Large setup violation  
+There is a large setup violation of -2.098 ns between ADC4_FCLK_n (clocked by clkin3) and B64_S[4].Ad9229Core_b/Ad9229Deserializer_INST/U_ISERDESE3/D (clocked by clk_out1_375p0_clk_wiz_0_b65_mmcm_5). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#19 Warning
+Large setup violation  
+There is a large setup violation of -2.099 ns between ADC1_FCLK_n (clocked by clkin1) and B64_S[1].Ad9229Core_b/Ad9229Deserializer_INST/U_ISERDESE3/D (clocked by clk_out1_375p0_clk_wiz_0_b65_mmcm_3). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#20 Warning
+Large setup violation  
+There is a large setup violation of -2.100 ns between ADC4_DB0_p (clocked by clkin3) and B64_S[4].Ad9229Core_b/GEN_DATA[2].Ad9229Deserializer_INST/U_ISERDESE3/D (clocked by clk_out1_375p0_clk_wiz_0_b65_mmcm_5). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#21 Warning
+Large setup violation  
+There is a large setup violation of -2.101 ns between ADC1_DD1_p (clocked by clkin1) and B64_S[1].Ad9229Core_b/GEN_DATA[7].Ad9229Deserializer_INST/U_ISERDESE3/D (clocked by clk_out1_375p0_clk_wiz_0_b65_mmcm_3). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#22 Warning
+Large setup violation  
+There is a large setup violation of -2.101 ns between ADC4_DC0_n (clocked by clkin3) and B64_S[4].Ad9229Core_b/GEN_DATA[4].Ad9229Deserializer_INST/U_ISERDESE3/D (clocked by clk_out1_375p0_clk_wiz_0_b65_mmcm_5). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#23 Warning
+Large setup violation  
+There is a large setup violation of -2.102 ns between ADC3_DA1_n (clocked by clkin3) and B64_S[3].Ad9229Core_b/GEN_DATA[1].Ad9229Deserializer_INST/U_ISERDESE3/D (clocked by clk_out1_375p0_clk_wiz_0_b65_mmcm_5). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#24 Warning
+Large setup violation  
+There is a large setup violation of -2.103 ns between ADC1_DC1_p (clocked by clkin1) and B64_S[1].Ad9229Core_b/GEN_DATA[5].Ad9229Deserializer_INST/U_ISERDESE3/D (clocked by clk_out1_375p0_clk_wiz_0_b65_mmcm_3). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#25 Warning
+Large setup violation  
+There is a large setup violation of -2.105 ns between ADC1_DB1_n (clocked by clkin1) and B64_S[1].Ad9229Core_b/GEN_DATA[3].Ad9229Deserializer_INST/U_ISERDESE3/D (clocked by clk_out1_375p0_clk_wiz_0_b65_mmcm_3). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#26 Warning
+Large setup violation  
+There is a large setup violation of -2.107 ns between ADC3_DC1_n (clocked by clkin3) and B64_S[3].Ad9229Core_b/GEN_DATA[5].Ad9229Deserializer_INST/U_ISERDESE3/D (clocked by clk_out1_375p0_clk_wiz_0_b65_mmcm_5). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#27 Warning
+Large setup violation  
+There is a large setup violation of -2.108 ns between ADC3_FCLK_n (clocked by clkin3) and B64_S[3].Ad9229Core_b/Ad9229Deserializer_INST/U_ISERDESE3/D (clocked by clk_out1_375p0_clk_wiz_0_b65_mmcm_5). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#28 Warning
+Large setup violation  
+There is a large setup violation of -2.109 ns between ADC3_DD1_n (clocked by clkin3) and B64_S[3].Ad9229Core_b/GEN_DATA[7].Ad9229Deserializer_INST/U_ISERDESE3/D (clocked by clk_out1_375p0_clk_wiz_0_b65_mmcm_5). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#29 Warning
+Large setup violation  
+There is a large setup violation of -2.110 ns between ADC3_DA0_n (clocked by clkin3) and B64_S[3].Ad9229Core_b/GEN_DATA[0].Ad9229Deserializer_INST/U_ISERDESE3/D (clocked by clk_out1_375p0_clk_wiz_0_b65_mmcm_5). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#30 Warning
+Large setup violation  
+There is a large setup violation of -2.112 ns between ADC1_DA1_n (clocked by clkin1) and B64_S[1].Ad9229Core_b/GEN_DATA[1].Ad9229Deserializer_INST/U_ISERDESE3/D (clocked by clk_out1_375p0_clk_wiz_0_b65_mmcm_3). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#31 Warning
+Large setup violation  
+There is a large setup violation of -2.117 ns between ADC0_FCLK_n (clocked by clkin1) and B64_S[0].Ad9229Core_b/Ad9229Deserializer_INST/U_ISERDESE3/D (clocked by clk_out1_375p0_clk_wiz_0_b65_mmcm_3). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#32 Warning
+Large setup violation  
+There is a large setup violation of -2.123 ns between ADC4_DB1_n (clocked by clkin3) and B64_S[4].Ad9229Core_b/GEN_DATA[3].Ad9229Deserializer_INST/U_ISERDESE3/D (clocked by clk_out1_375p0_clk_wiz_0_b65_mmcm_5). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#33 Warning
+Large setup violation  
+There is a large setup violation of -2.129 ns between ADC4_DD0_p (clocked by clkin3) and B64_S[4].Ad9229Core_b/GEN_DATA[6].Ad9229Deserializer_INST/U_ISERDESE3/D (clocked by clk_out1_375p0_clk_wiz_0_b65_mmcm_5). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#34 Warning
+Large setup violation  
+There is a large setup violation of -2.134 ns between ADC3_DB1_n (clocked by clkin3) and B64_S[3].Ad9229Core_b/GEN_DATA[3].Ad9229Deserializer_INST/U_ISERDESE3/D (clocked by clk_out1_375p0_clk_wiz_0_b65_mmcm_5). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#35 Warning
+Large setup violation  
+There is a large setup violation of -2.136 ns between ADC3_DC0_n (clocked by clkin3) and B64_S[3].Ad9229Core_b/GEN_DATA[4].Ad9229Deserializer_INST/U_ISERDESE3/D (clocked by clk_out1_375p0_clk_wiz_0_b65_mmcm_5). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#36 Warning
+Large setup violation  
+There is a large setup violation of -2.138 ns between ADC2_DC1_p (clocked by clkin2) and B64_S[2].Ad9229Core_b/GEN_DATA[5].Ad9229Deserializer_INST/U_ISERDESE3/D (clocked by clk_out1_375p0_clk_wiz_0_b65_mmcm_4). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#37 Warning
+Large setup violation  
+There is a large setup violation of -2.141 ns between ADC2_DD1_n (clocked by clkin2) and B64_S[2].Ad9229Core_b/GEN_DATA[7].Ad9229Deserializer_INST/U_ISERDESE3/D (clocked by clk_out1_375p0_clk_wiz_0_b65_mmcm_4). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#38 Warning
+Large setup violation  
+There is a large setup violation of -2.142 ns between ADC3_DB0_p (clocked by clkin3) and B64_S[3].Ad9229Core_b/GEN_DATA[2].Ad9229Deserializer_INST/U_ISERDESE3/D (clocked by clk_out1_375p0_clk_wiz_0_b65_mmcm_5). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#39 Warning
+Large setup violation  
+There is a large setup violation of -2.169 ns between ADC2_DA1_n (clocked by clkin2) and B64_S[2].Ad9229Core_b/GEN_DATA[1].Ad9229Deserializer_INST/U_ISERDESE3/D (clocked by clk_out1_375p0_clk_wiz_0_b65_mmcm_4). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#40 Warning
+Large setup violation  
+There is a large setup violation of -2.174 ns between ADC2_DD0_n (clocked by clkin2) and B64_S[2].Ad9229Core_b/GEN_DATA[6].Ad9229Deserializer_INST/U_ISERDESE3/D (clocked by clk_out1_375p0_clk_wiz_0_b65_mmcm_4). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#41 Warning
+Large setup violation  
+There is a large setup violation of -2.174 ns between ADC2_FCLK_p (clocked by clkin2) and B64_S[2].Ad9229Core_b/Ad9229Deserializer_INST/U_ISERDESE3/D (clocked by clk_out1_375p0_clk_wiz_0_b65_mmcm_4). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#42 Warning
+Large setup violation  
+There is a large setup violation of -2.184 ns between ADC2_DC0_p (clocked by clkin2) and B64_S[2].Ad9229Core_b/GEN_DATA[4].Ad9229Deserializer_INST/U_ISERDESE3/D (clocked by clk_out1_375p0_clk_wiz_0_b65_mmcm_4). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#43 Warning
+Large setup violation  
+There is a large setup violation of -2.186 ns between ADC2_DB0_p (clocked by clkin2) and B64_S[2].Ad9229Core_b/GEN_DATA[2].Ad9229Deserializer_INST/U_ISERDESE3/D (clocked by clk_out1_375p0_clk_wiz_0_b65_mmcm_4). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#44 Warning
+Large setup violation  
+There is a large setup violation of -2.198 ns between ADC2_DB1_p (clocked by clkin2) and B64_S[2].Ad9229Core_b/GEN_DATA[3].Ad9229Deserializer_INST/U_ISERDESE3/D (clocked by clk_out1_375p0_clk_wiz_0_b65_mmcm_4). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#45 Warning
+Large setup violation  
+There is a large setup violation of -2.202 ns between ADC2_DA0_n (clocked by clkin2) and B64_S[2].Ad9229Core_b/GEN_DATA[0].Ad9229Deserializer_INST/U_ISERDESE3/D (clocked by clk_out1_375p0_clk_wiz_0_b65_mmcm_4). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-18#1 Warning
@@ -660,103 +1064,68 @@ Related violations: <none>
 
 TIMING-24#1 Warning
 Overridden Max delay datapath only  
-An asynchronous set_clock_groups or a set_false path (see constraint position 185 in the Timing Constraints window in Vivado IDE) between clocks clk_out4_b65_62p5_clk_wiz_0_b65_mmcm_3 and clk_pl_3 overrides a set_max_delay -datapath_only (position 188). It is not recommended to override a set_max_delay -datapath_only constraint. Replace the set_clock_groups or set_false_path between clocks with point-to-point set_false_path constraints
+An asynchronous set_clock_groups or a set_false path (see constraint position 185 in the Timing Constraints window in Vivado IDE) between clocks clk_out2_62p5_clk_wiz_0_b65_mmcm_3 and clk_pl_3 overrides a set_max_delay -datapath_only (position 194). It is not recommended to override a set_max_delay -datapath_only constraint. Replace the set_clock_groups or set_false_path between clocks with point-to-point set_false_path constraints
 Related violations: <none>
 
 TIMING-24#2 Warning
 Overridden Max delay datapath only  
-An asynchronous set_clock_groups or a set_false path (see constraint position 185 in the Timing Constraints window in Vivado IDE) between clocks clk_out4_b65_62p5_clk_wiz_0_b65_mmcm_3 and clk_pl_3 overrides a set_max_delay -datapath_only (position 192). It is not recommended to override a set_max_delay -datapath_only constraint. Replace the set_clock_groups or set_false_path between clocks with point-to-point set_false_path constraints
+An asynchronous set_clock_groups or a set_false path (see constraint position 185 in the Timing Constraints window in Vivado IDE) between clocks clk_out2_62p5_clk_wiz_0_b65_mmcm_3 and clk_pl_3 overrides a set_max_delay -datapath_only (position 198). It is not recommended to override a set_max_delay -datapath_only constraint. Replace the set_clock_groups or set_false_path between clocks with point-to-point set_false_path constraints
 Related violations: <none>
 
 TIMING-24#3 Warning
 Overridden Max delay datapath only  
-An asynchronous set_clock_groups or a set_false path (see constraint position 185 in the Timing Constraints window in Vivado IDE) between clocks clk_pl_3 and clk_out4_b65_62p5_clk_wiz_0_b65_mmcm_3 overrides a set_max_delay -datapath_only (position 186). It is not recommended to override a set_max_delay -datapath_only constraint. Replace the set_clock_groups or set_false_path between clocks with point-to-point set_false_path constraints
+An asynchronous set_clock_groups or a set_false path (see constraint position 185 in the Timing Constraints window in Vivado IDE) between clocks clk_pl_3 and clk_out2_62p5_clk_wiz_0_b65_mmcm_3 overrides a set_max_delay -datapath_only (position 192). It is not recommended to override a set_max_delay -datapath_only constraint. Replace the set_clock_groups or set_false_path between clocks with point-to-point set_false_path constraints
 Related violations: <none>
 
 TIMING-24#4 Warning
 Overridden Max delay datapath only  
-An asynchronous set_clock_groups or a set_false path (see constraint position 185 in the Timing Constraints window in Vivado IDE) between clocks clk_pl_3 and clk_out4_b65_62p5_clk_wiz_0_b65_mmcm_3 overrides a set_max_delay -datapath_only (position 190). It is not recommended to override a set_max_delay -datapath_only constraint. Replace the set_clock_groups or set_false_path between clocks with point-to-point set_false_path constraints
+An asynchronous set_clock_groups or a set_false path (see constraint position 185 in the Timing Constraints window in Vivado IDE) between clocks clk_pl_3 and clk_out2_62p5_clk_wiz_0_b65_mmcm_3 overrides a set_max_delay -datapath_only (position 196). It is not recommended to override a set_max_delay -datapath_only constraint. Replace the set_clock_groups or set_false_path between clocks with point-to-point set_false_path constraints
 Related violations: <none>
 
 XDCC-7#1 Warning
 Scoped Clock constraint overwritten on the same source  
 A new clock constraint create_clock overrides a previous scoped clock constraint defined on the same source. It is not recommended to override a scoped (typically an IP) clock constraint and could result in unexpected behaviors.
-New: create_clock -period 2.667 -name clkin1 [get_ports ADC1_DCLK_p] (Source: /home/ab/Desktop/XU1_petalinux_rev6.1/src/MercuryXU1_NuPRISM.xdc (Line: 296))
-Previous: create_clock -period 2.667 [get_ports ADC1_DCLK_p] (Source: /home/ab/Desktop/XU1_petalinux_rev6.1/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm.xdc (Line: 56))
+New: create_clock -period 2.667 -name clkin1 [get_ports ADC1_DCLK_p] (Source: /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/src/MercuryXU1_NuPRISM.xdc (Line: 296))
+Previous: create_clock -period 2.667 [get_ports ADC1_DCLK_p] (Source: /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm.xdc (Line: 56))
 Related violations: <none>
 
 XDCC-7#2 Warning
 Scoped Clock constraint overwritten on the same source  
 A new clock constraint create_clock overrides a previous scoped clock constraint defined on the same source. It is not recommended to override a scoped (typically an IP) clock constraint and could result in unexpected behaviors.
-New: create_clock -period 2.667 -name clkin2 [get_ports ADC2_DCLK_p] (Source: /home/ab/Desktop/XU1_petalinux_rev6.1/src/MercuryXU1_NuPRISM.xdc (Line: 297))
-Previous: create_clock -period 2.667 [get_ports ADC2_DCLK_p] (Source: /home/ab/Desktop/XU1_petalinux_rev6.1/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm.xdc (Line: 56))
+New: create_clock -period 2.667 -name clkin2 [get_ports ADC2_DCLK_p] (Source: /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/src/MercuryXU1_NuPRISM.xdc (Line: 297))
+Previous: create_clock -period 2.667 [get_ports ADC2_DCLK_p] (Source: /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm.xdc (Line: 56))
 Related violations: <none>
 
 XDCC-7#3 Warning
 Scoped Clock constraint overwritten on the same source  
 A new clock constraint create_clock overrides a previous scoped clock constraint defined on the same source. It is not recommended to override a scoped (typically an IP) clock constraint and could result in unexpected behaviors.
-New: create_clock -period 2.667 -name clkin3 [get_ports ADC3_DCLK_p] (Source: /home/ab/Desktop/XU1_petalinux_rev6.1/src/MercuryXU1_NuPRISM.xdc (Line: 298))
-Previous: create_clock -period 2.667 [get_ports ADC3_DCLK_p] (Source: /home/ab/Desktop/XU1_petalinux_rev6.1/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm.xdc (Line: 56))
-Related violations: <none>
-
-CLKC-5#1 Advisory
-BUFGCE with constant CE has BUFG driver  
-The BUFGCE cell B64_S[0].Ad9229Core_b/U_serClk B64_S[0].Ad9229Core_b/U_serClk/I pin (and CE pin not ACTIVE) is driven by BUFGCE clock buffer B64_C[1].serdes_clock/inst/clkout2_buf. This may be an unnecessary use of multiple clocking resources and should be reviewed. Cascaded buffers introduce skew that can lead to difficult or impossible timing closure.
-Related violations: <none>
-
-CLKC-5#2 Advisory
-BUFGCE with constant CE has BUFG driver  
-The BUFGCE cell B64_S[1].Ad9229Core_b/U_serClk B64_S[1].Ad9229Core_b/U_serClk/I pin (and CE pin not ACTIVE) is driven by BUFGCE clock buffer B64_C[1].serdes_clock/inst/clkout2_buf. This may be an unnecessary use of multiple clocking resources and should be reviewed. Cascaded buffers introduce skew that can lead to difficult or impossible timing closure.
-Related violations: <none>
-
-CLKC-5#3 Advisory
-BUFGCE with constant CE has BUFG driver  
-The BUFGCE cell B64_S[2].Ad9229Core_b/U_serClk B64_S[2].Ad9229Core_b/U_serClk/I pin (and CE pin not ACTIVE) is driven by BUFGCE clock buffer B64_C[2].serdes_clock/inst/clkout2_buf. This may be an unnecessary use of multiple clocking resources and should be reviewed. Cascaded buffers introduce skew that can lead to difficult or impossible timing closure.
-Related violations: <none>
-
-CLKC-5#4 Advisory
-BUFGCE with constant CE has BUFG driver  
-The BUFGCE cell B64_S[3].Ad9229Core_b/U_serClk B64_S[3].Ad9229Core_b/U_serClk/I pin (and CE pin not ACTIVE) is driven by BUFGCE clock buffer B64_C[3].serdes_clock/inst/clkout2_buf. This may be an unnecessary use of multiple clocking resources and should be reviewed. Cascaded buffers introduce skew that can lead to difficult or impossible timing closure.
-Related violations: <none>
-
-CLKC-5#5 Advisory
-BUFGCE with constant CE has BUFG driver  
-The BUFGCE cell B64_S[4].Ad9229Core_b/U_serClk B64_S[4].Ad9229Core_b/U_serClk/I pin (and CE pin not ACTIVE) is driven by BUFGCE clock buffer B64_C[3].serdes_clock/inst/clkout2_buf. This may be an unnecessary use of multiple clocking resources and should be reviewed. Cascaded buffers introduce skew that can lead to difficult or impossible timing closure.
+New: create_clock -period 2.667 -name clkin3 [get_ports ADC3_DCLK_p] (Source: /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/src/MercuryXU1_NuPRISM.xdc (Line: 298))
+Previous: create_clock -period 2.667 [get_ports ADC3_DCLK_p] (Source: /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm.xdc (Line: 56))
 Related violations: <none>
 
 CLKC-8#1 Advisory
 BUFGCE_DIV with active CE or DIVIDE not 1 has BUFG driver  
-The BUFGCE_DIV cell B64_S[0].Ad9229Core_b/U_BUFGCE_DIV B64_S[0].Ad9229Core_b/U_BUFGCE_DIV/I pin (and CE is ACTIVE or BUFGCE_DIVIDE is not 1) is driven by BUFGCE clock buffer B64_C[1].serdes_clock/inst/clkout2_buf. It should be reconnected in parallel to the driving clock buffer in order to reduce skew. Cascaded buffers introduce skew that can lead to difficult or impossible timing closure.
+The BUFGCE_DIV cell B64_S[0].Ad9229Core_b/U_BUFGCE_DIV B64_S[0].Ad9229Core_b/U_BUFGCE_DIV/I pin (and CE is ACTIVE or BUFGCE_DIVIDE is not 1) is driven by BUFGCE clock buffer B64_C[1].serdes_clock/inst/clkout1_buf. It should be reconnected in parallel to the driving clock buffer in order to reduce skew. Cascaded buffers introduce skew that can lead to difficult or impossible timing closure.
 Related violations: <none>
 
 CLKC-8#2 Advisory
 BUFGCE_DIV with active CE or DIVIDE not 1 has BUFG driver  
-The BUFGCE_DIV cell B64_S[1].Ad9229Core_b/U_BUFGCE_DIV B64_S[1].Ad9229Core_b/U_BUFGCE_DIV/I pin (and CE is ACTIVE or BUFGCE_DIVIDE is not 1) is driven by BUFGCE clock buffer B64_C[1].serdes_clock/inst/clkout2_buf. It should be reconnected in parallel to the driving clock buffer in order to reduce skew. Cascaded buffers introduce skew that can lead to difficult or impossible timing closure.
+The BUFGCE_DIV cell B64_S[1].Ad9229Core_b/U_BUFGCE_DIV B64_S[1].Ad9229Core_b/U_BUFGCE_DIV/I pin (and CE is ACTIVE or BUFGCE_DIVIDE is not 1) is driven by BUFGCE clock buffer B64_C[1].serdes_clock/inst/clkout1_buf. It should be reconnected in parallel to the driving clock buffer in order to reduce skew. Cascaded buffers introduce skew that can lead to difficult or impossible timing closure.
 Related violations: <none>
 
 CLKC-8#3 Advisory
 BUFGCE_DIV with active CE or DIVIDE not 1 has BUFG driver  
-The BUFGCE_DIV cell B64_S[3].Ad9229Core_b/U_BUFGCE_DIV B64_S[3].Ad9229Core_b/U_BUFGCE_DIV/I pin (and CE is ACTIVE or BUFGCE_DIVIDE is not 1) is driven by BUFGCE clock buffer B64_C[3].serdes_clock/inst/clkout2_buf. It should be reconnected in parallel to the driving clock buffer in order to reduce skew. Cascaded buffers introduce skew that can lead to difficult or impossible timing closure.
+The BUFGCE_DIV cell B64_S[2].Ad9229Core_b/U_BUFGCE_DIV B64_S[2].Ad9229Core_b/U_BUFGCE_DIV/I pin (and CE is ACTIVE or BUFGCE_DIVIDE is not 1) is driven by BUFGCE clock buffer B64_C[2].serdes_clock/inst/clkout1_buf. It should be reconnected in parallel to the driving clock buffer in order to reduce skew. Cascaded buffers introduce skew that can lead to difficult or impossible timing closure.
 Related violations: <none>
 
 CLKC-8#4 Advisory
 BUFGCE_DIV with active CE or DIVIDE not 1 has BUFG driver  
-The BUFGCE_DIV cell B64_S[4].Ad9229Core_b/U_BUFGCE_DIV B64_S[4].Ad9229Core_b/U_BUFGCE_DIV/I pin (and CE is ACTIVE or BUFGCE_DIVIDE is not 1) is driven by BUFGCE clock buffer B64_C[3].serdes_clock/inst/clkout2_buf. It should be reconnected in parallel to the driving clock buffer in order to reduce skew. Cascaded buffers introduce skew that can lead to difficult or impossible timing closure.
+The BUFGCE_DIV cell B64_S[3].Ad9229Core_b/U_BUFGCE_DIV B64_S[3].Ad9229Core_b/U_BUFGCE_DIV/I pin (and CE is ACTIVE or BUFGCE_DIVIDE is not 1) is driven by BUFGCE clock buffer B64_C[3].serdes_clock/inst/clkout1_buf. It should be reconnected in parallel to the driving clock buffer in order to reduce skew. Cascaded buffers introduce skew that can lead to difficult or impossible timing closure.
 Related violations: <none>
 
-CLKC-24#1 Advisory
-MMCME4 with ZHOLD drives sequential IO not with CLKOUT0  
-The MMCME4 cell B64_C[1].serdes_clock/inst/mmcme4_adv_inst has COMPENSATION value ZHOLD, but CLKOUT1 output drives sequential IO cells. In order to achieve insertion delay and phase-alignment for the IO sequential cells, CLKOUT0 must be used.
-Related violations: <none>
-
-CLKC-24#2 Advisory
-MMCME4 with ZHOLD drives sequential IO not with CLKOUT0  
-The MMCME4 cell B64_C[2].serdes_clock/inst/mmcme4_adv_inst has COMPENSATION value ZHOLD, but CLKOUT1 output drives sequential IO cells. In order to achieve insertion delay and phase-alignment for the IO sequential cells, CLKOUT0 must be used.
-Related violations: <none>
-
-CLKC-24#3 Advisory
-MMCME4 with ZHOLD drives sequential IO not with CLKOUT0  
-The MMCME4 cell B64_C[3].serdes_clock/inst/mmcme4_adv_inst has COMPENSATION value ZHOLD, but CLKOUT1 output drives sequential IO cells. In order to achieve insertion delay and phase-alignment for the IO sequential cells, CLKOUT0 must be used.
+CLKC-8#5 Advisory
+BUFGCE_DIV with active CE or DIVIDE not 1 has BUFG driver  
+The BUFGCE_DIV cell B64_S[4].Ad9229Core_b/U_BUFGCE_DIV B64_S[4].Ad9229Core_b/U_BUFGCE_DIV/I pin (and CE is ACTIVE or BUFGCE_DIVIDE is not 1) is driven by BUFGCE clock buffer B64_C[3].serdes_clock/inst/clkout1_buf. It should be reconnected in parallel to the driving clock buffer in order to reduce skew. Cascaded buffers introduce skew that can lead to difficult or impossible timing closure.
 Related violations: <none>
 
 

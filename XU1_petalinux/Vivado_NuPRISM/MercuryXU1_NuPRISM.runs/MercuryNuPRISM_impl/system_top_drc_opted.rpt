@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-| Date         : Tue Jul 13 12:25:37 2021
+| Date         : Thu Sep  9 11:26:51 2021
 | Host         : hyperk running 64-bit Ubuntu 18.04.5 LTS
 | Command      : report_drc -file system_top_drc_opted.rpt -pb system_top_drc_opted.pb -rpx system_top_drc_opted.rpx
 | Design       : system_top
@@ -24,13 +24,12 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 13
+             Violations found: 9
 +-----------+----------+--------------------------------------+------------+
 | Rule      | Severity | Description                          | Violations |
 +-----------+----------+--------------------------------------+------------+
 | LVDS-1    | Warning  | Bidirection LVDS IOs                 | 1          |
-| REQP-1852 | Warning  | BUFGCE_cascade_from_clock_buf        | 5          |
-| REQP-1853 | Warning  | BUFGCE_DIV_cascade_from_clock_buf    | 4          |
+| REQP-1853 | Warning  | BUFGCE_DIV_cascade_from_clock_buf    | 5          |
 | REQP-1935 | Advisory | RAMB36E2_nochange_collision_advisory | 3          |
 +-----------+----------+--------------------------------------+------------+
 
@@ -42,49 +41,29 @@ The following port(s) use the LVDS I/O standard and have bi-directional differen
 POE_LVDS_TRIG_p.
 Related violations: <none>
 
-REQP-1852#1 Warning
-BUFGCE_cascade_from_clock_buf  
-Cascaded clock buffers exist in the design with constant CE pin. This may result in large clock skew and timing violations. Cell BUFGCE B64_S[0].Ad9229Core_b/U_serClk I pin is driven by another clock buffer B64_C[1].serdes_clock/inst/clkout2_buf.
-Related violations: <none>
-
-REQP-1852#2 Warning
-BUFGCE_cascade_from_clock_buf  
-Cascaded clock buffers exist in the design with constant CE pin. This may result in large clock skew and timing violations. Cell BUFGCE B64_S[1].Ad9229Core_b/U_serClk I pin is driven by another clock buffer B64_C[1].serdes_clock/inst/clkout2_buf.
-Related violations: <none>
-
-REQP-1852#3 Warning
-BUFGCE_cascade_from_clock_buf  
-Cascaded clock buffers exist in the design with constant CE pin. This may result in large clock skew and timing violations. Cell BUFGCE B64_S[2].Ad9229Core_b/U_serClk I pin is driven by another clock buffer B64_C[2].serdes_clock/inst/clkout2_buf.
-Related violations: <none>
-
-REQP-1852#4 Warning
-BUFGCE_cascade_from_clock_buf  
-Cascaded clock buffers exist in the design with constant CE pin. This may result in large clock skew and timing violations. Cell BUFGCE B64_S[3].Ad9229Core_b/U_serClk I pin is driven by another clock buffer B64_C[3].serdes_clock/inst/clkout2_buf.
-Related violations: <none>
-
-REQP-1852#5 Warning
-BUFGCE_cascade_from_clock_buf  
-Cascaded clock buffers exist in the design with constant CE pin. This may result in large clock skew and timing violations. Cell BUFGCE B64_S[4].Ad9229Core_b/U_serClk I pin is driven by another clock buffer B64_C[3].serdes_clock/inst/clkout2_buf.
-Related violations: <none>
-
 REQP-1853#1 Warning
 BUFGCE_DIV_cascade_from_clock_buf  
-Cascaded clock buffers exist in the design with constant CE pin. This may result in large clock skew and timing violations. Cell BUFGCE_DIV B64_S[0].Ad9229Core_b/U_BUFGCE_DIV I pin is driven by another clock buffer B64_C[1].serdes_clock/inst/clkout2_buf.
+Cascaded clock buffers exist in the design with constant CE pin. This may result in large clock skew and timing violations. Cell BUFGCE_DIV B64_S[0].Ad9229Core_b/U_BUFGCE_DIV I pin is driven by another clock buffer B64_C[1].serdes_clock/inst/clkout1_buf.
 Related violations: <none>
 
 REQP-1853#2 Warning
 BUFGCE_DIV_cascade_from_clock_buf  
-Cascaded clock buffers exist in the design with constant CE pin. This may result in large clock skew and timing violations. Cell BUFGCE_DIV B64_S[1].Ad9229Core_b/U_BUFGCE_DIV I pin is driven by another clock buffer B64_C[1].serdes_clock/inst/clkout2_buf.
+Cascaded clock buffers exist in the design with constant CE pin. This may result in large clock skew and timing violations. Cell BUFGCE_DIV B64_S[1].Ad9229Core_b/U_BUFGCE_DIV I pin is driven by another clock buffer B64_C[1].serdes_clock/inst/clkout1_buf.
 Related violations: <none>
 
 REQP-1853#3 Warning
 BUFGCE_DIV_cascade_from_clock_buf  
-Cascaded clock buffers exist in the design with constant CE pin. This may result in large clock skew and timing violations. Cell BUFGCE_DIV B64_S[3].Ad9229Core_b/U_BUFGCE_DIV I pin is driven by another clock buffer B64_C[3].serdes_clock/inst/clkout2_buf.
+Cascaded clock buffers exist in the design with constant CE pin. This may result in large clock skew and timing violations. Cell BUFGCE_DIV B64_S[2].Ad9229Core_b/U_BUFGCE_DIV I pin is driven by another clock buffer B64_C[2].serdes_clock/inst/clkout1_buf.
 Related violations: <none>
 
 REQP-1853#4 Warning
 BUFGCE_DIV_cascade_from_clock_buf  
-Cascaded clock buffers exist in the design with constant CE pin. This may result in large clock skew and timing violations. Cell BUFGCE_DIV B64_S[4].Ad9229Core_b/U_BUFGCE_DIV I pin is driven by another clock buffer B64_C[3].serdes_clock/inst/clkout2_buf.
+Cascaded clock buffers exist in the design with constant CE pin. This may result in large clock skew and timing violations. Cell BUFGCE_DIV B64_S[3].Ad9229Core_b/U_BUFGCE_DIV I pin is driven by another clock buffer B64_C[3].serdes_clock/inst/clkout1_buf.
+Related violations: <none>
+
+REQP-1853#5 Warning
+BUFGCE_DIV_cascade_from_clock_buf  
+Cascaded clock buffers exist in the design with constant CE pin. This may result in large clock skew and timing violations. Cell BUFGCE_DIV B64_S[4].Ad9229Core_b/U_BUFGCE_DIV I pin is driven by another clock buffer B64_C[3].serdes_clock/inst/clkout1_buf.
 Related violations: <none>
 
 REQP-1935#1 Advisory

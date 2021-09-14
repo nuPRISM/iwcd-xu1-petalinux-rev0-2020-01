@@ -10,16 +10,14 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="1025fs"></ZoomEndTime>
-      <Cursor1Time time="213000fs"></Cursor1Time>
+      <ZoomEndTime time="11490fs"></ZoomEndTime>
+      <Cursor1Time time="497fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="326"></NameColumnWidth>
-      <ValueColumnWidth column_width="297"></ValueColumnWidth>
+      <ValueColumnWidth column_width="281"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="4" />
-   <wave_markers>
-   </wave_markers>
    <wvobject type="array" fp_name="MercuryXU1_i/MercuryXU1_i/system_ila_60/U0/probe1_1">
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="ElementShortName">MercuryXU1_i/MercuryXU1_i/system_ila_60/U0/probe1_1[19:0]</obj_property>

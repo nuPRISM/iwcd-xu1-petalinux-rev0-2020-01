@@ -11,11 +11,11 @@
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
       <ZoomEndTime time="1025fs"></ZoomEndTime>
-      <Cursor1Time time="500fs"></Cursor1Time>
+      <Cursor1Time time="661fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="255"></NameColumnWidth>
-      <ValueColumnWidth column_width="106"></ValueColumnWidth>
+      <ValueColumnWidth column_width="90"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="16" />
    <wave_markers>

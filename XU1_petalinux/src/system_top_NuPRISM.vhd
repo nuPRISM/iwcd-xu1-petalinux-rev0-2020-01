@@ -280,10 +280,8 @@ architecture rtl of system_top is
     port
     (-- Clock in ports
     -- Clock out ports
-    clk_out1_b65_mmcm_b64_375p0     : out    std_logic;
-    clk_out2_b65_mmcm_b65_375p0     : out    std_logic;
-    clk_out3_b65_mmcm_b66_375p0     : out    std_logic;
-    clk_out4_b65_62p5               : out    std_logic;
+    clk_out1_375p0                  : out    std_logic;
+    clk_out2_62p5                   : out    std_logic;
     -- Status and control signals
     reset                           : in     std_logic;
     locked                          : out    std_logic;
@@ -523,10 +521,8 @@ begin
         serdes_clock : clk_wiz_0_b65_mmcm
         port map (
         -- Clock out ports
-        clk_out1_b65_mmcm_b64_375p0 => open,
-        clk_out2_b65_mmcm_b65_375p0 => adc_mmcm_dclk_p(adc),
-        clk_out3_b65_mmcm_b66_375p0 => open,
-        clk_out4_b65_62p5           => adc_sample_clock(adc),
+        clk_out1_375p0 => adc_mmcm_dclk_p(adc),
+        clk_out2_62p5 => adc_sample_clock(adc),
         -- Status and control signals
         reset => '0',
         locked => open,
@@ -546,7 +542,7 @@ begin
             TPD_G             => open,
             IODELAY_GROUP_G   => open,
             N_CHANNELS_G      => 8     -- DA1, DA0, DB1, DB0, DC1, DC0, DD1, DD0
-        )
+       )
         port map (
             -- Desired sample clock
             sampleClk       => adc_sample_clock(adc),     -- MMCM 62.5MHz clock, derived from DCLK

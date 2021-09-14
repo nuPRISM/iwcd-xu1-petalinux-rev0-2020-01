@@ -305,3 +305,9 @@ set_clock_groups -name clk_group_def -asynchronous -group [get_clocks {clk_pl*}]
 -group [get_clocks -include_generated_clocks clkin3] \
 -group [get_clocks -include_generated_clocks clkin4]
 
+set_input_delay 0.55 -min -clock clkin1 [get_ports {ADC1*F* ADC1*0* ADC1*1* ADC0*F* ADC0*0* ADC0*1*}]
+set_input_delay 0.8 -max -clock clkin1 [get_ports {ADC1*F* ADC1*0* ADC1*1* ADC0*F* ADC0*0* ADC0*1*}]
+set_input_delay 0.55 -min -clock clkin2 [get_ports {ADC2*F* ADC2*0* ADC2*1*}]
+set_input_delay 0.8 -max -clock clkin2 [get_ports {ADC2*F* ADC2*0* ADC2*1*}]
+set_input_delay 0.55 -min -clock clkin3 [get_ports {ADC3*F* ADC3*0* ADC3*1* ADC4*F* ADC4*0* ADC4*1*}]
+set_input_delay 0.8 -max -clock clkin3 [get_ports {ADC3*F* ADC3*0* ADC3*1* ADC4*F* ADC4*0* ADC4*1*}]
