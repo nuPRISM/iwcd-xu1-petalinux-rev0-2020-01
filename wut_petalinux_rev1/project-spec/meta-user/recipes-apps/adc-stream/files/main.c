@@ -76,92 +76,92 @@
 
 
 int gpio_init() {               // \todo rewrite using WZAB GPIO module
-    struct stat stat_buf;   
-    if(stat("/sys/class/gpio/gpio492/value", &stat_buf) == 0) {
-        DBG("GPIO already initialized\n", NULL);
-        return 1;
-    }
+    // struct stat stat_buf;   
+    // if(stat("/sys/class/gpio/gpio492/value", &stat_buf) == 0) {
+    //     DBG("GPIO already initialized\n", NULL);
+    //     return 1;
+    // }
 
-    for(int i = ADC_GPIO_START; i <= ADC_GPIO_END; i++) {
-        char cmd[64];
+    // for(int i = ADC_GPIO_START; i <= ADC_GPIO_END; i++) {
+    //     char cmd[64];
         
-        sprintf(cmd, "echo %d > /sys/class/gpio/export", i);
-        DBG("%s\n", cmd);
-        system(cmd);
+    //     sprintf(cmd, "echo %d > /sys/class/gpio/export", i);
+    //     DBG("%s\n", cmd);
+    //     system(cmd);
         
-        sprintf(cmd, "echo out > /sys/class/gpio/gpio%d/direction", i);
-        DBG("%s\n", cmd);
-        system(cmd);
+    //     sprintf(cmd, "echo out > /sys/class/gpio/gpio%d/direction", i);
+    //     DBG("%s\n", cmd);
+    //     system(cmd);
         
-        // \todo set default values
-    }
+    //     // \todo set default values
+    // }
     
-    for(int i = SUPPRESS_LSB_GPIO; i <= SUPPRESS_GPIO_END; i++) {
-        char cmd[64];
+    // for(int i = SUPPRESS_LSB_GPIO; i <= SUPPRESS_GPIO_END; i++) {
+    //     char cmd[64];
         
-        sprintf(cmd, "echo %d > /sys/class/gpio/export", i);
-        DBG("%s\n", cmd);
-        system(cmd);
+    //     sprintf(cmd, "echo %d > /sys/class/gpio/export", i);
+    //     DBG("%s\n", cmd);
+    //     system(cmd);
         
-        sprintf(cmd, "echo out > /sys/class/gpio/gpio%d/direction", i);
-        DBG("%s\n", cmd);
-        system(cmd);   
+    //     sprintf(cmd, "echo out > /sys/class/gpio/gpio%d/direction", i);
+    //     DBG("%s\n", cmd);
+    //     system(cmd);   
         
-        switch(i) {
-            case SUPPRESS_LSB_GPIO:
-            case SUPPRESS_MSB_GPIO:
-                sprintf(cmd, "echo 1 > /sys/class/gpio/gpio%d/value", i);
-                break;
+    //     switch(i) {
+    //         case SUPPRESS_LSB_GPIO:
+    //         case SUPPRESS_MSB_GPIO:
+    //             sprintf(cmd, "echo 1 > /sys/class/gpio/gpio%d/value", i);
+    //             break;
                 
-            case ADC_TRIGGER_GPIO:
-                sprintf(cmd, "echo 0 > /sys/class/gpio/gpio%d/value", i);
-                break;
-        }
-        DBG("%s\n", cmd);
-        system(cmd);
-    }
+    //         case ADC_TRIGGER_GPIO:
+    //             sprintf(cmd, "echo 0 > /sys/class/gpio/gpio%d/value", i);
+    //             break;
+    //     }
+    //     DBG("%s\n", cmd);
+    //     system(cmd);
+    // }
     
-    for(int i = DMA_BUF_SIZE_GPIO_START; i <= DMA_BUF_SIZE_GPIO_END; i++) {
-        char cmd[64];
+    // for(int i = DMA_BUF_SIZE_GPIO_START; i <= DMA_BUF_SIZE_GPIO_END; i++) {
+    //     char cmd[64];
         
-        sprintf(cmd, "echo %d > /sys/class/gpio/export", i);
-        DBG("%s\n", cmd);
-        system(cmd);
+    //     sprintf(cmd, "echo %d > /sys/class/gpio/export", i);
+    //     DBG("%s\n", cmd);
+    //     system(cmd);
         
-        sprintf(cmd, "echo out > /sys/class/gpio/gpio%d/direction", i);
-        DBG("%s\n", cmd);
-        system(cmd);
+    //     sprintf(cmd, "echo out > /sys/class/gpio/gpio%d/direction", i);
+    //     DBG("%s\n", cmd);
+    //     system(cmd);
         
-        sprintf(cmd, "echo 0 > /sys/class/gpio/gpio%d/value", i);        
-        DBG("%s\n", cmd);
-        system(cmd);
-    }
+    //     sprintf(cmd, "echo 0 > /sys/class/gpio/gpio%d/value", i);        
+    //     DBG("%s\n", cmd);
+    //     system(cmd);
+    // }
     
     return 0;       // \todo verify system cmd error codes, return appropiate value
 }
 
 
 int set_dma_buf_size(int buf_size) {
-    buf_size = buf_size >> 2;           // buffer size must be set a a number of 4 byte words
+    // buf_size = buf_size >> 2;           // buffer size must be set a a number of 4 byte words
     
-    for(int i = DMA_BUF_SIZE_GPIO_START; i <= DMA_BUF_SIZE_GPIO_END; i++) {
-        char cmd[64];
+    // for(int i = DMA_BUF_SIZE_GPIO_START; i <= DMA_BUF_SIZE_GPIO_END; i++) {
+    //     char cmd[64];
     
-        sprintf(cmd, "echo %d > /sys/class/gpio/gpio%d/value", (buf_size & 0x01), i);        
-        DBG("%s\n", cmd);
-        system(cmd);
+    //     sprintf(cmd, "echo %d > /sys/class/gpio/gpio%d/value", (buf_size & 0x01), i);        
+    //     DBG("%s\n", cmd);
+    //     system(cmd);
         
-        buf_size = buf_size >> 1;
-    }
+    //     buf_size = buf_size >> 1;
+    // }
     
     return 0;       // \todo verify system cmd error codes, return appropiate value
 }
 
 
 int dma_reset() {
-    system("echo 0 > /sys/class/gpio/gpio499/value"); 
-    usleep(500 * 1000);
-    system("echo 1 > /sys/class/gpio/gpio499/value"); 
+    // system("echo 0 > /sys/class/gpio/gpio499/value"); 
+    // usleep(500 * 1000);
+    // system("echo 1 > /sys/class/gpio/gpio499/value"); 
 
     return 0;       // \todo verify system cmd error codes, return appropiate value
 }
@@ -172,8 +172,8 @@ static pthread_t trigger_thread = NULL;
 void *trigger_thread_fun( void *ptr ) {
     DBG("delay start\n", NULL);
     usleep(10 * 1000);
-    system("echo 1 > /sys/class/gpio/gpio442/value");     // set trigger
-    system("echo 0 > /sys/class/gpio/gpio442/value");     // unset trigger
+    // system("echo 1 > /sys/class/gpio/gpio442/value");     // set trigger
+    // system("echo 0 > /sys/class/gpio/gpio442/value");     // unset trigger
     DBG("delay end\n", NULL);
 }
 
@@ -217,73 +217,76 @@ void *thread_fun( void *ptr ) {
     DBG("thread_fun(): adc_num=%d test_size=%d address=%s port=%s\n", data_ptr->adc_num, data_ptr->test_size, data_ptr->address, data_ptr->port);
 
      // configure network connection
-    struct addrinfo hints, *pRes;
+    // struct addrinfo hints, *pRes;
 
-    memset(&hints, 0, sizeof(hints));
-    hints.ai_family = AF_INET; //AF_UNSPEC;
-    hints.ai_socktype = SOCK_DGRAM;
-    hints.ai_protocol = IPPROTO_UDP;
-    hints.ai_flags = AI_ADDRCONFIG;    
-    assert(getaddrinfo(data_ptr->address, data_ptr->port, &hints, &pRes) == 0);
+    // memset(&hints, 0, sizeof(hints));
+    // hints.ai_family = AF_INET; //AF_UNSPEC;
+    // hints.ai_socktype = SOCK_DGRAM;
+    // hints.ai_protocol = IPPROTO_UDP;
+    // hints.ai_flags = AI_ADDRCONFIG;    
+    // assert(getaddrinfo(data_ptr->address, data_ptr->port, &hints, &pRes) == 0);
     
-    // create network socket    	
-    int sock_fd = socket(AF_INET, SOCK_DGRAM, 0);
+    // // create network socket    	
+    // int sock_fd = socket(AF_INET, SOCK_DGRAM, 0);
 
-    // open DMA device
-    int	rx_proxy_fd = open("/dev/dma_proxy_rx_0", O_RDWR);
-	if (rx_proxy_fd < 1) {
-		DBG("Unable to open DMA proxy device file", NULL);
-		return (void*)1;
-	}
+    // // open DMA device
+    // int	rx_proxy_fd = open("/dev/dma_proxy_rx_0", O_RDWR);
+	// if (rx_proxy_fd < 1) {
+	// 	DBG("Unable to open DMA proxy device file", NULL);
+	// 	return (void*)1;
+	// }
 
-    // map DMA buffer    
-    struct dma_proxy_channel_interface *rx_proxy_interface_p;
+    // // map DMA buffer    
+    // struct dma_proxy_channel_interface *rx_proxy_interface_p;
     
-    rx_proxy_interface_p = (struct dma_proxy_channel_interface *)mmap(NULL, sizeof(struct dma_proxy_channel_interface),
-									PROT_READ | PROT_WRITE, MAP_SHARED, rx_proxy_fd, 0);
-	if (rx_proxy_interface_p == MAP_FAILED) {
-		DBG("Failed to mmap\n", NULL);
-		return (void*)1;
-	}
-    rx_proxy_interface_p->length = data_ptr->test_size;
-    DBG("thrad_fun(): test size=%d\n", rx_proxy_interface_p->length);
+    // rx_proxy_interface_p = (struct dma_proxy_channel_interface *)mmap(NULL, sizeof(struct dma_proxy_channel_interface),
+	// 								PROT_READ | PROT_WRITE, MAP_SHARED, rx_proxy_fd, 0);
+	// if (rx_proxy_interface_p == MAP_FAILED) {
+	// 	DBG("Failed to mmap\n", NULL);
+	// 	return (void*)1;
+	// }
+    // rx_proxy_interface_p->length = data_ptr->test_size;
+    // DBG("thrad_fun(): test size=%d\n", rx_proxy_interface_p->length);
 
-    system("echo 0 > /sys/class/gpio/gpio441/value"); // unset ADC supress bit        
+    // system("echo 0 > /sys/class/gpio/gpio441/value"); // unset ADC supress bit        
 
     struct timeval begin, end;
     gettimeofday(&begin, 0);
 
     unsigned long counter = 0;
     while(!stop) {                                  // \todo read only - mutex required?
-        int dummy;
+        usleep(10 * 1000);
+        counter++;
 
-        pthread_create(&trigger_thread, NULL, trigger_thread_fun, (void*)(NULL));
-        ioctl(rx_proxy_fd, 0, &dummy);
-        pthread_join(trigger_thread, NULL);
+    //     int dummy;
 
-	    if (rx_proxy_interface_p->status != PROXY_NO_ERROR) {
-		    DBG("Proxy rx transfer error: status=%d\n", rx_proxy_interface_p->status);
-        } else {
-            int ret_val = send_data(sock_fd, rx_proxy_interface_p->buffer, data_ptr->test_size, pRes);
-            if(ret_val != 0) {
-                DBG("Data not sent: ret_val=%d\n", ret_val);
-            } else {
-                counter++; 
-            }
-        }            
+    //     pthread_create(&trigger_thread, NULL, trigger_thread_fun, (void*)(NULL));
+    //     ioctl(rx_proxy_fd, 0, &dummy);
+    //     pthread_join(trigger_thread, NULL);
+
+	//     if (rx_proxy_interface_p->status != PROXY_NO_ERROR) {
+	// 	    DBG("Proxy rx transfer error: status=%d\n", rx_proxy_interface_p->status);
+    //     } else {
+    //         int ret_val = send_data(sock_fd, rx_proxy_interface_p->buffer, data_ptr->test_size, pRes);
+    //         if(ret_val != 0) {
+    //             DBG("Data not sent: ret_val=%d\n", ret_val);
+    //         } else {
+    //             counter++; 
+    //         }
+    //     }            
     }
     gettimeofday(&end, 0);
 
-    system("echo 1 > /sys/class/gpio/gpio441/value"); // set ADC supress bit
+    // system("echo 1 > /sys/class/gpio/gpio441/value"); // set ADC supress bit
 
-    // Unmap the proxy channel interface memory     
-    munmap(rx_proxy_interface_p, sizeof(struct dma_proxy_channel_interface));
+    // // Unmap the proxy channel interface memory     
+    // munmap(rx_proxy_interface_p, sizeof(struct dma_proxy_channel_interface));
     
-    // close DMA proxy device
-    close(rx_proxy_fd);
+    // // close DMA proxy device
+    // close(rx_proxy_fd);
 
-    // close network socket
-    close(sock_fd);
+    // // close network socket
+    // close(sock_fd);
 
     long seconds = end.tv_sec - begin.tv_sec;
     long microseconds = end.tv_usec - begin.tv_usec;
