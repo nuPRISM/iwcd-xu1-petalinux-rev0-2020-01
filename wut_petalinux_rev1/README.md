@@ -389,3 +389,12 @@ root@wut_petalinux_rev1:~# hexdump dma_ch1.bin
 | 256              |     +        |                  |
 | 512              |     +        |                  |
 | 1024             |     +        |                  |
+
+## Measurement data streaming
+
+```
+root@wut_petalinux_rev1:~# adc-stream -h
+Usage:
+        adc_stream2 -m ADC_num -c DMA_channel_num -p ADC_mode -b buf_size_kB -q num_iter -d dst_ip_addrs -p dst_port_num
+root@wut_petalinux_rev1:~# 
+```
