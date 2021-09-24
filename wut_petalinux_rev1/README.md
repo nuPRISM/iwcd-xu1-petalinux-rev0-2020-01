@@ -49,7 +49,7 @@ The SD card used to boot the petalinux distrubution should be formatted as follo
 ```
     sudo minicom -D /dev/ttyACM0
 ```
-**WARNING!** the ```/dev/ttyACM0``` is not available unless the board is not powered on
+**WARNING!** the ```/dev/ttyACM0``` is not available unless the board is powered on
 
 1. wait for the U-Booot prompt, write the following command: 
 ```    
