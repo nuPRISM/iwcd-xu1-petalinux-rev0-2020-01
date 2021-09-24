@@ -18,6 +18,15 @@ petalinux-config --get-hw-description <Vivado_directory_with_valid_XSA_file>
 petalinux-build
 ```
 
+### Rebuild selected application and do not remove tmp/target files
+
+```
+petalinux-build -c adc-stream -x compile
+```
+Rebuit application is located in the `$PROJETC_ROOR/build/tmp/work/aarch64-xilinx-linux/adc-stream/1.0-r0` directory and can be copied (`scp`) to the board without rebuilding entire distribution and updating the SD card
+
+
+
 ## Pack distro for booting from SD card
 
 ```
@@ -49,7 +58,7 @@ The SD card used to boot the petalinux distrubution should be formatted as follo
 ```
     sudo minicom -D /dev/ttyACM0
 ```
-**WARNING!** the ```/dev/ttyACM0``` is not available unless the board is not powered on
+**WARNING!** the ```/dev/ttyACM0``` is not available unless the board is powered on
 
 1. wait for the U-Booot prompt, write the following command: 
 ```    
@@ -389,3 +398,12 @@ root@wut_petalinux_rev1:~# hexdump dma_ch1.bin
 | 256              |     +        |                  |
 | 512              |     +        |                  |
 | 1024             |     +        |                  |
+
+## Measurement data streaming
+
+```
+root@wut_petalinux_rev1:~# adc-stream -h
+Usage:
+        adc_stream2 -m ADC_num -c DMA_channel_num -p ADC_mode -b buf_size_kB -q num_iter -d dst_ip_addrs -p dst_port_num
+root@wut_petalinux_rev1:~# 
+```
