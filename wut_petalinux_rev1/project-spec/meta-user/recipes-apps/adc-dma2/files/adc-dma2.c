@@ -47,6 +47,8 @@
 #define MIN_ADC_NUM  0
 #define MAX_ADC_NUM 19
 #define MAX_BUF_SIZE (3 * 1024 * 1024)
+#define DMA_CH0 0
+#define DMA_CH1 1
 
 
 static pthread_t trigger_thread = 0;
@@ -429,8 +431,8 @@ int main(int argc, char **argv)
     init_gpio();        // \todo use WZAB multi-gpio module !!!
     
     // set ADC num for DMA channels
-    set_adc_num(0, adc_ch0_num);
-    set_adc_num(1, adc_ch1_num);
+    set_adc_num(DMA_CH0, adc_ch0_num);
+    set_adc_num(DMA_CH1, adc_ch1_num);
 
     // set DMA buuffer size
     set_dma_buf_size(buf_size);
