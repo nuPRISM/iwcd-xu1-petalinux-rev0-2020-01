@@ -18,6 +18,15 @@ petalinux-config --get-hw-description <Vivado_directory_with_valid_XSA_file>
 petalinux-build
 ```
 
+### Rebuild selected application and do not remove tmp/target files
+
+```
+petalinux-build -c adc-stream -x compile
+```
+Rebuit application is located in the `$PROJETC_ROOR/build/tmp/work/aarch64-xilinx-linux/adc-stream/1.0-r0` directory and can be copied (`scp`) to the board without rebuilding entire distribution and updating the SD card
+
+
+
 ## Pack distro for booting from SD card
 
 ```
