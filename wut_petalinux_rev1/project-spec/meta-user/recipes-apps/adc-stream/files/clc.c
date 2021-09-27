@@ -47,7 +47,7 @@
 #define ON 1
 #define OFF 0
 
-#define DEBUG
+//#define DEBUG
 #include "dbg.h"
 
 

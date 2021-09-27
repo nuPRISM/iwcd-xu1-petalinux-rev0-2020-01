@@ -38,7 +38,7 @@
 
 # include "adc.h"
 
-#define DEBUG
+//#define DEBUG
 #include "dbg.h"
 
 

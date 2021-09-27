@@ -115,21 +115,20 @@ int send_data(int sock_fd, uint8_t* buf, uint buf_size, struct addrinfo *pRes) {
 
 
 void *trigger_thread_fun( void *ptr ) {
-    DBG("delay start\n", NULL);
+    // DBG("delay start\n", NULL);
     usleep(10 * 1000);
     
     char cmd[64];
     sprintf(cmd, "echo 1 > /sys/class/gpio/gpio%d/value", ADC_TRIGGER_GPIO);
-    DBG("%s\n", cmd);
+    // DBG("%s\n", cmd);
     system(cmd);
     sprintf(cmd, "echo 0 > /sys/class/gpio/gpio%d/value", ADC_TRIGGER_GPIO);
-    DBG("%s\n", cmd);
+    // DBG("%s\n", cmd);
     system(cmd);
-    DBG("delay end\n", NULL);
+    // DBG("delay end\n", NULL);
     
     return NULL;
 }
-
 
 
 typedef struct {
@@ -141,7 +140,8 @@ typedef struct {
     int dst_port_num;
 } ThreadData;
 
-static pthread_t thread = NULL;
+static pthread_t acquisition_thread = NULL;
+static pthread_t trigger_thread = NULL;
 static pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 static bool stop = false;
 
@@ -151,122 +151,101 @@ void *acquisition_thread_fun( void *ptr ) {
     DBG("thread_fun(): ADC_num=%d, DMA_dma_chan_num=%d, buf_size=%d num_iter=%d dst_ip_addrs=%s dst_port_num=%d\n", 
          data_ptr->adc_num, data_ptr->dma_chan_num, data_ptr->buf_size, data_ptr->num_iter, data_ptr->dst_ip_addrs, data_ptr->dst_port_num);
          
-    // \todo configure network connection 
+    // create network socket    	
+    int sock_fd = socket(AF_INET, SOCK_DGRAM, 0);
 
+    // configure network connection
+    struct addrinfo hints, *pRes;
+    
+    memset(&hints, 0, sizeof(hints));
+    hints.ai_family = AF_INET; //AF_UNSPEC;
+    hints.ai_socktype = SOCK_DGRAM;
+    hints.ai_protocol = IPPROTO_UDP;
+    hints.ai_flags = AI_ADDRCONFIG;    
+    char dst_port_txt[8];
+    sprintf(dst_port_txt, "%d", data_ptr->dst_port_num);
+    assert(getaddrinfo(data_ptr->dst_ip_addrs, dst_port_txt, &hints, &pRes) == 0);
+    
     // \todo open DMA channel
+    char dma_device[64];
+    sprintf(dma_device, "/dev/dma_proxy_rx_%d", data_ptr->dma_chan_num);
+    DBG("Opening DMA device: %s\n", dma_device);
+    int	rx_proxy_fd = open(dma_device, O_RDWR);
+	if (rx_proxy_fd < 1) {
+	 	DBG("Unable to open DMA proxy device file: %s", dma_device);
+	 	return (void*)1;
+	}
 
-    // \todo map DMA buffer
+    // map DMA buffer    
+    struct dma_proxy_channel_interface *rx_proxy_interface_p;
+    
+    rx_proxy_interface_p = (struct dma_proxy_channel_interface *)mmap(NULL, sizeof(struct dma_proxy_channel_interface),
+	 								PROT_READ | PROT_WRITE, MAP_SHARED, rx_proxy_fd, 0);
+	if (rx_proxy_interface_p == MAP_FAILED) {
+		DBG("Failed to mmap\n", NULL);
+		return (void*)1;
+	}
+    rx_proxy_interface_p->length = data_ptr->buf_size;
+    DBG("thrad_fun(): test size=%d\n", rx_proxy_interface_p->length);
 
+    // unset suppress bit
+    set_adc_suppress_bit(0);
+
+    struct timeval begin, end;
+    
     unsigned long counter = 0;
+    gettimeofday(&begin, 0);
+
     while(!stop) {                                  // \todo read only - mutex required?
-        usleep(10 * 1000);
-        counter++;
+        int dummy;        
+    
+        // start trigger thread
+        pthread_create(&trigger_thread, NULL, trigger_thread_fun, (void*)(NULL));
 
-        // \todo unset suppres bit
+        // DMA transfer
+        ioctl(rx_proxy_fd, 0, &dummy);
 
-        // \todo start trigger thread
+        // join trigger thread
+        pthread_join(trigger_thread, NULL);
 
-        // \todo DMA transfer
-
-        // \todo join trigger thread
-
-        // \todo send received data
-        
+        if (rx_proxy_interface_p->status != PROXY_NO_ERROR) {
+	 	    DBG("Proxy rx transfer error: status=%d\n", rx_proxy_interface_p->status);
+         } else {
+             int ret_val = send_data(sock_fd, rx_proxy_interface_p->buffer, data_ptr->buf_size, pRes);
+             if(ret_val != 0) {
+                 DBG("Data not sent: ret_val=%d\n", ret_val);
+             } else {
+                 counter++; 
+             }
+        }            
+            
         if(data_ptr->num_iter > 0 && counter >= data_ptr->num_iter)
             break;
     }
-    DBG("thread_fun(): counter=%ld\n", counter);
+    gettimeofday(&end, 0);
+
+    // reset suppress bit
+    set_adc_suppress_bit(1);
+
+    // Unmap the proxy channel interface memory     
+    munmap(rx_proxy_interface_p, sizeof(struct dma_proxy_channel_interface));
+    
+    // close DMA proxy device
+    close(rx_proxy_fd);
+
+    // close network socket
+    close(sock_fd);
+
+    long seconds = end.tv_sec - begin.tv_sec;
+    long microseconds = end.tv_usec - begin.tv_usec;
+    double elapsed_time = seconds + microseconds*1e-6;
+    DBG("thrad_fun():  %lu bytes received/sent in %f [s] (%f Mb/s) \n", counter * data_ptr->buf_size, 
+         elapsed_time, (double)counter * data_ptr->buf_size * 8 / 1024 / 1024 / elapsed_time);
     
     return NULL;
 }
 
 
-//void *thread_fun( void *ptr ) {
- //   thread_data* data_ptr = (thread_data*)ptr;
- //   DBG("thread_fun(): adc_num=%d test_size=%d address=%s port=%s\n", data_ptr->adc_num, data_ptr->test_size, data_ptr->address, data_ptr->port);
-
-     // configure network connection
-    // struct addrinfo hints, *pRes;
-
-    // memset(&hints, 0, sizeof(hints));
-    // hints.ai_family = AF_INET; //AF_UNSPEC;
-    // hints.ai_socktype = SOCK_DGRAM;
-    // hints.ai_protocol = IPPROTO_UDP;
-    // hints.ai_flags = AI_ADDRCONFIG;    
-    // assert(getaddrinfo(data_ptr->address, data_ptr->port, &hints, &pRes) == 0);
-    
-    // // create network socket    	
-    // int sock_fd = socket(AF_INET, SOCK_DGRAM, 0);
-
-    // // open DMA device
-    // int	rx_proxy_fd = open("/dev/dma_proxy_rx_0", O_RDWR);
-	// if (rx_proxy_fd < 1) {
-	// 	DBG("Unable to open DMA proxy device file", NULL);
-	// 	return (void*)1;
-	// }
-
-    // // map DMA buffer    
-    // struct dma_proxy_channel_interface *rx_proxy_interface_p;
-    
-    // rx_proxy_interface_p = (struct dma_proxy_channel_interface *)mmap(NULL, sizeof(struct dma_proxy_channel_interface),
-	// 								PROT_READ | PROT_WRITE, MAP_SHARED, rx_proxy_fd, 0);
-	// if (rx_proxy_interface_p == MAP_FAILED) {
-	// 	DBG("Failed to mmap\n", NULL);
-	// 	return (void*)1;
-	// }
-    // rx_proxy_interface_p->length = data_ptr->test_size;
-    // DBG("thrad_fun(): test size=%d\n", rx_proxy_interface_p->length);
-
-    // system("echo 0 > /sys/class/gpio/gpio441/value"); // unset ADC supress bit        
-
-///    struct timeval begin, end;
-//    gettimeofday(&begin, 0);
-
-//    unsigned long counter = 0;
-//    while(!stop) {                                  // \todo read only - mutex required?
-//        usleep(10 * 1000);
-//        counter++;
-
-    //     int dummy;
-
-    //     pthread_create(&trigger_thread, NULL, trigger_thread_fun, (void*)(NULL));
-    //     ioctl(rx_proxy_fd, 0, &dummy);
-    //     pthread_join(trigger_thread, NULL);
-
-	//     if (rx_proxy_interface_p->status != PROXY_NO_ERROR) {
-	// 	    DBG("Proxy rx transfer error: status=%d\n", rx_proxy_interface_p->status);
-    //     } else {
-    //         int ret_val = send_data(sock_fd, rx_proxy_interface_p->buffer, data_ptr->test_size, pRes);
-    //         if(ret_val != 0) {
-    //             DBG("Data not sent: ret_val=%d\n", ret_val);
-    //         } else {
-    //             counter++; 
-    //         }
-    //     }            
-//    }
-//    gettimeofday(&end, 0);
-
-    // system("echo 1 > /sys/class/gpio/gpio441/value"); // set ADC supress bit
-
-    // // Unmap the proxy channel interface memory     
-    // munmap(rx_proxy_interface_p, sizeof(struct dma_proxy_channel_interface));
-    
-    // // close DMA proxy device
-    // close(rx_proxy_fd);
-
-    // // close network socket
-    // close(sock_fd);
-
-//    long seconds = end.tv_sec - begin.tv_sec;
-//    long microseconds = end.tv_usec - begin.tv_usec;
-//    double elapsed_time = seconds + microseconds*1e-6;
-//    DBG("Leaving thread loop, %lu bytes received/sent in %f [s] (%f Mb/s) \n", counter * data_ptr->test_size, 
-//         elapsed_time, (double)counter * data_ptr->test_size * 8 / 1024 / 1024 / elapsed_time);
-
-//    return NULL;
-//}
-
-         
 
 void start_acquisition_thread(int adc_num, int dma_chan_num, int buf_size, int num_iter, char *dst_ip_addrs, int dst_port_num) {               
     DBG("start_thread(): ADC_num=%d, DMA_chan_num=%d, buf_size=%d num_iter=%d dst_ip_addrs=%s dst_port_num=%d\n", adc_num, dma_chan_num, buf_size, num_iter, dst_ip_addrs, dst_port_num);
@@ -283,8 +262,8 @@ void start_acquisition_thread(int adc_num, int dma_chan_num, int buf_size, int n
     stop = false;
     pthread_mutex_unlock(&mutex);
     
-    DBG("Starting thread ...\n", NULL);
-    pthread_create(&thread, NULL, acquisition_thread_fun, (void*)(&data));
+    DBG("Starting acquisition thread ...\n", NULL);
+    pthread_create(&acquisition_thread, NULL, acquisition_thread_fun, (void*)(&data));
 }
 
 
@@ -294,14 +273,16 @@ void stop_acquisition_thread() {
     stop = true;
     pthread_mutex_unlock(&mutex);
     
-    DBG("Waiting for a thread to join ...\n", NULL);
-    if(thread != NULL)
-        pthread_join(thread, NULL);
-    DBG("Thread joined\n", NULL);
+    DBG("Waiting for acquisition thread to join ...\n", NULL);
+    if(acquisition_thread != NULL)
+        pthread_join(acquisition_thread, NULL);
+    DBG("Acquisition tThread joined\n", NULL);
 }
 
 
 int init_gpio() {
+    DBG("init_gpio()\n", NULL);
+
     struct stat stat_buf;   
     char gpio_dev_name[64];
     sprintf(gpio_dev_name, "/sys/class/gpio/gpio%d/value", ADC_DMA_RESET_GPIO);
@@ -374,7 +355,7 @@ int init_gpio() {
 int set_adc_num(int chan_num, int adc_num) {
     int first_gpio, last_gpio;
     
-    DBG("chan_num=%d adc_num=%d\n", chan_num, adc_num);
+    DBG("set_adc_num(): chan_num=%d adc_num=%d\n", chan_num, adc_num);
     switch(chan_num) {
         case 0:
             first_gpio = ADC_CH0_NUM_LSB;
@@ -394,7 +375,7 @@ int set_adc_num(int chan_num, int adc_num) {
         char cmd[64];
     
         sprintf(cmd, "echo %d > /sys/class/gpio/gpio%d/value", (adc_num & 0x01), i);        
-        DBG("%s\n", cmd);
+        //DBG("%s\n", cmd);
         system(cmd);
         
         adc_num >>= 1;
@@ -404,13 +385,15 @@ int set_adc_num(int chan_num, int adc_num) {
 
 
 int set_dma_buf_size(int buf_size) {
-    buf_size = buf_size >> 2;           // buffer size must be set a a number of 4 byte words
+    DBG("set_dma_buf_size(): buf_size=%d\n", buf_size);
+
+    buf_size = buf_size >> 2;           // buffer size must be set as a number of 4 byte words
     
     for(int i = DMA_BUF_SIZE_GPIO_START; i <= DMA_BUF_SIZE_GPIO_END; i++) {
         char cmd[64];
     
         sprintf(cmd, "echo %d > /sys/class/gpio/gpio%d/value", (buf_size & 0x01), i);        
-        DBG("%s\n", cmd);
+        //DBG("%s\n", cmd);
         system(cmd);
         
         buf_size = buf_size >> 1;
@@ -421,6 +404,8 @@ int set_dma_buf_size(int buf_size) {
 
 
 int config_adc(adc_mode) {
+    DBG("config_adc(): adc_mode=%d\n", adc_mode);
+
     // open SPI dev
     int fd = spi_init(DEFAULT_SPI_DEVICE);          // \todo optional param in cmd line to change device name
     if(fd < 0) {
@@ -467,6 +452,8 @@ int config_adc(adc_mode) {
 
 
 int dma_reset() {
+    DBG("dma_reset()\n", NULL);
+
     char cmd[64];
     sprintf(cmd, "echo 0 > /sys/class/gpio/gpio%d/value", ADC_DMA_RESET_GPIO);
     system(cmd);
@@ -480,6 +467,8 @@ int dma_reset() {
 
 
 int set_adc_suppress_bit(int state) {
+    DBG("set_adc_suppress_bit(): state=%d\n", state);
+
     char cmd[64];
     sprintf(cmd, "echo %d > /sys/class/gpio/gpio%d/value", (state > 0 ? 1 : 0), SUPPRESS_MSB_GPIO);
     DBG("%s\n", cmd);
@@ -500,7 +489,7 @@ int main(int argc, char **argv)
     int adc_num = 0;
     int dma_chan_num = 0;
     int adc_mode = 2;
-    int buf_size = 1;
+    int buf_size = 1024;
 	int num_iter = 0;
     char dst_ip_addrs[64] = "192.168.112.69";
     int dst_port_num = 9999;
@@ -559,7 +548,7 @@ int main(int argc, char **argv)
         exit(1);
     }
     DBG("ADC_num=%d, DMA_chan_num=%d, buf_size=%d num_iter=%d dst_ip_addrs=%s dst_port_num=%d\n", adc_num, dma_chan_num, buf_size, num_iter, dst_ip_addrs, dst_port_num);
-
+    
     init_gpio();        // \todo use WZAB multi-gpio module !!!
     
     // set ADC num for DMA channels
@@ -575,6 +564,7 @@ int main(int argc, char **argv)
     }
 
     // initialize/start clock cleaner
+    printf("Clock cleaner initialization ...\n");
     if(clc_init() != 0) {
         printf("Clock cleaner not initialized\n");
         exit(1);
@@ -584,7 +574,7 @@ int main(int argc, char **argv)
         exit(1);
     }
 
-    // configure ADCs
+    // configuring ADCs
     if(config_adc(adc_mode) != 0) {
         printf("ADCs not configured\n");
         exit(1);
@@ -634,8 +624,8 @@ int main(int argc, char **argv)
         }        
     } else {                // non-iteractive mode
         start_acquisition_thread(adc_num, dma_chan_num, buf_size, num_iter, dst_ip_addrs, dst_port_num);
-        if(thread != NULL)
-            pthread_join(thread, NULL);
+        if(acquisition_thread != NULL)
+            pthread_join(acquisition_thread, NULL);
     }
     
     // \todo stop clock cleaner
