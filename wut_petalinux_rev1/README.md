@@ -385,20 +385,6 @@ root@wut_petalinux_rev1:~# hexdump dma_ch1.bin
 ```
 
 
-| Buffer size [kB] | DMA transfer | Streaming [kb/s] |
-|-----------------:|:------------:|------------------|
-| 1                |     +        |                  |
-| 2                |     +        |                  |
-| 4                |     +        |                  |
-| 8                |     +        |                  |
-| 16               |     +        |                  |
-| 32               |     +        |                  |
-| 64               |     +        |                  |
-| 128              |     +        |                  |
-| 256              |     +        |                  |
-| 512              |     +        |                  |
-| 1024             |     +        |                  |
-
 ## Measurement data streaming
 
 ```
@@ -407,3 +393,20 @@ Usage:
         adc_stream2 -m ADC_num -c DMA_channel_num -p ADC_mode -b buf_size_kB -q num_iter -d dst_ip_addrs -p dst_port_num
 root@wut_petalinux_rev1:~# 
 ```
+
+## Test results
+
+
+| Buffer size [kB] | DMA transfer | Streaming [Mb/s] |
+|-----------------:|:------------:|------------------|
+| 1                |     +        |   0.398916       |
+| 2                |     +        |   0.797568       |
+| 4                |     +        |   1.590315       |
+| 8                |     +        |   3.167990       |
+| 16               |     +        |   6.282544       |
+| 32               |     +        |  12.234032       |
+| 64               |     +        |  23.553797       |
+| 128              |     +        |  43.522730       |
+| 256              |     +        |  81.227510       |
+| 512              |     +        | 121.525879       |
+| 1024             |     +        | 200.549003       |
