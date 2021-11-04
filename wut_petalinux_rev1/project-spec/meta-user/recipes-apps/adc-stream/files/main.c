@@ -66,7 +66,7 @@
 #define ADC_TRIGGER_GPIO         410
 #define ADC_TRIGGER_MODE_GPI0_LSB  411
 #define ADC_TRIGGER_MODE_GPI0_MSB  413
-// Trgger mode 0        ++++++00 - transmisja non-stop bez triggera, 001 - software'owy trigger (0->1 /410), 010 - trigger zewnetrzny z plyti MZ, 011 - autotrigger z kanalu 0, 111 - autotrigger z kanalu 1
+// Trigger mode 0        ++++++00 - transmisja non-stop bez triggera, 001 - software'owy trigger (0->1 /410), 010 - trigger zewnetrzny z plyti MZ, 011 - autotrigger z kanalu 0, 111 - autotrigger z kanalu 1
 // 414 415 nieuzywane na razie 
 #define ADC_CH0_NUM_LSB          (412 + 4)
 #define ADC_CH0_NUM_MSB          (416 + 4)
@@ -323,11 +323,11 @@ int init_gpio() {
         switch(i) {
             case SUPPRESS_LSB_GPIO:
             case SUPPRESS_MSB_GPIO:
-			case ADC_TRIGGER_ENABLE_GPI0:
-                sprintf(cmd, "echo 1 > /sys/class/gpio/gpio%d/value", i);
+			case ADC_TRIGGER_MODE_GPI0_LSB:
+                sprintf(cmd, "echo 1 > /sys/class/gpio/gpio%d/value", i);           // software trigger mode
                 break;
                 
-            case ADC_TRIGGER_GPIO:
+            default:
                 sprintf(cmd, "echo 0 > /sys/class/gpio/gpio%d/value", i);
                 break;
         }
@@ -478,6 +478,12 @@ int set_adc_suppress_bit(int state) {
     system(cmd);
 
     return 0;       // \todo verify system cmd error codes, return appropiate value
+}
+
+
+int set_trigger_mode(int mode) {
+    // \todo implement!
+    return -1;          // not implemented
 }
 
 
