@@ -1,8 +1,8 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------
-| Tool Version : Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-| Date         : Thu Oct 29 18:01:16 2020
-| Host         : hyperk running 64-bit Ubuntu 18.04.5 LTS
+| Tool Version : Vivado v.2020.1.1 (win64) Build 2960000 Wed Aug  5 22:57:20 MDT 2020
+| Date         : Fri Oct  8 10:21:40 2021
+| Host         : aurochs running 64-bit Service Pack 1  (build 7601)
 | Command      : report_drc -file system_top_drc_opted.rpt -pb system_top_drc_opted.pb -rpx system_top_drc_opted.rpx
 | Design       : system_top
 | Device       : xczu6eg-ffvc900-1-i
@@ -24,56 +24,61 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 8
-+--------+----------+---------------------------------+------------+
-| Rule   | Severity | Description                     | Violations |
-+--------+----------+---------------------------------+------------+
-| LVDS-1 | Warning  | Bidirection LVDS IOs            | 1          |
-| RPBF-3 | Warning  | IO port buffering is incomplete | 7          |
-+--------+----------+---------------------------------+------------+
+             Violations found: 9
++-----------+----------+--------------------------------------+------------+
+| Rule      | Severity | Description                          | Violations |
++-----------+----------+--------------------------------------+------------+
+| LVDS-1    | Warning  | Bidirection LVDS IOs                 | 1          |
+| REQP-1853 | Warning  | BUFGCE_DIV_cascade_from_clock_buf    | 5          |
+| REQP-1935 | Advisory | RAMB36E2_nochange_collision_advisory | 3          |
++-----------+----------+--------------------------------------+------------+
 
 2. REPORT DETAILS
 -----------------
 LVDS-1#1 Warning
 Bidirection LVDS IOs  
-The following port(s) use the LVDS I/O standard and have bi-directional differential usage. Please note that LVDS is a fixed impedance structure optimized to 100ohm differential. This is only intended to be used in point-to-point transmissions that do not have turn around timing requirements. If the intended usage is a bus structure, please use BLVDS/BLVDS_25, instead. ADC0_DA0_n, ADC0_DA0_p, ADC0_DA1_n, ADC0_DA1_p, ADC0_DB0_n, ADC0_DB0_p,
-ADC0_DB1_n, ADC0_DB1_p, ADC0_DC0_n, ADC0_DC0_p, ADC0_DC1_n, ADC0_DC1_p,
-ADC0_DD0_n, ADC0_DD0_p, ADC0_DD1_n (the first 15 of 78 listed).
+The following port(s) use the LVDS I/O standard and have bi-directional differential usage. Please note that LVDS is a fixed impedance structure optimized to 100ohm differential. This is only intended to be used in point-to-point transmissions that do not have turn around timing requirements. If the intended usage is a bus structure, please use BLVDS/BLVDS_25, instead. LVDS_MEZZ_RJ45_CLK1_n, LVDS_MEZZ_RJ45_CLK1_p, POE_LVDS_TRIG_n,
+POE_LVDS_TRIG_p.
 Related violations: <none>
 
-RPBF-3#1 Warning
-IO port buffering is incomplete  
-Device port ADC0_SEN expects both input and output buffering but the buffers are incomplete.
+REQP-1853#1 Warning
+BUFGCE_DIV_cascade_from_clock_buf  
+Cascaded clock buffers exist in the design with constant CE pin. This may result in large clock skew and timing violations. Cell BUFGCE_DIV B64_S[0].Ad9229Core_b/U_BUFGCE_DIV I pin is driven by another clock buffer B64_C[1].serdes_clock/inst/clkout1_buf.
 Related violations: <none>
 
-RPBF-3#2 Warning
-IO port buffering is incomplete  
-Device port ADC1_SEN expects both input and output buffering but the buffers are incomplete.
+REQP-1853#2 Warning
+BUFGCE_DIV_cascade_from_clock_buf  
+Cascaded clock buffers exist in the design with constant CE pin. This may result in large clock skew and timing violations. Cell BUFGCE_DIV B64_S[1].Ad9229Core_b/U_BUFGCE_DIV I pin is driven by another clock buffer B64_C[1].serdes_clock/inst/clkout1_buf.
 Related violations: <none>
 
-RPBF-3#3 Warning
-IO port buffering is incomplete  
-Device port ADC2_SEN expects both input and output buffering but the buffers are incomplete.
+REQP-1853#3 Warning
+BUFGCE_DIV_cascade_from_clock_buf  
+Cascaded clock buffers exist in the design with constant CE pin. This may result in large clock skew and timing violations. Cell BUFGCE_DIV B64_S[2].Ad9229Core_b/U_BUFGCE_DIV I pin is driven by another clock buffer B64_C[2].serdes_clock/inst/clkout1_buf.
 Related violations: <none>
 
-RPBF-3#4 Warning
-IO port buffering is incomplete  
-Device port ADC3_SEN expects both input and output buffering but the buffers are incomplete.
+REQP-1853#4 Warning
+BUFGCE_DIV_cascade_from_clock_buf  
+Cascaded clock buffers exist in the design with constant CE pin. This may result in large clock skew and timing violations. Cell BUFGCE_DIV B64_S[3].Ad9229Core_b/U_BUFGCE_DIV I pin is driven by another clock buffer B64_C[3].serdes_clock/inst/clkout1_buf.
 Related violations: <none>
 
-RPBF-3#5 Warning
-IO port buffering is incomplete  
-Device port ADC4_SEN expects both input and output buffering but the buffers are incomplete.
+REQP-1853#5 Warning
+BUFGCE_DIV_cascade_from_clock_buf  
+Cascaded clock buffers exist in the design with constant CE pin. This may result in large clock skew and timing violations. Cell BUFGCE_DIV B64_S[4].Ad9229Core_b/U_BUFGCE_DIV I pin is driven by another clock buffer B64_C[3].serdes_clock/inst/clkout1_buf.
 Related violations: <none>
 
-RPBF-3#6 Warning
-IO port buffering is incomplete  
-Device port ADC_PDN expects both input and output buffering but the buffers are incomplete.
+REQP-1935#1 Advisory
+RAMB36E2_nochange_collision_advisory  
+Synchronous clocking is detected for BRAM (MercuryXU1_i/MercuryXU1_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_MM2S_FULL.I_MM2S_FULL_WRAPPER/GEN_INCLUDE_MM2S_SF.I_RD_SF/I_DATA_FIFO/BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg) in SDP mode with NO_CHANGE write-mode. This is the preferred mode for best power characteristics. However, NO_CHANGE may exhibit address collisions if the same address appears on both read and write ports resulting in unknown or corrupted read data. It is suggested to confirm via simulation that an address collision never occurs and if so it is suggested to try and avoid this situation. If address collisions cannot be avoided, the write-mode may be set to READ_FIRST which guarantees that the read data is the prior contents of the memory at the cost of additional power in the design. See the FPGA Memory Resources User Guide for additional information.
 Related violations: <none>
 
-RPBF-3#7 Warning
-IO port buffering is incomplete  
-Device port ADC_RST expects both input and output buffering but the buffers are incomplete.
+REQP-1935#2 Advisory
+RAMB36E2_nochange_collision_advisory  
+Synchronous clocking is detected for BRAM (MercuryXU1_i/MercuryXU1_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_DATA_FIFO/BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg) in SDP mode with NO_CHANGE write-mode. This is the preferred mode for best power characteristics. However, NO_CHANGE may exhibit address collisions if the same address appears on both read and write ports resulting in unknown or corrupted read data. It is suggested to confirm via simulation that an address collision never occurs and if so it is suggested to try and avoid this situation. If address collisions cannot be avoided, the write-mode may be set to READ_FIRST which guarantees that the read data is the prior contents of the memory at the cost of additional power in the design. See the FPGA Memory Resources User Guide for additional information.
+Related violations: <none>
+
+REQP-1935#3 Advisory
+RAMB36E2_nochange_collision_advisory  
+Synchronous clocking is detected for BRAM (MercuryXU1_i/MercuryXU1_i/axi_dma_1/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_DATA_FIFO/BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg) in SDP mode with NO_CHANGE write-mode. This is the preferred mode for best power characteristics. However, NO_CHANGE may exhibit address collisions if the same address appears on both read and write ports resulting in unknown or corrupted read data. It is suggested to confirm via simulation that an address collision never occurs and if so it is suggested to try and avoid this situation. If address collisions cannot be avoided, the write-mode may be set to READ_FIRST which guarantees that the read data is the prior contents of the memory at the cost of additional power in the design. See the FPGA Memory Resources User Guide for additional information.
 Related violations: <none>
 
 

@@ -1,4 +1,4 @@
--- (c) Copyright 1995-2020 Xilinx, Inc. All rights reserved.
+-- (c) Copyright 1995-2021 Xilinx, Inc. All rights reserved.
 -- 
 -- This file contains confidential and proprietary information
 -- of Xilinx, Inc. and is protected under U.S. and
@@ -171,7 +171,7 @@ BEGIN
       C_ALL_OUTPUTS => 1,
       C_ALL_OUTPUTS_2 => 0,
       C_INTERRUPT_PRESENT => 0,
-      C_DOUT_DEFAULT => X"FFFFFFFF",
+      C_DOUT_DEFAULT => X"FFF0FFFF",
       C_TRI_DEFAULT => X"FFFFFFFF",
       C_IS_DUAL => 0,
       C_DOUT_DEFAULT_2 => X"00000000",

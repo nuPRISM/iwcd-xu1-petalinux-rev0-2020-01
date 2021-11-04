@@ -1,7 +1,7 @@
 #ifndef IP_MERCURYXU1_ZYNQ_ULTRA_PS_E_0_0_SC_H_
 #define IP_MERCURYXU1_ZYNQ_ULTRA_PS_E_0_0_SC_H_
 
-// (c) Copyright 1995-2020 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2021 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -78,6 +78,10 @@ public: // module socket-to-socket TLM interface
 
   xtlm::xtlm_aximm_initiator_socket* M_AXI_HPM0_LPD_rd_socket;
   xtlm::xtlm_aximm_initiator_socket* M_AXI_HPM0_LPD_wr_socket;
+  xtlm::xtlm_aximm_target_socket* S_AXI_HPC0_FPD_rd_socket;
+  xtlm::xtlm_aximm_target_socket* S_AXI_HPC0_FPD_wr_socket;
+  xtlm::xtlm_aximm_target_socket* S_AXI_HPC1_FPD_rd_socket;
+  xtlm::xtlm_aximm_target_socket* S_AXI_HPC1_FPD_wr_socket;
 
 protected:
 

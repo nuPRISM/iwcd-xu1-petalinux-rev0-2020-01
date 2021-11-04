@@ -109,7 +109,7 @@ begin
         DELAY_FORMAT => "COUNT", -- Units of the DELAY_VALUE (COUNT, TIME)
         DELAY_SRC => "IDATAIN", -- Delay input (DATAIN, IDATAIN)
         DELAY_TYPE => "VAR_LOAD", -- Set the type of tap delay line (FIXED, VARIABLE, VAR_LOAD)
-        DELAY_VALUE => 0, -- Input delay value setting
+        DELAY_VALUE => 256,--0, -- Input delay value setting
         IS_CLK_INVERTED => '0', -- Optional inversion for CLK
         IS_RST_INVERTED => '0', -- Optional inversion for RST
         REFCLK_FREQUENCY => IDELAYCTRL_FREQ_G, -- IDELAYCTRL clock input frequency in MHz (200.0-2400.0)
@@ -156,19 +156,33 @@ begin
    );
 
    -- Slip shifter
+--   with r.slipCnt select
+--   s_parData <= r.data12bitD0                                            when 0,
+--                r.data12bitD1(0)           & r.data12bitD0(11 downto 1)  when 1,
+--                r.data12bitD1(1  downto 0) & r.data12bitD0(11 downto 2)  when 2,
+--                r.data12bitD1(2  downto 0) & r.data12bitD0(11 downto 3)  when 3,
+--                r.data12bitD1(3  downto 0) & r.data12bitD0(11 downto 4)  when 4,
+--                r.data12bitD1(4  downto 0) & r.data12bitD0(11 downto 5)  when 5,
+--                r.data12bitD1(5  downto 0) & r.data12bitD0(11 downto 6)  when 6,
+--                r.data12bitD1(6  downto 0) & r.data12bitD0(11 downto 7)  when 7,
+--                r.data12bitD1(7  downto 0) & r.data12bitD0(11 downto 8)  when 8,
+--                r.data12bitD1(8  downto 0) & r.data12bitD0(11 downto 9)  when 9,
+--                r.data12bitD1(9  downto 0) & r.data12bitD0(11 downto 10) when 10,
+--                r.data12bitD1(10 downto 0) & r.data12bitD0(11)           when 11,
+--                r.data12bitD0                                            when others;
    with r.slipCnt select
    s_parData <= r.data12bitD0                                            when 0,
-                r.data12bitD1(0)           & r.data12bitD0(11 downto 1)  when 1,
-                r.data12bitD1(1  downto 0) & r.data12bitD0(11 downto 2)  when 2,
-                r.data12bitD1(2  downto 0) & r.data12bitD0(11 downto 3)  when 3,
-                r.data12bitD1(3  downto 0) & r.data12bitD0(11 downto 4)  when 4,
-                r.data12bitD1(4  downto 0) & r.data12bitD0(11 downto 5)  when 5,
-                r.data12bitD1(5  downto 0) & r.data12bitD0(11 downto 6)  when 6,
-                r.data12bitD1(6  downto 0) & r.data12bitD0(11 downto 7)  when 7,
-                r.data12bitD1(7  downto 0) & r.data12bitD0(11 downto 8)  when 8,
-                r.data12bitD1(8  downto 0) & r.data12bitD0(11 downto 9)  when 9,
-                r.data12bitD1(9  downto 0) & r.data12bitD0(11 downto 10) when 10,
-                r.data12bitD1(10 downto 0) & r.data12bitD0(11)           when 11,
+                r.data12bitD0(10 downto 0) & r.data12bitD1(11)           when 1,
+                r.data12bitD0(9  downto 0) & r.data12bitD1(11 downto 10) when 2,
+                r.data12bitD0(8  downto 0) & r.data12bitD1(11 downto 9)  when 3,
+                r.data12bitD0(7  downto 0) & r.data12bitD1(11 downto 8)  when 4,
+                r.data12bitD0(6  downto 0) & r.data12bitD1(11 downto 7)  when 5,
+                r.data12bitD0(5  downto 0) & r.data12bitD1(11 downto 6)  when 6,
+                r.data12bitD0(4  downto 0) & r.data12bitD1(11 downto 5)  when 7,
+                r.data12bitD0(3  downto 0) & r.data12bitD1(11 downto 4)  when 8,
+                r.data12bitD0(2  downto 0) & r.data12bitD1(11 downto 3)  when 9,
+                r.data12bitD0(1  downto 0) & r.data12bitD1(11 downto 2)  when 10,
+                r.data12bitD0(0  downto 0) & r.data12bitD1(11 downto 1)  when 11,
                 r.data12bitD0                                            when others;
 
    comb : process (r, rstSerDiv2, s_serdesData, s_slipSyncRe) is
@@ -178,11 +192,15 @@ begin
       -------------------
 
       -- GearBox 3x4bit = 12bit parallel word
-      v.par4bitD0 := bitReverse(s_serdesData(3 downto 0));
+      v.par4bitD0 := s_serdesData(3 downto 0);
       v.par4bitD1 := r.par4bitD0;
       v.par4bitD2 := r.par4bitD1;
+      v.data12bitD0 := r.par4bitD0 & r.par4bitD1 & r.par4bitD2;
 
-      v.data12bitD0 := r.par4bitD2 & r.par4bitD1 & r.par4bitD0;
+--      v.par4bitD0 := bitReverse(s_serdesData(3 downto 0));
+--      v.par4bitD1 := r.par4bitD0;
+--      v.par4bitD2 := r.par4bitD1;
+--      v.data12bitD0 := r.par4bitD2 & r.par4bitD1 & r.par4bitD0;
 
       -- Generate gearbox we
       -- Shift left to get a /3 we

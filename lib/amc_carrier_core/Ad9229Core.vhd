@@ -60,8 +60,8 @@ entity Ad9229Core is
 
       -- IDelay control
       curDelay_o : out Slv9Array(N_CHANNELS_G downto 0);
-      setDelay_i : in  Slv9Array(N_CHANNELS_G downto 0);
-      setValid_i : in  sl
+      setDelay_i : in  slv(8 downto 0);
+      setValid_i : in  slv(N_CHANNELS_G downto 0)
    );
 end Ad9229Core;
 
@@ -121,10 +121,11 @@ begin
 
    fadcDataClk <= fadcDataClkP_i;
 
-   U_serClk : BUFG
-      port map (
-         I => fadcDataClk,
-         O => s_serClk);
+--   U_serClk : BUFG
+--      port map (
+--         I => fadcDataClk,
+--         O => s_serClk);
+   s_serClk <= fadcDataClk;
 
    -- Divide by 2
    U_BUFGCE_DIV : BUFGCE_DIV
@@ -174,8 +175,8 @@ begin
         rstPar     => sampleRst,
         slip       => r.slip,
         curDelay   => curDelay_o(i),
-        setDelay   => setDelay_i(i),
-        setValid   => setValid_i,
+        setDelay   => setDelay_i,
+        setValid   => setValid_i(i),
         iData      => s_serData(i),
         oData      => s_parData(i));
   end generate GEN_DATA;
@@ -207,8 +208,8 @@ begin
          rstPar     => sampleRst,
          slip       => r.slip,
          curDelay   => curDelay_o(N_CHANNELS_G),
-         setDelay   => setDelay_i(N_CHANNELS_G),
-         setValid   => setValid_i,
+         setDelay   => setDelay_i,
+         setValid   => setValid_i(N_CHANNELS_G),
          iData      => s_frameClk,
          oData      => s_parFrame);
 
@@ -227,7 +228,8 @@ begin
       v.slip := '0';
 
       if (r.count = 0) then
-         if (s_parFrame = "111000111000") then
+--         if (s_parFrame = "111000111000") then
+         if (s_parFrame = "000111000111") then
             v.locked := '1';
          else
             v.locked := '0';
@@ -245,7 +247,8 @@ begin
       -- ZERO the data if not locked
       ----------------------------------------------------------------------------------------------
       for i in N_CHANNELS_G-1 downto 0 loop
-         if (r.locked = '1' and s_parFrame = "111000111000") then
+         if (r.locked = '1' and s_parFrame = "000111000111") then
+--         if (r.locked = '1' and s_parFrame = "111000111000") then
             -- Locked, output adc data
             v.parData(i) := s_parData(i);
          else

@@ -20,7 +20,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/MercuryXU1_NuPRISM.runs/clk_wiz_0_b65_mmcm_synth_1'
+HD_PWD='/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.runs/clk_wiz_0_b65_mmcm_synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

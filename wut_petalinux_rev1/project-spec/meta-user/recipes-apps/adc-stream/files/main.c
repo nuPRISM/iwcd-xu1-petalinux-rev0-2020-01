@@ -64,11 +64,14 @@
 #define SUPPRESS_LSB_GPIO        408
 #define SUPPRESS_MSB_GPIO        409
 #define ADC_TRIGGER_GPIO         410
-#define ADC_TRIGGER_ENABLE_GPI0  411
-#define ADC_CH0_NUM_LSB          412
-#define ADC_CH0_NUM_MSB          416
-#define ADC_CH1_NUM_LSB          417
-#define ADC_CH1_NUM_MSB          421
+#define ADC_TRIGGER_MODE_GPI0_LSB  411
+#define ADC_TRIGGER_MODE_GPI0_MSB  413
+// Trgger mode 0        ++++++00 - transmisja non-stop bez triggera, 001 - software'owy trigger (0->1 /410), 010 - trigger zewnetrzny z plyti MZ, 011 - autotrigger z kanalu 0, 111 - autotrigger z kanalu 1
+// 414 415 nieuzywane na razie 
+#define ADC_CH0_NUM_LSB          (412 + 4)
+#define ADC_CH0_NUM_MSB          (416 + 4)
+#define ADC_CH1_NUM_LSB          (417 + 4)
+#define ADC_CH1_NUM_MSB          (421 + 4)
 
 #define SUPPRESS_GPIO_START SUPPRESS_LSB_GPIO
 #define SUPPRESS_GPIO_END   ADC_CH1_NUM_MSB

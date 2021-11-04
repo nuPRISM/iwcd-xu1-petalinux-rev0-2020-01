@@ -50,8 +50,6 @@
 #  input clocks. You can use these to time your system
 #----------------------------------------------------------------
 #create_clock -name s_axi_aclk -period 10.0 [get_ports s_axi_aclk]
-set_property IOSTANDARD ANALOG [get_ports  vp]
-set_property IOSTANDARD ANALOG [get_ports  vn]
 
 set_property LOC SYSMONE4_X0Y0 [get_cells -hier {*inst_sysmon} -filter {NAME =~ *inst_sysmon}]
 set_property DONT_TOUCH true [get_cells -hierarchical -filter {NAME =~*/inst_sysmon*}]

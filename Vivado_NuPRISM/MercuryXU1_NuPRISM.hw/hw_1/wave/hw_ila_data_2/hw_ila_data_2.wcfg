@@ -3,105 +3,96 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/MercuryXU1_NuPRISM.hw/hw_1/wave/hw_ila_data_2/hw_ila_data_2.wdb" id="1">
+      <db_ref path="/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.hw/hw_1/wave/hw_ila_data_2/hw_ila_data_2.wdb" id="1">
          <top_modules>
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="1057514fs"></ZoomEndTime>
-      <Cursor1Time time="565000fs"></Cursor1Time>
+      <ZoomEndTime time="151682708917fs"></ZoomEndTime>
+      <Cursor1Time time="512fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="245"></NameColumnWidth>
-      <ValueColumnWidth column_width="119"></ValueColumnWidth>
+      <NameColumnWidth column_width="159"></NameColumnWidth>
+      <ValueColumnWidth column_width="70"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="11" />
-   <wvobject type="logic" fp_name="adc_b64_serdes_locked">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">adc_b64_serdes_locked</obj_property>
-      <obj_property name="ObjectShortName">adc_b64_serdes_locked</obj_property>
+   <WVObjectSize size="5" />
+   <wvobject type="array" fp_name="MercuryXU1_i/MercuryXU1_i/system_ila_51/U0/net_slot_0_axis_tdata">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">MercuryXU1_i/MercuryXU1_i/system_ila_51/U0/net_slot_0_axis_tdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">net_slot_0_axis_tdata[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="label">slot_0 : axis_subset_converter_0_M_AXIS : TDATA</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="adc3_da_pardata_j16[0]">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">adc3_da_pardata_j16[0][11:0]</obj_property>
-      <obj_property name="ObjectShortName">adc3_da_pardata_j16[0][11:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
+   <wvobject type="logic" fp_name="MercuryXU1_i/MercuryXU1_i/system_ila_51/U0/net_slot_0_axis_tlast">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">MercuryXU1_i/MercuryXU1_i/system_ila_51/U0/net_slot_0_axis_tlast</obj_property>
+      <obj_property name="ObjectShortName">net_slot_0_axis_tlast</obj_property>
+      <obj_property name="label">slot_0 : axis_subset_converter_0_M_AXIS : TLAST</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="adc3_da_pardata_j16[1]">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">adc3_da_pardata_j16[1][11:0]</obj_property>
-      <obj_property name="ObjectShortName">adc3_da_pardata_j16[1][11:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
+   <wvobject type="logic" fp_name="MercuryXU1_i/MercuryXU1_i/system_ila_51/U0/net_slot_0_axis_tvalid">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">MercuryXU1_i/MercuryXU1_i/system_ila_51/U0/net_slot_0_axis_tvalid</obj_property>
+      <obj_property name="ObjectShortName">net_slot_0_axis_tvalid</obj_property>
+      <obj_property name="label">slot_0 : axis_subset_converter_0_M_AXIS : TVALID</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="adc3_db_pardata_j15[0]">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">adc3_db_pardata_j15[0][11:0]</obj_property>
-      <obj_property name="ObjectShortName">adc3_db_pardata_j15[0][11:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   <wvobject type="group" fp_name="group187">
+      <obj_property name="label">slot_0 : axis_subset_converter_0_M_AXIS : Interface</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="Detail_Data">Interface_(i2:s0)_(axis_subset_converter_0_M_AXIS)_tooltip</obj_property>
+      <obj_property name="Render_Data">Interface_(i2:s0)_(axis_subset_converter_0_M_AXIS)</obj_property>
+      <obj_property name="EnumTransactionColorTable">0=blank</obj_property>
+      <obj_property name="CustomSignalColor">Cornsilk</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+      <wvobject type="group" fp_name="group188">
+         <obj_property name="label">slot_0 : axis_subset_converter_0_M_AXIS : T Channel</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="Detail_Data">T_Channel_(i2:s0)_(axis_subset_converter_0_M_AXIS)_tooltip</obj_property>
+         <obj_property name="Render_Data">T_Channel_(i2:s0)_(axis_subset_converter_0_M_AXIS)</obj_property>
+         <obj_property name="EnumTransactionColorTable">0=blank</obj_property>
+         <obj_property name="CustomSignalColor">Purple</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+         <wvobject type="logic" fp_name="MercuryXU1_i/MercuryXU1_i/system_ila_51/U0/net_slot_0_axis_tvalid">
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="ElementShortName">MercuryXU1_i/MercuryXU1_i/system_ila_51/U0/net_slot_0_axis_tvalid</obj_property>
+            <obj_property name="ObjectShortName">net_slot_0_axis_tvalid</obj_property>
+            <obj_property name="label">slot_0 : axis_subset_converter_0_M_AXIS : TVALID</obj_property>
+            <obj_property name="LABELRADIX">true</obj_property>
+            <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="MercuryXU1_i/MercuryXU1_i/system_ila_51/U0/net_slot_0_axis_tlast">
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="ElementShortName">MercuryXU1_i/MercuryXU1_i/system_ila_51/U0/net_slot_0_axis_tlast</obj_property>
+            <obj_property name="ObjectShortName">net_slot_0_axis_tlast</obj_property>
+            <obj_property name="label">slot_0 : axis_subset_converter_0_M_AXIS : TLAST</obj_property>
+            <obj_property name="LABELRADIX">true</obj_property>
+            <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="MercuryXU1_i/MercuryXU1_i/system_ila_51/U0/net_slot_0_axis_tdata">
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="ElementShortName">MercuryXU1_i/MercuryXU1_i/system_ila_51/U0/net_slot_0_axis_tdata[31:0]</obj_property>
+            <obj_property name="ObjectShortName">net_slot_0_axis_tdata[31:0]</obj_property>
+            <obj_property name="label">slot_0 : axis_subset_converter_0_M_AXIS : TDATA</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="LABELRADIX">true</obj_property>
+            <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         </wvobject>
+      </wvobject>
    </wvobject>
-   <wvobject type="array" fp_name="adc3_db_pardata_j15[1]">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">adc3_db_pardata_j15[1][11:0]</obj_property>
-      <obj_property name="ObjectShortName">adc3_db_pardata_j15[1][11:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="adc4_db_pardata_j19[0]">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">adc4_db_pardata_j19[0][11:0]</obj_property>
-      <obj_property name="ObjectShortName">adc4_db_pardata_j19[0][11:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="adc4_db_pardata_j19[1]">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">adc4_db_pardata_j19[1][11:0]</obj_property>
-      <obj_property name="ObjectShortName">adc4_db_pardata_j19[1][11:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="adc4_dc_pardata_j18[0]">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">adc4_dc_pardata_j18[0][11:0]</obj_property>
-      <obj_property name="ObjectShortName">adc4_dc_pardata_j18[0][11:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="adc4_dc_pardata_j18[1]">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">adc4_dc_pardata_j18[1][11:0]</obj_property>
-      <obj_property name="ObjectShortName">adc4_dc_pardata_j18[1][11:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="adc4_dd_pardata_j17[0]">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">adc4_dd_pardata_j17[0][11:0]</obj_property>
-      <obj_property name="ObjectShortName">adc4_dd_pardata_j17[0][11:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="adc4_dd_pardata_j17[1]">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">adc4_dd_pardata_j17[1][11:0]</obj_property>
-      <obj_property name="ObjectShortName">adc4_dd_pardata_j17[1][11:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
+   <wvobject type="logic" fp_name="MercuryXU1_i/MercuryXU1_i/system_ila_51/U0/net_slot_0_axis_tready">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">MercuryXU1_i/MercuryXU1_i/system_ila_51/U0/net_slot_0_axis_tready</obj_property>
+      <obj_property name="ObjectShortName">net_slot_0_axis_tready</obj_property>
+      <obj_property name="label">slot_0 : axis_subset_converter_0_M_AXIS : TREADY</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>

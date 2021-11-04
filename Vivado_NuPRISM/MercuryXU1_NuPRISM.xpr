@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Product Version: Vivado v2020.1 (64-bit)              -->
+<!-- Product Version: Vivado v2020.1.1 (64-bit)              -->
 <!--                                                         -->
 <!-- Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="49" Path="/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/Vivado_NuPRISM/MercuryXU1_NuPRISM.xpr">
+<Project Version="7" Minor="49" Path="X:/Fizyka/hk/XU1_petalinux_rev6.2/Vivado_NuPRISM/MercuryXU1_NuPRISM.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="37c7ec7882644ec990c7809bb91814fe"/>
@@ -26,7 +26,6 @@
     <Option Name="SimulatorInstallDirActiveHdl" Val=""/>
     <Option Name="TargetLanguage" Val="VHDL"/>
     <Option Name="BoardPart" Val=""/>
-    <Option Name="SourceMgmtMode" Val="DisplayOnly"/>
     <Option Name="ActiveSimSet" Val="sim_1"/>
     <Option Name="DefaultLib" Val="xil_defaultlib"/>
     <Option Name="ProjectType" Val="Default"/>
@@ -45,13 +44,13 @@
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="42"/>
-    <Option Name="WTModelSimExportSim" Val="42"/>
-    <Option Name="WTQuestaExportSim" Val="42"/>
-    <Option Name="WTIesExportSim" Val="42"/>
-    <Option Name="WTVcsExportSim" Val="42"/>
-    <Option Name="WTRivieraExportSim" Val="42"/>
-    <Option Name="WTActivehdlExportSim" Val="42"/>
+    <Option Name="WTXSimExportSim" Val="45"/>
+    <Option Name="WTModelSimExportSim" Val="45"/>
+    <Option Name="WTQuestaExportSim" Val="45"/>
+    <Option Name="WTIesExportSim" Val="45"/>
+    <Option Name="WTVcsExportSim" Val="45"/>
+    <Option Name="WTRivieraExportSim" Val="45"/>
+    <Option Name="WTActivehdlExportSim" Val="45"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
@@ -67,6 +66,25 @@
   <FileSets Version="1" Minor="31">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
       <Filter Type="Srcs"/>
+      <File Path="$PSRCDIR/sources_1/ip/c_shift_ram_0/c_shift_ram_0.xci">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/tlast_generator.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/stream_multiplexer.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PSRCDIR/sources_1/bd/MercuryXU1/MercuryXU1.bd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -74,193 +92,14 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/bd/MercuryXU1/hdl/MercuryXU1_wrapper.vhd">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../src/system_top_NuPRISM.vhd">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/general/rtl/SlvDelay.vhd">
+      <File Path="$PPRDIR/../lib/surf/base/general/rtl/StdRtlPkg.vhd">
         <FileInfo>
           <Attr Name="Library" Val="surf"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../lib/surf/base/ram/xilinx/TrueDualPortRamXpm.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/sync/rtl/SynchronizerEdge.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/fifo/rtl/inferred/FifoSync.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/sync/rtl/SynchronizerOneShotCntVector.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/general/rtl/Gearbox.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/ram/inferred/DualPortRam.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/sync/rtl/SyncTrigRateVector.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/general/rtl/TextUtilPkg.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/sync/rtl/SyncStatusVector.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/xilinx/general/rtl/DeviceDna.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/sync/rtl/SynchronizerVector.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/sync/rtl/SynchronizerOneShotCnt.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/general/simlink/src/VhpiGeneric.h">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/general/tb/ClkRst.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/ram/inferred/SimpleDualPortRam.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/general/rtl/CRC32Rtl.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/general/rtl/Arbiter.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/general/rtl/Crc32.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/general/rtl/RstPipelineVector.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/general/rtl/PwrUpRst.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/sync/rtl/SyncMinMax.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/general/rtl/ArbiterPkg.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/fifo/rtl/xilinx/FifoXpm.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/sync/rtl/SyncTrigPeriod.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/general/rtl/PrbsPkg.vhd">
+      <File Path="$PPRDIR/../lib/surf/xilinx/general/rtl/ClkOutBufDiff.vhd">
         <FileInfo>
           <Attr Name="Library" Val="surf"/>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -281,119 +120,7 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../lib/surf/base/sync/rtl/SyncTrigRate.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/fifo/rtl/FifoOutputPipeline.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/general/tb/GearboxTb.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/general/rtl/Crc32Parallel.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/general/rtl/StdRtlPkg.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/general/rtl/RstPipeline.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/general/rtl/ClockDivider.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/ram/xilinx/SimpleDualPortRamXpm.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/fifo/rtl/inferred/FifoWrFsm.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/ram/inferred/QuadPortRam.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/sync/tb/SynchronizerFifoTb.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/xilinx/general/rtl/ClkOutBufDiff.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/fifo/rtl/Fifo.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/sync/rtl/SynchronizerOneShotVector.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/fifo/rtl/inferred/FifoRdFsm.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/general/rtl/Scrambler.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/ram/xilinx/SimpleDualPortRamAlteraMfDummy.vhd">
+      <File Path="$PPRDIR/../lib/surf/base/sync/rtl/SynchronizerEdge.vhd">
         <FileInfo>
           <Attr Name="Library" Val="surf"/>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -407,28 +134,35 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../lib/surf/xilinx/general/rtl/Iprog.vhd">
+      <File Path="$PPRDIR/../lib/surf/base/sync/rtl/SynchronizerVector.vhd">
         <FileInfo>
           <Attr Name="Library" Val="surf"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../lib/surf/base/general/rtl/AsyncGearbox.vhd">
+      <File Path="$PPRDIR/../lib/surf/base/fifo/rtl/inferred/FifoWrFsm.vhd">
         <FileInfo>
           <Attr Name="Library" Val="surf"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../lib/surf/base/general/rtl/OneShot.vhd">
+      <File Path="$PPRDIR/../lib/surf/base/fifo/rtl/inferred/FifoRdFsm.vhd">
         <FileInfo>
           <Attr Name="Library" Val="surf"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../lib/surf/base/ram/inferred/TrueDualPortRam.vhd">
+      <File Path="$PPRDIR/../lib/surf/base/ram/inferred/SimpleDualPortRam.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/fifo/rtl/FifoOutputPipeline.vhd">
         <FileInfo>
           <Attr Name="Library" Val="surf"/>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -442,41 +176,6 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../lib/surf/base/fifo/rtl/FifoMux.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/sync/rtl/SyncClockFreq.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/sync/tb/SynchronizerOneShotTb.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/fifo/rtl/xilinx/FifoAlteraMfDummy.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/ram/xilinx/TrueDualPortRamXpmAlteraMfDummy.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
       <File Path="$PPRDIR/../lib/surf/base/sync/rtl/SynchronizerFifo.vhd">
         <FileInfo>
           <Attr Name="Library" Val="surf"/>
@@ -484,79 +183,9 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../lib/surf/xilinx/general/rtl/ClkOutBufSingle.vhd">
+      <File Path="$PPRDIR/../lib/amc_carrier_core/Ad9229Deserializer.vhd">
         <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/general/rtl/Heartbeat.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/general/tb/glbl.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/general/tb/HeartbeatTb.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/general/rtl/SlvDelayFifo.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/general/rtl/RegisterVector.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/ram/inferred/OctalPortRam.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/general/rtl/Debouncer.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/fifo/rtl/FifoCascade.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/general/rtl/WatchDogRst.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../lib/surf/base/general/rtl/CrcPkg.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="surf"/>
+          <Attr Name="Library" Val="amc_carrier_core"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
@@ -568,9 +197,453 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../lib/amc_carrier_core/Ad9229Deserializer.vhd">
+      <File Path="$PSRCDIR/sources_1/bd/MercuryXU1/hdl/MercuryXU1_wrapper.vhd">
         <FileInfo>
-          <Attr Name="Library" Val="amc_carrier_core"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../src/system_top_NuPRISM.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/general/rtl/SlvDelay.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/ram/xilinx/TrueDualPortRamXpm.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/fifo/rtl/inferred/FifoSync.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/sync/rtl/SynchronizerOneShotCntVector.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/general/rtl/Gearbox.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/ram/inferred/DualPortRam.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/sync/rtl/SyncTrigRateVector.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/general/rtl/TextUtilPkg.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/sync/rtl/SyncStatusVector.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/xilinx/general/rtl/DeviceDna.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/sync/rtl/SynchronizerOneShotCnt.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/general/simlink/src/VhpiGeneric.h">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/general/tb/ClkRst.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/general/rtl/CRC32Rtl.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/general/rtl/Arbiter.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/general/rtl/Crc32.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/general/rtl/RstPipelineVector.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/general/rtl/PwrUpRst.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/sync/rtl/SyncMinMax.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/general/rtl/ArbiterPkg.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/fifo/rtl/xilinx/FifoXpm.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/sync/rtl/SyncTrigPeriod.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/general/rtl/PrbsPkg.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/sync/rtl/SyncTrigRate.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/general/tb/GearboxTb.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/general/rtl/Crc32Parallel.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/general/rtl/RstPipeline.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/general/rtl/ClockDivider.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/ram/xilinx/SimpleDualPortRamXpm.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/ram/inferred/QuadPortRam.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/sync/tb/SynchronizerFifoTb.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/fifo/rtl/Fifo.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/sync/rtl/SynchronizerOneShotVector.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/general/rtl/Scrambler.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/ram/xilinx/SimpleDualPortRamAlteraMfDummy.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/xilinx/general/rtl/Iprog.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/general/rtl/AsyncGearbox.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/general/rtl/OneShot.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/ram/inferred/TrueDualPortRam.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/fifo/rtl/FifoMux.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/sync/rtl/SyncClockFreq.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/sync/tb/SynchronizerOneShotTb.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/fifo/rtl/xilinx/FifoAlteraMfDummy.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/ram/xilinx/TrueDualPortRamXpmAlteraMfDummy.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/xilinx/general/rtl/ClkOutBufSingle.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/general/rtl/Heartbeat.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/general/tb/glbl.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/general/tb/HeartbeatTb.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/general/rtl/SlvDelayFifo.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/general/rtl/RegisterVector.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/ram/inferred/OctalPortRam.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/general/rtl/Debouncer.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/fifo/rtl/FifoCascade.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/general/rtl/WatchDogRst.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../lib/surf/base/general/rtl/CrcPkg.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="surf"/>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
@@ -590,7 +663,7 @@
       <Filter Type="Srcs"/>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="MercuryXU1_wrapper"/>
+        <Option Name="TopModule" Val="system_top"/>
         <Option Name="TopLib" Val="xil_defaultlib"/>
         <Option Name="TopAutoSet" Val="TRUE"/>
         <Option Name="TransportPathDelay" Val="0"/>
@@ -610,6 +683,12 @@
       </Config>
     </FileSet>
     <FileSet Name="MercuryNuPRISM" Type="Constrs" RelSrcDir="$PSRCDIR/MercuryNuPRISM">
+      <File Path="$PSRCDIR/MercuryNuPRISM/new/debug.xdc">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+        </FileInfo>
+      </File>
       <File Path="$PPRDIR/../src/MercuryXU1_NuPRISM.xdc">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -617,21 +696,8 @@
         </FileInfo>
       </File>
       <Config>
-        <Option Name="TargetConstrsFile" Val="$PPRDIR/../src/MercuryXU1_NuPRISM.xdc"/>
+        <Option Name="TargetConstrsFile" Val="$PSRCDIR/MercuryNuPRISM/new/debug.xdc"/>
         <Option Name="ConstrsType" Val="XDC"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="clk_wiz_1_b64_b66_pll" Type="BlockSrcs" RelSrcDir="$PSRCDIR/clk_wiz_1_b64_b66_pll">
-      <File Path="$PSRCDIR/sources_1/ip/clk_wiz_1_b64_b66_pll/clk_wiz_1_b64_b66_pll.xci">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <Config>
-        <Option Name="TopModule" Val="clk_wiz_1_b64_b66_pll"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
     <FileSet Name="clk_wiz_0_b65_mmcm" Type="BlockSrcs" RelSrcDir="$PSRCDIR/clk_wiz_0_b65_mmcm">
@@ -647,19 +713,6 @@
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
-    <FileSet Name="clk_divider_pll" Type="BlockSrcs" RelSrcDir="$PSRCDIR/clk_divider_pll">
-      <File Path="$PSRCDIR/sources_1/ip/clk_divider_pll/clk_divider_pll.xci">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <Config>
-        <Option Name="TopModule" Val="clk_divider_pll"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
   </FileSets>
   <Simulators>
     <Simulator Name="XSim">
@@ -672,17 +725,11 @@
     <Simulator Name="Questa">
       <Option Name="Description" Val="Questa Advanced Simulator"/>
     </Simulator>
-    <Simulator Name="IES">
-      <Option Name="Description" Val="Incisive Enterprise Simulator (IES)"/>
-    </Simulator>
-    <Simulator Name="Xcelium">
-      <Option Name="Description" Val="Xcelium Parallel Simulator"/>
-    </Simulator>
-    <Simulator Name="VCS">
-      <Option Name="Description" Val="Verilog Compiler Simulator (VCS)"/>
-    </Simulator>
     <Simulator Name="Riviera">
       <Option Name="Description" Val="Riviera-PRO Simulator"/>
+    </Simulator>
+    <Simulator Name="ActiveHDL">
+      <Option Name="Description" Val="Active-HDL Simulator"/>
     </Simulator>
   </Simulators>
   <Runs Version="1" Minor="11">
@@ -696,27 +743,7 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="clk_wiz_1_b64_b66_pll_synth_1" Type="Ft3:Synth" SrcSet="clk_wiz_1_b64_b66_pll" Part="xczu6eg-ffvc900-1-i" ConstrsSet="clk_wiz_1_b64_b66_pll" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/clk_wiz_1_b64_b66_pll_synth_1" IncludeInArchive="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2020"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2020"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
     <Run Id="clk_wiz_0_b65_mmcm_synth_1" Type="Ft3:Synth" SrcSet="clk_wiz_0_b65_mmcm" Part="xczu6eg-ffvc900-1-i" ConstrsSet="clk_wiz_0_b65_mmcm" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/clk_wiz_0_b65_mmcm_synth_1" IncludeInArchive="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2020"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2020"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="clk_divider_pll_synth_1" Type="Ft3:Synth" SrcSet="clk_divider_pll" Part="xczu6eg-ffvc900-1-i" ConstrsSet="clk_divider_pll" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/clk_divider_pll_synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2020"/>
         <Step Id="synth_design"/>
@@ -744,41 +771,7 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="clk_wiz_1_b64_b66_pll_impl_1" Type="Ft2:EntireDesign" Part="xczu6eg-ffvc900-1-i" ConstrsSet="clk_wiz_1_b64_b66_pll" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="clk_wiz_1_b64_b66_pll_synth_1" IncludeInArchive="false" GenFullBitstream="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2020"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2020"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
     <Run Id="clk_wiz_0_b65_mmcm_impl_1" Type="Ft2:EntireDesign" Part="xczu6eg-ffvc900-1-i" ConstrsSet="clk_wiz_0_b65_mmcm" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="clk_wiz_0_b65_mmcm_synth_1" IncludeInArchive="false" GenFullBitstream="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2020"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2020"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="clk_divider_pll_impl_1" Type="Ft2:EntireDesign" Part="xczu6eg-ffvc900-1-i" ConstrsSet="clk_divider_pll" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="clk_divider_pll_synth_1" IncludeInArchive="false" GenFullBitstream="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2020"/>
         <Step Id="init_design"/>

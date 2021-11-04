@@ -1117,7 +1117,7 @@ inst_sysmon: SYSMONE4
         INIT_45 => X"AECC", -- Analog Bus Register
         INIT_46 => X"0000", -- Sequencer Channel selection (Vuser0-3)
         INIT_47 => X"0000", -- Sequencer Average selection (Vuser0-3)
-        INIT_48 => X"4F01", -- Sequencer channel selection
+        INIT_48 => X"4701", -- Sequencer channel selection
         INIT_49 => X"0000", -- Sequencer channel selection
         INIT_4A => X"0000", -- Sequencer Average selection
         INIT_4B => X"0000", -- Sequencer Average selection

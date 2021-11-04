@@ -85,6 +85,8 @@
 !*.bmm
 !*.xmp
 
+
+
 ########
 # USER
 ########
@@ -92,15 +94,26 @@ mnt/boot/*
 !*.sh
 !*.dtsi
 !*.dts
+!tutorials_and_docs
+!tutorials_and_docs/Supporting_Documents
+!tutorials_and_docs/Supporting_Documents/petalinux_midas
+!tutorials_and_docs/Supporting_Documents/petalinux_midas/mfe/*
+!tutorials_and_docs/Supporting_Documents/petalinux_midas/midas/*
+!tutorials_and_docs/Supporting_Documents/petalinux_midas/mfe/files/*
+!tutorials_and_docs/Supporting_Documents/petalinux_midas/midas/files/*
 !*.pdf
 !*.docx
-!petalinux_midas/*
-!petalinux_midas/midas/*
-!petalinux_midas/mfe/*
-!petalinux_midas/mfe/files/*
-!petalinux_midas/midas/files/*
 XU1-NuPRISM/SDK_NuPRISM/.metadata/
 XU1-NuPRISM/SDK_NuPRISM/.sdk/
 XU1-NuPRISM/SDK_NuPRISM/webtalk/
 XU1-NuPRISM/Vivado_NuPRISM/MercuryXU1_NuPRISM.cache/
 XU1-NuPRISM/Vivado_NuPRISM/MercuryXU1_NuPRISM.runs/
+
+XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.cache/
+XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.runs/
+
+Vivado_NuPRISM/MercuryXU1_NuPRISM.cache/
+Vivado_NuPRISM/MercuryXU1_NuPRISM.runs/
+
+wut_petalinux-2018.3/
+

@@ -132,6 +132,7 @@ class zynq_ultra_ps_e_tlm : public sc_core::sc_module   {
     public:
     // Non-AXI ports are declared here
     sc_core::sc_in<bool> maxihpm0_lpd_aclk;
+    sc_core::sc_in<bool> saxihpc0_fpd_aclk;
     sc_core::sc_out<sc_dt::sc_bv<94> >  emio_enet0_enet_tsu_timer_cnt;
     sc_core::sc_in<bool> emio_i2c0_scl_i;
     sc_core::sc_out<bool> emio_i2c0_scl_o;
@@ -163,12 +164,17 @@ class zynq_ultra_ps_e_tlm : public sc_core::sc_module   {
     sc_core::sc_in<bool> emio_spi1_ss_i_n;
     sc_core::sc_out<bool> emio_spi1_ss_o_n;
     sc_core::sc_out<bool> emio_spi1_ss_n_t;
+    sc_core::sc_in<sc_dt::sc_bv<2> >  pl_ps_irq0;
     sc_core::sc_out<bool> pl_resetn0;
     sc_core::sc_out<bool> pl_clk0;
     sc_core::sc_out<bool> pl_clk1;
+    sc_core::sc_out<bool> pl_clk2;
+    sc_core::sc_out<bool> pl_clk3;
      
     // Xtlm aximm slave sockets are delcared here. these XTLM sockets will hierachically bound with 
     // slave sockets defined in vivado generated wrapper.
+    xtlm::xtlm_aximm_target_socket*         S_AXI_HPC0_FPD_wr_socket;
+    xtlm::xtlm_aximm_target_socket*         S_AXI_HPC0_FPD_rd_socket;
 
     // Xtlm aximm master socket/s is/are delcared here. these XTLM sockets will hierachically bound with 
     // master sockets defined in vivado generated wrapper.
@@ -199,6 +205,8 @@ class zynq_ultra_ps_e_tlm : public sc_core::sc_module   {
     // Bridge's Xtlm wr/rd target sockets binds with 
     // xtlm initiator sockets of zynq_ultra_ps_e_tlm and tlm simple initiator 
     // socket with xilinx_zynqmp's target socket
+    xtlm::xaximm_xtlm2tlm_t<128,32> S_AXI_HPC0_FPD_xtlm_brdg;
+    zynqmp_tlm::xsc_xtlm_aximm_tran_buffer *S_AXI_HPC0_FPD_buff;
 
     // This Bridges converts b_transport to nb_transports and also
     // Converts tlm transactions to xtlm transactions.
@@ -212,6 +220,8 @@ class zynq_ultra_ps_e_tlm : public sc_core::sc_module   {
     // output pins pl_clk0..3 are drived by these clocks
     sc_core::sc_clock pl_clk0_clk;
     sc_core::sc_clock pl_clk1_clk;
+    sc_core::sc_clock pl_clk2_clk;
+    sc_core::sc_clock pl_clk3_clk;
 
     
     //Method which is sentive to pl_clk0_clk sc_clock object
@@ -220,7 +230,14 @@ class zynq_ultra_ps_e_tlm : public sc_core::sc_module   {
     //Method which is sentive to pl_clk1_clk sc_clock object
     //pl_clk1 pin written based on pl_clk1_clk clock value 
     void trigger_pl_clk1_pin();
+    //Method which is sentive to pl_clk2_clk sc_clock object
+    //pl_clk2 pin written based on pl_clk2_clk clock value 
+    void trigger_pl_clk2_pin();
+    //Method which is sentive to pl_clk3_clk sc_clock object
+    //pl_clk3 pin written based on pl_clk3_clk clock value 
+    void trigger_pl_clk3_pin();
 
+    void pl_ps_irq0_method();
     //pl_resetn0 output reset pin get toggle when emio bank 2's 31th signal gets toggled
     //EMIO[2] bank 31th(GPIO[95] signal)acts as reset signal to the PL(refer Zynq UltraScale+ TRM, page no:761)
     void pl_resetn0_trigger();

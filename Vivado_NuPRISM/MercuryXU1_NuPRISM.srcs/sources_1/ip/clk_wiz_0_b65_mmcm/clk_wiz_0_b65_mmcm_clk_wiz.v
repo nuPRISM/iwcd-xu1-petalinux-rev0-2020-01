@@ -56,10 +56,8 @@
 //  Output     Output      Phase    Duty Cycle   Pk-to-Pk     Phase
 //   Clock     Freq (MHz)  (degrees)    (%)     Jitter (ps)  Error (ps)
 //----------------------------------------------------------------------------
-// clk_out1_b65_mmcm_b64_375p0__375.00000______0.000______50.0_______75.633_____75.365
-// clk_out2_b65_mmcm_b65_375p0__375.00000______0.000______50.0_______75.633_____75.365
-// clk_out3_b65_mmcm_b66_375p0__375.00000______0.000______50.0_______75.633_____75.365
-// clk_out4_b65_62p5__62.50000______0.000______50.0______107.771_____75.365
+// clk_out1_375p0__375.00000______0.000______50.0_______75.633_____75.365
+// clk_out2_62p5__62.50000______0.000______50.0______107.771_____75.365
 //
 //----------------------------------------------------------------------------
 // Input Clock   Freq (MHz)    Input Jitter (UI)
@@ -72,10 +70,8 @@ module clk_wiz_0_b65_mmcm_clk_wiz
 
  (// Clock in ports
   // Clock out ports
-  output        clk_out1_b65_mmcm_b64_375p0,
-  output        clk_out2_b65_mmcm_b65_375p0,
-  output        clk_out3_b65_mmcm_b66_375p0,
-  output        clk_out4_b65_62p5,
+  output        clk_out1_375p0,
+  output        clk_out2_62p5,
   // Status and control signals
   input         reset,
   output        locked,
@@ -101,8 +97,8 @@ wire clk_in2_clk_wiz_0_b65_mmcm;
   //    * Unused inputs are tied off
   //    * Unused outputs are labeled unused
 
-  wire        clk_out1_b65_mmcm_b64_375p0_clk_wiz_0_b65_mmcm;
-  wire        clk_out2_b65_mmcm_b65_375p0_clk_wiz_0_b65_mmcm;
+  wire        clk_out1_375p0_clk_wiz_0_b65_mmcm;
+  wire        clk_out2_62p5_clk_wiz_0_b65_mmcm;
   wire        clk_out3_b65_mmcm_b66_375p0_clk_wiz_0_b65_mmcm;
   wire        clk_out4_b65_62p5_clk_wiz_0_b65_mmcm;
   wire        clk_out5_clk_wiz_0_b65_mmcm;
@@ -118,7 +114,9 @@ wire clk_in2_clk_wiz_0_b65_mmcm;
   wire        clkfboutb_unused;
     wire clkout0b_unused;
    wire clkout1b_unused;
+   wire clkout2_unused;
    wire clkout2b_unused;
+   wire clkout3_unused;
    wire clkout3b_unused;
    wire clkout4_unused;
   wire        clkout5_unused;
@@ -143,18 +141,10 @@ wire clk_in2_clk_wiz_0_b65_mmcm;
     .CLKOUT0_PHASE        (0.000),
     .CLKOUT0_DUTY_CYCLE   (0.500),
     .CLKOUT0_USE_FINE_PS  ("FALSE"),
-    .CLKOUT1_DIVIDE       (3),
+    .CLKOUT1_DIVIDE       (18),
     .CLKOUT1_PHASE        (0.000),
     .CLKOUT1_DUTY_CYCLE   (0.500),
     .CLKOUT1_USE_FINE_PS  ("FALSE"),
-    .CLKOUT2_DIVIDE       (3),
-    .CLKOUT2_PHASE        (0.000),
-    .CLKOUT2_DUTY_CYCLE   (0.500),
-    .CLKOUT2_USE_FINE_PS  ("FALSE"),
-    .CLKOUT3_DIVIDE       (18),
-    .CLKOUT3_PHASE        (0.000),
-    .CLKOUT3_DUTY_CYCLE   (0.500),
-    .CLKOUT3_USE_FINE_PS  ("FALSE"),
     .CLKIN1_PERIOD        (2.667))
   
   mmcme4_adv_inst
@@ -162,13 +152,13 @@ wire clk_in2_clk_wiz_0_b65_mmcm;
    (
     .CLKFBOUT            (clkfbout_clk_wiz_0_b65_mmcm),
     .CLKFBOUTB           (clkfboutb_unused),
-    .CLKOUT0             (clk_out1_b65_mmcm_b64_375p0_clk_wiz_0_b65_mmcm),
+    .CLKOUT0             (clk_out1_375p0_clk_wiz_0_b65_mmcm),
     .CLKOUT0B            (clkout0b_unused),
-    .CLKOUT1             (clk_out2_b65_mmcm_b65_375p0_clk_wiz_0_b65_mmcm),
+    .CLKOUT1             (clk_out2_62p5_clk_wiz_0_b65_mmcm),
     .CLKOUT1B            (clkout1b_unused),
-    .CLKOUT2             (clk_out3_b65_mmcm_b66_375p0_clk_wiz_0_b65_mmcm),
+    .CLKOUT2             (clkout2_unused),
     .CLKOUT2B            (clkout2b_unused),
-    .CLKOUT3             (clk_out4_b65_62p5_clk_wiz_0_b65_mmcm),
+    .CLKOUT3             (clkout3_unused),
     .CLKOUT3B            (clkout3b_unused),
     .CLKOUT4             (clkout4_unused),
     .CLKOUT5             (clkout5_unused),
@@ -218,21 +208,13 @@ wire clk_in2_clk_wiz_0_b65_mmcm;
 
 
   BUFG clkout1_buf
-   (.O   (clk_out1_b65_mmcm_b64_375p0),
-    .I   (clk_out1_b65_mmcm_b64_375p0_clk_wiz_0_b65_mmcm));
+   (.O   (clk_out1_375p0),
+    .I   (clk_out1_375p0_clk_wiz_0_b65_mmcm));
 
 
   BUFG clkout2_buf
-   (.O   (clk_out2_b65_mmcm_b65_375p0),
-    .I   (clk_out2_b65_mmcm_b65_375p0_clk_wiz_0_b65_mmcm));
-
-  BUFG clkout3_buf
-   (.O   (clk_out3_b65_mmcm_b66_375p0),
-    .I   (clk_out3_b65_mmcm_b66_375p0_clk_wiz_0_b65_mmcm));
-
-  BUFG clkout4_buf
-   (.O   (clk_out4_b65_62p5),
-    .I   (clk_out4_b65_62p5_clk_wiz_0_b65_mmcm));
+   (.O   (clk_out2_62p5),
+    .I   (clk_out2_62p5_clk_wiz_0_b65_mmcm));
 
 
 

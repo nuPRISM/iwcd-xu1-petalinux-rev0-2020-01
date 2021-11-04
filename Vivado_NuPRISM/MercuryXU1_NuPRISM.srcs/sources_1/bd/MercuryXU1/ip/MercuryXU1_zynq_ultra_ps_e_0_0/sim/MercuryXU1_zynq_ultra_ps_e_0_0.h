@@ -1,7 +1,7 @@
 #ifndef IP_MERCURYXU1_ZYNQ_ULTRA_PS_E_0_0_H_
 #define IP_MERCURYXU1_ZYNQ_ULTRA_PS_E_0_0_H_
 
-// (c) Copyright 1995-2020 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2021 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -120,6 +120,86 @@ public:
   sc_core::sc_out< bool > maxigp2_rready;
   sc_core::sc_out< sc_dt::sc_bv<4> > maxigp2_awqos;
   sc_core::sc_out< sc_dt::sc_bv<4> > maxigp2_arqos;
+  sc_core::sc_in< bool > saxihpc0_fpd_aclk;
+  sc_core::sc_in< bool > saxigp0_aruser;
+  sc_core::sc_in< bool > saxigp0_awuser;
+  sc_core::sc_in< sc_dt::sc_bv<6> > saxigp0_awid;
+  sc_core::sc_in< sc_dt::sc_bv<49> > saxigp0_awaddr;
+  sc_core::sc_in< sc_dt::sc_bv<8> > saxigp0_awlen;
+  sc_core::sc_in< sc_dt::sc_bv<3> > saxigp0_awsize;
+  sc_core::sc_in< sc_dt::sc_bv<2> > saxigp0_awburst;
+  sc_core::sc_in< bool > saxigp0_awlock;
+  sc_core::sc_in< sc_dt::sc_bv<4> > saxigp0_awcache;
+  sc_core::sc_in< sc_dt::sc_bv<3> > saxigp0_awprot;
+  sc_core::sc_in< bool > saxigp0_awvalid;
+  sc_core::sc_out< bool > saxigp0_awready;
+  sc_core::sc_in< sc_dt::sc_bv<128> > saxigp0_wdata;
+  sc_core::sc_in< sc_dt::sc_bv<16> > saxigp0_wstrb;
+  sc_core::sc_in< bool > saxigp0_wlast;
+  sc_core::sc_in< bool > saxigp0_wvalid;
+  sc_core::sc_out< bool > saxigp0_wready;
+  sc_core::sc_out< sc_dt::sc_bv<6> > saxigp0_bid;
+  sc_core::sc_out< sc_dt::sc_bv<2> > saxigp0_bresp;
+  sc_core::sc_out< bool > saxigp0_bvalid;
+  sc_core::sc_in< bool > saxigp0_bready;
+  sc_core::sc_in< sc_dt::sc_bv<6> > saxigp0_arid;
+  sc_core::sc_in< sc_dt::sc_bv<49> > saxigp0_araddr;
+  sc_core::sc_in< sc_dt::sc_bv<8> > saxigp0_arlen;
+  sc_core::sc_in< sc_dt::sc_bv<3> > saxigp0_arsize;
+  sc_core::sc_in< sc_dt::sc_bv<2> > saxigp0_arburst;
+  sc_core::sc_in< bool > saxigp0_arlock;
+  sc_core::sc_in< sc_dt::sc_bv<4> > saxigp0_arcache;
+  sc_core::sc_in< sc_dt::sc_bv<3> > saxigp0_arprot;
+  sc_core::sc_in< bool > saxigp0_arvalid;
+  sc_core::sc_out< bool > saxigp0_arready;
+  sc_core::sc_out< sc_dt::sc_bv<6> > saxigp0_rid;
+  sc_core::sc_out< sc_dt::sc_bv<128> > saxigp0_rdata;
+  sc_core::sc_out< sc_dt::sc_bv<2> > saxigp0_rresp;
+  sc_core::sc_out< bool > saxigp0_rlast;
+  sc_core::sc_out< bool > saxigp0_rvalid;
+  sc_core::sc_in< bool > saxigp0_rready;
+  sc_core::sc_in< sc_dt::sc_bv<4> > saxigp0_awqos;
+  sc_core::sc_in< sc_dt::sc_bv<4> > saxigp0_arqos;
+  sc_core::sc_in< bool > saxihpc1_fpd_aclk;
+  sc_core::sc_in< bool > saxigp1_aruser;
+  sc_core::sc_in< bool > saxigp1_awuser;
+  sc_core::sc_in< sc_dt::sc_bv<6> > saxigp1_awid;
+  sc_core::sc_in< sc_dt::sc_bv<49> > saxigp1_awaddr;
+  sc_core::sc_in< sc_dt::sc_bv<8> > saxigp1_awlen;
+  sc_core::sc_in< sc_dt::sc_bv<3> > saxigp1_awsize;
+  sc_core::sc_in< sc_dt::sc_bv<2> > saxigp1_awburst;
+  sc_core::sc_in< bool > saxigp1_awlock;
+  sc_core::sc_in< sc_dt::sc_bv<4> > saxigp1_awcache;
+  sc_core::sc_in< sc_dt::sc_bv<3> > saxigp1_awprot;
+  sc_core::sc_in< bool > saxigp1_awvalid;
+  sc_core::sc_out< bool > saxigp1_awready;
+  sc_core::sc_in< sc_dt::sc_bv<128> > saxigp1_wdata;
+  sc_core::sc_in< sc_dt::sc_bv<16> > saxigp1_wstrb;
+  sc_core::sc_in< bool > saxigp1_wlast;
+  sc_core::sc_in< bool > saxigp1_wvalid;
+  sc_core::sc_out< bool > saxigp1_wready;
+  sc_core::sc_out< sc_dt::sc_bv<6> > saxigp1_bid;
+  sc_core::sc_out< sc_dt::sc_bv<2> > saxigp1_bresp;
+  sc_core::sc_out< bool > saxigp1_bvalid;
+  sc_core::sc_in< bool > saxigp1_bready;
+  sc_core::sc_in< sc_dt::sc_bv<6> > saxigp1_arid;
+  sc_core::sc_in< sc_dt::sc_bv<49> > saxigp1_araddr;
+  sc_core::sc_in< sc_dt::sc_bv<8> > saxigp1_arlen;
+  sc_core::sc_in< sc_dt::sc_bv<3> > saxigp1_arsize;
+  sc_core::sc_in< sc_dt::sc_bv<2> > saxigp1_arburst;
+  sc_core::sc_in< bool > saxigp1_arlock;
+  sc_core::sc_in< sc_dt::sc_bv<4> > saxigp1_arcache;
+  sc_core::sc_in< sc_dt::sc_bv<3> > saxigp1_arprot;
+  sc_core::sc_in< bool > saxigp1_arvalid;
+  sc_core::sc_out< bool > saxigp1_arready;
+  sc_core::sc_out< sc_dt::sc_bv<6> > saxigp1_rid;
+  sc_core::sc_out< sc_dt::sc_bv<128> > saxigp1_rdata;
+  sc_core::sc_out< sc_dt::sc_bv<2> > saxigp1_rresp;
+  sc_core::sc_out< bool > saxigp1_rlast;
+  sc_core::sc_out< bool > saxigp1_rvalid;
+  sc_core::sc_in< bool > saxigp1_rready;
+  sc_core::sc_in< sc_dt::sc_bv<4> > saxigp1_awqos;
+  sc_core::sc_in< sc_dt::sc_bv<4> > saxigp1_arqos;
   sc_core::sc_out< sc_dt::sc_bv<94> > emio_enet0_enet_tsu_timer_cnt;
   sc_core::sc_in< bool > emio_i2c0_scl_i;
   sc_core::sc_out< bool > emio_i2c0_scl_o;
@@ -139,21 +219,12 @@ public:
   sc_core::sc_in< bool > emio_spi0_ss_i_n;
   sc_core::sc_out< bool > emio_spi0_ss_o_n;
   sc_core::sc_out< bool > emio_spi0_ss_n_t;
-  sc_core::sc_in< bool > emio_spi1_sclk_i;
-  sc_core::sc_out< bool > emio_spi1_sclk_o;
-  sc_core::sc_out< bool > emio_spi1_sclk_t;
-  sc_core::sc_in< bool > emio_spi1_m_i;
-  sc_core::sc_out< bool > emio_spi1_m_o;
-  sc_core::sc_out< bool > emio_spi1_mo_t;
-  sc_core::sc_in< bool > emio_spi1_s_i;
-  sc_core::sc_out< bool > emio_spi1_s_o;
-  sc_core::sc_out< bool > emio_spi1_so_t;
-  sc_core::sc_in< bool > emio_spi1_ss_i_n;
-  sc_core::sc_out< bool > emio_spi1_ss_o_n;
-  sc_core::sc_out< bool > emio_spi1_ss_n_t;
+  sc_core::sc_in< sc_dt::sc_bv<3> > pl_ps_irq0;
   sc_core::sc_out< bool > pl_resetn0;
   sc_core::sc_out< bool > pl_clk0;
   sc_core::sc_out< bool > pl_clk1;
+  sc_core::sc_out< bool > pl_clk2;
+  sc_core::sc_out< bool > pl_clk3;
 
 protected:
 
@@ -163,6 +234,18 @@ private:
 
   xtlm::xaximm_xtlm2pin_t<32,40,16,16,1,1,16,1>* mp_M_AXI_HPM0_LPD_transactor;
   sc_signal< bool > m_M_AXI_HPM0_LPD_transactor_rst_signal;
+  xtlm::xaximm_pin2xtlm_t<128,49,6,1,1,1,1,1>* mp_S_AXI_HPC0_FPD_transactor;
+  xsc::common::scalar2vectorN_converter<1>* mp_saxigp0_aruser_converter;
+  sc_signal< sc_bv<1> > m_saxigp0_aruser_converter_signal;
+  xsc::common::scalar2vectorN_converter<1>* mp_saxigp0_awuser_converter;
+  sc_signal< sc_bv<1> > m_saxigp0_awuser_converter_signal;
+  sc_signal< bool > m_S_AXI_HPC0_FPD_transactor_rst_signal;
+  xtlm::xaximm_pin2xtlm_t<128,49,6,1,1,1,1,1>* mp_S_AXI_HPC1_FPD_transactor;
+  xsc::common::scalar2vectorN_converter<1>* mp_saxigp1_aruser_converter;
+  sc_signal< sc_bv<1> > m_saxigp1_aruser_converter_signal;
+  xsc::common::scalar2vectorN_converter<1>* mp_saxigp1_awuser_converter;
+  sc_signal< sc_bv<1> > m_saxigp1_awuser_converter_signal;
+  sc_signal< bool > m_S_AXI_HPC1_FPD_transactor_rst_signal;
 
 };
 #endif // XILINX_SIMULATOR
@@ -220,6 +303,86 @@ public:
   sc_core::sc_out< bool > maxigp2_rready;
   sc_core::sc_out< sc_dt::sc_bv<4> > maxigp2_awqos;
   sc_core::sc_out< sc_dt::sc_bv<4> > maxigp2_arqos;
+  sc_core::sc_in< bool > saxihpc0_fpd_aclk;
+  sc_core::sc_in< bool > saxigp0_aruser;
+  sc_core::sc_in< bool > saxigp0_awuser;
+  sc_core::sc_in< sc_dt::sc_bv<6> > saxigp0_awid;
+  sc_core::sc_in< sc_dt::sc_bv<49> > saxigp0_awaddr;
+  sc_core::sc_in< sc_dt::sc_bv<8> > saxigp0_awlen;
+  sc_core::sc_in< sc_dt::sc_bv<3> > saxigp0_awsize;
+  sc_core::sc_in< sc_dt::sc_bv<2> > saxigp0_awburst;
+  sc_core::sc_in< bool > saxigp0_awlock;
+  sc_core::sc_in< sc_dt::sc_bv<4> > saxigp0_awcache;
+  sc_core::sc_in< sc_dt::sc_bv<3> > saxigp0_awprot;
+  sc_core::sc_in< bool > saxigp0_awvalid;
+  sc_core::sc_out< bool > saxigp0_awready;
+  sc_core::sc_in< sc_dt::sc_bv<128> > saxigp0_wdata;
+  sc_core::sc_in< sc_dt::sc_bv<16> > saxigp0_wstrb;
+  sc_core::sc_in< bool > saxigp0_wlast;
+  sc_core::sc_in< bool > saxigp0_wvalid;
+  sc_core::sc_out< bool > saxigp0_wready;
+  sc_core::sc_out< sc_dt::sc_bv<6> > saxigp0_bid;
+  sc_core::sc_out< sc_dt::sc_bv<2> > saxigp0_bresp;
+  sc_core::sc_out< bool > saxigp0_bvalid;
+  sc_core::sc_in< bool > saxigp0_bready;
+  sc_core::sc_in< sc_dt::sc_bv<6> > saxigp0_arid;
+  sc_core::sc_in< sc_dt::sc_bv<49> > saxigp0_araddr;
+  sc_core::sc_in< sc_dt::sc_bv<8> > saxigp0_arlen;
+  sc_core::sc_in< sc_dt::sc_bv<3> > saxigp0_arsize;
+  sc_core::sc_in< sc_dt::sc_bv<2> > saxigp0_arburst;
+  sc_core::sc_in< bool > saxigp0_arlock;
+  sc_core::sc_in< sc_dt::sc_bv<4> > saxigp0_arcache;
+  sc_core::sc_in< sc_dt::sc_bv<3> > saxigp0_arprot;
+  sc_core::sc_in< bool > saxigp0_arvalid;
+  sc_core::sc_out< bool > saxigp0_arready;
+  sc_core::sc_out< sc_dt::sc_bv<6> > saxigp0_rid;
+  sc_core::sc_out< sc_dt::sc_bv<128> > saxigp0_rdata;
+  sc_core::sc_out< sc_dt::sc_bv<2> > saxigp0_rresp;
+  sc_core::sc_out< bool > saxigp0_rlast;
+  sc_core::sc_out< bool > saxigp0_rvalid;
+  sc_core::sc_in< bool > saxigp0_rready;
+  sc_core::sc_in< sc_dt::sc_bv<4> > saxigp0_awqos;
+  sc_core::sc_in< sc_dt::sc_bv<4> > saxigp0_arqos;
+  sc_core::sc_in< bool > saxihpc1_fpd_aclk;
+  sc_core::sc_in< bool > saxigp1_aruser;
+  sc_core::sc_in< bool > saxigp1_awuser;
+  sc_core::sc_in< sc_dt::sc_bv<6> > saxigp1_awid;
+  sc_core::sc_in< sc_dt::sc_bv<49> > saxigp1_awaddr;
+  sc_core::sc_in< sc_dt::sc_bv<8> > saxigp1_awlen;
+  sc_core::sc_in< sc_dt::sc_bv<3> > saxigp1_awsize;
+  sc_core::sc_in< sc_dt::sc_bv<2> > saxigp1_awburst;
+  sc_core::sc_in< bool > saxigp1_awlock;
+  sc_core::sc_in< sc_dt::sc_bv<4> > saxigp1_awcache;
+  sc_core::sc_in< sc_dt::sc_bv<3> > saxigp1_awprot;
+  sc_core::sc_in< bool > saxigp1_awvalid;
+  sc_core::sc_out< bool > saxigp1_awready;
+  sc_core::sc_in< sc_dt::sc_bv<128> > saxigp1_wdata;
+  sc_core::sc_in< sc_dt::sc_bv<16> > saxigp1_wstrb;
+  sc_core::sc_in< bool > saxigp1_wlast;
+  sc_core::sc_in< bool > saxigp1_wvalid;
+  sc_core::sc_out< bool > saxigp1_wready;
+  sc_core::sc_out< sc_dt::sc_bv<6> > saxigp1_bid;
+  sc_core::sc_out< sc_dt::sc_bv<2> > saxigp1_bresp;
+  sc_core::sc_out< bool > saxigp1_bvalid;
+  sc_core::sc_in< bool > saxigp1_bready;
+  sc_core::sc_in< sc_dt::sc_bv<6> > saxigp1_arid;
+  sc_core::sc_in< sc_dt::sc_bv<49> > saxigp1_araddr;
+  sc_core::sc_in< sc_dt::sc_bv<8> > saxigp1_arlen;
+  sc_core::sc_in< sc_dt::sc_bv<3> > saxigp1_arsize;
+  sc_core::sc_in< sc_dt::sc_bv<2> > saxigp1_arburst;
+  sc_core::sc_in< bool > saxigp1_arlock;
+  sc_core::sc_in< sc_dt::sc_bv<4> > saxigp1_arcache;
+  sc_core::sc_in< sc_dt::sc_bv<3> > saxigp1_arprot;
+  sc_core::sc_in< bool > saxigp1_arvalid;
+  sc_core::sc_out< bool > saxigp1_arready;
+  sc_core::sc_out< sc_dt::sc_bv<6> > saxigp1_rid;
+  sc_core::sc_out< sc_dt::sc_bv<128> > saxigp1_rdata;
+  sc_core::sc_out< sc_dt::sc_bv<2> > saxigp1_rresp;
+  sc_core::sc_out< bool > saxigp1_rlast;
+  sc_core::sc_out< bool > saxigp1_rvalid;
+  sc_core::sc_in< bool > saxigp1_rready;
+  sc_core::sc_in< sc_dt::sc_bv<4> > saxigp1_awqos;
+  sc_core::sc_in< sc_dt::sc_bv<4> > saxigp1_arqos;
   sc_core::sc_out< sc_dt::sc_bv<94> > emio_enet0_enet_tsu_timer_cnt;
   sc_core::sc_in< bool > emio_i2c0_scl_i;
   sc_core::sc_out< bool > emio_i2c0_scl_o;
@@ -239,21 +402,12 @@ public:
   sc_core::sc_in< bool > emio_spi0_ss_i_n;
   sc_core::sc_out< bool > emio_spi0_ss_o_n;
   sc_core::sc_out< bool > emio_spi0_ss_n_t;
-  sc_core::sc_in< bool > emio_spi1_sclk_i;
-  sc_core::sc_out< bool > emio_spi1_sclk_o;
-  sc_core::sc_out< bool > emio_spi1_sclk_t;
-  sc_core::sc_in< bool > emio_spi1_m_i;
-  sc_core::sc_out< bool > emio_spi1_m_o;
-  sc_core::sc_out< bool > emio_spi1_mo_t;
-  sc_core::sc_in< bool > emio_spi1_s_i;
-  sc_core::sc_out< bool > emio_spi1_s_o;
-  sc_core::sc_out< bool > emio_spi1_so_t;
-  sc_core::sc_in< bool > emio_spi1_ss_i_n;
-  sc_core::sc_out< bool > emio_spi1_ss_o_n;
-  sc_core::sc_out< bool > emio_spi1_ss_n_t;
+  sc_core::sc_in< sc_dt::sc_bv<3> > pl_ps_irq0;
   sc_core::sc_out< bool > pl_resetn0;
   sc_core::sc_out< bool > pl_clk0;
   sc_core::sc_out< bool > pl_clk1;
+  sc_core::sc_out< bool > pl_clk2;
+  sc_core::sc_out< bool > pl_clk3;
 
 protected:
 
@@ -263,6 +417,18 @@ private:
 
   xtlm::xaximm_xtlm2pin_t<32,40,16,16,1,1,16,1>* mp_M_AXI_HPM0_LPD_transactor;
   sc_signal< bool > m_M_AXI_HPM0_LPD_transactor_rst_signal;
+  xtlm::xaximm_pin2xtlm_t<128,49,6,1,1,1,1,1>* mp_S_AXI_HPC0_FPD_transactor;
+  xsc::common::scalar2vectorN_converter<1>* mp_saxigp0_aruser_converter;
+  sc_signal< sc_bv<1> > m_saxigp0_aruser_converter_signal;
+  xsc::common::scalar2vectorN_converter<1>* mp_saxigp0_awuser_converter;
+  sc_signal< sc_bv<1> > m_saxigp0_awuser_converter_signal;
+  sc_signal< bool > m_S_AXI_HPC0_FPD_transactor_rst_signal;
+  xtlm::xaximm_pin2xtlm_t<128,49,6,1,1,1,1,1>* mp_S_AXI_HPC1_FPD_transactor;
+  xsc::common::scalar2vectorN_converter<1>* mp_saxigp1_aruser_converter;
+  sc_signal< sc_bv<1> > m_saxigp1_aruser_converter_signal;
+  xsc::common::scalar2vectorN_converter<1>* mp_saxigp1_awuser_converter;
+  sc_signal< sc_bv<1> > m_saxigp1_awuser_converter_signal;
+  sc_signal< bool > m_S_AXI_HPC1_FPD_transactor_rst_signal;
 
 };
 #endif // XM_SYSTEMC
@@ -320,6 +486,86 @@ public:
   sc_core::sc_out< bool > maxigp2_rready;
   sc_core::sc_out< sc_dt::sc_bv<4> > maxigp2_awqos;
   sc_core::sc_out< sc_dt::sc_bv<4> > maxigp2_arqos;
+  sc_core::sc_in< bool > saxihpc0_fpd_aclk;
+  sc_core::sc_in< bool > saxigp0_aruser;
+  sc_core::sc_in< bool > saxigp0_awuser;
+  sc_core::sc_in< sc_dt::sc_bv<6> > saxigp0_awid;
+  sc_core::sc_in< sc_dt::sc_bv<49> > saxigp0_awaddr;
+  sc_core::sc_in< sc_dt::sc_bv<8> > saxigp0_awlen;
+  sc_core::sc_in< sc_dt::sc_bv<3> > saxigp0_awsize;
+  sc_core::sc_in< sc_dt::sc_bv<2> > saxigp0_awburst;
+  sc_core::sc_in< bool > saxigp0_awlock;
+  sc_core::sc_in< sc_dt::sc_bv<4> > saxigp0_awcache;
+  sc_core::sc_in< sc_dt::sc_bv<3> > saxigp0_awprot;
+  sc_core::sc_in< bool > saxigp0_awvalid;
+  sc_core::sc_out< bool > saxigp0_awready;
+  sc_core::sc_in< sc_dt::sc_bv<128> > saxigp0_wdata;
+  sc_core::sc_in< sc_dt::sc_bv<16> > saxigp0_wstrb;
+  sc_core::sc_in< bool > saxigp0_wlast;
+  sc_core::sc_in< bool > saxigp0_wvalid;
+  sc_core::sc_out< bool > saxigp0_wready;
+  sc_core::sc_out< sc_dt::sc_bv<6> > saxigp0_bid;
+  sc_core::sc_out< sc_dt::sc_bv<2> > saxigp0_bresp;
+  sc_core::sc_out< bool > saxigp0_bvalid;
+  sc_core::sc_in< bool > saxigp0_bready;
+  sc_core::sc_in< sc_dt::sc_bv<6> > saxigp0_arid;
+  sc_core::sc_in< sc_dt::sc_bv<49> > saxigp0_araddr;
+  sc_core::sc_in< sc_dt::sc_bv<8> > saxigp0_arlen;
+  sc_core::sc_in< sc_dt::sc_bv<3> > saxigp0_arsize;
+  sc_core::sc_in< sc_dt::sc_bv<2> > saxigp0_arburst;
+  sc_core::sc_in< bool > saxigp0_arlock;
+  sc_core::sc_in< sc_dt::sc_bv<4> > saxigp0_arcache;
+  sc_core::sc_in< sc_dt::sc_bv<3> > saxigp0_arprot;
+  sc_core::sc_in< bool > saxigp0_arvalid;
+  sc_core::sc_out< bool > saxigp0_arready;
+  sc_core::sc_out< sc_dt::sc_bv<6> > saxigp0_rid;
+  sc_core::sc_out< sc_dt::sc_bv<128> > saxigp0_rdata;
+  sc_core::sc_out< sc_dt::sc_bv<2> > saxigp0_rresp;
+  sc_core::sc_out< bool > saxigp0_rlast;
+  sc_core::sc_out< bool > saxigp0_rvalid;
+  sc_core::sc_in< bool > saxigp0_rready;
+  sc_core::sc_in< sc_dt::sc_bv<4> > saxigp0_awqos;
+  sc_core::sc_in< sc_dt::sc_bv<4> > saxigp0_arqos;
+  sc_core::sc_in< bool > saxihpc1_fpd_aclk;
+  sc_core::sc_in< bool > saxigp1_aruser;
+  sc_core::sc_in< bool > saxigp1_awuser;
+  sc_core::sc_in< sc_dt::sc_bv<6> > saxigp1_awid;
+  sc_core::sc_in< sc_dt::sc_bv<49> > saxigp1_awaddr;
+  sc_core::sc_in< sc_dt::sc_bv<8> > saxigp1_awlen;
+  sc_core::sc_in< sc_dt::sc_bv<3> > saxigp1_awsize;
+  sc_core::sc_in< sc_dt::sc_bv<2> > saxigp1_awburst;
+  sc_core::sc_in< bool > saxigp1_awlock;
+  sc_core::sc_in< sc_dt::sc_bv<4> > saxigp1_awcache;
+  sc_core::sc_in< sc_dt::sc_bv<3> > saxigp1_awprot;
+  sc_core::sc_in< bool > saxigp1_awvalid;
+  sc_core::sc_out< bool > saxigp1_awready;
+  sc_core::sc_in< sc_dt::sc_bv<128> > saxigp1_wdata;
+  sc_core::sc_in< sc_dt::sc_bv<16> > saxigp1_wstrb;
+  sc_core::sc_in< bool > saxigp1_wlast;
+  sc_core::sc_in< bool > saxigp1_wvalid;
+  sc_core::sc_out< bool > saxigp1_wready;
+  sc_core::sc_out< sc_dt::sc_bv<6> > saxigp1_bid;
+  sc_core::sc_out< sc_dt::sc_bv<2> > saxigp1_bresp;
+  sc_core::sc_out< bool > saxigp1_bvalid;
+  sc_core::sc_in< bool > saxigp1_bready;
+  sc_core::sc_in< sc_dt::sc_bv<6> > saxigp1_arid;
+  sc_core::sc_in< sc_dt::sc_bv<49> > saxigp1_araddr;
+  sc_core::sc_in< sc_dt::sc_bv<8> > saxigp1_arlen;
+  sc_core::sc_in< sc_dt::sc_bv<3> > saxigp1_arsize;
+  sc_core::sc_in< sc_dt::sc_bv<2> > saxigp1_arburst;
+  sc_core::sc_in< bool > saxigp1_arlock;
+  sc_core::sc_in< sc_dt::sc_bv<4> > saxigp1_arcache;
+  sc_core::sc_in< sc_dt::sc_bv<3> > saxigp1_arprot;
+  sc_core::sc_in< bool > saxigp1_arvalid;
+  sc_core::sc_out< bool > saxigp1_arready;
+  sc_core::sc_out< sc_dt::sc_bv<6> > saxigp1_rid;
+  sc_core::sc_out< sc_dt::sc_bv<128> > saxigp1_rdata;
+  sc_core::sc_out< sc_dt::sc_bv<2> > saxigp1_rresp;
+  sc_core::sc_out< bool > saxigp1_rlast;
+  sc_core::sc_out< bool > saxigp1_rvalid;
+  sc_core::sc_in< bool > saxigp1_rready;
+  sc_core::sc_in< sc_dt::sc_bv<4> > saxigp1_awqos;
+  sc_core::sc_in< sc_dt::sc_bv<4> > saxigp1_arqos;
   sc_core::sc_out< sc_dt::sc_bv<94> > emio_enet0_enet_tsu_timer_cnt;
   sc_core::sc_in< bool > emio_i2c0_scl_i;
   sc_core::sc_out< bool > emio_i2c0_scl_o;
@@ -339,21 +585,12 @@ public:
   sc_core::sc_in< bool > emio_spi0_ss_i_n;
   sc_core::sc_out< bool > emio_spi0_ss_o_n;
   sc_core::sc_out< bool > emio_spi0_ss_n_t;
-  sc_core::sc_in< bool > emio_spi1_sclk_i;
-  sc_core::sc_out< bool > emio_spi1_sclk_o;
-  sc_core::sc_out< bool > emio_spi1_sclk_t;
-  sc_core::sc_in< bool > emio_spi1_m_i;
-  sc_core::sc_out< bool > emio_spi1_m_o;
-  sc_core::sc_out< bool > emio_spi1_mo_t;
-  sc_core::sc_in< bool > emio_spi1_s_i;
-  sc_core::sc_out< bool > emio_spi1_s_o;
-  sc_core::sc_out< bool > emio_spi1_so_t;
-  sc_core::sc_in< bool > emio_spi1_ss_i_n;
-  sc_core::sc_out< bool > emio_spi1_ss_o_n;
-  sc_core::sc_out< bool > emio_spi1_ss_n_t;
+  sc_core::sc_in< sc_dt::sc_bv<3> > pl_ps_irq0;
   sc_core::sc_out< bool > pl_resetn0;
   sc_core::sc_out< bool > pl_clk0;
   sc_core::sc_out< bool > pl_clk1;
+  sc_core::sc_out< bool > pl_clk2;
+  sc_core::sc_out< bool > pl_clk3;
 
 protected:
 
@@ -363,6 +600,18 @@ private:
 
   xtlm::xaximm_xtlm2pin_t<32,40,16,16,1,1,16,1>* mp_M_AXI_HPM0_LPD_transactor;
   sc_signal< bool > m_M_AXI_HPM0_LPD_transactor_rst_signal;
+  xtlm::xaximm_pin2xtlm_t<128,49,6,1,1,1,1,1>* mp_S_AXI_HPC0_FPD_transactor;
+  xsc::common::scalar2vectorN_converter<1>* mp_saxigp0_aruser_converter;
+  sc_signal< sc_bv<1> > m_saxigp0_aruser_converter_signal;
+  xsc::common::scalar2vectorN_converter<1>* mp_saxigp0_awuser_converter;
+  sc_signal< sc_bv<1> > m_saxigp0_awuser_converter_signal;
+  sc_signal< bool > m_S_AXI_HPC0_FPD_transactor_rst_signal;
+  xtlm::xaximm_pin2xtlm_t<128,49,6,1,1,1,1,1>* mp_S_AXI_HPC1_FPD_transactor;
+  xsc::common::scalar2vectorN_converter<1>* mp_saxigp1_aruser_converter;
+  sc_signal< sc_bv<1> > m_saxigp1_aruser_converter_signal;
+  xsc::common::scalar2vectorN_converter<1>* mp_saxigp1_awuser_converter;
+  sc_signal< sc_bv<1> > m_saxigp1_awuser_converter_signal;
+  sc_signal< bool > m_S_AXI_HPC1_FPD_transactor_rst_signal;
 
 };
 #endif // RIVIERA
@@ -372,6 +621,8 @@ private:
 
 #ifdef VCSSYSTEMC
 #include "utils/xtlm_aximm_initiator_stub.h"
+
+#include "utils/xtlm_aximm_target_stub.h"
 
 class DllExport MercuryXU1_zynq_ultra_ps_e_0_0 : public MercuryXU1_zynq_ultra_ps_e_0_0_sc
 {
@@ -422,6 +673,86 @@ public:
   sc_core::sc_out< bool > maxigp2_rready;
   sc_core::sc_out< sc_dt::sc_bv<4> > maxigp2_awqos;
   sc_core::sc_out< sc_dt::sc_bv<4> > maxigp2_arqos;
+  sc_core::sc_in< bool > saxihpc0_fpd_aclk;
+  sc_core::sc_in< bool > saxigp0_aruser;
+  sc_core::sc_in< bool > saxigp0_awuser;
+  sc_core::sc_in< sc_dt::sc_bv<6> > saxigp0_awid;
+  sc_core::sc_in< sc_dt::sc_bv<49> > saxigp0_awaddr;
+  sc_core::sc_in< sc_dt::sc_bv<8> > saxigp0_awlen;
+  sc_core::sc_in< sc_dt::sc_bv<3> > saxigp0_awsize;
+  sc_core::sc_in< sc_dt::sc_bv<2> > saxigp0_awburst;
+  sc_core::sc_in< bool > saxigp0_awlock;
+  sc_core::sc_in< sc_dt::sc_bv<4> > saxigp0_awcache;
+  sc_core::sc_in< sc_dt::sc_bv<3> > saxigp0_awprot;
+  sc_core::sc_in< bool > saxigp0_awvalid;
+  sc_core::sc_out< bool > saxigp0_awready;
+  sc_core::sc_in< sc_dt::sc_bv<128> > saxigp0_wdata;
+  sc_core::sc_in< sc_dt::sc_bv<16> > saxigp0_wstrb;
+  sc_core::sc_in< bool > saxigp0_wlast;
+  sc_core::sc_in< bool > saxigp0_wvalid;
+  sc_core::sc_out< bool > saxigp0_wready;
+  sc_core::sc_out< sc_dt::sc_bv<6> > saxigp0_bid;
+  sc_core::sc_out< sc_dt::sc_bv<2> > saxigp0_bresp;
+  sc_core::sc_out< bool > saxigp0_bvalid;
+  sc_core::sc_in< bool > saxigp0_bready;
+  sc_core::sc_in< sc_dt::sc_bv<6> > saxigp0_arid;
+  sc_core::sc_in< sc_dt::sc_bv<49> > saxigp0_araddr;
+  sc_core::sc_in< sc_dt::sc_bv<8> > saxigp0_arlen;
+  sc_core::sc_in< sc_dt::sc_bv<3> > saxigp0_arsize;
+  sc_core::sc_in< sc_dt::sc_bv<2> > saxigp0_arburst;
+  sc_core::sc_in< bool > saxigp0_arlock;
+  sc_core::sc_in< sc_dt::sc_bv<4> > saxigp0_arcache;
+  sc_core::sc_in< sc_dt::sc_bv<3> > saxigp0_arprot;
+  sc_core::sc_in< bool > saxigp0_arvalid;
+  sc_core::sc_out< bool > saxigp0_arready;
+  sc_core::sc_out< sc_dt::sc_bv<6> > saxigp0_rid;
+  sc_core::sc_out< sc_dt::sc_bv<128> > saxigp0_rdata;
+  sc_core::sc_out< sc_dt::sc_bv<2> > saxigp0_rresp;
+  sc_core::sc_out< bool > saxigp0_rlast;
+  sc_core::sc_out< bool > saxigp0_rvalid;
+  sc_core::sc_in< bool > saxigp0_rready;
+  sc_core::sc_in< sc_dt::sc_bv<4> > saxigp0_awqos;
+  sc_core::sc_in< sc_dt::sc_bv<4> > saxigp0_arqos;
+  sc_core::sc_in< bool > saxihpc1_fpd_aclk;
+  sc_core::sc_in< bool > saxigp1_aruser;
+  sc_core::sc_in< bool > saxigp1_awuser;
+  sc_core::sc_in< sc_dt::sc_bv<6> > saxigp1_awid;
+  sc_core::sc_in< sc_dt::sc_bv<49> > saxigp1_awaddr;
+  sc_core::sc_in< sc_dt::sc_bv<8> > saxigp1_awlen;
+  sc_core::sc_in< sc_dt::sc_bv<3> > saxigp1_awsize;
+  sc_core::sc_in< sc_dt::sc_bv<2> > saxigp1_awburst;
+  sc_core::sc_in< bool > saxigp1_awlock;
+  sc_core::sc_in< sc_dt::sc_bv<4> > saxigp1_awcache;
+  sc_core::sc_in< sc_dt::sc_bv<3> > saxigp1_awprot;
+  sc_core::sc_in< bool > saxigp1_awvalid;
+  sc_core::sc_out< bool > saxigp1_awready;
+  sc_core::sc_in< sc_dt::sc_bv<128> > saxigp1_wdata;
+  sc_core::sc_in< sc_dt::sc_bv<16> > saxigp1_wstrb;
+  sc_core::sc_in< bool > saxigp1_wlast;
+  sc_core::sc_in< bool > saxigp1_wvalid;
+  sc_core::sc_out< bool > saxigp1_wready;
+  sc_core::sc_out< sc_dt::sc_bv<6> > saxigp1_bid;
+  sc_core::sc_out< sc_dt::sc_bv<2> > saxigp1_bresp;
+  sc_core::sc_out< bool > saxigp1_bvalid;
+  sc_core::sc_in< bool > saxigp1_bready;
+  sc_core::sc_in< sc_dt::sc_bv<6> > saxigp1_arid;
+  sc_core::sc_in< sc_dt::sc_bv<49> > saxigp1_araddr;
+  sc_core::sc_in< sc_dt::sc_bv<8> > saxigp1_arlen;
+  sc_core::sc_in< sc_dt::sc_bv<3> > saxigp1_arsize;
+  sc_core::sc_in< sc_dt::sc_bv<2> > saxigp1_arburst;
+  sc_core::sc_in< bool > saxigp1_arlock;
+  sc_core::sc_in< sc_dt::sc_bv<4> > saxigp1_arcache;
+  sc_core::sc_in< sc_dt::sc_bv<3> > saxigp1_arprot;
+  sc_core::sc_in< bool > saxigp1_arvalid;
+  sc_core::sc_out< bool > saxigp1_arready;
+  sc_core::sc_out< sc_dt::sc_bv<6> > saxigp1_rid;
+  sc_core::sc_out< sc_dt::sc_bv<128> > saxigp1_rdata;
+  sc_core::sc_out< sc_dt::sc_bv<2> > saxigp1_rresp;
+  sc_core::sc_out< bool > saxigp1_rlast;
+  sc_core::sc_out< bool > saxigp1_rvalid;
+  sc_core::sc_in< bool > saxigp1_rready;
+  sc_core::sc_in< sc_dt::sc_bv<4> > saxigp1_awqos;
+  sc_core::sc_in< sc_dt::sc_bv<4> > saxigp1_arqos;
   sc_core::sc_out< sc_dt::sc_bv<94> > emio_enet0_enet_tsu_timer_cnt;
   sc_core::sc_in< bool > emio_i2c0_scl_i;
   sc_core::sc_out< bool > emio_i2c0_scl_o;
@@ -441,21 +772,12 @@ public:
   sc_core::sc_in< bool > emio_spi0_ss_i_n;
   sc_core::sc_out< bool > emio_spi0_ss_o_n;
   sc_core::sc_out< bool > emio_spi0_ss_n_t;
-  sc_core::sc_in< bool > emio_spi1_sclk_i;
-  sc_core::sc_out< bool > emio_spi1_sclk_o;
-  sc_core::sc_out< bool > emio_spi1_sclk_t;
-  sc_core::sc_in< bool > emio_spi1_m_i;
-  sc_core::sc_out< bool > emio_spi1_m_o;
-  sc_core::sc_out< bool > emio_spi1_mo_t;
-  sc_core::sc_in< bool > emio_spi1_s_i;
-  sc_core::sc_out< bool > emio_spi1_s_o;
-  sc_core::sc_out< bool > emio_spi1_so_t;
-  sc_core::sc_in< bool > emio_spi1_ss_i_n;
-  sc_core::sc_out< bool > emio_spi1_ss_o_n;
-  sc_core::sc_out< bool > emio_spi1_ss_n_t;
+  sc_core::sc_in< sc_dt::sc_bv<3> > pl_ps_irq0;
   sc_core::sc_out< bool > pl_resetn0;
   sc_core::sc_out< bool > pl_clk0;
   sc_core::sc_out< bool > pl_clk1;
+  sc_core::sc_out< bool > pl_clk2;
+  sc_core::sc_out< bool > pl_clk3;
 
 protected:
 
@@ -465,10 +787,26 @@ private:
 
   xtlm::xaximm_xtlm2pin_t<32,40,16,16,1,1,16,1>* mp_M_AXI_HPM0_LPD_transactor;
   sc_signal< bool > m_M_AXI_HPM0_LPD_transactor_rst_signal;
+  xtlm::xaximm_pin2xtlm_t<128,49,6,1,1,1,1,1>* mp_S_AXI_HPC0_FPD_transactor;
+  xsc::common::scalar2vectorN_converter<1>* mp_saxigp0_aruser_converter;
+  sc_signal< sc_bv<1> > m_saxigp0_aruser_converter_signal;
+  xsc::common::scalar2vectorN_converter<1>* mp_saxigp0_awuser_converter;
+  sc_signal< sc_bv<1> > m_saxigp0_awuser_converter_signal;
+  sc_signal< bool > m_S_AXI_HPC0_FPD_transactor_rst_signal;
+  xtlm::xaximm_pin2xtlm_t<128,49,6,1,1,1,1,1>* mp_S_AXI_HPC1_FPD_transactor;
+  xsc::common::scalar2vectorN_converter<1>* mp_saxigp1_aruser_converter;
+  sc_signal< sc_bv<1> > m_saxigp1_aruser_converter_signal;
+  xsc::common::scalar2vectorN_converter<1>* mp_saxigp1_awuser_converter;
+  sc_signal< sc_bv<1> > m_saxigp1_awuser_converter_signal;
+  sc_signal< bool > m_S_AXI_HPC1_FPD_transactor_rst_signal;
 
   // Transactor stubs
   xtlm::xtlm_aximm_initiator_stub * M_AXI_HPM0_LPD_transactor_initiator_rd_socket_stub;
   xtlm::xtlm_aximm_initiator_stub * M_AXI_HPM0_LPD_transactor_initiator_wr_socket_stub;
+  xtlm::xtlm_aximm_target_stub * S_AXI_HPC0_FPD_transactor_target_rd_socket_stub;
+  xtlm::xtlm_aximm_target_stub * S_AXI_HPC0_FPD_transactor_target_wr_socket_stub;
+  xtlm::xtlm_aximm_target_stub * S_AXI_HPC1_FPD_transactor_target_rd_socket_stub;
+  xtlm::xtlm_aximm_target_stub * S_AXI_HPC1_FPD_transactor_target_wr_socket_stub;
 
   // Socket stubs
 
@@ -481,6 +819,8 @@ private:
 #ifdef MTI_SYSTEMC
 #include "utils/xtlm_aximm_initiator_stub.h"
 
+#include "utils/xtlm_aximm_target_stub.h"
+
 class DllExport MercuryXU1_zynq_ultra_ps_e_0_0 : public MercuryXU1_zynq_ultra_ps_e_0_0_sc
 {
 public:
@@ -530,6 +870,86 @@ public:
   sc_core::sc_out< bool > maxigp2_rready;
   sc_core::sc_out< sc_dt::sc_bv<4> > maxigp2_awqos;
   sc_core::sc_out< sc_dt::sc_bv<4> > maxigp2_arqos;
+  sc_core::sc_in< bool > saxihpc0_fpd_aclk;
+  sc_core::sc_in< bool > saxigp0_aruser;
+  sc_core::sc_in< bool > saxigp0_awuser;
+  sc_core::sc_in< sc_dt::sc_bv<6> > saxigp0_awid;
+  sc_core::sc_in< sc_dt::sc_bv<49> > saxigp0_awaddr;
+  sc_core::sc_in< sc_dt::sc_bv<8> > saxigp0_awlen;
+  sc_core::sc_in< sc_dt::sc_bv<3> > saxigp0_awsize;
+  sc_core::sc_in< sc_dt::sc_bv<2> > saxigp0_awburst;
+  sc_core::sc_in< bool > saxigp0_awlock;
+  sc_core::sc_in< sc_dt::sc_bv<4> > saxigp0_awcache;
+  sc_core::sc_in< sc_dt::sc_bv<3> > saxigp0_awprot;
+  sc_core::sc_in< bool > saxigp0_awvalid;
+  sc_core::sc_out< bool > saxigp0_awready;
+  sc_core::sc_in< sc_dt::sc_bv<128> > saxigp0_wdata;
+  sc_core::sc_in< sc_dt::sc_bv<16> > saxigp0_wstrb;
+  sc_core::sc_in< bool > saxigp0_wlast;
+  sc_core::sc_in< bool > saxigp0_wvalid;
+  sc_core::sc_out< bool > saxigp0_wready;
+  sc_core::sc_out< sc_dt::sc_bv<6> > saxigp0_bid;
+  sc_core::sc_out< sc_dt::sc_bv<2> > saxigp0_bresp;
+  sc_core::sc_out< bool > saxigp0_bvalid;
+  sc_core::sc_in< bool > saxigp0_bready;
+  sc_core::sc_in< sc_dt::sc_bv<6> > saxigp0_arid;
+  sc_core::sc_in< sc_dt::sc_bv<49> > saxigp0_araddr;
+  sc_core::sc_in< sc_dt::sc_bv<8> > saxigp0_arlen;
+  sc_core::sc_in< sc_dt::sc_bv<3> > saxigp0_arsize;
+  sc_core::sc_in< sc_dt::sc_bv<2> > saxigp0_arburst;
+  sc_core::sc_in< bool > saxigp0_arlock;
+  sc_core::sc_in< sc_dt::sc_bv<4> > saxigp0_arcache;
+  sc_core::sc_in< sc_dt::sc_bv<3> > saxigp0_arprot;
+  sc_core::sc_in< bool > saxigp0_arvalid;
+  sc_core::sc_out< bool > saxigp0_arready;
+  sc_core::sc_out< sc_dt::sc_bv<6> > saxigp0_rid;
+  sc_core::sc_out< sc_dt::sc_bv<128> > saxigp0_rdata;
+  sc_core::sc_out< sc_dt::sc_bv<2> > saxigp0_rresp;
+  sc_core::sc_out< bool > saxigp0_rlast;
+  sc_core::sc_out< bool > saxigp0_rvalid;
+  sc_core::sc_in< bool > saxigp0_rready;
+  sc_core::sc_in< sc_dt::sc_bv<4> > saxigp0_awqos;
+  sc_core::sc_in< sc_dt::sc_bv<4> > saxigp0_arqos;
+  sc_core::sc_in< bool > saxihpc1_fpd_aclk;
+  sc_core::sc_in< bool > saxigp1_aruser;
+  sc_core::sc_in< bool > saxigp1_awuser;
+  sc_core::sc_in< sc_dt::sc_bv<6> > saxigp1_awid;
+  sc_core::sc_in< sc_dt::sc_bv<49> > saxigp1_awaddr;
+  sc_core::sc_in< sc_dt::sc_bv<8> > saxigp1_awlen;
+  sc_core::sc_in< sc_dt::sc_bv<3> > saxigp1_awsize;
+  sc_core::sc_in< sc_dt::sc_bv<2> > saxigp1_awburst;
+  sc_core::sc_in< bool > saxigp1_awlock;
+  sc_core::sc_in< sc_dt::sc_bv<4> > saxigp1_awcache;
+  sc_core::sc_in< sc_dt::sc_bv<3> > saxigp1_awprot;
+  sc_core::sc_in< bool > saxigp1_awvalid;
+  sc_core::sc_out< bool > saxigp1_awready;
+  sc_core::sc_in< sc_dt::sc_bv<128> > saxigp1_wdata;
+  sc_core::sc_in< sc_dt::sc_bv<16> > saxigp1_wstrb;
+  sc_core::sc_in< bool > saxigp1_wlast;
+  sc_core::sc_in< bool > saxigp1_wvalid;
+  sc_core::sc_out< bool > saxigp1_wready;
+  sc_core::sc_out< sc_dt::sc_bv<6> > saxigp1_bid;
+  sc_core::sc_out< sc_dt::sc_bv<2> > saxigp1_bresp;
+  sc_core::sc_out< bool > saxigp1_bvalid;
+  sc_core::sc_in< bool > saxigp1_bready;
+  sc_core::sc_in< sc_dt::sc_bv<6> > saxigp1_arid;
+  sc_core::sc_in< sc_dt::sc_bv<49> > saxigp1_araddr;
+  sc_core::sc_in< sc_dt::sc_bv<8> > saxigp1_arlen;
+  sc_core::sc_in< sc_dt::sc_bv<3> > saxigp1_arsize;
+  sc_core::sc_in< sc_dt::sc_bv<2> > saxigp1_arburst;
+  sc_core::sc_in< bool > saxigp1_arlock;
+  sc_core::sc_in< sc_dt::sc_bv<4> > saxigp1_arcache;
+  sc_core::sc_in< sc_dt::sc_bv<3> > saxigp1_arprot;
+  sc_core::sc_in< bool > saxigp1_arvalid;
+  sc_core::sc_out< bool > saxigp1_arready;
+  sc_core::sc_out< sc_dt::sc_bv<6> > saxigp1_rid;
+  sc_core::sc_out< sc_dt::sc_bv<128> > saxigp1_rdata;
+  sc_core::sc_out< sc_dt::sc_bv<2> > saxigp1_rresp;
+  sc_core::sc_out< bool > saxigp1_rlast;
+  sc_core::sc_out< bool > saxigp1_rvalid;
+  sc_core::sc_in< bool > saxigp1_rready;
+  sc_core::sc_in< sc_dt::sc_bv<4> > saxigp1_awqos;
+  sc_core::sc_in< sc_dt::sc_bv<4> > saxigp1_arqos;
   sc_core::sc_out< sc_dt::sc_bv<94> > emio_enet0_enet_tsu_timer_cnt;
   sc_core::sc_in< bool > emio_i2c0_scl_i;
   sc_core::sc_out< bool > emio_i2c0_scl_o;
@@ -549,21 +969,12 @@ public:
   sc_core::sc_in< bool > emio_spi0_ss_i_n;
   sc_core::sc_out< bool > emio_spi0_ss_o_n;
   sc_core::sc_out< bool > emio_spi0_ss_n_t;
-  sc_core::sc_in< bool > emio_spi1_sclk_i;
-  sc_core::sc_out< bool > emio_spi1_sclk_o;
-  sc_core::sc_out< bool > emio_spi1_sclk_t;
-  sc_core::sc_in< bool > emio_spi1_m_i;
-  sc_core::sc_out< bool > emio_spi1_m_o;
-  sc_core::sc_out< bool > emio_spi1_mo_t;
-  sc_core::sc_in< bool > emio_spi1_s_i;
-  sc_core::sc_out< bool > emio_spi1_s_o;
-  sc_core::sc_out< bool > emio_spi1_so_t;
-  sc_core::sc_in< bool > emio_spi1_ss_i_n;
-  sc_core::sc_out< bool > emio_spi1_ss_o_n;
-  sc_core::sc_out< bool > emio_spi1_ss_n_t;
+  sc_core::sc_in< sc_dt::sc_bv<3> > pl_ps_irq0;
   sc_core::sc_out< bool > pl_resetn0;
   sc_core::sc_out< bool > pl_clk0;
   sc_core::sc_out< bool > pl_clk1;
+  sc_core::sc_out< bool > pl_clk2;
+  sc_core::sc_out< bool > pl_clk3;
 
 protected:
 
@@ -573,10 +984,26 @@ private:
 
   xtlm::xaximm_xtlm2pin_t<32,40,16,16,1,1,16,1>* mp_M_AXI_HPM0_LPD_transactor;
   sc_signal< bool > m_M_AXI_HPM0_LPD_transactor_rst_signal;
+  xtlm::xaximm_pin2xtlm_t<128,49,6,1,1,1,1,1>* mp_S_AXI_HPC0_FPD_transactor;
+  xsc::common::scalar2vectorN_converter<1>* mp_saxigp0_aruser_converter;
+  sc_signal< sc_bv<1> > m_saxigp0_aruser_converter_signal;
+  xsc::common::scalar2vectorN_converter<1>* mp_saxigp0_awuser_converter;
+  sc_signal< sc_bv<1> > m_saxigp0_awuser_converter_signal;
+  sc_signal< bool > m_S_AXI_HPC0_FPD_transactor_rst_signal;
+  xtlm::xaximm_pin2xtlm_t<128,49,6,1,1,1,1,1>* mp_S_AXI_HPC1_FPD_transactor;
+  xsc::common::scalar2vectorN_converter<1>* mp_saxigp1_aruser_converter;
+  sc_signal< sc_bv<1> > m_saxigp1_aruser_converter_signal;
+  xsc::common::scalar2vectorN_converter<1>* mp_saxigp1_awuser_converter;
+  sc_signal< sc_bv<1> > m_saxigp1_awuser_converter_signal;
+  sc_signal< bool > m_S_AXI_HPC1_FPD_transactor_rst_signal;
 
   // Transactor stubs
   xtlm::xtlm_aximm_initiator_stub * M_AXI_HPM0_LPD_transactor_initiator_rd_socket_stub;
   xtlm::xtlm_aximm_initiator_stub * M_AXI_HPM0_LPD_transactor_initiator_wr_socket_stub;
+  xtlm::xtlm_aximm_target_stub * S_AXI_HPC0_FPD_transactor_target_rd_socket_stub;
+  xtlm::xtlm_aximm_target_stub * S_AXI_HPC0_FPD_transactor_target_wr_socket_stub;
+  xtlm::xtlm_aximm_target_stub * S_AXI_HPC1_FPD_transactor_target_rd_socket_stub;
+  xtlm::xtlm_aximm_target_stub * S_AXI_HPC1_FPD_transactor_target_wr_socket_stub;
 
   // Socket stubs
 
