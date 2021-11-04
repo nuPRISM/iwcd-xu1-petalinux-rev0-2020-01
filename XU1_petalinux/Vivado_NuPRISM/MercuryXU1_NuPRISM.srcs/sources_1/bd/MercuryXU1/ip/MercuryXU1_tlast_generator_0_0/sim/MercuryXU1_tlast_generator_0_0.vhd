@@ -58,12 +58,15 @@ ENTITY MercuryXU1_tlast_generator_0_0 IS
     clk : IN STD_LOGIC;
     rst_n : IN STD_LOGIC;
     num_samples_per_packet : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-    triger_enable : IN STD_LOGIC;
-    triger : IN STD_LOGIC;
+    trigger_mode : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+    trigger_ps : IN STD_LOGIC;
+    trigger_external : IN STD_LOGIC;
+    trigger_internal_in : IN STD_LOGIC;
+    trigger_internal_out : OUT STD_LOGIC;
     data : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
     data_enable : IN STD_LOGIC;
     counter : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-    triger_test : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+    trigger_test : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
     m_axis_tdata : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
     m_axis_tvalid : OUT STD_LOGIC;
     m_axis_tlast : OUT STD_LOGIC;
@@ -75,16 +78,22 @@ ARCHITECTURE MercuryXU1_tlast_generator_0_0_arch OF MercuryXU1_tlast_generator_0
   ATTRIBUTE DowngradeIPIdentifiedWarnings : STRING;
   ATTRIBUTE DowngradeIPIdentifiedWarnings OF MercuryXU1_tlast_generator_0_0_arch: ARCHITECTURE IS "yes";
   COMPONENT tlast_generator IS
+    GENERIC (
+      ID : INTEGER
+    );
     PORT (
       clk : IN STD_LOGIC;
       rst_n : IN STD_LOGIC;
       num_samples_per_packet : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-      triger_enable : IN STD_LOGIC;
-      triger : IN STD_LOGIC;
+      trigger_mode : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+      trigger_ps : IN STD_LOGIC;
+      trigger_external : IN STD_LOGIC;
+      trigger_internal_in : IN STD_LOGIC;
+      trigger_internal_out : OUT STD_LOGIC;
       data : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
       data_enable : IN STD_LOGIC;
       counter : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-      triger_test : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+      trigger_test : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
       m_axis_tdata : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
       m_axis_tvalid : OUT STD_LOGIC;
       m_axis_tlast : OUT STD_LOGIC;
@@ -106,16 +115,22 @@ ARCHITECTURE MercuryXU1_tlast_generator_0_0_arch OF MercuryXU1_tlast_generator_0
   ATTRIBUTE X_INTERFACE_INFO OF clk: SIGNAL IS "xilinx.com:signal:clock:1.0 clk CLK";
 BEGIN
   U0 : tlast_generator
+    GENERIC MAP (
+      ID => 0
+    )
     PORT MAP (
       clk => clk,
       rst_n => rst_n,
       num_samples_per_packet => num_samples_per_packet,
-      triger_enable => triger_enable,
-      triger => triger,
+      trigger_mode => trigger_mode,
+      trigger_ps => trigger_ps,
+      trigger_external => trigger_external,
+      trigger_internal_in => trigger_internal_in,
+      trigger_internal_out => trigger_internal_out,
       data => data,
       data_enable => data_enable,
       counter => counter,
-      triger_test => triger_test,
+      trigger_test => trigger_test,
       m_axis_tdata => m_axis_tdata,
       m_axis_tvalid => m_axis_tvalid,
       m_axis_tlast => m_axis_tlast,

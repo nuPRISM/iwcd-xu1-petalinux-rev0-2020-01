@@ -76,50 +76,50 @@ signal adc_sample_valid_selected_1_rn   : STD_LOGIC;
 
 begin
 
-adc_sample_selected_0_next <= adc0_sample when gpio(8 downto 4) = 0 else
-    adc1_sample when gpio(8 downto 4) = 1 else
-    adc2_sample when gpio(8 downto 4) = 2 else
-    adc3_sample when gpio(8 downto 4) = 3 else
-    adc4_sample when gpio(8 downto 4) = 4 else
-    adc5_sample when gpio(8 downto 4) = 5 else
-    adc6_sample when gpio(8 downto 4) = 6 else
-    adc7_sample when gpio(8 downto 4) = 7 else
-    adc8_sample when gpio(8 downto 4) = 8 else
-    adc9_sample when gpio(8 downto 4) = 9 else
-    adc10_sample when gpio(8 downto 4) = 10 else
-    adc11_sample when gpio(8 downto 4) = 11 else
-    adc12_sample when gpio(8 downto 4) = 12 else
-    adc13_sample when gpio(8 downto 4) = 13 else
-    adc14_sample when gpio(8 downto 4) = 14 else
-    adc15_sample when gpio(8 downto 4) = 15 else
-    adc16_sample when gpio(8 downto 4) = 16 else
-    adc17_sample when gpio(8 downto 4) = 17 else
-    adc18_sample when gpio(8 downto 4) = 18 else
+adc_sample_selected_0_next <= adc0_sample when gpio(12 downto 8) = 0 else
+    adc1_sample when gpio(12 downto 8) = 1 else
+    adc2_sample when gpio(12 downto 8) = 2 else
+    adc3_sample when gpio(12 downto 8) = 3 else
+    adc4_sample when gpio(12 downto 8) = 4 else
+    adc5_sample when gpio(12 downto 8) = 5 else
+    adc6_sample when gpio(12 downto 8) = 6 else
+    adc7_sample when gpio(12 downto 8) = 7 else
+    adc8_sample when gpio(12 downto 8) = 8 else
+    adc9_sample when gpio(12 downto 8) = 9 else
+    adc10_sample when gpio(12 downto 8) = 10 else
+    adc11_sample when gpio(12 downto 8) = 11 else
+    adc12_sample when gpio(12 downto 8) = 12 else
+    adc13_sample when gpio(12 downto 8) = 13 else
+    adc14_sample when gpio(12 downto 8) = 14 else
+    adc15_sample when gpio(12 downto 8) = 15 else
+    adc16_sample when gpio(12 downto 8) = 16 else
+    adc17_sample when gpio(12 downto 8) = 17 else
+    adc18_sample when gpio(12 downto 8) = 18 else
     adc19_sample;
     
-adc_sample_selected_1_next <= adc0_sample when gpio(13 downto 9) = 0 else
-    adc1_sample when gpio(13 downto 9) = 1 else
-    adc2_sample when gpio(13 downto 9) = 2 else
-    adc3_sample when gpio(13 downto 9) = 3 else
-    adc4_sample when gpio(13 downto 9) = 4 else
-    adc5_sample when gpio(13 downto 9) = 5 else
-    adc6_sample when gpio(13 downto 9) = 6 else
-    adc7_sample when gpio(13 downto 9) = 7 else
-    adc8_sample when gpio(13 downto 9) = 8 else
-    adc9_sample when gpio(13 downto 9) = 9 else
-    adc10_sample when gpio(13 downto 9) = 10 else
-    adc11_sample when gpio(13 downto 9) = 11 else
-    adc12_sample when gpio(13 downto 9) = 12 else
-    adc13_sample when gpio(13 downto 9) = 13 else
-    adc14_sample when gpio(13 downto 9) = 14 else
-    adc15_sample when gpio(13 downto 9) = 15 else
-    adc16_sample when gpio(13 downto 9) = 16 else
-    adc17_sample when gpio(13 downto 9) = 17 else
-    adc18_sample when gpio(13 downto 9) = 18 else
+adc_sample_selected_1_next <= adc0_sample when gpio(17 downto 13) = 0 else
+    adc1_sample when gpio(17 downto 13) = 1 else
+    adc2_sample when gpio(17 downto 13) = 2 else
+    adc3_sample when gpio(17 downto 13) = 3 else
+    adc4_sample when gpio(17 downto 13) = 4 else
+    adc5_sample when gpio(17 downto 13) = 5 else
+    adc6_sample when gpio(17 downto 13) = 6 else
+    adc7_sample when gpio(17 downto 13) = 7 else
+    adc8_sample when gpio(17 downto 13) = 8 else
+    adc9_sample when gpio(17 downto 13) = 9 else
+    adc10_sample when gpio(17 downto 13) = 10 else
+    adc11_sample when gpio(17 downto 13) = 11 else
+    adc12_sample when gpio(17 downto 13) = 12 else
+    adc13_sample when gpio(17 downto 13) = 13 else
+    adc14_sample when gpio(17 downto 13) = 14 else
+    adc15_sample when gpio(17 downto 13) = 15 else
+    adc16_sample when gpio(17 downto 13) = 16 else
+    adc17_sample when gpio(17 downto 13) = 17 else
+    adc18_sample when gpio(17 downto 13) = 18 else
     adc19_sample;
     
- adc_sample_valid_selected_0_next <= adc_sample_valid(conv_integer( gpio(8 downto 4)));
- adc_sample_valid_selected_1_next <= adc_sample_valid(conv_integer( gpio(13 downto 9)));
+ adc_sample_valid_selected_0_next <= adc_sample_valid(conv_integer( gpio(12 downto 8)));
+ adc_sample_valid_selected_1_next <= adc_sample_valid(conv_integer( gpio(17 downto 13)));
 
 REGN_PROC: process(clk_sample)
 begin

@@ -50,9 +50,9 @@
 // IP VLNV: xilinx.com:ip:smartconnect:1.0
 // IP Revision: 13
 
-(* X_CORE_INFO = "bd_d585,Vivado 2020.1" *)
+(* X_CORE_INFO = "bd_d585,Vivado 2020.1.1" *)
 (* CHECK_LICENSE_TYPE = "MercuryXU1_smartconnect_0_1,bd_d585,{}" *)
-(* CORE_GENERATION_INFO = "MercuryXU1_smartconnect_0_1,bd_d585,{x_ipProduct=Vivado 2020.1,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=smartconnect,x_ipVersion=1.0,x_ipCoreRevision=13,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED}" *)
+(* CORE_GENERATION_INFO = "MercuryXU1_smartconnect_0_1,bd_d585,{x_ipProduct=Vivado 2020.1.1,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=smartconnect,x_ipVersion=1.0,x_ipCoreRevision=13,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module MercuryXU1_smartconnect_0_1 (
   aclk,

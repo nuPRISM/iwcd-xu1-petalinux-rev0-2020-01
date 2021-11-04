@@ -3,7 +3,10 @@
 
 # XDC: new/debug.xdc
 
-# XDC: /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/src/MercuryXU1_NuPRISM.xdc
+# XDC: /home/ab/Desktop/XU1_petalinux_rev6.21/src/MercuryXU1_NuPRISM.xdc
+
+# IP: ip/c_shift_ram_0/c_shift_ram_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==c_shift_ram_0 || ORIG_REF_NAME==c_shift_ram_0} -quiet] -quiet
 
 # Block Designs: bd/MercuryXU1/MercuryXU1.bd
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==MercuryXU1 || ORIG_REF_NAME==MercuryXU1} -quiet] -quiet
@@ -251,6 +254,9 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==bd_65d3_g_inst_
 # IP: bd/MercuryXU1/ip/MercuryXU1_tlast_generator_0_0/MercuryXU1_tlast_generator_0_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==MercuryXU1_tlast_generator_0_0 || ORIG_REF_NAME==MercuryXU1_tlast_generator_0_0} -quiet] -quiet
 
+# IP: ip/c_shift_ram_0/c_shift_ram_0.xci
+#dup# set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==c_shift_ram_0 || ORIG_REF_NAME==c_shift_ram_0} -quiet] -quiet
+
 # IP: bd/MercuryXU1/ip/MercuryXU1_axi_gpio_0_2/MercuryXU1_axi_gpio_0_2.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==MercuryXU1_axi_gpio_0_2 || ORIG_REF_NAME==MercuryXU1_axi_gpio_0_2} -quiet] -quiet
 
@@ -365,6 +371,9 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==MercuryXU1_axis
 # IP: bd/MercuryXU1/ip/MercuryXU1_tlast_generator_0_1/MercuryXU1_tlast_generator_0_1.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==MercuryXU1_tlast_generator_0_1 || ORIG_REF_NAME==MercuryXU1_tlast_generator_0_1} -quiet] -quiet
 
+# IP: ip/c_shift_ram_0/c_shift_ram_0.xci
+#dup# set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==c_shift_ram_0 || ORIG_REF_NAME==c_shift_ram_0} -quiet] -quiet
+
 # IP: bd/MercuryXU1/ip/MercuryXU1_axis_data_fifo_0_0/MercuryXU1_axis_data_fifo_0_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==MercuryXU1_axis_data_fifo_0_0 || ORIG_REF_NAME==MercuryXU1_axis_data_fifo_0_0} -quiet] -quiet
 
@@ -376,6 +385,9 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==MercuryXU1_stre
 
 # IP: bd/MercuryXU1/ip/MercuryXU1_axi_gpio_sample_number_0/MercuryXU1_axi_gpio_sample_number_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==MercuryXU1_axi_gpio_sample_number_0 || ORIG_REF_NAME==MercuryXU1_axi_gpio_sample_number_0} -quiet] -quiet
+
+# IP: bd/MercuryXU1/ip/MercuryXU1_axis_data_fifo_1_0/MercuryXU1_axis_data_fifo_1_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==MercuryXU1_axis_data_fifo_1_0 || ORIG_REF_NAME==MercuryXU1_axis_data_fifo_1_0} -quiet] -quiet
 
 # IP: bd/MercuryXU1/ip/MercuryXU1_auto_pc_0/MercuryXU1_auto_pc_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==MercuryXU1_auto_pc_0 || ORIG_REF_NAME==MercuryXU1_auto_pc_0} -quiet] -quiet
@@ -391,9 +403,6 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==MercuryXU1_s00_
 
 # IP: bd/MercuryXU1/ip/MercuryXU1_s01_regslice_0/MercuryXU1_s01_regslice_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==MercuryXU1_s01_regslice_0 || ORIG_REF_NAME==MercuryXU1_s01_regslice_0} -quiet] -quiet
-
-# IP: bd/MercuryXU1/ip/MercuryXU1_s01_data_fifo_0/MercuryXU1_s01_data_fifo_0.xci
-set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==MercuryXU1_s01_data_fifo_0 || ORIG_REF_NAME==MercuryXU1_s01_data_fifo_0} -quiet] -quiet
 
 # IP: bd/MercuryXU1/ip/MercuryXU1_auto_ss_k_0/MercuryXU1_auto_ss_k_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==MercuryXU1_auto_ss_k_0 || ORIG_REF_NAME==MercuryXU1_auto_ss_k_0} -quiet] -quiet
@@ -553,6 +562,8 @@ set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {R
 
 # XDC: bd/MercuryXU1/ip/MercuryXU1_system_ila_0_3/MercuryXU1_system_ila_0_3_ooc.xdc
 
+# XDC: bd/MercuryXU1/ip/MercuryXU1_tlast_generator_0_0/MercuryXU1_tlast_generator_0_0_ooc.xdc
+
 # XDC: bd/MercuryXU1/ip/MercuryXU1_axi_gpio_0_2/MercuryXU1_axi_gpio_0_2_board.xdc
 set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==MercuryXU1_axi_gpio_0_2 || ORIG_REF_NAME==MercuryXU1_axi_gpio_0_2} -quiet] {/U0 } ]/U0 ] -quiet] -quiet
 
@@ -623,6 +634,8 @@ set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {R
 
 # XDC: bd/MercuryXU1/ip/MercuryXU1_axis_clock_converter_0_1/MercuryXU1_axis_clock_converter_0_1_ooc.xdc
 
+# XDC: bd/MercuryXU1/ip/MercuryXU1_tlast_generator_0_1/MercuryXU1_tlast_generator_0_1_ooc.xdc
+
 # XDC: bd/MercuryXU1/ip/MercuryXU1_axis_data_fifo_0_0/MercuryXU1_axis_data_fifo_0_0_ooc.xdc
 
 # XDC: bd/MercuryXU1/ip/MercuryXU1_axi_gpio_sample_number_0/MercuryXU1_axi_gpio_sample_number_0_board.xdc
@@ -632,6 +645,8 @@ set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {R
 
 # XDC: bd/MercuryXU1/ip/MercuryXU1_axi_gpio_sample_number_0/MercuryXU1_axi_gpio_sample_number_0.xdc
 #dup# set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==MercuryXU1_axi_gpio_sample_number_0 || ORIG_REF_NAME==MercuryXU1_axi_gpio_sample_number_0} -quiet] {/U0 } ]/U0 ] -quiet] -quiet
+
+# XDC: bd/MercuryXU1/ip/MercuryXU1_axis_data_fifo_1_0/MercuryXU1_axis_data_fifo_1_0_ooc.xdc
 
 # XDC: bd/MercuryXU1/ip/MercuryXU1_auto_pc_0/MercuryXU1_auto_pc_0_ooc.xdc
 
@@ -646,8 +661,6 @@ set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {R
 set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==MercuryXU1_s01_regslice_0 || ORIG_REF_NAME==MercuryXU1_s01_regslice_0} -quiet] {/inst } ]/inst ] -quiet] -quiet
 
 # XDC: bd/MercuryXU1/ip/MercuryXU1_s01_regslice_0/MercuryXU1_s01_regslice_0_ooc.xdc
-
-# XDC: bd/MercuryXU1/ip/MercuryXU1_s01_data_fifo_0/MercuryXU1_s01_data_fifo_0_ooc.xdc
 
 # XDC: bd/MercuryXU1/ip/MercuryXU1_auto_ss_k_0/MercuryXU1_auto_ss_k_0_ooc.xdc
 

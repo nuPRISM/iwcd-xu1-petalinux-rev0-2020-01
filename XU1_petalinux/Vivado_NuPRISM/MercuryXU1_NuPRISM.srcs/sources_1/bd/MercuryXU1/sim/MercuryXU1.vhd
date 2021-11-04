@@ -1,8 +1,8 @@
 --Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
---Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
---Date        : Tue Jul 13 12:13:04 2021
---Host        : hyperk running 64-bit Ubuntu 18.04.5 LTS
+--Tool Version: Vivado v.2020.1.1 (win64) Build 2960000 Wed Aug  5 22:57:20 MDT 2020
+--Date        : Fri Oct  8 18:39:40 2021
+--Host        : aurochs running 64-bit Service Pack 1  (build 7601)
 --Command     : generate_target MercuryXU1.bd
 --Design      : MercuryXU1
 --Purpose     : IP block netlist
@@ -1216,24 +1216,6 @@ architecture STRUCTURE of s01_couplers_imp_ACK04T is
     m_axis_tlast : out STD_LOGIC
   );
   end component MercuryXU1_s01_regslice_0;
-  component MercuryXU1_s01_data_fifo_0 is
-  port (
-    s_axis_aresetn : in STD_LOGIC;
-    s_axis_aclk : in STD_LOGIC;
-    s_axis_tvalid : in STD_LOGIC;
-    s_axis_tready : out STD_LOGIC;
-    s_axis_tdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    s_axis_tkeep : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    s_axis_tlast : in STD_LOGIC;
-    m_axis_tvalid : out STD_LOGIC;
-    m_axis_tready : in STD_LOGIC;
-    m_axis_tdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
-    m_axis_tkeep : out STD_LOGIC_VECTOR ( 3 downto 0 );
-    m_axis_tlast : out STD_LOGIC;
-    axis_wr_data_count : out STD_LOGIC_VECTOR ( 31 downto 0 );
-    axis_rd_data_count : out STD_LOGIC_VECTOR ( 31 downto 0 )
-  );
-  end component MercuryXU1_s01_data_fifo_0;
   component MercuryXU1_auto_ss_k_0 is
   port (
     aclk : in STD_LOGIC;
@@ -1249,66 +1231,42 @@ architecture STRUCTURE of s01_couplers_imp_ACK04T is
     m_axis_tlast : out STD_LOGIC
   );
   end component MercuryXU1_auto_ss_k_0;
-  signal AXIS_RD_DATA_COUNT_to_S_AXIS_RD_DATA_COUNT : STD_LOGIC_VECTOR ( 31 downto 0 );
-  signal AXIS_WR_DATA_COUNT_to_S_AXIS_WR_DATA_COUNT : STD_LOGIC_VECTOR ( 31 downto 0 );
-  signal auto_ss_k_to_s01_data_fifo_TDATA : STD_LOGIC_VECTOR ( 31 downto 0 );
-  signal auto_ss_k_to_s01_data_fifo_TKEEP : STD_LOGIC_VECTOR ( 3 downto 0 );
-  signal auto_ss_k_to_s01_data_fifo_TLAST : STD_LOGIC;
-  signal auto_ss_k_to_s01_data_fifo_TREADY : STD_LOGIC;
-  signal auto_ss_k_to_s01_data_fifo_TVALID : STD_LOGIC;
+  signal auto_ss_k_to_s01_couplers_TDATA : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal auto_ss_k_to_s01_couplers_TKEEP : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal auto_ss_k_to_s01_couplers_TLAST : STD_LOGIC;
+  signal auto_ss_k_to_s01_couplers_TREADY : STD_LOGIC;
+  signal auto_ss_k_to_s01_couplers_TVALID : STD_LOGIC;
   signal s01_couplers_to_s01_regslice_TDATA : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal s01_couplers_to_s01_regslice_TLAST : STD_LOGIC;
   signal s01_couplers_to_s01_regslice_TREADY : STD_LOGIC;
   signal s01_couplers_to_s01_regslice_TVALID : STD_LOGIC;
-  signal s01_data_fifo_to_s01_couplers_TDATA : STD_LOGIC_VECTOR ( 31 downto 0 );
-  signal s01_data_fifo_to_s01_couplers_TKEEP : STD_LOGIC_VECTOR ( 3 downto 0 );
-  signal s01_data_fifo_to_s01_couplers_TLAST : STD_LOGIC;
-  signal s01_data_fifo_to_s01_couplers_TREADY : STD_LOGIC;
-  signal s01_data_fifo_to_s01_couplers_TVALID : STD_LOGIC;
   signal s01_regslice_to_auto_ss_k_TDATA : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal s01_regslice_to_auto_ss_k_TLAST : STD_LOGIC;
   signal s01_regslice_to_auto_ss_k_TREADY : STD_LOGIC;
   signal s01_regslice_to_auto_ss_k_TVALID : STD_LOGIC;
 begin
-  M_AXIS_tdata(31 downto 0) <= s01_data_fifo_to_s01_couplers_TDATA(31 downto 0);
-  M_AXIS_tkeep(3 downto 0) <= s01_data_fifo_to_s01_couplers_TKEEP(3 downto 0);
-  M_AXIS_tlast <= s01_data_fifo_to_s01_couplers_TLAST;
-  M_AXIS_tvalid <= s01_data_fifo_to_s01_couplers_TVALID;
+  M_AXIS_tdata(31 downto 0) <= auto_ss_k_to_s01_couplers_TDATA(31 downto 0);
+  M_AXIS_tkeep(3 downto 0) <= auto_ss_k_to_s01_couplers_TKEEP(3 downto 0);
+  M_AXIS_tlast <= auto_ss_k_to_s01_couplers_TLAST;
+  M_AXIS_tvalid <= auto_ss_k_to_s01_couplers_TVALID;
   S_AXIS_tready <= s01_couplers_to_s01_regslice_TREADY;
+  auto_ss_k_to_s01_couplers_TREADY <= M_AXIS_tready;
   s01_couplers_to_s01_regslice_TDATA(31 downto 0) <= S_AXIS_tdata(31 downto 0);
   s01_couplers_to_s01_regslice_TLAST <= S_AXIS_tlast;
   s01_couplers_to_s01_regslice_TVALID <= S_AXIS_tvalid;
-  s01_data_fifo_to_s01_couplers_TREADY <= M_AXIS_tready;
 auto_ss_k: component MercuryXU1_auto_ss_k_0
      port map (
       aclk => S_AXIS_ACLK,
       aresetn => S_AXIS_ARESETN,
-      m_axis_tdata(31 downto 0) => auto_ss_k_to_s01_data_fifo_TDATA(31 downto 0),
-      m_axis_tkeep(3 downto 0) => auto_ss_k_to_s01_data_fifo_TKEEP(3 downto 0),
-      m_axis_tlast => auto_ss_k_to_s01_data_fifo_TLAST,
-      m_axis_tready => auto_ss_k_to_s01_data_fifo_TREADY,
-      m_axis_tvalid => auto_ss_k_to_s01_data_fifo_TVALID,
+      m_axis_tdata(31 downto 0) => auto_ss_k_to_s01_couplers_TDATA(31 downto 0),
+      m_axis_tkeep(3 downto 0) => auto_ss_k_to_s01_couplers_TKEEP(3 downto 0),
+      m_axis_tlast => auto_ss_k_to_s01_couplers_TLAST,
+      m_axis_tready => auto_ss_k_to_s01_couplers_TREADY,
+      m_axis_tvalid => auto_ss_k_to_s01_couplers_TVALID,
       s_axis_tdata(31 downto 0) => s01_regslice_to_auto_ss_k_TDATA(31 downto 0),
       s_axis_tlast => s01_regslice_to_auto_ss_k_TLAST,
       s_axis_tready => s01_regslice_to_auto_ss_k_TREADY,
       s_axis_tvalid => s01_regslice_to_auto_ss_k_TVALID
-    );
-s01_data_fifo: component MercuryXU1_s01_data_fifo_0
-     port map (
-      axis_rd_data_count(31 downto 0) => AXIS_RD_DATA_COUNT_to_S_AXIS_RD_DATA_COUNT(31 downto 0),
-      axis_wr_data_count(31 downto 0) => AXIS_WR_DATA_COUNT_to_S_AXIS_WR_DATA_COUNT(31 downto 0),
-      m_axis_tdata(31 downto 0) => s01_data_fifo_to_s01_couplers_TDATA(31 downto 0),
-      m_axis_tkeep(3 downto 0) => s01_data_fifo_to_s01_couplers_TKEEP(3 downto 0),
-      m_axis_tlast => s01_data_fifo_to_s01_couplers_TLAST,
-      m_axis_tready => s01_data_fifo_to_s01_couplers_TREADY,
-      m_axis_tvalid => s01_data_fifo_to_s01_couplers_TVALID,
-      s_axis_aclk => M_AXIS_ACLK,
-      s_axis_aresetn => M_AXIS_ARESETN,
-      s_axis_tdata(31 downto 0) => auto_ss_k_to_s01_data_fifo_TDATA(31 downto 0),
-      s_axis_tkeep(3 downto 0) => auto_ss_k_to_s01_data_fifo_TKEEP(3 downto 0),
-      s_axis_tlast => auto_ss_k_to_s01_data_fifo_TLAST,
-      s_axis_tready => auto_ss_k_to_s01_data_fifo_TREADY,
-      s_axis_tvalid => auto_ss_k_to_s01_data_fifo_TVALID
     );
 s01_regslice: component MercuryXU1_s01_regslice_0
      port map (
@@ -2766,7 +2724,8 @@ entity MercuryXU1 is
     ps_spi_0_sck_o : out STD_LOGIC;
     ps_spi_0_sck_t : out STD_LOGIC;
     ps_spi_0_ss_t : out STD_LOGIC;
-    sample_clk : in STD_LOGIC
+    sample_clk : in STD_LOGIC;
+    trigger_external : in STD_LOGIC
   );
   attribute CORE_GENERATION_INFO : string;
   attribute CORE_GENERATION_INFO of MercuryXU1 : entity is "MercuryXU1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=MercuryXU1,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=50,numReposBlks=37,numNonXlnxBlks=0,numHierBlks=13,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=3,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=5,synth_mode=Global}";
@@ -3668,9 +3627,47 @@ architecture STRUCTURE of MercuryXU1 is
   component MercuryXU1_xlslice_2_0 is
   port (
     Din : in STD_LOGIC_VECTOR ( 19 downto 0 );
-    Dout : out STD_LOGIC_VECTOR ( 0 to 0 )
+    Dout : out STD_LOGIC_VECTOR ( 2 downto 0 )
   );
   end component MercuryXU1_xlslice_2_0;
+  component MercuryXU1_axi_gpio_sample_number_0 is
+  port (
+    s_axi_aclk : in STD_LOGIC;
+    s_axi_aresetn : in STD_LOGIC;
+    s_axi_awaddr : in STD_LOGIC_VECTOR ( 8 downto 0 );
+    s_axi_awvalid : in STD_LOGIC;
+    s_axi_awready : out STD_LOGIC;
+    s_axi_wdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    s_axi_wstrb : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    s_axi_wvalid : in STD_LOGIC;
+    s_axi_wready : out STD_LOGIC;
+    s_axi_bresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    s_axi_bvalid : out STD_LOGIC;
+    s_axi_bready : in STD_LOGIC;
+    s_axi_araddr : in STD_LOGIC_VECTOR ( 8 downto 0 );
+    s_axi_arvalid : in STD_LOGIC;
+    s_axi_arready : out STD_LOGIC;
+    s_axi_rdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    s_axi_rresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    s_axi_rvalid : out STD_LOGIC;
+    s_axi_rready : in STD_LOGIC;
+    gpio_io_o : out STD_LOGIC_VECTOR ( 31 downto 0 )
+  );
+  end component MercuryXU1_axi_gpio_sample_number_0;
+  component MercuryXU1_axis_data_fifo_1_0 is
+  port (
+    s_axis_aresetn : in STD_LOGIC;
+    s_axis_aclk : in STD_LOGIC;
+    s_axis_tvalid : in STD_LOGIC;
+    s_axis_tready : out STD_LOGIC;
+    s_axis_tdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    s_axis_tlast : in STD_LOGIC;
+    m_axis_tvalid : out STD_LOGIC;
+    m_axis_tready : in STD_LOGIC;
+    m_axis_tdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    m_axis_tlast : out STD_LOGIC
+  );
+  end component MercuryXU1_axis_data_fifo_1_0;
   component MercuryXU1_stream_multiplexer_0_0 is
   port (
     clk_sample : in STD_LOGIC;
@@ -3707,12 +3704,15 @@ architecture STRUCTURE of MercuryXU1 is
     clk : in STD_LOGIC;
     rst_n : in STD_LOGIC;
     num_samples_per_packet : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    triger_enable : in STD_LOGIC;
-    triger : in STD_LOGIC;
+    trigger_mode : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    trigger_ps : in STD_LOGIC;
+    trigger_external : in STD_LOGIC;
+    trigger_internal_in : in STD_LOGIC;
+    trigger_internal_out : out STD_LOGIC;
     data : in STD_LOGIC_VECTOR ( 31 downto 0 );
     data_enable : in STD_LOGIC;
     counter : out STD_LOGIC_VECTOR ( 31 downto 0 );
-    triger_test : out STD_LOGIC_VECTOR ( 2 downto 0 );
+    trigger_test : out STD_LOGIC_VECTOR ( 2 downto 0 );
     m_axis_tdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
     m_axis_tvalid : out STD_LOGIC;
     m_axis_tlast : out STD_LOGIC;
@@ -3724,42 +3724,21 @@ architecture STRUCTURE of MercuryXU1 is
     clk : in STD_LOGIC;
     rst_n : in STD_LOGIC;
     num_samples_per_packet : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    triger_enable : in STD_LOGIC;
-    triger : in STD_LOGIC;
+    trigger_mode : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    trigger_ps : in STD_LOGIC;
+    trigger_external : in STD_LOGIC;
+    trigger_internal_in : in STD_LOGIC;
+    trigger_internal_out : out STD_LOGIC;
     data : in STD_LOGIC_VECTOR ( 31 downto 0 );
     data_enable : in STD_LOGIC;
     counter : out STD_LOGIC_VECTOR ( 31 downto 0 );
-    triger_test : out STD_LOGIC_VECTOR ( 2 downto 0 );
+    trigger_test : out STD_LOGIC_VECTOR ( 2 downto 0 );
     m_axis_tdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
     m_axis_tvalid : out STD_LOGIC;
     m_axis_tlast : out STD_LOGIC;
     m_axis_tready : in STD_LOGIC
   );
   end component MercuryXU1_tlast_generator_0_1;
-  component MercuryXU1_axi_gpio_sample_number_0 is
-  port (
-    s_axi_aclk : in STD_LOGIC;
-    s_axi_aresetn : in STD_LOGIC;
-    s_axi_awaddr : in STD_LOGIC_VECTOR ( 8 downto 0 );
-    s_axi_awvalid : in STD_LOGIC;
-    s_axi_awready : out STD_LOGIC;
-    s_axi_wdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    s_axi_wstrb : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    s_axi_wvalid : in STD_LOGIC;
-    s_axi_wready : out STD_LOGIC;
-    s_axi_bresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
-    s_axi_bvalid : out STD_LOGIC;
-    s_axi_bready : in STD_LOGIC;
-    s_axi_araddr : in STD_LOGIC_VECTOR ( 8 downto 0 );
-    s_axi_arvalid : in STD_LOGIC;
-    s_axi_arready : out STD_LOGIC;
-    s_axi_rdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
-    s_axi_rresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
-    s_axi_rvalid : out STD_LOGIC;
-    s_axi_rready : in STD_LOGIC;
-    gpio_io_o : out STD_LOGIC_VECTOR ( 31 downto 0 )
-  );
-  end component MercuryXU1_axi_gpio_sample_number_0;
   signal aclk_0_1 : STD_LOGIC;
   signal adc0_sample_0_1 : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal adc10_sample_0_1 : STD_LOGIC_VECTOR ( 31 downto 0 );
@@ -4008,6 +3987,10 @@ architecture STRUCTURE of MercuryXU1 is
   attribute CONN_BUS_INFO of axis_data_fifo_0_M_AXIS_TVALID : signal is "axis_data_fifo_0_M_AXIS xilinx.com:interface:axis:1.0 None TVALID";
   attribute DEBUG of axis_data_fifo_0_M_AXIS_TVALID : signal is "true";
   attribute MARK_DEBUG of axis_data_fifo_0_M_AXIS_TVALID : signal is std.standard.true;
+  signal axis_data_fifo_2_M_AXIS_TDATA : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal axis_data_fifo_2_M_AXIS_TLAST : STD_LOGIC;
+  signal axis_data_fifo_2_M_AXIS_TREADY : STD_LOGIC;
+  signal axis_data_fifo_2_M_AXIS_TVALID : STD_LOGIC;
   signal axis_interconnect_0_M00_AXIS_TDATA : STD_LOGIC_VECTOR ( 31 downto 0 );
   attribute CONN_BUS_INFO of axis_interconnect_0_M00_AXIS_TDATA : signal is "axis_interconnect_0_M00_AXIS xilinx.com:interface:axis:1.0 None TDATA";
   attribute DEBUG of axis_interconnect_0_M00_AXIS_TDATA : signal is "true";
@@ -4440,18 +4423,21 @@ architecture STRUCTURE of MercuryXU1 is
   signal stream_multiplexer_0_adc_sample_valid_selected_1 : STD_LOGIC;
   signal tlast_generator_0_counter : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal tlast_generator_0_triger_test : STD_LOGIC_VECTOR ( 2 downto 0 );
+  signal tlast_generator_0_trigger_internal_out : STD_LOGIC;
   signal tlast_generator_1_counter : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal tlast_generator_1_m_axis_TDATA : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal tlast_generator_1_m_axis_TLAST : STD_LOGIC;
   signal tlast_generator_1_m_axis_TREADY : STD_LOGIC;
   signal tlast_generator_1_m_axis_TVALID : STD_LOGIC;
   signal tlast_generator_1_triger_test : STD_LOGIC_VECTOR ( 2 downto 0 );
+  signal tlast_generator_1_trigger_internal_out : STD_LOGIC;
+  signal trigger_external_0_1 : STD_LOGIC;
   signal xlconcat_irq_dout : STD_LOGIC_VECTOR ( 2 downto 0 );
   signal xlslice_0_Dout : STD_LOGIC_VECTOR ( 0 to 0 );
   signal xlslice_1_Dout : STD_LOGIC_VECTOR ( 0 to 0 );
   signal xlslice_2_Dout : STD_LOGIC_VECTOR ( 0 to 0 );
   signal xlslice_2_Dout1 : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal xlslice_3_Dout : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal xlslice_3_5_Dout : STD_LOGIC_VECTOR ( 2 downto 0 );
   signal zynq_ultra_ps_e_0_IIC_0_SCL_I : STD_LOGIC;
   signal zynq_ultra_ps_e_0_IIC_0_SCL_O : STD_LOGIC;
   signal zynq_ultra_ps_e_0_IIC_0_SCL_T : STD_LOGIC;
@@ -4608,6 +4594,7 @@ begin
   ps_spi_0_sck_o <= zynq_ultra_ps_e_0_SPI_0_SCK_O;
   ps_spi_0_sck_t <= zynq_ultra_ps_e_0_SPI_0_SCK_T;
   ps_spi_0_ss_t <= zynq_ultra_ps_e_0_SPI_0_SS_T;
+  trigger_external_0_1 <= trigger_external;
   zynq_ultra_ps_e_0_IIC_0_SCL_I <= ps_master_i2c_scl_i;
   zynq_ultra_ps_e_0_IIC_0_SDA_I <= ps_master_i2c_sda_i;
   zynq_ultra_ps_e_0_SPI_0_IO0_I <= ps_spi_0_io0_i;
@@ -4906,7 +4893,20 @@ axis_clock_converter_1: component MercuryXU1_axis_clock_converter_0_1
       s_axis_tready => tlast_generator_1_m_axis_TREADY,
       s_axis_tvalid => tlast_generator_1_m_axis_TVALID
     );
-axis_data_fifo_0: component MercuryXU1_axis_data_fifo_0_0
+axis_data_fifo_0: component MercuryXU1_axis_data_fifo_1_0
+     port map (
+      m_axis_tdata(31 downto 0) => axis_data_fifo_2_M_AXIS_TDATA(31 downto 0),
+      m_axis_tlast => axis_data_fifo_2_M_AXIS_TLAST,
+      m_axis_tready => axis_data_fifo_2_M_AXIS_TREADY,
+      m_axis_tvalid => axis_data_fifo_2_M_AXIS_TVALID,
+      s_axis_aclk => zynq_ultra_ps_e_0_pl_clk3,
+      s_axis_aresetn => proc_sys_reset_300_peripheral_aresetn(0),
+      s_axis_tdata(31 downto 0) => axis_clock_converter_0_M_AXIS_TDATA(31 downto 0),
+      s_axis_tlast => axis_clock_converter_0_M_AXIS_TLAST,
+      s_axis_tready => axis_clock_converter_0_M_AXIS_TREADY,
+      s_axis_tvalid => axis_clock_converter_0_M_AXIS_TVALID
+    );
+axis_data_fifo_1: component MercuryXU1_axis_data_fifo_0_0
      port map (
       m_axis_tdata(31 downto 0) => axis_data_fifo_0_M_AXIS_TDATA(31 downto 0),
       m_axis_tlast => axis_data_fifo_0_M_AXIS_TLAST,
@@ -4941,10 +4941,10 @@ axis_interconnect_0: entity work.MercuryXU1_axis_interconnect_0_0
       S01_ARB_REQ_SUPPRESS => xlslice_1_Dout(0),
       S01_AXIS_ACLK => zynq_ultra_ps_e_0_pl_clk3,
       S01_AXIS_ARESETN => proc_sys_reset_300_peripheral_aresetn(0),
-      S01_AXIS_tdata(31 downto 0) => axis_clock_converter_0_M_AXIS_TDATA(31 downto 0),
-      S01_AXIS_tlast => axis_clock_converter_0_M_AXIS_TLAST,
-      S01_AXIS_tready => axis_clock_converter_0_M_AXIS_TREADY,
-      S01_AXIS_tvalid => axis_clock_converter_0_M_AXIS_TVALID
+      S01_AXIS_tdata(31 downto 0) => axis_data_fifo_2_M_AXIS_TDATA(31 downto 0),
+      S01_AXIS_tlast => axis_data_fifo_2_M_AXIS_TLAST,
+      S01_AXIS_tready => axis_data_fifo_2_M_AXIS_TREADY,
+      S01_AXIS_tvalid => axis_data_fifo_2_M_AXIS_TVALID
     );
 proc_sys_reset_100: component MercuryXU1_proc_sys_reset_0_0
      port map (
@@ -5572,9 +5572,12 @@ tlast_generator_0: component MercuryXU1_tlast_generator_0_0
       m_axis_tvalid => axis_subset_converter_0_M_AXIS_TVALID,
       num_samples_per_packet(31 downto 0) => axi_gpio_sample_number_gpio_io_o(31 downto 0),
       rst_n => aresetn_0_1(0),
-      triger => xlslice_2_Dout1(0),
-      triger_enable => xlslice_3_Dout(0),
-      triger_test(2 downto 0) => tlast_generator_0_triger_test(2 downto 0)
+      trigger_external => trigger_external_0_1,
+      trigger_internal_in => tlast_generator_1_trigger_internal_out,
+      trigger_internal_out => tlast_generator_0_trigger_internal_out,
+      trigger_mode(2 downto 0) => xlslice_3_5_Dout(2 downto 0),
+      trigger_ps => xlslice_2_Dout1(0),
+      trigger_test(2 downto 0) => tlast_generator_0_triger_test(2 downto 0)
     );
 tlast_generator_1: component MercuryXU1_tlast_generator_0_1
      port map (
@@ -5588,9 +5591,12 @@ tlast_generator_1: component MercuryXU1_tlast_generator_0_1
       m_axis_tvalid => tlast_generator_1_m_axis_TVALID,
       num_samples_per_packet(31 downto 0) => axi_gpio_sample_number_gpio_io_o(31 downto 0),
       rst_n => aresetn_0_1(0),
-      triger => xlslice_2_Dout1(0),
-      triger_enable => xlslice_3_Dout(0),
-      triger_test(2 downto 0) => tlast_generator_1_triger_test(2 downto 0)
+      trigger_external => trigger_external_0_1,
+      trigger_internal_in => tlast_generator_0_trigger_internal_out,
+      trigger_internal_out => tlast_generator_1_trigger_internal_out,
+      trigger_mode(2 downto 0) => xlslice_3_5_Dout(2 downto 0),
+      trigger_ps => xlslice_2_Dout1(0),
+      trigger_test(2 downto 0) => tlast_generator_1_triger_test(2 downto 0)
     );
 xlconcat_irq: component MercuryXU1_xlconcat_0_0
      port map (
@@ -5619,10 +5625,10 @@ xlslice_2: component MercuryXU1_xlslice_1_1
       Din(19 downto 0) => axi_gpio_suppres_gpio_io_o(19 downto 0),
       Dout(0) => xlslice_2_Dout1(0)
     );
-xlslice_3: component MercuryXU1_xlslice_2_0
+xlslice_3_5: component MercuryXU1_xlslice_2_0
      port map (
       Din(19 downto 0) => axi_gpio_suppres_gpio_io_o(19 downto 0),
-      Dout(0) => xlslice_3_Dout(0)
+      Dout(2 downto 0) => xlslice_3_5_Dout(2 downto 0)
     );
 zynq_ultra_ps_e_0: component MercuryXU1_zynq_ultra_ps_e_0_0
      port map (

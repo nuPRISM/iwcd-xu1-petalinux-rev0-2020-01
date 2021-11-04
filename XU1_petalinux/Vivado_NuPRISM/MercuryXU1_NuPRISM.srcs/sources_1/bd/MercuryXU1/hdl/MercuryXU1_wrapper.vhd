@@ -1,8 +1,8 @@
 --Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
---Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
---Date        : Tue Jul 13 12:13:04 2021
---Host        : hyperk running 64-bit Ubuntu 18.04.5 LTS
+--Tool Version: Vivado v.2020.1.1 (win64) Build 2960000 Wed Aug  5 22:57:20 MDT 2020
+--Date        : Fri Oct  8 18:39:40 2021
+--Host        : aurochs running 64-bit Service Pack 1  (build 7601)
 --Command     : generate_target MercuryXU1_wrapper.bd
 --Design      : MercuryXU1_wrapper
 --Purpose     : IP block netlist
@@ -45,7 +45,8 @@ entity MercuryXU1_wrapper is
     ps_spi_0_io1_io : inout STD_LOGIC;
     ps_spi_0_sck_io : inout STD_LOGIC;
     ps_spi_0_ss_t : out STD_LOGIC;
-    sample_clk : in STD_LOGIC
+    sample_clk : in STD_LOGIC;
+    trigger_external : in STD_LOGIC
   );
 end MercuryXU1_wrapper;
 
@@ -94,7 +95,8 @@ architecture STRUCTURE of MercuryXU1_wrapper is
     ps_master_i2c_scl_t : out STD_LOGIC;
     ps_master_i2c_sda_i : in STD_LOGIC;
     ps_master_i2c_sda_o : out STD_LOGIC;
-    ps_master_i2c_sda_t : out STD_LOGIC
+    ps_master_i2c_sda_t : out STD_LOGIC;
+    trigger_external : in STD_LOGIC
   );
   end component MercuryXU1;
   component IOBUF is
@@ -165,7 +167,8 @@ MercuryXU1_i: component MercuryXU1
       ps_spi_0_sck_o => ps_spi_0_sck_o,
       ps_spi_0_sck_t => ps_spi_0_sck_t,
       ps_spi_0_ss_t => ps_spi_0_ss_t,
-      sample_clk => sample_clk
+      sample_clk => sample_clk,
+      trigger_external => trigger_external
     );
 ps_master_i2c_scl_iobuf: component IOBUF
      port map (

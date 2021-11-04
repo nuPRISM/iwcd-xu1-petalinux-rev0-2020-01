@@ -50,10 +50,10 @@
 // IP VLNV: xilinx.com:ip:axis_subset_converter:1.1
 // IP Revision: 21
 
-(* X_CORE_INFO = "top_MercuryXU1_auto_ss_k_0,Vivado 2020.1" *)
+(* X_CORE_INFO = "top_MercuryXU1_auto_ss_k_0,Vivado 2020.1.1" *)
 (* CHECK_LICENSE_TYPE = "MercuryXU1_auto_ss_k_0,top_MercuryXU1_auto_ss_k_0,{}" *)
-(* CORE_GENERATION_INFO = "MercuryXU1_auto_ss_k_0,top_MercuryXU1_auto_ss_k_0,{x_ipProduct=Vivado 2020.1,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=axis_subset_converter,x_ipVersion=1.1,x_ipCoreRevision=21,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED,C_FAMILY=zynquplus,C_S_AXIS_TDATA_WIDTH=32,C_S_AXIS_TID_WIDTH=1,C_S_AXIS_TDEST_WIDTH=1,C_S_AXIS_TUSER_WIDTH=1,C_S_AXIS_SIGNAL_SET=0b00000000000000000000000000010011,C_M_AXIS_TDATA_WIDTH=32,C_M_AXIS_TID_WIDTH=1,C_M_AXIS_TDEST_WIDTH=1,C_M_AXIS_SIGNAL_SET=0b000000000000000000000000\
-00011011,C_M_AXIS_TUSER_WIDTH=1,C_DEFAULT_TLAST=0}" *)
+(* CORE_GENERATION_INFO = "MercuryXU1_auto_ss_k_0,top_MercuryXU1_auto_ss_k_0,{x_ipProduct=Vivado 2020.1.1,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=axis_subset_converter,x_ipVersion=1.1,x_ipCoreRevision=21,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED,C_FAMILY=zynquplus,C_S_AXIS_TDATA_WIDTH=32,C_S_AXIS_TID_WIDTH=1,C_S_AXIS_TDEST_WIDTH=1,C_S_AXIS_TUSER_WIDTH=1,C_S_AXIS_SIGNAL_SET=0b00000000000000000000000000010011,C_M_AXIS_TDATA_WIDTH=32,C_M_AXIS_TID_WIDTH=1,C_M_AXIS_TDEST_WIDTH=1,C_M_AXIS_SIGNAL_SET=0b0000000000000000000000\
+0000011011,C_M_AXIS_TUSER_WIDTH=1,C_DEFAULT_TLAST=0}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module MercuryXU1_auto_ss_k_0 (
   aclk,

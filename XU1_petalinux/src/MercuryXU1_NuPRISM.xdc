@@ -70,6 +70,7 @@ set_property IOSTANDARD LVCMOS25 [get_ports FPGA*]
 set_property IOSTANDARD LVCMOS25 [get_ports MEZZ*]
 set_property IOSTANDARD LVCMOS25 [get_ports IO_B*]
 set_property IOSTANDARD LVCMOS25 [get_ports CLNR*]
+set_property IOSTANDARD LVCMOS25 [get_ports trigger_external]
 
 
 # -------------------------------------------------------------------------------------------------
@@ -249,7 +250,7 @@ set_property PACKAGE_PIN U5 [get_ports ADC_SCLK]
 set_property PACKAGE_PIN B11 [get_ports IO_B48_L1_AD15_B11_N]
 set_property PACKAGE_PIN C12 [get_ports IO_B48_L1_AD15_C12_P]
 set_property PACKAGE_PIN A11 [get_ports IO_B48_L2_AD14_A11_N]
-set_property PACKAGE_PIN A12 [get_ports IO_B48_L2_AD14_A12_P]
+#set_property PACKAGE_PIN A12 [get_ports IO_B48_L2_AD14_A12_P]
 set_property PACKAGE_PIN A10 [get_ports IO_B48_L3_AD13_A10_N]
 set_property PACKAGE_PIN B10 [get_ports IO_B48_L3_AD13_B10_P]
 set_property PACKAGE_PIN C11 [get_ports IO_B48_L4_AD12_C11_N]
@@ -281,6 +282,8 @@ set_property PACKAGE_PIN C14 [get_ports SFP_LOS]
 # Mezzani
 set_property PACKAGE_PIN E13 [get_ports B47_GC_E14_n]
 set_property PACKAGE_PIN E14 [get_ports B47_GC_E14_p]
+
+set_property PACKAGE_PIN A12 [get_ports trigger_external]
 
 # -------------------------------------------------------------------------------------------------
 # Termination Styles

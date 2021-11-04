@@ -980,7 +980,7 @@
     <spirit:parameter>
       <spirit:name>S01_FIFO_DEPTH</spirit:name>
       <spirit:displayName>Enable Data FIFO on interface S01_AXIS</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S01_FIFO_DEPTH" spirit:choiceRef="choice_list_aefa1458" spirit:order="1635349">1024</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S01_FIFO_DEPTH" spirit:choiceRef="choice_list_aefa1458" spirit:order="1635349">0</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>

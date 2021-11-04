@@ -66,6 +66,8 @@ Led2_N                   : out	std_logic;
   -- I2C on PL side
 I2c_Scl                  : inout	std_logic;
 I2c_Sda                  : inout	std_logic;
+
+trigger_external         : in       std_logic;
 -- Bank 64
 RJ45_LVDS_TRIG_p	     : in   	std_logic       := 'Z';
 RJ45_LVDS_TRIG_n		 : in   	std_logic       := 'Z';
@@ -261,18 +263,19 @@ architecture rtl of system_top is
     adc8_sample : in STD_LOGIC_VECTOR ( 31 downto 0 );
     adc9_sample : in STD_LOGIC_VECTOR ( 31 downto 0 );
     adc_sample_valid : in STD_LOGIC_VECTOR ( 19 downto 0 );
-    emio_spi0_ss_out : out STD_LOGIC;
+    emio_spi0_ss_out : out std_logic;
     gpio : out STD_LOGIC_VECTOR ( 19 downto 0 );
     gpio_delay_ctrl : out STD_LOGIC_VECTOR ( 31 downto 0 );
-    pl_clk1 : out STD_LOGIC;
-    pl_resetn0 : out STD_LOGIC;
-    ps_master_i2c_scl_io : inout STD_LOGIC;
-    ps_master_i2c_sda_io : inout STD_LOGIC;
-    ps_spi_0_io0_io : inout STD_LOGIC;
-    ps_spi_0_io1_io : inout STD_LOGIC;
-    ps_spi_0_sck_io : inout STD_LOGIC;
-    ps_spi_0_ss_t : out STD_LOGIC;
-    sample_clk : in STD_LOGIC
+    pl_clk1 : out std_logic;
+    pl_resetn0 : out std_logic;
+    ps_master_i2c_scl_io : inout std_logic;
+    ps_master_i2c_sda_io : inout std_logic;
+    ps_spi_0_io0_io : inout std_logic;
+    ps_spi_0_io1_io : inout std_logic;
+    ps_spi_0_sck_io : inout std_logic;
+    ps_spi_0_ss_t : out std_logic;
+    sample_clk : in std_logic;
+    trigger_external : in std_logic
     );
     end component MercuryXU1_wrapper;
 
@@ -295,9 +298,9 @@ architecture rtl of system_top is
 -----------------------------------------------------------------------------------------------
 
     -- XU1 signals
-    signal Rst_N 			: std_logic := '1';
+    signal Rst_N 		  : std_logic := '1';
     signal Rst            : std_logic := '0';
-    signal Clk			: std_logic;
+    signal Clk			  : std_logic;
     signal RstCnt         : unsigned (15 downto 0) := (others => '0');
     signal LedCount       : unsigned (23 downto 0);
 
@@ -400,7 +403,8 @@ begin
      adc19_sample => adc_sample_array(19),
 
     adc_sample_valid => sample_valid,
-    sample_clk => adc_sample_clock(0)
+    sample_clk => adc_sample_clock(0),
+    trigger_external => trigger_external
    );
 
     ------------------------------------------------------------------------------------------------
