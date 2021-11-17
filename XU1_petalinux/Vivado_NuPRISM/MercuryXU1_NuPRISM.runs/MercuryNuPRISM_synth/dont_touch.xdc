@@ -3,7 +3,7 @@
 
 # XDC: new/debug.xdc
 
-# XDC: /home/ab/Desktop/XU1_petalinux_rev6.21/src/MercuryXU1_NuPRISM.xdc
+# XDC: /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/src/MercuryXU1_NuPRISM.xdc
 
 # IP: ip/c_shift_ram_0/c_shift_ram_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==c_shift_ram_0 || ORIG_REF_NAME==c_shift_ram_0} -quiet] -quiet

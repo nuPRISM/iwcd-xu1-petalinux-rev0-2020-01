@@ -12,3 +12,4 @@ CONFIG_dma-proxy-test
 CONFIG_adc-dma2
 CONFIG_adc-dma
 CONFIG_lvds
+CONFIG_nuprism

@@ -4225,6 +4225,7 @@ CONFIG_clc=y
 CONFIG_dma-proxy-test=y
 # CONFIG_gpio-demo is not set
 CONFIG_lvds=y
+CONFIG_nuprism=y
 # CONFIG_peekpoke is not set
 
 #

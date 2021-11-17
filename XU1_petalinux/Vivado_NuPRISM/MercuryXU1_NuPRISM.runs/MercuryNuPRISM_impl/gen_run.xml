@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="MercuryNuPRISM_impl" LaunchPart="xczu6eg-ffvc900-1-i" LaunchTime="1635951503">
+<GenRun Id="MercuryNuPRISM_impl" LaunchPart="xczu6eg-ffvc900-1-i" LaunchTime="1636541779">
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <File Type="RDI-RDI" Name="system_top.vdi"/>
   <File Type="BG-DRC" Name="system_top.drc"/>

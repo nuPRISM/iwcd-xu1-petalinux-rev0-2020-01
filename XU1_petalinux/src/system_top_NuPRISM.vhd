@@ -67,7 +67,8 @@ Led2_N                   : out	std_logic;
 I2c_Scl                  : inout	std_logic;
 I2c_Sda                  : inout	std_logic;
 
-trigger_external         : in       std_logic;
+trigger_external_p       : in       std_logic       := 'Z';
+trigger_external_n       : in       std_logic       := 'Z';
 -- Bank 64
 RJ45_LVDS_TRIG_p	     : in   	std_logic       := 'Z';
 RJ45_LVDS_TRIG_n		 : in   	std_logic       := 'Z';
@@ -310,12 +311,7 @@ architecture rtl of system_top is
     -- LVDS output signals
     signal RJ45_LVDS_TRIG : std_logic;
 
---    signal adc_b65_mmcm_dclk_p          : sl;
---    signal adc_b65_mmcm_dclk_n          : sl;
---    signal adc_b65_b64_mmcm_dclk        : sl;
---    signal adc_b65_b66_mmcm_dclk        : sl;
---    signal adc_b65_sample_clock         : sl;
-    
+  
     signal adc_mmcm_dclk_p              : slv(4 downto 0);
     signal adc_mmcm_dclk_n              : slv(4 downto 0);
     signal adc_sample_clock             : slv(4 downto 0);
@@ -324,9 +320,6 @@ architecture rtl of system_top is
 
     -- b64 SERDES
     constant B64_SERDES_WIDTH : integer := 16; -- ADC3 (DA,DB) {4}, ADC4 (!DA) {6}
---    signal adc_b64_sample_clock         : sl;
---    signal adc_b64_pll_dclk_p           : sl;
---    signal adc_b64_pll_dclk_n           : sl;
     signal adc_serdes_locked              : slv(4 downto 0);
     --signal adc_serdes_setDelay            : Slv9Array(8 downto 0);
     signal adc_serdes_loadDelay           : slv(44 downto 0);
@@ -338,7 +331,8 @@ architecture rtl of system_top is
     --
     signal adc_sample_array      : Slv32Array(19 downto 0);
     signal sample_valid          : std_logic_vector(19 downto 0);
-
+    signal trigger_external      : std_logic;
+    
     -- serial
     signal adc_ss_in  : std_logic;
     signal adc_ss_tri : std_logic;
@@ -361,6 +355,7 @@ architecture rtl of system_top is
     attribute mark_debug of Gpio      : signal is "true";
     attribute mark_debug of ADC_RST   : signal is "true";
     attribute mark_debug of ADC_PDN   : signal is "true";
+    attribute mark_debug of trigger_external   : signal is "true";
 
 begin
 
@@ -406,6 +401,15 @@ begin
     sample_clk => adc_sample_clock(0),
     trigger_external => trigger_external
    );
+
+   U_Trig : IBUFDS
+      generic map (
+         DIFF_TERM => true)
+      port map (
+         I  => trigger_external_p,
+         IB => trigger_external_n,
+         O  => trigger_external
+      );
 
     ------------------------------------------------------------------------------------------------
     -- serial
@@ -463,43 +467,8 @@ begin
 --    Led2_N <= Gpio(2);
 
     -- -----------------------------------------------------------------------------------------------
-    -- -- Clock Management & PLLs
+    -- one-bit input port assignments to vectors 
     -- -----------------------------------------------------------------------------------------------
---    serdes_clock_b65 : clk_wiz_0_b65_mmcm
---    port map (
---    -- Clock out ports
---    clk_out1_b65_mmcm_b64_375p0 => adc_b65_b64_mmcm_dclk,
---    clk_out2_b65_mmcm_b65_375p0 => adc_b65_mmcm_dclk_p,
---    clk_out3_b65_mmcm_b66_375p0 => adc_b65_b66_mmcm_dclk,
---    clk_out4_b65_62p5           => adc_b65_sample_clock,
---    -- Status and control signals
---    reset => '0',
---    locked => open,
---    -- Clock in ports
---    clk_in1_p => ADC1_DCLK_p,
---    clk_in1_n => ADC1_DCLK_n
---    );
---    adc_b65_mmcm_dclk_n <= not(adc_b65_mmcm_dclk_p);
-
---    serdes_clock_b64 : clk_wiz_1_b64_b66_pll
---    port map (
---    -- Clock out ports
---    clk_out1_pll_375p0 => adc_b64_pll_dclk_p,
---    clk_out2_pll_62p5 => adc_b64_sample_clock,
---    -- Status and control signals
---    reset => '0',
---    locked => open,
---    -- Clock in ports
---    clk_in1 => adc_b65_b64_mmcm_dclk
---    );
---    adc_b64_pll_dclk_n <= not(adc_b64_pll_dclk_p);
-
-    -- -----------------------------------------------------------------------------------------------
-    -- b64 Serdes inst
-    -- -----------------------------------------------------------------------------------------------
-    -- ADC3 (DA,DB) {4}, ADC4 (!DA) {6}
-
-    --adc_serdes_setDelay(0) <= gpio_delay_ctrl(8 downto 0) ;  -- (others => "000000000");
 
     adc_serdata_diff_p  <=  ADC4_DD1_p & ADC4_DD0_p & ADC4_DC1_p & ADC4_DC0_p & ADC4_DB1_p & ADC4_DB0_p & ADC4_DA1_p & ADC4_DA0_p
                           & ADC3_DD1_p & ADC3_DD0_p & ADC3_DC1_p & ADC3_DC0_p & ADC3_DB1_p & ADC3_DB0_p & ADC3_DA1_p & ADC3_DA0_p
@@ -521,6 +490,9 @@ begin
     
     adc_mmcm_dclk_n <= not(adc_mmcm_dclk_p);
 
+    -- -----------------------------------------------------------------------------------------------
+    -- -- Clock Management & PLLs
+    -- -----------------------------------------------------------------------------------------------
     B64_C: for adc in 1 to 3 generate -- on ADC channels
         serdes_clock : clk_wiz_0_b65_mmcm
         port map (

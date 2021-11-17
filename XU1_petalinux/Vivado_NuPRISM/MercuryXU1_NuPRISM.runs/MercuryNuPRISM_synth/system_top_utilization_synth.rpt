@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-| Date         : Wed Nov  3 16:06:40 2021
+| Date         : Wed Nov 10 11:43:39 2021
 | Host         : hyperk running 64-bit Ubuntu 18.04.6 LTS
 | Command      : report_utilization -file system_top_utilization_synth.rpt -pb system_top_utilization_synth.pb
 | Design       : system_top
@@ -31,8 +31,8 @@ Table of Contents
 +----------------------------+-------+-------+-----------+-------+
 |          Site Type         |  Used | Fixed | Available | Util% |
 +----------------------------+-------+-------+-----------+-------+
-| CLB LUTs*                  | 31101 |     0 |    214604 | 14.49 |
-|   LUT as Logic             | 22898 |     0 |    214604 | 10.67 |
+| CLB LUTs*                  | 31103 |     0 |    214604 | 14.49 |
+|   LUT as Logic             | 22900 |     0 |    214604 | 10.67 |
 |   LUT as Memory            |  8203 |     0 |    144000 |  5.70 |
 |     LUT as Distributed RAM |  2796 |     0 |           |       |
 |     LUT as Shift Register  |  5407 |     0 |           |       |
@@ -97,7 +97,7 @@ Table of Contents
 +------------+------+-------+-----------+-------+
 |  Site Type | Used | Fixed | Available | Util% |
 +------------+------+-------+-----------+-------+
-| Bonded IOB |  106 |     0 |       204 | 51.96 |
+| Bonded IOB |  107 |     0 |       204 | 52.45 |
 +------------+------+-------+-----------+-------+
 
 
@@ -175,14 +175,14 @@ Table of Contents
 | FDPE       |   166 |            Register |
 | FDCE       |    68 |            Register |
 | IBUFCTRL   |    52 |              Others |
-| DIFFINBUF  |    46 |                 I/O |
+| DIFFINBUF  |    47 |                 I/O |
 | ISERDESE3  |    45 |                 I/O |
 | IDELAYE3   |    45 |                 I/O |
 | OBUF       |     8 |                 I/O |
 | SRLC16E    |     6 |                 CLB |
-| INBUF      |     6 |                 I/O |
 | OSERDESE3  |     5 |                 I/O |
 | OBUFT      |     5 |                 I/O |
+| INBUF      |     5 |                 I/O |
 | BUFGCE_DIV |     5 |               Clock |
 | BUFG_PS    |     4 |               Clock |
 | SYSMONE4   |     1 |            Advanced |

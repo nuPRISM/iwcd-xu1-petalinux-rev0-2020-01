@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-| Date         : Wed Nov  3 16:18:31 2021
+| Date         : Wed Nov 10 12:10:31 2021
 | Host         : hyperk running 64-bit Ubuntu 18.04.6 LTS
 | Command      : report_methodology -file system_top_methodology_drc_routed.rpt -pb system_top_methodology_drc_routed.pb -rpx system_top_methodology_drc_routed.rpx
 | Design       : system_top
@@ -23,7 +23,7 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 212
+             Violations found: 213
 +-----------+------------------+------------------------------------------------------------------+------------+
 | Rule      | Severity         | Description                                                      | Violations |
 +-----------+------------------+------------------------------------------------------------------+------------+
@@ -41,6 +41,7 @@ Table of Contents
 | TIMING-24 | Warning          | Overridden Max delay datapath only                               | 4          |
 | XDCC-7    | Warning          | Scoped Clock constraint overwritten on the same source           | 3          |
 | CLKC-8    | Advisory         | BUFGCE_DIV with active CE or DIVIDE not 1 has BUFG driver        | 5          |
+| CLKC-24   | Advisory         | MMCME4 with ZHOLD drives sequential IO not with CLKOUT0          | 1          |
 +-----------+------------------+------------------------------------------------------------------+------------+
 
 2. REPORT DETAILS
@@ -1085,22 +1086,22 @@ Related violations: <none>
 XDCC-7#1 Warning
 Scoped Clock constraint overwritten on the same source  
 A new clock constraint create_clock overrides a previous scoped clock constraint defined on the same source. It is not recommended to override a scoped (typically an IP) clock constraint and could result in unexpected behaviors.
-New: create_clock -period 2.667 -name clkin1 [get_ports ADC1_DCLK_p] (Source: /home/ab/Desktop/XU1_petalinux_rev6.21/src/MercuryXU1_NuPRISM.xdc (Line: 299))
-Previous: create_clock -period 2.667 [get_ports ADC1_DCLK_p] (Source: /home/ab/Desktop/XU1_petalinux_rev6.21/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm.xdc (Line: 56))
+New: create_clock -period 2.667 -name clkin1 [get_ports ADC1_DCLK_p] (Source: /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/src/MercuryXU1_NuPRISM.xdc (Line: 300))
+Previous: create_clock -period 2.667 [get_ports ADC1_DCLK_p] (Source: /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm.xdc (Line: 56))
 Related violations: <none>
 
 XDCC-7#2 Warning
 Scoped Clock constraint overwritten on the same source  
 A new clock constraint create_clock overrides a previous scoped clock constraint defined on the same source. It is not recommended to override a scoped (typically an IP) clock constraint and could result in unexpected behaviors.
-New: create_clock -period 2.667 -name clkin2 [get_ports ADC2_DCLK_p] (Source: /home/ab/Desktop/XU1_petalinux_rev6.21/src/MercuryXU1_NuPRISM.xdc (Line: 300))
-Previous: create_clock -period 2.667 [get_ports ADC2_DCLK_p] (Source: /home/ab/Desktop/XU1_petalinux_rev6.21/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm.xdc (Line: 56))
+New: create_clock -period 2.667 -name clkin2 [get_ports ADC2_DCLK_p] (Source: /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/src/MercuryXU1_NuPRISM.xdc (Line: 301))
+Previous: create_clock -period 2.667 [get_ports ADC2_DCLK_p] (Source: /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm.xdc (Line: 56))
 Related violations: <none>
 
 XDCC-7#3 Warning
 Scoped Clock constraint overwritten on the same source  
 A new clock constraint create_clock overrides a previous scoped clock constraint defined on the same source. It is not recommended to override a scoped (typically an IP) clock constraint and could result in unexpected behaviors.
-New: create_clock -period 2.667 -name clkin3 [get_ports ADC3_DCLK_p] (Source: /home/ab/Desktop/XU1_petalinux_rev6.21/src/MercuryXU1_NuPRISM.xdc (Line: 301))
-Previous: create_clock -period 2.667 [get_ports ADC3_DCLK_p] (Source: /home/ab/Desktop/XU1_petalinux_rev6.21/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm.xdc (Line: 56))
+New: create_clock -period 2.667 -name clkin3 [get_ports ADC3_DCLK_p] (Source: /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/src/MercuryXU1_NuPRISM.xdc (Line: 302))
+Previous: create_clock -period 2.667 [get_ports ADC3_DCLK_p] (Source: /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm.xdc (Line: 56))
 Related violations: <none>
 
 CLKC-8#1 Advisory
@@ -1126,6 +1127,11 @@ Related violations: <none>
 CLKC-8#5 Advisory
 BUFGCE_DIV with active CE or DIVIDE not 1 has BUFG driver  
 The BUFGCE_DIV cell B64_S[4].Ad9229Core_b/U_BUFGCE_DIV B64_S[4].Ad9229Core_b/U_BUFGCE_DIV/I pin (and CE is ACTIVE or BUFGCE_DIVIDE is not 1) is driven by BUFGCE clock buffer B64_C[3].serdes_clock/inst/clkout1_buf. It should be reconnected in parallel to the driving clock buffer in order to reduce skew. Cascaded buffers introduce skew that can lead to difficult or impossible timing closure.
+Related violations: <none>
+
+CLKC-24#1 Advisory
+MMCME4 with ZHOLD drives sequential IO not with CLKOUT0  
+The MMCME4 cell B64_C[1].serdes_clock/inst/mmcme4_adv_inst has COMPENSATION value ZHOLD, but CLKOUT1 output drives sequential IO cells. In order to achieve insertion delay and phase-alignment for the IO sequential cells, CLKOUT0 must be used.
 Related violations: <none>
 
 
