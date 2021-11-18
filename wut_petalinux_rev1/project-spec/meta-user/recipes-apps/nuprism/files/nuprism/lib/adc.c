@@ -36,9 +36,10 @@
 #include <linux/spi/spidev.h>
 #include <sys/ioctl.h>
 
-# include "adc.h"
+#include "gpio.h"
+#include "adc.h"
 
-//#define DEBUG
+#define DEBUG
 #include "dbg.h"
 
 
@@ -49,53 +50,12 @@
 #define SPI_READ_CMD	0xC0
 #define SPI_WRITE_CMD   0x40
 
-#define ADC0_GPIO  492
-#define ADC1_GPIO  493
-#define ADC2_GPIO  494
-#define ADC3_GPIO  495
-#define ADC4_GPIO  496
-#define RESET_GPIO 497
-#define PDN_GPIO   498
 
 static uint32_t mode;
 static uint8_t bits = 8;
 static uint32_t speed = 500000;
 static uint16_t delay;
 static int fd;
-
-
-// DO NOT USE! GPIOs are initialized by gpio_init.sh 
-static int adc_gpio_init() {               // \todo use WZAB GPIO module
-    // export gpios
-    system("echo 492 > /sys/class/gpio/export");       // GPIO 0: SEL0
-    system("echo 493 > /sys/class/gpio/export");       // GPIO 1: SEL1
-    system("echo 494 > /sys/class/gpio/export");       // GPIO 2: SEL2
-    system("echo 495 > /sys/class/gpio/export");       // GPIO 3: SEL3
-    system("echo 496 > /sys/class/gpio/export");       // GPIO 4: SEL4
-    system("echo 497 > /sys/class/gpio/export");       // GPIO 5: RESET - active high, pulldown resistor
-    system("echo 498 > /sys/class/gpio/export");       // GPIO 6: POWER DOWN - configured via SPI (?), pulldown resistor
-
-    // configure gpios
-    system("echo out > /sys/class/gpio/gpio492/direction");
-    system("echo out > /sys/class/gpio/gpio493/direction");
-    system("echo out > /sys/class/gpio/gpio494/direction");
-    system("echo out > /sys/class/gpio/gpio495/direction"); 
-    system("echo out > /sys/class/gpio/gpio496/direction");
-    system("echo out > /sys/class/gpio/gpio497/direction"); 
-    system("echo out > /sys/class/gpio/gpio498/direction");
-
-    // unset PDN - power up ADCs
-    system("echo 0 > /sys/class/gpio/gpio498/value");
-
-    // reset ADCs
-    system("echo 0 > /sys/class/gpio/gpio497/value"); 
-    usleep(500);
-    system("echo 1 > /sys/class/gpio/gpio497/value"); 
-    usleep(100);
-    system("echo 0 > /sys/class/gpio/gpio497/value ");
-    
-    return 0;       // \todo verify all system commands
-}
 
 
 int spi_init(char* device_name) {
@@ -159,7 +119,7 @@ int adc_enable(int adc_num, bool state) {
         return -1;
     }
     char cmd[64];
-    sprintf(cmd, "echo %d > /sys/class/gpio/gpio%d/value", state, ADC0_GPIO + adc_num);
+    sprintf(cmd, "echo %d > /sys/class/gpio/gpio%d/value", state, ADC_SEL0_GPIO + adc_num);
     int ret = system(cmd);
     DBG("adc_enable(): %s, ret=%d\n", cmd, ret);
     return ret;
@@ -203,9 +163,9 @@ int adc_write(int fd, uint16_t address, uint8_t data) {
 		.tx_buf = (unsigned long)txbuf,
 		.rx_buf = (unsigned long)NULL,
 		.len = 3,
-		.delay_usecs = delay,   //DEFAULT_SPI_DELAY,
-		.speed_hz = speed,      //DEFAULT_SPI_SPEED,
-		.bits_per_word = bits,  //DEFAULT_SPI_BITS_PER_WORD,
+		.delay_usecs = DEFAULT_SPI_DELAY,
+		.speed_hz = DEFAULT_SPI_SPEED,
+		.bits_per_word = DEFAULT_SPI_BITS_PER_WORD
         //.tx_nbits = 4,          // SPI_TX_QUAD
         //.rx_nbits = 4           // SPI_RX_QUAD
 	};
@@ -216,8 +176,11 @@ int adc_write(int fd, uint16_t address, uint8_t data) {
 
 
 int adc_power_down() {
-    DBG("adc_power_down(): all ADCs - GPIO=%d\n", PDN_GPIO);
-    int ret = system("echo 1 > /sys/class/gpio/gpio497/value"); 
+    char cmd[64];
+        
+    sprintf(cmd, "echo 1 > /sys/class/gpio/gpio%d/value", ADC_PWRDN_GPIO);
+    DBG("adc_power_down(): cmd=%s\n", cmd);
+    int ret = system(cmd); 
     DBG("adc_power_down(): ret=%d\n", ret);
 
     return 0;
@@ -225,24 +188,35 @@ int adc_power_down() {
 
 
 int adc_power_up() {
-    DBG("adc_power_up(): all ADCs - GPIO=%d\n", PDN_GPIO);
-    int ret = system("echo 0 > /sys/class/gpio/gpio497/value"); 
-    DBG("adc_power_up(): ret=%d\n", ret);
+    char cmd[64];
+        
+    sprintf(cmd, "echo 0 > /sys/class/gpio/gpio%d/value", ADC_PWRDN_GPIO);
+    DBG("adc_power_down(): cmd=%s\n", cmd);
+    int ret = system(cmd); 
+    DBG("adc_power_down(): ret=%d\n", ret);
 
     return 0;
 }
 
 
 int adc_reset() {
-    DBG("adc_reset(): all ADCs - GPIO=%d\n", RESET_GPIO);
+    char cmd[64];
+        
+    sprintf(cmd, "echo 0 > /sys/class/gpio/gpio%d/value", ADC_RESET_GPIO);
+    DBG("adc_reset(): cmd=%s\n", cmd);
+    int ret = system(cmd); 
+    DBG("adc_reset(): ret=%d\n", ret);
 
-    int ret = system("echo 0 > /sys/class/gpio/gpio497/value"); 
-    DBG("adc_reset(): ret=%d\n", ret);
     usleep(500);
-    ret = system("echo 1 > /sys/class/gpio/gpio497/value"); 
+    sprintf(cmd, "echo 1 > /sys/class/gpio/gpio%d/value", ADC_RESET_GPIO);
+    DBG("adc_reset(): cmd=%s\n", cmd);
+    ret = system(cmd);
     DBG("adc_reset(): ret=%d\n", ret);
+
     usleep(100);
-    ret = system("echo 0 > /sys/class/gpio/gpio497/value ");
+    sprintf(cmd, "echo 0 > /sys/class/gpio/gpio%d/value", ADC_RESET_GPIO);
+    DBG("adc_reset(): cmd=%s\n", cmd);
+    ret = system(cmd); 
     DBG("adc_reset(): ret=%d\n", ret);
 
     return 0;
@@ -330,137 +304,3 @@ int adc_spi_slave_mode(int fd, int adc_num, bool value) {
     return 0;
 }
 
-/*
-void print_usage() {
-    printf("ADC controller - available commands:\n");
-    printf("\tpdn  - power down\n");
-    printf("\tpup  - power up\n");
-    printf("\trst  - reset\n");
-    printf("\tnom  - nominal mode(?)\n");
-    printf("\ttst  - toggle test pattern\n");
-    printf("\ttst0 - all zeros test pattern\n");
-    printf("\ttst1 - all ones test pattern\n");
-    printf("\tinit - initialization\n");
-    printf("\tss   - set SPI slave mode(?)\n");
-    printf("\tnss  - unset SPI slave mode(?)\n");
-}
-
-
-int main(int argc, char **argv)
-{
-    int opt;
-    char device_name[64] = DEFAULT_SPI_DEVICE;    
-	int adc_num = 0;
-    
-	while((opt = getopt(argc, argv, "n:d:")) != -1) {
-        switch(opt) {
-            case 'n':
-                adc_num = atoi(optarg);
-                break;
-                
-            case 'd':
-                strcpy(device_name, optarg);
-                break;
-            
-            case ':':
-                printf("option value not specified\n");
-                break;
-                
-            case '?':
-                printf("unknown option: %c\n", optopt);
-                break;
-        }
-    }
-    
-    if(optind < argc) {
-        // adc_gpio_init();  moved to the gpio_init.sh located in /etc/init.d and linked to /etc/rd5.d
-
-        // open SPI device        
-        int fd = open(device_name, O_RDWR);
-        if(fd == -1) {
-            DBG("can not open device: %s\n", device_name);
-            return -1;
-        }
-*/
-        /*
-	     * spi mode
-	     */
-/*	    int ret = ioctl(fd, SPI_IOC_WR_MODE32, &mode);
-	    if (ret == -1) {
-		    printf("can't set spi mode");
-            return -1;
-        }
-
-	    ret = ioctl(fd, SPI_IOC_RD_MODE32, &mode);
-	    if (ret == -1) {
-		    printf("can't get spi mode");
-            return -1;
-        }
-
-*/	    /*
-	     * bits per word
-	     */
-/*	    ret = ioctl(fd, SPI_IOC_WR_BITS_PER_WORD, &bits);
-	    if (ret == -1) {
-		    printf("can't set bits per word");
-            return -1;
-        }
-
-	    ret = ioctl(fd, SPI_IOC_RD_BITS_PER_WORD, &bits);
-	    if (ret == -1) {
-		    printf("can't get bits per word");
-            return -1;
-        }
-*/
-	    /*
-	     * max speed hz
-	     */
-/*	    ret = ioctl(fd, SPI_IOC_WR_MAX_SPEED_HZ, &speed);
-	    if (ret == -1) {
-		    printf("can't set max speed hz");
-            return -1;
-        }
-
-	    ret = ioctl(fd, SPI_IOC_RD_MAX_SPEED_HZ, &speed);
-	    if (ret == -1) {
-		    printf("can't get max speed hz");
-            return -1;
-        }
-
-	    printf("spi mode: 0x%x\n", mode);
-	    printf("bits per word: %d\n", bits);
-	    printf("max speed: %d Hz (%d KHz)\n", speed, speed/1000);
-
-        if(strcmp(argv[optind], "pdn") == 0) {
-            ret = adc_power_down();
-        } else if(strcmp(argv[optind], "pup") == 0) {
-            ret = adc_power_up();
-        } else if(strcmp(argv[optind], "rst") == 0) {
-            ret = adc_reset();
-        } else if(strcmp(argv[optind], "nom") == 0) {
-            ret = adc_nominal_mode(fd, adc_num);
-        } else if(strcmp(argv[optind], "tst") == 0) {
-            ret = adc_test(fd, adc_num, TOGGLE_TEST_PATTERN);
-        } else if(strcmp(argv[optind], "tst0") == 0) {
-            ret = adc_test(fd, adc_num, ALL_ZEROS_TEST_PATTERN);
-        } else if(strcmp(argv[optind], "tst1") == 0) {
-            ret = adc_test(fd, adc_num, ALL_ONES_TEST_PATTERN);
-        } else if(strcmp(argv[optind], "init") == 0) {
-            ret = adc_init(fd, adc_num);
-        } else if(strcmp(argv[optind], "ss") == 0) {
-            ret = adc_spi_slave_mode(fd, adc_num, true);
-        } else if(strcmp(argv[optind], "nss") == 0) {
-            ret = adc_spi_slave_mode(fd, adc_num, false);
-        } else {
-            printf("Unrecognized cmd: %s\n", argv[optind]);
-            print_usage();
-            return -1;
-        }
-        close(fd);
-        return ret;
-    } else {
-        printf("No command specified!\n");
-        return -1;
-    }
-}
-*/

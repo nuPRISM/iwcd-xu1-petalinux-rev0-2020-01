@@ -1,6 +1,7 @@
 #ifndef ADC_H
 #define ADC_H
 
+#define DEFAULT_ADC_NUM 0
 #define DEFAULT_SPI_DEVICE "/dev/spidev1.0"
 
 #define NORMAL_OP_TEST_PATTERN 0x00
@@ -26,7 +27,5 @@ int adc_init(int fd, int adc_num);
 int adc_nominal_mode(int fd, int adc_num);
 int adc_test(int fd, int adc_num, uint8_t test_pattern);
 int adc_sine_wave_test(int fd, int adc_num);
-
-
 
 #endif
