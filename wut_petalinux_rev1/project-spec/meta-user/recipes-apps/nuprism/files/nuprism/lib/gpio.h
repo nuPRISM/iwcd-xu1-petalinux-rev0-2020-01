@@ -40,4 +40,10 @@
 
 int init_gpio();
 
+int set_adc_num(int chan_num, int adc_num);
+int set_dma_buf_size(int buf_size);
+int dma_reset();
+int set_adc_suppress_bit(int state);
+int set_loop_suppress_bit(int state);
+
 #endif

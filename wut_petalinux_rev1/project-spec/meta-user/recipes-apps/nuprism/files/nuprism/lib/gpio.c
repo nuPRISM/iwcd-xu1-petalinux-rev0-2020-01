@@ -81,3 +81,97 @@ int init_gpio() {
     return 0;       // \todo verify system cmd error codes, return appropiate value
 }
 
+
+int set_adc_num(int chan_num, int adc_num) {
+    int first_gpio, last_gpio;
+    
+    switch(chan_num) {
+        case 0:
+            first_gpio = ADC_CH0_NUM_LSB;
+            last_gpio  = ADC_CH0_NUM_MSB;
+            break;
+        
+        case 1:
+            first_gpio = ADC_CH1_NUM_LSB;
+            last_gpio  = ADC_CH1_NUM_MSB;
+            break;
+            
+        default:
+            printf("Illegal channel number: %d\n", chan_num);
+            return -1;
+    }
+    for(int i = first_gpio; i <= last_gpio; i++) {
+        char cmd[64];
+    
+        sprintf(cmd, "echo %d > /sys/class/gpio/gpio%d/value", (adc_num & 0x01), i);        
+        DBG("%s\n", cmd);
+        system(cmd);
+        
+        adc_num >>= 1;
+    }
+    return 0;
+}
+
+
+int set_dma_buf_size(int buf_size) {
+    buf_size = buf_size >> 2;           // buffer size must be set a a number of 4 byte words
+    
+    for(int i = DMA_BUF_SIZE_GPIO_START; i <= DMA_BUF_SIZE_GPIO_END; i++) {
+        char cmd[64];
+    
+        sprintf(cmd, "echo %d > /sys/class/gpio/gpio%d/value", (buf_size & 0x01), i);        
+        DBG("%s\n", cmd);
+        system(cmd);
+        
+        buf_size = buf_size >> 1;
+    }
+    
+    return 0;       // \todo verify system cmd error codes, return appropiate value
+}
+
+
+int dma_reset() {
+    char cmd[64];
+    //system("echo 0 > /sys/class/gpio/gpio499/value"); 
+    sprintf(cmd, "echo 0 > /sys/class/gpio/gpio%d/value", ADC_DMA_RESET_GPIO);
+    system(cmd);
+    
+    usleep(500 * 1000);
+    //system("echo 1 > /sys/class/gpio/gpio499/value"); 
+    sprintf(cmd, "echo 1 > /sys/class/gpio/gpio%d/value", ADC_DMA_RESET_GPIO);
+    system(cmd);
+    
+    return 0;       // \todo verify system cmd error codes, return appropiate value
+}
+
+
+int set_adc_suppress_bit(int state) {
+    char cmd[64];
+    sprintf(cmd, "echo %d > /sys/class/gpio/gpio%d/value", (state > 0 ? 1 : 0), SUPPRESS_MSB_GPIO);
+    DBG("%s\n", cmd);
+    system(cmd);
+
+    return 0;       // \todo verify system cmd error codes, return appropiate value
+}
+
+
+int set_loop_suppress_bit(int state) {
+    char cmd[64];
+    sprintf(cmd, "echo %d > /sys/class/gpio/gpio%d/value", (state > 0 ? 1 : 0), SUPPRESS_LSB_GPIO);
+    DBG("%s\n", cmd);
+    system(cmd);
+
+    return 0;       // \todo verify system cmd error codes, return appropiate value
+}
+
+
+int set_trigger_mode(int mode) {
+    // \todo implement!
+    return -1;         
+}
+
+
+
+
+
+

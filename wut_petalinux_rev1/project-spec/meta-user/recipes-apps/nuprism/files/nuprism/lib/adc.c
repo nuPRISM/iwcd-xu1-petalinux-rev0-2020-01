@@ -113,6 +113,33 @@ int spi_init(char* device_name) {
 
 
 
+int adc_init(int fd, int adc_num) {
+    uint16_t adc_init_cfg_addr [] = {0x1, 0x3, 0x4, 0x5, 0x6, 0x7, 0x9, 0xa, 0xb, 0xe, 0xf, 0x13, 0x15, 0x25, 0x27,
+                                     0x11d, 0x122, 0x134, 0x139, 0x21d, 0x222, 0x234, 0x239, 0x308, 0x41d, 0x422,
+                                     0x434, 0x439, 0x51d, 0x522, 0x534, 0x539, 0x608, 0x70a};
+
+    uint8_t adc_init_cfg_data [] =  {0xFF, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0,
+                                     0x0, 0x2, 0x28, 0x8, 0x0, 0x2, 0x28, 0x8, 0x0, 0x0, 0x2, 0x28, 0x8, 0x0, 0x2,
+                                     0x28, 0x8, 0x0, 0x1};
+    DBG("adc_init(): num=%d\n", adc_num);
+    adc_enable(adc_num, true);
+    int ret = 0;
+    for(int i = 0; i < sizeof(adc_init_cfg_addr)/sizeof(uint16_t); i++) {
+        ret |= adc_write(fd, adc_init_cfg_addr[i], adc_init_cfg_data[i]);
+    }
+    adc_enable(adc_num, false);
+    DBG("adc_init(): ret=%d\n", ret);
+    
+    return ret;
+}
+
+
+int adc_spi_slave_mode(int fd, int adc_num, bool value) {
+    DBG("adc_spi_slave_mode(%d, %d) - not implemented\n", adc_num, value);
+    return -1;
+}
+
+
 int adc_enable(int adc_num, bool state) {
     if(adc_num < 0 || adc_num > 4) {
         DBG("incorrect ADC num=%d\n", adc_num);
@@ -277,30 +304,74 @@ int adc_sine_wave_test(int fd, int adc_num) {
 }
 
 
+int adc_config(int fd, int adc_num, int adc_mode) {
+    adc_init(fd, adc_num);        
+    switch(adc_mode) {
+        case 0:
+            adc_test(fd, adc_num, ALL_ZEROS_TEST_PATTERN);
+            break; 
 
-int adc_init(int fd, int adc_num) {
-    uint16_t adc_init_cfg_addr [] = {0x1, 0x3, 0x4, 0x5, 0x6, 0x7, 0x9, 0xa, 0xb, 0xe, 0xf, 0x13, 0x15, 0x25, 0x27,
-                                     0x11d, 0x122, 0x134, 0x139, 0x21d, 0x222, 0x234, 0x239, 0x308, 0x41d, 0x422,
-                                     0x434, 0x439, 0x51d, 0x522, 0x534, 0x539, 0x608, 0x70a};
+        case 1:
+            adc_test(fd, adc_num, ALL_ONES_TEST_PATTERN);
+            break;
 
-    uint8_t adc_init_cfg_data [] =  {0xFF, 0x0, 0x0, 0x0, 0x0, 0x0, 0x2, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0,
-                                     0x0, 0x2, 0x28, 0x8, 0x0, 0x2, 0x28, 0x8, 0x0, 0x0, 0x2, 0x28, 0x8, 0x0, 0x2,
-                                     0x28, 0x8, 0x0, 0x1};
-    DBG("adc_init(): num=%d\n", adc_num);
-    adc_enable(adc_num, true);
-    int ret = 0;
-    for(int i = 0; i < sizeof(adc_init_cfg_addr)/sizeof(uint16_t); i++) {
-        ret |= adc_write(fd, adc_init_cfg_addr[i], adc_init_cfg_data[i]);
+        case 2:
+            adc_test(fd, adc_num, TOGGLE_TEST_PATTERN);
+            break;
+
+        case 3:
+            adc_test(fd, adc_num, DIGITAL_RAMP_PATTERN);
+            break;
+
+        case 4:
+            adc_sine_wave_test(fd, adc_num);
+            break;
+
+        default:
+            adc_nominal_mode(fd, adc_num);
+            break;
     }
-    adc_enable(adc_num, false);
-    DBG("adc_init(): ret=%d\n", ret);
-    
-    return ret;
+    return 0;           // \tod verify adc_xxx(0 functions return codes
 }
 
 
-int adc_spi_slave_mode(int fd, int adc_num, bool value) {
-    DBG("adc_spi_slave_mode(%d, %d) - not implemented\n", adc_num, value);
+int config_all_adcs(int adc_mode) {
+    DBG("config_all_adcs(): adc_mode=%d\n", adc_mode);
+
+    // open SPI dev
+    int fd = spi_init(DEFAULT_SPI_DEVICE);          // \todo optional param in cmd line to change device name
+    if(fd < 0) {
+        printf("SPI device not opened/configured - terminating ... \n");
+        return 1;                                   // \todo close SPI device if opened
+    }
+    
+    // configure & set all ADCs
+    adc_reset();
+    for(int adc_num = ADC_CHIP_NUM_MIN; adc_num <= ADC_CHIP_NUM_MAX; adc_num++) {
+        adc_config(fd, adc_num, adc_mode);
+    }
+
+    // close SPI dev
+    close(fd);
+
     return 0;
 }
+
+
+int adc_trigger_mode(int trigger_mode) {
+            char cmd[64];
+    int mode = trigger_mode;
+
+    for(int i = ADC_TRIGGER_MODE_GPI0_LSB; i <= ADC_TRIGGER_MODE_GPI0_MSB; i++) {
+        sprintf(cmd, "echo %d > /sys/class/gpio/gpio%d/value", (mode & 0x001), i);
+        DBG("adc_trigger_mode(): cmd=%s\n", cmd);
+        int ret = system(cmd); 
+        DBG("adc_trigger_mode(): ret=%d\n", ret);
+        mode = mode >> 1;
+    }
+    return 0;           // \todo logical OR of all ref values
+}
+
+
+
 
