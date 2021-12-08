@@ -39,14 +39,16 @@ entity tlast_generator is
            rst_n : in std_logic;
            num_samples_per_packet : in std_logic_vector (31 downto 0);
            trigger_mode           : in std_logic_vector(2 downto 0);
+           trigger_enable         : in std_logic;
            trigger_ps             : in std_logic;
            trigger_external       : in std_logic;
            trigger_internal_in    : in std_logic;
            trigger_internal_out   : out std_logic;
+           trigger_detected       : out std_logic;
            data                   : in std_logic_vector (31 downto 0);
            data_enable            : in std_logic;
            counter                : out std_logic_vector (31 downto 0);
-           trigger_test           : out std_logic_vector(2 downto 0);
+           trigger_test           : out std_logic_vector(4 downto 0);
            m_axis_tdata           : out std_logic_vector (31 downto 0);
            m_axis_tvalid          : out std_logic;
            m_axis_tlast           : out std_logic;
@@ -55,9 +57,12 @@ end tlast_generator;
 
 architecture rtl of tlast_generator is
 signal trigger_in                 : std_logic;
+signal trigger_enable_r           : std_logic;
 signal trigger_r                  : std_logic_vector(1 downto 0);
 signal trigger_internal_r         : std_logic;
 signal trigger_internal_next      : std_logic;
+signal trigger_detected_r         : std_logic;
+signal trigger_detected_next      : std_logic;
 signal trigger_mode_r             : std_logic_vector(2 downto 0);
 signal sample_counter_r           : std_logic_vector(31 downto 0);
 signal sample_counter_next        : std_logic_vector(31 downto 0);
@@ -81,12 +86,13 @@ m_axis_tvalid <= data_enable when sample_counter_r /= 0 else '0';
 m_axis_tlast <= data_enable when sample_counter_r = num_samples_per_packet else '0';
 counter <= sample_counter_r;
 trigger_test(1 downto 0) <= trigger_r;
-trigger_test(2) <= trigger_mode_r(0);
+trigger_test(4 downto 2) <= trigger_mode_r(2 downto 0);
 trigger_in <= trigger_ps when trigger_mode_r(1) = '0' else trigger_external;
 
 trigger_internal_out <= trigger_internal_r;
+trigger_detected <= trigger_detected_r;
 
-COMB_PROC: process(sample_counter_r, trigger_r, trigger_mode_r, trigger_internal_r,
+COMB_PROC: process(sample_counter_r, trigger_r, trigger_mode_r, trigger_internal_r, trigger_enable_r,
 trigger_internal_in, m_axis_tready, num_samples_per_packet, data_enable, data_dly)
 variable sample_counter_v        : std_logic_vector(31 downto 0);
 variable m_axis_tlast_v          : std_logic;
@@ -100,6 +106,7 @@ variable data_median_0_v         : DATA_MEDIAN_TYPE;
 variable data_median_1_v         : DATA_MEDIAN_TYPE;
 variable data_median_2_v         : DATA_MEDIAN_TYPE;
 variable trigger_internal_v      : std_logic;
+variable trigger_detected_v      : std_logic;
 
 begin
 
@@ -139,12 +146,14 @@ begin
 
   -- packet control
   sample_counter_v := sample_counter_r;
+  trigger_detected_v := '0';
   if sample_counter_r = 0 then
     if (trigger_r(0) = '1' and trigger_r(1) = '0' and (trigger_mode_r(1 downto 0) = 1 or trigger_mode_r(1 downto 0) = 2)) 
     or (trigger_internal_r = '1' and trigger_mode_r(1 downto 0) = 3 and (trigger_mode_r(2) = '0' xnor ID = 0))
     or (trigger_internal_in = '1' and trigger_mode_r(1 downto 0) = 3 and (trigger_mode_r(2) = '1' xnor ID = 0))
     or trigger_mode_r(1 downto 0) = 0 then
-      sample_counter_v(0) := '1';    
+      sample_counter_v(0) := trigger_enable_r;    
+      trigger_detected_v := trigger_enable_r;
     end if;
   elsif m_axis_tready = '1' and data_enable = '1' then  
     sample_counter_v := sample_counter_r + 1;
@@ -154,6 +163,7 @@ begin
   end if;
   
   trigger_internal_next <= trigger_internal_v;
+  trigger_detected_next <= trigger_detected_v;
   sample_counter_next <= sample_counter_v;
 end process;
 
@@ -162,12 +172,16 @@ begin
   if rst_n = '0' then
     sample_counter_r <= (others => '0');
     trigger_r <= "11";
-    trigger_mode_r <= "001";   
+    trigger_mode_r <= "001";
+    trigger_enable_r <= '0';
+    trigger_detected_r <= '0';
+    data_dly <= (others => (others => '0'));
   elsif clk'event and clk = '1' then
     sample_counter_r <= sample_counter_next;
     trigger_r <= trigger_r(0) & trigger_in;
-    trigger_mode_r <= trigger_mode;
     trigger_internal_r <= trigger_internal_next;
+    trigger_enable_r <= trigger_enable;
+    trigger_detected_r <= trigger_detected_next;
     data_dly(0) <= data;
     data_dly(1) <= data_dly(0);
     data_dly(2) <= data_dly(1);

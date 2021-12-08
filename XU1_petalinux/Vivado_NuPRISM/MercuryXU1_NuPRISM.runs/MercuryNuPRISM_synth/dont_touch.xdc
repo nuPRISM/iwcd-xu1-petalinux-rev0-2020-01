@@ -389,6 +389,18 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==MercuryXU1_axi_
 # IP: bd/MercuryXU1/ip/MercuryXU1_axis_data_fifo_1_0/MercuryXU1_axis_data_fifo_1_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==MercuryXU1_axis_data_fifo_1_0 || ORIG_REF_NAME==MercuryXU1_axis_data_fifo_1_0} -quiet] -quiet
 
+# IP: bd/MercuryXU1/ip/MercuryXU1_axi_gpio_delay_ctrl_0/MercuryXU1_axi_gpio_delay_ctrl_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==MercuryXU1_axi_gpio_delay_ctrl_0 || ORIG_REF_NAME==MercuryXU1_axi_gpio_delay_ctrl_0} -quiet] -quiet
+
+# IP: bd/MercuryXU1/ip/MercuryXU1_event_controller_0_1/MercuryXU1_event_controller_0_1.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==MercuryXU1_event_controller_0_1 || ORIG_REF_NAME==MercuryXU1_event_controller_0_1} -quiet] -quiet
+
+# IP: bd/MercuryXU1/ip/MercuryXU1_xlconcat_0_1/MercuryXU1_xlconcat_0_1.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==MercuryXU1_xlconcat_0_1 || ORIG_REF_NAME==MercuryXU1_xlconcat_0_1} -quiet] -quiet
+
+# IP: bd/MercuryXU1/ip/MercuryXU1_xlconstant_0_0/MercuryXU1_xlconstant_0_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==MercuryXU1_xlconstant_0_0 || ORIG_REF_NAME==MercuryXU1_xlconstant_0_0} -quiet] -quiet
+
 # IP: bd/MercuryXU1/ip/MercuryXU1_auto_pc_0/MercuryXU1_auto_pc_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==MercuryXU1_auto_pc_0 || ORIG_REF_NAME==MercuryXU1_auto_pc_0} -quiet] -quiet
 
@@ -647,6 +659,14 @@ set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {R
 #dup# set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==MercuryXU1_axi_gpio_sample_number_0 || ORIG_REF_NAME==MercuryXU1_axi_gpio_sample_number_0} -quiet] {/U0 } ]/U0 ] -quiet] -quiet
 
 # XDC: bd/MercuryXU1/ip/MercuryXU1_axis_data_fifo_1_0/MercuryXU1_axis_data_fifo_1_0_ooc.xdc
+
+# XDC: bd/MercuryXU1/ip/MercuryXU1_axi_gpio_delay_ctrl_0/MercuryXU1_axi_gpio_delay_ctrl_0_board.xdc
+set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==MercuryXU1_axi_gpio_delay_ctrl_0 || ORIG_REF_NAME==MercuryXU1_axi_gpio_delay_ctrl_0} -quiet] {/U0 } ]/U0 ] -quiet] -quiet
+
+# XDC: bd/MercuryXU1/ip/MercuryXU1_axi_gpio_delay_ctrl_0/MercuryXU1_axi_gpio_delay_ctrl_0_ooc.xdc
+
+# XDC: bd/MercuryXU1/ip/MercuryXU1_axi_gpio_delay_ctrl_0/MercuryXU1_axi_gpio_delay_ctrl_0.xdc
+#dup# set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==MercuryXU1_axi_gpio_delay_ctrl_0 || ORIG_REF_NAME==MercuryXU1_axi_gpio_delay_ctrl_0} -quiet] {/U0 } ]/U0 ] -quiet] -quiet
 
 # XDC: bd/MercuryXU1/ip/MercuryXU1_auto_pc_0/MercuryXU1_auto_pc_0_ooc.xdc
 

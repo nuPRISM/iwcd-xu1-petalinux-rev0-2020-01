@@ -14,7 +14,10 @@ entity bd_a512_wrapper is
     probe0 : in STD_LOGIC_VECTOR ( 19 downto 0 );
     probe1 : in STD_LOGIC_VECTOR ( 19 downto 0 );
     probe2 : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    probe3 : in STD_LOGIC_VECTOR ( 31 downto 0 )
+    probe3 : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    probe4 : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    probe5 : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    probe6 : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
 end bd_a512_wrapper;
 
@@ -25,7 +28,10 @@ architecture STRUCTURE of bd_a512_wrapper is
     probe0 : in STD_LOGIC_VECTOR ( 19 downto 0 );
     probe1 : in STD_LOGIC_VECTOR ( 19 downto 0 );
     probe2 : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    probe3 : in STD_LOGIC_VECTOR ( 31 downto 0 )
+    probe3 : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    probe4 : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    probe5 : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    probe6 : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component bd_a512;
 begin
@@ -35,6 +41,9 @@ bd_a512_i: component bd_a512
       probe0(19 downto 0) => probe0(19 downto 0),
       probe1(19 downto 0) => probe1(19 downto 0),
       probe2(31 downto 0) => probe2(31 downto 0),
-      probe3(31 downto 0) => probe3(31 downto 0)
+      probe3(31 downto 0) => probe3(31 downto 0),
+      probe4(31 downto 0) => probe4(31 downto 0),
+      probe5(31 downto 0) => probe5(31 downto 0),
+      probe6(0) => probe6(0)
     );
 end STRUCTURE;

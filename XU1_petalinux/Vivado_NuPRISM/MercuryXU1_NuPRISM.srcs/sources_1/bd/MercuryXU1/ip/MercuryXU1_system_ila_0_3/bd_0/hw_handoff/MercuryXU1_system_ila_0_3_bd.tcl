@@ -169,8 +169,8 @@ proc create_root_design { parentCell } {
   set probe2 [ create_bd_port -dir I -from 31 -to 0 probe2 ]
   set probe3 [ create_bd_port -dir I -from 31 -to 0 probe3 ]
   set probe4 [ create_bd_port -dir I -from 31 -to 0 probe4 ]
-  set probe5 [ create_bd_port -dir I -from 2 -to 0 probe5 ]
-  set probe6 [ create_bd_port -dir I -from 2 -to 0 probe6 ]
+  set probe5 [ create_bd_port -dir I -from 4 -to 0 probe5 ]
+  set probe6 [ create_bd_port -dir I -from 4 -to 0 probe6 ]
   set resetn [ create_bd_port -dir I -type rst resetn ]
 
   # Create instance: g_inst, and set properties
@@ -222,10 +222,10 @@ proc create_root_design { parentCell } {
    CONFIG.C_PROBE4_WIDTH {32} \
    CONFIG.C_PROBE5_MU_CNT {1} \
    CONFIG.C_PROBE5_TYPE {0} \
-   CONFIG.C_PROBE5_WIDTH {3} \
+   CONFIG.C_PROBE5_WIDTH {5} \
    CONFIG.C_PROBE6_MU_CNT {1} \
    CONFIG.C_PROBE6_TYPE {0} \
-   CONFIG.C_PROBE6_WIDTH {3} \
+   CONFIG.C_PROBE6_WIDTH {5} \
    CONFIG.C_PROBE7_TYPE {0} \
    CONFIG.C_PROBE7_WIDTH {32} \
    CONFIG.C_PROBE8_TYPE {0} \

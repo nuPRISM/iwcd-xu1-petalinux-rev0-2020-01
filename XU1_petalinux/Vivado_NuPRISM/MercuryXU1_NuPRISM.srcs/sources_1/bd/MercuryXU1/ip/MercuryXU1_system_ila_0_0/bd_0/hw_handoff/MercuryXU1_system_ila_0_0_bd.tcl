@@ -171,11 +171,13 @@ proc create_root_design { parentCell } {
 
   set SLOT_7_AXI [ create_bd_intf_port -mode Monitor -vlnv xilinx.com:interface:aximm_rtl:1.0 SLOT_7_AXI ]
 
+  set SLOT_8_AXIS [ create_bd_intf_port -mode Monitor -vlnv xilinx.com:interface:axis_rtl:1.0 SLOT_8_AXIS ]
+
 
   # Create ports
   set clk [ create_bd_port -dir I -type clk clk ]
   set_property -dict [ list \
-   CONFIG.ASSOCIATED_BUSIF {SLOT_0_AXIS:SLOT_1_AXI:SLOT_2_AXI:SLOT_3_AXIS:SLOT_4_AXIS:SLOT_5_AXIS:SLOT_6_AXIS:SLOT_7_AXI} \
+   CONFIG.ASSOCIATED_BUSIF {SLOT_0_AXIS:SLOT_1_AXI:SLOT_2_AXI:SLOT_3_AXIS:SLOT_4_AXIS:SLOT_5_AXIS:SLOT_6_AXIS:SLOT_7_AXI:SLOT_8_AXIS} \
    CONFIG.ASSOCIATED_RESET {resetn} \
  ] $clk
   set resetn [ create_bd_port -dir I -type rst resetn ]
@@ -184,7 +186,7 @@ proc create_root_design { parentCell } {
   set g_inst [ create_bd_cell -type ip -vlnv xilinx.com:ip:gigantic_mux:1.0 g_inst ]
   set_property -dict [ list \
    CONFIG.C_EN_GIGAMUX {false} \
-   CONFIG.C_NUM_MONITOR_SLOTS {8} \
+   CONFIG.C_NUM_MONITOR_SLOTS {9} \
    CONFIG.C_NUM_OF_PROBES {0} \
    CONFIG.C_SLOT_0_AXIS_TDATA_WIDTH {32} \
    CONFIG.C_SLOT_0_AXIS_TDEST_WIDTH {0} \
@@ -318,6 +320,15 @@ proc create_root_design { parentCell } {
    CONFIG.C_SLOT_7_MAX_WR_BURSTS {1} \
    CONFIG.C_SLOT_7_MON_MODE {FT} \
    CONFIG.C_SLOT_7_TXN_CNTR_EN {1} \
+   CONFIG.C_SLOT_8_AXIS_TDATA_WIDTH {32} \
+   CONFIG.C_SLOT_8_AXIS_TDEST_WIDTH {0} \
+   CONFIG.C_SLOT_8_AXIS_TID_WIDTH {0} \
+   CONFIG.C_SLOT_8_AXIS_TUSER_WIDTH {0} \
+   CONFIG.C_SLOT_8_AXI_PROTOCOL {AXI4S} \
+   CONFIG.C_SLOT_8_HAS_TKEEP {0} \
+   CONFIG.C_SLOT_8_HAS_TREADY {1} \
+   CONFIG.C_SLOT_8_HAS_TSTRB {0} \
+   CONFIG.C_SLOT_8_MON_MODE {FT} \
  ] $g_inst
 
   # Create instance: ila_lib, and set properties
@@ -332,7 +343,7 @@ proc create_root_design { parentCell } {
    CONFIG.C_ILA_CLK_FREQ {299997009} \
    CONFIG.C_INPUT_PIPE_STAGES {0} \
    CONFIG.C_MONITOR_TYPE {Native} \
-   CONFIG.C_NUM_OF_PROBES {104} \
+   CONFIG.C_NUM_OF_PROBES {108} \
    CONFIG.C_PROBE0_TYPE {0} \
    CONFIG.C_PROBE0_WIDTH {32} \
    CONFIG.C_PROBE100_TYPE {0} \
@@ -343,6 +354,14 @@ proc create_root_design { parentCell } {
    CONFIG.C_PROBE102_WIDTH {2} \
    CONFIG.C_PROBE103_TYPE {0} \
    CONFIG.C_PROBE103_WIDTH {3} \
+   CONFIG.C_PROBE104_TYPE {0} \
+   CONFIG.C_PROBE104_WIDTH {32} \
+   CONFIG.C_PROBE105_TYPE {0} \
+   CONFIG.C_PROBE105_WIDTH {1} \
+   CONFIG.C_PROBE106_TYPE {0} \
+   CONFIG.C_PROBE106_WIDTH {1} \
+   CONFIG.C_PROBE107_TYPE {0} \
+   CONFIG.C_PROBE107_WIDTH {1} \
    CONFIG.C_PROBE10_TYPE {0} \
    CONFIG.C_PROBE10_WIDTH {3} \
    CONFIG.C_PROBE11_TYPE {0} \
@@ -619,6 +638,7 @@ connect_bd_intf_net -intf_net Conn4 [get_bd_intf_ports SLOT_4_AXIS] [get_bd_intf
 connect_bd_intf_net -intf_net Conn5 [get_bd_intf_ports SLOT_5_AXIS] [get_bd_intf_pins g_inst/slot_5_axis]
 connect_bd_intf_net -intf_net Conn6 [get_bd_intf_ports SLOT_6_AXIS] [get_bd_intf_pins g_inst/slot_6_axis]
 connect_bd_intf_net -intf_net Conn7 [get_bd_intf_ports SLOT_7_AXI] [get_bd_intf_pins g_inst/slot_7_axi]
+connect_bd_intf_net -intf_net Conn8 [get_bd_intf_ports SLOT_8_AXIS] [get_bd_intf_pins g_inst/slot_8_axis]
 
   # Create port connections
   connect_bd_net -net clk_1 [get_bd_ports clk] [get_bd_pins g_inst/aclk] [get_bd_pins ila_lib/clk]
@@ -762,6 +782,10 @@ connect_bd_intf_net -intf_net Conn7 [get_bd_intf_ports SLOT_7_AXI] [get_bd_intf_
   connect_bd_net -net net_slot_7_axi_wready [get_bd_pins g_inst/m_slot_7_axi_wready] [get_bd_pins slot_7_w/In1]
   connect_bd_net -net net_slot_7_axi_wstrb [get_bd_pins g_inst/m_slot_7_axi_wstrb] [get_bd_pins ila_lib/probe98]
   connect_bd_net -net net_slot_7_axi_wvalid [get_bd_pins g_inst/m_slot_7_axi_wvalid] [get_bd_pins slot_7_w/In0]
+  connect_bd_net -net net_slot_8_axis_tdata [get_bd_pins g_inst/m_slot_8_axis_tdata] [get_bd_pins ila_lib/probe104]
+  connect_bd_net -net net_slot_8_axis_tlast [get_bd_pins g_inst/m_slot_8_axis_tlast] [get_bd_pins ila_lib/probe107]
+  connect_bd_net -net net_slot_8_axis_tready [get_bd_pins g_inst/m_slot_8_axis_tready] [get_bd_pins ila_lib/probe106]
+  connect_bd_net -net net_slot_8_axis_tvalid [get_bd_pins g_inst/m_slot_8_axis_tvalid] [get_bd_pins ila_lib/probe105]
   connect_bd_net -net resetn_1 [get_bd_ports resetn] [get_bd_pins g_inst/aresetn]
 
   # Create address segments

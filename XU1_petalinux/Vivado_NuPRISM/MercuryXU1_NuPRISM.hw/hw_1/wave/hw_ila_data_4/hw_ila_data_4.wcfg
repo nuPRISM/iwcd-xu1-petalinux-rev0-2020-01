@@ -10,16 +10,14 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="1025fs"></ZoomEndTime>
+      <ZoomEndTime time="14321fs"></ZoomEndTime>
       <Cursor1Time time="661fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="255"></NameColumnWidth>
-      <ValueColumnWidth column_width="86"></ValueColumnWidth>
+      <NameColumnWidth column_width="247"></NameColumnWidth>
+      <ValueColumnWidth column_width="70"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="16" />
-   <wave_markers>
-   </wave_markers>
+   <WVObjectSize size="17" />
    <wvobject type="array" fp_name="adc_par_data[0]">
       <obj_property name="DisplayName">FullPathName</obj_property>
       <obj_property name="ElementShortName">adc_par_data[0][11:0]</obj_property>
@@ -145,6 +143,13 @@
       <obj_property name="ElementShortName">adc_par_data[15][11:0]</obj_property>
       <obj_property name="ObjectShortName">adc_par_data[15][11:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="trigger_external">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">trigger_external</obj_property>
+      <obj_property name="ObjectShortName">trigger_external</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>

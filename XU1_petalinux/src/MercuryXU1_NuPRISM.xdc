@@ -283,8 +283,8 @@ set_property PACKAGE_PIN C14 [get_ports SFP_LOS]
 set_property PACKAGE_PIN E13 [get_ports B47_GC_E14_n]
 set_property PACKAGE_PIN E14 [get_ports B47_GC_E14_p]
 
-set_property PACKAGE_PIN AE13 [get_ports trigger_external_p]
-set_property PACKAGE_PIN AF13 [get_ports trigger_external_n]
+set_property PACKAGE_PIN Y2 [get_ports trigger_external_p]
+set_property PACKAGE_PIN Y1 [get_ports trigger_external_n]
 
 # -------------------------------------------------------------------------------------------------
 # Termination Styles

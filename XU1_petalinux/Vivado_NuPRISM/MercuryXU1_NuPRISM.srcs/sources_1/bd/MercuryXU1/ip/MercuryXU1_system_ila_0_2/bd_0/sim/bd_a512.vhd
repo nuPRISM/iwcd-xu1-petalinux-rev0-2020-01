@@ -14,10 +14,13 @@ entity bd_a512 is
     probe0 : in STD_LOGIC_VECTOR ( 19 downto 0 );
     probe1 : in STD_LOGIC_VECTOR ( 19 downto 0 );
     probe2 : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    probe3 : in STD_LOGIC_VECTOR ( 31 downto 0 )
+    probe3 : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    probe4 : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    probe5 : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    probe6 : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of bd_a512 : entity is "bd_a512,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=bd_a512,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=1,numReposBlks=1,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=SBD,synth_mode=Global}";
+  attribute CORE_GENERATION_INFO of bd_a512 : entity is "bd_a512,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=bd_a512,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=1,numReposBlks=1,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=SBD,synth_mode=OOC_per_IP}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of bd_a512 : entity is "MercuryXU1_system_ila_0_2.hwdef";
 end bd_a512;
@@ -29,7 +32,10 @@ architecture STRUCTURE of bd_a512 is
     probe0 : in STD_LOGIC_VECTOR ( 19 downto 0 );
     probe1 : in STD_LOGIC_VECTOR ( 19 downto 0 );
     probe2 : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    probe3 : in STD_LOGIC_VECTOR ( 31 downto 0 )
+    probe3 : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    probe4 : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    probe5 : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    probe6 : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component bd_a512_ila_lib_0;
   signal clk_1 : STD_LOGIC;
@@ -37,6 +43,9 @@ architecture STRUCTURE of bd_a512 is
   signal probe1_1 : STD_LOGIC_VECTOR ( 19 downto 0 );
   signal probe2_1 : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal probe3_1 : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal probe4_1 : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal probe5_1 : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal probe6_1 : STD_LOGIC_VECTOR ( 0 to 0 );
   attribute X_INTERFACE_INFO : string;
   attribute X_INTERFACE_INFO of clk : signal is "xilinx.com:signal:clock:1.0 CLK.CLK CLK";
   attribute X_INTERFACE_PARAMETER : string;
@@ -47,12 +56,18 @@ begin
   probe1_1(19 downto 0) <= probe1(19 downto 0);
   probe2_1(31 downto 0) <= probe2(31 downto 0);
   probe3_1(31 downto 0) <= probe3(31 downto 0);
+  probe4_1(31 downto 0) <= probe4(31 downto 0);
+  probe5_1(31 downto 0) <= probe5(31 downto 0);
+  probe6_1(0) <= probe6(0);
 ila_lib: component bd_a512_ila_lib_0
      port map (
       clk => clk_1,
       probe0(19 downto 0) => probe0_1(19 downto 0),
       probe1(19 downto 0) => probe1_1(19 downto 0),
       probe2(31 downto 0) => probe2_1(31 downto 0),
-      probe3(31 downto 0) => probe3_1(31 downto 0)
+      probe3(31 downto 0) => probe3_1(31 downto 0),
+      probe4(31 downto 0) => probe4_1(31 downto 0),
+      probe5(31 downto 0) => probe5_1(31 downto 0),
+      probe6(0) => probe6_1(0)
     );
 end STRUCTURE;

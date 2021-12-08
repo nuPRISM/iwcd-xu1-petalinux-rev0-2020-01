@@ -20,8 +20,8 @@ entity bd_65d3 is
     probe2 : in STD_LOGIC_VECTOR ( 31 downto 0 );
     probe3 : in STD_LOGIC_VECTOR ( 31 downto 0 );
     probe4 : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    probe5 : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    probe6 : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    probe5 : in STD_LOGIC_VECTOR ( 4 downto 0 );
+    probe6 : in STD_LOGIC_VECTOR ( 4 downto 0 );
     resetn : in STD_LOGIC
   );
   attribute CORE_GENERATION_INFO : string;
@@ -39,8 +39,8 @@ architecture STRUCTURE of bd_65d3 is
     probe2 : in STD_LOGIC_VECTOR ( 31 downto 0 );
     probe3 : in STD_LOGIC_VECTOR ( 31 downto 0 );
     probe4 : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    probe5 : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    probe6 : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    probe5 : in STD_LOGIC_VECTOR ( 4 downto 0 );
+    probe6 : in STD_LOGIC_VECTOR ( 4 downto 0 );
     probe7 : in STD_LOGIC_VECTOR ( 31 downto 0 );
     probe8 : in STD_LOGIC_VECTOR ( 0 to 0 );
     probe9 : in STD_LOGIC_VECTOR ( 0 to 0 );
@@ -75,8 +75,8 @@ architecture STRUCTURE of bd_65d3 is
   signal probe2_1 : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal probe3_1 : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal probe4_1 : STD_LOGIC_VECTOR ( 31 downto 0 );
-  signal probe5_1 : STD_LOGIC_VECTOR ( 2 downto 0 );
-  signal probe6_1 : STD_LOGIC_VECTOR ( 2 downto 0 );
+  signal probe5_1 : STD_LOGIC_VECTOR ( 4 downto 0 );
+  signal probe6_1 : STD_LOGIC_VECTOR ( 4 downto 0 );
   signal resetn_1 : STD_LOGIC;
   attribute X_INTERFACE_INFO : string;
   attribute X_INTERFACE_INFO of SLOT_0_AXIS_tlast : signal is "xilinx.com:interface:axis:1.0 SLOT_0_AXIS TLAST";
@@ -100,8 +100,8 @@ begin
   probe2_1(31 downto 0) <= probe2(31 downto 0);
   probe3_1(31 downto 0) <= probe3(31 downto 0);
   probe4_1(31 downto 0) <= probe4(31 downto 0);
-  probe5_1(2 downto 0) <= probe5(2 downto 0);
-  probe6_1(2 downto 0) <= probe6(2 downto 0);
+  probe5_1(4 downto 0) <= probe5(4 downto 0);
+  probe6_1(4 downto 0) <= probe6(4 downto 0);
   resetn_1 <= resetn;
 g_inst: component bd_65d3_g_inst_0
      port map (
@@ -125,8 +125,8 @@ ila_lib: component bd_65d3_ila_lib_0
       probe2(31 downto 0) => probe2_1(31 downto 0),
       probe3(31 downto 0) => probe3_1(31 downto 0),
       probe4(31 downto 0) => probe4_1(31 downto 0),
-      probe5(2 downto 0) => probe5_1(2 downto 0),
-      probe6(2 downto 0) => probe6_1(2 downto 0),
+      probe5(4 downto 0) => probe5_1(4 downto 0),
+      probe6(4 downto 0) => probe6_1(4 downto 0),
       probe7(31 downto 0) => net_slot_0_axis_tdata(31 downto 0),
       probe8(0) => net_slot_0_axis_tvalid,
       probe9(0) => net_slot_0_axis_tready

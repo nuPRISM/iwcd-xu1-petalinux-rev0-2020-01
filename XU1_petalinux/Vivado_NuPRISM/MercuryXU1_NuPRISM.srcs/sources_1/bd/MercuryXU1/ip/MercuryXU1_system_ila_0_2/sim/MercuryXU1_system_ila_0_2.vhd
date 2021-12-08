@@ -59,7 +59,10 @@ ENTITY MercuryXU1_system_ila_0_2 IS
     probe0 : IN STD_LOGIC_VECTOR(19 DOWNTO 0);
     probe1 : IN STD_LOGIC_VECTOR(19 DOWNTO 0);
     probe2 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-    probe3 : IN STD_LOGIC_VECTOR(31 DOWNTO 0)
+    probe3 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+    probe4 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+    probe5 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+    probe6 : IN STD_LOGIC_VECTOR(0 DOWNTO 0)
   );
 END MercuryXU1_system_ila_0_2;
 
@@ -72,7 +75,10 @@ ARCHITECTURE MercuryXU1_system_ila_0_2_arch OF MercuryXU1_system_ila_0_2 IS
       probe0 : IN STD_LOGIC_VECTOR(19 DOWNTO 0);
       probe1 : IN STD_LOGIC_VECTOR(19 DOWNTO 0);
       probe2 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-      probe3 : IN STD_LOGIC_VECTOR(31 DOWNTO 0)
+      probe3 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+      probe4 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+      probe5 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+      probe6 : IN STD_LOGIC_VECTOR(0 DOWNTO 0)
     );
   END COMPONENT bd_a512;
   ATTRIBUTE X_INTERFACE_INFO : STRING;
@@ -86,6 +92,9 @@ BEGIN
       probe0 => probe0,
       probe1 => probe1,
       probe2 => probe2,
-      probe3 => probe3
+      probe3 => probe3,
+      probe4 => probe4,
+      probe5 => probe5,
+      probe6 => probe6
     );
 END MercuryXU1_system_ila_0_2_arch;

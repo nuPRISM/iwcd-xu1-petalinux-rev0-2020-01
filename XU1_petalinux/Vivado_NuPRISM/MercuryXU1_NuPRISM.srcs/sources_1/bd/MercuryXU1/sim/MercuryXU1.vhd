@@ -1,8 +1,8 @@
 --Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
---Tool Version: Vivado v.2020.1.1 (win64) Build 2960000 Wed Aug  5 22:57:20 MDT 2020
---Date        : Fri Oct  8 18:39:40 2021
---Host        : aurochs running 64-bit Service Pack 1  (build 7601)
+--Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
+--Date        : Tue Dec  7 13:48:21 2021
+--Host        : hyperk running 64-bit Ubuntu 18.04.6 LTS
 --Command     : generate_target MercuryXU1.bd
 --Design      : MercuryXU1
 --Purpose     : IP block netlist
@@ -744,6 +744,107 @@ begin
   m06_couplers_to_m06_couplers_WREADY <= M_AXI_wready;
   m06_couplers_to_m06_couplers_WSTRB(3 downto 0) <= S_AXI_wstrb(3 downto 0);
   m06_couplers_to_m06_couplers_WVALID <= S_AXI_wvalid;
+end STRUCTURE;
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+library UNISIM;
+use UNISIM.VCOMPONENTS.ALL;
+entity m07_couplers_imp_EFT20O is
+  port (
+    M_ACLK : in STD_LOGIC;
+    M_ARESETN : in STD_LOGIC;
+    M_AXI_araddr : out STD_LOGIC_VECTOR ( 39 downto 0 );
+    M_AXI_arready : in STD_LOGIC;
+    M_AXI_arvalid : out STD_LOGIC;
+    M_AXI_awaddr : out STD_LOGIC_VECTOR ( 39 downto 0 );
+    M_AXI_awready : in STD_LOGIC;
+    M_AXI_awvalid : out STD_LOGIC;
+    M_AXI_bready : out STD_LOGIC;
+    M_AXI_bresp : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    M_AXI_bvalid : in STD_LOGIC;
+    M_AXI_rdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    M_AXI_rready : out STD_LOGIC;
+    M_AXI_rresp : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    M_AXI_rvalid : in STD_LOGIC;
+    M_AXI_wdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    M_AXI_wready : in STD_LOGIC;
+    M_AXI_wstrb : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    M_AXI_wvalid : out STD_LOGIC;
+    S_ACLK : in STD_LOGIC;
+    S_ARESETN : in STD_LOGIC;
+    S_AXI_araddr : in STD_LOGIC_VECTOR ( 39 downto 0 );
+    S_AXI_arready : out STD_LOGIC;
+    S_AXI_arvalid : in STD_LOGIC;
+    S_AXI_awaddr : in STD_LOGIC_VECTOR ( 39 downto 0 );
+    S_AXI_awready : out STD_LOGIC;
+    S_AXI_awvalid : in STD_LOGIC;
+    S_AXI_bready : in STD_LOGIC;
+    S_AXI_bresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    S_AXI_bvalid : out STD_LOGIC;
+    S_AXI_rdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    S_AXI_rready : in STD_LOGIC;
+    S_AXI_rresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    S_AXI_rvalid : out STD_LOGIC;
+    S_AXI_wdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    S_AXI_wready : out STD_LOGIC;
+    S_AXI_wstrb : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    S_AXI_wvalid : in STD_LOGIC
+  );
+end m07_couplers_imp_EFT20O;
+
+architecture STRUCTURE of m07_couplers_imp_EFT20O is
+  signal m07_couplers_to_m07_couplers_ARADDR : STD_LOGIC_VECTOR ( 39 downto 0 );
+  signal m07_couplers_to_m07_couplers_ARREADY : STD_LOGIC;
+  signal m07_couplers_to_m07_couplers_ARVALID : STD_LOGIC;
+  signal m07_couplers_to_m07_couplers_AWADDR : STD_LOGIC_VECTOR ( 39 downto 0 );
+  signal m07_couplers_to_m07_couplers_AWREADY : STD_LOGIC;
+  signal m07_couplers_to_m07_couplers_AWVALID : STD_LOGIC;
+  signal m07_couplers_to_m07_couplers_BREADY : STD_LOGIC;
+  signal m07_couplers_to_m07_couplers_BRESP : STD_LOGIC_VECTOR ( 1 downto 0 );
+  signal m07_couplers_to_m07_couplers_BVALID : STD_LOGIC;
+  signal m07_couplers_to_m07_couplers_RDATA : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal m07_couplers_to_m07_couplers_RREADY : STD_LOGIC;
+  signal m07_couplers_to_m07_couplers_RRESP : STD_LOGIC_VECTOR ( 1 downto 0 );
+  signal m07_couplers_to_m07_couplers_RVALID : STD_LOGIC;
+  signal m07_couplers_to_m07_couplers_WDATA : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal m07_couplers_to_m07_couplers_WREADY : STD_LOGIC;
+  signal m07_couplers_to_m07_couplers_WSTRB : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal m07_couplers_to_m07_couplers_WVALID : STD_LOGIC;
+begin
+  M_AXI_araddr(39 downto 0) <= m07_couplers_to_m07_couplers_ARADDR(39 downto 0);
+  M_AXI_arvalid <= m07_couplers_to_m07_couplers_ARVALID;
+  M_AXI_awaddr(39 downto 0) <= m07_couplers_to_m07_couplers_AWADDR(39 downto 0);
+  M_AXI_awvalid <= m07_couplers_to_m07_couplers_AWVALID;
+  M_AXI_bready <= m07_couplers_to_m07_couplers_BREADY;
+  M_AXI_rready <= m07_couplers_to_m07_couplers_RREADY;
+  M_AXI_wdata(31 downto 0) <= m07_couplers_to_m07_couplers_WDATA(31 downto 0);
+  M_AXI_wstrb(3 downto 0) <= m07_couplers_to_m07_couplers_WSTRB(3 downto 0);
+  M_AXI_wvalid <= m07_couplers_to_m07_couplers_WVALID;
+  S_AXI_arready <= m07_couplers_to_m07_couplers_ARREADY;
+  S_AXI_awready <= m07_couplers_to_m07_couplers_AWREADY;
+  S_AXI_bresp(1 downto 0) <= m07_couplers_to_m07_couplers_BRESP(1 downto 0);
+  S_AXI_bvalid <= m07_couplers_to_m07_couplers_BVALID;
+  S_AXI_rdata(31 downto 0) <= m07_couplers_to_m07_couplers_RDATA(31 downto 0);
+  S_AXI_rresp(1 downto 0) <= m07_couplers_to_m07_couplers_RRESP(1 downto 0);
+  S_AXI_rvalid <= m07_couplers_to_m07_couplers_RVALID;
+  S_AXI_wready <= m07_couplers_to_m07_couplers_WREADY;
+  m07_couplers_to_m07_couplers_ARADDR(39 downto 0) <= S_AXI_araddr(39 downto 0);
+  m07_couplers_to_m07_couplers_ARREADY <= M_AXI_arready;
+  m07_couplers_to_m07_couplers_ARVALID <= S_AXI_arvalid;
+  m07_couplers_to_m07_couplers_AWADDR(39 downto 0) <= S_AXI_awaddr(39 downto 0);
+  m07_couplers_to_m07_couplers_AWREADY <= M_AXI_awready;
+  m07_couplers_to_m07_couplers_AWVALID <= S_AXI_awvalid;
+  m07_couplers_to_m07_couplers_BREADY <= S_AXI_bready;
+  m07_couplers_to_m07_couplers_BRESP(1 downto 0) <= M_AXI_bresp(1 downto 0);
+  m07_couplers_to_m07_couplers_BVALID <= M_AXI_bvalid;
+  m07_couplers_to_m07_couplers_RDATA(31 downto 0) <= M_AXI_rdata(31 downto 0);
+  m07_couplers_to_m07_couplers_RREADY <= S_AXI_rready;
+  m07_couplers_to_m07_couplers_RRESP(1 downto 0) <= M_AXI_rresp(1 downto 0);
+  m07_couplers_to_m07_couplers_RVALID <= M_AXI_rvalid;
+  m07_couplers_to_m07_couplers_WDATA(31 downto 0) <= S_AXI_wdata(31 downto 0);
+  m07_couplers_to_m07_couplers_WREADY <= M_AXI_wready;
+  m07_couplers_to_m07_couplers_WSTRB(3 downto 0) <= S_AXI_wstrb(3 downto 0);
+  m07_couplers_to_m07_couplers_WVALID <= S_AXI_wvalid;
 end STRUCTURE;
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
@@ -1613,6 +1714,25 @@ entity MercuryXU1_ps8_0_axi_periph_0 is
     M06_AXI_wready : in STD_LOGIC;
     M06_AXI_wstrb : out STD_LOGIC_VECTOR ( 3 downto 0 );
     M06_AXI_wvalid : out STD_LOGIC;
+    M07_ACLK : in STD_LOGIC;
+    M07_ARESETN : in STD_LOGIC;
+    M07_AXI_araddr : out STD_LOGIC_VECTOR ( 39 downto 0 );
+    M07_AXI_arready : in STD_LOGIC;
+    M07_AXI_arvalid : out STD_LOGIC;
+    M07_AXI_awaddr : out STD_LOGIC_VECTOR ( 39 downto 0 );
+    M07_AXI_awready : in STD_LOGIC;
+    M07_AXI_awvalid : out STD_LOGIC;
+    M07_AXI_bready : out STD_LOGIC;
+    M07_AXI_bresp : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    M07_AXI_bvalid : in STD_LOGIC;
+    M07_AXI_rdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    M07_AXI_rready : out STD_LOGIC;
+    M07_AXI_rresp : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    M07_AXI_rvalid : in STD_LOGIC;
+    M07_AXI_wdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    M07_AXI_wready : in STD_LOGIC;
+    M07_AXI_wstrb : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    M07_AXI_wvalid : out STD_LOGIC;
     S00_ACLK : in STD_LOGIC;
     S00_ARESETN : in STD_LOGIC;
     S00_AXI_araddr : in STD_LOGIC_VECTOR ( 39 downto 0 );
@@ -1679,25 +1799,25 @@ architecture STRUCTURE of MercuryXU1_ps8_0_axi_periph_0 is
     s_axi_rresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
     s_axi_rvalid : out STD_LOGIC_VECTOR ( 0 to 0 );
     s_axi_rready : in STD_LOGIC_VECTOR ( 0 to 0 );
-    m_axi_awaddr : out STD_LOGIC_VECTOR ( 279 downto 0 );
-    m_axi_awprot : out STD_LOGIC_VECTOR ( 20 downto 0 );
-    m_axi_awvalid : out STD_LOGIC_VECTOR ( 6 downto 0 );
-    m_axi_awready : in STD_LOGIC_VECTOR ( 6 downto 0 );
-    m_axi_wdata : out STD_LOGIC_VECTOR ( 223 downto 0 );
-    m_axi_wstrb : out STD_LOGIC_VECTOR ( 27 downto 0 );
-    m_axi_wvalid : out STD_LOGIC_VECTOR ( 6 downto 0 );
-    m_axi_wready : in STD_LOGIC_VECTOR ( 6 downto 0 );
-    m_axi_bresp : in STD_LOGIC_VECTOR ( 13 downto 0 );
-    m_axi_bvalid : in STD_LOGIC_VECTOR ( 6 downto 0 );
-    m_axi_bready : out STD_LOGIC_VECTOR ( 6 downto 0 );
-    m_axi_araddr : out STD_LOGIC_VECTOR ( 279 downto 0 );
-    m_axi_arprot : out STD_LOGIC_VECTOR ( 20 downto 0 );
-    m_axi_arvalid : out STD_LOGIC_VECTOR ( 6 downto 0 );
-    m_axi_arready : in STD_LOGIC_VECTOR ( 6 downto 0 );
-    m_axi_rdata : in STD_LOGIC_VECTOR ( 223 downto 0 );
-    m_axi_rresp : in STD_LOGIC_VECTOR ( 13 downto 0 );
-    m_axi_rvalid : in STD_LOGIC_VECTOR ( 6 downto 0 );
-    m_axi_rready : out STD_LOGIC_VECTOR ( 6 downto 0 )
+    m_axi_awaddr : out STD_LOGIC_VECTOR ( 319 downto 0 );
+    m_axi_awprot : out STD_LOGIC_VECTOR ( 23 downto 0 );
+    m_axi_awvalid : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    m_axi_awready : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    m_axi_wdata : out STD_LOGIC_VECTOR ( 255 downto 0 );
+    m_axi_wstrb : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    m_axi_wvalid : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    m_axi_wready : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    m_axi_bresp : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    m_axi_bvalid : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    m_axi_bready : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    m_axi_araddr : out STD_LOGIC_VECTOR ( 319 downto 0 );
+    m_axi_arprot : out STD_LOGIC_VECTOR ( 23 downto 0 );
+    m_axi_arvalid : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    m_axi_arready : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    m_axi_rdata : in STD_LOGIC_VECTOR ( 255 downto 0 );
+    m_axi_rresp : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    m_axi_rvalid : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    m_axi_rready : out STD_LOGIC_VECTOR ( 7 downto 0 )
   );
   end component MercuryXU1_xbar_1;
   signal M00_ACLK_1 : STD_LOGIC;
@@ -1714,6 +1834,8 @@ architecture STRUCTURE of MercuryXU1_ps8_0_axi_periph_0 is
   signal M05_ARESETN_1 : STD_LOGIC;
   signal M06_ACLK_1 : STD_LOGIC;
   signal M06_ARESETN_1 : STD_LOGIC;
+  signal M07_ACLK_1 : STD_LOGIC;
+  signal M07_ARESETN_1 : STD_LOGIC;
   signal S00_ACLK_1 : STD_LOGIC;
   signal S00_ARESETN_1 : STD_LOGIC;
   signal m00_couplers_to_ps8_0_axi_periph_ARADDR : STD_LOGIC_VECTOR ( 39 downto 0 );
@@ -1833,6 +1955,23 @@ architecture STRUCTURE of MercuryXU1_ps8_0_axi_periph_0 is
   signal m06_couplers_to_ps8_0_axi_periph_WREADY : STD_LOGIC;
   signal m06_couplers_to_ps8_0_axi_periph_WSTRB : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal m06_couplers_to_ps8_0_axi_periph_WVALID : STD_LOGIC;
+  signal m07_couplers_to_ps8_0_axi_periph_ARADDR : STD_LOGIC_VECTOR ( 39 downto 0 );
+  signal m07_couplers_to_ps8_0_axi_periph_ARREADY : STD_LOGIC;
+  signal m07_couplers_to_ps8_0_axi_periph_ARVALID : STD_LOGIC;
+  signal m07_couplers_to_ps8_0_axi_periph_AWADDR : STD_LOGIC_VECTOR ( 39 downto 0 );
+  signal m07_couplers_to_ps8_0_axi_periph_AWREADY : STD_LOGIC;
+  signal m07_couplers_to_ps8_0_axi_periph_AWVALID : STD_LOGIC;
+  signal m07_couplers_to_ps8_0_axi_periph_BREADY : STD_LOGIC;
+  signal m07_couplers_to_ps8_0_axi_periph_BRESP : STD_LOGIC_VECTOR ( 1 downto 0 );
+  signal m07_couplers_to_ps8_0_axi_periph_BVALID : STD_LOGIC;
+  signal m07_couplers_to_ps8_0_axi_periph_RDATA : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal m07_couplers_to_ps8_0_axi_periph_RREADY : STD_LOGIC;
+  signal m07_couplers_to_ps8_0_axi_periph_RRESP : STD_LOGIC_VECTOR ( 1 downto 0 );
+  signal m07_couplers_to_ps8_0_axi_periph_RVALID : STD_LOGIC;
+  signal m07_couplers_to_ps8_0_axi_periph_WDATA : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal m07_couplers_to_ps8_0_axi_periph_WREADY : STD_LOGIC;
+  signal m07_couplers_to_ps8_0_axi_periph_WSTRB : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal m07_couplers_to_ps8_0_axi_periph_WVALID : STD_LOGIC;
   signal ps8_0_axi_periph_ACLK_net : STD_LOGIC;
   signal ps8_0_axi_periph_ARESETN_net : STD_LOGIC;
   signal ps8_0_axi_periph_to_s00_couplers_ARADDR : STD_LOGIC_VECTOR ( 39 downto 0 );
@@ -2008,8 +2147,25 @@ architecture STRUCTURE of MercuryXU1_ps8_0_axi_periph_0 is
   signal xbar_to_m06_couplers_WREADY : STD_LOGIC;
   signal xbar_to_m06_couplers_WSTRB : STD_LOGIC_VECTOR ( 27 downto 24 );
   signal xbar_to_m06_couplers_WVALID : STD_LOGIC_VECTOR ( 6 to 6 );
-  signal NLW_xbar_m_axi_arprot_UNCONNECTED : STD_LOGIC_VECTOR ( 20 downto 0 );
-  signal NLW_xbar_m_axi_awprot_UNCONNECTED : STD_LOGIC_VECTOR ( 20 downto 0 );
+  signal xbar_to_m07_couplers_ARADDR : STD_LOGIC_VECTOR ( 319 downto 280 );
+  signal xbar_to_m07_couplers_ARREADY : STD_LOGIC;
+  signal xbar_to_m07_couplers_ARVALID : STD_LOGIC_VECTOR ( 7 to 7 );
+  signal xbar_to_m07_couplers_AWADDR : STD_LOGIC_VECTOR ( 319 downto 280 );
+  signal xbar_to_m07_couplers_AWREADY : STD_LOGIC;
+  signal xbar_to_m07_couplers_AWVALID : STD_LOGIC_VECTOR ( 7 to 7 );
+  signal xbar_to_m07_couplers_BREADY : STD_LOGIC_VECTOR ( 7 to 7 );
+  signal xbar_to_m07_couplers_BRESP : STD_LOGIC_VECTOR ( 1 downto 0 );
+  signal xbar_to_m07_couplers_BVALID : STD_LOGIC;
+  signal xbar_to_m07_couplers_RDATA : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal xbar_to_m07_couplers_RREADY : STD_LOGIC_VECTOR ( 7 to 7 );
+  signal xbar_to_m07_couplers_RRESP : STD_LOGIC_VECTOR ( 1 downto 0 );
+  signal xbar_to_m07_couplers_RVALID : STD_LOGIC;
+  signal xbar_to_m07_couplers_WDATA : STD_LOGIC_VECTOR ( 255 downto 224 );
+  signal xbar_to_m07_couplers_WREADY : STD_LOGIC;
+  signal xbar_to_m07_couplers_WSTRB : STD_LOGIC_VECTOR ( 31 downto 28 );
+  signal xbar_to_m07_couplers_WVALID : STD_LOGIC_VECTOR ( 7 to 7 );
+  signal NLW_xbar_m_axi_arprot_UNCONNECTED : STD_LOGIC_VECTOR ( 23 downto 0 );
+  signal NLW_xbar_m_axi_awprot_UNCONNECTED : STD_LOGIC_VECTOR ( 23 downto 0 );
   signal NLW_xbar_m_axi_wstrb_UNCONNECTED : STD_LOGIC_VECTOR ( 23 downto 8 );
 begin
   M00_ACLK_1 <= M00_ACLK;
@@ -2087,6 +2243,17 @@ begin
   M06_AXI_wdata(31 downto 0) <= m06_couplers_to_ps8_0_axi_periph_WDATA(31 downto 0);
   M06_AXI_wstrb(3 downto 0) <= m06_couplers_to_ps8_0_axi_periph_WSTRB(3 downto 0);
   M06_AXI_wvalid <= m06_couplers_to_ps8_0_axi_periph_WVALID;
+  M07_ACLK_1 <= M07_ACLK;
+  M07_ARESETN_1 <= M07_ARESETN;
+  M07_AXI_araddr(39 downto 0) <= m07_couplers_to_ps8_0_axi_periph_ARADDR(39 downto 0);
+  M07_AXI_arvalid <= m07_couplers_to_ps8_0_axi_periph_ARVALID;
+  M07_AXI_awaddr(39 downto 0) <= m07_couplers_to_ps8_0_axi_periph_AWADDR(39 downto 0);
+  M07_AXI_awvalid <= m07_couplers_to_ps8_0_axi_periph_AWVALID;
+  M07_AXI_bready <= m07_couplers_to_ps8_0_axi_periph_BREADY;
+  M07_AXI_rready <= m07_couplers_to_ps8_0_axi_periph_RREADY;
+  M07_AXI_wdata(31 downto 0) <= m07_couplers_to_ps8_0_axi_periph_WDATA(31 downto 0);
+  M07_AXI_wstrb(3 downto 0) <= m07_couplers_to_ps8_0_axi_periph_WSTRB(3 downto 0);
+  M07_AXI_wvalid <= m07_couplers_to_ps8_0_axi_periph_WVALID;
   S00_ACLK_1 <= S00_ACLK;
   S00_ARESETN_1 <= S00_ARESETN;
   S00_AXI_arready <= ps8_0_axi_periph_to_s00_couplers_ARREADY;
@@ -2156,6 +2323,14 @@ begin
   m06_couplers_to_ps8_0_axi_periph_RRESP(1 downto 0) <= M06_AXI_rresp(1 downto 0);
   m06_couplers_to_ps8_0_axi_periph_RVALID <= M06_AXI_rvalid;
   m06_couplers_to_ps8_0_axi_periph_WREADY <= M06_AXI_wready;
+  m07_couplers_to_ps8_0_axi_periph_ARREADY <= M07_AXI_arready;
+  m07_couplers_to_ps8_0_axi_periph_AWREADY <= M07_AXI_awready;
+  m07_couplers_to_ps8_0_axi_periph_BRESP(1 downto 0) <= M07_AXI_bresp(1 downto 0);
+  m07_couplers_to_ps8_0_axi_periph_BVALID <= M07_AXI_bvalid;
+  m07_couplers_to_ps8_0_axi_periph_RDATA(31 downto 0) <= M07_AXI_rdata(31 downto 0);
+  m07_couplers_to_ps8_0_axi_periph_RRESP(1 downto 0) <= M07_AXI_rresp(1 downto 0);
+  m07_couplers_to_ps8_0_axi_periph_RVALID <= M07_AXI_rvalid;
+  m07_couplers_to_ps8_0_axi_periph_WREADY <= M07_AXI_wready;
   ps8_0_axi_periph_ACLK_net <= ACLK;
   ps8_0_axi_periph_ARESETN_net <= ARESETN;
   ps8_0_axi_periph_to_s00_couplers_ARADDR(39 downto 0) <= S00_AXI_araddr(39 downto 0);
@@ -2467,6 +2642,47 @@ m06_couplers: entity work.m06_couplers_imp_MLCGU6
       S_AXI_wstrb(3 downto 0) => xbar_to_m06_couplers_WSTRB(27 downto 24),
       S_AXI_wvalid => xbar_to_m06_couplers_WVALID(6)
     );
+m07_couplers: entity work.m07_couplers_imp_EFT20O
+     port map (
+      M_ACLK => M07_ACLK_1,
+      M_ARESETN => M07_ARESETN_1,
+      M_AXI_araddr(39 downto 0) => m07_couplers_to_ps8_0_axi_periph_ARADDR(39 downto 0),
+      M_AXI_arready => m07_couplers_to_ps8_0_axi_periph_ARREADY,
+      M_AXI_arvalid => m07_couplers_to_ps8_0_axi_periph_ARVALID,
+      M_AXI_awaddr(39 downto 0) => m07_couplers_to_ps8_0_axi_periph_AWADDR(39 downto 0),
+      M_AXI_awready => m07_couplers_to_ps8_0_axi_periph_AWREADY,
+      M_AXI_awvalid => m07_couplers_to_ps8_0_axi_periph_AWVALID,
+      M_AXI_bready => m07_couplers_to_ps8_0_axi_periph_BREADY,
+      M_AXI_bresp(1 downto 0) => m07_couplers_to_ps8_0_axi_periph_BRESP(1 downto 0),
+      M_AXI_bvalid => m07_couplers_to_ps8_0_axi_periph_BVALID,
+      M_AXI_rdata(31 downto 0) => m07_couplers_to_ps8_0_axi_periph_RDATA(31 downto 0),
+      M_AXI_rready => m07_couplers_to_ps8_0_axi_periph_RREADY,
+      M_AXI_rresp(1 downto 0) => m07_couplers_to_ps8_0_axi_periph_RRESP(1 downto 0),
+      M_AXI_rvalid => m07_couplers_to_ps8_0_axi_periph_RVALID,
+      M_AXI_wdata(31 downto 0) => m07_couplers_to_ps8_0_axi_periph_WDATA(31 downto 0),
+      M_AXI_wready => m07_couplers_to_ps8_0_axi_periph_WREADY,
+      M_AXI_wstrb(3 downto 0) => m07_couplers_to_ps8_0_axi_periph_WSTRB(3 downto 0),
+      M_AXI_wvalid => m07_couplers_to_ps8_0_axi_periph_WVALID,
+      S_ACLK => ps8_0_axi_periph_ACLK_net,
+      S_ARESETN => ps8_0_axi_periph_ARESETN_net,
+      S_AXI_araddr(39 downto 0) => xbar_to_m07_couplers_ARADDR(319 downto 280),
+      S_AXI_arready => xbar_to_m07_couplers_ARREADY,
+      S_AXI_arvalid => xbar_to_m07_couplers_ARVALID(7),
+      S_AXI_awaddr(39 downto 0) => xbar_to_m07_couplers_AWADDR(319 downto 280),
+      S_AXI_awready => xbar_to_m07_couplers_AWREADY,
+      S_AXI_awvalid => xbar_to_m07_couplers_AWVALID(7),
+      S_AXI_bready => xbar_to_m07_couplers_BREADY(7),
+      S_AXI_bresp(1 downto 0) => xbar_to_m07_couplers_BRESP(1 downto 0),
+      S_AXI_bvalid => xbar_to_m07_couplers_BVALID,
+      S_AXI_rdata(31 downto 0) => xbar_to_m07_couplers_RDATA(31 downto 0),
+      S_AXI_rready => xbar_to_m07_couplers_RREADY(7),
+      S_AXI_rresp(1 downto 0) => xbar_to_m07_couplers_RRESP(1 downto 0),
+      S_AXI_rvalid => xbar_to_m07_couplers_RVALID,
+      S_AXI_wdata(31 downto 0) => xbar_to_m07_couplers_WDATA(255 downto 224),
+      S_AXI_wready => xbar_to_m07_couplers_WREADY,
+      S_AXI_wstrb(3 downto 0) => xbar_to_m07_couplers_WSTRB(31 downto 28),
+      S_AXI_wvalid => xbar_to_m07_couplers_WVALID(7)
+    );
 s00_couplers: entity work.s00_couplers_imp_1ESDVSA
      port map (
       M_ACLK => ps8_0_axi_periph_ACLK_net,
@@ -2534,6 +2750,7 @@ xbar: component MercuryXU1_xbar_1
      port map (
       aclk => ps8_0_axi_periph_ACLK_net,
       aresetn => ps8_0_axi_periph_ARESETN_net,
+      m_axi_araddr(319 downto 280) => xbar_to_m07_couplers_ARADDR(319 downto 280),
       m_axi_araddr(279 downto 240) => xbar_to_m06_couplers_ARADDR(279 downto 240),
       m_axi_araddr(239 downto 200) => xbar_to_m05_couplers_ARADDR(239 downto 200),
       m_axi_araddr(199 downto 160) => xbar_to_m04_couplers_ARADDR(199 downto 160),
@@ -2541,7 +2758,8 @@ xbar: component MercuryXU1_xbar_1
       m_axi_araddr(119 downto 80) => xbar_to_m02_couplers_ARADDR(119 downto 80),
       m_axi_araddr(79 downto 40) => xbar_to_m01_couplers_ARADDR(79 downto 40),
       m_axi_araddr(39 downto 0) => xbar_to_m00_couplers_ARADDR(39 downto 0),
-      m_axi_arprot(20 downto 0) => NLW_xbar_m_axi_arprot_UNCONNECTED(20 downto 0),
+      m_axi_arprot(23 downto 0) => NLW_xbar_m_axi_arprot_UNCONNECTED(23 downto 0),
+      m_axi_arready(7) => xbar_to_m07_couplers_ARREADY,
       m_axi_arready(6) => xbar_to_m06_couplers_ARREADY,
       m_axi_arready(5) => xbar_to_m05_couplers_ARREADY,
       m_axi_arready(4) => xbar_to_m04_couplers_ARREADY,
@@ -2549,6 +2767,7 @@ xbar: component MercuryXU1_xbar_1
       m_axi_arready(2) => xbar_to_m02_couplers_ARREADY,
       m_axi_arready(1) => xbar_to_m01_couplers_ARREADY,
       m_axi_arready(0) => xbar_to_m00_couplers_ARREADY(0),
+      m_axi_arvalid(7) => xbar_to_m07_couplers_ARVALID(7),
       m_axi_arvalid(6) => xbar_to_m06_couplers_ARVALID(6),
       m_axi_arvalid(5) => xbar_to_m05_couplers_ARVALID(5),
       m_axi_arvalid(4) => xbar_to_m04_couplers_ARVALID(4),
@@ -2556,6 +2775,7 @@ xbar: component MercuryXU1_xbar_1
       m_axi_arvalid(2) => xbar_to_m02_couplers_ARVALID(2),
       m_axi_arvalid(1) => xbar_to_m01_couplers_ARVALID(1),
       m_axi_arvalid(0) => xbar_to_m00_couplers_ARVALID(0),
+      m_axi_awaddr(319 downto 280) => xbar_to_m07_couplers_AWADDR(319 downto 280),
       m_axi_awaddr(279 downto 240) => xbar_to_m06_couplers_AWADDR(279 downto 240),
       m_axi_awaddr(239 downto 200) => xbar_to_m05_couplers_AWADDR(239 downto 200),
       m_axi_awaddr(199 downto 160) => xbar_to_m04_couplers_AWADDR(199 downto 160),
@@ -2563,7 +2783,8 @@ xbar: component MercuryXU1_xbar_1
       m_axi_awaddr(119 downto 80) => xbar_to_m02_couplers_AWADDR(119 downto 80),
       m_axi_awaddr(79 downto 40) => xbar_to_m01_couplers_AWADDR(79 downto 40),
       m_axi_awaddr(39 downto 0) => xbar_to_m00_couplers_AWADDR(39 downto 0),
-      m_axi_awprot(20 downto 0) => NLW_xbar_m_axi_awprot_UNCONNECTED(20 downto 0),
+      m_axi_awprot(23 downto 0) => NLW_xbar_m_axi_awprot_UNCONNECTED(23 downto 0),
+      m_axi_awready(7) => xbar_to_m07_couplers_AWREADY,
       m_axi_awready(6) => xbar_to_m06_couplers_AWREADY,
       m_axi_awready(5) => xbar_to_m05_couplers_AWREADY,
       m_axi_awready(4) => xbar_to_m04_couplers_AWREADY,
@@ -2571,6 +2792,7 @@ xbar: component MercuryXU1_xbar_1
       m_axi_awready(2) => xbar_to_m02_couplers_AWREADY,
       m_axi_awready(1) => xbar_to_m01_couplers_AWREADY,
       m_axi_awready(0) => xbar_to_m00_couplers_AWREADY(0),
+      m_axi_awvalid(7) => xbar_to_m07_couplers_AWVALID(7),
       m_axi_awvalid(6) => xbar_to_m06_couplers_AWVALID(6),
       m_axi_awvalid(5) => xbar_to_m05_couplers_AWVALID(5),
       m_axi_awvalid(4) => xbar_to_m04_couplers_AWVALID(4),
@@ -2578,6 +2800,7 @@ xbar: component MercuryXU1_xbar_1
       m_axi_awvalid(2) => xbar_to_m02_couplers_AWVALID(2),
       m_axi_awvalid(1) => xbar_to_m01_couplers_AWVALID(1),
       m_axi_awvalid(0) => xbar_to_m00_couplers_AWVALID(0),
+      m_axi_bready(7) => xbar_to_m07_couplers_BREADY(7),
       m_axi_bready(6) => xbar_to_m06_couplers_BREADY(6),
       m_axi_bready(5) => xbar_to_m05_couplers_BREADY(5),
       m_axi_bready(4) => xbar_to_m04_couplers_BREADY(4),
@@ -2585,6 +2808,7 @@ xbar: component MercuryXU1_xbar_1
       m_axi_bready(2) => xbar_to_m02_couplers_BREADY(2),
       m_axi_bready(1) => xbar_to_m01_couplers_BREADY(1),
       m_axi_bready(0) => xbar_to_m00_couplers_BREADY(0),
+      m_axi_bresp(15 downto 14) => xbar_to_m07_couplers_BRESP(1 downto 0),
       m_axi_bresp(13 downto 12) => xbar_to_m06_couplers_BRESP(1 downto 0),
       m_axi_bresp(11 downto 10) => xbar_to_m05_couplers_BRESP(1 downto 0),
       m_axi_bresp(9 downto 8) => xbar_to_m04_couplers_BRESP(1 downto 0),
@@ -2592,6 +2816,7 @@ xbar: component MercuryXU1_xbar_1
       m_axi_bresp(5 downto 4) => xbar_to_m02_couplers_BRESP(1 downto 0),
       m_axi_bresp(3 downto 2) => xbar_to_m01_couplers_BRESP(1 downto 0),
       m_axi_bresp(1 downto 0) => xbar_to_m00_couplers_BRESP(1 downto 0),
+      m_axi_bvalid(7) => xbar_to_m07_couplers_BVALID,
       m_axi_bvalid(6) => xbar_to_m06_couplers_BVALID,
       m_axi_bvalid(5) => xbar_to_m05_couplers_BVALID,
       m_axi_bvalid(4) => xbar_to_m04_couplers_BVALID,
@@ -2599,6 +2824,7 @@ xbar: component MercuryXU1_xbar_1
       m_axi_bvalid(2) => xbar_to_m02_couplers_BVALID,
       m_axi_bvalid(1) => xbar_to_m01_couplers_BVALID,
       m_axi_bvalid(0) => xbar_to_m00_couplers_BVALID(0),
+      m_axi_rdata(255 downto 224) => xbar_to_m07_couplers_RDATA(31 downto 0),
       m_axi_rdata(223 downto 192) => xbar_to_m06_couplers_RDATA(31 downto 0),
       m_axi_rdata(191 downto 160) => xbar_to_m05_couplers_RDATA(31 downto 0),
       m_axi_rdata(159 downto 128) => xbar_to_m04_couplers_RDATA(31 downto 0),
@@ -2606,6 +2832,7 @@ xbar: component MercuryXU1_xbar_1
       m_axi_rdata(95 downto 64) => xbar_to_m02_couplers_RDATA(31 downto 0),
       m_axi_rdata(63 downto 32) => xbar_to_m01_couplers_RDATA(31 downto 0),
       m_axi_rdata(31 downto 0) => xbar_to_m00_couplers_RDATA(31 downto 0),
+      m_axi_rready(7) => xbar_to_m07_couplers_RREADY(7),
       m_axi_rready(6) => xbar_to_m06_couplers_RREADY(6),
       m_axi_rready(5) => xbar_to_m05_couplers_RREADY(5),
       m_axi_rready(4) => xbar_to_m04_couplers_RREADY(4),
@@ -2613,6 +2840,7 @@ xbar: component MercuryXU1_xbar_1
       m_axi_rready(2) => xbar_to_m02_couplers_RREADY(2),
       m_axi_rready(1) => xbar_to_m01_couplers_RREADY(1),
       m_axi_rready(0) => xbar_to_m00_couplers_RREADY(0),
+      m_axi_rresp(15 downto 14) => xbar_to_m07_couplers_RRESP(1 downto 0),
       m_axi_rresp(13 downto 12) => xbar_to_m06_couplers_RRESP(1 downto 0),
       m_axi_rresp(11 downto 10) => xbar_to_m05_couplers_RRESP(1 downto 0),
       m_axi_rresp(9 downto 8) => xbar_to_m04_couplers_RRESP(1 downto 0),
@@ -2620,6 +2848,7 @@ xbar: component MercuryXU1_xbar_1
       m_axi_rresp(5 downto 4) => xbar_to_m02_couplers_RRESP(1 downto 0),
       m_axi_rresp(3 downto 2) => xbar_to_m01_couplers_RRESP(1 downto 0),
       m_axi_rresp(1 downto 0) => xbar_to_m00_couplers_RRESP(1 downto 0),
+      m_axi_rvalid(7) => xbar_to_m07_couplers_RVALID,
       m_axi_rvalid(6) => xbar_to_m06_couplers_RVALID,
       m_axi_rvalid(5) => xbar_to_m05_couplers_RVALID,
       m_axi_rvalid(4) => xbar_to_m04_couplers_RVALID,
@@ -2627,6 +2856,7 @@ xbar: component MercuryXU1_xbar_1
       m_axi_rvalid(2) => xbar_to_m02_couplers_RVALID,
       m_axi_rvalid(1) => xbar_to_m01_couplers_RVALID,
       m_axi_rvalid(0) => xbar_to_m00_couplers_RVALID(0),
+      m_axi_wdata(255 downto 224) => xbar_to_m07_couplers_WDATA(255 downto 224),
       m_axi_wdata(223 downto 192) => xbar_to_m06_couplers_WDATA(223 downto 192),
       m_axi_wdata(191 downto 160) => xbar_to_m05_couplers_WDATA(191 downto 160),
       m_axi_wdata(159 downto 128) => xbar_to_m04_couplers_WDATA(159 downto 128),
@@ -2634,6 +2864,7 @@ xbar: component MercuryXU1_xbar_1
       m_axi_wdata(95 downto 64) => xbar_to_m02_couplers_WDATA(95 downto 64),
       m_axi_wdata(63 downto 32) => xbar_to_m01_couplers_WDATA(63 downto 32),
       m_axi_wdata(31 downto 0) => xbar_to_m00_couplers_WDATA(31 downto 0),
+      m_axi_wready(7) => xbar_to_m07_couplers_WREADY,
       m_axi_wready(6) => xbar_to_m06_couplers_WREADY,
       m_axi_wready(5) => xbar_to_m05_couplers_WREADY,
       m_axi_wready(4) => xbar_to_m04_couplers_WREADY,
@@ -2641,6 +2872,7 @@ xbar: component MercuryXU1_xbar_1
       m_axi_wready(2) => xbar_to_m02_couplers_WREADY,
       m_axi_wready(1) => xbar_to_m01_couplers_WREADY,
       m_axi_wready(0) => xbar_to_m00_couplers_WREADY(0),
+      m_axi_wstrb(31 downto 28) => xbar_to_m07_couplers_WSTRB(31 downto 28),
       m_axi_wstrb(27 downto 24) => xbar_to_m06_couplers_WSTRB(27 downto 24),
       m_axi_wstrb(23 downto 20) => NLW_xbar_m_axi_wstrb_UNCONNECTED(23 downto 20),
       m_axi_wstrb(19 downto 16) => xbar_to_m04_couplers_WSTRB(19 downto 16),
@@ -2648,6 +2880,7 @@ xbar: component MercuryXU1_xbar_1
       m_axi_wstrb(11 downto 8) => NLW_xbar_m_axi_wstrb_UNCONNECTED(11 downto 8),
       m_axi_wstrb(7 downto 4) => xbar_to_m01_couplers_WSTRB(7 downto 4),
       m_axi_wstrb(3 downto 0) => xbar_to_m00_couplers_WSTRB(3 downto 0),
+      m_axi_wvalid(7) => xbar_to_m07_couplers_WVALID(7),
       m_axi_wvalid(6) => xbar_to_m06_couplers_WVALID(6),
       m_axi_wvalid(5) => xbar_to_m05_couplers_WVALID(5),
       m_axi_wvalid(4) => xbar_to_m04_couplers_WVALID(4),
@@ -2728,7 +2961,7 @@ entity MercuryXU1 is
     trigger_external : in STD_LOGIC
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of MercuryXU1 : entity is "MercuryXU1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=MercuryXU1,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=50,numReposBlks=37,numNonXlnxBlks=0,numHierBlks=13,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=3,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=5,synth_mode=Global}";
+  attribute CORE_GENERATION_INFO of MercuryXU1 : entity is "MercuryXU1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=MercuryXU1,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=55,numReposBlks=41,numNonXlnxBlks=0,numHierBlks=14,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=4,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=5,synth_mode=Global}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of MercuryXU1 : entity is "MercuryXU1.hwdef";
 end MercuryXU1;
@@ -3347,7 +3580,11 @@ architecture STRUCTURE of MercuryXU1 is
     SLOT_7_AXI_rlast : in STD_LOGIC;
     SLOT_7_AXI_rvalid : in STD_LOGIC;
     SLOT_7_AXI_rready : in STD_LOGIC;
-    resetn : in STD_LOGIC
+    resetn : in STD_LOGIC;
+    SLOT_8_AXIS_tdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    SLOT_8_AXIS_tlast : in STD_LOGIC;
+    SLOT_8_AXIS_tvalid : in STD_LOGIC;
+    SLOT_8_AXIS_tready : in STD_LOGIC
   );
   end component MercuryXU1_system_ila_0_0;
   component MercuryXU1_system_ila_0_2 is
@@ -3356,7 +3593,10 @@ architecture STRUCTURE of MercuryXU1 is
     probe0 : in STD_LOGIC_VECTOR ( 19 downto 0 );
     probe1 : in STD_LOGIC_VECTOR ( 19 downto 0 );
     probe2 : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    probe3 : in STD_LOGIC_VECTOR ( 31 downto 0 )
+    probe3 : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    probe4 : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    probe5 : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    probe6 : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component MercuryXU1_system_ila_0_2;
   component MercuryXU1_xlslice_1_0 is
@@ -3373,8 +3613,8 @@ architecture STRUCTURE of MercuryXU1 is
     probe2 : in STD_LOGIC_VECTOR ( 31 downto 0 );
     probe3 : in STD_LOGIC_VECTOR ( 31 downto 0 );
     probe4 : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    probe5 : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    probe6 : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    probe5 : in STD_LOGIC_VECTOR ( 4 downto 0 );
+    probe6 : in STD_LOGIC_VECTOR ( 4 downto 0 );
     SLOT_0_AXIS_tdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
     SLOT_0_AXIS_tlast : in STD_LOGIC;
     SLOT_0_AXIS_tvalid : in STD_LOGIC;
@@ -3699,20 +3939,77 @@ architecture STRUCTURE of MercuryXU1 is
     adc_sample_valid_selected_1 : out STD_LOGIC
   );
   end component MercuryXU1_stream_multiplexer_0_0;
+  component MercuryXU1_axi_gpio_delay_ctrl_0 is
+  port (
+    s_axi_aclk : in STD_LOGIC;
+    s_axi_aresetn : in STD_LOGIC;
+    s_axi_awaddr : in STD_LOGIC_VECTOR ( 8 downto 0 );
+    s_axi_awvalid : in STD_LOGIC;
+    s_axi_awready : out STD_LOGIC;
+    s_axi_wdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    s_axi_wstrb : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    s_axi_wvalid : in STD_LOGIC;
+    s_axi_wready : out STD_LOGIC;
+    s_axi_bresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    s_axi_bvalid : out STD_LOGIC;
+    s_axi_bready : in STD_LOGIC;
+    s_axi_araddr : in STD_LOGIC_VECTOR ( 8 downto 0 );
+    s_axi_arvalid : in STD_LOGIC;
+    s_axi_arready : out STD_LOGIC;
+    s_axi_rdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    s_axi_rresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    s_axi_rvalid : out STD_LOGIC;
+    s_axi_rready : in STD_LOGIC;
+    gpio_io_o : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    gpio2_io_i : in STD_LOGIC_VECTOR ( 31 downto 0 )
+  );
+  end component MercuryXU1_axi_gpio_delay_ctrl_0;
+  component MercuryXU1_xlconcat_0_1 is
+  port (
+    In0 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    In1 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    In2 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    In3 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    In4 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    In5 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    In6 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    In7 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    In8 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    In9 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    In10 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    In11 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    In12 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    In13 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    In14 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    In15 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    In16 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    In17 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    In18 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    In19 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    dout : out STD_LOGIC_VECTOR ( 19 downto 0 )
+  );
+  end component MercuryXU1_xlconcat_0_1;
+  component MercuryXU1_xlconstant_0_0 is
+  port (
+    dout : out STD_LOGIC_VECTOR ( 0 to 0 )
+  );
+  end component MercuryXU1_xlconstant_0_0;
   component MercuryXU1_tlast_generator_0_0 is
   port (
     clk : in STD_LOGIC;
     rst_n : in STD_LOGIC;
     num_samples_per_packet : in STD_LOGIC_VECTOR ( 31 downto 0 );
     trigger_mode : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    trigger_enable : in STD_LOGIC;
     trigger_ps : in STD_LOGIC;
     trigger_external : in STD_LOGIC;
     trigger_internal_in : in STD_LOGIC;
     trigger_internal_out : out STD_LOGIC;
+    trigger_detected : out STD_LOGIC;
     data : in STD_LOGIC_VECTOR ( 31 downto 0 );
     data_enable : in STD_LOGIC;
     counter : out STD_LOGIC_VECTOR ( 31 downto 0 );
-    trigger_test : out STD_LOGIC_VECTOR ( 2 downto 0 );
+    trigger_test : out STD_LOGIC_VECTOR ( 4 downto 0 );
     m_axis_tdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
     m_axis_tvalid : out STD_LOGIC;
     m_axis_tlast : out STD_LOGIC;
@@ -3725,20 +4022,32 @@ architecture STRUCTURE of MercuryXU1 is
     rst_n : in STD_LOGIC;
     num_samples_per_packet : in STD_LOGIC_VECTOR ( 31 downto 0 );
     trigger_mode : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    trigger_enable : in STD_LOGIC;
     trigger_ps : in STD_LOGIC;
     trigger_external : in STD_LOGIC;
     trigger_internal_in : in STD_LOGIC;
     trigger_internal_out : out STD_LOGIC;
+    trigger_detected : out STD_LOGIC;
     data : in STD_LOGIC_VECTOR ( 31 downto 0 );
     data_enable : in STD_LOGIC;
     counter : out STD_LOGIC_VECTOR ( 31 downto 0 );
-    trigger_test : out STD_LOGIC_VECTOR ( 2 downto 0 );
+    trigger_test : out STD_LOGIC_VECTOR ( 4 downto 0 );
     m_axis_tdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
     m_axis_tvalid : out STD_LOGIC;
     m_axis_tlast : out STD_LOGIC;
     m_axis_tready : in STD_LOGIC
   );
   end component MercuryXU1_tlast_generator_0_1;
+  component MercuryXU1_event_controller_0_1 is
+  port (
+    clk : in STD_LOGIC;
+    rst_n : in STD_LOGIC;
+    num_packets_per_event : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    packet_counter : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    trigger_enable : out STD_LOGIC;
+    trigger : in STD_LOGIC_VECTOR ( 19 downto 0 )
+  );
+  end component MercuryXU1_event_controller_0_1;
   signal aclk_0_1 : STD_LOGIC;
   signal adc0_sample_0_1 : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal adc10_sample_0_1 : STD_LOGIC_VECTOR ( 31 downto 0 );
@@ -3933,6 +4242,7 @@ architecture STRUCTURE of MercuryXU1 is
   attribute DEBUG of axi_gpio_0_gpio_io_o : signal is "true";
   attribute MARK_DEBUG of axi_gpio_0_gpio_io_o : signal is std.standard.true;
   signal axi_gpio_delay_ctrl_gpio_io_o : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal axi_gpio_packet_number_gpio_io_o : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal axi_gpio_sample_number_gpio_io_o : STD_LOGIC_VECTOR ( 31 downto 0 );
   attribute DEBUG of axi_gpio_sample_number_gpio_io_o : signal is "true";
   attribute MARK_DEBUG of axi_gpio_sample_number_gpio_io_o : signal is std.standard.true;
@@ -3988,9 +4298,21 @@ architecture STRUCTURE of MercuryXU1 is
   attribute DEBUG of axis_data_fifo_0_M_AXIS_TVALID : signal is "true";
   attribute MARK_DEBUG of axis_data_fifo_0_M_AXIS_TVALID : signal is std.standard.true;
   signal axis_data_fifo_2_M_AXIS_TDATA : STD_LOGIC_VECTOR ( 31 downto 0 );
+  attribute CONN_BUS_INFO of axis_data_fifo_2_M_AXIS_TDATA : signal is "axis_data_fifo_2_M_AXIS xilinx.com:interface:axis:1.0 None TDATA";
+  attribute DEBUG of axis_data_fifo_2_M_AXIS_TDATA : signal is "true";
+  attribute MARK_DEBUG of axis_data_fifo_2_M_AXIS_TDATA : signal is std.standard.true;
   signal axis_data_fifo_2_M_AXIS_TLAST : STD_LOGIC;
+  attribute CONN_BUS_INFO of axis_data_fifo_2_M_AXIS_TLAST : signal is "axis_data_fifo_2_M_AXIS xilinx.com:interface:axis:1.0 None TLAST";
+  attribute DEBUG of axis_data_fifo_2_M_AXIS_TLAST : signal is "true";
+  attribute MARK_DEBUG of axis_data_fifo_2_M_AXIS_TLAST : signal is std.standard.true;
   signal axis_data_fifo_2_M_AXIS_TREADY : STD_LOGIC;
+  attribute CONN_BUS_INFO of axis_data_fifo_2_M_AXIS_TREADY : signal is "axis_data_fifo_2_M_AXIS xilinx.com:interface:axis:1.0 None TREADY";
+  attribute DEBUG of axis_data_fifo_2_M_AXIS_TREADY : signal is "true";
+  attribute MARK_DEBUG of axis_data_fifo_2_M_AXIS_TREADY : signal is std.standard.true;
   signal axis_data_fifo_2_M_AXIS_TVALID : STD_LOGIC;
+  attribute CONN_BUS_INFO of axis_data_fifo_2_M_AXIS_TVALID : signal is "axis_data_fifo_2_M_AXIS xilinx.com:interface:axis:1.0 None TVALID";
+  attribute DEBUG of axis_data_fifo_2_M_AXIS_TVALID : signal is "true";
+  attribute MARK_DEBUG of axis_data_fifo_2_M_AXIS_TVALID : signal is std.standard.true;
   signal axis_interconnect_0_M00_AXIS_TDATA : STD_LOGIC_VECTOR ( 31 downto 0 );
   attribute CONN_BUS_INFO of axis_interconnect_0_M00_AXIS_TDATA : signal is "axis_interconnect_0_M00_AXIS xilinx.com:interface:axis:1.0 None TDATA";
   attribute DEBUG of axis_interconnect_0_M00_AXIS_TDATA : signal is "true";
@@ -4027,6 +4349,8 @@ architecture STRUCTURE of MercuryXU1 is
   attribute CONN_BUS_INFO of axis_subset_converter_0_M_AXIS_TVALID : signal is "axis_subset_converter_0_M_AXIS xilinx.com:interface:axis:1.0 None TVALID";
   attribute DEBUG of axis_subset_converter_0_M_AXIS_TVALID : signal is "true";
   attribute MARK_DEBUG of axis_subset_converter_0_M_AXIS_TVALID : signal is std.standard.true;
+  signal event_controller_0_packet_counter : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal event_controller_0_triger_enable : STD_LOGIC;
   signal proc_sys_reset_0_peripheral_aresetn : STD_LOGIC_VECTOR ( 0 to 0 );
   signal proc_sys_reset_100_interconnect_aresetn : STD_LOGIC_VECTOR ( 0 to 0 );
   signal proc_sys_reset_300_peripheral_aresetn : STD_LOGIC_VECTOR ( 0 to 0 );
@@ -4147,6 +4471,23 @@ architecture STRUCTURE of MercuryXU1 is
   signal ps8_0_axi_periph_M06_AXI_WREADY : STD_LOGIC;
   signal ps8_0_axi_periph_M06_AXI_WSTRB : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal ps8_0_axi_periph_M06_AXI_WVALID : STD_LOGIC;
+  signal ps8_0_axi_periph_M07_AXI_ARADDR : STD_LOGIC_VECTOR ( 39 downto 0 );
+  signal ps8_0_axi_periph_M07_AXI_ARREADY : STD_LOGIC;
+  signal ps8_0_axi_periph_M07_AXI_ARVALID : STD_LOGIC;
+  signal ps8_0_axi_periph_M07_AXI_AWADDR : STD_LOGIC_VECTOR ( 39 downto 0 );
+  signal ps8_0_axi_periph_M07_AXI_AWREADY : STD_LOGIC;
+  signal ps8_0_axi_periph_M07_AXI_AWVALID : STD_LOGIC;
+  signal ps8_0_axi_periph_M07_AXI_BREADY : STD_LOGIC;
+  signal ps8_0_axi_periph_M07_AXI_BRESP : STD_LOGIC_VECTOR ( 1 downto 0 );
+  signal ps8_0_axi_periph_M07_AXI_BVALID : STD_LOGIC;
+  signal ps8_0_axi_periph_M07_AXI_RDATA : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal ps8_0_axi_periph_M07_AXI_RREADY : STD_LOGIC;
+  signal ps8_0_axi_periph_M07_AXI_RRESP : STD_LOGIC_VECTOR ( 1 downto 0 );
+  signal ps8_0_axi_periph_M07_AXI_RVALID : STD_LOGIC;
+  signal ps8_0_axi_periph_M07_AXI_WDATA : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal ps8_0_axi_periph_M07_AXI_WREADY : STD_LOGIC;
+  signal ps8_0_axi_periph_M07_AXI_WSTRB : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal ps8_0_axi_periph_M07_AXI_WVALID : STD_LOGIC;
   signal s_axis_tdata_0_1 : STD_LOGIC_VECTOR ( 31 downto 0 );
   attribute DEBUG of s_axis_tdata_0_1 : signal is "true";
   attribute MARK_DEBUG of s_axis_tdata_0_1 : signal is std.standard.true;
@@ -4422,17 +4763,21 @@ architecture STRUCTURE of MercuryXU1 is
   attribute MARK_DEBUG of stream_multiplexer_0_adc_sample_selected_1 : signal is std.standard.true;
   signal stream_multiplexer_0_adc_sample_valid_selected_1 : STD_LOGIC;
   signal tlast_generator_0_counter : STD_LOGIC_VECTOR ( 31 downto 0 );
-  signal tlast_generator_0_triger_test : STD_LOGIC_VECTOR ( 2 downto 0 );
+  signal tlast_generator_0_triger_test : STD_LOGIC_VECTOR ( 4 downto 0 );
+  signal tlast_generator_0_trigger_detected : STD_LOGIC;
   signal tlast_generator_0_trigger_internal_out : STD_LOGIC;
   signal tlast_generator_1_counter : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal tlast_generator_1_m_axis_TDATA : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal tlast_generator_1_m_axis_TLAST : STD_LOGIC;
   signal tlast_generator_1_m_axis_TREADY : STD_LOGIC;
   signal tlast_generator_1_m_axis_TVALID : STD_LOGIC;
-  signal tlast_generator_1_triger_test : STD_LOGIC_VECTOR ( 2 downto 0 );
+  signal tlast_generator_1_triger_test : STD_LOGIC_VECTOR ( 4 downto 0 );
+  signal tlast_generator_1_trigger_detected : STD_LOGIC;
   signal tlast_generator_1_trigger_internal_out : STD_LOGIC;
   signal trigger_external_0_1 : STD_LOGIC;
+  signal xlconcat_0_dout : STD_LOGIC_VECTOR ( 19 downto 0 );
   signal xlconcat_irq_dout : STD_LOGIC_VECTOR ( 2 downto 0 );
+  signal xlconstant_0_dout : STD_LOGIC_VECTOR ( 0 to 0 );
   signal xlslice_0_Dout : STD_LOGIC_VECTOR ( 0 to 0 );
   signal xlslice_1_Dout : STD_LOGIC_VECTOR ( 0 to 0 );
   signal xlslice_2_Dout : STD_LOGIC_VECTOR ( 0 to 0 );
@@ -4817,6 +5162,30 @@ axi_gpio_delay_ctrl: component MercuryXU1_axi_gpio_sample_number_0
       s_axi_wstrb(3 downto 0) => ps8_0_axi_periph_M06_AXI_WSTRB(3 downto 0),
       s_axi_wvalid => ps8_0_axi_periph_M06_AXI_WVALID
     );
+axi_gpio_packet_number: component MercuryXU1_axi_gpio_delay_ctrl_0
+     port map (
+      gpio2_io_i(31 downto 0) => event_controller_0_packet_counter(31 downto 0),
+      gpio_io_o(31 downto 0) => axi_gpio_packet_number_gpio_io_o(31 downto 0),
+      s_axi_aclk => zynq_ultra_ps_e_0_pl_clk0,
+      s_axi_araddr(8 downto 0) => ps8_0_axi_periph_M07_AXI_ARADDR(8 downto 0),
+      s_axi_aresetn => proc_sys_reset_0_peripheral_aresetn(0),
+      s_axi_arready => ps8_0_axi_periph_M07_AXI_ARREADY,
+      s_axi_arvalid => ps8_0_axi_periph_M07_AXI_ARVALID,
+      s_axi_awaddr(8 downto 0) => ps8_0_axi_periph_M07_AXI_AWADDR(8 downto 0),
+      s_axi_awready => ps8_0_axi_periph_M07_AXI_AWREADY,
+      s_axi_awvalid => ps8_0_axi_periph_M07_AXI_AWVALID,
+      s_axi_bready => ps8_0_axi_periph_M07_AXI_BREADY,
+      s_axi_bresp(1 downto 0) => ps8_0_axi_periph_M07_AXI_BRESP(1 downto 0),
+      s_axi_bvalid => ps8_0_axi_periph_M07_AXI_BVALID,
+      s_axi_rdata(31 downto 0) => ps8_0_axi_periph_M07_AXI_RDATA(31 downto 0),
+      s_axi_rready => ps8_0_axi_periph_M07_AXI_RREADY,
+      s_axi_rresp(1 downto 0) => ps8_0_axi_periph_M07_AXI_RRESP(1 downto 0),
+      s_axi_rvalid => ps8_0_axi_periph_M07_AXI_RVALID,
+      s_axi_wdata(31 downto 0) => ps8_0_axi_periph_M07_AXI_WDATA(31 downto 0),
+      s_axi_wready => ps8_0_axi_periph_M07_AXI_WREADY,
+      s_axi_wstrb(3 downto 0) => ps8_0_axi_periph_M07_AXI_WSTRB(3 downto 0),
+      s_axi_wvalid => ps8_0_axi_periph_M07_AXI_WVALID
+    );
 axi_gpio_sample_number: component MercuryXU1_axi_gpio_0_2
      port map (
       gpio_io_o(31 downto 0) => axi_gpio_sample_number_gpio_io_o(31 downto 0),
@@ -4945,6 +5314,39 @@ axis_interconnect_0: entity work.MercuryXU1_axis_interconnect_0_0
       S01_AXIS_tlast => axis_data_fifo_2_M_AXIS_TLAST,
       S01_AXIS_tready => axis_data_fifo_2_M_AXIS_TREADY,
       S01_AXIS_tvalid => axis_data_fifo_2_M_AXIS_TVALID
+    );
+concat_trigger: component MercuryXU1_xlconcat_0_1
+     port map (
+      In0(0) => tlast_generator_0_trigger_detected,
+      In1(0) => tlast_generator_1_trigger_detected,
+      In10(0) => xlconstant_0_dout(0),
+      In11(0) => xlconstant_0_dout(0),
+      In12(0) => xlconstant_0_dout(0),
+      In13(0) => xlconstant_0_dout(0),
+      In14(0) => xlconstant_0_dout(0),
+      In15(0) => xlconstant_0_dout(0),
+      In16(0) => xlconstant_0_dout(0),
+      In17(0) => xlconstant_0_dout(0),
+      In18(0) => xlconstant_0_dout(0),
+      In19(0) => xlconstant_0_dout(0),
+      In2(0) => xlconstant_0_dout(0),
+      In3(0) => xlconstant_0_dout(0),
+      In4(0) => xlconstant_0_dout(0),
+      In5(0) => xlconstant_0_dout(0),
+      In6(0) => xlconstant_0_dout(0),
+      In7(0) => xlconstant_0_dout(0),
+      In8(0) => xlconstant_0_dout(0),
+      In9(0) => xlconstant_0_dout(0),
+      dout(19 downto 0) => xlconcat_0_dout(19 downto 0)
+    );
+event_controller_0: component MercuryXU1_event_controller_0_1
+     port map (
+      clk => zynq_ultra_ps_e_0_pl_clk0,
+      num_packets_per_event(31 downto 0) => axi_gpio_packet_number_gpio_io_o(31 downto 0),
+      packet_counter(31 downto 0) => event_controller_0_packet_counter(31 downto 0),
+      rst_n => proc_sys_reset_0_peripheral_aresetn(0),
+      trigger(19 downto 0) => xlconcat_0_dout(19 downto 0),
+      trigger_enable => event_controller_0_triger_enable
     );
 proc_sys_reset_100: component MercuryXU1_proc_sys_reset_0_0
      port map (
@@ -5120,6 +5522,25 @@ ps8_0_axi_periph: entity work.MercuryXU1_ps8_0_axi_periph_0
       M06_AXI_wready => ps8_0_axi_periph_M06_AXI_WREADY,
       M06_AXI_wstrb(3 downto 0) => ps8_0_axi_periph_M06_AXI_WSTRB(3 downto 0),
       M06_AXI_wvalid => ps8_0_axi_periph_M06_AXI_WVALID,
+      M07_ACLK => zynq_ultra_ps_e_0_pl_clk0,
+      M07_ARESETN => proc_sys_reset_0_peripheral_aresetn(0),
+      M07_AXI_araddr(39 downto 0) => ps8_0_axi_periph_M07_AXI_ARADDR(39 downto 0),
+      M07_AXI_arready => ps8_0_axi_periph_M07_AXI_ARREADY,
+      M07_AXI_arvalid => ps8_0_axi_periph_M07_AXI_ARVALID,
+      M07_AXI_awaddr(39 downto 0) => ps8_0_axi_periph_M07_AXI_AWADDR(39 downto 0),
+      M07_AXI_awready => ps8_0_axi_periph_M07_AXI_AWREADY,
+      M07_AXI_awvalid => ps8_0_axi_periph_M07_AXI_AWVALID,
+      M07_AXI_bready => ps8_0_axi_periph_M07_AXI_BREADY,
+      M07_AXI_bresp(1 downto 0) => ps8_0_axi_periph_M07_AXI_BRESP(1 downto 0),
+      M07_AXI_bvalid => ps8_0_axi_periph_M07_AXI_BVALID,
+      M07_AXI_rdata(31 downto 0) => ps8_0_axi_periph_M07_AXI_RDATA(31 downto 0),
+      M07_AXI_rready => ps8_0_axi_periph_M07_AXI_RREADY,
+      M07_AXI_rresp(1 downto 0) => ps8_0_axi_periph_M07_AXI_RRESP(1 downto 0),
+      M07_AXI_rvalid => ps8_0_axi_periph_M07_AXI_RVALID,
+      M07_AXI_wdata(31 downto 0) => ps8_0_axi_periph_M07_AXI_WDATA(31 downto 0),
+      M07_AXI_wready => ps8_0_axi_periph_M07_AXI_WREADY,
+      M07_AXI_wstrb(3 downto 0) => ps8_0_axi_periph_M07_AXI_WSTRB(3 downto 0),
+      M07_AXI_wvalid => ps8_0_axi_periph_M07_AXI_WVALID,
       S00_ACLK => zynq_ultra_ps_e_0_pl_clk0,
       S00_ARESETN => proc_sys_reset_0_peripheral_aresetn(0),
       S00_AXI_araddr(39 downto 0) => zynq_ultra_ps_e_0_M_AXI_HPM0_LPD_ARADDR(39 downto 0),
@@ -5498,6 +5919,10 @@ system_ila_50: component MercuryXU1_system_ila_0_0
       SLOT_7_AXI_wready => smartconnect_1_M00_AXI_WREADY,
       SLOT_7_AXI_wstrb(15 downto 0) => smartconnect_1_M00_AXI_WSTRB(15 downto 0),
       SLOT_7_AXI_wvalid => smartconnect_1_M00_AXI_WVALID,
+      SLOT_8_AXIS_tdata(31 downto 0) => axis_data_fifo_2_M_AXIS_TDATA(31 downto 0),
+      SLOT_8_AXIS_tlast => axis_data_fifo_2_M_AXIS_TLAST,
+      SLOT_8_AXIS_tready => axis_data_fifo_2_M_AXIS_TREADY,
+      SLOT_8_AXIS_tvalid => axis_data_fifo_2_M_AXIS_TVALID,
       clk => zynq_ultra_ps_e_0_pl_clk3,
       resetn => proc_sys_reset_300_peripheral_aresetn(0)
     );
@@ -5513,8 +5938,8 @@ system_ila_51: component MercuryXU1_system_ila_0_3
       probe2(31 downto 0) => stream_multiplexer_0_adc_sample_selected_1(31 downto 0),
       probe3(31 downto 0) => tlast_generator_0_counter(31 downto 0),
       probe4(31 downto 0) => tlast_generator_1_counter(31 downto 0),
-      probe5(2 downto 0) => tlast_generator_0_triger_test(2 downto 0),
-      probe6(2 downto 0) => tlast_generator_1_triger_test(2 downto 0),
+      probe5(4 downto 0) => tlast_generator_0_triger_test(4 downto 0),
+      probe6(4 downto 0) => tlast_generator_1_triger_test(4 downto 0),
       resetn => aresetn_0_1(0)
     );
 system_ila_60: component MercuryXU1_system_ila_0_2
@@ -5523,7 +5948,10 @@ system_ila_60: component MercuryXU1_system_ila_0_2
       probe0(19 downto 0) => axi_gpio_suppres_gpio_io_o(19 downto 0),
       probe1(19 downto 0) => axi_gpio_0_gpio_io_o(19 downto 0),
       probe2(31 downto 0) => axi_gpio_sample_number_gpio_io_o(31 downto 0),
-      probe3(31 downto 0) => axi_gpio_delay_ctrl_gpio_io_o(31 downto 0)
+      probe3(31 downto 0) => axi_gpio_delay_ctrl_gpio_io_o(31 downto 0),
+      probe4(31 downto 0) => axi_gpio_packet_number_gpio_io_o(31 downto 0),
+      probe5(31 downto 0) => event_controller_0_packet_counter(31 downto 0),
+      probe6(0) => event_controller_0_triger_enable
     );
 system_management_wiz_0: component MercuryXU1_system_management_wiz_0_0
      port map (
@@ -5572,12 +6000,14 @@ tlast_generator_0: component MercuryXU1_tlast_generator_0_0
       m_axis_tvalid => axis_subset_converter_0_M_AXIS_TVALID,
       num_samples_per_packet(31 downto 0) => axi_gpio_sample_number_gpio_io_o(31 downto 0),
       rst_n => aresetn_0_1(0),
+      trigger_detected => tlast_generator_0_trigger_detected,
+      trigger_enable => event_controller_0_triger_enable,
       trigger_external => trigger_external_0_1,
       trigger_internal_in => tlast_generator_1_trigger_internal_out,
       trigger_internal_out => tlast_generator_0_trigger_internal_out,
       trigger_mode(2 downto 0) => xlslice_3_5_Dout(2 downto 0),
       trigger_ps => xlslice_2_Dout1(0),
-      trigger_test(2 downto 0) => tlast_generator_0_triger_test(2 downto 0)
+      trigger_test(4 downto 0) => tlast_generator_0_triger_test(4 downto 0)
     );
 tlast_generator_1: component MercuryXU1_tlast_generator_0_1
      port map (
@@ -5591,12 +6021,14 @@ tlast_generator_1: component MercuryXU1_tlast_generator_0_1
       m_axis_tvalid => tlast_generator_1_m_axis_TVALID,
       num_samples_per_packet(31 downto 0) => axi_gpio_sample_number_gpio_io_o(31 downto 0),
       rst_n => aresetn_0_1(0),
+      trigger_detected => tlast_generator_1_trigger_detected,
+      trigger_enable => event_controller_0_triger_enable,
       trigger_external => trigger_external_0_1,
       trigger_internal_in => tlast_generator_0_trigger_internal_out,
       trigger_internal_out => tlast_generator_1_trigger_internal_out,
       trigger_mode(2 downto 0) => xlslice_3_5_Dout(2 downto 0),
       trigger_ps => xlslice_2_Dout1(0),
-      trigger_test(2 downto 0) => tlast_generator_1_triger_test(2 downto 0)
+      trigger_test(4 downto 0) => tlast_generator_1_triger_test(4 downto 0)
     );
 xlconcat_irq: component MercuryXU1_xlconcat_0_0
      port map (
@@ -5604,6 +6036,10 @@ xlconcat_irq: component MercuryXU1_xlconcat_0_0
       In1(0) => axi_dma_0_s2mm_introut,
       In2(0) => axi_dma_1_s2mm_introut,
       dout(2 downto 0) => xlconcat_irq_dout(2 downto 0)
+    );
+xlconstant_0: component MercuryXU1_xlconstant_0_0
+     port map (
+      dout(0) => xlconstant_0_dout(0)
     );
 xlslice_0: component MercuryXU1_xlslice_0_0
      port map (

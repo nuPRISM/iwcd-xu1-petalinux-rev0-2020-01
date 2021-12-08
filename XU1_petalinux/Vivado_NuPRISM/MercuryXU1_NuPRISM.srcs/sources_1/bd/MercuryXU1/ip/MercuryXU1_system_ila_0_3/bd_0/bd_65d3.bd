@@ -1,14 +1,14 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xE1A034FFF4353907",
+      "boundary_crc": "0x6546FDB963BD9A4D",
       "design_src": "SBD",
       "device": "xczu6eg-ffvc900-1-i",
       "name": "bd_65d3",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "scoped": "true",
       "synth_flow_mode": "None",
-      "tool_version": "2020.1.1",
+      "tool_version": "2020.1",
       "validated": "true"
     },
     "design_tree": {
@@ -135,12 +135,12 @@
       },
       "probe5": {
         "direction": "I",
-        "left": "2",
+        "left": "4",
         "right": "0"
       },
       "probe6": {
         "direction": "I",
-        "left": "2",
+        "left": "4",
         "right": "0"
       },
       "resetn": {
@@ -251,7 +251,7 @@
             "value": "0"
           },
           "C_PROBE5_WIDTH": {
-            "value": "3"
+            "value": "5"
           },
           "C_PROBE6_MU_CNT": {
             "value": "1"
@@ -260,7 +260,7 @@
             "value": "0"
           },
           "C_PROBE6_WIDTH": {
-            "value": "3"
+            "value": "5"
           },
           "C_PROBE7_TYPE": {
             "value": "0"

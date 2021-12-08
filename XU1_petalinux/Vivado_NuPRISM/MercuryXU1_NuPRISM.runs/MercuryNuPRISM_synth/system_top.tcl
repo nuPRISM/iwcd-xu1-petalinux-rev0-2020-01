@@ -70,8 +70,13 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "MercuryNuPRISM_synth" START { ROLLUP_AUTO }
+set_param power.enableLutRouteBelPower 1
+set_param power.enableCarry8RouteBelPower 1
+set_param power.enableUnconnectedCarry8PinPower 1
+set_param tcl.collectionResultDisplayLimit 0
+set_param xicom.use_bs_reader 1
 set_param chipscope.maxJobs 4
-set_msg_config -id {Common 17-41} -limit 10000000
+set_param power.BramSDPPropagationFix 1
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xczu6eg-ffvc900-1-i
 
@@ -84,6 +89,8 @@ set_property parent.project_path /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu
 set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
+set_property ip_repo_paths /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/src/temp [current_project]
+update_ip_catalog
 set_property ip_output_repo /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
@@ -91,6 +98,7 @@ OPTRACE "Adding files" START { }
 read_vhdl -library xil_defaultlib {
   /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/new/tlast_generator.vhd
   /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/new/stream_multiplexer.vhd
+  /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/new/event_controller.vhd
   /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/hdl/MercuryXU1_wrapper.vhd
   /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/src/system_top_NuPRISM.vhd
 }
@@ -224,6 +232,9 @@ set_property used_in_implementation false [get_files -all /home/ab/Documents/Pro
 set_property used_in_implementation false [get_files -all /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_gpio_sample_number_0/MercuryXU1_axi_gpio_sample_number_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_gpio_sample_number_0/MercuryXU1_axi_gpio_sample_number_0.xdc]
 set_property used_in_implementation false [get_files -all /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axis_data_fifo_1_0/MercuryXU1_axis_data_fifo_1_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_gpio_delay_ctrl_0/MercuryXU1_axi_gpio_delay_ctrl_0_board.xdc]
+set_property used_in_implementation false [get_files -all /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_gpio_delay_ctrl_0/MercuryXU1_axi_gpio_delay_ctrl_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_gpio_delay_ctrl_0/MercuryXU1_axi_gpio_delay_ctrl_0.xdc]
 set_property used_in_implementation false [get_files -all /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_auto_pc_0/MercuryXU1_auto_pc_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_s00_regslice_0/MercuryXU1_s00_regslice_0_clocks.xdc]
 set_property used_in_implementation false [get_files -all /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_s00_regslice_0/MercuryXU1_s00_regslice_0_ooc.xdc]

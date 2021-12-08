@@ -123,11 +123,15 @@ entity bd_6493 is
     SLOT_7_AXI_wready : in STD_LOGIC;
     SLOT_7_AXI_wstrb : in STD_LOGIC_VECTOR ( 15 downto 0 );
     SLOT_7_AXI_wvalid : in STD_LOGIC;
+    SLOT_8_AXIS_tdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    SLOT_8_AXIS_tlast : in STD_LOGIC;
+    SLOT_8_AXIS_tready : in STD_LOGIC;
+    SLOT_8_AXIS_tvalid : in STD_LOGIC;
     clk : in STD_LOGIC;
     resetn : in STD_LOGIC
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of bd_6493 : entity is "bd_6493,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=bd_6493,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=17,numReposBlks=17,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=SBD,synth_mode=Global}";
+  attribute CORE_GENERATION_INFO of bd_6493 : entity is "bd_6493,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=bd_6493,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=17,numReposBlks=17,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=SBD,synth_mode=OOC_per_IP}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of bd_6493 : entity is "MercuryXU1_system_ila_0_0.hwdef";
 end bd_6493;
@@ -239,7 +243,11 @@ architecture STRUCTURE of bd_6493 is
     probe100 : in STD_LOGIC_VECTOR ( 2 downto 0 );
     probe101 : in STD_LOGIC_VECTOR ( 1 downto 0 );
     probe102 : in STD_LOGIC_VECTOR ( 1 downto 0 );
-    probe103 : in STD_LOGIC_VECTOR ( 2 downto 0 )
+    probe103 : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    probe104 : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    probe105 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    probe106 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    probe107 : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component bd_6493_ila_lib_0;
   component bd_6493_g_inst_0 is
@@ -367,6 +375,10 @@ architecture STRUCTURE of bd_6493 is
     slot_7_axi_rlast : in STD_LOGIC;
     slot_7_axi_rvalid : in STD_LOGIC;
     slot_7_axi_rready : in STD_LOGIC;
+    slot_8_axis_tvalid : in STD_LOGIC;
+    slot_8_axis_tready : in STD_LOGIC;
+    slot_8_axis_tdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    slot_8_axis_tlast : in STD_LOGIC;
     m_slot_0_axis_tvalid : out STD_LOGIC;
     m_slot_0_axis_tready : out STD_LOGIC;
     m_slot_0_axis_tdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
@@ -476,6 +488,10 @@ architecture STRUCTURE of bd_6493 is
     m_slot_7_axi_rlast : out STD_LOGIC;
     m_slot_7_axi_rvalid : out STD_LOGIC;
     m_slot_7_axi_rready : out STD_LOGIC;
+    m_slot_8_axis_tvalid : out STD_LOGIC;
+    m_slot_8_axis_tready : out STD_LOGIC;
+    m_slot_8_axis_tdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    m_slot_8_axis_tlast : out STD_LOGIC;
     slot_2_axi_awqos : in STD_LOGIC_VECTOR ( 3 downto 0 );
     slot_2_axi_arqos : in STD_LOGIC_VECTOR ( 3 downto 0 );
     slot_7_axi_awqos : in STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -705,6 +721,10 @@ architecture STRUCTURE of bd_6493 is
   signal Conn7_WREADY : STD_LOGIC;
   signal Conn7_WSTRB : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal Conn7_WVALID : STD_LOGIC;
+  signal Conn8_TDATA : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal Conn8_TLAST : STD_LOGIC;
+  signal Conn8_TREADY : STD_LOGIC;
+  signal Conn8_TVALID : STD_LOGIC;
   signal Conn_TDATA : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal Conn_TKEEP : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal Conn_TLAST : STD_LOGIC;
@@ -851,6 +871,10 @@ architecture STRUCTURE of bd_6493 is
   signal net_slot_7_axi_wready : STD_LOGIC;
   signal net_slot_7_axi_wstrb : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal net_slot_7_axi_wvalid : STD_LOGIC;
+  signal net_slot_8_axis_tdata : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal net_slot_8_axis_tlast : STD_LOGIC;
+  signal net_slot_8_axis_tready : STD_LOGIC;
+  signal net_slot_8_axis_tvalid : STD_LOGIC;
   signal resetn_1 : STD_LOGIC;
   attribute X_INTERFACE_INFO : string;
   attribute X_INTERFACE_INFO of SLOT_0_AXIS_tlast : signal is "xilinx.com:interface:axis:1.0 SLOT_0_AXIS TLAST";
@@ -904,9 +928,12 @@ architecture STRUCTURE of bd_6493 is
   attribute X_INTERFACE_INFO of SLOT_7_AXI_wlast : signal is "xilinx.com:interface:aximm:1.0 SLOT_7_AXI WLAST";
   attribute X_INTERFACE_INFO of SLOT_7_AXI_wready : signal is "xilinx.com:interface:aximm:1.0 SLOT_7_AXI WREADY";
   attribute X_INTERFACE_INFO of SLOT_7_AXI_wvalid : signal is "xilinx.com:interface:aximm:1.0 SLOT_7_AXI WVALID";
+  attribute X_INTERFACE_INFO of SLOT_8_AXIS_tlast : signal is "xilinx.com:interface:axis:1.0 SLOT_8_AXIS TLAST";
+  attribute X_INTERFACE_INFO of SLOT_8_AXIS_tready : signal is "xilinx.com:interface:axis:1.0 SLOT_8_AXIS TREADY";
+  attribute X_INTERFACE_INFO of SLOT_8_AXIS_tvalid : signal is "xilinx.com:interface:axis:1.0 SLOT_8_AXIS TVALID";
   attribute X_INTERFACE_INFO of clk : signal is "xilinx.com:signal:clock:1.0 CLK.CLK CLK";
   attribute X_INTERFACE_PARAMETER : string;
-  attribute X_INTERFACE_PARAMETER of clk : signal is "XIL_INTERFACENAME CLK.CLK, ASSOCIATED_BUSIF SLOT_0_AXIS:SLOT_1_AXI:SLOT_2_AXI:SLOT_3_AXIS:SLOT_4_AXIS:SLOT_5_AXIS:SLOT_6_AXIS:SLOT_7_AXI, ASSOCIATED_RESET resetn, CLK_DOMAIN MercuryXU1_zynq_ultra_ps_e_0_0_pl_clk3, FREQ_HZ 299997009, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.000";
+  attribute X_INTERFACE_PARAMETER of clk : signal is "XIL_INTERFACENAME CLK.CLK, ASSOCIATED_BUSIF SLOT_0_AXIS:SLOT_1_AXI:SLOT_2_AXI:SLOT_3_AXIS:SLOT_4_AXIS:SLOT_5_AXIS:SLOT_6_AXIS:SLOT_7_AXI:SLOT_8_AXIS, ASSOCIATED_RESET resetn, CLK_DOMAIN MercuryXU1_zynq_ultra_ps_e_0_0_pl_clk3, FREQ_HZ 299997009, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.000";
   attribute X_INTERFACE_INFO of resetn : signal is "xilinx.com:signal:reset:1.0 RST.RESETN RST";
   attribute X_INTERFACE_PARAMETER of resetn : signal is "XIL_INTERFACENAME RST.RESETN, INSERT_VIP 0, POLARITY ACTIVE_LOW";
   attribute X_INTERFACE_INFO of SLOT_0_AXIS_tdata : signal is "xilinx.com:interface:axis:1.0 SLOT_0_AXIS TDATA";
@@ -979,6 +1006,8 @@ architecture STRUCTURE of bd_6493 is
   attribute X_INTERFACE_INFO of SLOT_7_AXI_rresp : signal is "xilinx.com:interface:aximm:1.0 SLOT_7_AXI RRESP";
   attribute X_INTERFACE_INFO of SLOT_7_AXI_wdata : signal is "xilinx.com:interface:aximm:1.0 SLOT_7_AXI WDATA";
   attribute X_INTERFACE_INFO of SLOT_7_AXI_wstrb : signal is "xilinx.com:interface:aximm:1.0 SLOT_7_AXI WSTRB";
+  attribute X_INTERFACE_INFO of SLOT_8_AXIS_tdata : signal is "xilinx.com:interface:axis:1.0 SLOT_8_AXIS TDATA";
+  attribute X_INTERFACE_PARAMETER of SLOT_8_AXIS_tdata : signal is "XIL_INTERFACENAME SLOT_8_AXIS, CLK_DOMAIN MercuryXU1_zynq_ultra_ps_e_0_0_pl_clk3, FREQ_HZ 299997009, HAS_TKEEP 0, HAS_TLAST 1, HAS_TREADY 1, HAS_TSTRB 0, INSERT_VIP 0, LAYERED_METADATA undef, PHASE 0.000, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0";
 begin
   Conn1_ARADDR(31 downto 0) <= SLOT_1_AXI_araddr(31 downto 0);
   Conn1_ARCACHE(3 downto 0) <= SLOT_1_AXI_arcache(3 downto 0);
@@ -1088,6 +1117,10 @@ begin
   Conn7_WREADY <= SLOT_7_AXI_wready;
   Conn7_WSTRB(15 downto 0) <= SLOT_7_AXI_wstrb(15 downto 0);
   Conn7_WVALID <= SLOT_7_AXI_wvalid;
+  Conn8_TDATA(31 downto 0) <= SLOT_8_AXIS_tdata(31 downto 0);
+  Conn8_TLAST <= SLOT_8_AXIS_tlast;
+  Conn8_TREADY <= SLOT_8_AXIS_tready;
+  Conn8_TVALID <= SLOT_8_AXIS_tvalid;
   Conn_TDATA(31 downto 0) <= SLOT_0_AXIS_tdata(31 downto 0);
   Conn_TKEEP(3 downto 0) <= SLOT_0_AXIS_tkeep(3 downto 0);
   Conn_TLAST <= SLOT_0_AXIS_tlast;
@@ -1224,6 +1257,10 @@ g_inst: component bd_6493_g_inst_0
       m_slot_7_axi_wready => net_slot_7_axi_wready,
       m_slot_7_axi_wstrb(15 downto 0) => net_slot_7_axi_wstrb(15 downto 0),
       m_slot_7_axi_wvalid => net_slot_7_axi_wvalid,
+      m_slot_8_axis_tdata(31 downto 0) => net_slot_8_axis_tdata(31 downto 0),
+      m_slot_8_axis_tlast => net_slot_8_axis_tlast,
+      m_slot_8_axis_tready => net_slot_8_axis_tready,
+      m_slot_8_axis_tvalid => net_slot_8_axis_tvalid,
       slot_0_axis_tdata(31 downto 0) => Conn_TDATA(31 downto 0),
       slot_0_axis_tkeep(3 downto 0) => Conn_TKEEP(3 downto 0),
       slot_0_axis_tlast => Conn_TLAST,
@@ -1336,7 +1373,11 @@ g_inst: component bd_6493_g_inst_0
       slot_7_axi_wlast => Conn7_WLAST,
       slot_7_axi_wready => Conn7_WREADY,
       slot_7_axi_wstrb(15 downto 0) => Conn7_WSTRB(15 downto 0),
-      slot_7_axi_wvalid => Conn7_WVALID
+      slot_7_axi_wvalid => Conn7_WVALID,
+      slot_8_axis_tdata(31 downto 0) => Conn8_TDATA(31 downto 0),
+      slot_8_axis_tlast => Conn8_TLAST,
+      slot_8_axis_tready => Conn8_TREADY,
+      slot_8_axis_tvalid => Conn8_TVALID
     );
 ila_lib: component bd_6493_ila_lib_0
      port map (
@@ -1348,6 +1389,10 @@ ila_lib: component bd_6493_ila_lib_0
       probe101(1 downto 0) => net_slot_7_axi_b_ctrl(1 downto 0),
       probe102(1 downto 0) => net_slot_7_axi_ar_ctrl(1 downto 0),
       probe103(2 downto 0) => net_slot_7_axi_r_ctrl(2 downto 0),
+      probe104(31 downto 0) => net_slot_8_axis_tdata(31 downto 0),
+      probe105(0) => net_slot_8_axis_tvalid,
+      probe106(0) => net_slot_8_axis_tready,
+      probe107(0) => net_slot_8_axis_tlast,
       probe11(1 downto 0) => net_slot_1_axi_aw_cnt(1 downto 0),
       probe12(31 downto 0) => net_slot_1_axi_awaddr(31 downto 0),
       probe13(3 downto 0) => net_slot_1_axi_awcache(3 downto 0),

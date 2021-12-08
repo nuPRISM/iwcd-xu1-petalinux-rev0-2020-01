@@ -61,8 +61,8 @@ ENTITY MercuryXU1_system_ila_0_3 IS
     probe2 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
     probe3 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
     probe4 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-    probe5 : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
-    probe6 : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+    probe5 : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+    probe6 : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
     SLOT_0_AXIS_tdata : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
     SLOT_0_AXIS_tlast : IN STD_LOGIC;
     SLOT_0_AXIS_tvalid : IN STD_LOGIC;
@@ -82,8 +82,8 @@ ARCHITECTURE MercuryXU1_system_ila_0_3_arch OF MercuryXU1_system_ila_0_3 IS
       probe2 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
       probe3 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
       probe4 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-      probe5 : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
-      probe6 : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+      probe5 : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+      probe6 : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
       SLOT_0_AXIS_tdata : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
       SLOT_0_AXIS_tlast : IN STD_LOGIC;
       SLOT_0_AXIS_tvalid : IN STD_LOGIC;

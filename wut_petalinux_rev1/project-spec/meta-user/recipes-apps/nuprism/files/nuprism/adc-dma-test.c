@@ -243,7 +243,7 @@ int main(int argc, char **argv)
     set_adc_num(DMA_CH0, adc_ch0_num);
     set_adc_num(DMA_CH1, adc_ch1_num);
 
-    // set DMA buuffer size
+    // set DMA buffer size
     set_dma_buf_size(buf_size);
 
     // initialize/start clock cleaner
@@ -306,6 +306,9 @@ int main(int argc, char **argv)
     acq_ch1_data.buf_size = acq_ch0_data.buf_size = buf_size;
     acq_ch1_data.adc_mode = acq_ch0_data.adc_mode = adc_mode;
 
+	// num_iter == num_packets
+	set_num_packets(num_iter);
+
 	fprintf(stderr, "ADC_num_ch0=%d, ADC_num_ch1=%d, adc_mode=%d, buf_size=%d num_iter=%d trigger_mode=%d\n", adc_ch0_num, adc_ch1_num, adc_mode, buf_size, num_iter, trigger_mode);    
     if(interactive) {
 	    printf("Press ENTER to continue...");
@@ -313,23 +316,30 @@ int main(int argc, char **argv)
     }
 
     
-		    
+	set_trigger_enable_bit(1);
 	for(int i = 0; i < num_iter; i++) {
-		// start all threads
-		//system("echo 0 > /sys/class/gpio/gpio441/value");        // unset ADC supress bit        
+		// unset ADC supress bit        
         set_adc_suppress_bit(0);
-		pthread_create(&trigger_thread, NULL, trigger_thread_fun, (void*)(NULL));
+
+		// start all threads
+		if(trigger_mode == 1) {			// only if SOFTWARE_TRIGGER_MODE
+			pthread_create(&trigger_thread, NULL, trigger_thread_fun, (void*)(NULL));
+		}
 		pthread_create(&acq_ch0_thread, NULL, acquisition_thread_fun, (void*)(&acq_ch0_data));
 		pthread_create(&acq_ch1_thread, NULL, acquisition_thread_fun, (void*)(&acq_ch1_data));
 		
 		// wait for all threads to finish executing
-		pthread_join(trigger_thread, NULL);
+		if(trigger_mode == 1) {			// only if SOFTWARE_TRIGGER_MODE
+			pthread_join(trigger_thread, NULL);
+		}
 		pthread_join(acq_ch0_thread, NULL);
 		pthread_join(acq_ch1_thread, NULL);
-		//system("echo 1 > /sys/class/gpio/gpio441/value");        // reset ADC supress bit        
+		
+		// reset ADC supress bit        
         set_adc_suppress_bit(1);
 		fprintf(stderr, "DMA threads joined: status ch0=%d, ch1=%d\n", acq_ch0_data.status, acq_ch1_data.status);
 	}    
+	set_trigger_enable_bit(0);
 	return 0;
 }
 

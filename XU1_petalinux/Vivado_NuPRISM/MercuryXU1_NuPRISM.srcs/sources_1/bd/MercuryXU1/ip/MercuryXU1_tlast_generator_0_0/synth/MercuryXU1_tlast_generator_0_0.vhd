@@ -59,14 +59,16 @@ ENTITY MercuryXU1_tlast_generator_0_0 IS
     rst_n : IN STD_LOGIC;
     num_samples_per_packet : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
     trigger_mode : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+    trigger_enable : IN STD_LOGIC;
     trigger_ps : IN STD_LOGIC;
     trigger_external : IN STD_LOGIC;
     trigger_internal_in : IN STD_LOGIC;
     trigger_internal_out : OUT STD_LOGIC;
+    trigger_detected : OUT STD_LOGIC;
     data : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
     data_enable : IN STD_LOGIC;
     counter : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-    trigger_test : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+    trigger_test : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
     m_axis_tdata : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
     m_axis_tvalid : OUT STD_LOGIC;
     m_axis_tlast : OUT STD_LOGIC;
@@ -86,14 +88,16 @@ ARCHITECTURE MercuryXU1_tlast_generator_0_0_arch OF MercuryXU1_tlast_generator_0
       rst_n : IN STD_LOGIC;
       num_samples_per_packet : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
       trigger_mode : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+      trigger_enable : IN STD_LOGIC;
       trigger_ps : IN STD_LOGIC;
       trigger_external : IN STD_LOGIC;
       trigger_internal_in : IN STD_LOGIC;
       trigger_internal_out : OUT STD_LOGIC;
+      trigger_detected : OUT STD_LOGIC;
       data : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
       data_enable : IN STD_LOGIC;
       counter : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-      trigger_test : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+      trigger_test : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
       m_axis_tdata : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
       m_axis_tvalid : OUT STD_LOGIC;
       m_axis_tlast : OUT STD_LOGIC;
@@ -101,11 +105,11 @@ ARCHITECTURE MercuryXU1_tlast_generator_0_0_arch OF MercuryXU1_tlast_generator_0
     );
   END COMPONENT tlast_generator;
   ATTRIBUTE X_CORE_INFO : STRING;
-  ATTRIBUTE X_CORE_INFO OF MercuryXU1_tlast_generator_0_0_arch: ARCHITECTURE IS "tlast_generator,Vivado 2020.1.1";
+  ATTRIBUTE X_CORE_INFO OF MercuryXU1_tlast_generator_0_0_arch: ARCHITECTURE IS "tlast_generator,Vivado 2020.1";
   ATTRIBUTE CHECK_LICENSE_TYPE : STRING;
   ATTRIBUTE CHECK_LICENSE_TYPE OF MercuryXU1_tlast_generator_0_0_arch : ARCHITECTURE IS "MercuryXU1_tlast_generator_0_0,tlast_generator,{}";
   ATTRIBUTE CORE_GENERATION_INFO : STRING;
-  ATTRIBUTE CORE_GENERATION_INFO OF MercuryXU1_tlast_generator_0_0_arch: ARCHITECTURE IS "MercuryXU1_tlast_generator_0_0,tlast_generator,{x_ipProduct=Vivado 2020.1.1,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=tlast_generator,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED,ID=0}";
+  ATTRIBUTE CORE_GENERATION_INFO OF MercuryXU1_tlast_generator_0_0_arch: ARCHITECTURE IS "MercuryXU1_tlast_generator_0_0,tlast_generator,{x_ipProduct=Vivado 2020.1,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=tlast_generator,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED,ID=0}";
   ATTRIBUTE IP_DEFINITION_SOURCE : STRING;
   ATTRIBUTE IP_DEFINITION_SOURCE OF MercuryXU1_tlast_generator_0_0_arch: ARCHITECTURE IS "module_ref";
   ATTRIBUTE X_INTERFACE_INFO : STRING;
@@ -129,10 +133,12 @@ BEGIN
       rst_n => rst_n,
       num_samples_per_packet => num_samples_per_packet,
       trigger_mode => trigger_mode,
+      trigger_enable => trigger_enable,
       trigger_ps => trigger_ps,
       trigger_external => trigger_external,
       trigger_internal_in => trigger_internal_in,
       trigger_internal_out => trigger_internal_out,
+      trigger_detected => trigger_detected,
       data => data,
       data_enable => data_enable,
       counter => counter,

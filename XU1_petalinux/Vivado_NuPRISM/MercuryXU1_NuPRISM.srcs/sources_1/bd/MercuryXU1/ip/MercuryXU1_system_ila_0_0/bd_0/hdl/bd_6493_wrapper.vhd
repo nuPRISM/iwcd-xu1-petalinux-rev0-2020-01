@@ -123,6 +123,10 @@ entity bd_6493_wrapper is
     SLOT_7_AXI_wready : in STD_LOGIC;
     SLOT_7_AXI_wstrb : in STD_LOGIC_VECTOR ( 15 downto 0 );
     SLOT_7_AXI_wvalid : in STD_LOGIC;
+    SLOT_8_AXIS_tdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    SLOT_8_AXIS_tlast : in STD_LOGIC;
+    SLOT_8_AXIS_tready : in STD_LOGIC;
+    SLOT_8_AXIS_tvalid : in STD_LOGIC;
     clk : in STD_LOGIC;
     resetn : in STD_LOGIC
   );
@@ -245,7 +249,11 @@ architecture STRUCTURE of bd_6493_wrapper is
     SLOT_7_AXI_wlast : in STD_LOGIC;
     SLOT_7_AXI_wready : in STD_LOGIC;
     SLOT_7_AXI_wstrb : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    SLOT_7_AXI_wvalid : in STD_LOGIC
+    SLOT_7_AXI_wvalid : in STD_LOGIC;
+    SLOT_8_AXIS_tdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    SLOT_8_AXIS_tlast : in STD_LOGIC;
+    SLOT_8_AXIS_tready : in STD_LOGIC;
+    SLOT_8_AXIS_tvalid : in STD_LOGIC
   );
   end component bd_6493;
 begin
@@ -364,6 +372,10 @@ bd_6493_i: component bd_6493
       SLOT_7_AXI_wready => SLOT_7_AXI_wready,
       SLOT_7_AXI_wstrb(15 downto 0) => SLOT_7_AXI_wstrb(15 downto 0),
       SLOT_7_AXI_wvalid => SLOT_7_AXI_wvalid,
+      SLOT_8_AXIS_tdata(31 downto 0) => SLOT_8_AXIS_tdata(31 downto 0),
+      SLOT_8_AXIS_tlast => SLOT_8_AXIS_tlast,
+      SLOT_8_AXIS_tready => SLOT_8_AXIS_tready,
+      SLOT_8_AXIS_tvalid => SLOT_8_AXIS_tvalid,
       clk => clk,
       resetn => resetn
     );

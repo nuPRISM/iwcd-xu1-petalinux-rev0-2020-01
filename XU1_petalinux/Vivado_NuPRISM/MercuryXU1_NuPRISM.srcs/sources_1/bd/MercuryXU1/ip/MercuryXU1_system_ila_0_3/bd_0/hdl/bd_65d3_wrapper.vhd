@@ -20,8 +20,8 @@ entity bd_65d3_wrapper is
     probe2 : in STD_LOGIC_VECTOR ( 31 downto 0 );
     probe3 : in STD_LOGIC_VECTOR ( 31 downto 0 );
     probe4 : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    probe5 : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    probe6 : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    probe5 : in STD_LOGIC_VECTOR ( 4 downto 0 );
+    probe6 : in STD_LOGIC_VECTOR ( 4 downto 0 );
     resetn : in STD_LOGIC
   );
 end bd_65d3_wrapper;
@@ -35,8 +35,8 @@ architecture STRUCTURE of bd_65d3_wrapper is
     probe2 : in STD_LOGIC_VECTOR ( 31 downto 0 );
     probe3 : in STD_LOGIC_VECTOR ( 31 downto 0 );
     probe4 : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    probe5 : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    probe6 : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    probe5 : in STD_LOGIC_VECTOR ( 4 downto 0 );
+    probe6 : in STD_LOGIC_VECTOR ( 4 downto 0 );
     resetn : in STD_LOGIC;
     SLOT_0_AXIS_tdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
     SLOT_0_AXIS_tlast : in STD_LOGIC;
@@ -57,8 +57,8 @@ bd_65d3_i: component bd_65d3
       probe2(31 downto 0) => probe2(31 downto 0),
       probe3(31 downto 0) => probe3(31 downto 0),
       probe4(31 downto 0) => probe4(31 downto 0),
-      probe5(2 downto 0) => probe5(2 downto 0),
-      probe6(2 downto 0) => probe6(2 downto 0),
+      probe5(4 downto 0) => probe5(4 downto 0),
+      probe6(4 downto 0) => probe6(4 downto 0),
       resetn => resetn
     );
 end STRUCTURE;

@@ -77,6 +77,39 @@ int init_gpio() {
         DBG("%s\n", cmd);
         system(cmd);
     }
+
+
+	for(int i = PACKET_NUM_LSB; i <= PACKET_NUM_MSB; i++) {
+        char cmd[64];
+        
+        sprintf(cmd, "echo %d > /sys/class/gpio/export", i);
+        DBG("%s\n", cmd);
+        system(cmd);
+        
+        sprintf(cmd, "echo out > /sys/class/gpio/gpio%d/direction", i);
+        DBG("%s\n", cmd);
+        system(cmd);
+        
+        sprintf(cmd, "echo 0 > /sys/class/gpio/gpio%d/value", i);        
+        DBG("%s\n", cmd);
+        system(cmd);
+    }
+
+	for(int i = DELAY_CTRL_LSB; i <= DELAY_CTRL_MSB; i++) {
+        char cmd[64];
+        
+        sprintf(cmd, "echo %d > /sys/class/gpio/export", i);
+        DBG("%s\n", cmd);
+        system(cmd);
+        
+        sprintf(cmd, "echo out > /sys/class/gpio/gpio%d/direction", i);
+        DBG("%s\n", cmd);
+        system(cmd);
+        
+        sprintf(cmd, "echo 0 > /sys/class/gpio/gpio%d/value", i);        
+        DBG("%s\n", cmd);
+        system(cmd);
+    }
     
     return 0;       // \todo verify system cmd error codes, return appropiate value
 }
@@ -165,9 +198,27 @@ int set_loop_suppress_bit(int state) {
 }
 
 
-int set_trigger_mode(int mode) {
-    // \todo implement!
-    return -1;         
+int set_trigger_enable_bit(int state) {
+	char cmd[64];
+    sprintf(cmd, "echo %d > /sys/class/gpio/gpio%d/value", (state > 0 ? 1 : 0), TRIGGER_ENABLE);
+    DBG("%s\n", cmd);
+    system(cmd);
+
+    return 0;       // \todo verify system cmd error codes, return appropiate value
+}
+
+
+int set_num_packets(int num_packets) {
+	char cmd[64];
+
+    for(int i = PACKET_NUM_LSB; i < TRIGGER_ENABLE; i++) {
+        sprintf(cmd, "echo %d > /sys/class/gpio/gpio%d/value", (num_packets & 0x0001), i);
+        DBG("set_num_packets(): cmd=%s\n", cmd);
+        int ret = system(cmd); 
+        DBG("set_num_packets(): ret=%d\n", ret);
+        num_packets = num_packets >> 1;
+    }
+	return 0;
 }
 
 
