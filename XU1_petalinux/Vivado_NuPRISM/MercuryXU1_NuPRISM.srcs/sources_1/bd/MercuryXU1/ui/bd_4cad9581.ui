@@ -1,7 +1,7 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"0.82469",
-   "Default View_TopLeft":"1887,532",
+   "Default View_TopLeft":"-236,-370",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:9.0 TLS
 #  -string -flagsOSRD
@@ -132,10 +132,9 @@ preplace netloc xlconcat_0_dout 1 2 1 N -50
 preplace netloc xlconstant_0_dout 1 1 1 90 -200n
 preplace netloc tlast_generator_0_trigger_detected 1 1 2 190 -350 680
 preplace netloc tlast_generator_1_trigger_detected 1 1 2 200 -340 690
-preplace netloc axis_subset_converter_0_M_AXIS 1 2 1 740 1130n
-preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_LPD 1 5 3 2550 860 3000 740 3860
-preplace netloc smartconnect_1_M00_AXI 1 4 3 1940 1350 N 1350 3060
 preplace netloc ps8_0_axi_periph_M03_AXI 1 1 6 210 370 840 330 NJ 330 NJ 330 NJ 330 2960
+preplace netloc ps8_0_axi_periph_M04_AXI 1 1 6 160 -320 NJ -320 NJ -320 NJ -320 NJ -320 2990
+preplace netloc axi_dma_1_M_AXI_S2MM 1 5 1 2590 1690n
 preplace netloc axis_data_fifo_2_M_AXIS 1 3 2 1410 1500 1850
 preplace netloc axis_interconnect_0_M00_AXIS 1 4 1 1900 1030n
 preplace netloc zynq_ultra_ps_e_0_IIC_0 1 7 1 3870 1200n
@@ -148,16 +147,17 @@ preplace netloc axi_dma_0_M_AXI_MM2S 1 4 2 1950 940 2520
 preplace netloc axis_data_fifo_0_M_AXIS 1 4 1 1900 1530n
 preplace netloc axi_dma_0_M_AXI_SG 1 5 1 2530 950n
 preplace netloc axis_clock_converter_0_M_AXIS 1 3 2 1340 1340 1860
-preplace netloc ps8_0_axi_periph_M05_AXI 1 4 3 1910 320 NJ 320 2980
 preplace netloc smartconnect_0_M00_AXI 1 4 3 1930 880 N 880 3000
 preplace netloc ps8_0_axi_periph_M02_AXI 1 4 3 1920 310 NJ 310 2970
-preplace netloc axi_dma_1_M_AXI_S2MM 1 5 1 2590 1690n
-preplace netloc ps8_0_axi_periph_M04_AXI 1 1 6 160 -320 NJ -320 NJ -320 NJ -320 NJ -320 2990
+preplace netloc smartconnect_1_M00_AXI 1 4 3 1940 1350 N 1350 3060
+preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_LPD 1 5 3 2550 860 3000 740 3860
+preplace netloc axis_subset_converter_0_M_AXIS 1 2 1 740 1130n
+preplace netloc ps8_0_axi_periph_M07_AXI 1 1 6 210 -310 NJ -310 NJ -310 NJ -310 NJ -310 3000
 preplace netloc axis_clock_converter_1_M_AXIS 1 3 2 1340 1510 N
 preplace netloc ps8_0_axi_periph_M06_AXI 1 1 6 180 -330 NJ -330 NJ -330 NJ -330 NJ -330 3010
 preplace netloc ps8_0_axi_periph_M00_AXI 1 6 1 3030 200n
 preplace netloc zynq_ultra_ps_e_0_SPI_0 1 7 1 3890 1220n
-preplace netloc ps8_0_axi_periph_M07_AXI 1 1 6 210 -310 NJ -310 NJ -310 NJ -310 NJ -310 3000
+preplace netloc ps8_0_axi_periph_M05_AXI 1 4 3 1910 320 NJ 320 2980
 levelinfo -pg 1 -940 -150 450 1103 1679 2337 2809 3480 3920
 pagesize -pg 1 -db -bbox -sgen -1160 -400 4120 2490
 "

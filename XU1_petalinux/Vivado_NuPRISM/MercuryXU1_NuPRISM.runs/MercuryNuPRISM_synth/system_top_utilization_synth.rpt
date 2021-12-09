@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-| Date         : Tue Dec  7 13:57:14 2021
+| Date         : Thu Dec  9 15:40:53 2021
 | Host         : hyperk running 64-bit Ubuntu 18.04.6 LTS
 | Command      : report_utilization -file system_top_utilization_synth.rpt -pb system_top_utilization_synth.pb
 | Design       : system_top
@@ -31,13 +31,13 @@ Table of Contents
 +----------------------------+-------+-------+-----------+-------+
 |          Site Type         |  Used | Fixed | Available | Util% |
 +----------------------------+-------+-------+-----------+-------+
-| CLB LUTs*                  | 31861 |     0 |    214604 | 14.85 |
-|   LUT as Logic             | 23479 |     0 |    214604 | 10.94 |
+| CLB LUTs*                  | 31867 |     0 |    214604 | 14.85 |
+|   LUT as Logic             | 23485 |     0 |    214604 | 10.94 |
 |   LUT as Memory            |  8382 |     0 |    144000 |  5.82 |
 |     LUT as Distributed RAM |  2796 |     0 |           |       |
 |     LUT as Shift Register  |  5586 |     0 |           |       |
-| CLB Registers              | 43441 |     0 |    429208 | 10.12 |
-|   Register as Flip Flop    | 43441 |     0 |    429208 | 10.12 |
+| CLB Registers              | 43448 |     0 |    429208 | 10.12 |
+|   Register as Flip Flop    | 43448 |     0 |    429208 | 10.12 |
 |   Register as Latch        |     0 |     0 |    429208 |  0.00 |
 | CARRY8                     |   337 |     0 |     34260 |  0.98 |
 | F7 Muxes                   |  1701 |     0 |    137040 |  1.24 |
@@ -59,8 +59,8 @@ Table of Contents
 | 0     |            _ |         Set |            - |
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
-| 164   |          Yes |           - |          Set |
-| 402   |          Yes |           - |        Reset |
+| 166   |          Yes |           - |          Set |
+| 407   |          Yes |           - |        Reset |
 | 1215  |          Yes |         Set |            - |
 | 41660 |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
@@ -157,23 +157,23 @@ Table of Contents
 |  Ref Name  |  Used | Functional Category |
 +------------+-------+---------------------+
 | FDRE       | 41660 |            Register |
-| LUT6       | 10308 |                 CLB |
-| LUT3       |  7224 |                 CLB |
+| LUT6       | 10312 |                 CLB |
+| LUT3       |  7227 |                 CLB |
 | RAMD32     |  4866 |                 CLB |
-| LUT4       |  4490 |                 CLB |
+| LUT4       |  4487 |                 CLB |
 | SRLC32E    |  3520 |                 CLB |
 | SRL16E     |  3292 |                 CLB |
 | LUT5       |  3286 |                 CLB |
-| LUT2       |  3162 |                 CLB |
+| LUT2       |  3164 |                 CLB |
 | MUXF7      |  1701 |                 CLB |
 | LUT1       |  1362 |                 CLB |
 | FDSE       |  1215 |            Register |
 | MUXF8      |   741 |                 CLB |
 | RAMS32     |   690 |                 CLB |
-| FDCE       |   402 |            Register |
+| FDCE       |   407 |            Register |
 | CARRY8     |   337 |                 CLB |
 | RAMB36E2   |   332 |           Block Ram |
-| FDPE       |   164 |            Register |
+| FDPE       |   166 |            Register |
 | IBUFCTRL   |    52 |              Others |
 | DIFFINBUF  |    47 |                 I/O |
 | ISERDESE3  |    45 |                 I/O |

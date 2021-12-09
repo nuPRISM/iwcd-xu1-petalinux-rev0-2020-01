@@ -1,7 +1,7 @@
 --Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
---Date        : Tue Dec  7 13:48:21 2021
+--Date        : Thu Dec  9 15:32:00 2021
 --Host        : hyperk running 64-bit Ubuntu 18.04.6 LTS
 --Command     : generate_target MercuryXU1.bd
 --Design      : MercuryXU1
@@ -3580,11 +3580,11 @@ architecture STRUCTURE of MercuryXU1 is
     SLOT_7_AXI_rlast : in STD_LOGIC;
     SLOT_7_AXI_rvalid : in STD_LOGIC;
     SLOT_7_AXI_rready : in STD_LOGIC;
-    resetn : in STD_LOGIC;
     SLOT_8_AXIS_tdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
     SLOT_8_AXIS_tlast : in STD_LOGIC;
     SLOT_8_AXIS_tvalid : in STD_LOGIC;
-    SLOT_8_AXIS_tready : in STD_LOGIC
+    SLOT_8_AXIS_tready : in STD_LOGIC;
+    resetn : in STD_LOGIC
   );
   end component MercuryXU1_system_ila_0_0;
   component MercuryXU1_system_ila_0_2 is

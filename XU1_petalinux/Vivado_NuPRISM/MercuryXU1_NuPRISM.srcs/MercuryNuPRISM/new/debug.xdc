@@ -1,8 +1,3 @@
-connect_debug_port u_ila_0/clk [get_nets [list {B64_C[1].serdes_clock/inst/clk_out4_b65_62p5}]]
-connect_debug_port u_ila_1/clk [get_nets [list {B64_C[2].serdes_clock/inst/clk_out4_b65_62p5}]]
-connect_debug_port u_ila_2/clk [get_nets [list {B64_C[3].serdes_clock/inst/clk_out4_b65_62p5}]]
-
-
 
 create_debug_core u_ila_0 ila
 set_property ALL_PROBE_SAME_MU true [get_debug_cores u_ila_0]

@@ -182,6 +182,7 @@ begin
     trigger_internal_r <= trigger_internal_next;
     trigger_enable_r <= trigger_enable;
     trigger_detected_r <= trigger_detected_next;
+    trigger_mode_r <= trigger_mode;
     data_dly(0) <= data;
     data_dly(1) <= data_dly(0);
     data_dly(2) <= data_dly(1);
