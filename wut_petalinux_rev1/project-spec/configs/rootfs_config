@@ -4222,6 +4222,7 @@ CONFIG_imagefeature-debug-tweaks=y
 # CONFIG_adc-dma2 is not set
 # CONFIG_adc-stream is not set
 # CONFIG_clc is not set
+CONFIG_dev-mem-test=y
 # CONFIG_dma-proxy-test is not set
 CONFIG_gpio-demo=y
 # CONFIG_lvds is not set

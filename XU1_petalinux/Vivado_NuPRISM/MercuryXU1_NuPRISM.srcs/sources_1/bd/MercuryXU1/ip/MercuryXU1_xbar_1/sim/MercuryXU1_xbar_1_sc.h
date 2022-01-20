@@ -1,7 +1,7 @@
 #ifndef IP_MERCURYXU1_XBAR_1_SC_H_
 #define IP_MERCURYXU1_XBAR_1_SC_H_
 
-// (c) Copyright 1995-2021 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2022 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -94,6 +94,8 @@ public: // module socket-to-socket TLM interface
   xtlm::xtlm_aximm_initiator_socket* initiator_6_wr_socket;
   xtlm::xtlm_aximm_initiator_socket* initiator_7_rd_socket;
   xtlm::xtlm_aximm_initiator_socket* initiator_7_wr_socket;
+  xtlm::xtlm_aximm_initiator_socket* initiator_8_rd_socket;
+  xtlm::xtlm_aximm_initiator_socket* initiator_8_wr_socket;
 
 protected:
 

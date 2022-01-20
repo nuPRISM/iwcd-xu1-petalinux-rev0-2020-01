@@ -401,8 +401,35 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==MercuryXU1_xlco
 # IP: bd/MercuryXU1/ip/MercuryXU1_xlconstant_0_0/MercuryXU1_xlconstant_0_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==MercuryXU1_xlconstant_0_0 || ORIG_REF_NAME==MercuryXU1_xlconstant_0_0} -quiet] -quiet
 
+# IP: bd/MercuryXU1/ip/MercuryXU1_axi_bram_ctrl_0_0/MercuryXU1_axi_bram_ctrl_0_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==MercuryXU1_axi_bram_ctrl_0_0 || ORIG_REF_NAME==MercuryXU1_axi_bram_ctrl_0_0} -quiet] -quiet
+
+# IP: bd/MercuryXU1/ip/MercuryXU1_bram_gpio_0_0/MercuryXU1_bram_gpio_0_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==MercuryXU1_bram_gpio_0_0 || ORIG_REF_NAME==MercuryXU1_bram_gpio_0_0} -quiet] -quiet
+
 # IP: bd/MercuryXU1/ip/MercuryXU1_auto_pc_0/MercuryXU1_auto_pc_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==MercuryXU1_auto_pc_0 || ORIG_REF_NAME==MercuryXU1_auto_pc_0} -quiet] -quiet
+
+# IP: bd/MercuryXU1/ip/MercuryXU1_auto_pc_1/MercuryXU1_auto_pc_1.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==MercuryXU1_auto_pc_1 || ORIG_REF_NAME==MercuryXU1_auto_pc_1} -quiet] -quiet
+
+# IP: bd/MercuryXU1/ip/MercuryXU1_auto_pc_2/MercuryXU1_auto_pc_2.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==MercuryXU1_auto_pc_2 || ORIG_REF_NAME==MercuryXU1_auto_pc_2} -quiet] -quiet
+
+# IP: bd/MercuryXU1/ip/MercuryXU1_auto_pc_3/MercuryXU1_auto_pc_3.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==MercuryXU1_auto_pc_3 || ORIG_REF_NAME==MercuryXU1_auto_pc_3} -quiet] -quiet
+
+# IP: bd/MercuryXU1/ip/MercuryXU1_auto_pc_4/MercuryXU1_auto_pc_4.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==MercuryXU1_auto_pc_4 || ORIG_REF_NAME==MercuryXU1_auto_pc_4} -quiet] -quiet
+
+# IP: bd/MercuryXU1/ip/MercuryXU1_auto_pc_5/MercuryXU1_auto_pc_5.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==MercuryXU1_auto_pc_5 || ORIG_REF_NAME==MercuryXU1_auto_pc_5} -quiet] -quiet
+
+# IP: bd/MercuryXU1/ip/MercuryXU1_auto_pc_6/MercuryXU1_auto_pc_6.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==MercuryXU1_auto_pc_6 || ORIG_REF_NAME==MercuryXU1_auto_pc_6} -quiet] -quiet
+
+# IP: bd/MercuryXU1/ip/MercuryXU1_auto_pc_7/MercuryXU1_auto_pc_7.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==MercuryXU1_auto_pc_7 || ORIG_REF_NAME==MercuryXU1_auto_pc_7} -quiet] -quiet
 
 # IP: bd/MercuryXU1/ip/MercuryXU1_s_arb_req_suppress_concat_0/MercuryXU1_s_arb_req_suppress_concat_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==MercuryXU1_s_arb_req_suppress_concat_0 || ORIG_REF_NAME==MercuryXU1_s_arb_req_suppress_concat_0} -quiet] -quiet
@@ -668,7 +695,23 @@ set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {R
 # XDC: bd/MercuryXU1/ip/MercuryXU1_axi_gpio_delay_ctrl_0/MercuryXU1_axi_gpio_delay_ctrl_0.xdc
 #dup# set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==MercuryXU1_axi_gpio_delay_ctrl_0 || ORIG_REF_NAME==MercuryXU1_axi_gpio_delay_ctrl_0} -quiet] {/U0 } ]/U0 ] -quiet] -quiet
 
+# XDC: bd/MercuryXU1/ip/MercuryXU1_axi_bram_ctrl_0_0/MercuryXU1_axi_bram_ctrl_0_0_ooc.xdc
+
 # XDC: bd/MercuryXU1/ip/MercuryXU1_auto_pc_0/MercuryXU1_auto_pc_0_ooc.xdc
+
+# XDC: bd/MercuryXU1/ip/MercuryXU1_auto_pc_1/MercuryXU1_auto_pc_1_ooc.xdc
+
+# XDC: bd/MercuryXU1/ip/MercuryXU1_auto_pc_2/MercuryXU1_auto_pc_2_ooc.xdc
+
+# XDC: bd/MercuryXU1/ip/MercuryXU1_auto_pc_3/MercuryXU1_auto_pc_3_ooc.xdc
+
+# XDC: bd/MercuryXU1/ip/MercuryXU1_auto_pc_4/MercuryXU1_auto_pc_4_ooc.xdc
+
+# XDC: bd/MercuryXU1/ip/MercuryXU1_auto_pc_5/MercuryXU1_auto_pc_5_ooc.xdc
+
+# XDC: bd/MercuryXU1/ip/MercuryXU1_auto_pc_6/MercuryXU1_auto_pc_6_ooc.xdc
+
+# XDC: bd/MercuryXU1/ip/MercuryXU1_auto_pc_7/MercuryXU1_auto_pc_7_ooc.xdc
 
 # XDC: bd/MercuryXU1/ip/MercuryXU1_s00_regslice_0/MercuryXU1_s00_regslice_0_clocks.xdc
 set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==MercuryXU1_s00_regslice_0 || ORIG_REF_NAME==MercuryXU1_s00_regslice_0} -quiet] {/inst } ]/inst ] -quiet] -quiet

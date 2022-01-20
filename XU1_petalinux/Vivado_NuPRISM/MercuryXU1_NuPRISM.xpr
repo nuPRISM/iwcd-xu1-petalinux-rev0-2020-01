@@ -92,6 +92,14 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PSRCDIR/sources_1/imports/src/bram_gpio.vhd">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../src/bram_gpio.vhd"/>
+          <Attr Name="ImportTime" Val="1641910628"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PSRCDIR/sources_1/bd/MercuryXU1/MercuryXU1.bd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
