@@ -39,7 +39,7 @@ int main(int argc, char **argv)
 {
     void* pAddress = ((void*)0x82000000);
 	uint32_t buf[BUF_SIZE];
-
+	
 	uint8_t *pAddr = (uint8_t*)pAddress;
 	size_t pageSize = getpagesize();
 	size_t mappedSize = ((sizeof(uint32_t) * BUF_SIZE / pageSize) + 2) * pageSize;
@@ -56,6 +56,14 @@ int main(int argc, char **argv)
 	uint8_t *pMapBase = (uint8_t*)mmap(NULL, mappedSize, PROT_READ | PROT_WRITE, MAP_SHARED, devMemFd, target);
 	printf("Buffer mapped: target=%p offset=%llx mapbase=%p\n", target, offset, pMapBase);
 	assert(pMapBase != ((uint8_t*)-1));
+
+	for(int i=0; i < BUF_SIZE * sizeof(uint32_t); i++) {
+		((uint8_t*)buf)[i] = (uint8_t)((i + 1) & 0xff);
+	}
+
+	for(int i = 0; i < 16/*BUF_SIZE*/; i++) {
+		printf("%d: %x\n", i, buf[i]);
+	}
 
 	printf("Press Enter to continue ...\n");	
 	int c = getchar();

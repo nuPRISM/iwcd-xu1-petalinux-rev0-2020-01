@@ -1,4 +1,4 @@
--- (c) Copyright 1995-2021 Xilinx, Inc. All rights reserved.
+-- (c) Copyright 1995-2022 Xilinx, Inc. All rights reserved.
 -- 
 -- This file contains confidential and proprietary information
 -- of Xilinx, Inc. and is protected under U.S. and
@@ -62,7 +62,13 @@ ENTITY MercuryXU1_system_ila_0_2 IS
     probe3 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
     probe4 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
     probe5 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-    probe6 : IN STD_LOGIC_VECTOR(0 DOWNTO 0)
+    probe6 : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
+    probe7 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+    probe8 : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
+    probe9 : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
+    probe10 : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+    probe11 : IN STD_LOGIC_VECTOR(12 DOWNTO 0);
+    probe12 : IN STD_LOGIC_VECTOR(31 DOWNTO 0)
   );
 END MercuryXU1_system_ila_0_2;
 
@@ -78,7 +84,13 @@ ARCHITECTURE MercuryXU1_system_ila_0_2_arch OF MercuryXU1_system_ila_0_2 IS
       probe3 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
       probe4 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
       probe5 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-      probe6 : IN STD_LOGIC_VECTOR(0 DOWNTO 0)
+      probe6 : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
+      probe7 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+      probe8 : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
+      probe9 : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
+      probe10 : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+      probe11 : IN STD_LOGIC_VECTOR(12 DOWNTO 0);
+      probe12 : IN STD_LOGIC_VECTOR(31 DOWNTO 0)
     );
   END COMPONENT bd_a512;
   ATTRIBUTE X_INTERFACE_INFO : STRING;
@@ -95,6 +107,12 @@ BEGIN
       probe3 => probe3,
       probe4 => probe4,
       probe5 => probe5,
-      probe6 => probe6
+      probe6 => probe6,
+      probe7 => probe7,
+      probe8 => probe8,
+      probe9 => probe9,
+      probe10 => probe10,
+      probe11 => probe11,
+      probe12 => probe12
     );
 END MercuryXU1_system_ila_0_2_arch;

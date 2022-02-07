@@ -44,7 +44,7 @@
 #define CLOCK_CLEANER_INIT_VAL		0x0F
 #define CLOCK_CLEANER_STOP_VAL		0x00
 
-#define DEBUG
+// #define DEBUG
 #include "dbg.h"
 
 #include "clc.h"

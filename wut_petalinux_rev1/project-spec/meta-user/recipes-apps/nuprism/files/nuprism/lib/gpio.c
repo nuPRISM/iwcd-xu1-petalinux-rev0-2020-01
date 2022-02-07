@@ -4,7 +4,7 @@
 #include <unistd.h>
 #include <sys/stat.h>  
 
-#define DEBUG
+// #define DEBUG
 #include "dbg.h"
 
 #include "gpio.h"

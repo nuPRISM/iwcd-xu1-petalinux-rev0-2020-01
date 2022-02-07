@@ -471,7 +471,7 @@ proc create_root_design { parentCell } {
   set system_ila_60 [ create_bd_cell -type ip -vlnv xilinx.com:ip:system_ila:1.1 system_ila_60 ]
   set_property -dict [ list \
    CONFIG.C_MON_TYPE {NATIVE} \
-   CONFIG.C_NUM_OF_PROBES {7} \
+   CONFIG.C_NUM_OF_PROBES {13} \
    CONFIG.C_PROBE0_TYPE {0} \
    CONFIG.C_PROBE1_TYPE {0} \
    CONFIG.C_PROBE2_TYPE {0} \
@@ -2153,11 +2153,12 @@ connect_bd_intf_net -intf_net [get_bd_intf_nets smartconnect_1_M00_AXI] [get_bd_
   connect_bd_net -net adc9_sample_0_1 [get_bd_ports adc9_sample] [get_bd_pins stream_multiplexer_0/adc9_sample]
   connect_bd_net -net adc_sample_valid_0_1 [get_bd_ports adc_sample_valid] [get_bd_pins stream_multiplexer_0/adc_sample_valid]
   connect_bd_net -net aresetn_0_1 [get_bd_pins axis_clock_converter_0/s_axis_aresetn] [get_bd_pins axis_clock_converter_1/s_axis_aresetn] [get_bd_pins proc_sys_reset_62p6/peripheral_aresetn] [get_bd_pins system_ila_51/resetn] [get_bd_pins tlast_generator_0/rst_n] [get_bd_pins tlast_generator_1/rst_n]
-  connect_bd_net -net axi_bram_ctrl_bram_addr_a [get_bd_pins axi_bram_ctrl/bram_addr_a] [get_bd_pins bram_gpio_0/address]
+  connect_bd_net -net axi_bram_ctrl_bram_addr_a [get_bd_pins axi_bram_ctrl/bram_addr_a] [get_bd_pins bram_gpio_0/address] [get_bd_pins system_ila_60/probe11]
   connect_bd_net -net axi_bram_ctrl_bram_clk_a [get_bd_pins axi_bram_ctrl/bram_clk_a] [get_bd_pins bram_gpio_0/clk]
-  connect_bd_net -net axi_bram_ctrl_bram_en_a [get_bd_pins axi_bram_ctrl/bram_en_a] [get_bd_pins bram_gpio_0/write_enable]
+  connect_bd_net -net axi_bram_ctrl_bram_en_a [get_bd_pins axi_bram_ctrl/bram_en_a] [get_bd_pins bram_gpio_0/write_enable] [get_bd_pins system_ila_60/probe9]
   connect_bd_net -net axi_bram_ctrl_bram_rst_a [get_bd_pins axi_bram_ctrl/bram_rst_a] [get_bd_pins bram_gpio_0/rst]
-  connect_bd_net -net axi_bram_ctrl_bram_wrdata_a [get_bd_pins axi_bram_ctrl/bram_wrdata_a] [get_bd_pins bram_gpio_0/write_data]
+  connect_bd_net -net axi_bram_ctrl_bram_we_a [get_bd_pins axi_bram_ctrl/bram_we_a] [get_bd_pins system_ila_60/probe10]
+  connect_bd_net -net axi_bram_ctrl_bram_wrdata_a [get_bd_pins axi_bram_ctrl/bram_wrdata_a] [get_bd_pins bram_gpio_0/write_data] [get_bd_pins system_ila_60/probe12]
   connect_bd_net -net axi_dma_0_mm2s_introut [get_bd_pins axi_dma_0/mm2s_introut] [get_bd_pins xlconcat_irq/In0]
   connect_bd_net -net axi_dma_0_s2mm_introut [get_bd_pins axi_dma_0/s2mm_introut] [get_bd_pins xlconcat_irq/In1]
   connect_bd_net -net axi_dma_1_s2mm_introut [get_bd_pins axi_dma_1/s2mm_introut] [get_bd_pins xlconcat_irq/In2]
@@ -2169,6 +2170,8 @@ connect_bd_intf_net -intf_net [get_bd_intf_nets smartconnect_1_M00_AXI] [get_bd_
   set_property HDL_ATTRIBUTE.DEBUG {true} [get_bd_nets axi_gpio_sample_number_gpio_io_o]
   connect_bd_net -net axi_gpio_suppres_gpio_io_o [get_bd_pins axi_gpio_suppres/gpio_io_o] [get_bd_pins stream_multiplexer_0/gpio] [get_bd_pins system_ila_60/probe0] [get_bd_pins xlslice_0/Din] [get_bd_pins xlslice_1/Din] [get_bd_pins xlslice_2/Din] [get_bd_pins xlslice_3_5/Din]
   set_property HDL_ATTRIBUTE.DEBUG {true} [get_bd_nets axi_gpio_suppres_gpio_io_o]
+  connect_bd_net -net bram_gpio_0_num_packets_per_event [get_bd_pins bram_gpio_0/num_packets_per_event] [get_bd_pins system_ila_60/probe7]
+  connect_bd_net -net bram_gpio_0_pulse_threshold [get_bd_pins bram_gpio_0/pulse_threshold] [get_bd_pins system_ila_60/probe8]
   connect_bd_net -net bram_gpio_0_read_data [get_bd_pins axi_bram_ctrl/bram_rddata_a] [get_bd_pins bram_gpio_0/read_data]
   connect_bd_net -net event_controller_0_packet_counter [get_bd_pins axi_gpio_packet_number/gpio2_io_i] [get_bd_pins bram_gpio_0/packet_counter] [get_bd_pins event_controller_0/packet_counter] [get_bd_pins system_ila_60/probe5]
   connect_bd_net -net event_controller_0_triger_enable [get_bd_pins event_controller_0/trigger_enable] [get_bd_pins system_ila_60/probe6] [get_bd_pins tlast_generator_0/trigger_enable] [get_bd_pins tlast_generator_1/trigger_enable]

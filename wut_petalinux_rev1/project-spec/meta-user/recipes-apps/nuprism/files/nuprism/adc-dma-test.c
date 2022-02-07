@@ -59,14 +59,14 @@ void *trigger_thread_fun( void *ptr ) {
 
 void *acquisition_thread_fun(void *ptr) {
     AcqData *data_ptr = (AcqData*)ptr;
-    DBG("acq start: dev_name=%s, filename=%s buf_size=%d adc_mode=%d\n", data_ptr->dma_dev, data_ptr->filename, data_ptr->buf_size, data_ptr->adc_mode);
+    fprintf(stdout, "acq start: dev_name=%s, filename=%s buf_size=%d adc_mode=%d\n", data_ptr->dma_dev, data_ptr->filename, data_ptr->buf_size, data_ptr->adc_mode);
 
     data_ptr->status = 0;
 
     // open DMA device
     int	rx_proxy_fd = open(data_ptr->dma_dev, O_RDWR);
 	if (rx_proxy_fd < 1) {
-		DBG("Unable to open DMA proxy device file: %s", data_ptr->dma_dev);
+		fprintf(stdout, "Unable to open DMA proxy device file: %s", data_ptr->dma_dev);
         data_ptr->status = 1;
 		return NULL;
 	}
@@ -77,25 +77,25 @@ void *acquisition_thread_fun(void *ptr) {
     rx_proxy_interface_p = (struct dma_proxy_channel_interface *)mmap(NULL, sizeof(struct dma_proxy_channel_interface),
 								PROT_READ | PROT_WRITE, MAP_SHARED, rx_proxy_fd, 0);
 	if (rx_proxy_interface_p == MAP_FAILED) {
-		DBG("Failed to mmap buf for device %s\n", data_ptr->dma_dev);
+		fprintf(stdout, "Failed to mmap buf for device %s\n", data_ptr->dma_dev);
         data_ptr->status = 2;
 		return NULL;
 	}
 
     // set buf size
     rx_proxy_interface_p->length = data_ptr->buf_size;
-    DBG("thread_fun(): buf size=%d\n", rx_proxy_interface_p->length);
+    fprintf(stdout, "thread_fun(): buf size=%d\n", rx_proxy_interface_p->length);
 
     // DMA transfer    
     int dummy;
     ioctl(rx_proxy_fd, 0, &dummy);
     if (rx_proxy_interface_p->status != PROXY_NO_ERROR) {
-	    DBG("Proxy rx transfer error: status=%d device=%s\n", rx_proxy_interface_p->status, data_ptr->dma_dev);
+	    fprintf(stdout, "Proxy rx transfer error: status=%d device=%s\n", rx_proxy_interface_p->status, data_ptr->dma_dev);
         data_ptr->status = 3;
 		//return NULL;
         goto cleanup;
     } 
-    DBG("DMA transfer OK, storing data in file\n", data_ptr->filename);
+    fprintf(stdout, "DMA transfer OK, storing data in file\n", data_ptr->filename);
 
     // saving received data
     FILE* file = fopen(data_ptr->filename, "wb");
@@ -237,6 +237,7 @@ int main(int argc, char **argv)
             init_gpio();
         }
     }*/
+	fprintf(stdout, "Configuring DMA transfer ...\n");
     init_gpio();        // \todo use WZAB multi-gpio module !!!
     
     // set ADC num for DMA channels
@@ -301,8 +302,14 @@ int main(int argc, char **argv)
     // configure acqusition threads
     strcpy(acq_ch0_data.dma_dev, "/dev/dma_proxy_rx_0");
     strcpy(acq_ch1_data.dma_dev, "/dev/dma_proxy_rx_1");
-    strcpy(acq_ch0_data.filename, "dma_ch0.bin");
-    strcpy(acq_ch1_data.filename, "dma_ch1.bin");
+    //strcpy(acq_ch0_data.filename, "dma_ch0.bin");
+    //strcpy(acq_ch1_data.filename, "dma_ch1.bin");
+	char filename[64];
+	sprintf(filename, "dma_ch0_m%02d_t%d.bin", adc_ch0_num, trigger_mode);
+	strcpy(acq_ch0_data.filename, filename);
+	sprintf(filename, "dma_ch1_n%02d_t%d.bin", adc_ch1_num, trigger_mode);
+	strcpy(acq_ch1_data.filename, filename);
+
     acq_ch1_data.buf_size = acq_ch0_data.buf_size = buf_size;
     acq_ch1_data.adc_mode = acq_ch0_data.adc_mode = adc_mode;
 
@@ -318,6 +325,8 @@ int main(int argc, char **argv)
     
 	set_trigger_enable_bit(1);
 	for(int i = 0; i < num_iter; i++) {
+		fprintf(stdout, "DMA transfer #%d\n", i + 1);
+
 		// unset ADC supress bit        
         set_adc_suppress_bit(0);
 
@@ -337,7 +346,7 @@ int main(int argc, char **argv)
 		
 		// reset ADC supress bit        
         set_adc_suppress_bit(1);
-		fprintf(stderr, "DMA threads joined: status ch0=%d, ch1=%d\n", acq_ch0_data.status, acq_ch1_data.status);
+		fprintf(stdout, "DMA threads joined: status ch0=%d, ch1=%d\n", acq_ch0_data.status, acq_ch1_data.status);
 	}    
 	set_trigger_enable_bit(0);
 	return 0;

@@ -1,7 +1,7 @@
 --Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
---Date        : Wed Jan 12 10:38:14 2022
+--Date        : Mon Jan 31 11:24:16 2022
 --Host        : hyperk running 64-bit Ubuntu 18.04.6 LTS
 --Command     : generate_target MercuryXU1.bd
 --Design      : MercuryXU1
@@ -6016,7 +6016,13 @@ architecture STRUCTURE of MercuryXU1 is
     probe3 : in STD_LOGIC_VECTOR ( 31 downto 0 );
     probe4 : in STD_LOGIC_VECTOR ( 31 downto 0 );
     probe5 : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    probe6 : in STD_LOGIC_VECTOR ( 0 to 0 )
+    probe6 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    probe7 : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    probe8 : in STD_LOGIC_VECTOR ( 11 downto 0 );
+    probe9 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    probe10 : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    probe11 : in STD_LOGIC_VECTOR ( 12 downto 0 );
+    probe12 : in STD_LOGIC_VECTOR ( 31 downto 0 )
   );
   end component MercuryXU1_system_ila_0_2;
   component MercuryXU1_xlslice_1_0 is
@@ -6552,6 +6558,7 @@ architecture STRUCTURE of MercuryXU1 is
   signal axi_bram_ctrl_bram_clk_a : STD_LOGIC;
   signal axi_bram_ctrl_bram_en_a : STD_LOGIC;
   signal axi_bram_ctrl_bram_rst_a : STD_LOGIC;
+  signal axi_bram_ctrl_bram_we_a : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal axi_bram_ctrl_bram_wrdata_a : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal axi_dma_0_M_AXIS_MM2S_TDATA : STD_LOGIC_VECTOR ( 31 downto 0 );
   attribute CONN_BUS_INFO : string;
@@ -6831,6 +6838,8 @@ architecture STRUCTURE of MercuryXU1 is
   attribute CONN_BUS_INFO of axis_subset_converter_0_M_AXIS_TVALID : signal is "axis_subset_converter_0_M_AXIS xilinx.com:interface:axis:1.0 None TVALID";
   attribute DEBUG of axis_subset_converter_0_M_AXIS_TVALID : signal is "true";
   attribute MARK_DEBUG of axis_subset_converter_0_M_AXIS_TVALID : signal is std.standard.true;
+  signal bram_gpio_0_num_packets_per_event : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal bram_gpio_0_pulse_threshold : STD_LOGIC_VECTOR ( 11 downto 0 );
   signal bram_gpio_0_read_data : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal event_controller_0_packet_counter : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal event_controller_0_triger_enable : STD_LOGIC;
@@ -7357,12 +7366,9 @@ architecture STRUCTURE of MercuryXU1 is
   signal zynq_ultra_ps_e_0_pl_clk1 : STD_LOGIC;
   signal zynq_ultra_ps_e_0_pl_clk3 : STD_LOGIC;
   signal zynq_ultra_ps_e_0_pl_resetn0 : STD_LOGIC;
-  signal NLW_axi_bram_ctrl_bram_we_a_UNCONNECTED : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal NLW_axi_dma_0_mm2s_prmry_reset_out_n_UNCONNECTED : STD_LOGIC;
   signal NLW_axi_dma_0_s2mm_prmry_reset_out_n_UNCONNECTED : STD_LOGIC;
   signal NLW_axi_dma_1_s2mm_prmry_reset_out_n_UNCONNECTED : STD_LOGIC;
-  signal NLW_bram_gpio_0_num_packets_per_event_UNCONNECTED : STD_LOGIC_VECTOR ( 31 downto 0 );
-  signal NLW_bram_gpio_0_pulse_threshold_UNCONNECTED : STD_LOGIC_VECTOR ( 11 downto 0 );
   signal NLW_proc_sys_reset_100_mb_reset_UNCONNECTED : STD_LOGIC;
   signal NLW_proc_sys_reset_100_bus_struct_reset_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
   signal NLW_proc_sys_reset_100_peripheral_reset_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
@@ -7469,7 +7475,7 @@ axi_bram_ctrl: component MercuryXU1_axi_bram_ctrl_0_0
       bram_en_a => axi_bram_ctrl_bram_en_a,
       bram_rddata_a(31 downto 0) => bram_gpio_0_read_data(31 downto 0),
       bram_rst_a => axi_bram_ctrl_bram_rst_a,
-      bram_we_a(3 downto 0) => NLW_axi_bram_ctrl_bram_we_a_UNCONNECTED(3 downto 0),
+      bram_we_a(3 downto 0) => axi_bram_ctrl_bram_we_a(3 downto 0),
       bram_wrdata_a(31 downto 0) => axi_bram_ctrl_bram_wrdata_a(31 downto 0),
       s_axi_aclk => zynq_ultra_ps_e_0_pl_clk0,
       s_axi_araddr(12 downto 0) => ps8_0_axi_periph_M08_AXI_ARADDR(12 downto 0),
@@ -7879,9 +7885,9 @@ bram_gpio_0: component MercuryXU1_bram_gpio_0_0
      port map (
       address(12 downto 0) => axi_bram_ctrl_bram_addr_a(12 downto 0),
       clk => axi_bram_ctrl_bram_clk_a,
-      num_packets_per_event(31 downto 0) => NLW_bram_gpio_0_num_packets_per_event_UNCONNECTED(31 downto 0),
+      num_packets_per_event(31 downto 0) => bram_gpio_0_num_packets_per_event(31 downto 0),
       packet_counter(31 downto 0) => event_controller_0_packet_counter(31 downto 0),
-      pulse_threshold(11 downto 0) => NLW_bram_gpio_0_pulse_threshold_UNCONNECTED(11 downto 0),
+      pulse_threshold(11 downto 0) => bram_gpio_0_pulse_threshold(11 downto 0),
       read_data(31 downto 0) => bram_gpio_0_read_data(31 downto 0),
       rst => axi_bram_ctrl_bram_rst_a,
       write_data(31 downto 0) => axi_bram_ctrl_bram_wrdata_a(31 downto 0),
@@ -8554,11 +8560,17 @@ system_ila_60: component MercuryXU1_system_ila_0_2
       clk => zynq_ultra_ps_e_0_pl_clk0,
       probe0(19 downto 0) => axi_gpio_suppres_gpio_io_o(19 downto 0),
       probe1(19 downto 0) => axi_gpio_0_gpio_io_o(19 downto 0),
+      probe10(3 downto 0) => axi_bram_ctrl_bram_we_a(3 downto 0),
+      probe11(12 downto 0) => axi_bram_ctrl_bram_addr_a(12 downto 0),
+      probe12(31 downto 0) => axi_bram_ctrl_bram_wrdata_a(31 downto 0),
       probe2(31 downto 0) => axi_gpio_sample_number_gpio_io_o(31 downto 0),
       probe3(31 downto 0) => axi_gpio_delay_ctrl_gpio_io_o(31 downto 0),
       probe4(31 downto 0) => axi_gpio_packet_number_gpio_io_o(31 downto 0),
       probe5(31 downto 0) => event_controller_0_packet_counter(31 downto 0),
-      probe6(0) => event_controller_0_triger_enable
+      probe6(0) => event_controller_0_triger_enable,
+      probe7(31 downto 0) => bram_gpio_0_num_packets_per_event(31 downto 0),
+      probe8(11 downto 0) => bram_gpio_0_pulse_threshold(11 downto 0),
+      probe9(0) => axi_bram_ctrl_bram_en_a
     );
 system_management_wiz_0: component MercuryXU1_system_management_wiz_0_0
      port map (
