@@ -26,6 +26,7 @@
 */
 
 #include <stdio.h>
+#include <string.h>
 #include <stdint.h>
 #include <assert.h>
 #include <unistd.h>
@@ -33,16 +34,21 @@
 #include <sys/mman.h>
 
 
-#define BUF_SIZE 2048
+typedef struct {
+	uint16_t auto_trig_thr;
+	uint16_t dummy;
+} Config;
+
 
 int main(int argc, char **argv)
 {
     void* pAddress = ((void*)0x82000000);
-	uint32_t buf[BUF_SIZE];
+	Config cfg = {100};
+	
 	
 	uint8_t *pAddr = (uint8_t*)pAddress;
 	size_t pageSize = getpagesize();
-	size_t mappedSize = ((sizeof(uint32_t) * BUF_SIZE / pageSize) + 2) * pageSize;
+	size_t mappedSize = ((sizeof(Config) / pageSize) + 2) * pageSize;
 	size_t offset = ((size_t)pAddr) & (pageSize-1);
 	size_t target = ((size_t)pAddr) & (~(pageSize-1));
 
@@ -56,17 +62,15 @@ int main(int argc, char **argv)
 	uint8_t *pMapBase = (uint8_t*)mmap(NULL, mappedSize, PROT_READ | PROT_WRITE, MAP_SHARED, devMemFd, target);
 	printf("Buffer mapped: target=%p offset=%llx mapbase=%p\n", target, offset, pMapBase);
 	assert(pMapBase != ((uint8_t*)-1));
-
-	for(int i=0; i < BUF_SIZE * sizeof(uint32_t); i++) {
-		((uint8_t*)buf)[i] = (uint8_t)((i + 1) & 0xff);
-	}
-
-	for(int i = 0; i < 16/*BUF_SIZE*/; i++) {
-		printf("%d: %x\n", i, buf[i]);
-	}
-
+	
 	printf("Press Enter to continue ...\n");	
 	int c = getchar();
+
+	uint8_t *pTarget = ((uint8_t*)pMapBase) + offset;	
+	memcpy(pTarget, &cfg, sizeof(cfg));
+	
+	printf("Press Enter to continue ...\n");	
+	c = getchar();
 
 	int ret = munmap(pMapBase, mappedSize);
 	printf("Buffer unmapped, ret=%d\n", ret);

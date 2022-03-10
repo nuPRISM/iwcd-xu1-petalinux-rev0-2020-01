@@ -34,7 +34,8 @@ entity Ad9229Core is
    generic (
       TPD_G           : time := 1 ns;
       IODELAY_GROUP_G : string:= "DEFAULT_GROUP";
-      N_CHANNELS_G    : positive := 4
+      N_CHANNELS_G    : positive := 4;
+      DELAY_VALUE     : natural := 256
    );
    port (
       -- Desired sample clock
@@ -164,7 +165,8 @@ begin
      generic map (
         TPD_G             => TPD_G,
         IODELAY_GROUP_G   => IODELAY_GROUP_G,
-        IDELAYCTRL_FREQ_G => 375.0)
+        IDELAYCTRL_FREQ_G => 375.0,
+        DELAY_VALUE => DELAY_VALUE)
      port map (
         clkSer     => s_serClk,
         idelayClk  => s_serDiv2Clk,
@@ -197,7 +199,8 @@ begin
       generic map (
          TPD_G             => TPD_G,
          IODELAY_GROUP_G   => IODELAY_GROUP_G,
-         IDELAYCTRL_FREQ_G => 375.0)
+         IDELAYCTRL_FREQ_G => 375.0,
+         DELAY_VALUE => DELAY_VALUE)
       port map (
          clkSer     => s_serClk,
          idelayClk  => s_serDiv2Clk,

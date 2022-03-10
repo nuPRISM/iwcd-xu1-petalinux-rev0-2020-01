@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-| Date         : Mon Jan 31 11:45:28 2022
+| Date         : Tue Mar  8 16:27:56 2022
 | Host         : hyperk running 64-bit Ubuntu 18.04.6 LTS
 | Command      : report_drc -file system_top_drc_routed.rpt -pb system_top_drc_routed.pb -rpx system_top_drc_routed.rpx
 | Design       : system_top
@@ -24,11 +24,12 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 10
+             Violations found: 55
 +-----------+----------+--------------------------------------+------------+
 | Rule      | Severity | Description                          | Violations |
 +-----------+----------+--------------------------------------+------------+
 | LVDS-1    | Warning  | Bidirection LVDS IOs                 | 1          |
+| REQP-1804 | Warning  | enum_DELAY_TYPE_VAR_EN_VTC_HIGH      | 45         |
 | REQP-1853 | Warning  | BUFGCE_DIV_cascade_from_clock_buf    | 5          |
 | RTSTAT-10 | Warning  | No routable loads                    | 1          |
 | REQP-1935 | Advisory | RAMB36E2_nochange_collision_advisory | 3          |
@@ -40,6 +41,231 @@ LVDS-1#1 Warning
 Bidirection LVDS IOs  
 The following port(s) use the LVDS I/O standard and have bi-directional differential usage. Please note that LVDS is a fixed impedance structure optimized to 100ohm differential. This is only intended to be used in point-to-point transmissions that do not have turn around timing requirements. If the intended usage is a bus structure, please use BLVDS/BLVDS_25, instead. LVDS_MEZZ_RJ45_CLK1_n, LVDS_MEZZ_RJ45_CLK1_p, POE_LVDS_TRIG_n,
 POE_LVDS_TRIG_p.
+Related violations: <none>
+
+REQP-1804#1 Warning
+enum_DELAY_TYPE_VAR_EN_VTC_HIGH  
+The IDELAYE3 B64_S[0].Ad9229Core_b/Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+Related violations: <none>
+
+REQP-1804#2 Warning
+enum_DELAY_TYPE_VAR_EN_VTC_HIGH  
+The IDELAYE3 B64_S[0].Ad9229Core_b/GEN_DATA[0].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+Related violations: <none>
+
+REQP-1804#3 Warning
+enum_DELAY_TYPE_VAR_EN_VTC_HIGH  
+The IDELAYE3 B64_S[0].Ad9229Core_b/GEN_DATA[1].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+Related violations: <none>
+
+REQP-1804#4 Warning
+enum_DELAY_TYPE_VAR_EN_VTC_HIGH  
+The IDELAYE3 B64_S[0].Ad9229Core_b/GEN_DATA[2].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+Related violations: <none>
+
+REQP-1804#5 Warning
+enum_DELAY_TYPE_VAR_EN_VTC_HIGH  
+The IDELAYE3 B64_S[0].Ad9229Core_b/GEN_DATA[3].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+Related violations: <none>
+
+REQP-1804#6 Warning
+enum_DELAY_TYPE_VAR_EN_VTC_HIGH  
+The IDELAYE3 B64_S[0].Ad9229Core_b/GEN_DATA[4].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+Related violations: <none>
+
+REQP-1804#7 Warning
+enum_DELAY_TYPE_VAR_EN_VTC_HIGH  
+The IDELAYE3 B64_S[0].Ad9229Core_b/GEN_DATA[5].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+Related violations: <none>
+
+REQP-1804#8 Warning
+enum_DELAY_TYPE_VAR_EN_VTC_HIGH  
+The IDELAYE3 B64_S[0].Ad9229Core_b/GEN_DATA[6].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+Related violations: <none>
+
+REQP-1804#9 Warning
+enum_DELAY_TYPE_VAR_EN_VTC_HIGH  
+The IDELAYE3 B64_S[0].Ad9229Core_b/GEN_DATA[7].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+Related violations: <none>
+
+REQP-1804#10 Warning
+enum_DELAY_TYPE_VAR_EN_VTC_HIGH  
+The IDELAYE3 B64_S[1].Ad9229Core_b/Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+Related violations: <none>
+
+REQP-1804#11 Warning
+enum_DELAY_TYPE_VAR_EN_VTC_HIGH  
+The IDELAYE3 B64_S[1].Ad9229Core_b/GEN_DATA[0].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+Related violations: <none>
+
+REQP-1804#12 Warning
+enum_DELAY_TYPE_VAR_EN_VTC_HIGH  
+The IDELAYE3 B64_S[1].Ad9229Core_b/GEN_DATA[1].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+Related violations: <none>
+
+REQP-1804#13 Warning
+enum_DELAY_TYPE_VAR_EN_VTC_HIGH  
+The IDELAYE3 B64_S[1].Ad9229Core_b/GEN_DATA[2].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+Related violations: <none>
+
+REQP-1804#14 Warning
+enum_DELAY_TYPE_VAR_EN_VTC_HIGH  
+The IDELAYE3 B64_S[1].Ad9229Core_b/GEN_DATA[3].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+Related violations: <none>
+
+REQP-1804#15 Warning
+enum_DELAY_TYPE_VAR_EN_VTC_HIGH  
+The IDELAYE3 B64_S[1].Ad9229Core_b/GEN_DATA[4].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+Related violations: <none>
+
+REQP-1804#16 Warning
+enum_DELAY_TYPE_VAR_EN_VTC_HIGH  
+The IDELAYE3 B64_S[1].Ad9229Core_b/GEN_DATA[5].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+Related violations: <none>
+
+REQP-1804#17 Warning
+enum_DELAY_TYPE_VAR_EN_VTC_HIGH  
+The IDELAYE3 B64_S[1].Ad9229Core_b/GEN_DATA[6].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+Related violations: <none>
+
+REQP-1804#18 Warning
+enum_DELAY_TYPE_VAR_EN_VTC_HIGH  
+The IDELAYE3 B64_S[1].Ad9229Core_b/GEN_DATA[7].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+Related violations: <none>
+
+REQP-1804#19 Warning
+enum_DELAY_TYPE_VAR_EN_VTC_HIGH  
+The IDELAYE3 B64_S[2].Ad9229Core_b/Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+Related violations: <none>
+
+REQP-1804#20 Warning
+enum_DELAY_TYPE_VAR_EN_VTC_HIGH  
+The IDELAYE3 B64_S[2].Ad9229Core_b/GEN_DATA[0].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+Related violations: <none>
+
+REQP-1804#21 Warning
+enum_DELAY_TYPE_VAR_EN_VTC_HIGH  
+The IDELAYE3 B64_S[2].Ad9229Core_b/GEN_DATA[1].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+Related violations: <none>
+
+REQP-1804#22 Warning
+enum_DELAY_TYPE_VAR_EN_VTC_HIGH  
+The IDELAYE3 B64_S[2].Ad9229Core_b/GEN_DATA[2].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+Related violations: <none>
+
+REQP-1804#23 Warning
+enum_DELAY_TYPE_VAR_EN_VTC_HIGH  
+The IDELAYE3 B64_S[2].Ad9229Core_b/GEN_DATA[3].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+Related violations: <none>
+
+REQP-1804#24 Warning
+enum_DELAY_TYPE_VAR_EN_VTC_HIGH  
+The IDELAYE3 B64_S[2].Ad9229Core_b/GEN_DATA[4].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+Related violations: <none>
+
+REQP-1804#25 Warning
+enum_DELAY_TYPE_VAR_EN_VTC_HIGH  
+The IDELAYE3 B64_S[2].Ad9229Core_b/GEN_DATA[5].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+Related violations: <none>
+
+REQP-1804#26 Warning
+enum_DELAY_TYPE_VAR_EN_VTC_HIGH  
+The IDELAYE3 B64_S[2].Ad9229Core_b/GEN_DATA[6].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+Related violations: <none>
+
+REQP-1804#27 Warning
+enum_DELAY_TYPE_VAR_EN_VTC_HIGH  
+The IDELAYE3 B64_S[2].Ad9229Core_b/GEN_DATA[7].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+Related violations: <none>
+
+REQP-1804#28 Warning
+enum_DELAY_TYPE_VAR_EN_VTC_HIGH  
+The IDELAYE3 B64_S[3].Ad9229Core_b/Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+Related violations: <none>
+
+REQP-1804#29 Warning
+enum_DELAY_TYPE_VAR_EN_VTC_HIGH  
+The IDELAYE3 B64_S[3].Ad9229Core_b/GEN_DATA[0].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+Related violations: <none>
+
+REQP-1804#30 Warning
+enum_DELAY_TYPE_VAR_EN_VTC_HIGH  
+The IDELAYE3 B64_S[3].Ad9229Core_b/GEN_DATA[1].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+Related violations: <none>
+
+REQP-1804#31 Warning
+enum_DELAY_TYPE_VAR_EN_VTC_HIGH  
+The IDELAYE3 B64_S[3].Ad9229Core_b/GEN_DATA[2].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+Related violations: <none>
+
+REQP-1804#32 Warning
+enum_DELAY_TYPE_VAR_EN_VTC_HIGH  
+The IDELAYE3 B64_S[3].Ad9229Core_b/GEN_DATA[3].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+Related violations: <none>
+
+REQP-1804#33 Warning
+enum_DELAY_TYPE_VAR_EN_VTC_HIGH  
+The IDELAYE3 B64_S[3].Ad9229Core_b/GEN_DATA[4].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+Related violations: <none>
+
+REQP-1804#34 Warning
+enum_DELAY_TYPE_VAR_EN_VTC_HIGH  
+The IDELAYE3 B64_S[3].Ad9229Core_b/GEN_DATA[5].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+Related violations: <none>
+
+REQP-1804#35 Warning
+enum_DELAY_TYPE_VAR_EN_VTC_HIGH  
+The IDELAYE3 B64_S[3].Ad9229Core_b/GEN_DATA[6].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+Related violations: <none>
+
+REQP-1804#36 Warning
+enum_DELAY_TYPE_VAR_EN_VTC_HIGH  
+The IDELAYE3 B64_S[3].Ad9229Core_b/GEN_DATA[7].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+Related violations: <none>
+
+REQP-1804#37 Warning
+enum_DELAY_TYPE_VAR_EN_VTC_HIGH  
+The IDELAYE3 B64_S[4].Ad9229Core_b/Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+Related violations: <none>
+
+REQP-1804#38 Warning
+enum_DELAY_TYPE_VAR_EN_VTC_HIGH  
+The IDELAYE3 B64_S[4].Ad9229Core_b/GEN_DATA[0].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+Related violations: <none>
+
+REQP-1804#39 Warning
+enum_DELAY_TYPE_VAR_EN_VTC_HIGH  
+The IDELAYE3 B64_S[4].Ad9229Core_b/GEN_DATA[1].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+Related violations: <none>
+
+REQP-1804#40 Warning
+enum_DELAY_TYPE_VAR_EN_VTC_HIGH  
+The IDELAYE3 B64_S[4].Ad9229Core_b/GEN_DATA[2].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+Related violations: <none>
+
+REQP-1804#41 Warning
+enum_DELAY_TYPE_VAR_EN_VTC_HIGH  
+The IDELAYE3 B64_S[4].Ad9229Core_b/GEN_DATA[3].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+Related violations: <none>
+
+REQP-1804#42 Warning
+enum_DELAY_TYPE_VAR_EN_VTC_HIGH  
+The IDELAYE3 B64_S[4].Ad9229Core_b/GEN_DATA[4].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+Related violations: <none>
+
+REQP-1804#43 Warning
+enum_DELAY_TYPE_VAR_EN_VTC_HIGH  
+The IDELAYE3 B64_S[4].Ad9229Core_b/GEN_DATA[5].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+Related violations: <none>
+
+REQP-1804#44 Warning
+enum_DELAY_TYPE_VAR_EN_VTC_HIGH  
+The IDELAYE3 B64_S[4].Ad9229Core_b/GEN_DATA[6].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+Related violations: <none>
+
+REQP-1804#45 Warning
+enum_DELAY_TYPE_VAR_EN_VTC_HIGH  
+The IDELAYE3 B64_S[4].Ad9229Core_b/GEN_DATA[7].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
 Related violations: <none>
 
 REQP-1853#1 Warning
@@ -69,7 +295,7 @@ Related violations: <none>
 
 RTSTAT-10#1 Warning
 No routable loads  
-217 net(s) have no routable loads. The problem bus(es) and/or net(s) are dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i,
+229 net(s) have no routable loads. The problem bus(es) and/or net(s) are dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i,
 dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg[2:0],
 dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD1/ctl_reg_en_2[1],
 dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg_en_2[1],
@@ -83,7 +309,7 @@ MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0/AXI_SYSMON_CORE_I/di_C_mast
 MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0/AXI_SYSMON_CORE_I/di_C_master_reg[15:0],
 MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0/AXI_SYSMON_CORE_I/di_C_slave0_reg2[15:0],
 MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0/AXI_SYSMON_CORE_I/di_C_slave0_reg[15:0],
-MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0/AXI_SYSMON_CORE_I/di_C_slave1_reg2[15:0] (the first 15 of 83 listed).
+MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0/AXI_SYSMON_CORE_I/di_C_slave1_reg2[15:0] (the first 15 of 95 listed).
 Related violations: <none>
 
 REQP-1935#1 Advisory

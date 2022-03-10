@@ -302,8 +302,8 @@ architecture rtl of system_top is
     signal Rst_N 		  : std_logic := '1';
     signal Rst            : std_logic := '0';
     signal Clk			  : std_logic;
-    signal RstCnt         : unsigned (15 downto 0) := (others => '0');
-    signal LedCount       : unsigned (23 downto 0);
+    signal RstCnt         : unsigned (5 downto 0) := (others => '0');
+    signal LedCount       : unsigned (27 downto 0);
 
     -- ps
     signal Gpio                : std_logic_vector (19 downto 0);
@@ -332,11 +332,15 @@ architecture rtl of system_top is
     signal adc_sample_array      : Slv32Array(19 downto 0);
     signal sample_valid          : std_logic_vector(19 downto 0);
     signal trigger_external      : std_logic;
+    signal delay_ctrl_ready      : std_logic;
     
     -- serial
     signal adc_ss_in  : std_logic;
     signal adc_ss_tri : std_logic;
     signal adc_ss_out : std_logic;
+    
+    type DELAY_ARRAY_TYPE is array(4 downto 0) of natural;
+    constant DELAY_ARRAY          : DELAY_ARRAY_TYPE := (550, 550, 550, 550, 550);
 
     -- mark debug
     attribute mark_debug : string;
@@ -356,6 +360,7 @@ architecture rtl of system_top is
     attribute mark_debug of ADC_RST   : signal is "true";
     attribute mark_debug of ADC_PDN   : signal is "true";
     attribute mark_debug of trigger_external   : signal is "true";
+    attribute mark_debug of delay_ctrl_ready   : signal is "true";
 
 begin
 
@@ -411,6 +416,15 @@ begin
          O  => trigger_external
       );
 
+    U_Delay_Controller: IDELAYCTRL
+      generic map (
+         SIM_DEVICE => "ULTRASCALE")
+      port map (
+         RST  => Rst,
+         REFCLK => Clk,
+         RDY  => delay_ctrl_ready
+      );
+    
     ------------------------------------------------------------------------------------------------
     -- serial
     ------------------------------------------------------------------------------------------------
@@ -439,14 +453,14 @@ begin
     process (Clk)
     begin
         if rising_edge (Clk) then
-            if (not RstCnt) = 0 then
-                Rst         <= '0';
-            else
+            if Gpio(5) = '1' then
                 Rst         <= '1';
-                RstCnt      <= RstCnt + 1;
+            else
+                Rst         <= '0';
             end if;
         end if;
     end process;
+    --Rst <= Rst_N;
 
     ------------------------------------------------------------------------------------------------
     -- Blinking LED counter & LED assignment
@@ -459,11 +473,12 @@ begin
                 LedCount    <= (others => '0');
             else
                 LedCount <= LedCount + 1;
+                RstCnt      <= RstCnt + 1;
             end if;
         end if;
     end process;
 
-    Led2_N <= LedCount(23);
+    Led2_N <= LedCount(27);
 --    Led2_N <= Gpio(2);
 
     -- -----------------------------------------------------------------------------------------------
@@ -517,7 +532,8 @@ begin
         generic map (
             TPD_G             => open,
             IODELAY_GROUP_G   => open,
-            N_CHANNELS_G      => 8     -- DA1, DA0, DB1, DB0, DC1, DC0, DD1, DD0
+            N_CHANNELS_G      => 8,     -- DA1, DA0, DB1, DB0, DC1, DC0, DD1, DD0
+            DELAY_VALUE       => DELAY_ARRAY(adc)
        )
         port map (
             -- Desired sample clock

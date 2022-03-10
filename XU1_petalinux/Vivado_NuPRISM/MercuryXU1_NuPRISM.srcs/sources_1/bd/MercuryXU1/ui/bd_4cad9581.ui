@@ -1,7 +1,7 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"0.86025",
-   "Default View_TopLeft":"-300,-65",
+   "Default View_TopLeft":"-409,1058",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:9.0 TLS
 #  -string -flagsOSRD
@@ -67,33 +67,33 @@ preplace inst stream_multiplexer_0 -pg 1 -lvl 1 -x -150 -y 1620 -defaultsOSRD
 preplace inst axi_gpio_packet_number -pg 1 -lvl 2 -x 493 -y 280 -defaultsOSRD
 preplace inst concat_trigger -pg 1 -lvl 2 -x 493 -y -50 -defaultsOSRD
 preplace inst xlconstant_0 -pg 1 -lvl 1 -x -150 -y -80 -defaultsOSRD
-preplace inst tlast_generator_0 -pg 1 -lvl 2 -x 493 -y 1170 -defaultsOSRD
-preplace inst tlast_generator_1 -pg 1 -lvl 2 -x 493 -y 1790 -defaultsOSRD
 preplace inst event_controller_0 -pg 1 -lvl 3 -x 1181 -y -80 -defaultsOSRD
 preplace inst axi_bram_ctrl -pg 1 -lvl 1 -x -150 -y 540 -defaultsOSRD
 preplace inst bram_gpio_0 -pg 1 -lvl 2 -x 493 -y 460 -defaultsOSRD
-preplace netloc proc_sys_reset_0_peripheral_aresetn 1 0 8 -700 670 130 -340 750 -190 1540 270 1880 750 2650 310 3220 -200 4030
-preplace netloc zynq_ultra_ps_e_0_pl_clk0 1 0 8 -710 680 120 -370 780 -180 1470 680 1900 800 2640 320 3250 1150 4030
+preplace inst tlast_generator_0 -pg 1 -lvl 2 -x 493 -y 1170 -defaultsOSRD
+preplace inst tlast_generator_1 -pg 1 -lvl 2 -x 493 -y 1790 -defaultsOSRD
+preplace netloc proc_sys_reset_0_peripheral_aresetn 1 0 8 -700 670 140 -340 770 -180 1530 270 1880 750 2650 310 3220 -200 4030
+preplace netloc zynq_ultra_ps_e_0_pl_clk0 1 0 8 -710 680 130 -370 780 -170 1480 680 1900 800 2640 320 3250 1150 4030
 preplace netloc zynq_ultra_ps_e_0_pl_clk1 1 7 1 4090 1370n
 preplace netloc zynq_ultra_ps_e_0_pl_resetn0 1 6 2 3280 600 4080
 preplace netloc zynq_ultra_ps_e_0_emio_spi0_ss_o_n 1 7 1 4100J 1240n
 preplace netloc xlconcat_irq_dout 1 6 1 3100 1180n
 preplace netloc axi_dma_0_s2mm_introut 1 5 1 2620 1140n
 preplace netloc axi_dma_0_mm2s_introut 1 5 1 2640 1120n
-preplace netloc zynq_ultra_ps_e_0_pl_clk3 1 2 6 940 1190 1460 1330 1920 1200 2650 880 3270 1140 4040
+preplace netloc zynq_ultra_ps_e_0_pl_clk3 1 2 6 940 1190 1470 1330 1920 1200 2650 880 3270 1140 4040
 preplace netloc proc_sys_reset_100_interconnect_aresetn 1 5 3 2660 270 3190J -230 4050
-preplace netloc proc_sys_reset_300_peripheral_aresetn 1 2 6 930 1180 1470 1740 1930 1670 2630 300 3210J -210 4040
-preplace netloc aresetn_0_1 1 1 2 170 1620 880
-preplace netloc aclk_0_1 1 0 3 -700 1200 140 1630 890
-preplace netloc s_axis_tdata_0_1 1 1 2 110 1570 760
-preplace netloc s_axis_tvalid_0_1 1 1 2 130 1590 860
-preplace netloc axi_gpio_suppres_gpio_io_o 1 0 4 -690 1340 80 1510 750 360 N
+preplace netloc proc_sys_reset_300_peripheral_aresetn 1 2 6 930 1180 1480 1740 1930 1670 2630 300 3210J -210 4040
+preplace netloc aresetn_0_1 1 1 2 200 1620 880
+preplace netloc aclk_0_1 1 0 3 -700 1200 150 1630 890
+preplace netloc s_axis_tdata_0_1 1 1 2 140 1590 860
+preplace netloc s_axis_tvalid_0_1 1 1 2 130 1600 850
+preplace netloc axi_gpio_suppres_gpio_io_o 1 0 4 -690 1340 90 1510 770 360 N
 preplace netloc xlslice_0_Dout 1 3 1 1440 750n
 preplace netloc xlslice_1_Dout 1 3 1 1450 650n
-preplace netloc xlslice_2_Dout 1 1 3 240 1540 810 1150 1430
-preplace netloc axi_gpio_0_gpio_io_o 1 2 6 940 380 1450 260 N 260 N 260 3180 -240 4080
-preplace netloc axi_gpio_sample_number_gpio_io_o 1 1 3 180 1560 780 400 N
-preplace netloc xlslice_2_Dout1 1 1 3 210 1600 850 1160 1420
+preplace netloc xlslice_2_Dout 1 1 3 260 1550 830 1170 1430
+preplace netloc axi_gpio_0_gpio_io_o 1 2 6 940 380 1460 260 N 260 N 260 3180 -240 4080
+preplace netloc axi_gpio_sample_number_gpio_io_o 1 1 3 210 1560 800 400 N
+preplace netloc xlslice_2_Dout1 1 1 3 180 1980 N 1980 1420
 preplace netloc axi_dma_1_s2mm_introut 1 5 1 2660 1200n
 preplace netloc adc2_sample_1 1 0 1 -730 1390n
 preplace netloc adc_sample_valid_0_1 1 0 1 -910 1750n
@@ -116,59 +116,59 @@ preplace netloc adc6_sample_0_1 1 0 1 -770J 1470n
 preplace netloc adc7_sample_0_1 1 0 1 -780J 1490n
 preplace netloc adc1_sample_1 1 0 1 -720 1370n
 preplace netloc adc15_sample_0_1 1 0 1 -860 1650n
-preplace netloc stream_multiplexer_0_adc_sample_selected_1 1 1 2 100 1610 870
+preplace netloc stream_multiplexer_0_adc_sample_selected_1 1 1 2 90 1610 870
 preplace netloc stream_multiplexer_0_adc_sample_valid_selected_1 1 1 1 80 1650n
 preplace netloc tlast_generator_0_counter 1 2 1 820 1190n
 preplace netloc tlast_generator_1_counter 1 2 1 900 1550n
-preplace netloc tlast_generator_0_triger_test 1 2 1 800 1210n
+preplace netloc tlast_generator_0_triger_test 1 2 1 810 1210n
 preplace netloc tlast_generator_1_triger_test 1 2 1 920 1590n
-preplace netloc axi_gpio_delay_ctrl_gpio_io_o 1 2 6 740J 420 1440J 250 NJ 250 NJ 250 3170J -250 4090
-preplace netloc trigger_external_0_1 1 0 2 -920J 1900 150J
-preplace netloc xlslice_3_5_Dout 1 1 3 190 1580 840J 1170 1410
-preplace netloc tlast_generator_0_trigger_internal_out 1 1 2 240 1940 740
-preplace netloc tlast_generator_1_trigger_internal_out 1 1 2 230 1640 720
-preplace netloc axi_gpio_packet_number_gpio_io_o 1 2 2 780 350 1510
-preplace netloc event_controller_0_triger_enable 1 1 3 200 1550 790 450 1500
-preplace netloc event_controller_0_packet_counter 1 1 3 200 -350 740 -170 1530
+preplace netloc axi_gpio_delay_ctrl_gpio_io_o 1 2 6 760J 420 1450J 250 NJ 250 NJ 250 3170J -250 4090
+preplace netloc trigger_external_0_1 1 0 2 -920J 1900 120J
+preplace netloc xlslice_3_5_Dout 1 1 3 170 1990 NJ 1990 1410
+preplace netloc tlast_generator_0_trigger_internal_out 1 1 2 260 1970 740
+preplace netloc tlast_generator_1_trigger_internal_out 1 1 2 240 1960 730
+preplace netloc axi_gpio_packet_number_gpio_io_o 1 2 2 780 330 1510
+preplace netloc event_controller_0_triger_enable 1 1 3 230 1580 840 470 1500
+preplace netloc event_controller_0_packet_counter 1 1 3 250 1520 750 340 1470
 preplace netloc xlconcat_0_dout 1 2 1 N -50
-preplace netloc xlconstant_0_dout 1 1 1 140 -200n
-preplace netloc tlast_generator_0_trigger_detected 1 1 2 220 1530 720
+preplace netloc xlconstant_0_dout 1 1 1 150 -200n
+preplace netloc tlast_generator_0_trigger_detected 1 1 2 190 1530 720
 preplace netloc tlast_generator_1_trigger_detected 1 1 2 160 1950 720
-preplace netloc axi_bram_ctrl_bram_clk_a 1 1 1 100 410n
-preplace netloc axi_bram_ctrl_bram_rst_a 1 1 1 110 430n
-preplace netloc axi_bram_ctrl_bram_en_a 1 1 3 150 1020 760 470 1460
+preplace netloc axi_bram_ctrl_bram_clk_a 1 1 1 110 410n
+preplace netloc axi_bram_ctrl_bram_rst_a 1 1 1 120 430n
+preplace netloc axi_bram_ctrl_bram_en_a 1 1 3 150 1010 790 490 1430
 preplace netloc axi_bram_ctrl_bram_wrdata_a 1 1 3 80 -380 N -380 1490
-preplace netloc bram_gpio_0_read_data 1 1 2 100J 1520 730
-preplace netloc axi_bram_ctrl_bram_addr_a 1 1 3 140 1010 770 490 1440
-preplace netloc bram_gpio_0_num_packets_per_event 1 2 2 N 460 1480J
-preplace netloc bram_gpio_0_pulse_threshold 1 2 2 N 480 1450J
-preplace netloc axi_bram_ctrl_bram_we_a 1 1 3 90J -390 NJ -390 1520
-preplace netloc axi_dma_0_M_AXI_SG 1 5 1 2620 950n
-preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_LPD 1 5 3 2670 280 3200 -220 4060
-preplace netloc smartconnect_1_M00_AXI 1 4 3 1980 1350 N 1350 3260
-preplace netloc smartconnect_0_M00_AXI 1 4 3 1970 890 N 890 3150
-preplace netloc axis_clock_converter_0_M_AXIS 1 3 2 1410 1340 1910
-preplace netloc ps8_0_axi_periph_M05_AXI 1 4 3 1950 290 NJ 290 3110
-preplace netloc zynq_ultra_ps_e_0_SPI_0 1 7 1 4090 1220n
-preplace netloc ps8_0_axi_periph_M00_AXI 1 6 1 3240 200n
-preplace netloc ps8_0_axi_periph_M06_AXI 1 1 6 180 -360 NJ -360 NJ -360 NJ -360 NJ -360 3160
-preplace netloc axis_clock_converter_1_M_AXIS 1 3 2 1410 1510 N
-preplace netloc ps8_0_axi_periph_M07_AXI 1 1 6 240 -320 NJ -320 NJ -320 NJ -320 NJ -320 3150
-preplace netloc axis_subset_converter_0_M_AXIS 1 2 1 830 1130n
-preplace netloc axi_dma_0_M_AXI_S2MM 1 5 1 2640 990n
-preplace netloc axi_dma_1_M_AXI_SG 1 5 1 2640 1670n
-preplace netloc ps8_0_axi_periph_M01_AXI 1 6 1 3230J -50n
-preplace netloc axis_data_fifo_0_M_AXIS 1 4 1 1940 1530n
-preplace netloc axi_dma_0_M_AXIS_MM2S 1 3 3 1500 1320 1930J 1320 2610
-preplace netloc tlast_generator_1_m_axis 1 2 1 910 1710n
+preplace netloc bram_gpio_0_read_data 1 1 2 110J 1540 730
+preplace netloc axi_bram_ctrl_bram_addr_a 1 1 3 90 -350 760 350 1440
+preplace netloc bram_gpio_0_num_packets_per_event 1 2 2 N 460 1450J
+preplace netloc bram_gpio_0_pulse_threshold 1 1 3 220 1570 780 480 1460J
+preplace netloc axi_bram_ctrl_bram_we_a 1 1 3 100J -390 NJ -390 1520
+preplace netloc axis_subset_converter_0_M_AXIS 1 2 1 870 1130n
 preplace netloc zynq_ultra_ps_e_0_IIC_0 1 7 1 4070 1200n
-preplace netloc axis_interconnect_0_M00_AXIS 1 4 1 1940 1030n
-preplace netloc ps8_0_axi_periph_M03_AXI 1 1 6 190 -330 N -330 NJ -330 NJ -330 NJ -330 3130
-preplace netloc ps8_0_axi_periph_M02_AXI 1 4 3 1960 240 NJ 240 3100
-preplace netloc axis_data_fifo_2_M_AXIS 1 3 2 1530 1500 1890
-preplace netloc axi_dma_1_M_AXI_S2MM 1 5 1 2670 1690n
-preplace netloc ps8_0_axi_periph_M04_AXI 1 1 6 210 -300 NJ -300 NJ -300 NJ -300 NJ -300 3120
 preplace netloc ps8_0_axi_periph_M08_AXI 1 0 7 -710 -310 NJ -310 NJ -310 NJ -310 NJ -310 NJ -310 3140
+preplace netloc axi_dma_0_M_AXI_SG 1 5 1 2620 950n
+preplace netloc axi_dma_0_M_AXIS_MM2S 1 3 3 1500 1320 1930J 1320 2610
+preplace netloc ps8_0_axi_periph_M05_AXI 1 4 3 1950 290 NJ 290 3110
+preplace netloc axis_clock_converter_0_M_AXIS 1 3 2 1430 1340 1910
+preplace netloc smartconnect_1_M00_AXI 1 4 3 1980 1350 N 1350 3260
+preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_LPD 1 5 3 2670 280 3200 -220 4060
+preplace netloc zynq_ultra_ps_e_0_SPI_0 1 7 1 4090 1220n
+preplace netloc ps8_0_axi_periph_M03_AXI 1 1 6 180 -330 N -330 NJ -330 NJ -330 NJ -330 3130
+preplace netloc axis_interconnect_0_M00_AXIS 1 4 1 1940 1030n
+preplace netloc axi_dma_1_M_AXI_S2MM 1 5 1 2670 1690n
+preplace netloc axi_dma_0_M_AXI_S2MM 1 5 1 2640 990n
+preplace netloc ps8_0_axi_periph_M04_AXI 1 1 6 240 -300 NJ -300 NJ -300 NJ -300 NJ -300 3120
+preplace netloc ps8_0_axi_periph_M01_AXI 1 6 1 3230J -50n
+preplace netloc tlast_generator_1_m_axis 1 2 1 910 1710n
+preplace netloc ps8_0_axi_periph_M02_AXI 1 4 3 1960 240 NJ 240 3100
+preplace netloc axis_data_fifo_2_M_AXIS 1 3 2 1520 1500 1890
+preplace netloc smartconnect_0_M00_AXI 1 4 3 1970 890 N 890 3150
+preplace netloc ps8_0_axi_periph_M00_AXI 1 6 1 3240 200n
+preplace netloc ps8_0_axi_periph_M07_AXI 1 1 6 250 -320 NJ -320 NJ -320 NJ -320 NJ -320 3150
+preplace netloc axis_clock_converter_1_M_AXIS 1 3 2 1430 1510 N
+preplace netloc ps8_0_axi_periph_M06_AXI 1 1 6 170 -360 NJ -360 NJ -360 NJ -360 NJ -360 3160
+preplace netloc axi_dma_1_M_AXI_SG 1 5 1 2640 1670n
+preplace netloc axis_data_fifo_0_M_AXIS 1 4 1 1940 1530n
 preplace netloc axi_dma_0_M_AXI_MM2S 1 4 2 1990 940 2610
 levelinfo -pg 1 -940 -150 493 1181 1711 2421 2945 3669 4120
 pagesize -pg 1 -db -bbox -sgen -1160 -400 4320 2490

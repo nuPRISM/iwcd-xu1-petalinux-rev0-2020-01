@@ -26,7 +26,9 @@ entity Ad9229Deserializer is
    generic (
       TPD_G : time := 1 ns;
       IODELAY_GROUP_G : string:= "DEFAULT_GROUP";
-      IDELAYCTRL_FREQ_G : real := 200.0);
+      IDELAYCTRL_FREQ_G : real := 200.0;
+      DELAY_VALUE       : natural := 256
+      );
    port (
       clkSer : in sl;
       idelayClk  : in sl;
@@ -106,10 +108,10 @@ begin
      generic map (
         SIM_DEVICE => "ULTRASCALE_PLUS",
         CASCADE => "NONE", -- Cascade setting (MASTER, NONE, SLAVE_END, SLAVE_MIDDLE)
-        DELAY_FORMAT => "COUNT", -- Units of the DELAY_VALUE (COUNT, TIME)
+        DELAY_FORMAT => "TIME",-- "COUNT", -- Units of the DELAY_VALUE (COUNT, TIME)
         DELAY_SRC => "IDATAIN", -- Delay input (DATAIN, IDATAIN)
         DELAY_TYPE => "VAR_LOAD", -- Set the type of tap delay line (FIXED, VARIABLE, VAR_LOAD)
-        DELAY_VALUE => 256,--0, -- Input delay value setting
+        DELAY_VALUE => 180, --DELAY_VALUE,--256,--0, -- Input delay value setting
         IS_CLK_INVERTED => '0', -- Optional inversion for CLK
         IS_RST_INVERTED => '0', -- Optional inversion for RST
         REFCLK_FREQUENCY => IDELAYCTRL_FREQ_G, -- IDELAYCTRL clock input frequency in MHz (200.0-2400.0)
@@ -127,9 +129,9 @@ begin
         CLK => idelayClk, -- 1-bit input: Clock input
         CNTVALUEIN => setDelay, -- 9-bit input: Counter value input
         CNTVALUEOUT => curDelay, -- 9-bit output: Counter value output
-        LOAD => setValid, -- 1-bit input: Load DELAY_VALUE input
-        EN_VTC => '0', -- 1-bit input: Keep delay constant over VT
-        INC => '1', -- 1-bit input: Increment / Decrement tap delay input
+        LOAD => '0',--setValid, -- 1-bit input: Load DELAY_VALUE input
+        EN_VTC => '1', -- 1-bit input: Keep delay constant over VT
+        INC => '0', -- 1-bit input: Increment / Decrement tap delay input
         RST => idelayRst); -- 1-bit input: Asynchronous Reset to the DELAY_VALUE
 
    U_ISERDESE3 : ISERDESE3

@@ -14,6 +14,7 @@
 #include "clc.h"
 #include "gpio.h"
 #include "dma-proxy.h"
+#include "cfg.h"
 
 #define DEBUG
 #include "dbg.h"
@@ -169,6 +170,7 @@ int main(int argc, char **argv)
     int trigger_mode = SOFTWARE_TRIGGER_MODE;
     static AcqData acq_ch0_data, acq_ch1_data;
     int interactive = 0;
+	struct Config cfg = {100};
     
     
     adc_ch0_num = adc_ch1_num = buf_size = -1;
@@ -298,6 +300,13 @@ int main(int argc, char **argv)
             printf("Unrecognized trigger mode: %d\n", trigger_mode);
             return 1;
     }
+	
+	// configure auto trigger threshold \todo move all config data from GPIO to Config/BRAM
+	ret_val = configure(&cfg);
+	if(ret_val != 0) {
+		printf("Cofig ERROR!\n");
+		return 5;
+	}
                 
     // configure acqusition threads
     strcpy(acq_ch0_data.dma_dev, "/dev/dma_proxy_rx_0");
@@ -316,7 +325,7 @@ int main(int argc, char **argv)
 	// num_iter == num_packets
 	set_num_packets(num_iter);
 
-	fprintf(stderr, "ADC_num_ch0=%d, ADC_num_ch1=%d, adc_mode=%d, buf_size=%d num_iter=%d trigger_mode=%d\n", adc_ch0_num, adc_ch1_num, adc_mode, buf_size, num_iter, trigger_mode);    
+	fprintf(stdout, "ADC_num_ch0=%d, ADC_num_ch1=%d, adc_mode=%d, buf_size=%d num_iter=%d trigger_mode=%d\n", adc_ch0_num, adc_ch1_num, adc_mode, buf_size, num_iter, trigger_mode);    
     if(interactive) {
 	    printf("Press ENTER to continue...");
 	    int c = getchar();

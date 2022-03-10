@@ -1,4 +1,4 @@
--- (c) Copyright 1995-2021 Xilinx, Inc. All rights reserved.
+-- (c) Copyright 1995-2022 Xilinx, Inc. All rights reserved.
 -- 
 -- This file contains confidential and proprietary information
 -- of Xilinx, Inc. and is protected under U.S. and
@@ -58,6 +58,7 @@ ENTITY MercuryXU1_tlast_generator_0_1 IS
     clk : IN STD_LOGIC;
     rst_n : IN STD_LOGIC;
     num_samples_per_packet : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+    threshold : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
     trigger_mode : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
     trigger_enable : IN STD_LOGIC;
     trigger_ps : IN STD_LOGIC;
@@ -87,6 +88,7 @@ ARCHITECTURE MercuryXU1_tlast_generator_0_1_arch OF MercuryXU1_tlast_generator_0
       clk : IN STD_LOGIC;
       rst_n : IN STD_LOGIC;
       num_samples_per_packet : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+      threshold : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
       trigger_mode : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
       trigger_enable : IN STD_LOGIC;
       trigger_ps : IN STD_LOGIC;
@@ -132,6 +134,7 @@ BEGIN
       clk => clk,
       rst_n => rst_n,
       num_samples_per_packet => num_samples_per_packet,
+      threshold => threshold,
       trigger_mode => trigger_mode,
       trigger_enable => trigger_enable,
       trigger_ps => trigger_ps,

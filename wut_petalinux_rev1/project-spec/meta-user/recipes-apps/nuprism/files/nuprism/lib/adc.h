@@ -10,7 +10,7 @@
 #define TOGGLE_TEST_PATTERN    0x33
 #define DIGITAL_RAMP_PATTERN   0x44
 #define SINE_WAVE_PATTERN_AB   0x99
-#define SINE_WAVE_PATTERN_CD   0xbb
+#define SINE_WAVE_PATTERN_CD   0x99
 
 // Trigger mode 0        ++++++00 - transmisja non-stop bez triggera, 001 - software'owy trigger (0->1 /410), 010 - trigger zewnetrzny z plyti MZ, 011 - autotrigger z kanalu 0, 111 - autotrigger z kanalu 1
 // 414 415 nieuzywane na razie 

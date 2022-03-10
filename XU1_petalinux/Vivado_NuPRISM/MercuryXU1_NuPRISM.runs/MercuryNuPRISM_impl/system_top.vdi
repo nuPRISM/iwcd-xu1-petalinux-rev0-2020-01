@@ -2,8 +2,8 @@
 # Vivado v2020.1 (64-bit)
 # SW Build 2902540 on Wed May 27 19:54:35 MDT 2020
 # IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
-# Start of session at: Mon Jan 31 11:33:22 2022
-# Process ID: 13480
+# Start of session at: Tue Mar  8 16:14:26 2022
+# Process ID: 27624
 # Current directory: /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.runs/MercuryNuPRISM_impl
 # Command line: vivado -log system_top.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source system_top.tcl -notrace
 # Log file: /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.runs/MercuryNuPRISM_impl/system_top.vdi
@@ -13,14 +13,14 @@ source system_top.tcl -notrace
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/src/temp'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/xilinx/Vivado/2020.1/data/ip'.
-add_files: Time (s): cpu = 00:00:11 ; elapsed = 00:00:09 . Memory (MB): peak = 2638.570 ; gain = 488.242 ; free physical = 102486 ; free virtual = 118887
+add_files: Time (s): cpu = 00:00:11 ; elapsed = 00:00:09 . Memory (MB): peak = 2638.535 ; gain = 488.238 ; free physical = 94532 ; free virtual = 117159
 Command: link_design -top system_top -part xczu6eg-ffvc900-1-i
 Design is defaulting to srcset: sources_1
 Design is defaulting to constrset: constrs_1
 INFO: [Device 21-403] Loading part xczu6eg-ffvc900-1-i
 INFO: [Project 1-454] Reading design checkpoint '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm.dcp' for cell 'B64_C[1].serdes_clock'
-Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 2790.289 ; gain = 0.000 ; free physical = 101555 ; free virtual = 117956
-INFO: [Netlist 29-17] Analyzing 4602 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 2790.289 ; gain = 0.000 ; free physical = 93596 ; free virtual = 116224
+INFO: [Netlist 29-17] Analyzing 4603 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-479] Netlist was created with Vivado 2020.1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -97,7 +97,7 @@ Finished Parsing XDC File [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-peta
 Parsing XDC File [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm.xdc] for cell 'B64_C[1].serdes_clock/inst'
 INFO: [Timing 38-35] Done setting XDC timing constraints. [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm.xdc:57]
 INFO: [Timing 38-2] Deriving generated clocks [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm.xdc:57]
-get_clocks: Time (s): cpu = 00:00:15 ; elapsed = 00:00:07 . Memory (MB): peak = 3480.020 ; gain = 414.969 ; free physical = 100998 ; free virtual = 117399
+get_clocks: Time (s): cpu = 00:00:15 ; elapsed = 00:00:07 . Memory (MB): peak = 3480.051 ; gain = 414.969 ; free physical = 93060 ; free virtual = 115687
 WARNING: [Vivado 12-2489] -input_jitter contains time 0.026660 which will be rounded to 0.027 to ensure it is an integer multiple of 1 picosecond [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm.xdc:57]
 Finished Parsing XDC File [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm.xdc] for cell 'B64_C[1].serdes_clock/inst'
 Parsing XDC File [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm.xdc] for cell 'B64_C[2].serdes_clock/inst'
@@ -109,6 +109,7 @@ INFO: [Timing 38-2] Deriving generated clocks [/home/ab/Documents/Projekty/2020-
 WARNING: [Vivado 12-2489] -input_jitter contains time 0.026660 which will be rounded to 0.027 to ensure it is an integer multiple of 1 picosecond [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm.xdc:57]
 Finished Parsing XDC File [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/ip/clk_wiz_0_b65_mmcm/clk_wiz_0_b65_mmcm.xdc] for cell 'B64_C[3].serdes_clock/inst'
 Parsing XDC File [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/MercuryNuPRISM/new/debug.xdc]
+INFO: [Vivado 12-3773] the DONT_TOUCH property on this net is implied by a MARK_DEBUG. Setting the DONT_TOUCH property to FALSE or 0 will enable the implementation tools to optimize this net and these optimizations could result in the net being deleted. [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/MercuryNuPRISM/new/debug.xdc:322]
 Finished Parsing XDC File [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/MercuryNuPRISM/new/debug.xdc]
 Parsing XDC File [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/src/MercuryXU1_NuPRISM.xdc]
 CRITICAL WARNING: [Constraints 18-1055] Clock 'clkin1' completely overrides clock 'ADC1_DCLK_p', which is referenced by one or more other constraints. Any constraints that refer to the overridden clock will be ignored.
@@ -310,7 +311,7 @@ Finished Sourcing Tcl File [/opt/xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/tcl
 Sourcing Tcl File [/opt/xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/tcl/xpm_memory_xdc.tcl] for cell 'MercuryXU1_i/MercuryXU1_i/smartconnect_0/inst/s01_nodes/s01_r_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory'
 Finished Sourcing Tcl File [/opt/xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/tcl/xpm_memory_xdc.tcl] for cell 'MercuryXU1_i/MercuryXU1_i/smartconnect_0/inst/s01_nodes/s01_r_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory'
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.01 . Memory (MB): peak = 4452.176 ; gain = 0.000 ; free physical = 100687 ; free virtual = 117083
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 4460.207 ; gain = 0.000 ; free physical = 92726 ; free virtual = 115354
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 1710 instances were transformed.
   CFGLUT5 => CFGLUT5 (SRL16E, SRLC32E): 1292 instances
@@ -320,9 +321,9 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   RAM32M16 => RAM32M16 (RAMD32(x14), RAMS32(x2)): 345 instances
   RAM32X1D => RAM32X1D (RAMD32(x2)): 13 instances
 
-16 Infos, 5 Warnings, 3 Critical Warnings and 0 Errors encountered.
+17 Infos, 5 Warnings, 3 Critical Warnings and 0 Errors encountered.
 link_design completed successfully
-link_design: Time (s): cpu = 00:01:28 ; elapsed = 00:01:29 . Memory (MB): peak = 4452.176 ; gain = 1813.605 ; free physical = 100687 ; free virtual = 117084
+link_design: Time (s): cpu = 00:01:28 ; elapsed = 00:01:29 . Memory (MB): peak = 4460.207 ; gain = 1821.672 ; free physical = 92726 ; free virtual = 115355
 INFO: [Common 17-600] The following parameters have non-default value.
 tcl.collectionResultDisplayLimit
 Command: opt_design
@@ -335,13 +336,13 @@ INFO: [DRC 23-27] Running DRC with 8 threads
 INFO: [Project 1-461] DRC finished with 0 Errors
 INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
 
-Time (s): cpu = 00:00:04 ; elapsed = 00:00:02 . Memory (MB): peak = 4452.176 ; gain = 0.000 ; free physical = 100673 ; free virtual = 117071
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:02 . Memory (MB): peak = 4460.207 ; gain = 0.000 ; free physical = 92714 ; free virtual = 115344
 
 Starting Cache Timing Information Task
 INFO: [Timing 38-35] Done setting XDC timing constraints.
-Ending Cache Timing Information Task | Checksum: 9f61ddab
+Ending Cache Timing Information Task | Checksum: 107ccbf6c
 
-Time (s): cpu = 00:00:14 ; elapsed = 00:00:04 . Memory (MB): peak = 4452.176 ; gain = 0.000 ; free physical = 100594 ; free virtual = 116991
+Time (s): cpu = 00:00:14 ; elapsed = 00:00:04 . Memory (MB): peak = 4460.207 ; gain = 0.000 ; free physical = 92632 ; free virtual = 115262
 
 Starting Logic Optimization Task
 
@@ -358,19 +359,25 @@ INFO: [Chipscope 16-329] Generating Script for core instance : u_ila_3
 INFO: [IP_Flow 19-3806] Processing IP xilinx.com:ip:ila:6.2 for cell u_ila_3_CV.
 INFO: [Chipscope 16-329] Generating Script for core instance : u_ila_4 
 INFO: [IP_Flow 19-3806] Processing IP xilinx.com:ip:ila:6.2 for cell u_ila_4_CV.
-INFO: [Chipscope 16-469] Using cached IP synthesis design for IP xilinx.com:ip:xsdbm:3.0, cache-ID = 85fadc4e401d6f94.
-INFO: [Chipscope 16-469] Using cached IP synthesis design for IP xilinx.com:ip:ila:6.2, cache-ID = f71a4a575ad701f2.
+INFO: [Chipscope 16-329] Generating Script for core instance : u_ila_5 
+INFO: [IP_Flow 19-3806] Processing IP xilinx.com:ip:ila:6.2 for cell u_ila_5_CV.
+INFO: [Chipscope 16-329] Generating Script for core instance : u_ila_6 
+INFO: [IP_Flow 19-3806] Processing IP xilinx.com:ip:ila:6.2 for cell u_ila_6_CV.
+INFO: [Chipscope 16-469] Using cached IP synthesis design for IP xilinx.com:ip:xsdbm:3.0, cache-ID = 9b6beb9e735575e5.
+INFO: [Chipscope 16-469] Using cached IP synthesis design for IP xilinx.com:ip:ila:6.2, cache-ID = b753c65bf867e218.
 INFO: [Chipscope 16-469] Using cached IP synthesis design for IP xilinx.com:ip:ila:6.2, cache-ID = fdcfbcd5d16676d6.
 INFO: [Chipscope 16-469] Using cached IP synthesis design for IP xilinx.com:ip:ila:6.2, cache-ID = 794bc76dd9d504e9.
 INFO: [Chipscope 16-469] Using cached IP synthesis design for IP xilinx.com:ip:ila:6.2, cache-ID = 072f28aec977bb46.
 INFO: [Chipscope 16-469] Using cached IP synthesis design for IP xilinx.com:ip:ila:6.2, cache-ID = df2b34687cb38a62.
-Netlist sorting complete. Time (s): cpu = 00:00:00.22 ; elapsed = 00:00:00.22 . Memory (MB): peak = 4452.176 ; gain = 0.000 ; free physical = 100189 ; free virtual = 116642
-Phase 1 Generate And Synthesize Debug Cores | Checksum: e4004ed2
+INFO: [Chipscope 16-469] Using cached IP synthesis design for IP xilinx.com:ip:ila:6.2, cache-ID = 7c921d9ecf18a45d.
+INFO: [Chipscope 16-469] Using cached IP synthesis design for IP xilinx.com:ip:ila:6.2, cache-ID = 0430fb543ee6b4fd.
+Netlist sorting complete. Time (s): cpu = 00:00:00.27 ; elapsed = 00:00:00.27 . Memory (MB): peak = 4460.207 ; gain = 0.000 ; free physical = 92151 ; free virtual = 114852
+Phase 1 Generate And Synthesize Debug Cores | Checksum: 126491d0d
 
-Time (s): cpu = 00:01:09 ; elapsed = 00:01:15 . Memory (MB): peak = 4452.176 ; gain = 0.000 ; free physical = 100189 ; free virtual = 116642
+Time (s): cpu = 00:01:21 ; elapsed = 00:01:31 . Memory (MB): peak = 4460.207 ; gain = 0.000 ; free physical = 92151 ; free virtual = 114852
 
 Phase 2 Retarget
-INFO: [Opt 31-138] Pushed 99 inverter(s) to 3088 load pin(s).
+INFO: [Opt 31-138] Pushed 101 inverter(s) to 3120 load pin(s).
 INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell MercuryXU1_i/MercuryXU1_i/system_ila_60/U0/ila_lib/U0/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM18.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
 INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell MercuryXU1_i/MercuryXU1_i/system_ila_60/U0/ila_lib/U0/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
 INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell MercuryXU1_i/MercuryXU1_i/system_ila_60/U0/ila_lib/U0/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
@@ -381,48 +388,48 @@ INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell MercuryXU1_i/Mer
 INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell MercuryXU1_i/MercuryXU1_i/system_ila_60/U0/ila_lib/U0/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
 INFO: [Opt 31-422] The CLOCK_DOMAINS attribute on the BRAM cell u_ila_4/inst/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM18.ram has been changed from INDEPENDENT to COMMON to match the clocking topology used for the BRAM.
 INFO: [Opt 31-49] Retargeted 0 cell(s).
-Phase 2 Retarget | Checksum: 57d990c9
+Phase 2 Retarget | Checksum: 144f1e6dd
 
-Time (s): cpu = 00:01:16 ; elapsed = 00:01:19 . Memory (MB): peak = 4452.176 ; gain = 0.000 ; free physical = 100293 ; free virtual = 116746
-INFO: [Opt 31-389] Phase Retarget created 322 cells and removed 875 cells
-INFO: [Opt 31-1021] In phase Retarget, 444 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+Time (s): cpu = 00:01:29 ; elapsed = 00:01:35 . Memory (MB): peak = 4460.207 ; gain = 0.000 ; free physical = 92260 ; free virtual = 114961
+INFO: [Opt 31-389] Phase Retarget created 317 cells and removed 862 cells
+INFO: [Opt 31-1021] In phase Retarget, 482 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
 
 Phase 3 Constant propagation
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Phase 3 Constant propagation | Checksum: 129089523
+Phase 3 Constant propagation | Checksum: 987e6172
 
-Time (s): cpu = 00:01:18 ; elapsed = 00:01:21 . Memory (MB): peak = 4452.176 ; gain = 0.000 ; free physical = 100293 ; free virtual = 116745
-INFO: [Opt 31-389] Phase Constant propagation created 154 cells and removed 2238 cells
-INFO: [Opt 31-1021] In phase Constant propagation, 334 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+Time (s): cpu = 00:01:31 ; elapsed = 00:01:37 . Memory (MB): peak = 4460.207 ; gain = 0.000 ; free physical = 92259 ; free virtual = 114960
+INFO: [Opt 31-389] Phase Constant propagation created 140 cells and removed 2123 cells
+INFO: [Opt 31-1021] In phase Constant propagation, 340 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
 
 Phase 4 Sweep
-Phase 4 Sweep | Checksum: fecb11bc
+Phase 4 Sweep | Checksum: 1a5821777
 
-Time (s): cpu = 00:01:30 ; elapsed = 00:01:33 . Memory (MB): peak = 4452.176 ; gain = 0.000 ; free physical = 100296 ; free virtual = 116748
-INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 5522 cells
-INFO: [Opt 31-1021] In phase Sweep, 7253 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+Time (s): cpu = 00:01:44 ; elapsed = 00:01:50 . Memory (MB): peak = 4460.207 ; gain = 0.000 ; free physical = 92261 ; free virtual = 114962
+INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 5657 cells
+INFO: [Opt 31-1021] In phase Sweep, 7999 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
 
 Phase 5 BUFG optimization
 INFO: [Opt 31-1077] Phase BUFG optimization inserted 0 global clock buffer(s) for CLOCK_LOW_FANOUT.
-Phase 5 BUFG optimization | Checksum: fecb11bc
+Phase 5 BUFG optimization | Checksum: 1a5821777
 
-Time (s): cpu = 00:01:32 ; elapsed = 00:01:35 . Memory (MB): peak = 4452.176 ; gain = 0.000 ; free physical = 100296 ; free virtual = 116749
+Time (s): cpu = 00:01:46 ; elapsed = 00:01:52 . Memory (MB): peak = 4460.207 ; gain = 0.000 ; free physical = 92264 ; free virtual = 114965
 INFO: [Opt 31-662] Phase BUFG optimization created 0 cells of which 0 are BUFGs and removed 0 cells.
 INFO: [Opt 31-1021] In phase BUFG optimization, 3 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
 
 Phase 6 Shift Register Optimization
 INFO: [Opt 31-1064] SRL Remap converted 0 SRLs to 0 registers and converted 0 registers of register chains to 0 SRLs
-Phase 6 Shift Register Optimization | Checksum: fecb11bc
+Phase 6 Shift Register Optimization | Checksum: 1a5821777
 
-Time (s): cpu = 00:01:33 ; elapsed = 00:01:36 . Memory (MB): peak = 4452.176 ; gain = 0.000 ; free physical = 100297 ; free virtual = 116750
+Time (s): cpu = 00:01:47 ; elapsed = 00:01:53 . Memory (MB): peak = 4460.207 ; gain = 0.000 ; free physical = 92264 ; free virtual = 114965
 INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
 
 Phase 7 Post Processing Netlist
-Phase 7 Post Processing Netlist | Checksum: fecb11bc
+Phase 7 Post Processing Netlist | Checksum: 1a5821777
 
-Time (s): cpu = 00:01:33 ; elapsed = 00:01:36 . Memory (MB): peak = 4452.176 ; gain = 0.000 ; free physical = 100297 ; free virtual = 116750
+Time (s): cpu = 00:01:48 ; elapsed = 00:01:54 . Memory (MB): peak = 4460.207 ; gain = 0.000 ; free physical = 92264 ; free virtual = 114965
 INFO: [Opt 31-389] Phase Post Processing Netlist created 0 cells and removed 0 cells
-INFO: [Opt 31-1021] In phase Post Processing Netlist, 314 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+INFO: [Opt 31-1021] In phase Post Processing Netlist, 320 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
 Opt_design Change Summary
 =========================
 
@@ -430,22 +437,22 @@ Opt_design Change Summary
 -------------------------------------------------------------------------------------------------------------------------
 |  Phase                        |  #Cells created  |  #Cells Removed  |  #Constrained objects preventing optimizations  |
 -------------------------------------------------------------------------------------------------------------------------
-|  Retarget                     |             322  |             875  |                                            444  |
-|  Constant propagation         |             154  |            2238  |                                            334  |
-|  Sweep                        |               0  |            5522  |                                           7253  |
+|  Retarget                     |             317  |             862  |                                            482  |
+|  Constant propagation         |             140  |            2123  |                                            340  |
+|  Sweep                        |               0  |            5657  |                                           7999  |
 |  BUFG optimization            |               0  |               0  |                                              3  |
 |  Shift Register Optimization  |               0  |               0  |                                              0  |
-|  Post Processing Netlist      |               0  |               0  |                                            314  |
+|  Post Processing Netlist      |               0  |               0  |                                            320  |
 -------------------------------------------------------------------------------------------------------------------------
 
 
 
 Starting Connectivity Check Task
 
-Time (s): cpu = 00:00:00.18 ; elapsed = 00:00:00.18 . Memory (MB): peak = 4452.176 ; gain = 0.000 ; free physical = 100297 ; free virtual = 116750
-Ending Logic Optimization Task | Checksum: 1c512a9ad
+Time (s): cpu = 00:00:00.20 ; elapsed = 00:00:00.20 . Memory (MB): peak = 4460.207 ; gain = 0.000 ; free physical = 92264 ; free virtual = 114965
+Ending Logic Optimization Task | Checksum: 2786e5f92
 
-Time (s): cpu = 00:01:37 ; elapsed = 00:01:40 . Memory (MB): peak = 4452.176 ; gain = 0.000 ; free physical = 100297 ; free virtual = 116750
+Time (s): cpu = 00:01:52 ; elapsed = 00:01:58 . Memory (MB): peak = 4460.207 ; gain = 0.000 ; free physical = 92264 ; free virtual = 114965
 
 Starting Power Optimization Task
 INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
@@ -458,31 +465,31 @@ INFO: [Pwropt 34-10] Applying ODC optimizations ...
 
 
 Starting PowerOpt Patch Enables Task
-INFO: [Pwropt 34-162] WRITE_MODE attribute of 309 BRAM(s) out of a total of 353 has been updated to save power. Run report_power_opt to get a complete listing of the BRAMs updated.
+INFO: [Pwropt 34-162] WRITE_MODE attribute of 311 BRAM(s) out of a total of 355 has been updated to save power. Run report_power_opt to get a complete listing of the BRAMs updated.
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 INFO: [Pwropt 34-201] Structural ODC has moved 30 WE to EN ports
-Number of BRAM Ports augmented: 320 newly gated: 30 Total Ports: 706
-Ending PowerOpt Patch Enables Task | Checksum: 1ac18f05a
+Number of BRAM Ports augmented: 322 newly gated: 30 Total Ports: 710
+Ending PowerOpt Patch Enables Task | Checksum: 1e495cc4f
 
-Time (s): cpu = 00:00:15 ; elapsed = 00:00:06 . Memory (MB): peak = 5236.281 ; gain = 0.000 ; free physical = 100111 ; free virtual = 116564
-Ending Power Optimization Task | Checksum: 1ac18f05a
+Time (s): cpu = 00:00:16 ; elapsed = 00:00:06 . Memory (MB): peak = 5322.406 ; gain = 0.000 ; free physical = 92072 ; free virtual = 114773
+Ending Power Optimization Task | Checksum: 1e495cc4f
 
-Time (s): cpu = 00:01:10 ; elapsed = 00:00:32 . Memory (MB): peak = 5236.281 ; gain = 784.105 ; free physical = 100220 ; free virtual = 116672
+Time (s): cpu = 00:01:11 ; elapsed = 00:00:33 . Memory (MB): peak = 5322.406 ; gain = 862.199 ; free physical = 92183 ; free virtual = 114884
 
 Starting Final Cleanup Task
-Ending Final Cleanup Task | Checksum: 1ac18f05a
+Ending Final Cleanup Task | Checksum: 1e495cc4f
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 5236.281 ; gain = 0.000 ; free physical = 100220 ; free virtual = 116672
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 5322.406 ; gain = 0.000 ; free physical = 92183 ; free virtual = 114884
 
 Starting Netlist Obfuscation Task
-Netlist sorting complete. Time (s): cpu = 00:00:00.09 ; elapsed = 00:00:00.10 . Memory (MB): peak = 5236.281 ; gain = 0.000 ; free physical = 100220 ; free virtual = 116672
-Ending Netlist Obfuscation Task | Checksum: 2471ec9a4
+Netlist sorting complete. Time (s): cpu = 00:00:00.09 ; elapsed = 00:00:00.09 . Memory (MB): peak = 5322.406 ; gain = 0.000 ; free physical = 92183 ; free virtual = 114884
+Ending Netlist Obfuscation Task | Checksum: 1bbaea33c
 
-Time (s): cpu = 00:00:00.09 ; elapsed = 00:00:00.10 . Memory (MB): peak = 5236.281 ; gain = 0.000 ; free physical = 100220 ; free virtual = 116672
+Time (s): cpu = 00:00:00.09 ; elapsed = 00:00:00.09 . Memory (MB): peak = 5322.406 ; gain = 0.000 ; free physical = 92183 ; free virtual = 114884
 INFO: [Common 17-83] Releasing license: Implementation
-91 Infos, 5 Warnings, 3 Critical Warnings and 0 Errors encountered.
+104 Infos, 5 Warnings, 3 Critical Warnings and 0 Errors encountered.
 opt_design completed successfully
-opt_design: Time (s): cpu = 00:03:06 ; elapsed = 00:02:19 . Memory (MB): peak = 5236.281 ; gain = 784.105 ; free physical = 100220 ; free virtual = 116672
+opt_design: Time (s): cpu = 00:03:22 ; elapsed = 00:02:38 . Memory (MB): peak = 5322.406 ; gain = 862.199 ; free physical = 92183 ; free virtual = 114884
 INFO: [Common 17-600] The following parameters have non-default value.
 tcl.collectionResultDisplayLimit
 INFO: [Timing 38-35] Done setting XDC timing constraints.
@@ -491,9 +498,9 @@ Writing placer database...
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:00.18 ; elapsed = 00:00:00.04 . Memory (MB): peak = 5236.281 ; gain = 0.000 ; free physical = 100107 ; free virtual = 116565
+Write XDEF Complete: Time (s): cpu = 00:00:00.18 ; elapsed = 00:00:00.04 . Memory (MB): peak = 5322.406 ; gain = 0.000 ; free physical = 92062 ; free virtual = 114768
 INFO: [Common 17-1381] The checkpoint '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.runs/MercuryNuPRISM_impl/system_top_opt.dcp' has been generated.
-write_checkpoint: Time (s): cpu = 00:00:36 ; elapsed = 00:00:19 . Memory (MB): peak = 5236.281 ; gain = 0.000 ; free physical = 100066 ; free virtual = 116555
+write_checkpoint: Time (s): cpu = 00:00:37 ; elapsed = 00:00:20 . Memory (MB): peak = 5322.406 ; gain = 0.000 ; free physical = 92019 ; free virtual = 114758
 INFO: [runtcl-4] Executing : report_drc -file system_top_drc_opted.rpt -pb system_top_drc_opted.pb -rpx system_top_drc_opted.rpx
 Command: report_drc -file system_top_drc_opted.rpt -pb system_top_drc_opted.pb -rpx system_top_drc_opted.rpx
 INFO: [IP_Flow 19-1839] IP Catalog is up to date.
@@ -523,29 +530,29 @@ INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 
 Phase 1 Placer Initialization
 
 Phase 1.1 Placer Initialization Netlist Sorting
-Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 5263.344 ; gain = 0.000 ; free physical = 100037 ; free virtual = 116526
-Phase 1.1 Placer Initialization Netlist Sorting | Checksum: 166be4157
+Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 5354.422 ; gain = 0.000 ; free physical = 91991 ; free virtual = 114730
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: 155535a9c
 
-Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.08 . Memory (MB): peak = 5263.344 ; gain = 0.000 ; free physical = 100037 ; free virtual = 116526
-Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 5263.344 ; gain = 0.000 ; free physical = 100037 ; free virtual = 116526
+Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.08 . Memory (MB): peak = 5354.422 ; gain = 0.000 ; free physical = 91991 ; free virtual = 114730
+Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 5354.422 ; gain = 0.000 ; free physical = 91991 ; free virtual = 114730
 
 Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
-Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 192361310
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: bd977b0f
 
-Time (s): cpu = 00:00:21 ; elapsed = 00:00:18 . Memory (MB): peak = 5324.035 ; gain = 60.691 ; free physical = 99583 ; free virtual = 116072
+Time (s): cpu = 00:00:35 ; elapsed = 00:00:30 . Memory (MB): peak = 5591.629 ; gain = 237.207 ; free physical = 91539 ; free virtual = 114278
 
 Phase 1.3 Build Placer Netlist Model
-Phase 1.3 Build Placer Netlist Model | Checksum: 1e6ec0100
+Phase 1.3 Build Placer Netlist Model | Checksum: 1b69894c0
 
-Time (s): cpu = 00:00:52 ; elapsed = 00:00:33 . Memory (MB): peak = 5356.051 ; gain = 92.707 ; free physical = 99399 ; free virtual = 115888
+Time (s): cpu = 00:01:08 ; elapsed = 00:00:45 . Memory (MB): peak = 5623.645 ; gain = 269.223 ; free physical = 91347 ; free virtual = 114086
 
 Phase 1.4 Constrain Clocks/Macros
-Phase 1.4 Constrain Clocks/Macros | Checksum: 1e6ec0100
+Phase 1.4 Constrain Clocks/Macros | Checksum: 1b69894c0
 
-Time (s): cpu = 00:00:52 ; elapsed = 00:00:33 . Memory (MB): peak = 5356.051 ; gain = 92.707 ; free physical = 99399 ; free virtual = 115887
-Phase 1 Placer Initialization | Checksum: 1e6ec0100
+Time (s): cpu = 00:01:08 ; elapsed = 00:00:46 . Memory (MB): peak = 5623.645 ; gain = 269.223 ; free physical = 91350 ; free virtual = 114089
+Phase 1 Placer Initialization | Checksum: 1b69894c0
 
-Time (s): cpu = 00:00:52 ; elapsed = 00:00:34 . Memory (MB): peak = 5356.051 ; gain = 92.707 ; free physical = 99391 ; free virtual = 115879
+Time (s): cpu = 00:01:09 ; elapsed = 00:00:46 . Memory (MB): peak = 5623.645 ; gain = 269.223 ; free physical = 91342 ; free virtual = 114081
 
 Phase 2 Global Placement
 
@@ -554,66 +561,72 @@ Phase 2.1 Floorplanning
 Phase 2.1.1 Partition Driven Placement
 
 Phase 2.1.1.1 PBP: Partition Driven Placement
-Phase 2.1.1.1 PBP: Partition Driven Placement | Checksum: 28edebaa3
+Phase 2.1.1.1 PBP: Partition Driven Placement | Checksum: 126d6134d
 
-Time (s): cpu = 00:02:00 ; elapsed = 00:00:59 . Memory (MB): peak = 5356.051 ; gain = 92.707 ; free physical = 99344 ; free virtual = 115833
+Time (s): cpu = 00:02:19 ; elapsed = 00:01:12 . Memory (MB): peak = 5623.645 ; gain = 269.223 ; free physical = 91291 ; free virtual = 114020
 
 Phase 2.1.1.2 PBP: Clock Region Placement
-Phase 2.1.1.2 PBP: Clock Region Placement | Checksum: 1b887fb26
+Phase 2.1.1.2 PBP: Clock Region Placement | Checksum: 90b10bd1
 
-Time (s): cpu = 00:02:02 ; elapsed = 00:01:01 . Memory (MB): peak = 5356.051 ; gain = 92.707 ; free physical = 99338 ; free virtual = 115826
+Time (s): cpu = 00:02:20 ; elapsed = 00:01:14 . Memory (MB): peak = 5623.645 ; gain = 269.223 ; free physical = 91285 ; free virtual = 114014
 
 Phase 2.1.1.3 PBP: Discrete Incremental
-Phase 2.1.1.3 PBP: Discrete Incremental | Checksum: 1629f8826
+Phase 2.1.1.3 PBP: Discrete Incremental | Checksum: 9b499088
 
-Time (s): cpu = 00:02:03 ; elapsed = 00:01:02 . Memory (MB): peak = 5356.051 ; gain = 92.707 ; free physical = 99337 ; free virtual = 115825
+Time (s): cpu = 00:02:21 ; elapsed = 00:01:15 . Memory (MB): peak = 5623.645 ; gain = 269.223 ; free physical = 91283 ; free virtual = 114012
 
 Phase 2.1.1.4 PBP: Compute Congestion
-Phase 2.1.1.4 PBP: Compute Congestion | Checksum: 1629f8826
+Phase 2.1.1.4 PBP: Compute Congestion | Checksum: 9b499088
 
-Time (s): cpu = 00:02:04 ; elapsed = 00:01:02 . Memory (MB): peak = 5356.051 ; gain = 92.707 ; free physical = 99316 ; free virtual = 115805
+Time (s): cpu = 00:02:22 ; elapsed = 00:01:16 . Memory (MB): peak = 5623.645 ; gain = 269.223 ; free physical = 91261 ; free virtual = 113991
 
 Phase 2.1.1.5 PBP: Macro Placement
-Phase 2.1.1.5 PBP: Macro Placement | Checksum: fe7917e1
+Phase 2.1.1.5 PBP: Macro Placement | Checksum: 126aaffa5
 
-Time (s): cpu = 00:02:05 ; elapsed = 00:01:03 . Memory (MB): peak = 5356.051 ; gain = 92.707 ; free physical = 99308 ; free virtual = 115797
+Time (s): cpu = 00:02:24 ; elapsed = 00:01:17 . Memory (MB): peak = 5623.645 ; gain = 269.223 ; free physical = 91254 ; free virtual = 113983
 
 Phase 2.1.1.6 PBP: UpdateTiming
-Phase 2.1.1.6 PBP: UpdateTiming | Checksum: 125dabd10
+Phase 2.1.1.6 PBP: UpdateTiming | Checksum: 184c7bc08
 
-Time (s): cpu = 00:02:10 ; elapsed = 00:01:05 . Memory (MB): peak = 5356.051 ; gain = 92.707 ; free physical = 99283 ; free virtual = 115772
+Time (s): cpu = 00:02:29 ; elapsed = 00:01:19 . Memory (MB): peak = 5623.645 ; gain = 269.223 ; free physical = 91230 ; free virtual = 113959
 
 Phase 2.1.1.7 PBP: Add part constraints
-Phase 2.1.1.7 PBP: Add part constraints | Checksum: 125dabd10
+Phase 2.1.1.7 PBP: Add part constraints | Checksum: 184c7bc08
 
-Time (s): cpu = 00:02:10 ; elapsed = 00:01:05 . Memory (MB): peak = 5356.051 ; gain = 92.707 ; free physical = 99283 ; free virtual = 115772
-Phase 2.1.1 Partition Driven Placement | Checksum: 125dabd10
+Time (s): cpu = 00:02:30 ; elapsed = 00:01:19 . Memory (MB): peak = 5623.645 ; gain = 269.223 ; free physical = 91220 ; free virtual = 113949
+Phase 2.1.1 Partition Driven Placement | Checksum: 184c7bc08
 
-Time (s): cpu = 00:02:10 ; elapsed = 00:01:06 . Memory (MB): peak = 5356.051 ; gain = 92.707 ; free physical = 99304 ; free virtual = 115793
-Phase 2.1 Floorplanning | Checksum: 125dabd10
+Time (s): cpu = 00:02:30 ; elapsed = 00:01:20 . Memory (MB): peak = 5623.645 ; gain = 269.223 ; free physical = 91243 ; free virtual = 113973
+Phase 2.1 Floorplanning | Checksum: 184c7bc08
 
-Time (s): cpu = 00:02:11 ; elapsed = 00:01:06 . Memory (MB): peak = 5356.051 ; gain = 92.707 ; free physical = 99304 ; free virtual = 115793
+Time (s): cpu = 00:02:30 ; elapsed = 00:01:20 . Memory (MB): peak = 5623.645 ; gain = 269.223 ; free physical = 91243 ; free virtual = 113973
 
 Phase 2.2 Global Placement Core
 
 Phase 2.2.1 Physical Synthesis In Placer
-INFO: [Physopt 32-1035] Found 0 LUTNM shape to break, 2176 LUT instances to create LUTNM shape
-INFO: [Physopt 32-1044] Break lutnm for timing: one critical 0, two critical 0, total 0, new lutff created 0
-INFO: [Physopt 32-775] End 1 Pass. Optimized 816 nets or cells. Created 0 new cell, deleted 816 existing cells and moved 0 existing cell
+INFO: [Physopt 32-1035] Found 10 LUTNM shape to break, 2235 LUT instances to create LUTNM shape
+INFO: [Physopt 32-1044] Break lutnm for timing: one critical 8, two critical 2, total 10, new lutff created 0
+INFO: [Physopt 32-775] End 1 Pass. Optimized 858 nets or cells. Created 10 new cells, deleted 848 existing cells and moved 0 existing cell
 INFO: [Physopt 32-65] No nets found for high-fanout optimization.
 INFO: [Physopt 32-232] Optimized 0 net. Created 0 new instance.
 INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
 INFO: [Physopt 32-64] No nets found for fanout-optimization.
 INFO: [Physopt 32-232] Optimized 0 net. Created 0 new instance.
 INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
-INFO: [Physopt 32-117] Net MercuryXU1_i/MercuryXU1_i/system_ila_50/U0/ila_lib/U0/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/CAP_WR_EN_O_reg_1 could not be optimized because driver MercuryXU1_i/MercuryXU1_i/system_ila_50/U0/ila_lib/U0/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_1__28 could not be replicated
-INFO: [Physopt 32-117] Net MercuryXU1_i/MercuryXU1_i/system_ila_50/U0/ila_lib/U0/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/i_intcap.CAP_ADDR_O_reg[12]_1 could not be optimized because driver MercuryXU1_i/MercuryXU1_i/system_ila_50/U0/ila_lib/U0/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_1__35 could not be replicated
+INFO: [Physopt 32-117] Net MercuryXU1_i/MercuryXU1_i/system_ila_50/U0/ila_lib/U0/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/i_intcap.CAP_ADDR_O_reg[12]_3 could not be optimized because driver MercuryXU1_i/MercuryXU1_i/system_ila_50/U0/ila_lib/U0/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_1__37 could not be replicated
 INFO: [Physopt 32-117] Net MercuryXU1_i/MercuryXU1_i/system_ila_50/U0/ila_lib/U0/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/ena_array[1] could not be optimized because driver MercuryXU1_i/MercuryXU1_i/system_ila_50/U0/ila_lib/U0/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_1__26 could not be replicated
-INFO: [Physopt 32-117] Net MercuryXU1_i/MercuryXU1_i/system_ila_50/U0/ila_lib/U0/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/CAP_WR_EN_O_reg_6 could not be optimized because driver MercuryXU1_i/MercuryXU1_i/system_ila_50/U0/ila_lib/U0/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_1__33 could not be replicated
-INFO: [Physopt 32-117] Net MercuryXU1_i/MercuryXU1_i/system_ila_50/U0/ila_lib/U0/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/CAP_WR_EN_O_reg_3 could not be optimized because driver MercuryXU1_i/MercuryXU1_i/system_ila_50/U0/ila_lib/U0/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_1__30 could not be replicated
+INFO: [Physopt 32-117] Net MercuryXU1_i/MercuryXU1_i/system_ila_50/U0/ila_lib/U0/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/ena_array[0] could not be optimized because driver MercuryXU1_i/MercuryXU1_i/system_ila_50/U0/ila_lib/U0/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_1__25 could not be replicated
+INFO: [Physopt 32-117] Net MercuryXU1_i/MercuryXU1_i/system_ila_50/U0/ila_lib/U0/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/CAP_WR_EN_O_reg_4 could not be optimized because driver MercuryXU1_i/MercuryXU1_i/system_ila_50/U0/ila_lib/U0/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_1__31 could not be replicated
+INFO: [Physopt 32-117] Net MercuryXU1_i/MercuryXU1_i/system_ila_50/U0/ila_lib/U0/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/i_intcap.CAP_ADDR_O_reg[12]_1 could not be optimized because driver MercuryXU1_i/MercuryXU1_i/system_ila_50/U0/ila_lib/U0/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_1__35 could not be replicated
+INFO: [Physopt 32-117] Net MercuryXU1_i/MercuryXU1_i/system_ila_50/U0/ila_lib/U0/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/CAP_WR_EN_O_reg_5 could not be optimized because driver MercuryXU1_i/MercuryXU1_i/system_ila_50/U0/ila_lib/U0/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_1__32 could not be replicated
 INFO: [Physopt 32-117] Net MercuryXU1_i/MercuryXU1_i/system_ila_50/U0/ila_lib/U0/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/i_intcap.CAP_ADDR_O_reg[12]_2 could not be optimized because driver MercuryXU1_i/MercuryXU1_i/system_ila_50/U0/ila_lib/U0/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_1__36 could not be replicated
+INFO: [Physopt 32-117] Net MercuryXU1_i/MercuryXU1_i/system_ila_50/U0/ila_lib/U0/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/i_intcap.CAP_ADDR_O_reg[12]_5 could not be optimized because driver MercuryXU1_i/MercuryXU1_i/system_ila_50/U0/ila_lib/U0/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_1__39 could not be replicated
 INFO: [Physopt 32-117] Net MercuryXU1_i/MercuryXU1_i/system_ila_50/U0/ila_lib/U0/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/i_intcap.CAP_ADDR_O_reg[12]_4 could not be optimized because driver MercuryXU1_i/MercuryXU1_i/system_ila_50/U0/ila_lib/U0/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_1__38 could not be replicated
 INFO: [Physopt 32-117] Net MercuryXU1_i/MercuryXU1_i/system_ila_50/U0/ila_lib/U0/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/CAP_WR_EN_O_reg_2 could not be optimized because driver MercuryXU1_i/MercuryXU1_i/system_ila_50/U0/ila_lib/U0/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_1__29 could not be replicated
+INFO: [Physopt 32-117] Net MercuryXU1_i/MercuryXU1_i/system_ila_50/U0/ila_lib/U0/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/CAP_WR_EN_O_reg_3 could not be optimized because driver MercuryXU1_i/MercuryXU1_i/system_ila_50/U0/ila_lib/U0/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_1__30 could not be replicated
+INFO: [Physopt 32-117] Net MercuryXU1_i/MercuryXU1_i/system_ila_50/U0/ila_lib/U0/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/CAP_WR_EN_O_reg_6 could not be optimized because driver MercuryXU1_i/MercuryXU1_i/system_ila_50/U0/ila_lib/U0/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_1__33 could not be replicated
+INFO: [Physopt 32-117] Net MercuryXU1_i/MercuryXU1_i/system_ila_50/U0/ila_lib/U0/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/i_intcap.CAP_ADDR_O_reg[12]_6 could not be optimized because driver MercuryXU1_i/MercuryXU1_i/system_ila_50/U0/ila_lib/U0/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_1__40 could not be replicated
+INFO: [Physopt 32-117] Net MercuryXU1_i/MercuryXU1_i/system_ila_50/U0/ila_lib/U0/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/CAP_WR_EN_O_reg_1 could not be optimized because driver MercuryXU1_i/MercuryXU1_i/system_ila_50/U0/ila_lib/U0/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/DEVICE_8SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_1__28 could not be replicated
 INFO: [Physopt 32-68] No nets found for critical-cell optimization.
 INFO: [Physopt 32-232] Optimized 0 net. Created 0 new instance.
 INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
@@ -629,7 +642,7 @@ INFO: [Physopt 32-846] No candidate cells for URAM register optimization found i
 INFO: [Physopt 32-775] End 2 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
 INFO: [Physopt 32-949] No candidate nets found for HD net replication
 INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.02 . Memory (MB): peak = 5459.051 ; gain = 0.000 ; free physical = 99261 ; free virtual = 115749
+Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 5623.645 ; gain = 0.000 ; free physical = 91191 ; free virtual = 113921
 
 Summary of Physical Synthesis Optimizations
 ============================================
@@ -638,7 +651,7 @@ Summary of Physical Synthesis Optimizations
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 |  Optimization                                     |  Added Cells  |  Removed Cells  |  Optimized Cells/Nets  |  Dont Touch  |  Iterations  |  Elapsed   |
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
-|  LUT Combining                                    |            0  |            816  |                   816  |           0  |           1  |  00:00:01  |
+|  LUT Combining                                    |           10  |            848  |                   858  |           0  |           1  |  00:00:01  |
 |  Very High Fanout                                 |            0  |              0  |                     0  |           1  |           1  |  00:00:01  |
 |  Fanout                                           |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
 |  Critical Cell                                    |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
@@ -648,84 +661,84 @@ Summary of Physical Synthesis Optimizations
 |  BRAM Register                                    |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
 |  URAM Register                                    |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
 |  Dynamic/Static Region Interface Net Replication  |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
-|  Total                                            |            0  |            816  |                   816  |           1  |          10  |  00:00:03  |
+|  Total                                            |           10  |            848  |                   858  |           1  |          10  |  00:00:03  |
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-Phase 2.2.1 Physical Synthesis In Placer | Checksum: f69b7147
+Phase 2.2.1 Physical Synthesis In Placer | Checksum: 1afbffac2
 
-Time (s): cpu = 00:04:30 ; elapsed = 00:02:08 . Memory (MB): peak = 5459.051 ; gain = 195.707 ; free physical = 99273 ; free virtual = 115762
-Phase 2.2 Global Placement Core | Checksum: fc85677e
+Time (s): cpu = 00:04:57 ; elapsed = 00:02:28 . Memory (MB): peak = 5623.645 ; gain = 269.223 ; free physical = 91207 ; free virtual = 113937
+Phase 2.2 Global Placement Core | Checksum: 29dbf9c3f
 
-Time (s): cpu = 00:04:46 ; elapsed = 00:02:15 . Memory (MB): peak = 5459.051 ; gain = 195.707 ; free physical = 99255 ; free virtual = 115744
-Phase 2 Global Placement | Checksum: fc85677e
+Time (s): cpu = 00:05:14 ; elapsed = 00:02:36 . Memory (MB): peak = 5623.645 ; gain = 269.223 ; free physical = 91189 ; free virtual = 113918
+Phase 2 Global Placement | Checksum: 29dbf9c3f
 
-Time (s): cpu = 00:04:46 ; elapsed = 00:02:15 . Memory (MB): peak = 5459.051 ; gain = 195.707 ; free physical = 99297 ; free virtual = 115786
+Time (s): cpu = 00:05:14 ; elapsed = 00:02:36 . Memory (MB): peak = 5623.645 ; gain = 269.223 ; free physical = 91234 ; free virtual = 113963
 
 Phase 3 Detail Placement
 
 Phase 3.1 Commit Multi Column Macros
-Phase 3.1 Commit Multi Column Macros | Checksum: 1bc99436c
+Phase 3.1 Commit Multi Column Macros | Checksum: 1dff38771
 
-Time (s): cpu = 00:04:52 ; elapsed = 00:02:18 . Memory (MB): peak = 5459.051 ; gain = 195.707 ; free physical = 99296 ; free virtual = 115785
+Time (s): cpu = 00:05:20 ; elapsed = 00:02:39 . Memory (MB): peak = 5623.645 ; gain = 269.223 ; free physical = 91234 ; free virtual = 113963
 
 Phase 3.2 Commit Most Macros & LUTRAMs
-Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 10d7d24ff
+Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 1cb329e5a
 
-Time (s): cpu = 00:05:01 ; elapsed = 00:02:22 . Memory (MB): peak = 5459.051 ; gain = 195.707 ; free physical = 99284 ; free virtual = 115773
+Time (s): cpu = 00:05:29 ; elapsed = 00:02:43 . Memory (MB): peak = 5623.645 ; gain = 269.223 ; free physical = 91218 ; free virtual = 113948
 
 Phase 3.3 Area Swap Optimization
-Phase 3.3 Area Swap Optimization | Checksum: 18d80301c
+Phase 3.3 Area Swap Optimization | Checksum: 15975fb41
 
-Time (s): cpu = 00:05:03 ; elapsed = 00:02:23 . Memory (MB): peak = 5459.051 ; gain = 195.707 ; free physical = 99279 ; free virtual = 115768
+Time (s): cpu = 00:05:32 ; elapsed = 00:02:45 . Memory (MB): peak = 5623.645 ; gain = 269.223 ; free physical = 91215 ; free virtual = 113944
 
 Phase 3.4 IO Cut Optimizer
-Phase 3.4 IO Cut Optimizer | Checksum: 10c8c6ae2
+Phase 3.4 IO Cut Optimizer | Checksum: 15975fb41
 
-Time (s): cpu = 00:05:03 ; elapsed = 00:02:24 . Memory (MB): peak = 5459.051 ; gain = 195.707 ; free physical = 99278 ; free virtual = 115767
+Time (s): cpu = 00:05:32 ; elapsed = 00:02:45 . Memory (MB): peak = 5623.645 ; gain = 269.223 ; free physical = 91212 ; free virtual = 113942
 
 Phase 3.5 Fast Optimization
-Phase 3.5 Fast Optimization | Checksum: 160d047ba
+Phase 3.5 Fast Optimization | Checksum: 16a4f3d8c
 
-Time (s): cpu = 00:05:11 ; elapsed = 00:02:26 . Memory (MB): peak = 5459.051 ; gain = 195.707 ; free physical = 99271 ; free virtual = 115760
+Time (s): cpu = 00:05:40 ; elapsed = 00:02:48 . Memory (MB): peak = 5623.645 ; gain = 269.223 ; free physical = 91204 ; free virtual = 113934
 
 Phase 3.6 Small Shape DP
 
 Phase 3.6.1 Small Shape Clustering
-Phase 3.6.1 Small Shape Clustering | Checksum: 18e98a4d5
+Phase 3.6.1 Small Shape Clustering | Checksum: 1cf36815a
 
-Time (s): cpu = 00:05:17 ; elapsed = 00:02:31 . Memory (MB): peak = 5459.051 ; gain = 195.707 ; free physical = 99209 ; free virtual = 115698
+Time (s): cpu = 00:05:47 ; elapsed = 00:02:53 . Memory (MB): peak = 5623.645 ; gain = 269.223 ; free physical = 91133 ; free virtual = 113863
 
 Phase 3.6.2 Flow Legalize Slice Clusters
-Phase 3.6.2 Flow Legalize Slice Clusters | Checksum: 159db5882
+Phase 3.6.2 Flow Legalize Slice Clusters | Checksum: 192145738
 
-Time (s): cpu = 00:05:19 ; elapsed = 00:02:32 . Memory (MB): peak = 5459.051 ; gain = 195.707 ; free physical = 99211 ; free virtual = 115700
+Time (s): cpu = 00:05:49 ; elapsed = 00:02:55 . Memory (MB): peak = 5623.645 ; gain = 269.223 ; free physical = 91138 ; free virtual = 113868
 
 Phase 3.6.3 Slice Area Swap
-Phase 3.6.3 Slice Area Swap | Checksum: f001ed6d
+Phase 3.6.3 Slice Area Swap | Checksum: 17783c7c9
 
-Time (s): cpu = 00:05:24 ; elapsed = 00:02:36 . Memory (MB): peak = 5459.051 ; gain = 195.707 ; free physical = 99171 ; free virtual = 115660
-Phase 3.6 Small Shape DP | Checksum: 15ef02343
+Time (s): cpu = 00:05:55 ; elapsed = 00:03:00 . Memory (MB): peak = 5623.645 ; gain = 269.223 ; free physical = 91094 ; free virtual = 113823
+Phase 3.6 Small Shape DP | Checksum: 189c0ecd1
 
-Time (s): cpu = 00:05:41 ; elapsed = 00:02:42 . Memory (MB): peak = 5459.051 ; gain = 195.707 ; free physical = 99200 ; free virtual = 115689
+Time (s): cpu = 00:06:14 ; elapsed = 00:03:07 . Memory (MB): peak = 5623.645 ; gain = 269.223 ; free physical = 91125 ; free virtual = 113854
 
 Phase 3.7 Re-assign LUT pins
-Phase 3.7 Re-assign LUT pins | Checksum: 12df896ee
+Phase 3.7 Re-assign LUT pins | Checksum: 180c7efaa
 
-Time (s): cpu = 00:05:44 ; elapsed = 00:02:45 . Memory (MB): peak = 5459.051 ; gain = 195.707 ; free physical = 99200 ; free virtual = 115689
+Time (s): cpu = 00:06:17 ; elapsed = 00:03:10 . Memory (MB): peak = 5623.645 ; gain = 269.223 ; free physical = 91124 ; free virtual = 113854
 
 Phase 3.8 Pipeline Register Optimization
-Phase 3.8 Pipeline Register Optimization | Checksum: 11e9627f9
+Phase 3.8 Pipeline Register Optimization | Checksum: 20e5f773d
 
-Time (s): cpu = 00:05:45 ; elapsed = 00:02:46 . Memory (MB): peak = 5459.051 ; gain = 195.707 ; free physical = 99200 ; free virtual = 115689
+Time (s): cpu = 00:06:18 ; elapsed = 00:03:11 . Memory (MB): peak = 5623.645 ; gain = 269.223 ; free physical = 91124 ; free virtual = 113854
 
 Phase 3.9 Fast Optimization
-Phase 3.9 Fast Optimization | Checksum: d3a100c7
+Phase 3.9 Fast Optimization | Checksum: 1e3158f39
 
-Time (s): cpu = 00:06:14 ; elapsed = 00:02:52 . Memory (MB): peak = 5459.051 ; gain = 195.707 ; free physical = 99189 ; free virtual = 115678
-Phase 3 Detail Placement | Checksum: d3a100c7
+Time (s): cpu = 00:06:49 ; elapsed = 00:03:17 . Memory (MB): peak = 5623.645 ; gain = 269.223 ; free physical = 91113 ; free virtual = 113842
+Phase 3 Detail Placement | Checksum: 1e3158f39
 
-Time (s): cpu = 00:06:15 ; elapsed = 00:02:52 . Memory (MB): peak = 5459.051 ; gain = 195.707 ; free physical = 99188 ; free virtual = 115677
+Time (s): cpu = 00:06:50 ; elapsed = 00:03:17 . Memory (MB): peak = 5623.645 ; gain = 269.223 ; free physical = 91113 ; free virtual = 113843
 
 Phase 4 Post Placement Optimization and Clean-Up
 
@@ -733,7 +746,7 @@ Phase 4.1 Post Commit Optimization
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 
 Phase 4.1.1 Post Placement Optimization
-Post Placement Optimization Initialization | Checksum: 13ecfa27e
+Post Placement Optimization Initialization | Checksum: d5ec6504
 
 Phase 4.1.1.1 BUFG Insertion
 
@@ -741,64 +754,64 @@ Starting Physical Synthesis Task
 
 Phase 1 Physical Synthesis Initialization
 INFO: [Physopt 32-721] Multithreading enabled for phys_opt_design using a maximum of 8 CPUs
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-2.201 | TNS=-95.161 |
-Phase 1 Physical Synthesis Initialization | Checksum: 1e9e257f8
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-1.147 | TNS=-47.747 |
+Phase 1 Physical Synthesis Initialization | Checksum: fee5ed8c
 
-Time (s): cpu = 00:00:07 ; elapsed = 00:00:05 . Memory (MB): peak = 5459.051 ; gain = 0.000 ; free physical = 99174 ; free virtual = 115663
+Time (s): cpu = 00:00:07 ; elapsed = 00:00:05 . Memory (MB): peak = 5623.645 ; gain = 0.000 ; free physical = 91097 ; free virtual = 113827
 INFO: [Place 46-56] BUFG insertion identified 0 candidate nets. Inserted BUFG: 0, Replicated BUFG Driver: 0, Skipped due to Placement/Routing Conflicts: 0, Skipped due to Timing Degradation: 0, Skipped due to Illegal Netlist: 0.
-Ending Physical Synthesis Task | Checksum: 20c167663
+Ending Physical Synthesis Task | Checksum: 115b57aa9
 
-Time (s): cpu = 00:00:08 ; elapsed = 00:00:05 . Memory (MB): peak = 5459.051 ; gain = 0.000 ; free physical = 99173 ; free virtual = 115662
-Phase 4.1.1.1 BUFG Insertion | Checksum: 13ecfa27e
+Time (s): cpu = 00:00:09 ; elapsed = 00:00:06 . Memory (MB): peak = 5623.645 ; gain = 0.000 ; free physical = 91095 ; free virtual = 113825
+Phase 4.1.1.1 BUFG Insertion | Checksum: d5ec6504
 
-Time (s): cpu = 00:07:00 ; elapsed = 00:03:12 . Memory (MB): peak = 5459.051 ; gain = 195.707 ; free physical = 99176 ; free virtual = 115666
-INFO: [Place 30-746] Post Placement Timing Summary WNS=-2.201. For the most accurate timing information please run report_timing.
-Phase 4.1.1 Post Placement Optimization | Checksum: 164ccce28
+Time (s): cpu = 00:07:36 ; elapsed = 00:03:37 . Memory (MB): peak = 5623.645 ; gain = 269.223 ; free physical = 91099 ; free virtual = 113829
+INFO: [Place 30-746] Post Placement Timing Summary WNS=-1.147. For the most accurate timing information please run report_timing.
+Phase 4.1.1 Post Placement Optimization | Checksum: b85d14a4
 
-Time (s): cpu = 00:07:11 ; elapsed = 00:03:22 . Memory (MB): peak = 5459.051 ; gain = 195.707 ; free physical = 99180 ; free virtual = 115669
-Phase 4.1 Post Commit Optimization | Checksum: 164ccce28
+Time (s): cpu = 00:07:52 ; elapsed = 00:03:53 . Memory (MB): peak = 5623.645 ; gain = 269.223 ; free physical = 91095 ; free virtual = 113824
+Phase 4.1 Post Commit Optimization | Checksum: b85d14a4
 
-Time (s): cpu = 00:07:11 ; elapsed = 00:03:23 . Memory (MB): peak = 5459.051 ; gain = 195.707 ; free physical = 99179 ; free virtual = 115668
+Time (s): cpu = 00:07:53 ; elapsed = 00:03:53 . Memory (MB): peak = 5623.645 ; gain = 269.223 ; free physical = 91095 ; free virtual = 113825
 
 Phase 4.2 Post Placement Cleanup
-Phase 4.2 Post Placement Cleanup | Checksum: 164ccce28
+Phase 4.2 Post Placement Cleanup | Checksum: b85d14a4
 
-Time (s): cpu = 00:07:20 ; elapsed = 00:03:29 . Memory (MB): peak = 5558.051 ; gain = 294.707 ; free physical = 99191 ; free virtual = 115680
-Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 5558.051 ; gain = 0.000 ; free physical = 99161 ; free virtual = 115650
+Time (s): cpu = 00:08:03 ; elapsed = 00:04:00 . Memory (MB): peak = 5679.645 ; gain = 325.223 ; free physical = 91107 ; free virtual = 113837
+Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 5679.645 ; gain = 0.000 ; free physical = 91077 ; free virtual = 113807
 
 Phase 4.3 Placer Reporting
-Phase 4.3 Placer Reporting | Checksum: 17facacfb
+Phase 4.3 Placer Reporting | Checksum: d97e89a9
 
-Time (s): cpu = 00:07:27 ; elapsed = 00:03:36 . Memory (MB): peak = 5558.051 ; gain = 294.707 ; free physical = 99164 ; free virtual = 115653
+Time (s): cpu = 00:08:09 ; elapsed = 00:04:06 . Memory (MB): peak = 5679.645 ; gain = 325.223 ; free physical = 91082 ; free virtual = 113812
 
 Phase 4.4 Final Placement Cleanup
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.02 . Memory (MB): peak = 5558.051 ; gain = 0.000 ; free physical = 99164 ; free virtual = 115653
-Phase 4.4 Final Placement Cleanup | Checksum: 18518f1ae
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.02 . Memory (MB): peak = 5679.645 ; gain = 0.000 ; free physical = 91082 ; free virtual = 113812
+Phase 4.4 Final Placement Cleanup | Checksum: 1476a99dc
 
-Time (s): cpu = 00:07:27 ; elapsed = 00:03:36 . Memory (MB): peak = 5558.051 ; gain = 294.707 ; free physical = 99164 ; free virtual = 115653
-Phase 4 Post Placement Optimization and Clean-Up | Checksum: 18518f1ae
+Time (s): cpu = 00:08:10 ; elapsed = 00:04:07 . Memory (MB): peak = 5679.645 ; gain = 325.223 ; free physical = 91082 ; free virtual = 113812
+Phase 4 Post Placement Optimization and Clean-Up | Checksum: 1476a99dc
 
-Time (s): cpu = 00:07:28 ; elapsed = 00:03:37 . Memory (MB): peak = 5558.051 ; gain = 294.707 ; free physical = 99164 ; free virtual = 115653
-Ending Placer Task | Checksum: 14c02119c
+Time (s): cpu = 00:08:10 ; elapsed = 00:04:07 . Memory (MB): peak = 5679.645 ; gain = 325.223 ; free physical = 91082 ; free virtual = 113812
+Ending Placer Task | Checksum: 11292cef8
 
-Time (s): cpu = 00:07:28 ; elapsed = 00:03:37 . Memory (MB): peak = 5558.051 ; gain = 294.707 ; free physical = 99164 ; free virtual = 115653
+Time (s): cpu = 00:08:10 ; elapsed = 00:04:07 . Memory (MB): peak = 5679.645 ; gain = 325.223 ; free physical = 91082 ; free virtual = 113812
 INFO: [Common 17-83] Releasing license: Implementation
-146 Infos, 10 Warnings, 3 Critical Warnings and 0 Errors encountered.
+165 Infos, 10 Warnings, 3 Critical Warnings and 0 Errors encountered.
 place_design completed successfully
-place_design: Time (s): cpu = 00:07:35 ; elapsed = 00:03:41 . Memory (MB): peak = 5558.051 ; gain = 294.707 ; free physical = 99333 ; free virtual = 115822
+place_design: Time (s): cpu = 00:08:18 ; elapsed = 00:04:11 . Memory (MB): peak = 5679.645 ; gain = 325.223 ; free physical = 91259 ; free virtual = 113989
 INFO: [Timing 38-480] Writing timing data to binary archive.
 Writing placer database...
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:11 ; elapsed = 00:00:04 . Memory (MB): peak = 5558.051 ; gain = 0.000 ; free physical = 99151 ; free virtual = 115783
+Write XDEF Complete: Time (s): cpu = 00:00:12 ; elapsed = 00:00:04 . Memory (MB): peak = 5679.645 ; gain = 0.000 ; free physical = 91069 ; free virtual = 113947
 INFO: [Common 17-1381] The checkpoint '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.runs/MercuryNuPRISM_impl/system_top_placed.dcp' has been generated.
-write_checkpoint: Time (s): cpu = 00:00:27 ; elapsed = 00:00:15 . Memory (MB): peak = 5558.051 ; gain = 0.000 ; free physical = 99277 ; free virtual = 115811
+write_checkpoint: Time (s): cpu = 00:00:29 ; elapsed = 00:00:17 . Memory (MB): peak = 5679.645 ; gain = 0.000 ; free physical = 91198 ; free virtual = 113975
 INFO: [runtcl-4] Executing : report_io -file system_top_io_placed.rpt
-report_io: Time (s): cpu = 00:00:00.18 ; elapsed = 00:00:00.26 . Memory (MB): peak = 5558.051 ; gain = 0.000 ; free physical = 99253 ; free virtual = 115787
+report_io: Time (s): cpu = 00:00:00.19 ; elapsed = 00:00:00.28 . Memory (MB): peak = 5679.645 ; gain = 0.000 ; free physical = 91173 ; free virtual = 113950
 INFO: [runtcl-4] Executing : report_utilization -file system_top_utilization_placed.rpt -pb system_top_utilization_placed.pb
 INFO: [runtcl-4] Executing : report_control_sets -verbose -file system_top_control_sets_placed.rpt
-report_control_sets: Time (s): cpu = 00:00:00.33 ; elapsed = 00:00:00.41 . Memory (MB): peak = 5558.051 ; gain = 0.000 ; free physical = 99269 ; free virtual = 115806
+report_control_sets: Time (s): cpu = 00:00:00.34 ; elapsed = 00:00:00.46 . Memory (MB): peak = 5679.645 ; gain = 0.000 ; free physical = 91191 ; free virtual = 113971
 Command: route_design
 Attempting to get a license for feature 'Implementation' and/or device 'xczu6eg'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xczu6eg'
@@ -810,59 +823,59 @@ INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more in
 
 Starting Routing Task
 INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 8 CPUs
-Checksum: PlaceDB: 354dd2d3 ConstDB: 0 ShapeSum: fbd45ff6 RouteDB: 1adfded3
+Checksum: PlaceDB: 6936a861 ConstDB: 0 ShapeSum: 883ab192 RouteDB: 21217505
 
 Phase 1 Build RT Design
-Nodegraph reading from file.  Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.53 . Memory (MB): peak = 5558.051 ; gain = 0.000 ; free physical = 99138 ; free virtual = 115675
-Phase 1 Build RT Design | Checksum: 8fd59ee1
+Nodegraph reading from file.  Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.55 . Memory (MB): peak = 5679.645 ; gain = 0.000 ; free physical = 91071 ; free virtual = 113850
+Phase 1 Build RT Design | Checksum: 8cfb0101
 
-Time (s): cpu = 00:00:18 ; elapsed = 00:00:07 . Memory (MB): peak = 5574.059 ; gain = 16.008 ; free physical = 99087 ; free virtual = 115623
-Post Restoration Checksum: NetGraph: 4abe6e65 NumContArr: b1109e06 Constraints: 64c17015 Timing: 0
+Time (s): cpu = 00:00:19 ; elapsed = 00:00:07 . Memory (MB): peak = 5695.652 ; gain = 16.008 ; free physical = 91020 ; free virtual = 113799
+Post Restoration Checksum: NetGraph: c1253bb7 NumContArr: fc27a4f Constraints: f9c8ef25 Timing: 0
 
 Phase 2 Router Initialization
 
 Phase 2.1 Create Timer
-Phase 2.1 Create Timer | Checksum: 160907c80
+Phase 2.1 Create Timer | Checksum: 1cab0a52b
 
-Time (s): cpu = 00:00:19 ; elapsed = 00:00:07 . Memory (MB): peak = 5574.059 ; gain = 16.008 ; free physical = 99061 ; free virtual = 115597
+Time (s): cpu = 00:00:20 ; elapsed = 00:00:08 . Memory (MB): peak = 5695.652 ; gain = 16.008 ; free physical = 90991 ; free virtual = 113770
 
 Phase 2.2 Fix Topology Constraints
-Phase 2.2 Fix Topology Constraints | Checksum: 160907c80
+Phase 2.2 Fix Topology Constraints | Checksum: 1cab0a52b
 
-Time (s): cpu = 00:00:19 ; elapsed = 00:00:08 . Memory (MB): peak = 5574.059 ; gain = 16.008 ; free physical = 98992 ; free virtual = 115528
+Time (s): cpu = 00:00:20 ; elapsed = 00:00:08 . Memory (MB): peak = 5695.652 ; gain = 16.008 ; free physical = 90921 ; free virtual = 113701
 
 Phase 2.3 Pre Route Cleanup
-Phase 2.3 Pre Route Cleanup | Checksum: 160907c80
+Phase 2.3 Pre Route Cleanup | Checksum: 1cab0a52b
 
-Time (s): cpu = 00:00:19 ; elapsed = 00:00:08 . Memory (MB): peak = 5574.059 ; gain = 16.008 ; free physical = 98992 ; free virtual = 115528
+Time (s): cpu = 00:00:20 ; elapsed = 00:00:08 . Memory (MB): peak = 5695.652 ; gain = 16.008 ; free physical = 90921 ; free virtual = 113701
 
 Phase 2.4 Global Clock Net Routing
  Number of Nodes with overlaps = 0
-Phase 2.4 Global Clock Net Routing | Checksum: 20f079a1d
+Phase 2.4 Global Clock Net Routing | Checksum: 20fe7c379
 
-Time (s): cpu = 00:00:28 ; elapsed = 00:00:17 . Memory (MB): peak = 5614.715 ; gain = 56.664 ; free physical = 98974 ; free virtual = 115510
+Time (s): cpu = 00:00:27 ; elapsed = 00:00:15 . Memory (MB): peak = 5717.629 ; gain = 37.984 ; free physical = 90901 ; free virtual = 113681
 
 Phase 2.5 Update Timing
-Phase 2.5 Update Timing | Checksum: 21cd25296
+Phase 2.5 Update Timing | Checksum: 29621146c
 
-Time (s): cpu = 00:01:07 ; elapsed = 00:00:30 . Memory (MB): peak = 5614.715 ; gain = 56.664 ; free physical = 98924 ; free virtual = 115460
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=-2.343 | TNS=-101.659| WHS=-1.374 | THS=-374.869|
+Time (s): cpu = 00:01:09 ; elapsed = 00:00:29 . Memory (MB): peak = 5717.629 ; gain = 37.984 ; free physical = 90845 ; free virtual = 113624
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-1.289 | TNS=-54.245| WHS=-1.356 | THS=-423.879|
 
 
 Phase 2.6 Update Timing for Bus Skew
 
 Phase 2.6.1 Update Timing
-Phase 2.6.1 Update Timing | Checksum: 31315e342
+Phase 2.6.1 Update Timing | Checksum: 1f95b5180
 
-Time (s): cpu = 00:02:00 ; elapsed = 00:00:45 . Memory (MB): peak = 5641.715 ; gain = 83.664 ; free physical = 98900 ; free virtual = 115436
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=-2.343 | TNS=-95.269| WHS=N/A    | THS=N/A    |
+Time (s): cpu = 00:02:05 ; elapsed = 00:00:45 . Memory (MB): peak = 5739.629 ; gain = 59.984 ; free physical = 90822 ; free virtual = 113602
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-1.289 | TNS=-47.855| WHS=N/A    | THS=N/A    |
 
-Phase 2.6 Update Timing for Bus Skew | Checksum: 2b7b06957
+Phase 2.6 Update Timing for Bus Skew | Checksum: 1ec36121a
 
-Time (s): cpu = 00:02:00 ; elapsed = 00:00:46 . Memory (MB): peak = 5641.715 ; gain = 83.664 ; free physical = 98898 ; free virtual = 115434
-Phase 2 Router Initialization | Checksum: 2e4894526
+Time (s): cpu = 00:02:05 ; elapsed = 00:00:46 . Memory (MB): peak = 5739.629 ; gain = 59.984 ; free physical = 90821 ; free virtual = 113601
+Phase 2 Router Initialization | Checksum: 2ad580995
 
-Time (s): cpu = 00:02:00 ; elapsed = 00:00:46 . Memory (MB): peak = 5641.715 ; gain = 83.664 ; free physical = 98898 ; free virtual = 115434
+Time (s): cpu = 00:02:05 ; elapsed = 00:00:46 . Memory (MB): peak = 5739.629 ; gain = 59.984 ; free physical = 90821 ; free virtual = 113600
 
 Router Utilization Summary
   Global Vertical Routing Utilization    = 0.0014317 %
@@ -870,29 +883,29 @@ Router Utilization Summary
   Routable Net Status*
   *Does not include unroutable nets such as driverless and loadless.
   Run report_route_status for detailed report.
-  Number of Failed Nets               = 83482
+  Number of Failed Nets               = 88401
     (Failed Nets is the sum of unrouted and partially routed nets)
-  Number of Unrouted Nets             = 71818
-  Number of Partially Routed Nets     = 11664
+  Number of Unrouted Nets             = 75955
+  Number of Partially Routed Nets     = 12446
   Number of Node Overlaps             = 0
 
 
 Phase 3 Initial Routing
-Phase 3 Initial Routing | Checksum: 1edc562e2
+Phase 3 Initial Routing | Checksum: 2345968e0
 
-Time (s): cpu = 00:02:37 ; elapsed = 00:00:58 . Memory (MB): peak = 5735.395 ; gain = 177.344 ; free physical = 98833 ; free virtual = 115369
-INFO: [Route 35-580] Design has 45 pins with tight setup and hold constraints.
+Time (s): cpu = 00:02:47 ; elapsed = 00:01:00 . Memory (MB): peak = 5846.309 ; gain = 166.664 ; free physical = 90739 ; free virtual = 113518
+INFO: [Route 35-580] Design has 90 pins with tight setup and hold constraints.
 
 The top 5 pins with tight setup and hold constraints:
 
 +--------------------------+--------------------------+----------------------------------------------------------------------------------------------------------+
 |       Launch Clock       |      Capture Clock       |                                                 Pin                                                      |
 +--------------------------+--------------------------+----------------------------------------------------------------------------------------------------------+
-| clk_out2_62p5_clk_wiz_0_b65_mmcm_4 |           s_serDiv2Clk_7 |B64_S[2].Ad9229Core_b/GEN_DATA[6].Ad9229Deserializer_INST/U_SyncFifo/GEN_ASYNC.FifoAsync_1/U_rdIndex/GEN.SYNC_RST.crossDomainSyncReg_reg[2][0]/D|
-| clk_out2_62p5_clk_wiz_0_b65_mmcm_4 |           s_serDiv2Clk_7 |B64_S[2].Ad9229Core_b/GEN_DATA[6].Ad9229Deserializer_INST/U_SyncFifo/GEN_ASYNC.FifoAsync_1/U_rdIndex/GEN.SYNC_RST.crossDomainSyncReg_reg[0][0]/D|
-| clk_out2_62p5_clk_wiz_0_b65_mmcm_4 |           s_serDiv2Clk_7 |B64_S[2].Ad9229Core_b/GEN_DATA[6].Ad9229Deserializer_INST/U_SyncFifo/GEN_ASYNC.FifoAsync_1/U_rdIndex/GEN.SYNC_RST.crossDomainSyncReg_reg[1][0]/D|
-| clk_out2_62p5_clk_wiz_0_b65_mmcm_4 |           s_serDiv2Clk_7 |B64_S[2].Ad9229Core_b/GEN_DATA[7].Ad9229Deserializer_INST/U_SyncFifo/GEN_ASYNC.FifoAsync_1/U_rdRdy/GEN.SYNC_RST.crossDomainSyncReg_reg[0]/D|
-| clk_out2_62p5_clk_wiz_0_b65_mmcm_4 |           s_serDiv2Clk_7 |B64_S[2].Ad9229Core_b/GEN_DATA[5].Ad9229Deserializer_INST/U_SyncFifo/GEN_ASYNC.FifoAsync_1/U_rdIndex/GEN.SYNC_RST.crossDomainSyncReg_reg[2][0]/D|
+| clk_out2_62p5_clk_wiz_0_b65_mmcm_4 |           s_serDiv2Clk_6 |B64_S[2].Ad9229Core_b/GEN_DATA[0].Ad9229Deserializer_INST/U_SyncFifo/GEN_ASYNC.FifoAsync_1/U_rdIndex/GEN.SYNC_RST.crossDomainSyncReg_reg[0][0]/D|
+| clk_out2_62p5_clk_wiz_0_b65_mmcm_4 |           s_serDiv2Clk_6 |B64_S[2].Ad9229Core_b/GEN_DATA[6].Ad9229Deserializer_INST/U_SyncFifo/GEN_ASYNC.FifoAsync_1/U_rdIndex/GEN.SYNC_RST.crossDomainSyncReg_reg[2][0]/D|
+| clk_out2_62p5_clk_wiz_0_b65_mmcm_4 |           s_serDiv2Clk_6 |B64_S[2].Ad9229Core_b/GEN_DATA[4].Ad9229Deserializer_INST/U_SyncFifo/GEN_ASYNC.FifoAsync_1/U_rdIndex/GEN.SYNC_RST.crossDomainSyncReg_reg[2][0]/D|
+| clk_out2_62p5_clk_wiz_0_b65_mmcm_4 |           s_serDiv2Clk_6 |B64_S[2].Ad9229Core_b/GEN_DATA[0].Ad9229Deserializer_INST/U_SyncFifo/GEN_ASYNC.FifoAsync_1/U_rdIndex/GEN.SYNC_RST.crossDomainSyncReg_reg[2][0]/D|
+| clk_out2_62p5_clk_wiz_0_b65_mmcm_4 |           s_serDiv2Clk_6 |B64_S[2].Ad9229Core_b/GEN_DATA[2].Ad9229Deserializer_INST/U_SyncFifo/GEN_ASYNC.FifoAsync_1/U_rdIndex/GEN.SYNC_RST.crossDomainSyncReg_reg[1][0]/D|
 +--------------------------+--------------------------+----------------------------------------------------------------------------------------------------------+
 
 File with complete list of pins: tight_setup_hold_pins.txt
@@ -901,91 +914,97 @@ File with complete list of pins: tight_setup_hold_pins.txt
 Phase 4 Rip-up And Reroute
 
 Phase 4.1 Global Iteration 0
- Number of Nodes with overlaps = 17267
- Number of Nodes with overlaps = 1599
+ Number of Nodes with overlaps = 19171
+ Number of Nodes with overlaps = 1748
  Number of Nodes with overlaps = 239
- Number of Nodes with overlaps = 47
- Number of Nodes with overlaps = 6
- Number of Nodes with overlaps = 0
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=-2.202 | TNS=-95.188| WHS=-0.482 | THS=-63.164|
-
-Phase 4.1 Global Iteration 0 | Checksum: 11bcd935d
-
-Time (s): cpu = 00:05:19 ; elapsed = 00:01:56 . Memory (MB): peak = 5735.395 ; gain = 177.344 ; free physical = 98795 ; free virtual = 115331
-
-Phase 4.2 Global Iteration 1
- Number of Nodes with overlaps = 321
- Number of Nodes with overlaps = 49
- Number of Nodes with overlaps = 10
- Number of Nodes with overlaps = 3
- Number of Nodes with overlaps = 0
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=-2.202 | TNS=-95.188| WHS=N/A    | THS=N/A    |
-
-Phase 4.2 Global Iteration 1 | Checksum: 1e18ee41c
-
-Time (s): cpu = 00:05:39 ; elapsed = 00:02:12 . Memory (MB): peak = 5735.395 ; gain = 177.344 ; free physical = 98810 ; free virtual = 115346
-
-Phase 4.3 Global Iteration 2
- Number of Nodes with overlaps = 247
- Number of Nodes with overlaps = 34
- Number of Nodes with overlaps = 10
- Number of Nodes with overlaps = 4
+ Number of Nodes with overlaps = 71
+ Number of Nodes with overlaps = 12
+ Number of Nodes with overlaps = 2
  Number of Nodes with overlaps = 1
  Number of Nodes with overlaps = 0
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=-2.202 | TNS=-95.188| WHS=N/A    | THS=N/A    |
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-1.148 | TNS=-47.774| WHS=-0.499 | THS=-50.230|
 
-Phase 4.3 Global Iteration 2 | Checksum: 22e54f4cf
+Phase 4.1 Global Iteration 0 | Checksum: 2d9c0500e
 
-Time (s): cpu = 00:05:52 ; elapsed = 00:02:22 . Memory (MB): peak = 5735.395 ; gain = 177.344 ; free physical = 98809 ; free virtual = 115345
-Phase 4 Rip-up And Reroute | Checksum: 22e54f4cf
+Time (s): cpu = 00:06:00 ; elapsed = 00:02:13 . Memory (MB): peak = 5932.309 ; gain = 252.664 ; free physical = 87538 ; free virtual = 113259
 
-Time (s): cpu = 00:05:53 ; elapsed = 00:02:23 . Memory (MB): peak = 5735.395 ; gain = 177.344 ; free physical = 98809 ; free virtual = 115345
+Phase 4.2 Global Iteration 1
+ Number of Nodes with overlaps = 603
+ Number of Nodes with overlaps = 113
+ Number of Nodes with overlaps = 31
+ Number of Nodes with overlaps = 11
+ Number of Nodes with overlaps = 2
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-1.148 | TNS=-47.774| WHS=N/A    | THS=N/A    |
+
+Phase 4.2 Global Iteration 1 | Checksum: 339e87b57
+
+Time (s): cpu = 00:06:27 ; elapsed = 00:02:32 . Memory (MB): peak = 5932.309 ; gain = 252.664 ; free physical = 87547 ; free virtual = 113264
+
+Phase 4.3 Global Iteration 2
+ Number of Nodes with overlaps = 506
+ Number of Nodes with overlaps = 96
+ Number of Nodes with overlaps = 32
+ Number of Nodes with overlaps = 8
+ Number of Nodes with overlaps = 4
+ Number of Nodes with overlaps = 1
+ Number of Nodes with overlaps = 1
+ Number of Nodes with overlaps = 1
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-1.148 | TNS=-47.774| WHS=N/A    | THS=N/A    |
+
+Phase 4.3 Global Iteration 2 | Checksum: 27d421e8a
+
+Time (s): cpu = 00:06:50 ; elapsed = 00:02:50 . Memory (MB): peak = 5932.309 ; gain = 252.664 ; free physical = 87557 ; free virtual = 113274
+Phase 4 Rip-up And Reroute | Checksum: 27d421e8a
+
+Time (s): cpu = 00:06:51 ; elapsed = 00:02:50 . Memory (MB): peak = 5932.309 ; gain = 252.664 ; free physical = 87557 ; free virtual = 113274
 
 Phase 5 Delay and Skew Optimization
 
 Phase 5.1 Delay CleanUp
 
 Phase 5.1.1 Update Timing
-Phase 5.1.1 Update Timing | Checksum: 2b42f9d78
+Phase 5.1.1 Update Timing | Checksum: 237ea2125
 
-Time (s): cpu = 00:06:13 ; elapsed = 00:02:32 . Memory (MB): peak = 5735.395 ; gain = 177.344 ; free physical = 98815 ; free virtual = 115352
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=-2.202 | TNS=-95.188| WHS=-0.006 | THS=-0.006 |
+Time (s): cpu = 00:07:12 ; elapsed = 00:03:00 . Memory (MB): peak = 5932.309 ; gain = 252.664 ; free physical = 87558 ; free virtual = 113281
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-1.148 | TNS=-47.774| WHS=-0.027 | THS=-0.041 |
 
  Number of Nodes with overlaps = 0
-Phase 5.1 Delay CleanUp | Checksum: 269ecf5ea
+Phase 5.1 Delay CleanUp | Checksum: 287ec2a6e
 
-Time (s): cpu = 00:06:15 ; elapsed = 00:02:33 . Memory (MB): peak = 5735.395 ; gain = 177.344 ; free physical = 98813 ; free virtual = 115349
+Time (s): cpu = 00:07:14 ; elapsed = 00:03:01 . Memory (MB): peak = 5932.309 ; gain = 252.664 ; free physical = 87554 ; free virtual = 113277
 
 Phase 5.2 Clock Skew Optimization
-Phase 5.2 Clock Skew Optimization | Checksum: 269ecf5ea
+Phase 5.2 Clock Skew Optimization | Checksum: 287ec2a6e
 
-Time (s): cpu = 00:06:15 ; elapsed = 00:02:33 . Memory (MB): peak = 5735.395 ; gain = 177.344 ; free physical = 98813 ; free virtual = 115349
-Phase 5 Delay and Skew Optimization | Checksum: 269ecf5ea
+Time (s): cpu = 00:07:14 ; elapsed = 00:03:01 . Memory (MB): peak = 5932.309 ; gain = 252.664 ; free physical = 87554 ; free virtual = 113277
+Phase 5 Delay and Skew Optimization | Checksum: 287ec2a6e
 
-Time (s): cpu = 00:06:15 ; elapsed = 00:02:33 . Memory (MB): peak = 5735.395 ; gain = 177.344 ; free physical = 98813 ; free virtual = 115349
+Time (s): cpu = 00:07:15 ; elapsed = 00:03:01 . Memory (MB): peak = 5932.309 ; gain = 252.664 ; free physical = 87554 ; free virtual = 113277
 
 Phase 6 Post Hold Fix
 
 Phase 6.1 Hold Fix Iter
 
 Phase 6.1.1 Update Timing
-Phase 6.1.1 Update Timing | Checksum: 28e5fa9db
+Phase 6.1.1 Update Timing | Checksum: 2a6d83705
 
-Time (s): cpu = 00:06:30 ; elapsed = 00:02:41 . Memory (MB): peak = 5735.395 ; gain = 177.344 ; free physical = 98816 ; free virtual = 115352
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=-2.202 | TNS=-95.188| WHS=-0.006 | THS=-0.006 |
+Time (s): cpu = 00:07:31 ; elapsed = 00:03:09 . Memory (MB): peak = 5932.309 ; gain = 252.664 ; free physical = 87551 ; free virtual = 113273
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-1.148 | TNS=-47.774| WHS=-0.027 | THS=-0.041 |
 
-Phase 6.1 Hold Fix Iter | Checksum: 28411defe
+Phase 6.1 Hold Fix Iter | Checksum: 2fb361bd1
 
-Time (s): cpu = 00:06:32 ; elapsed = 00:02:42 . Memory (MB): peak = 5799.395 ; gain = 241.344 ; free physical = 98752 ; free virtual = 115288
-Phase 6 Post Hold Fix | Checksum: 23725ac43
+Time (s): cpu = 00:07:33 ; elapsed = 00:03:11 . Memory (MB): peak = 5932.309 ; gain = 252.664 ; free physical = 87506 ; free virtual = 113229
+Phase 6 Post Hold Fix | Checksum: 2e65110c2
 
-Time (s): cpu = 00:06:33 ; elapsed = 00:02:42 . Memory (MB): peak = 5799.395 ; gain = 241.344 ; free physical = 98754 ; free virtual = 115290
+Time (s): cpu = 00:07:33 ; elapsed = 00:03:11 . Memory (MB): peak = 5932.309 ; gain = 252.664 ; free physical = 87509 ; free virtual = 113229
 
 Phase 7 Route finalize
 
 Router Utilization Summary
-  Global Vertical Routing Utilization    = 6.78844 %
-  Global Horizontal Routing Utilization  = 5.31405 %
+  Global Vertical Routing Utilization    = 6.45256 %
+  Global Horizontal Routing Utilization  = 5.55212 %
   Routable Net Status*
   *Does not include unroutable nets such as driverless and loadless.
   Run report_route_status for detailed report.
@@ -996,10 +1015,10 @@ Router Utilization Summary
   Number of Node Overlaps             = 0
 
 Congestion Report
-North Dir 1x1 Area, Max Cong = 62.7358%, No Congested Regions.
-South Dir 1x1 Area, Max Cong = 68.2464%, No Congested Regions.
-East Dir 1x1 Area, Max Cong = 58.6538%, No Congested Regions.
-West Dir 1x1 Area, Max Cong = 55.7692%, No Congested Regions.
+North Dir 1x1 Area, Max Cong = 72.77%, No Congested Regions.
+South Dir 1x1 Area, Max Cong = 66.3507%, No Congested Regions.
+East Dir 1x1 Area, Max Cong = 66.3462%, No Congested Regions.
+West Dir 1x1 Area, Max Cong = 60.5769%, No Congested Regions.
 
 ------------------------------
 Reporting congestion hotspots
@@ -1021,91 +1040,92 @@ Direction: West
 Congested clusters found at Level 0
 Effective congestion level: 0 Aspect Ratio: 1 Sparse Ratio: 0
 
-Phase 7 Route finalize | Checksum: 2924b814e
+Phase 7 Route finalize | Checksum: 241218be0
 
-Time (s): cpu = 00:06:34 ; elapsed = 00:02:43 . Memory (MB): peak = 5799.395 ; gain = 241.344 ; free physical = 98752 ; free virtual = 115289
+Time (s): cpu = 00:07:34 ; elapsed = 00:03:11 . Memory (MB): peak = 5932.309 ; gain = 252.664 ; free physical = 87506 ; free virtual = 113228
 
 Phase 8 Verifying routed nets
 
  Verification completed successfully
-Phase 8 Verifying routed nets | Checksum: 2924b814e
+Phase 8 Verifying routed nets | Checksum: 241218be0
 
-Time (s): cpu = 00:06:34 ; elapsed = 00:02:43 . Memory (MB): peak = 5799.395 ; gain = 241.344 ; free physical = 98751 ; free virtual = 115287
+Time (s): cpu = 00:07:35 ; elapsed = 00:03:12 . Memory (MB): peak = 5932.309 ; gain = 252.664 ; free physical = 87504 ; free virtual = 113226
 
 Phase 9 Depositing Routes
-Phase 9 Depositing Routes | Checksum: 2924b814e
+Phase 9 Depositing Routes | Checksum: 241218be0
 
-Time (s): cpu = 00:06:38 ; elapsed = 00:02:47 . Memory (MB): peak = 5799.395 ; gain = 241.344 ; free physical = 98753 ; free virtual = 115289
+Time (s): cpu = 00:07:39 ; elapsed = 00:03:16 . Memory (MB): peak = 5932.309 ; gain = 252.664 ; free physical = 87518 ; free virtual = 113235
 
 Phase 10 Post Router Timing
 
 Phase 10.1 Update Timing
-Phase 10.1 Update Timing | Checksum: 272a25d4b
+Phase 10.1 Update Timing | Checksum: 24b7fe5d4
 
-Time (s): cpu = 00:06:54 ; elapsed = 00:02:55 . Memory (MB): peak = 5799.395 ; gain = 241.344 ; free physical = 98762 ; free virtual = 115298
-INFO: [Route 35-57] Estimated Timing Summary | WNS=-2.202 | TNS=-95.188| WHS=0.010  | THS=0.000  |
+Time (s): cpu = 00:07:55 ; elapsed = 00:03:24 . Memory (MB): peak = 5932.309 ; gain = 252.664 ; free physical = 87520 ; free virtual = 113244
+INFO: [Route 35-57] Estimated Timing Summary | WNS=-1.148 | TNS=-47.774| WHS=0.010  | THS=0.000  |
 
 WARNING: [Route 35-328] Router estimated timing not met.
 Resolution: For a complete and accurate timing signoff, report_timing_summary must be run after route_design. Alternatively, route_design can be run with the -timing_summary option to enable a complete timing signoff at the end of route_design.
-Phase 10 Post Router Timing | Checksum: 272a25d4b
+Phase 10 Post Router Timing | Checksum: 24b7fe5d4
 
-Time (s): cpu = 00:06:54 ; elapsed = 00:02:55 . Memory (MB): peak = 5799.395 ; gain = 241.344 ; free physical = 98762 ; free virtual = 115298
+Time (s): cpu = 00:07:56 ; elapsed = 00:03:25 . Memory (MB): peak = 5932.309 ; gain = 252.664 ; free physical = 87520 ; free virtual = 113244
 Time taken to check if laguna hold fix is required (in secs): 0
 
 Phase 11 Physical Synthesis in Router
 
 Phase 11.1 Physical Synthesis Initialization
-INFO: [Physopt 32-668] Current Timing Summary | WNS=-2.202 | TNS=-95.188 | WHS=0.010 | THS=0.000 |
-Phase 11.1 Physical Synthesis Initialization | Checksum: 272a25d4b
+INFO: [Physopt 32-668] Current Timing Summary | WNS=-1.148 | TNS=-47.774 | WHS=0.010 | THS=0.000 |
+Phase 11.1 Physical Synthesis Initialization | Checksum: 24b7fe5d4
 
-Time (s): cpu = 00:07:36 ; elapsed = 00:03:08 . Memory (MB): peak = 5799.395 ; gain = 241.344 ; free physical = 98696 ; free virtual = 115232
+Time (s): cpu = 00:08:41 ; elapsed = 00:03:38 . Memory (MB): peak = 5932.309 ; gain = 252.664 ; free physical = 87453 ; free virtual = 113176
 WARNING: [Physopt 32-745] Physical Optimization has determined that the magnitude of the negative slack is too large and it is highly unlikely that slack will be improved. Post-Route Physical Optimization is most effective when WNS is above -0.5ns
 
 Phase 11.2 Critical Path Optimization
-INFO: [Physopt 32-668] Current Timing Summary | WNS=-2.202 | TNS=-95.188 | WHS=0.010 | THS=0.000 |
+INFO: [Physopt 32-668] Current Timing Summary | WNS=-1.148 | TNS=-47.774 | WHS=0.010 | THS=0.000 |
 INFO: [Physopt 32-953] Path group WNS did not improve. Path group: clk_out1_375p0_clk_wiz_0_b65_mmcm_4. Processed net: B64_S[2].Ad9229Core_b/GEN_DATA[0].Ad9229Deserializer_INST/s_serdesData[0].
 INFO: [Physopt 32-953] Path group WNS did not improve. Path group: clk_out1_375p0_clk_wiz_0_b65_mmcm_4. Processed net: B64_S[2].Ad9229Core_b/GEN_DATA[0].Ad9229Deserializer_INST/s_iDataDly.
 INFO: [Physopt 32-953] Path group WNS did not improve. Path group: clk_out1_375p0_clk_wiz_0_b65_mmcm_5. Processed net: B64_S[3].Ad9229Core_b/GEN_DATA[2].Ad9229Deserializer_INST/s_serdesData[0].
 INFO: [Physopt 32-953] Path group WNS did not improve. Path group: clk_out1_375p0_clk_wiz_0_b65_mmcm_5. Processed net: B64_S[3].Ad9229Core_b/GEN_DATA[2].Ad9229Deserializer_INST/s_iDataDly.
 INFO: [Physopt 32-953] Path group WNS did not improve. Path group: clk_out1_375p0_clk_wiz_0_b65_mmcm_3. Processed net: B64_S[0].Ad9229Core_b/Ad9229Deserializer_INST/s_serdesData[0].
 INFO: [Physopt 32-953] Path group WNS did not improve. Path group: clk_out1_375p0_clk_wiz_0_b65_mmcm_3. Processed net: B64_S[0].Ad9229Core_b/Ad9229Deserializer_INST/s_iDataDly.
-INFO: [Physopt 32-668] Current Timing Summary | WNS=-2.202 | TNS=-95.188 | WHS=0.010 | THS=0.000 |
-Phase 11.2 Critical Path Optimization | Checksum: 272a25d4b
+INFO: [Physopt 32-668] Current Timing Summary | WNS=-1.148 | TNS=-47.774 | WHS=0.010 | THS=0.000 |
+Phase 11.2 Critical Path Optimization | Checksum: 24b7fe5d4
 
-Time (s): cpu = 00:07:50 ; elapsed = 00:03:13 . Memory (MB): peak = 5837.039 ; gain = 278.988 ; free physical = 98673 ; free virtual = 115209
-Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 5837.039 ; gain = 0.000 ; free physical = 98671 ; free virtual = 115208
-INFO: [Physopt 32-669] Post Physical Optimization Timing Summary | WNS=-2.202 | TNS=-95.188 | WHS=0.010 | THS=0.000 |
-Phase 11 Physical Synthesis in Router | Checksum: 272a25d4b
+Time (s): cpu = 00:08:55 ; elapsed = 00:03:44 . Memory (MB): peak = 5963.211 ; gain = 283.566 ; free physical = 87424 ; free virtual = 113150
+Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 5963.211 ; gain = 0.000 ; free physical = 87426 ; free virtual = 113149
+INFO: [Physopt 32-669] Post Physical Optimization Timing Summary | WNS=-1.148 | TNS=-47.774 | WHS=0.010 | THS=0.000 |
+Phase 11 Physical Synthesis in Router | Checksum: 24b7fe5d4
 
-Time (s): cpu = 00:07:51 ; elapsed = 00:03:14 . Memory (MB): peak = 5837.039 ; gain = 278.988 ; free physical = 98674 ; free virtual = 115210
+Time (s): cpu = 00:08:57 ; elapsed = 00:03:45 . Memory (MB): peak = 5963.211 ; gain = 283.566 ; free physical = 87435 ; free virtual = 113158
 INFO: [Route 35-16] Router Completed Successfully
 
-Time (s): cpu = 00:07:51 ; elapsed = 00:03:15 . Memory (MB): peak = 5837.039 ; gain = 278.988 ; free physical = 98867 ; free virtual = 115403
+Time (s): cpu = 00:08:57 ; elapsed = 00:03:45 . Memory (MB): peak = 5963.211 ; gain = 283.566 ; free physical = 87648 ; free virtual = 113371
 INFO: [Common 17-83] Releasing license: Implementation
-177 Infos, 12 Warnings, 3 Critical Warnings and 0 Errors encountered.
+196 Infos, 12 Warnings, 3 Critical Warnings and 0 Errors encountered.
 route_design completed successfully
-route_design: Time (s): cpu = 00:08:01 ; elapsed = 00:03:19 . Memory (MB): peak = 5837.039 ; gain = 278.988 ; free physical = 98867 ; free virtual = 115403
+route_design: Time (s): cpu = 00:09:08 ; elapsed = 00:03:49 . Memory (MB): peak = 5963.211 ; gain = 283.566 ; free physical = 87648 ; free virtual = 113371
 INFO: [Timing 38-480] Writing timing data to binary archive.
 Writing placer database...
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:13 ; elapsed = 00:00:04 . Memory (MB): peak = 5837.039 ; gain = 0.000 ; free physical = 98635 ; free virtual = 115354
+Write XDEF Complete: Time (s): cpu = 00:00:14 ; elapsed = 00:00:04 . Memory (MB): peak = 5963.211 ; gain = 0.000 ; free physical = 87399 ; free virtual = 113312
 INFO: [Common 17-1381] The checkpoint '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.runs/MercuryNuPRISM_impl/system_top_routed.dcp' has been generated.
-write_checkpoint: Time (s): cpu = 00:00:28 ; elapsed = 00:00:16 . Memory (MB): peak = 5837.039 ; gain = 0.000 ; free physical = 98801 ; free virtual = 115393
+write_checkpoint: Time (s): cpu = 00:00:30 ; elapsed = 00:00:17 . Memory (MB): peak = 5963.211 ; gain = 0.000 ; free physical = 87545 ; free virtual = 113333
 INFO: [runtcl-4] Executing : report_drc -file system_top_drc_routed.rpt -pb system_top_drc_routed.pb -rpx system_top_drc_routed.rpx
 Command: report_drc -file system_top_drc_routed.rpt -pb system_top_drc_routed.pb -rpx system_top_drc_routed.rpx
 INFO: [IP_Flow 19-1839] IP Catalog is up to date.
 INFO: [DRC 23-27] Running DRC with 8 threads
 INFO: [Coretcl 2-168] The results of DRC are in file /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.runs/MercuryNuPRISM_impl/system_top_drc_routed.rpt.
 report_drc completed successfully
+report_drc: Time (s): cpu = 00:00:22 ; elapsed = 00:00:05 . Memory (MB): peak = 6036.148 ; gain = 72.938 ; free physical = 87543 ; free virtual = 113328
 INFO: [runtcl-4] Executing : report_methodology -file system_top_methodology_drc_routed.rpt -pb system_top_methodology_drc_routed.pb -rpx system_top_methodology_drc_routed.rpx
 Command: report_methodology -file system_top_methodology_drc_routed.rpt -pb system_top_methodology_drc_routed.pb -rpx system_top_methodology_drc_routed.rpx
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 INFO: [DRC 23-133] Running Methodology with 8 threads
 INFO: [Coretcl 2-1520] The results of Report Methodology are in file /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.runs/MercuryNuPRISM_impl/system_top_methodology_drc_routed.rpt.
 report_methodology completed successfully
-report_methodology: Time (s): cpu = 00:00:45 ; elapsed = 00:00:15 . Memory (MB): peak = 5987.918 ; gain = 70.973 ; free physical = 98797 ; free virtual = 115389
+report_methodology: Time (s): cpu = 00:00:51 ; elapsed = 00:00:16 . Memory (MB): peak = 6083.121 ; gain = 46.973 ; free physical = 87497 ; free virtual = 113302
 INFO: [runtcl-4] Executing : report_power -file system_top_power_routed.rpt -pb system_top_power_summary_routed.pb -rpx system_top_power_routed.rpx
 Command: report_power -file system_top_power_routed.rpt -pb system_top_power_summary_routed.pb -rpx system_top_power_routed.rpx
 INFO: [Timing 38-35] Done setting XDC timing constraints.
@@ -1114,13 +1134,103 @@ Running Vector-less Activity Propagation...
 Finished Running Vector-less Activity Propagation
 WARNING: [Power 33-332] Found switching activity that implies high-fanout reset nets being asserted for excessive periods of time which may result in inaccurate power analysis.
 Resolution: To review and fix problems, please run Power Constraints Advisor in the GUI from Tools > Power Constraints Advisor or run report_power with the -advisory option to generate a text report.
-189 Infos, 13 Warnings, 3 Critical Warnings and 0 Errors encountered.
+208 Infos, 13 Warnings, 3 Critical Warnings and 0 Errors encountered.
 report_power completed successfully
-report_power: Time (s): cpu = 00:00:46 ; elapsed = 00:00:20 . Memory (MB): peak = 6011.930 ; gain = 24.012 ; free physical = 98700 ; free virtual = 115308
+report_power: Time (s): cpu = 00:00:49 ; elapsed = 00:00:21 . Memory (MB): peak = 6107.133 ; gain = 24.012 ; free physical = 87384 ; free virtual = 113209
 INFO: [runtcl-4] Executing : report_route_status -file system_top_route_status.rpt -pb system_top_route_status.pb
 INFO: [runtcl-4] Executing : report_timing_summary -max_paths 10 -file system_top_timing_summary_routed.rpt -pb system_top_timing_summary_routed.pb -rpx system_top_timing_summary_routed.rpx -warn_on_violation 
 INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Temperature grade: I, Delay Type: min_max.
 INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 8 CPUs
+CRITICAL WARNING: [Timing 38-470] The REFCLK pin of IDELAYCTRL U_Delay_Controller has a clock period of 5.000 ns (frequency 200.000 Mhz) and IDELAYE3 B64_S[0].Ad9229Core_b/Ad9229Deserializer_INST/U_DELAY within its nibble has DELAY_FORMAT set to TIME with REFCLK_FREQUENCY of 375.000 Mhz (period 2.667 ns). The IDELAYCTRL REFCLK pin frequency must match the IDELAYE3 REFCLK_FREQUENCY property value when DELAY_FORMAT TIME is used.
+Resolution: Check that the IDELAYCTRL REFCLK pin is receiving a clock and that the period of the clock matches the REFCLK_FREQUENCY property of the <IDELAYE3/ODELAYE3>.
+CRITICAL WARNING: [Timing 38-470] The REFCLK pin of IDELAYCTRL U_Delay_Controller has a clock period of 5.000 ns (frequency 200.000 Mhz) and IDELAYE3 B64_S[0].Ad9229Core_b/GEN_DATA[0].Ad9229Deserializer_INST/U_DELAY within its nibble has DELAY_FORMAT set to TIME with REFCLK_FREQUENCY of 375.000 Mhz (period 2.667 ns). The IDELAYCTRL REFCLK pin frequency must match the IDELAYE3 REFCLK_FREQUENCY property value when DELAY_FORMAT TIME is used.
+Resolution: Check that the IDELAYCTRL REFCLK pin is receiving a clock and that the period of the clock matches the REFCLK_FREQUENCY property of the <IDELAYE3/ODELAYE3>.
+CRITICAL WARNING: [Timing 38-470] The REFCLK pin of IDELAYCTRL U_Delay_Controller has a clock period of 5.000 ns (frequency 200.000 Mhz) and IDELAYE3 B64_S[0].Ad9229Core_b/GEN_DATA[1].Ad9229Deserializer_INST/U_DELAY within its nibble has DELAY_FORMAT set to TIME with REFCLK_FREQUENCY of 375.000 Mhz (period 2.667 ns). The IDELAYCTRL REFCLK pin frequency must match the IDELAYE3 REFCLK_FREQUENCY property value when DELAY_FORMAT TIME is used.
+Resolution: Check that the IDELAYCTRL REFCLK pin is receiving a clock and that the period of the clock matches the REFCLK_FREQUENCY property of the <IDELAYE3/ODELAYE3>.
+CRITICAL WARNING: [Timing 38-470] The REFCLK pin of IDELAYCTRL U_Delay_Controller_REPLICATED_0_11 has a clock period of 5.000 ns (frequency 200.000 Mhz) and IDELAYE3 B64_S[3].Ad9229Core_b/Ad9229Deserializer_INST/U_DELAY within its nibble has DELAY_FORMAT set to TIME with REFCLK_FREQUENCY of 375.000 Mhz (period 2.667 ns). The IDELAYCTRL REFCLK pin frequency must match the IDELAYE3 REFCLK_FREQUENCY property value when DELAY_FORMAT TIME is used.
+Resolution: Check that the IDELAYCTRL REFCLK pin is receiving a clock and that the period of the clock matches the REFCLK_FREQUENCY property of the <IDELAYE3/ODELAYE3>.
+CRITICAL WARNING: [Timing 38-470] The REFCLK pin of IDELAYCTRL U_Delay_Controller_REPLICATED_0_11 has a clock period of 5.000 ns (frequency 200.000 Mhz) and IDELAYE3 B64_S[3].Ad9229Core_b/GEN_DATA[3].Ad9229Deserializer_INST/U_DELAY within its nibble has DELAY_FORMAT set to TIME with REFCLK_FREQUENCY of 375.000 Mhz (period 2.667 ns). The IDELAYCTRL REFCLK pin frequency must match the IDELAYE3 REFCLK_FREQUENCY property value when DELAY_FORMAT TIME is used.
+Resolution: Check that the IDELAYCTRL REFCLK pin is receiving a clock and that the period of the clock matches the REFCLK_FREQUENCY property of the <IDELAYE3/ODELAYE3>.
+CRITICAL WARNING: [Timing 38-470] The REFCLK pin of IDELAYCTRL U_Delay_Controller_REPLICATED_0_11 has a clock period of 5.000 ns (frequency 200.000 Mhz) and IDELAYE3 B64_S[3].Ad9229Core_b/GEN_DATA[4].Ad9229Deserializer_INST/U_DELAY within its nibble has DELAY_FORMAT set to TIME with REFCLK_FREQUENCY of 375.000 Mhz (period 2.667 ns). The IDELAYCTRL REFCLK pin frequency must match the IDELAYE3 REFCLK_FREQUENCY property value when DELAY_FORMAT TIME is used.
+Resolution: Check that the IDELAYCTRL REFCLK pin is receiving a clock and that the period of the clock matches the REFCLK_FREQUENCY property of the <IDELAYE3/ODELAYE3>.
+CRITICAL WARNING: [Timing 38-470] The REFCLK pin of IDELAYCTRL U_Delay_Controller_REPLICATED_0 has a clock period of 5.000 ns (frequency 200.000 Mhz) and IDELAYE3 B64_S[0].Ad9229Core_b/GEN_DATA[2].Ad9229Deserializer_INST/U_DELAY within its nibble has DELAY_FORMAT set to TIME with REFCLK_FREQUENCY of 375.000 Mhz (period 2.667 ns). The IDELAYCTRL REFCLK pin frequency must match the IDELAYE3 REFCLK_FREQUENCY property value when DELAY_FORMAT TIME is used.
+Resolution: Check that the IDELAYCTRL REFCLK pin is receiving a clock and that the period of the clock matches the REFCLK_FREQUENCY property of the <IDELAYE3/ODELAYE3>.
+CRITICAL WARNING: [Timing 38-470] The REFCLK pin of IDELAYCTRL U_Delay_Controller_REPLICATED_0 has a clock period of 5.000 ns (frequency 200.000 Mhz) and IDELAYE3 B64_S[0].Ad9229Core_b/GEN_DATA[5].Ad9229Deserializer_INST/U_DELAY within its nibble has DELAY_FORMAT set to TIME with REFCLK_FREQUENCY of 375.000 Mhz (period 2.667 ns). The IDELAYCTRL REFCLK pin frequency must match the IDELAYE3 REFCLK_FREQUENCY property value when DELAY_FORMAT TIME is used.
+Resolution: Check that the IDELAYCTRL REFCLK pin is receiving a clock and that the period of the clock matches the REFCLK_FREQUENCY property of the <IDELAYE3/ODELAYE3>.
+CRITICAL WARNING: [Timing 38-470] The REFCLK pin of IDELAYCTRL U_Delay_Controller_REPLICATED_0 has a clock period of 5.000 ns (frequency 200.000 Mhz) and IDELAYE3 B64_S[0].Ad9229Core_b/GEN_DATA[7].Ad9229Deserializer_INST/U_DELAY within its nibble has DELAY_FORMAT set to TIME with REFCLK_FREQUENCY of 375.000 Mhz (period 2.667 ns). The IDELAYCTRL REFCLK pin frequency must match the IDELAYE3 REFCLK_FREQUENCY property value when DELAY_FORMAT TIME is used.
+Resolution: Check that the IDELAYCTRL REFCLK pin is receiving a clock and that the period of the clock matches the REFCLK_FREQUENCY property of the <IDELAYE3/ODELAYE3>.
+CRITICAL WARNING: [Timing 38-470] The REFCLK pin of IDELAYCTRL U_Delay_Controller_REPLICATED_0_3 has a clock period of 5.000 ns (frequency 200.000 Mhz) and IDELAYE3 B64_S[1].Ad9229Core_b/Ad9229Deserializer_INST/U_DELAY within its nibble has DELAY_FORMAT set to TIME with REFCLK_FREQUENCY of 375.000 Mhz (period 2.667 ns). The IDELAYCTRL REFCLK pin frequency must match the IDELAYE3 REFCLK_FREQUENCY property value when DELAY_FORMAT TIME is used.
+Resolution: Check that the IDELAYCTRL REFCLK pin is receiving a clock and that the period of the clock matches the REFCLK_FREQUENCY property of the <IDELAYE3/ODELAYE3>.
+CRITICAL WARNING: [Timing 38-470] The REFCLK pin of IDELAYCTRL U_Delay_Controller_REPLICATED_0_3 has a clock period of 5.000 ns (frequency 200.000 Mhz) and IDELAYE3 B64_S[1].Ad9229Core_b/GEN_DATA[3].Ad9229Deserializer_INST/U_DELAY within its nibble has DELAY_FORMAT set to TIME with REFCLK_FREQUENCY of 375.000 Mhz (period 2.667 ns). The IDELAYCTRL REFCLK pin frequency must match the IDELAYE3 REFCLK_FREQUENCY property value when DELAY_FORMAT TIME is used.
+Resolution: Check that the IDELAYCTRL REFCLK pin is receiving a clock and that the period of the clock matches the REFCLK_FREQUENCY property of the <IDELAYE3/ODELAYE3>.
+CRITICAL WARNING: [Timing 38-470] The REFCLK pin of IDELAYCTRL U_Delay_Controller_REPLICATED_0_3 has a clock period of 5.000 ns (frequency 200.000 Mhz) and IDELAYE3 B64_S[1].Ad9229Core_b/GEN_DATA[4].Ad9229Deserializer_INST/U_DELAY within its nibble has DELAY_FORMAT set to TIME with REFCLK_FREQUENCY of 375.000 Mhz (period 2.667 ns). The IDELAYCTRL REFCLK pin frequency must match the IDELAYE3 REFCLK_FREQUENCY property value when DELAY_FORMAT TIME is used.
+Resolution: Check that the IDELAYCTRL REFCLK pin is receiving a clock and that the period of the clock matches the REFCLK_FREQUENCY property of the <IDELAYE3/ODELAYE3>.
+CRITICAL WARNING: [Timing 38-470] The REFCLK pin of IDELAYCTRL U_Delay_Controller_REPLICATED_0_10 has a clock period of 5.000 ns (frequency 200.000 Mhz) and IDELAYE3 B64_S[2].Ad9229Core_b/GEN_DATA[6].Ad9229Deserializer_INST/U_DELAY within its nibble has DELAY_FORMAT set to TIME with REFCLK_FREQUENCY of 375.000 Mhz (period 2.667 ns). The IDELAYCTRL REFCLK pin frequency must match the IDELAYE3 REFCLK_FREQUENCY property value when DELAY_FORMAT TIME is used.
+Resolution: Check that the IDELAYCTRL REFCLK pin is receiving a clock and that the period of the clock matches the REFCLK_FREQUENCY property of the <IDELAYE3/ODELAYE3>.
+CRITICAL WARNING: [Timing 38-470] The REFCLK pin of IDELAYCTRL U_Delay_Controller_REPLICATED_0_8 has a clock period of 5.000 ns (frequency 200.000 Mhz) and IDELAYE3 B64_S[2].Ad9229Core_b/GEN_DATA[0].Ad9229Deserializer_INST/U_DELAY within its nibble has DELAY_FORMAT set to TIME with REFCLK_FREQUENCY of 375.000 Mhz (period 2.667 ns). The IDELAYCTRL REFCLK pin frequency must match the IDELAYE3 REFCLK_FREQUENCY property value when DELAY_FORMAT TIME is used.
+Resolution: Check that the IDELAYCTRL REFCLK pin is receiving a clock and that the period of the clock matches the REFCLK_FREQUENCY property of the <IDELAYE3/ODELAYE3>.
+CRITICAL WARNING: [Timing 38-470] The REFCLK pin of IDELAYCTRL U_Delay_Controller_REPLICATED_0_8 has a clock period of 5.000 ns (frequency 200.000 Mhz) and IDELAYE3 B64_S[2].Ad9229Core_b/GEN_DATA[1].Ad9229Deserializer_INST/U_DELAY within its nibble has DELAY_FORMAT set to TIME with REFCLK_FREQUENCY of 375.000 Mhz (period 2.667 ns). The IDELAYCTRL REFCLK pin frequency must match the IDELAYE3 REFCLK_FREQUENCY property value when DELAY_FORMAT TIME is used.
+Resolution: Check that the IDELAYCTRL REFCLK pin is receiving a clock and that the period of the clock matches the REFCLK_FREQUENCY property of the <IDELAYE3/ODELAYE3>.
+CRITICAL WARNING: [Timing 38-470] The REFCLK pin of IDELAYCTRL U_Delay_Controller_REPLICATED_0_8 has a clock period of 5.000 ns (frequency 200.000 Mhz) and IDELAYE3 B64_S[2].Ad9229Core_b/GEN_DATA[3].Ad9229Deserializer_INST/U_DELAY within its nibble has DELAY_FORMAT set to TIME with REFCLK_FREQUENCY of 375.000 Mhz (period 2.667 ns). The IDELAYCTRL REFCLK pin frequency must match the IDELAYE3 REFCLK_FREQUENCY property value when DELAY_FORMAT TIME is used.
+Resolution: Check that the IDELAYCTRL REFCLK pin is receiving a clock and that the period of the clock matches the REFCLK_FREQUENCY property of the <IDELAYE3/ODELAYE3>.
+CRITICAL WARNING: [Timing 38-470] The REFCLK pin of IDELAYCTRL U_Delay_Controller_REPLICATED_0_2 has a clock period of 5.000 ns (frequency 200.000 Mhz) and IDELAYE3 B64_S[0].Ad9229Core_b/GEN_DATA[3].Ad9229Deserializer_INST/U_DELAY within its nibble has DELAY_FORMAT set to TIME with REFCLK_FREQUENCY of 375.000 Mhz (period 2.667 ns). The IDELAYCTRL REFCLK pin frequency must match the IDELAYE3 REFCLK_FREQUENCY property value when DELAY_FORMAT TIME is used.
+Resolution: Check that the IDELAYCTRL REFCLK pin is receiving a clock and that the period of the clock matches the REFCLK_FREQUENCY property of the <IDELAYE3/ODELAYE3>.
+CRITICAL WARNING: [Timing 38-470] The REFCLK pin of IDELAYCTRL U_Delay_Controller_REPLICATED_0_2 has a clock period of 5.000 ns (frequency 200.000 Mhz) and IDELAYE3 B64_S[0].Ad9229Core_b/GEN_DATA[4].Ad9229Deserializer_INST/U_DELAY within its nibble has DELAY_FORMAT set to TIME with REFCLK_FREQUENCY of 375.000 Mhz (period 2.667 ns). The IDELAYCTRL REFCLK pin frequency must match the IDELAYE3 REFCLK_FREQUENCY property value when DELAY_FORMAT TIME is used.
+Resolution: Check that the IDELAYCTRL REFCLK pin is receiving a clock and that the period of the clock matches the REFCLK_FREQUENCY property of the <IDELAYE3/ODELAYE3>.
+CRITICAL WARNING: [Timing 38-470] The REFCLK pin of IDELAYCTRL U_Delay_Controller_REPLICATED_0_2 has a clock period of 5.000 ns (frequency 200.000 Mhz) and IDELAYE3 B64_S[0].Ad9229Core_b/GEN_DATA[6].Ad9229Deserializer_INST/U_DELAY within its nibble has DELAY_FORMAT set to TIME with REFCLK_FREQUENCY of 375.000 Mhz (period 2.667 ns). The IDELAYCTRL REFCLK pin frequency must match the IDELAYE3 REFCLK_FREQUENCY property value when DELAY_FORMAT TIME is used.
+Resolution: Check that the IDELAYCTRL REFCLK pin is receiving a clock and that the period of the clock matches the REFCLK_FREQUENCY property of the <IDELAYE3/ODELAYE3>.
+CRITICAL WARNING: [Timing 38-470] The REFCLK pin of IDELAYCTRL U_Delay_Controller_REPLICATED_0_17 has a clock period of 5.000 ns (frequency 200.000 Mhz) and IDELAYE3 B64_S[4].Ad9229Core_b/GEN_DATA[3].Ad9229Deserializer_INST/U_DELAY within its nibble has DELAY_FORMAT set to TIME with REFCLK_FREQUENCY of 375.000 Mhz (period 2.667 ns). The IDELAYCTRL REFCLK pin frequency must match the IDELAYE3 REFCLK_FREQUENCY property value when DELAY_FORMAT TIME is used.
+Resolution: Check that the IDELAYCTRL REFCLK pin is receiving a clock and that the period of the clock matches the REFCLK_FREQUENCY property of the <IDELAYE3/ODELAYE3>.
+CRITICAL WARNING: [Timing 38-470] The REFCLK pin of IDELAYCTRL U_Delay_Controller_REPLICATED_0_17 has a clock period of 5.000 ns (frequency 200.000 Mhz) and IDELAYE3 B64_S[4].Ad9229Core_b/GEN_DATA[7].Ad9229Deserializer_INST/U_DELAY within its nibble has DELAY_FORMAT set to TIME with REFCLK_FREQUENCY of 375.000 Mhz (period 2.667 ns). The IDELAYCTRL REFCLK pin frequency must match the IDELAYE3 REFCLK_FREQUENCY property value when DELAY_FORMAT TIME is used.
+Resolution: Check that the IDELAYCTRL REFCLK pin is receiving a clock and that the period of the clock matches the REFCLK_FREQUENCY property of the <IDELAYE3/ODELAYE3>.
+CRITICAL WARNING: [Timing 38-470] The REFCLK pin of IDELAYCTRL U_Delay_Controller_REPLICATED_0_14 has a clock period of 5.000 ns (frequency 200.000 Mhz) and IDELAYE3 B64_S[3].Ad9229Core_b/GEN_DATA[6].Ad9229Deserializer_INST/U_DELAY within its nibble has DELAY_FORMAT set to TIME with REFCLK_FREQUENCY of 375.000 Mhz (period 2.667 ns). The IDELAYCTRL REFCLK pin frequency must match the IDELAYE3 REFCLK_FREQUENCY property value when DELAY_FORMAT TIME is used.
+Resolution: Check that the IDELAYCTRL REFCLK pin is receiving a clock and that the period of the clock matches the REFCLK_FREQUENCY property of the <IDELAYE3/ODELAYE3>.
+CRITICAL WARNING: [Timing 38-470] The REFCLK pin of IDELAYCTRL U_Delay_Controller_REPLICATED_0_16 has a clock period of 5.000 ns (frequency 200.000 Mhz) and IDELAYE3 B64_S[4].Ad9229Core_b/GEN_DATA[0].Ad9229Deserializer_INST/U_DELAY within its nibble has DELAY_FORMAT set to TIME with REFCLK_FREQUENCY of 375.000 Mhz (period 2.667 ns). The IDELAYCTRL REFCLK pin frequency must match the IDELAYE3 REFCLK_FREQUENCY property value when DELAY_FORMAT TIME is used.
+Resolution: Check that the IDELAYCTRL REFCLK pin is receiving a clock and that the period of the clock matches the REFCLK_FREQUENCY property of the <IDELAYE3/ODELAYE3>.
+CRITICAL WARNING: [Timing 38-470] The REFCLK pin of IDELAYCTRL U_Delay_Controller_REPLICATED_0_16 has a clock period of 5.000 ns (frequency 200.000 Mhz) and IDELAYE3 B64_S[4].Ad9229Core_b/GEN_DATA[1].Ad9229Deserializer_INST/U_DELAY within its nibble has DELAY_FORMAT set to TIME with REFCLK_FREQUENCY of 375.000 Mhz (period 2.667 ns). The IDELAYCTRL REFCLK pin frequency must match the IDELAYE3 REFCLK_FREQUENCY property value when DELAY_FORMAT TIME is used.
+Resolution: Check that the IDELAYCTRL REFCLK pin is receiving a clock and that the period of the clock matches the REFCLK_FREQUENCY property of the <IDELAYE3/ODELAYE3>.
+CRITICAL WARNING: [Timing 38-470] The REFCLK pin of IDELAYCTRL U_Delay_Controller_REPLICATED_0_16 has a clock period of 5.000 ns (frequency 200.000 Mhz) and IDELAYE3 B64_S[4].Ad9229Core_b/GEN_DATA[2].Ad9229Deserializer_INST/U_DELAY within its nibble has DELAY_FORMAT set to TIME with REFCLK_FREQUENCY of 375.000 Mhz (period 2.667 ns). The IDELAYCTRL REFCLK pin frequency must match the IDELAYE3 REFCLK_FREQUENCY property value when DELAY_FORMAT TIME is used.
+Resolution: Check that the IDELAYCTRL REFCLK pin is receiving a clock and that the period of the clock matches the REFCLK_FREQUENCY property of the <IDELAYE3/ODELAYE3>.
+CRITICAL WARNING: [Timing 38-470] The REFCLK pin of IDELAYCTRL U_Delay_Controller_REPLICATED_0_7 has a clock period of 5.000 ns (frequency 200.000 Mhz) and IDELAYE3 B64_S[2].Ad9229Core_b/Ad9229Deserializer_INST/U_DELAY within its nibble has DELAY_FORMAT set to TIME with REFCLK_FREQUENCY of 375.000 Mhz (period 2.667 ns). The IDELAYCTRL REFCLK pin frequency must match the IDELAYE3 REFCLK_FREQUENCY property value when DELAY_FORMAT TIME is used.
+Resolution: Check that the IDELAYCTRL REFCLK pin is receiving a clock and that the period of the clock matches the REFCLK_FREQUENCY property of the <IDELAYE3/ODELAYE3>.
+CRITICAL WARNING: [Timing 38-470] The REFCLK pin of IDELAYCTRL U_Delay_Controller_REPLICATED_0_7 has a clock period of 5.000 ns (frequency 200.000 Mhz) and IDELAYE3 B64_S[2].Ad9229Core_b/GEN_DATA[2].Ad9229Deserializer_INST/U_DELAY within its nibble has DELAY_FORMAT set to TIME with REFCLK_FREQUENCY of 375.000 Mhz (period 2.667 ns). The IDELAYCTRL REFCLK pin frequency must match the IDELAYE3 REFCLK_FREQUENCY property value when DELAY_FORMAT TIME is used.
+Resolution: Check that the IDELAYCTRL REFCLK pin is receiving a clock and that the period of the clock matches the REFCLK_FREQUENCY property of the <IDELAYE3/ODELAYE3>.
+CRITICAL WARNING: [Timing 38-470] The REFCLK pin of IDELAYCTRL U_Delay_Controller_REPLICATED_0_7 has a clock period of 5.000 ns (frequency 200.000 Mhz) and IDELAYE3 B64_S[2].Ad9229Core_b/GEN_DATA[4].Ad9229Deserializer_INST/U_DELAY within its nibble has DELAY_FORMAT set to TIME with REFCLK_FREQUENCY of 375.000 Mhz (period 2.667 ns). The IDELAYCTRL REFCLK pin frequency must match the IDELAYE3 REFCLK_FREQUENCY property value when DELAY_FORMAT TIME is used.
+Resolution: Check that the IDELAYCTRL REFCLK pin is receiving a clock and that the period of the clock matches the REFCLK_FREQUENCY property of the <IDELAYE3/ODELAYE3>.
+CRITICAL WARNING: [Timing 38-470] The REFCLK pin of IDELAYCTRL U_Delay_Controller_REPLICATED_0_9 has a clock period of 5.000 ns (frequency 200.000 Mhz) and IDELAYE3 B64_S[2].Ad9229Core_b/GEN_DATA[5].Ad9229Deserializer_INST/U_DELAY within its nibble has DELAY_FORMAT set to TIME with REFCLK_FREQUENCY of 375.000 Mhz (period 2.667 ns). The IDELAYCTRL REFCLK pin frequency must match the IDELAYE3 REFCLK_FREQUENCY property value when DELAY_FORMAT TIME is used.
+Resolution: Check that the IDELAYCTRL REFCLK pin is receiving a clock and that the period of the clock matches the REFCLK_FREQUENCY property of the <IDELAYE3/ODELAYE3>.
+CRITICAL WARNING: [Timing 38-470] The REFCLK pin of IDELAYCTRL U_Delay_Controller_REPLICATED_0_9 has a clock period of 5.000 ns (frequency 200.000 Mhz) and IDELAYE3 B64_S[2].Ad9229Core_b/GEN_DATA[7].Ad9229Deserializer_INST/U_DELAY within its nibble has DELAY_FORMAT set to TIME with REFCLK_FREQUENCY of 375.000 Mhz (period 2.667 ns). The IDELAYCTRL REFCLK pin frequency must match the IDELAYE3 REFCLK_FREQUENCY property value when DELAY_FORMAT TIME is used.
+Resolution: Check that the IDELAYCTRL REFCLK pin is receiving a clock and that the period of the clock matches the REFCLK_FREQUENCY property of the <IDELAYE3/ODELAYE3>.
+CRITICAL WARNING: [Timing 38-470] The REFCLK pin of IDELAYCTRL U_Delay_Controller_REPLICATED_0_4 has a clock period of 5.000 ns (frequency 200.000 Mhz) and IDELAYE3 B64_S[1].Ad9229Core_b/GEN_DATA[0].Ad9229Deserializer_INST/U_DELAY within its nibble has DELAY_FORMAT set to TIME with REFCLK_FREQUENCY of 375.000 Mhz (period 2.667 ns). The IDELAYCTRL REFCLK pin frequency must match the IDELAYE3 REFCLK_FREQUENCY property value when DELAY_FORMAT TIME is used.
+Resolution: Check that the IDELAYCTRL REFCLK pin is receiving a clock and that the period of the clock matches the REFCLK_FREQUENCY property of the <IDELAYE3/ODELAYE3>.
+CRITICAL WARNING: [Timing 38-470] The REFCLK pin of IDELAYCTRL U_Delay_Controller_REPLICATED_0_4 has a clock period of 5.000 ns (frequency 200.000 Mhz) and IDELAYE3 B64_S[1].Ad9229Core_b/GEN_DATA[1].Ad9229Deserializer_INST/U_DELAY within its nibble has DELAY_FORMAT set to TIME with REFCLK_FREQUENCY of 375.000 Mhz (period 2.667 ns). The IDELAYCTRL REFCLK pin frequency must match the IDELAYE3 REFCLK_FREQUENCY property value when DELAY_FORMAT TIME is used.
+Resolution: Check that the IDELAYCTRL REFCLK pin is receiving a clock and that the period of the clock matches the REFCLK_FREQUENCY property of the <IDELAYE3/ODELAYE3>.
+CRITICAL WARNING: [Timing 38-470] The REFCLK pin of IDELAYCTRL U_Delay_Controller_REPLICATED_0_4 has a clock period of 5.000 ns (frequency 200.000 Mhz) and IDELAYE3 B64_S[1].Ad9229Core_b/GEN_DATA[2].Ad9229Deserializer_INST/U_DELAY within its nibble has DELAY_FORMAT set to TIME with REFCLK_FREQUENCY of 375.000 Mhz (period 2.667 ns). The IDELAYCTRL REFCLK pin frequency must match the IDELAYE3 REFCLK_FREQUENCY property value when DELAY_FORMAT TIME is used.
+Resolution: Check that the IDELAYCTRL REFCLK pin is receiving a clock and that the period of the clock matches the REFCLK_FREQUENCY property of the <IDELAYE3/ODELAYE3>.
+CRITICAL WARNING: [Timing 38-470] The REFCLK pin of IDELAYCTRL U_Delay_Controller_REPLICATED_0_5 has a clock period of 5.000 ns (frequency 200.000 Mhz) and IDELAYE3 B64_S[1].Ad9229Core_b/GEN_DATA[5].Ad9229Deserializer_INST/U_DELAY within its nibble has DELAY_FORMAT set to TIME with REFCLK_FREQUENCY of 375.000 Mhz (period 2.667 ns). The IDELAYCTRL REFCLK pin frequency must match the IDELAYE3 REFCLK_FREQUENCY property value when DELAY_FORMAT TIME is used.
+Resolution: Check that the IDELAYCTRL REFCLK pin is receiving a clock and that the period of the clock matches the REFCLK_FREQUENCY property of the <IDELAYE3/ODELAYE3>.
+CRITICAL WARNING: [Timing 38-470] The REFCLK pin of IDELAYCTRL U_Delay_Controller_REPLICATED_0_13 has a clock period of 5.000 ns (frequency 200.000 Mhz) and IDELAYE3 B64_S[3].Ad9229Core_b/GEN_DATA[5].Ad9229Deserializer_INST/U_DELAY within its nibble has DELAY_FORMAT set to TIME with REFCLK_FREQUENCY of 375.000 Mhz (period 2.667 ns). The IDELAYCTRL REFCLK pin frequency must match the IDELAYE3 REFCLK_FREQUENCY property value when DELAY_FORMAT TIME is used.
+Resolution: Check that the IDELAYCTRL REFCLK pin is receiving a clock and that the period of the clock matches the REFCLK_FREQUENCY property of the <IDELAYE3/ODELAYE3>.
+CRITICAL WARNING: [Timing 38-470] The REFCLK pin of IDELAYCTRL U_Delay_Controller_REPLICATED_0_13 has a clock period of 5.000 ns (frequency 200.000 Mhz) and IDELAYE3 B64_S[3].Ad9229Core_b/GEN_DATA[7].Ad9229Deserializer_INST/U_DELAY within its nibble has DELAY_FORMAT set to TIME with REFCLK_FREQUENCY of 375.000 Mhz (period 2.667 ns). The IDELAYCTRL REFCLK pin frequency must match the IDELAYE3 REFCLK_FREQUENCY property value when DELAY_FORMAT TIME is used.
+Resolution: Check that the IDELAYCTRL REFCLK pin is receiving a clock and that the period of the clock matches the REFCLK_FREQUENCY property of the <IDELAYE3/ODELAYE3>.
+CRITICAL WARNING: [Timing 38-470] The REFCLK pin of IDELAYCTRL U_Delay_Controller_REPLICATED_0_18 has a clock period of 5.000 ns (frequency 200.000 Mhz) and IDELAYE3 B64_S[4].Ad9229Core_b/GEN_DATA[4].Ad9229Deserializer_INST/U_DELAY within its nibble has DELAY_FORMAT set to TIME with REFCLK_FREQUENCY of 375.000 Mhz (period 2.667 ns). The IDELAYCTRL REFCLK pin frequency must match the IDELAYE3 REFCLK_FREQUENCY property value when DELAY_FORMAT TIME is used.
+Resolution: Check that the IDELAYCTRL REFCLK pin is receiving a clock and that the period of the clock matches the REFCLK_FREQUENCY property of the <IDELAYE3/ODELAYE3>.
+CRITICAL WARNING: [Timing 38-470] The REFCLK pin of IDELAYCTRL U_Delay_Controller_REPLICATED_0_6 has a clock period of 5.000 ns (frequency 200.000 Mhz) and IDELAYE3 B64_S[1].Ad9229Core_b/GEN_DATA[6].Ad9229Deserializer_INST/U_DELAY within its nibble has DELAY_FORMAT set to TIME with REFCLK_FREQUENCY of 375.000 Mhz (period 2.667 ns). The IDELAYCTRL REFCLK pin frequency must match the IDELAYE3 REFCLK_FREQUENCY property value when DELAY_FORMAT TIME is used.
+Resolution: Check that the IDELAYCTRL REFCLK pin is receiving a clock and that the period of the clock matches the REFCLK_FREQUENCY property of the <IDELAYE3/ODELAYE3>.
+CRITICAL WARNING: [Timing 38-470] The REFCLK pin of IDELAYCTRL U_Delay_Controller_REPLICATED_0_6 has a clock period of 5.000 ns (frequency 200.000 Mhz) and IDELAYE3 B64_S[1].Ad9229Core_b/GEN_DATA[7].Ad9229Deserializer_INST/U_DELAY within its nibble has DELAY_FORMAT set to TIME with REFCLK_FREQUENCY of 375.000 Mhz (period 2.667 ns). The IDELAYCTRL REFCLK pin frequency must match the IDELAYE3 REFCLK_FREQUENCY property value when DELAY_FORMAT TIME is used.
+Resolution: Check that the IDELAYCTRL REFCLK pin is receiving a clock and that the period of the clock matches the REFCLK_FREQUENCY property of the <IDELAYE3/ODELAYE3>.
+CRITICAL WARNING: [Timing 38-470] The REFCLK pin of IDELAYCTRL U_Delay_Controller_REPLICATED_0_15 has a clock period of 5.000 ns (frequency 200.000 Mhz) and IDELAYE3 B64_S[4].Ad9229Core_b/Ad9229Deserializer_INST/U_DELAY within its nibble has DELAY_FORMAT set to TIME with REFCLK_FREQUENCY of 375.000 Mhz (period 2.667 ns). The IDELAYCTRL REFCLK pin frequency must match the IDELAYE3 REFCLK_FREQUENCY property value when DELAY_FORMAT TIME is used.
+Resolution: Check that the IDELAYCTRL REFCLK pin is receiving a clock and that the period of the clock matches the REFCLK_FREQUENCY property of the <IDELAYE3/ODELAYE3>.
+CRITICAL WARNING: [Timing 38-470] The REFCLK pin of IDELAYCTRL U_Delay_Controller_REPLICATED_0_15 has a clock period of 5.000 ns (frequency 200.000 Mhz) and IDELAYE3 B64_S[4].Ad9229Core_b/GEN_DATA[5].Ad9229Deserializer_INST/U_DELAY within its nibble has DELAY_FORMAT set to TIME with REFCLK_FREQUENCY of 375.000 Mhz (period 2.667 ns). The IDELAYCTRL REFCLK pin frequency must match the IDELAYE3 REFCLK_FREQUENCY property value when DELAY_FORMAT TIME is used.
+Resolution: Check that the IDELAYCTRL REFCLK pin is receiving a clock and that the period of the clock matches the REFCLK_FREQUENCY property of the <IDELAYE3/ODELAYE3>.
+CRITICAL WARNING: [Timing 38-470] The REFCLK pin of IDELAYCTRL U_Delay_Controller_REPLICATED_0_15 has a clock period of 5.000 ns (frequency 200.000 Mhz) and IDELAYE3 B64_S[4].Ad9229Core_b/GEN_DATA[6].Ad9229Deserializer_INST/U_DELAY within its nibble has DELAY_FORMAT set to TIME with REFCLK_FREQUENCY of 375.000 Mhz (period 2.667 ns). The IDELAYCTRL REFCLK pin frequency must match the IDELAYE3 REFCLK_FREQUENCY property value when DELAY_FORMAT TIME is used.
+Resolution: Check that the IDELAYCTRL REFCLK pin is receiving a clock and that the period of the clock matches the REFCLK_FREQUENCY property of the <IDELAYE3/ODELAYE3>.
+CRITICAL WARNING: [Timing 38-470] The REFCLK pin of IDELAYCTRL U_Delay_Controller_REPLICATED_0_12 has a clock period of 5.000 ns (frequency 200.000 Mhz) and IDELAYE3 B64_S[3].Ad9229Core_b/GEN_DATA[0].Ad9229Deserializer_INST/U_DELAY within its nibble has DELAY_FORMAT set to TIME with REFCLK_FREQUENCY of 375.000 Mhz (period 2.667 ns). The IDELAYCTRL REFCLK pin frequency must match the IDELAYE3 REFCLK_FREQUENCY property value when DELAY_FORMAT TIME is used.
+Resolution: Check that the IDELAYCTRL REFCLK pin is receiving a clock and that the period of the clock matches the REFCLK_FREQUENCY property of the <IDELAYE3/ODELAYE3>.
+CRITICAL WARNING: [Timing 38-470] The REFCLK pin of IDELAYCTRL U_Delay_Controller_REPLICATED_0_12 has a clock period of 5.000 ns (frequency 200.000 Mhz) and IDELAYE3 B64_S[3].Ad9229Core_b/GEN_DATA[1].Ad9229Deserializer_INST/U_DELAY within its nibble has DELAY_FORMAT set to TIME with REFCLK_FREQUENCY of 375.000 Mhz (period 2.667 ns). The IDELAYCTRL REFCLK pin frequency must match the IDELAYE3 REFCLK_FREQUENCY property value when DELAY_FORMAT TIME is used.
+Resolution: Check that the IDELAYCTRL REFCLK pin is receiving a clock and that the period of the clock matches the REFCLK_FREQUENCY property of the <IDELAYE3/ODELAYE3>.
+CRITICAL WARNING: [Timing 38-470] The REFCLK pin of IDELAYCTRL U_Delay_Controller_REPLICATED_0_12 has a clock period of 5.000 ns (frequency 200.000 Mhz) and IDELAYE3 B64_S[3].Ad9229Core_b/GEN_DATA[2].Ad9229Deserializer_INST/U_DELAY within its nibble has DELAY_FORMAT set to TIME with REFCLK_FREQUENCY of 375.000 Mhz (period 2.667 ns). The IDELAYCTRL REFCLK pin frequency must match the IDELAYE3 REFCLK_FREQUENCY property value when DELAY_FORMAT TIME is used.
+Resolution: Check that the IDELAYCTRL REFCLK pin is receiving a clock and that the period of the clock matches the REFCLK_FREQUENCY property of the <IDELAYE3/ODELAYE3>.
 CRITICAL WARNING: [Timing 38-282] The design failed to meet the timing requirements. Please see the timing summary report for details on the timing violations.
 WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
 INFO: [runtcl-4] Executing : report_incremental_reuse -file system_top_incremental_reuse_routed.rpt
@@ -1186,16 +1296,61 @@ Running DRC as a precondition to command write_bitstream
 INFO: [IP_Flow 19-1839] IP Catalog is up to date.
 INFO: [DRC 23-27] Running DRC with 8 threads
 WARNING: [DRC LVDS-1] Bidirection LVDS IOs: The following port(s) use the LVDS I/O standard and have bi-directional differential usage. Please note that LVDS is a fixed impedance structure optimized to 100ohm differential. This is only intended to be used in point-to-point transmissions that do not have turn around timing requirements. If the intended usage is a bus structure, please use BLVDS/BLVDS_25, instead. LVDS_MEZZ_RJ45_CLK1_n, LVDS_MEZZ_RJ45_CLK1_p, POE_LVDS_TRIG_n, and POE_LVDS_TRIG_p.
+WARNING: [DRC REQP-1804] enum_DELAY_TYPE_VAR_EN_VTC_HIGH: The IDELAYE3 B64_S[0].Ad9229Core_b/Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+WARNING: [DRC REQP-1804] enum_DELAY_TYPE_VAR_EN_VTC_HIGH: The IDELAYE3 B64_S[0].Ad9229Core_b/GEN_DATA[0].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+WARNING: [DRC REQP-1804] enum_DELAY_TYPE_VAR_EN_VTC_HIGH: The IDELAYE3 B64_S[0].Ad9229Core_b/GEN_DATA[1].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+WARNING: [DRC REQP-1804] enum_DELAY_TYPE_VAR_EN_VTC_HIGH: The IDELAYE3 B64_S[0].Ad9229Core_b/GEN_DATA[2].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+WARNING: [DRC REQP-1804] enum_DELAY_TYPE_VAR_EN_VTC_HIGH: The IDELAYE3 B64_S[0].Ad9229Core_b/GEN_DATA[3].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+WARNING: [DRC REQP-1804] enum_DELAY_TYPE_VAR_EN_VTC_HIGH: The IDELAYE3 B64_S[0].Ad9229Core_b/GEN_DATA[4].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+WARNING: [DRC REQP-1804] enum_DELAY_TYPE_VAR_EN_VTC_HIGH: The IDELAYE3 B64_S[0].Ad9229Core_b/GEN_DATA[5].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+WARNING: [DRC REQP-1804] enum_DELAY_TYPE_VAR_EN_VTC_HIGH: The IDELAYE3 B64_S[0].Ad9229Core_b/GEN_DATA[6].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+WARNING: [DRC REQP-1804] enum_DELAY_TYPE_VAR_EN_VTC_HIGH: The IDELAYE3 B64_S[0].Ad9229Core_b/GEN_DATA[7].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+WARNING: [DRC REQP-1804] enum_DELAY_TYPE_VAR_EN_VTC_HIGH: The IDELAYE3 B64_S[1].Ad9229Core_b/Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+WARNING: [DRC REQP-1804] enum_DELAY_TYPE_VAR_EN_VTC_HIGH: The IDELAYE3 B64_S[1].Ad9229Core_b/GEN_DATA[0].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+WARNING: [DRC REQP-1804] enum_DELAY_TYPE_VAR_EN_VTC_HIGH: The IDELAYE3 B64_S[1].Ad9229Core_b/GEN_DATA[1].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+WARNING: [DRC REQP-1804] enum_DELAY_TYPE_VAR_EN_VTC_HIGH: The IDELAYE3 B64_S[1].Ad9229Core_b/GEN_DATA[2].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+WARNING: [DRC REQP-1804] enum_DELAY_TYPE_VAR_EN_VTC_HIGH: The IDELAYE3 B64_S[1].Ad9229Core_b/GEN_DATA[3].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+WARNING: [DRC REQP-1804] enum_DELAY_TYPE_VAR_EN_VTC_HIGH: The IDELAYE3 B64_S[1].Ad9229Core_b/GEN_DATA[4].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+WARNING: [DRC REQP-1804] enum_DELAY_TYPE_VAR_EN_VTC_HIGH: The IDELAYE3 B64_S[1].Ad9229Core_b/GEN_DATA[5].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+WARNING: [DRC REQP-1804] enum_DELAY_TYPE_VAR_EN_VTC_HIGH: The IDELAYE3 B64_S[1].Ad9229Core_b/GEN_DATA[6].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+WARNING: [DRC REQP-1804] enum_DELAY_TYPE_VAR_EN_VTC_HIGH: The IDELAYE3 B64_S[1].Ad9229Core_b/GEN_DATA[7].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+WARNING: [DRC REQP-1804] enum_DELAY_TYPE_VAR_EN_VTC_HIGH: The IDELAYE3 B64_S[2].Ad9229Core_b/Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+WARNING: [DRC REQP-1804] enum_DELAY_TYPE_VAR_EN_VTC_HIGH: The IDELAYE3 B64_S[2].Ad9229Core_b/GEN_DATA[0].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+WARNING: [DRC REQP-1804] enum_DELAY_TYPE_VAR_EN_VTC_HIGH: The IDELAYE3 B64_S[2].Ad9229Core_b/GEN_DATA[1].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+WARNING: [DRC REQP-1804] enum_DELAY_TYPE_VAR_EN_VTC_HIGH: The IDELAYE3 B64_S[2].Ad9229Core_b/GEN_DATA[2].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+WARNING: [DRC REQP-1804] enum_DELAY_TYPE_VAR_EN_VTC_HIGH: The IDELAYE3 B64_S[2].Ad9229Core_b/GEN_DATA[3].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+WARNING: [DRC REQP-1804] enum_DELAY_TYPE_VAR_EN_VTC_HIGH: The IDELAYE3 B64_S[2].Ad9229Core_b/GEN_DATA[4].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+WARNING: [DRC REQP-1804] enum_DELAY_TYPE_VAR_EN_VTC_HIGH: The IDELAYE3 B64_S[2].Ad9229Core_b/GEN_DATA[5].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+WARNING: [DRC REQP-1804] enum_DELAY_TYPE_VAR_EN_VTC_HIGH: The IDELAYE3 B64_S[2].Ad9229Core_b/GEN_DATA[6].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+WARNING: [DRC REQP-1804] enum_DELAY_TYPE_VAR_EN_VTC_HIGH: The IDELAYE3 B64_S[2].Ad9229Core_b/GEN_DATA[7].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+WARNING: [DRC REQP-1804] enum_DELAY_TYPE_VAR_EN_VTC_HIGH: The IDELAYE3 B64_S[3].Ad9229Core_b/Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+WARNING: [DRC REQP-1804] enum_DELAY_TYPE_VAR_EN_VTC_HIGH: The IDELAYE3 B64_S[3].Ad9229Core_b/GEN_DATA[0].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+WARNING: [DRC REQP-1804] enum_DELAY_TYPE_VAR_EN_VTC_HIGH: The IDELAYE3 B64_S[3].Ad9229Core_b/GEN_DATA[1].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+WARNING: [DRC REQP-1804] enum_DELAY_TYPE_VAR_EN_VTC_HIGH: The IDELAYE3 B64_S[3].Ad9229Core_b/GEN_DATA[2].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+WARNING: [DRC REQP-1804] enum_DELAY_TYPE_VAR_EN_VTC_HIGH: The IDELAYE3 B64_S[3].Ad9229Core_b/GEN_DATA[3].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+WARNING: [DRC REQP-1804] enum_DELAY_TYPE_VAR_EN_VTC_HIGH: The IDELAYE3 B64_S[3].Ad9229Core_b/GEN_DATA[4].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+WARNING: [DRC REQP-1804] enum_DELAY_TYPE_VAR_EN_VTC_HIGH: The IDELAYE3 B64_S[3].Ad9229Core_b/GEN_DATA[5].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+WARNING: [DRC REQP-1804] enum_DELAY_TYPE_VAR_EN_VTC_HIGH: The IDELAYE3 B64_S[3].Ad9229Core_b/GEN_DATA[6].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+WARNING: [DRC REQP-1804] enum_DELAY_TYPE_VAR_EN_VTC_HIGH: The IDELAYE3 B64_S[3].Ad9229Core_b/GEN_DATA[7].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+WARNING: [DRC REQP-1804] enum_DELAY_TYPE_VAR_EN_VTC_HIGH: The IDELAYE3 B64_S[4].Ad9229Core_b/Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+WARNING: [DRC REQP-1804] enum_DELAY_TYPE_VAR_EN_VTC_HIGH: The IDELAYE3 B64_S[4].Ad9229Core_b/GEN_DATA[0].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+WARNING: [DRC REQP-1804] enum_DELAY_TYPE_VAR_EN_VTC_HIGH: The IDELAYE3 B64_S[4].Ad9229Core_b/GEN_DATA[1].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+WARNING: [DRC REQP-1804] enum_DELAY_TYPE_VAR_EN_VTC_HIGH: The IDELAYE3 B64_S[4].Ad9229Core_b/GEN_DATA[2].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+WARNING: [DRC REQP-1804] enum_DELAY_TYPE_VAR_EN_VTC_HIGH: The IDELAYE3 B64_S[4].Ad9229Core_b/GEN_DATA[3].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+WARNING: [DRC REQP-1804] enum_DELAY_TYPE_VAR_EN_VTC_HIGH: The IDELAYE3 B64_S[4].Ad9229Core_b/GEN_DATA[4].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+WARNING: [DRC REQP-1804] enum_DELAY_TYPE_VAR_EN_VTC_HIGH: The IDELAYE3 B64_S[4].Ad9229Core_b/GEN_DATA[5].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+WARNING: [DRC REQP-1804] enum_DELAY_TYPE_VAR_EN_VTC_HIGH: The IDELAYE3 B64_S[4].Ad9229Core_b/GEN_DATA[6].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
+WARNING: [DRC REQP-1804] enum_DELAY_TYPE_VAR_EN_VTC_HIGH: The IDELAYE3 B64_S[4].Ad9229Core_b/GEN_DATA[7].Ad9229Deserializer_INST/U_DELAY DELAY_TYPE is VARIABLE or VAR_LOAD and the EN_VTC pin is HIGH or unused, which means that the variable loading of delays will not occur for this delay element. EN_VTC must be LOW prior to and during use of the CE/INC and/or LOAD pins that change the tap value. For more details please refer to the Select IO User Guide UG571.
 WARNING: [DRC REQP-1853] BUFGCE_DIV_cascade_from_clock_buf: Cascaded clock buffers exist in the design with constant CE pin. This may result in large clock skew and timing violations. Cell BUFGCE_DIV B64_S[0].Ad9229Core_b/U_BUFGCE_DIV I pin is driven by another clock buffer B64_C[1].serdes_clock/inst/clkout1_buf.
 WARNING: [DRC REQP-1853] BUFGCE_DIV_cascade_from_clock_buf: Cascaded clock buffers exist in the design with constant CE pin. This may result in large clock skew and timing violations. Cell BUFGCE_DIV B64_S[1].Ad9229Core_b/U_BUFGCE_DIV I pin is driven by another clock buffer B64_C[1].serdes_clock/inst/clkout1_buf.
 WARNING: [DRC REQP-1853] BUFGCE_DIV_cascade_from_clock_buf: Cascaded clock buffers exist in the design with constant CE pin. This may result in large clock skew and timing violations. Cell BUFGCE_DIV B64_S[2].Ad9229Core_b/U_BUFGCE_DIV I pin is driven by another clock buffer B64_C[2].serdes_clock/inst/clkout1_buf.
 WARNING: [DRC REQP-1853] BUFGCE_DIV_cascade_from_clock_buf: Cascaded clock buffers exist in the design with constant CE pin. This may result in large clock skew and timing violations. Cell BUFGCE_DIV B64_S[3].Ad9229Core_b/U_BUFGCE_DIV I pin is driven by another clock buffer B64_C[3].serdes_clock/inst/clkout1_buf.
 WARNING: [DRC REQP-1853] BUFGCE_DIV_cascade_from_clock_buf: Cascaded clock buffers exist in the design with constant CE pin. This may result in large clock skew and timing violations. Cell BUFGCE_DIV B64_S[4].Ad9229Core_b/U_BUFGCE_DIV I pin is driven by another clock buffer B64_C[3].serdes_clock/inst/clkout1_buf.
-WARNING: [DRC RTSTAT-10] No routable loads: 217 net(s) have no routable loads. The problem bus(es) and/or net(s) are dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg[2:0], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD1/ctl_reg_en_2[1], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg_en_2[1], MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0/AXI_SYSMON_CORE_I/daddr_C_master_reg2[7:0], MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0/AXI_SYSMON_CORE_I/daddr_C_master_reg[7:0], MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0/AXI_SYSMON_CORE_I/daddr_C_slave0_reg2[7:0], MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0/AXI_SYSMON_CORE_I/daddr_C_slave0_reg[7:0], MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0/AXI_SYSMON_CORE_I/daddr_C_slave1_reg2[7:0], MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0/AXI_SYSMON_CORE_I/daddr_C_slave1_reg[7:0], MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0/AXI_SYSMON_CORE_I/di_C_master_reg2[15:0], MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0/AXI_SYSMON_CORE_I/di_C_master_reg[15:0], MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0/AXI_SYSMON_CORE_I/di_C_slave0_reg2[15:0], MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0/AXI_SYSMON_CORE_I/di_C_slave0_reg[15:0], MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0/AXI_SYSMON_CORE_I/di_C_slave1_reg2[15:0]... and (the first 15 of 83 listed).
+WARNING: [DRC RTSTAT-10] No routable loads: 229 net(s) have no routable loads. The problem bus(es) and/or net(s) are dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg[2:0], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD1/ctl_reg_en_2[1], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg_en_2[1], MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0/AXI_SYSMON_CORE_I/daddr_C_master_reg2[7:0], MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0/AXI_SYSMON_CORE_I/daddr_C_master_reg[7:0], MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0/AXI_SYSMON_CORE_I/daddr_C_slave0_reg2[7:0], MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0/AXI_SYSMON_CORE_I/daddr_C_slave0_reg[7:0], MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0/AXI_SYSMON_CORE_I/daddr_C_slave1_reg2[7:0], MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0/AXI_SYSMON_CORE_I/daddr_C_slave1_reg[7:0], MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0/AXI_SYSMON_CORE_I/di_C_master_reg2[15:0], MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0/AXI_SYSMON_CORE_I/di_C_master_reg[15:0], MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0/AXI_SYSMON_CORE_I/di_C_slave0_reg2[15:0], MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0/AXI_SYSMON_CORE_I/di_C_slave0_reg[15:0], MercuryXU1_i/MercuryXU1_i/system_management_wiz_0/U0/AXI_SYSMON_CORE_I/di_C_slave1_reg2[15:0]... and (the first 15 of 95 listed).
 INFO: [DRC REQP-1935] RAMB36E2_nochange_collision_advisory: Synchronous clocking is detected for BRAM (MercuryXU1_i/MercuryXU1_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_MM2S_FULL.I_MM2S_FULL_WRAPPER/GEN_INCLUDE_MM2S_SF.I_RD_SF/I_DATA_FIFO/BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg) in SDP mode with NO_CHANGE write-mode. This is the preferred mode for best power characteristics. However, NO_CHANGE may exhibit address collisions if the same address appears on both read and write ports resulting in unknown or corrupted read data. It is suggested to confirm via simulation that an address collision never occurs and if so it is suggested to try and avoid this situation. If address collisions cannot be avoided, the write-mode may be set to READ_FIRST which guarantees that the read data is the prior contents of the memory at the cost of additional power in the design. See the FPGA Memory Resources User Guide for additional information.
 INFO: [DRC REQP-1935] RAMB36E2_nochange_collision_advisory: Synchronous clocking is detected for BRAM (MercuryXU1_i/MercuryXU1_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_DATA_FIFO/BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg) in SDP mode with NO_CHANGE write-mode. This is the preferred mode for best power characteristics. However, NO_CHANGE may exhibit address collisions if the same address appears on both read and write ports resulting in unknown or corrupted read data. It is suggested to confirm via simulation that an address collision never occurs and if so it is suggested to try and avoid this situation. If address collisions cannot be avoided, the write-mode may be set to READ_FIRST which guarantees that the read data is the prior contents of the memory at the cost of additional power in the design. See the FPGA Memory Resources User Guide for additional information.
 INFO: [DRC REQP-1935] RAMB36E2_nochange_collision_advisory: Synchronous clocking is detected for BRAM (MercuryXU1_i/MercuryXU1_i/axi_dma_1/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_DATA_FIFO/BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg) in SDP mode with NO_CHANGE write-mode. This is the preferred mode for best power characteristics. However, NO_CHANGE may exhibit address collisions if the same address appears on both read and write ports resulting in unknown or corrupted read data. It is suggested to confirm via simulation that an address collision never occurs and if so it is suggested to try and avoid this situation. If address collisions cannot be avoided, the write-mode may be set to READ_FIRST which guarantees that the read data is the prior contents of the memory at the cost of additional power in the design. See the FPGA Memory Resources User Guide for additional information.
-INFO: [Vivado 12-3199] DRC finished with 0 Errors, 7 Warnings, 3 Advisories
+INFO: [Vivado 12-3199] DRC finished with 0 Errors, 52 Warnings, 3 Advisories
 INFO: [Vivado 12-3200] Please refer to the DRC report (report_drc) for more information.
 INFO: [Designutils 20-2272] Running write_bitstream with 8 threads.
 Loading data files...
@@ -1207,7 +1362,7 @@ Creating bitstream...
 Writing bitstream ./system_top.bit...
 INFO: [Vivado 12-1842] Bitgen Completed Successfully.
 INFO: [Common 17-83] Releasing license: Implementation
-260 Infos, 21 Warnings, 4 Critical Warnings and 0 Errors encountered.
+279 Infos, 66 Warnings, 49 Critical Warnings and 0 Errors encountered.
 write_bitstream completed successfully
-write_bitstream: Time (s): cpu = 00:01:03 ; elapsed = 00:00:32 . Memory (MB): peak = 6249.816 ; gain = 237.887 ; free physical = 98570 ; free virtual = 115215
-INFO: [Common 17-206] Exiting Vivado at Mon Jan 31 11:46:54 2022...
+write_bitstream: Time (s): cpu = 00:01:03 ; elapsed = 00:00:32 . Memory (MB): peak = 6337.020 ; gain = 229.887 ; free physical = 87249 ; free virtual = 113100
+INFO: [Common 17-206] Exiting Vivado at Tue Mar  8 16:29:22 2022...

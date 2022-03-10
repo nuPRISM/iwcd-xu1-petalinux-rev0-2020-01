@@ -38,6 +38,7 @@ entity tlast_generator is
     Port ( clk : in std_logic;
            rst_n : in std_logic;
            num_samples_per_packet : in std_logic_vector (31 downto 0);
+           threshold              : in std_logic_vector(11 downto 0);
            trigger_mode           : in std_logic_vector(2 downto 0);
            trigger_enable         : in std_logic;
            trigger_ps             : in std_logic;
@@ -93,7 +94,7 @@ trigger_internal_out <= trigger_internal_r;
 trigger_detected <= trigger_detected_r;
 
 COMB_PROC: process(sample_counter_r, trigger_r, trigger_mode_r, trigger_internal_r, trigger_enable_r,
-trigger_internal_in, m_axis_tready, num_samples_per_packet, data_enable, data_dly)
+trigger_internal_in, m_axis_tready, num_samples_per_packet, data_enable, data_dly, threshold)
 variable sample_counter_v        : std_logic_vector(31 downto 0);
 variable m_axis_tlast_v          : std_logic;
 variable data_sum_0_v            : std_logic_vector(13 downto 0);
@@ -139,7 +140,7 @@ begin
     data_abs_difference_v := '0' & (not data_difference_v(12 downto 0) + 1);
   end if;
   trigger_internal_v := '0';  
-  if data_abs_difference_v(13 downto 2) > 100 then
+  if data_abs_difference_v(13 downto 2) > threshold then
     trigger_internal_v := '1';  
   end if;
 

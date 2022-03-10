@@ -2,8 +2,8 @@
 # Vivado v2020.1 (64-bit)
 # SW Build 2902540 on Wed May 27 19:54:35 MDT 2020
 # IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
-# Start of session at: Mon Jan 31 11:24:39 2022
-# Process ID: 12361
+# Start of session at: Tue Mar  8 16:05:35 2022
+# Process ID: 26406
 # Current directory: /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.runs/MercuryNuPRISM_synth
 # Command line: vivado -log system_top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source system_top.tcl
 # Log file: /home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.runs/MercuryNuPRISM_synth/system_top.vds
@@ -36,7 +36,7 @@ INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'ASSOCIAT
 WARNING: [IP_Flow 19-5661] Bus Interface 'clk' does not have any bus interfaces associated with it.
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/src/temp'.
-add_files: Time (s): cpu = 00:00:13 ; elapsed = 00:00:10 . Memory (MB): peak = 2622.555 ; gain = 472.230 ; free physical = 102548 ; free virtual = 118910
+add_files: Time (s): cpu = 00:00:13 ; elapsed = 00:00:10 . Memory (MB): peak = 2614.559 ; gain = 464.230 ; free physical = 94565 ; free virtual = 117150
 Command: synth_design -top system_top -part xczu6eg-ffvc900-1-i
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xczu6eg'
@@ -44,16 +44,16 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xczu6eg
 INFO: [Device 21-403] Loading part xczu6eg-ffvc900-1-i
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 12488
+INFO: [Synth 8-7075] Helper process launched with PID 26534
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:17 . Memory (MB): peak = 2799.777 ; gain = 50.902 ; free physical = 101481 ; free virtual = 117844
+Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:17 . Memory (MB): peak = 2798.781 ; gain = 49.902 ; free physical = 93499 ; free virtual = 116084
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'system_top' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/src/system_top_NuPRISM.vhd:242]
-INFO: [Synth 8-3491] module 'MercuryXU1_wrapper' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/hdl/MercuryXU1_wrapper.vhd:14' bound to instance 'MercuryXU1_i' of component 'MercuryXU1_wrapper' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/src/system_top_NuPRISM.vhd:366]
+INFO: [Synth 8-3491] module 'MercuryXU1_wrapper' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/hdl/MercuryXU1_wrapper.vhd:14' bound to instance 'MercuryXU1_i' of component 'MercuryXU1_wrapper' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/src/system_top_NuPRISM.vhd:371]
 INFO: [Synth 8-638] synthesizing module 'MercuryXU1_wrapper' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/hdl/MercuryXU1_wrapper.vhd:53]
 INFO: [Synth 8-3491] module 'MercuryXU1' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:5336' bound to instance 'MercuryXU1_i' of component 'MercuryXU1' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/hdl/MercuryXU1_wrapper.vhd:126]
 INFO: [Synth 8-638] synthesizing module 'MercuryXU1' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:5389]
-INFO: [Synth 8-3491] module 'MercuryXU1_axi_bram_ctrl_0_0' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_bram_ctrl_0_0/synth/MercuryXU1_axi_bram_ctrl_0_0.vhd:59' bound to instance 'axi_bram_ctrl' of component 'MercuryXU1_axi_bram_ctrl_0_0' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:7471]
+INFO: [Synth 8-3491] module 'MercuryXU1_axi_bram_ctrl_0_0' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_bram_ctrl_0_0/synth/MercuryXU1_axi_bram_ctrl_0_0.vhd:59' bound to instance 'axi_bram_ctrl' of component 'MercuryXU1_axi_bram_ctrl_0_0' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:7473]
 INFO: [Synth 8-638] synthesizing module 'MercuryXU1_axi_bram_ctrl_0_0' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_bram_ctrl_0_0/synth/MercuryXU1_axi_bram_ctrl_0_0.vhd:104]
 	Parameter C_BRAM_INST_MODE bound to: EXTERNAL - type: string 
 	Parameter C_MEMORY_DEPTH bound to: 2048 - type: integer 
@@ -221,7 +221,7 @@ INFO: [Synth 8-256] done synthesizing module 'axi_bram_ctrl_top' (13#1) [/home/a
 INFO: [Synth 8-256] done synthesizing module 'axi_bram_ctrl' (14#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ipshared/db86/hdl/axi_bram_ctrl_v4_1_rfs.vhd:31528]
 INFO: [Synth 8-256] done synthesizing module 'MercuryXU1_axi_bram_ctrl_0_0' (15#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_bram_ctrl_0_0/synth/MercuryXU1_axi_bram_ctrl_0_0.vhd:104]
 WARNING: [Synth 8-5640] Port 'axi_dma_tstvec' is missing in component declaration [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:5621]
-INFO: [Synth 8-3491] module 'MercuryXU1_axi_dma_0_0' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_dma_0_0/synth/MercuryXU1_axi_dma_0_0.vhd:59' bound to instance 'axi_dma_0' of component 'MercuryXU1_axi_dma_0_0' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:7514]
+INFO: [Synth 8-3491] module 'MercuryXU1_axi_dma_0_0' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_dma_0_0/synth/MercuryXU1_axi_dma_0_0.vhd:59' bound to instance 'axi_dma_0' of component 'MercuryXU1_axi_dma_0_0' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:7516]
 INFO: [Synth 8-638] synthesizing module 'MercuryXU1_axi_dma_0_0' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_dma_0_0/synth/MercuryXU1_axi_dma_0_0.vhd:158]
 	Parameter C_S_AXI_LITE_ADDR_WIDTH bound to: 10 - type: integer 
 	Parameter C_S_AXI_LITE_DATA_WIDTH bound to: 32 - type: integer 
@@ -2675,7 +2675,7 @@ INFO: [Synth 8-256] done synthesizing module 'axi_datamover' (97#1) [/home/ab/Do
 INFO: [Synth 8-256] done synthesizing module 'axi_dma' (98#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ipshared/0fb1/hdl/axi_dma_v7_1_vh_rfs.vhd:22178]
 INFO: [Synth 8-256] done synthesizing module 'MercuryXU1_axi_dma_0_0' (99#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_dma_0_0/synth/MercuryXU1_axi_dma_0_0.vhd:158]
 WARNING: [Synth 8-5640] Port 'axi_dma_tstvec' is missing in component declaration [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:6187]
-INFO: [Synth 8-3491] module 'MercuryXU1_axi_dma_0_1' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_dma_0_1/synth/MercuryXU1_axi_dma_0_1.vhd:59' bound to instance 'axi_dma_1' of component 'MercuryXU1_axi_dma_0_1' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:7610]
+INFO: [Synth 8-3491] module 'MercuryXU1_axi_dma_0_1' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_dma_0_1/synth/MercuryXU1_axi_dma_0_1.vhd:59' bound to instance 'axi_dma_1' of component 'MercuryXU1_axi_dma_0_1' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:7612]
 INFO: [Synth 8-638] synthesizing module 'MercuryXU1_axi_dma_0_1' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_dma_0_1/synth/MercuryXU1_axi_dma_0_1.vhd:137]
 	Parameter C_S_AXI_LITE_ADDR_WIDTH bound to: 10 - type: integer 
 	Parameter C_S_AXI_LITE_DATA_WIDTH bound to: 32 - type: integer 
@@ -2972,7 +2972,7 @@ INFO: [Synth 8-256] done synthesizing module 'axi_datamover_mm2s_omit_wrap' (100
 INFO: [Synth 8-256] done synthesizing module 'axi_datamover__parameterized0' (100#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ipshared/af86/hdl/axi_datamover_v5_1_vh_rfs.vhd:55436]
 INFO: [Synth 8-256] done synthesizing module 'axi_dma__parameterized1' (100#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ipshared/0fb1/hdl/axi_dma_v7_1_vh_rfs.vhd:22178]
 INFO: [Synth 8-256] done synthesizing module 'MercuryXU1_axi_dma_0_1' (101#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_dma_0_1/synth/MercuryXU1_axi_dma_0_1.vhd:137]
-INFO: [Synth 8-3491] module 'MercuryXU1_axi_gpio_0_0' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_gpio_0_0/synth/MercuryXU1_axi_gpio_0_0.vhd:59' bound to instance 'axi_gpio_0' of component 'MercuryXU1_axi_gpio_0_0' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:7685]
+INFO: [Synth 8-3491] module 'MercuryXU1_axi_gpio_0_0' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_gpio_0_0/synth/MercuryXU1_axi_gpio_0_0.vhd:59' bound to instance 'axi_gpio_0' of component 'MercuryXU1_axi_gpio_0_0' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:7687]
 INFO: [Synth 8-638] synthesizing module 'MercuryXU1_axi_gpio_0_0' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_gpio_0_0/synth/MercuryXU1_axi_gpio_0_0.vhd:84]
 	Parameter C_FAMILY bound to: zynquplus - type: string 
 	Parameter C_S_AXI_ADDR_WIDTH bound to: 9 - type: integer 
@@ -3207,7 +3207,7 @@ INFO: [Synth 8-256] done synthesizing module 'cdc_sync__parameterized5' (105#1) 
 INFO: [Synth 8-256] done synthesizing module 'GPIO_Core' (106#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ipshared/bb35/hdl/axi_gpio_v2_0_vh_rfs.vhd:178]
 INFO: [Synth 8-256] done synthesizing module 'axi_gpio' (107#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ipshared/bb35/hdl/axi_gpio_v2_0_vh_rfs.vhd:1351]
 INFO: [Synth 8-256] done synthesizing module 'MercuryXU1_axi_gpio_0_0' (108#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_gpio_0_0/synth/MercuryXU1_axi_gpio_0_0.vhd:84]
-INFO: [Synth 8-3491] module 'MercuryXU1_axi_gpio_sample_number_0' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_gpio_sample_number_0/synth/MercuryXU1_axi_gpio_sample_number_0.vhd:59' bound to instance 'axi_gpio_delay_ctrl' of component 'MercuryXU1_axi_gpio_sample_number_0' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:7708]
+INFO: [Synth 8-3491] module 'MercuryXU1_axi_gpio_sample_number_0' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_gpio_sample_number_0/synth/MercuryXU1_axi_gpio_sample_number_0.vhd:59' bound to instance 'axi_gpio_delay_ctrl' of component 'MercuryXU1_axi_gpio_sample_number_0' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:7710]
 INFO: [Synth 8-638] synthesizing module 'MercuryXU1_axi_gpio_sample_number_0' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_gpio_sample_number_0/synth/MercuryXU1_axi_gpio_sample_number_0.vhd:84]
 	Parameter C_FAMILY bound to: zynquplus - type: string 
 	Parameter C_S_AXI_ADDR_WIDTH bound to: 9 - type: integer 
@@ -3262,7 +3262,7 @@ INFO: [Synth 8-226] default block is never used [/home/ab/Documents/Projekty/202
 INFO: [Synth 8-256] done synthesizing module 'GPIO_Core__parameterized0' (108#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ipshared/bb35/hdl/axi_gpio_v2_0_vh_rfs.vhd:178]
 INFO: [Synth 8-256] done synthesizing module 'axi_gpio__parameterized1' (108#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ipshared/bb35/hdl/axi_gpio_v2_0_vh_rfs.vhd:1351]
 INFO: [Synth 8-256] done synthesizing module 'MercuryXU1_axi_gpio_sample_number_0' (109#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_gpio_sample_number_0/synth/MercuryXU1_axi_gpio_sample_number_0.vhd:84]
-INFO: [Synth 8-3491] module 'MercuryXU1_axi_gpio_delay_ctrl_0' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_gpio_delay_ctrl_0/synth/MercuryXU1_axi_gpio_delay_ctrl_0.vhd:59' bound to instance 'axi_gpio_packet_number' of component 'MercuryXU1_axi_gpio_delay_ctrl_0' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:7731]
+INFO: [Synth 8-3491] module 'MercuryXU1_axi_gpio_delay_ctrl_0' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_gpio_delay_ctrl_0/synth/MercuryXU1_axi_gpio_delay_ctrl_0.vhd:59' bound to instance 'axi_gpio_packet_number' of component 'MercuryXU1_axi_gpio_delay_ctrl_0' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:7733]
 INFO: [Synth 8-638] synthesizing module 'MercuryXU1_axi_gpio_delay_ctrl_0' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_gpio_delay_ctrl_0/synth/MercuryXU1_axi_gpio_delay_ctrl_0.vhd:85]
 	Parameter C_FAMILY bound to: zynquplus - type: string 
 	Parameter C_S_AXI_ADDR_WIDTH bound to: 9 - type: integer 
@@ -3317,7 +3317,7 @@ INFO: [Synth 8-226] default block is never used [/home/ab/Documents/Projekty/202
 INFO: [Synth 8-256] done synthesizing module 'GPIO_Core__parameterized1' (109#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ipshared/bb35/hdl/axi_gpio_v2_0_vh_rfs.vhd:178]
 INFO: [Synth 8-256] done synthesizing module 'axi_gpio__parameterized3' (109#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ipshared/bb35/hdl/axi_gpio_v2_0_vh_rfs.vhd:1351]
 INFO: [Synth 8-256] done synthesizing module 'MercuryXU1_axi_gpio_delay_ctrl_0' (110#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_gpio_delay_ctrl_0/synth/MercuryXU1_axi_gpio_delay_ctrl_0.vhd:85]
-INFO: [Synth 8-3491] module 'MercuryXU1_axi_gpio_0_2' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_gpio_0_2/synth/MercuryXU1_axi_gpio_0_2.vhd:59' bound to instance 'axi_gpio_sample_number' of component 'MercuryXU1_axi_gpio_0_2' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:7755]
+INFO: [Synth 8-3491] module 'MercuryXU1_axi_gpio_0_2' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_gpio_0_2/synth/MercuryXU1_axi_gpio_0_2.vhd:59' bound to instance 'axi_gpio_sample_number' of component 'MercuryXU1_axi_gpio_0_2' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:7757]
 INFO: [Synth 8-638] synthesizing module 'MercuryXU1_axi_gpio_0_2' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_gpio_0_2/synth/MercuryXU1_axi_gpio_0_2.vhd:84]
 	Parameter C_FAMILY bound to: zynquplus - type: string 
 	Parameter C_S_AXI_ADDR_WIDTH bound to: 9 - type: integer 
@@ -3336,7 +3336,7 @@ INFO: [Synth 8-638] synthesizing module 'MercuryXU1_axi_gpio_0_2' [/home/ab/Docu
 	Parameter C_TRI_DEFAULT_2 bound to: 32'b11111111111111111111111111111111 
 INFO: [Synth 8-3491] module 'axi_gpio' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ipshared/bb35/hdl/axi_gpio_v2_0_vh_rfs.vhd:1265' bound to instance 'U0' of component 'axi_gpio' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_gpio_0_2/synth/MercuryXU1_axi_gpio_0_2.vhd:168]
 INFO: [Synth 8-256] done synthesizing module 'MercuryXU1_axi_gpio_0_2' (111#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_gpio_0_2/synth/MercuryXU1_axi_gpio_0_2.vhd:84]
-INFO: [Synth 8-3491] module 'MercuryXU1_axi_gpio_0_1' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_gpio_0_1/synth/MercuryXU1_axi_gpio_0_1.vhd:59' bound to instance 'axi_gpio_suppres' of component 'MercuryXU1_axi_gpio_0_1' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:7778]
+INFO: [Synth 8-3491] module 'MercuryXU1_axi_gpio_0_1' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_gpio_0_1/synth/MercuryXU1_axi_gpio_0_1.vhd:59' bound to instance 'axi_gpio_suppres' of component 'MercuryXU1_axi_gpio_0_1' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:7780]
 INFO: [Synth 8-638] synthesizing module 'MercuryXU1_axi_gpio_0_1' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_gpio_0_1/synth/MercuryXU1_axi_gpio_0_1.vhd:84]
 	Parameter C_FAMILY bound to: zynquplus - type: string 
 	Parameter C_S_AXI_ADDR_WIDTH bound to: 9 - type: integer 
@@ -3391,7 +3391,7 @@ INFO: [Synth 8-226] default block is never used [/home/ab/Documents/Projekty/202
 INFO: [Synth 8-256] done synthesizing module 'GPIO_Core__parameterized2' (111#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ipshared/bb35/hdl/axi_gpio_v2_0_vh_rfs.vhd:178]
 INFO: [Synth 8-256] done synthesizing module 'axi_gpio__parameterized5' (111#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ipshared/bb35/hdl/axi_gpio_v2_0_vh_rfs.vhd:1351]
 INFO: [Synth 8-256] done synthesizing module 'MercuryXU1_axi_gpio_0_1' (112#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_gpio_0_1/synth/MercuryXU1_axi_gpio_0_1.vhd:84]
-INFO: [Synth 8-3491] module 'MercuryXU1_axis_clock_converter_0_0' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axis_clock_converter_0_0/synth/MercuryXU1_axis_clock_converter_0_0.v:58' bound to instance 'axis_clock_converter_0' of component 'MercuryXU1_axis_clock_converter_0_0' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:7801]
+INFO: [Synth 8-3491] module 'MercuryXU1_axis_clock_converter_0_0' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axis_clock_converter_0_0/synth/MercuryXU1_axis_clock_converter_0_0.v:58' bound to instance 'axis_clock_converter_0' of component 'MercuryXU1_axis_clock_converter_0_0' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:7803]
 INFO: [Synth 8-6157] synthesizing module 'MercuryXU1_axis_clock_converter_0_0' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axis_clock_converter_0_0/synth/MercuryXU1_axis_clock_converter_0_0.v:58]
 INFO: [Synth 8-6157] synthesizing module 'axis_clock_converter_v1_1_22_axis_clock_converter' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ipshared/0cc2/hdl/axis_clock_converter_v1_1_vl_rfs.v:925]
 	Parameter C_FAMILY bound to: zynquplus - type: string 
@@ -3754,10 +3754,10 @@ INFO: [Synth 8-6157] synthesizing module 'axis_infrastructure_v1_1_0_util_vector
 INFO: [Synth 8-6155] done synthesizing module 'axis_infrastructure_v1_1_0_util_vector2axis' (119#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ipshared/8713/hdl/axis_infrastructure_v1_1_vl_rfs.v:992]
 INFO: [Synth 8-6155] done synthesizing module 'axis_clock_converter_v1_1_22_axis_clock_converter' (120#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ipshared/0cc2/hdl/axis_clock_converter_v1_1_vl_rfs.v:925]
 INFO: [Synth 8-6155] done synthesizing module 'MercuryXU1_axis_clock_converter_0_0' (121#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axis_clock_converter_0_0/synth/MercuryXU1_axis_clock_converter_0_0.v:58]
-INFO: [Synth 8-3491] module 'MercuryXU1_axis_clock_converter_0_1' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axis_clock_converter_0_1/synth/MercuryXU1_axis_clock_converter_0_1.v:58' bound to instance 'axis_clock_converter_1' of component 'MercuryXU1_axis_clock_converter_0_1' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:7816]
+INFO: [Synth 8-3491] module 'MercuryXU1_axis_clock_converter_0_1' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axis_clock_converter_0_1/synth/MercuryXU1_axis_clock_converter_0_1.v:58' bound to instance 'axis_clock_converter_1' of component 'MercuryXU1_axis_clock_converter_0_1' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:7818]
 INFO: [Synth 8-6157] synthesizing module 'MercuryXU1_axis_clock_converter_0_1' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axis_clock_converter_0_1/synth/MercuryXU1_axis_clock_converter_0_1.v:58]
 INFO: [Synth 8-6155] done synthesizing module 'MercuryXU1_axis_clock_converter_0_1' (122#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axis_clock_converter_0_1/synth/MercuryXU1_axis_clock_converter_0_1.v:58]
-INFO: [Synth 8-3491] module 'MercuryXU1_axis_data_fifo_1_0' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axis_data_fifo_1_0/synth/MercuryXU1_axis_data_fifo_1_0.v:58' bound to instance 'axis_data_fifo_0' of component 'MercuryXU1_axis_data_fifo_1_0' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:7831]
+INFO: [Synth 8-3491] module 'MercuryXU1_axis_data_fifo_1_0' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axis_data_fifo_1_0/synth/MercuryXU1_axis_data_fifo_1_0.v:58' bound to instance 'axis_data_fifo_0' of component 'MercuryXU1_axis_data_fifo_1_0' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:7833]
 INFO: [Synth 8-6157] synthesizing module 'MercuryXU1_axis_data_fifo_1_0' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axis_data_fifo_1_0/synth/MercuryXU1_axis_data_fifo_1_0.v:58]
 INFO: [Synth 8-6157] synthesizing module 'axis_data_fifo_v2_0_3_top' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ipshared/50d0/hdl/axis_data_fifo_v2_0_vl_rfs.v:54]
 	Parameter C_FAMILY bound to: zynquplus - type: string 
@@ -4112,7 +4112,7 @@ INFO: [Synth 8-6155] done synthesizing module 'xpm_fifo_base__parameterized3' (1
 INFO: [Synth 8-6155] done synthesizing module 'xpm_fifo_axis' (124#1) [/opt/xilinx/Vivado/2020.1/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:2233]
 INFO: [Synth 8-6155] done synthesizing module 'axis_data_fifo_v2_0_3_top' (125#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ipshared/50d0/hdl/axis_data_fifo_v2_0_vl_rfs.v:54]
 INFO: [Synth 8-6155] done synthesizing module 'MercuryXU1_axis_data_fifo_1_0' (126#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axis_data_fifo_1_0/synth/MercuryXU1_axis_data_fifo_1_0.v:58]
-INFO: [Synth 8-3491] module 'MercuryXU1_axis_data_fifo_0_0' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axis_data_fifo_0_0/synth/MercuryXU1_axis_data_fifo_0_0.v:58' bound to instance 'axis_data_fifo_1' of component 'MercuryXU1_axis_data_fifo_0_0' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:7844]
+INFO: [Synth 8-3491] module 'MercuryXU1_axis_data_fifo_0_0' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axis_data_fifo_0_0/synth/MercuryXU1_axis_data_fifo_0_0.v:58' bound to instance 'axis_data_fifo_1' of component 'MercuryXU1_axis_data_fifo_0_0' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:7846]
 INFO: [Synth 8-6157] synthesizing module 'MercuryXU1_axis_data_fifo_0_0' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axis_data_fifo_0_0/synth/MercuryXU1_axis_data_fifo_0_0.v:58]
 INFO: [Synth 8-6155] done synthesizing module 'MercuryXU1_axis_data_fifo_0_0' (127#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axis_data_fifo_0_0/synth/MercuryXU1_axis_data_fifo_0_0.v:58]
 INFO: [Synth 8-638] synthesizing module 'MercuryXU1_axis_interconnect_0_0' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:3060]
@@ -4889,14 +4889,14 @@ INFO: [Synth 8-6155] done synthesizing module 'axis_switch_v1_1_21_axis_switch_a
 INFO: [Synth 8-6155] done synthesizing module 'axis_switch_v1_1_21_axis_switch' (155#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ipshared/c0ad/hdl/axis_switch_v1_1_vl_rfs.v:3090]
 INFO: [Synth 8-6155] done synthesizing module 'MercuryXU1_xbar_2' (156#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_xbar_2/synth/MercuryXU1_xbar_2.v:58]
 INFO: [Synth 8-256] done synthesizing module 'MercuryXU1_axis_interconnect_0_0' (157#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:3060]
-INFO: [Synth 8-3491] module 'MercuryXU1_bram_gpio_0_0' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_bram_gpio_0_0/synth/MercuryXU1_bram_gpio_0_0.vhd:56' bound to instance 'bram_gpio_0' of component 'MercuryXU1_bram_gpio_0_0' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:7884]
+INFO: [Synth 8-3491] module 'MercuryXU1_bram_gpio_0_0' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_bram_gpio_0_0/synth/MercuryXU1_bram_gpio_0_0.vhd:56' bound to instance 'bram_gpio_0' of component 'MercuryXU1_bram_gpio_0_0' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:7886]
 INFO: [Synth 8-638] synthesizing module 'MercuryXU1_bram_gpio_0_0' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_bram_gpio_0_0/synth/MercuryXU1_bram_gpio_0_0.vhd:70]
 INFO: [Synth 8-3491] module 'bram_gpio' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/imports/src/bram_gpio.vhd:35' bound to instance 'U0' of component 'bram_gpio' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_bram_gpio_0_0/synth/MercuryXU1_bram_gpio_0_0.vhd:101]
 INFO: [Synth 8-638] synthesizing module 'bram_gpio' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/imports/src/bram_gpio.vhd:48]
-WARNING: [Synth 8-614] signal 'packet_counter' is read in the process but is not in the sensitivity list [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/imports/src/bram_gpio.vhd:73]
+WARNING: [Synth 8-614] signal 'packet_counter' is read in the process but is not in the sensitivity list [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/imports/src/bram_gpio.vhd:59]
 INFO: [Synth 8-256] done synthesizing module 'bram_gpio' (158#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/imports/src/bram_gpio.vhd:48]
 INFO: [Synth 8-256] done synthesizing module 'MercuryXU1_bram_gpio_0_0' (159#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_bram_gpio_0_0/synth/MercuryXU1_bram_gpio_0_0.vhd:70]
-INFO: [Synth 8-3491] module 'MercuryXU1_xlconcat_0_1' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_xlconcat_0_1/synth/MercuryXU1_xlconcat_0_1.v:58' bound to instance 'concat_trigger' of component 'MercuryXU1_xlconcat_0_1' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:7896]
+INFO: [Synth 8-3491] module 'MercuryXU1_xlconcat_0_1' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_xlconcat_0_1/synth/MercuryXU1_xlconcat_0_1.v:58' bound to instance 'concat_trigger' of component 'MercuryXU1_xlconcat_0_1' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:7898]
 INFO: [Synth 8-6157] synthesizing module 'MercuryXU1_xlconcat_0_1' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_xlconcat_0_1/synth/MercuryXU1_xlconcat_0_1.v:58]
 INFO: [Common 17-14] Message 'Synth 8-6157' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 	Parameter IN0_WIDTH bound to: 1 - type: integer 
@@ -4935,13 +4935,13 @@ INFO: [Common 17-14] Message 'Synth 8-6157' appears 100 times and further instan
 	Parameter NUM_PORTS bound to: 20 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'xlconcat_v2_1_3_xlconcat__parameterized0' (159#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ipshared/442e/hdl/xlconcat_v2_1_vl_rfs.v:14]
 INFO: [Common 17-14] Message 'Synth 8-6155' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-INFO: [Synth 8-3491] module 'MercuryXU1_event_controller_0_1' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_event_controller_0_1/synth/MercuryXU1_event_controller_0_1.vhd:56' bound to instance 'event_controller_0' of component 'MercuryXU1_event_controller_0_1' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:7920]
+INFO: [Synth 8-3491] module 'MercuryXU1_event_controller_0_1' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_event_controller_0_1/synth/MercuryXU1_event_controller_0_1.vhd:56' bound to instance 'event_controller_0' of component 'MercuryXU1_event_controller_0_1' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:7922]
 INFO: [Synth 8-638] synthesizing module 'MercuryXU1_event_controller_0_1' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_event_controller_0_1/synth/MercuryXU1_event_controller_0_1.vhd:67]
 INFO: [Synth 8-3491] module 'event_controller' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/new/event_controller.vhd:35' bound to instance 'U0' of component 'event_controller' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_event_controller_0_1/synth/MercuryXU1_event_controller_0_1.vhd:95]
 INFO: [Synth 8-638] synthesizing module 'event_controller' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/new/event_controller.vhd:45]
 INFO: [Synth 8-256] done synthesizing module 'event_controller' (161#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/new/event_controller.vhd:45]
 INFO: [Synth 8-256] done synthesizing module 'MercuryXU1_event_controller_0_1' (162#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_event_controller_0_1/synth/MercuryXU1_event_controller_0_1.vhd:67]
-INFO: [Synth 8-3491] module 'MercuryXU1_proc_sys_reset_0_0' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_proc_sys_reset_0_0/synth/MercuryXU1_proc_sys_reset_0_0.vhd:59' bound to instance 'proc_sys_reset_100' of component 'MercuryXU1_proc_sys_reset_0_0' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:7929]
+INFO: [Synth 8-3491] module 'MercuryXU1_proc_sys_reset_0_0' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_proc_sys_reset_0_0/synth/MercuryXU1_proc_sys_reset_0_0.vhd:59' bound to instance 'proc_sys_reset_100' of component 'MercuryXU1_proc_sys_reset_0_0' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:7931]
 INFO: [Synth 8-638] synthesizing module 'MercuryXU1_proc_sys_reset_0_0' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_proc_sys_reset_0_0/synth/MercuryXU1_proc_sys_reset_0_0.vhd:74]
 	Parameter C_FAMILY bound to: zynquplus - type: string 
 	Parameter C_EXT_RST_WIDTH bound to: 4 - type: integer 
@@ -5012,7 +5012,7 @@ INFO: [Synth 8-256] done synthesizing module 'upcnt_n' (165#1) [/home/ab/Documen
 INFO: [Synth 8-256] done synthesizing module 'sequence_psr' (166#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ipshared/8842/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:301]
 INFO: [Synth 8-256] done synthesizing module 'proc_sys_reset' (167#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ipshared/8842/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:1323]
 INFO: [Synth 8-256] done synthesizing module 'MercuryXU1_proc_sys_reset_0_0' (168#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_proc_sys_reset_0_0/synth/MercuryXU1_proc_sys_reset_0_0.vhd:74]
-INFO: [Synth 8-3491] module 'MercuryXU1_proc_sys_reset_100_0' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_proc_sys_reset_100_0/synth/MercuryXU1_proc_sys_reset_100_0.vhd:59' bound to instance 'proc_sys_reset_300' of component 'MercuryXU1_proc_sys_reset_100_0' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:7942]
+INFO: [Synth 8-3491] module 'MercuryXU1_proc_sys_reset_100_0' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_proc_sys_reset_100_0/synth/MercuryXU1_proc_sys_reset_100_0.vhd:59' bound to instance 'proc_sys_reset_300' of component 'MercuryXU1_proc_sys_reset_100_0' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:7944]
 INFO: [Synth 8-638] synthesizing module 'MercuryXU1_proc_sys_reset_100_0' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_proc_sys_reset_100_0/synth/MercuryXU1_proc_sys_reset_100_0.vhd:74]
 	Parameter C_FAMILY bound to: zynquplus - type: string 
 	Parameter C_EXT_RST_WIDTH bound to: 4 - type: integer 
@@ -5025,7 +5025,7 @@ INFO: [Synth 8-638] synthesizing module 'MercuryXU1_proc_sys_reset_100_0' [/home
 	Parameter C_NUM_PERP_ARESETN bound to: 1 - type: integer 
 INFO: [Synth 8-3491] module 'proc_sys_reset' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ipshared/8842/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:1264' bound to instance 'U0' of component 'proc_sys_reset' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_proc_sys_reset_100_0/synth/MercuryXU1_proc_sys_reset_100_0.vhd:129]
 INFO: [Synth 8-256] done synthesizing module 'MercuryXU1_proc_sys_reset_100_0' (169#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_proc_sys_reset_100_0/synth/MercuryXU1_proc_sys_reset_100_0.vhd:74]
-INFO: [Synth 8-3491] module 'MercuryXU1_proc_sys_reset_300_0' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_proc_sys_reset_300_0/synth/MercuryXU1_proc_sys_reset_300_0.vhd:59' bound to instance 'proc_sys_reset_62p6' of component 'MercuryXU1_proc_sys_reset_300_0' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:7955]
+INFO: [Synth 8-3491] module 'MercuryXU1_proc_sys_reset_300_0' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_proc_sys_reset_300_0/synth/MercuryXU1_proc_sys_reset_300_0.vhd:59' bound to instance 'proc_sys_reset_62p6' of component 'MercuryXU1_proc_sys_reset_300_0' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:7957]
 INFO: [Synth 8-638] synthesizing module 'MercuryXU1_proc_sys_reset_300_0' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_proc_sys_reset_300_0/synth/MercuryXU1_proc_sys_reset_300_0.vhd:74]
 	Parameter C_FAMILY bound to: zynquplus - type: string 
 	Parameter C_EXT_RST_WIDTH bound to: 4 - type: integer 
@@ -6633,7 +6633,7 @@ INFO: [Synth 8-155] case statement is not full and has no default [/home/ab/Docu
 	Parameter C_SEL_WIDTH bound to: 4 - type: integer 
 	Parameter C_DATA_WIDTH bound to: 3 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'MercuryXU1_ps8_0_axi_periph_0' (215#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:3454]
-INFO: [Synth 8-3491] module 'MercuryXU1_smartconnect_0_0' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_smartconnect_0_0/synth/MercuryXU1_smartconnect_0_0.v:57' bound to instance 'smartconnect_0' of component 'MercuryXU1_smartconnect_0_0' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:8197]
+INFO: [Synth 8-3491] module 'MercuryXU1_smartconnect_0_0' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_smartconnect_0_0/synth/MercuryXU1_smartconnect_0_0.v:57' bound to instance 'smartconnect_0' of component 'MercuryXU1_smartconnect_0_0' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:8199]
 	Parameter CONST_VAL bound to: 1 - type: integer 
 	Parameter CONST_WIDTH bound to: 1 - type: integer 
 INFO: [Synth 8-638] synthesizing module 'bd_1544_psr_aclk_0' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_smartconnect_0_0/bd_0/ip/ip_1/synth/bd_1544_psr_aclk_0.vhd:74]
@@ -7514,7 +7514,7 @@ WARNING: [Synth 8-7071] port 'S01_SC_AW_recv' of module 'switchboards_imp_1PTPQ3
 WARNING: [Synth 8-7071] port 'S01_SC_W_recv' of module 'switchboards_imp_1PTPQ35' is unconnected for instance 'switchboards' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_smartconnect_0_0/bd_0/synth/bd_1544.v:1298]
 WARNING: [Synth 8-7071] port 'S02_SC_AR_recv' of module 'switchboards_imp_1PTPQ35' is unconnected for instance 'switchboards' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_smartconnect_0_0/bd_0/synth/bd_1544.v:1298]
 WARNING: [Synth 8-7023] instance 'switchboards' of module 'switchboards_imp_1PTPQ35' has 102 connections declared, but only 91 given [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_smartconnect_0_0/bd_0/synth/bd_1544.v:1298]
-INFO: [Synth 8-3491] module 'MercuryXU1_smartconnect_0_1' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_smartconnect_0_1/synth/MercuryXU1_smartconnect_0_1.v:57' bound to instance 'smartconnect_1' of component 'MercuryXU1_smartconnect_0_1' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:8301]
+INFO: [Synth 8-3491] module 'MercuryXU1_smartconnect_0_1' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_smartconnect_0_1/synth/MercuryXU1_smartconnect_0_1.v:57' bound to instance 'smartconnect_1' of component 'MercuryXU1_smartconnect_0_1' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:8303]
 INFO: [Synth 8-638] synthesizing module 'bd_d585_psr_aclk_0' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_smartconnect_0_1/bd_0/ip/ip_1/synth/bd_d585_psr_aclk_0.vhd:74]
 	Parameter C_FAMILY bound to: zynquplus - type: string 
 	Parameter C_EXT_RST_WIDTH bound to: 4 - type: integer 
@@ -8012,13 +8012,13 @@ WARNING: [Synth 8-7071] port 'M01_SC_R_req' of module 'switchboards_imp_1XA6IJF'
 WARNING: [Synth 8-7071] port 'M01_SC_R_send' of module 'switchboards_imp_1XA6IJF' is unconnected for instance 'switchboards' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_smartconnect_0_1/bd_0/synth/bd_d585.v:1108]
 WARNING: [Synth 8-7071] port 'S01_SC_AR_recv' of module 'switchboards_imp_1XA6IJF' is unconnected for instance 'switchboards' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_smartconnect_0_1/bd_0/synth/bd_d585.v:1108]
 WARNING: [Synth 8-7023] instance 'switchboards' of module 'switchboards_imp_1XA6IJF' has 77 connections declared, but only 72 given [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_smartconnect_0_1/bd_0/synth/bd_d585.v:1108]
-INFO: [Synth 8-3491] module 'MercuryXU1_stream_multiplexer_0_0' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_stream_multiplexer_0_0/synth/MercuryXU1_stream_multiplexer_0_0.vhd:56' bound to instance 'stream_multiplexer_0' of component 'MercuryXU1_stream_multiplexer_0_0' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:8390]
+INFO: [Synth 8-3491] module 'MercuryXU1_stream_multiplexer_0_0' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_stream_multiplexer_0_0/synth/MercuryXU1_stream_multiplexer_0_0.vhd:56' bound to instance 'stream_multiplexer_0' of component 'MercuryXU1_stream_multiplexer_0_0' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:8392]
 INFO: [Synth 8-638] synthesizing module 'MercuryXU1_stream_multiplexer_0_0' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_stream_multiplexer_0_0/synth/MercuryXU1_stream_multiplexer_0_0.vhd:88]
 INFO: [Synth 8-3491] module 'stream_multiplexer' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/new/stream_multiplexer.vhd:35' bound to instance 'U0' of component 'stream_multiplexer' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_stream_multiplexer_0_0/synth/MercuryXU1_stream_multiplexer_0_0.vhd:131]
 INFO: [Synth 8-638] synthesizing module 'stream_multiplexer' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/new/stream_multiplexer.vhd:66]
 INFO: [Synth 8-256] done synthesizing module 'stream_multiplexer' (341#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/new/stream_multiplexer.vhd:66]
 INFO: [Synth 8-256] done synthesizing module 'MercuryXU1_stream_multiplexer_0_0' (342#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_stream_multiplexer_0_0/synth/MercuryXU1_stream_multiplexer_0_0.vhd:88]
-INFO: [Synth 8-3491] module 'MercuryXU1_system_ila_0_0' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_system_ila_0_0/synth/MercuryXU1_system_ila_0_0.vhd:56' bound to instance 'system_ila_50' of component 'MercuryXU1_system_ila_0_0' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:8420]
+INFO: [Synth 8-3491] module 'MercuryXU1_system_ila_0_0' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_system_ila_0_0/synth/MercuryXU1_system_ila_0_0.vhd:56' bound to instance 'system_ila_50' of component 'MercuryXU1_system_ila_0_0' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:8422]
 INFO: [Synth 8-638] synthesizing module 'MercuryXU1_system_ila_0_0' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_system_ila_0_0/synth/MercuryXU1_system_ila_0_0.vhd:180]
 INFO: [Synth 8-3491] module 'bd_6493' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_system_ila_0_0/bd_0/synth/bd_6493.vhd:11' bound to instance 'U0' of component 'bd_6493' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_system_ila_0_0/synth/MercuryXU1_system_ila_0_0.vhd:607]
 INFO: [Synth 8-638] synthesizing module 'bd_6493' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_system_ila_0_0/bd_0/synth/bd_6493.vhd:139]
@@ -12524,7 +12524,7 @@ INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance '
 INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'g_inst'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_system_ila_0_0/bd_0/synth/bd_6493.vhd:1131]
 INFO: [Synth 8-256] done synthesizing module 'bd_6493' (407#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_system_ila_0_0/bd_0/synth/bd_6493.vhd:139]
 INFO: [Synth 8-256] done synthesizing module 'MercuryXU1_system_ila_0_0' (408#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_system_ila_0_0/synth/MercuryXU1_system_ila_0_0.vhd:180]
-INFO: [Synth 8-3491] module 'MercuryXU1_system_ila_0_3' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_system_ila_0_3/synth/MercuryXU1_system_ila_0_3.vhd:56' bound to instance 'system_ila_51' of component 'MercuryXU1_system_ila_0_3' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:8542]
+INFO: [Synth 8-3491] module 'MercuryXU1_system_ila_0_3' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_system_ila_0_3/synth/MercuryXU1_system_ila_0_3.vhd:56' bound to instance 'system_ila_51' of component 'MercuryXU1_system_ila_0_3' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:8544]
 INFO: [Synth 8-638] synthesizing module 'MercuryXU1_system_ila_0_3' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_system_ila_0_3/synth/MercuryXU1_system_ila_0_3.vhd:74]
 INFO: [Synth 8-3491] module 'bd_65d3' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_system_ila_0_3/bd_0/synth/bd_65d3.vhd:11' bound to instance 'U0' of component 'bd_65d3' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_system_ila_0_3/synth/MercuryXU1_system_ila_0_3.vhd:271]
 INFO: [Synth 8-638] synthesizing module 'bd_65d3' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_system_ila_0_3/bd_0/synth/bd_65d3.vhd:33]
@@ -16981,7 +16981,7 @@ INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance '
 INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'g_inst'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_system_ila_0_3/bd_0/synth/bd_65d3.vhd:106]
 INFO: [Synth 8-256] done synthesizing module 'bd_65d3' (412#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_system_ila_0_3/bd_0/synth/bd_65d3.vhd:33]
 INFO: [Synth 8-256] done synthesizing module 'MercuryXU1_system_ila_0_3' (413#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_system_ila_0_3/synth/MercuryXU1_system_ila_0_3.vhd:74]
-INFO: [Synth 8-3491] module 'MercuryXU1_system_ila_0_2' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_system_ila_0_2/synth/MercuryXU1_system_ila_0_2.vhd:56' bound to instance 'system_ila_60' of component 'MercuryXU1_system_ila_0_2' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:8558]
+INFO: [Synth 8-3491] module 'MercuryXU1_system_ila_0_2' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_system_ila_0_2/synth/MercuryXU1_system_ila_0_2.vhd:56' bound to instance 'system_ila_60' of component 'MercuryXU1_system_ila_0_2' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:8560]
 INFO: [Synth 8-638] synthesizing module 'MercuryXU1_system_ila_0_2' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_system_ila_0_2/synth/MercuryXU1_system_ila_0_2.vhd:75]
 INFO: [Synth 8-3491] module 'bd_a512' declared at '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_system_ila_0_2/bd_0/synth/bd_a512.vhd:11' bound to instance 'U0' of component 'bd_a512' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_system_ila_0_2/synth/MercuryXU1_system_ila_0_2.vhd:266]
 INFO: [Common 17-14] Message 'Synth 8-3491' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
@@ -20506,9 +20506,9 @@ INFO: [Synth 8-638] synthesizing module 'MercuryXU1_system_management_wiz_0_0_in
 INFO: [Synth 8-256] done synthesizing module 'MercuryXU1_system_management_wiz_0_0_interrupt_control' (423#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_system_management_wiz_0_0_1/interrupt_control_v2_01_a/hdl/src/vhdl/MercuryXU1_system_management_wiz_0_0_interrupt_control.vhd:240]
 INFO: [Synth 8-256] done synthesizing module 'MercuryXU1_system_management_wiz_0_0_axi_xadc' (424#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_system_management_wiz_0_0_1/MercuryXU1_system_management_wiz_0_0_axi_xadc.vhd:237]
 INFO: [Synth 8-256] done synthesizing module 'MercuryXU1_system_management_wiz_0_0' (425#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_system_management_wiz_0_0_1/MercuryXU1_system_management_wiz_0_0.vhd:100]
-INFO: [Synth 8-638] synthesizing module 'MercuryXU1_tlast_generator_0_0' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_tlast_generator_0_0/synth/MercuryXU1_tlast_generator_0_0.vhd:79]
+INFO: [Synth 8-638] synthesizing module 'MercuryXU1_tlast_generator_0_0' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_tlast_generator_0_0/synth/MercuryXU1_tlast_generator_0_0.vhd:80]
 	Parameter ID bound to: 0 - type: integer 
-INFO: [Synth 8-638] synthesizing module 'tlast_generator' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/new/tlast_generator.vhd:58]
+INFO: [Synth 8-638] synthesizing module 'tlast_generator' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/new/tlast_generator.vhd:59]
 	Parameter ID bound to: 0 - type: integer 
 INFO: [Synth 8-638] synthesizing module 'c_shift_ram_0' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/ip/c_shift_ram_0/synth/c_shift_ram_0.vhd:68]
 	Parameter C_XDEVICEFAMILY bound to: zynquplus - type: string 
@@ -20534,14 +20534,14 @@ INFO: [Synth 8-638] synthesizing module 'c_shift_ram_0' [/home/ab/Documents/Proj
 	Parameter C_READ_MIF bound to: 0 - type: integer 
 	Parameter C_PARSER_TYPE bound to: 0 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'c_shift_ram_0' (430#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/ip/c_shift_ram_0/synth/c_shift_ram_0.vhd:68]
-INFO: [Synth 8-256] done synthesizing module 'tlast_generator' (431#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/new/tlast_generator.vhd:58]
-INFO: [Synth 8-256] done synthesizing module 'MercuryXU1_tlast_generator_0_0' (432#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_tlast_generator_0_0/synth/MercuryXU1_tlast_generator_0_0.vhd:79]
-INFO: [Synth 8-638] synthesizing module 'MercuryXU1_tlast_generator_0_1' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_tlast_generator_0_1/synth/MercuryXU1_tlast_generator_0_1.vhd:79]
+INFO: [Synth 8-256] done synthesizing module 'tlast_generator' (431#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/new/tlast_generator.vhd:59]
+INFO: [Synth 8-256] done synthesizing module 'MercuryXU1_tlast_generator_0_0' (432#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_tlast_generator_0_0/synth/MercuryXU1_tlast_generator_0_0.vhd:80]
+INFO: [Synth 8-638] synthesizing module 'MercuryXU1_tlast_generator_0_1' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_tlast_generator_0_1/synth/MercuryXU1_tlast_generator_0_1.vhd:80]
 	Parameter ID bound to: 1 - type: integer 
-INFO: [Synth 8-638] synthesizing module 'tlast_generator__parameterized1' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/new/tlast_generator.vhd:58]
+INFO: [Synth 8-638] synthesizing module 'tlast_generator__parameterized1' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/new/tlast_generator.vhd:59]
 	Parameter ID bound to: 1 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'tlast_generator__parameterized1' (432#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/new/tlast_generator.vhd:58]
-INFO: [Synth 8-256] done synthesizing module 'MercuryXU1_tlast_generator_0_1' (433#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_tlast_generator_0_1/synth/MercuryXU1_tlast_generator_0_1.vhd:79]
+INFO: [Synth 8-256] done synthesizing module 'tlast_generator__parameterized1' (432#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/new/tlast_generator.vhd:59]
+INFO: [Synth 8-256] done synthesizing module 'MercuryXU1_tlast_generator_0_1' (433#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_tlast_generator_0_1/synth/MercuryXU1_tlast_generator_0_1.vhd:80]
 	Parameter CONST_VAL bound to: 0 - type: integer 
 	Parameter CONST_WIDTH bound to: 1 - type: integer 
 	Parameter DIN_WIDTH bound to: 20 - type: integer 
@@ -20698,27 +20698,27 @@ WARNING: [Synth 8-7071] port 'PSS_ALTO_CORE_PAD_REFP2IN' of module 'PS8' is unco
 WARNING: [Synth 8-7071] port 'PSS_ALTO_CORE_PAD_REFP3IN' of module 'PS8' is unconnected for instance 'PS8_i' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_zynq_ultra_ps_e_0_0/hdl/zynq_ultra_ps_e_v3_3_2.v:3889]
 WARNING: [Synth 8-7023] instance 'PS8_i' of module 'PS8' has 1015 connections declared, but only 957 given [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_zynq_ultra_ps_e_0_0/hdl/zynq_ultra_ps_e_v3_3_2.v:3889]
 INFO: [Synth 8-256] done synthesizing module 'MercuryXU1_zynq_ultra_ps_e_0_0' (445#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_zynq_ultra_ps_e_0_0/synth/MercuryXU1_zynq_ultra_ps_e_0_0.vhd:206]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'system_ila_50'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:8420]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'axis_interconnect_0'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:7857]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'axi_dma_0'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:7514]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'smartconnect_0'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:8197]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'xlslice_07'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:8668]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'system_ila_60'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:8558]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'tlast_generator_1'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:8631]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'tlast_generator_0'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:8610]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'xlslice_3_5'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:8683]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'xlslice_2'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:8678]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'xlslice_1'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:8673]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'xlslice_0'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:8663]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'stream_multiplexer_0'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:8390]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'axis_data_fifo_0'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:7831]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'axis_clock_converter_0'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:7801]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'axis_data_fifo_1'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:7844]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'axis_clock_converter_1'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:7816]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'axi_dma_1'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:7610]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'system_ila_51'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:8542]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'zynq_ultra_ps_e_0'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:8688]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'smartconnect_1'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:8301]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'system_ila_50'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:8422]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'axis_interconnect_0'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:7859]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'axi_dma_0'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:7516]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'smartconnect_0'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:8199]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'xlslice_07'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:8672]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'system_ila_60'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:8560]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'tlast_generator_1'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:8634]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'tlast_generator_0'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:8612]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'xlslice_3_5'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:8687]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'xlslice_2'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:8682]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'xlslice_1'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:8677]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'xlslice_0'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:8667]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'stream_multiplexer_0'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:8392]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'axis_data_fifo_0'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:7833]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'axis_clock_converter_0'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:7803]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'axis_data_fifo_1'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:7846]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'axis_clock_converter_1'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:7818]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'axi_dma_1'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:7612]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'system_ila_51'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:8544]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'zynq_ultra_ps_e_0'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:8692]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'smartconnect_1'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:8303]
 INFO: [Synth 8-256] done synthesizing module 'MercuryXU1' (446#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/synth/MercuryXU1.vhd:5389]
 	Parameter DRIVE bound to: 12 - type: integer 
 	Parameter IBUF_LOW_PWR bound to: TRUE - type: string 
@@ -20732,6 +20732,7 @@ INFO: [Synth 8-256] done synthesizing module 'MercuryXU1_wrapper' (448#1) [/home
 	Parameter IBUF_LOW_PWR bound to: 1 - type: bool 
 	Parameter IFD_DELAY_VALUE bound to: AUTO - type: string 
 	Parameter IOSTANDARD bound to: DEFAULT - type: string 
+	Parameter SIM_DEVICE bound to: ULTRASCALE - type: string 
 	Parameter CAPACITANCE bound to: DONT_CARE - type: string 
 	Parameter DIFF_TERM bound to: 0 - type: bool 
 	Parameter DQS_BIAS bound to: FALSE - type: string 
@@ -20739,11 +20740,12 @@ INFO: [Synth 8-256] done synthesizing module 'MercuryXU1_wrapper' (448#1) [/home
 	Parameter IBUF_LOW_PWR bound to: 1 - type: bool 
 	Parameter IFD_DELAY_VALUE bound to: AUTO - type: string 
 	Parameter IOSTANDARD bound to: DEFAULT - type: string 
-INFO: [Synth 8-638] synthesizing module 'clk_wiz_0_b65_mmcm' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.runs/MercuryNuPRISM_synth/.Xil/Vivado-12361-hyperk/realtime/clk_wiz_0_b65_mmcm_stub.vhdl:17]
-INFO: [Synth 8-638] synthesizing module 'Ad9229Core' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/lib/amc_carrier_core/Ad9229Core.vhd:68]
+INFO: [Synth 8-638] synthesizing module 'clk_wiz_0_b65_mmcm' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.runs/MercuryNuPRISM_synth/.Xil/Vivado-26406-hyperk/realtime/clk_wiz_0_b65_mmcm_stub.vhdl:17]
+INFO: [Synth 8-638] synthesizing module 'Ad9229Core' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/lib/amc_carrier_core/Ad9229Core.vhd:69]
 	Parameter TPD_G bound to: 64'b0000000000000000000000000000000000000000000011110100001001000000 
 	Parameter IODELAY_GROUP_G bound to: DEFAULT_GROUP - type: string 
 	Parameter N_CHANNELS_G bound to: 8 - type: integer 
+	Parameter DELAY_VALUE bound to: 550 - type: integer 
 INFO: [Synth 8-638] synthesizing module 'ClkOutBufDiff' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/lib/surf/xilinx/general/rtl/ClkOutBufDiff.vhd:38]
 	Parameter TPD_G bound to: 64'b0000000000000000000000000000000000000000000011110100001001000000 
 	Parameter XIL_DEVICE_G bound to: ULTRASCALE - type: string 
@@ -20790,10 +20792,11 @@ INFO: [Synth 8-256] done synthesizing module 'RstSync' (451#1) [/home/ab/Documen
 	Parameter IBUF_LOW_PWR bound to: 1 - type: bool 
 	Parameter IFD_DELAY_VALUE bound to: AUTO - type: string 
 	Parameter IOSTANDARD bound to: DEFAULT - type: string 
-INFO: [Synth 8-638] synthesizing module 'Ad9229Deserializer' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/lib/amc_carrier_core/Ad9229Deserializer.vhd:51]
+INFO: [Synth 8-638] synthesizing module 'Ad9229Deserializer' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/lib/amc_carrier_core/Ad9229Deserializer.vhd:53]
 	Parameter TPD_G bound to: 64'b0000000000000000000000000000000000000000000011110100001001000000 
 	Parameter IODELAY_GROUP_G bound to: DEFAULT_GROUP - type: string 
 	Parameter IDELAYCTRL_FREQ_G bound to: 375.000000 - type: double 
+	Parameter DELAY_VALUE bound to: 550 - type: integer 
 INFO: [Synth 8-638] synthesizing module 'SynchronizerOneShot' [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/lib/surf/base/sync/rtl/SynchronizerOneShot.vhd:39]
 	Parameter TPD_G bound to: 64'b0000000000000000000000000000000000000000000011110100001001000000 
 	Parameter RST_ASYNC_G bound to: 0 - type: bool 
@@ -20840,10 +20843,10 @@ INFO: [Synth 8-256] done synthesizing module 'Synchronizer__parameterized1' (451
 INFO: [Synth 8-256] done synthesizing module 'SynchronizerEdge' (452#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/lib/surf/base/sync/rtl/SynchronizerEdge.vhd:40]
 INFO: [Synth 8-256] done synthesizing module 'SynchronizerOneShot' (453#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/lib/surf/base/sync/rtl/SynchronizerOneShot.vhd:39]
 	Parameter CASCADE bound to: NONE - type: string 
-	Parameter DELAY_FORMAT bound to: COUNT - type: string 
+	Parameter DELAY_FORMAT bound to: TIME - type: string 
 	Parameter DELAY_SRC bound to: IDATAIN - type: string 
 	Parameter DELAY_TYPE bound to: VAR_LOAD - type: string 
-	Parameter DELAY_VALUE bound to: 256 - type: integer 
+	Parameter DELAY_VALUE bound to: 180 - type: integer 
 	Parameter IS_CLK_INVERTED bound to: 1'b0 
 	Parameter IS_RST_INVERTED bound to: 1'b0 
 	Parameter LOOPBACK bound to: FALSE - type: string 
@@ -20950,7 +20953,7 @@ INFO: [Synth 8-638] synthesizing module 'FifoOutputPipeline' [/home/ab/Documents
 INFO: [Synth 8-256] done synthesizing module 'FifoOutputPipeline' (458#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/lib/surf/base/fifo/rtl/FifoOutputPipeline.vhd:44]
 INFO: [Synth 8-256] done synthesizing module 'FifoAsync' (459#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/lib/surf/base/fifo/rtl/inferred/FifoAsync.vhd:64]
 INFO: [Synth 8-256] done synthesizing module 'SynchronizerFifo' (460#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/lib/surf/base/sync/rtl/SynchronizerFifo.vhd:48]
-INFO: [Synth 8-256] done synthesizing module 'Ad9229Deserializer' (461#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/lib/amc_carrier_core/Ad9229Deserializer.vhd:51]
+INFO: [Synth 8-256] done synthesizing module 'Ad9229Deserializer' (461#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/lib/amc_carrier_core/Ad9229Deserializer.vhd:53]
 	Parameter CAPACITANCE bound to: DONT_CARE - type: string 
 	Parameter DIFF_TERM bound to: 1 - type: bool 
 	Parameter DQS_BIAS bound to: FALSE - type: string 
@@ -21007,27 +21010,27 @@ INFO: [Synth 8-256] done synthesizing module 'Ad9229Deserializer' (461#1) [/home
 	Parameter IBUF_LOW_PWR bound to: 1 - type: bool 
 	Parameter IFD_DELAY_VALUE bound to: AUTO - type: string 
 	Parameter IOSTANDARD bound to: DEFAULT - type: string 
-INFO: [Synth 8-256] done synthesizing module 'Ad9229Core' (462#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/lib/amc_carrier_core/Ad9229Core.vhd:68]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'B64_S[4].Ad9229Core_b'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/src/system_top_NuPRISM.vhd:516]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'B64_S[3].Ad9229Core_b'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/src/system_top_NuPRISM.vhd:516]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'B64_S[2].Ad9229Core_b'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/src/system_top_NuPRISM.vhd:516]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'B64_S[1].Ad9229Core_b'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/src/system_top_NuPRISM.vhd:516]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'B64_S[0].Ad9229Core_b'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/src/system_top_NuPRISM.vhd:516]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'MercuryXU1_i'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/src/system_top_NuPRISM.vhd:366]
+INFO: [Synth 8-256] done synthesizing module 'Ad9229Core' (462#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/lib/amc_carrier_core/Ad9229Core.vhd:69]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'B64_S[4].Ad9229Core_b'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/src/system_top_NuPRISM.vhd:531]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'B64_S[3].Ad9229Core_b'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/src/system_top_NuPRISM.vhd:531]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'B64_S[2].Ad9229Core_b'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/src/system_top_NuPRISM.vhd:531]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'B64_S[1].Ad9229Core_b'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/src/system_top_NuPRISM.vhd:531]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'B64_S[0].Ad9229Core_b'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/src/system_top_NuPRISM.vhd:531]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'MercuryXU1_i'. This will prevent further optimization [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/src/system_top_NuPRISM.vhd:371]
 INFO: [Synth 8-256] done synthesizing module 'system_top' (463#1) [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/src/system_top_NuPRISM.vhd:242]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:01:59 ; elapsed = 00:02:18 . Memory (MB): peak = 3970.762 ; gain = 1221.887 ; free physical = 100747 ; free virtual = 117132
+Finished RTL Elaboration : Time (s): cpu = 00:01:59 ; elapsed = 00:02:19 . Memory (MB): peak = 3971.156 ; gain = 1222.277 ; free physical = 92767 ; free virtual = 115375
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:02:04 ; elapsed = 00:02:23 . Memory (MB): peak = 3970.762 ; gain = 1221.887 ; free physical = 100905 ; free virtual = 117290
+Finished Handling Custom Attributes : Time (s): cpu = 00:02:04 ; elapsed = 00:02:24 . Memory (MB): peak = 3971.156 ; gain = 1222.277 ; free physical = 92925 ; free virtual = 115533
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:02:04 ; elapsed = 00:02:23 . Memory (MB): peak = 3970.762 ; gain = 1221.887 ; free physical = 100905 ; free virtual = 117290
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:02:04 ; elapsed = 00:02:24 . Memory (MB): peak = 3971.156 ; gain = 1222.277 ; free physical = 92925 ; free virtual = 115533
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 4289.152 ; gain = 0.000 ; free physical = 99992 ; free virtual = 116377
+Netlist sorting complete. Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 4289.539 ; gain = 0.000 ; free physical = 92011 ; free virtual = 114618
 INFO: [Netlist 29-17] Analyzing 4291 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -21205,6 +21208,7 @@ Parsing XDC File [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev
 Finished Parsing XDC File [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/sources_1/bd/MercuryXU1/ip/MercuryXU1_axi_gpio_delay_ctrl_0/MercuryXU1_axi_gpio_delay_ctrl_0.xdc] for cell 'MercuryXU1_i/MercuryXU1_i/axi_gpio_packet_number/U0'
 INFO: [Timing 38-2] Deriving generated clocks
 Parsing XDC File [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/MercuryNuPRISM/new/debug.xdc]
+INFO: [Vivado 12-3773] the DONT_TOUCH property on this net is implied by a MARK_DEBUG. Setting the DONT_TOUCH property to FALSE or 0 will enable the implementation tools to optimize this net and these optimizations could result in the net being deleted. [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/MercuryNuPRISM/new/debug.xdc:322]
 Finished Parsing XDC File [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/MercuryNuPRISM/new/debug.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.srcs/MercuryNuPRISM/new/debug.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/system_top_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/system_top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
@@ -21485,7 +21489,7 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/system_top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.06 . Memory (MB): peak = 5106.062 ; gain = 0.000 ; free physical = 99265 ; free virtual = 115651
+Netlist sorting complete. Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.05 . Memory (MB): peak = 5106.449 ; gain = 0.000 ; free physical = 91284 ; free virtual = 113892
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 3770 instances were transformed.
   CFGLUT5 => CFGLUT5 (SRL16E, SRLC32E): 1292 instances
@@ -21498,9 +21502,9 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   ODDRE1 => OSERDESE3: 5 instances
   SRL16 => SRL16E: 5 instances
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 5106.062 ; gain = 0.000 ; free physical = 99262 ; free virtual = 115649
+Constraint Validation Runtime : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 5106.449 ; gain = 0.000 ; free physical = 91280 ; free virtual = 113890
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:03:41 ; elapsed = 00:03:46 . Memory (MB): peak = 5106.062 ; gain = 2357.188 ; free physical = 100794 ; free virtual = 117181
+Finished Constraint Validation : Time (s): cpu = 00:03:43 ; elapsed = 00:03:48 . Memory (MB): peak = 5106.449 ; gain = 2357.570 ; free physical = 92814 ; free virtual = 115424
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
@@ -21508,7 +21512,7 @@ Start Loading Part and Timing Information
 Loading part: xczu6eg-ffvc900-1-i
 INFO: [Synth 8-6742] Reading net delay rules and data
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:03:41 ; elapsed = 00:03:46 . Memory (MB): peak = 5106.062 ; gain = 2357.188 ; free physical = 100793 ; free virtual = 117180
+Finished Loading Part and Timing Information : Time (s): cpu = 00:03:43 ; elapsed = 00:03:48 . Memory (MB): peak = 5106.449 ; gain = 2357.570 ; free physical = 92813 ; free virtual = 115423
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -21713,7 +21717,7 @@ Applied set_property DONT_TOUCH = true for MercuryXU1_i/MercuryXU1_i/smartconnec
 Applied set_property DONT_TOUCH = true for MercuryXU1_i/MercuryXU1_i/smartconnect_1/inst/s01_nodes/s01_b_node/inst/inst_mi_handler/\gen_normal_area.inst_fifo_node_payld /\gen_xpm_memory_fifo.inst_fifo /\gen_mem_rep[0].inst_xpm_memory . (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for MercuryXU1_i/MercuryXU1_i/smartconnect_1/inst/s00_nodes/s00_r_node/inst/inst_mi_handler/\gen_normal_area.inst_fifo_node_payld /\gen_xpm_memory_fifo.inst_fifo /\gen_mem_rep[0].inst_xpm_memory . (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:03:42 ; elapsed = 00:03:47 . Memory (MB): peak = 5106.062 ; gain = 2357.188 ; free physical = 100743 ; free virtual = 117131
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:03:44 ; elapsed = 00:03:49 . Memory (MB): peak = 5106.449 ; gain = 2357.570 ; free physical = 92762 ; free virtual = 115372
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'arb_sm_cs_reg' in module 'sng_port_arb'
 INFO: [Synth 8-802] inferred FSM for state register 'GEN_WDATA_SM_NO_ECC_SNG_REG_WREADY.wr_data_sng_sm_cs_reg' in module 'wr_chnl'
@@ -23207,7 +23211,7 @@ INFO: [Common 17-14] Message 'Synth 8-3898' appears 100 times and further instan
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'MercuryXU1_system_management_wiz_0_0_slave_attachment'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:04:10 ; elapsed = 00:04:19 . Memory (MB): peak = 5106.062 ; gain = 2357.188 ; free physical = 95616 ; free virtual = 112027
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:04:12 ; elapsed = 00:04:21 . Memory (MB): peak = 5106.449 ; gain = 2357.570 ; free physical = 87635 ; free virtual = 110269
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5775] Found 'rw_addr_collision' attribute set to 'no' on SDP RAM gen_wr_a.gen_word_narrow.mem_reg. Setting write mode to NO_CHANGE 
 INFO: [Synth 8-5775] Found 'rw_addr_collision' attribute set to 'no' on SDP RAM gen_wr_a.gen_word_narrow.mem_reg. Setting write mode to NO_CHANGE 
@@ -23824,7 +23828,7 @@ INFO: [Synth 8-5775] Found 'rw_addr_collision' attribute set to 'no' on SDP RAM 
 INFO: [Synth 8-5775] Found 'rw_addr_collision' attribute set to 'no' on SDP RAM gen_wr_a.gen_word_narrow.mem_reg. Setting write mode to NO_CHANGE 
 INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:04:42 ; elapsed = 00:04:51 . Memory (MB): peak = 5106.062 ; gain = 2357.188 ; free physical = 95100 ; free virtual = 111726
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:04:45 ; elapsed = 00:04:54 . Memory (MB): peak = 5106.449 ; gain = 2357.570 ; free physical = 87110 ; free virtual = 109959
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5775] Found 'rw_addr_collision' attribute set to 'no' on SDP RAM gen_wr_a.gen_word_narrow.mem_reg. Setting write mode to NO_CHANGE 
 INFO: [Synth 8-5775] Found 'rw_addr_collision' attribute set to 'no' on SDP RAM gen_wr_a.gen_word_narrow.mem_reg. Setting write mode to NO_CHANGE 
@@ -23836,7 +23840,7 @@ INFO: [Synth 8-5775] Found 'rw_addr_collision' attribute set to 'no' on SDP RAM 
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:05:11 ; elapsed = 00:05:35 . Memory (MB): peak = 5308.047 ; gain = 2559.172 ; free physical = 93119 ; free virtual = 109965
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:05:14 ; elapsed = 00:05:39 . Memory (MB): peak = 5308.434 ; gain = 2559.555 ; free physical = 85127 ; free virtual = 108199
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
@@ -23864,13 +23868,13 @@ INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of 
 INFO: [Synth 8-5775] Found 'rw_addr_collision' attribute set to 'no' on SDP RAM gen_wr_a.gen_word_narrow.mem_reg. Setting write mode to NO_CHANGE 
 INFO: [Synth 8-5775] Found 'rw_addr_collision' attribute set to 'no' on SDP RAM gen_wr_a.gen_word_narrow.mem_reg. Setting write mode to NO_CHANGE 
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:05:25 ; elapsed = 00:05:49 . Memory (MB): peak = 5443.805 ; gain = 2694.930 ; free physical = 92978 ; free virtual = 109830
+Finished Timing Optimization : Time (s): cpu = 00:05:29 ; elapsed = 00:05:53 . Memory (MB): peak = 5443.191 ; gain = 2694.312 ; free physical = 84992 ; free virtual = 108067
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:05:53 ; elapsed = 00:06:44 . Memory (MB): peak = 5513.113 ; gain = 2764.238 ; free physical = 89530 ; free virtual = 106458
+Finished Technology Mapping : Time (s): cpu = 00:05:57 ; elapsed = 00:06:49 . Memory (MB): peak = 5509.438 ; gain = 2760.559 ; free physical = 81557 ; free virtual = 104702
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -23989,37 +23993,37 @@ WARNING: [Synth 8-3295] tying undriven pin trace_data_pipe[7]_inferred:in0[13] t
 WARNING: [Synth 8-3295] tying undriven pin trace_data_pipe[7]_inferred:in0[12] to constant 0
 INFO: [Common 17-14] Message 'Synth 8-3295' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:06:09 ; elapsed = 00:07:01 . Memory (MB): peak = 5581.926 ; gain = 2833.051 ; free physical = 89379 ; free virtual = 106533
+Finished IO Insertion : Time (s): cpu = 00:06:13 ; elapsed = 00:07:06 . Memory (MB): peak = 5581.172 ; gain = 2832.293 ; free physical = 81402 ; free virtual = 104772
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:06:09 ; elapsed = 00:07:02 . Memory (MB): peak = 5581.926 ; gain = 2833.051 ; free physical = 89379 ; free virtual = 106533
+Finished Renaming Generated Instances : Time (s): cpu = 00:06:13 ; elapsed = 00:07:06 . Memory (MB): peak = 5581.172 ; gain = 2832.293 ; free physical = 81402 ; free virtual = 104773
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:06:20 ; elapsed = 00:07:12 . Memory (MB): peak = 5581.926 ; gain = 2833.051 ; free physical = 89358 ; free virtual = 106512
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:06:24 ; elapsed = 00:07:17 . Memory (MB): peak = 5581.172 ; gain = 2832.293 ; free physical = 81422 ; free virtual = 104791
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:06:20 ; elapsed = 00:07:13 . Memory (MB): peak = 5581.926 ; gain = 2833.051 ; free physical = 89358 ; free virtual = 106512
+Finished Renaming Generated Ports : Time (s): cpu = 00:06:24 ; elapsed = 00:07:18 . Memory (MB): peak = 5581.172 ; gain = 2832.293 ; free physical = 81422 ; free virtual = 104791
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:06:23 ; elapsed = 00:07:15 . Memory (MB): peak = 5581.926 ; gain = 2833.051 ; free physical = 89350 ; free virtual = 106504
+Finished Handling Custom Attributes : Time (s): cpu = 00:06:27 ; elapsed = 00:07:20 . Memory (MB): peak = 5581.172 ; gain = 2832.293 ; free physical = 81413 ; free virtual = 104783
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:06:23 ; elapsed = 00:07:16 . Memory (MB): peak = 5581.926 ; gain = 2833.051 ; free physical = 89350 ; free virtual = 106504
+Finished Renaming Generated Nets : Time (s): cpu = 00:06:27 ; elapsed = 00:07:21 . Memory (MB): peak = 5581.172 ; gain = 2832.293 ; free physical = 81414 ; free virtual = 104784
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -24040,49 +24044,50 @@ Report Cell Usage:
 |4     |BUFGCE_DIV              |     5|
 |5     |BUFG_PS                 |     4|
 |6     |CARRY4                  |   467|
-|7     |CARRY8                  |    93|
+|7     |CARRY8                  |    94|
 |8     |CFGLUT5                 |  1436|
-|9     |IDELAYE3                |    45|
-|10    |ISERDESE3               |    45|
-|11    |LUT1                    |  1444|
-|12    |LUT2                    |  3429|
-|13    |LUT3                    |  8448|
-|14    |LUT4                    |  5098|
-|15    |LUT5                    |  3868|
-|16    |LUT6                    | 11734|
-|17    |MUXF7                   |  1748|
-|18    |MUXF8                   |   749|
-|19    |ODDRE1                  |     5|
-|20    |PS8                     |     1|
-|21    |RAM16X1D                |     5|
-|22    |RAM32M16                |   345|
-|23    |RAM32X1D                |    13|
-|24    |RAMB18E2                |     2|
-|26    |RAMB36E2                |   334|
-|39    |SRL16                   |     5|
-|40    |SRL16E                  |  2203|
-|41    |SRLC16E                 |     6|
-|42    |SRLC32E                 |  2379|
-|43    |SYSMONE4                |     1|
-|44    |FDCE                    |   483|
-|45    |FDPE                    |   166|
-|46    |FDR                     |   670|
-|47    |FDRE                    | 44884|
-|48    |FDSE                    |  1329|
-|49    |IBUFDS                  |    47|
-|50    |IOBUF                   |     5|
-|51    |OBUF                    |     8|
-|52    |OBUFTDS                 |     5|
+|9     |IDELAYCTRL              |     1|
+|10    |IDELAYE3                |    45|
+|11    |ISERDESE3               |    45|
+|12    |LUT1                    |  1443|
+|13    |LUT2                    |  3430|
+|14    |LUT3                    |  8441|
+|15    |LUT4                    |  5086|
+|16    |LUT5                    |  3822|
+|17    |LUT6                    | 11753|
+|18    |MUXF7                   |  1748|
+|19    |MUXF8                   |   749|
+|20    |ODDRE1                  |     5|
+|21    |PS8                     |     1|
+|22    |RAM16X1D                |     5|
+|23    |RAM32M16                |   345|
+|24    |RAM32X1D                |    13|
+|25    |RAMB18E2                |     2|
+|27    |RAMB36E2                |   334|
+|40    |SRL16                   |     5|
+|41    |SRL16E                  |  2203|
+|42    |SRLC16E                 |     6|
+|43    |SRLC32E                 |  2379|
+|44    |SYSMONE4                |     1|
+|45    |FDCE                    |   483|
+|46    |FDPE                    |   166|
+|47    |FDR                     |   670|
+|48    |FDRE                    | 44872|
+|49    |FDSE                    |  1329|
+|50    |IBUFDS                  |    47|
+|51    |IOBUF                   |     5|
+|52    |OBUF                    |     8|
+|53    |OBUFTDS                 |     5|
 +------+------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:06:23 ; elapsed = 00:07:16 . Memory (MB): peak = 5581.926 ; gain = 2833.051 ; free physical = 89350 ; free virtual = 106504
+Finished Writing Synthesis Report : Time (s): cpu = 00:06:27 ; elapsed = 00:07:21 . Memory (MB): peak = 5581.172 ; gain = 2832.293 ; free physical = 81414 ; free virtual = 104784
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 936 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:04:54 ; elapsed = 00:06:00 . Memory (MB): peak = 5585.836 ; gain = 1701.660 ; free physical = 98198 ; free virtual = 115351
-Synthesis Optimization Complete : Time (s): cpu = 00:06:26 ; elapsed = 00:07:17 . Memory (MB): peak = 5585.836 ; gain = 2836.961 ; free physical = 98294 ; free virtual = 115354
+Synthesis Optimization Runtime : Time (s): cpu = 00:04:57 ; elapsed = 00:06:06 . Memory (MB): peak = 5585.082 ; gain = 1700.910 ; free physical = 90268 ; free virtual = 113637
+Synthesis Optimization Complete : Time (s): cpu = 00:06:30 ; elapsed = 00:07:24 . Memory (MB): peak = 5585.082 ; gain = 2836.203 ; free physical = 90364 ; free virtual = 113640
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 5585.836 ; gain = 0.000 ; free physical = 98145 ; free virtual = 115205
-INFO: [Netlist 29-17] Analyzing 5638 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 5585.082 ; gain = 0.000 ; free physical = 90200 ; free virtual = 113476
+INFO: [Netlist 29-17] Analyzing 5639 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 WARNING: [Constraints 18-5254] DIFF_TERM is not supported in UltraScale devices.  Automatically translating DIFF_TERM of TRUE to DIFF_TERM_ADV=TERM_100.  Refer to UG571: UltraScale Architecture SelectIO User Guide for more detail.
@@ -24108,7 +24113,7 @@ INFO: [Chipscope 16-324] Core: MercuryXU1_i/MercuryXU1_i/system_ila_50/U0/ila_li
 INFO: [Chipscope 16-324] Core: MercuryXU1_i/MercuryXU1_i/system_ila_51/U0/ila_lib UUID: a9fbcd01-bb11-530b-b490-0acad3481a82 
 INFO: [Chipscope 16-324] Core: MercuryXU1_i/MercuryXU1_i/system_ila_60/U0/ila_lib UUID: 3d8593a6-dee1-58d4-a9d8-a8ccd53f28e1 
 INFO: [Opt 31-138] Pushed 5 inverter(s) to 45 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 5806.480 ; gain = 0.000 ; free physical = 97985 ; free virtual = 115045
+Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 5804.758 ; gain = 0.000 ; free physical = 90045 ; free virtual = 113321
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 2785 instances were transformed.
   (CARRY4) => CARRY8: 254 instances
@@ -24124,14 +24129,14 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   SRL16 => SRL16E: 5 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-1890 Infos, 497 Warnings, 3 Critical Warnings and 0 Errors encountered.
+1891 Infos, 497 Warnings, 3 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:07:11 ; elapsed = 00:08:06 . Memory (MB): peak = 5806.480 ; gain = 3183.926 ; free physical = 99410 ; free virtual = 116469
+synth_design: Time (s): cpu = 00:07:16 ; elapsed = 00:08:14 . Memory (MB): peak = 5804.758 ; gain = 3190.199 ; free physical = 91479 ; free virtual = 114755
 INFO: [Common 17-600] The following parameters have non-default value.
 tcl.collectionResultDisplayLimit
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint '/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/MercuryXU1_NuPRISM.runs/MercuryNuPRISM_synth/system_top.dcp' has been generated.
-write_checkpoint: Time (s): cpu = 00:00:19 ; elapsed = 00:00:13 . Memory (MB): peak = 5838.496 ; gain = 32.016 ; free physical = 99397 ; free virtual = 116483
+write_checkpoint: Time (s): cpu = 00:00:19 ; elapsed = 00:00:13 . Memory (MB): peak = 5836.773 ; gain = 32.016 ; free physical = 91453 ; free virtual = 114756
 INFO: [runtcl-4] Executing : report_utilization -file system_top_utilization_synth.rpt -pb system_top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Mon Jan 31 11:33:18 2022...
+INFO: [Common 17-206] Exiting Vivado at Tue Mar  8 16:14:21 2022...

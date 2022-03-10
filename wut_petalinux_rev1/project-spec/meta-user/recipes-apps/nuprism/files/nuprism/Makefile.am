@@ -34,6 +34,7 @@ trigtest_LDADD = libnuprism.a
 noinst_LIBRARIES = libnuprism.a
 libnuprism_a_SOURCES = lib/gpio.c \
                        lib/clc.c \
-                       lib/adc.c
+                       lib/adc.c \
+                       lib/cfg.c
 
 libnuprism_a_CXXFLAGS = -I$(top_srcdir)/lib

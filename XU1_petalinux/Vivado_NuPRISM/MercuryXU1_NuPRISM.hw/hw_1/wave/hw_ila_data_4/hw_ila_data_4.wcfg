@@ -10,14 +10,14 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="88971fs"></ZoomEndTime>
-      <Cursor1Time time="527fs"></Cursor1Time>
+      <ZoomEndTime time="12922fs"></ZoomEndTime>
+      <Cursor1Time time="310fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="207"></NameColumnWidth>
-      <ValueColumnWidth column_width="70"></ValueColumnWidth>
+      <NameColumnWidth column_width="183"></NameColumnWidth>
+      <ValueColumnWidth column_width="66"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="21" />
+   <WVObjectSize size="26" />
    <wvobject type="array" fp_name="adc_par_data[0]">
       <obj_property name="DisplayName">FullPathName</obj_property>
       <obj_property name="ElementShortName">adc_par_data[0][11:0]</obj_property>
@@ -382,5 +382,43 @@
          <obj_property name="ElementShortName">[0]</obj_property>
          <obj_property name="ObjectShortName">[0]</obj_property>
       </wvobject>
+   </wvobject>
+   <wvobject type="logic" fp_name="trigger_external">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">trigger_external</obj_property>
+      <obj_property name="ObjectShortName">trigger_external</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="B64_S[0].Ad9229Core_b/r_reg[slip_n_0_]">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">B64_S[0].Ad9229Core_b/r_reg[slip_n_0_]</obj_property>
+      <obj_property name="ObjectShortName">r_reg[slip_n_0_]</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="B64_S[0].Ad9229Core_b/r_reg[count]">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">B64_S[0].Ad9229Core_b/r_reg[count][8:0]</obj_property>
+      <obj_property name="ObjectShortName">r_reg[count][8:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="B64_S[0].Ad9229Core_b/Ad9229Deserializer_INST/D">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">B64_S[0].Ad9229Core_b/Ad9229Deserializer_INST/D[11:0]</obj_property>
+      <obj_property name="ObjectShortName">D[11:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="B64_S[0].Ad9229Core_b/Ad9229Deserializer_INST/D">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">B64_S[0].Ad9229Core_b/Ad9229Deserializer_INST/D[11:0]</obj_property>
+      <obj_property name="ObjectShortName">D[11:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
 </wave_config>

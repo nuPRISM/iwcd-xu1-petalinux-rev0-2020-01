@@ -1328,10 +1328,10 @@ proc create_root_design { parentCell } {
    CONFIG.PSU__CRL_APB__PL0_REF_CTRL__DIVISOR1 {1} \
    CONFIG.PSU__CRL_APB__PL0_REF_CTRL__FREQMHZ {100} \
    CONFIG.PSU__CRL_APB__PL0_REF_CTRL__SRCSEL {RPLL} \
-   CONFIG.PSU__CRL_APB__PL1_REF_CTRL__ACT_FREQMHZ {49.999500} \
-   CONFIG.PSU__CRL_APB__PL1_REF_CTRL__DIVISOR0 {24} \
+   CONFIG.PSU__CRL_APB__PL1_REF_CTRL__ACT_FREQMHZ {199.998001} \
+   CONFIG.PSU__CRL_APB__PL1_REF_CTRL__DIVISOR0 {6} \
    CONFIG.PSU__CRL_APB__PL1_REF_CTRL__DIVISOR1 {1} \
-   CONFIG.PSU__CRL_APB__PL1_REF_CTRL__FREQMHZ {50} \
+   CONFIG.PSU__CRL_APB__PL1_REF_CTRL__FREQMHZ {200} \
    CONFIG.PSU__CRL_APB__PL1_REF_CTRL__SRCSEL {RPLL} \
    CONFIG.PSU__CRL_APB__PL2_REF_CTRL__ACT_FREQMHZ {24.999750} \
    CONFIG.PSU__CRL_APB__PL2_REF_CTRL__DIVISOR0 {48} \
@@ -1371,7 +1371,7 @@ proc create_root_design { parentCell } {
    CONFIG.PSU__CRL_APB__SPI0_REF_CTRL__FREQMHZ {200} \
    CONFIG.PSU__CRL_APB__SPI0_REF_CTRL__SRCSEL {RPLL} \
    CONFIG.PSU__CRL_APB__SPI1_REF_CTRL__ACT_FREQMHZ {199.998001} \
-   CONFIG.PSU__CRL_APB__SPI1_REF_CTRL__DIVISOR0 {6} \
+   CONFIG.PSU__CRL_APB__SPI1_REF_CTRL__DIVISOR0 {7} \
    CONFIG.PSU__CRL_APB__SPI1_REF_CTRL__DIVISOR1 {1} \
    CONFIG.PSU__CRL_APB__SPI1_REF_CTRL__FREQMHZ {200} \
    CONFIG.PSU__CRL_APB__SPI1_REF_CTRL__SRCSEL {RPLL} \
@@ -2171,7 +2171,7 @@ connect_bd_intf_net -intf_net [get_bd_intf_nets smartconnect_1_M00_AXI] [get_bd_
   connect_bd_net -net axi_gpio_suppres_gpio_io_o [get_bd_pins axi_gpio_suppres/gpio_io_o] [get_bd_pins stream_multiplexer_0/gpio] [get_bd_pins system_ila_60/probe0] [get_bd_pins xlslice_0/Din] [get_bd_pins xlslice_1/Din] [get_bd_pins xlslice_2/Din] [get_bd_pins xlslice_3_5/Din]
   set_property HDL_ATTRIBUTE.DEBUG {true} [get_bd_nets axi_gpio_suppres_gpio_io_o]
   connect_bd_net -net bram_gpio_0_num_packets_per_event [get_bd_pins bram_gpio_0/num_packets_per_event] [get_bd_pins system_ila_60/probe7]
-  connect_bd_net -net bram_gpio_0_pulse_threshold [get_bd_pins bram_gpio_0/pulse_threshold] [get_bd_pins system_ila_60/probe8]
+  connect_bd_net -net bram_gpio_0_pulse_threshold [get_bd_pins bram_gpio_0/pulse_threshold] [get_bd_pins system_ila_60/probe8] [get_bd_pins tlast_generator_0/threshold] [get_bd_pins tlast_generator_1/threshold]
   connect_bd_net -net bram_gpio_0_read_data [get_bd_pins axi_bram_ctrl/bram_rddata_a] [get_bd_pins bram_gpio_0/read_data]
   connect_bd_net -net event_controller_0_packet_counter [get_bd_pins axi_gpio_packet_number/gpio2_io_i] [get_bd_pins bram_gpio_0/packet_counter] [get_bd_pins event_controller_0/packet_counter] [get_bd_pins system_ila_60/probe5]
   connect_bd_net -net event_controller_0_triger_enable [get_bd_pins event_controller_0/trigger_enable] [get_bd_pins system_ila_60/probe6] [get_bd_pins tlast_generator_0/trigger_enable] [get_bd_pins tlast_generator_1/trigger_enable]

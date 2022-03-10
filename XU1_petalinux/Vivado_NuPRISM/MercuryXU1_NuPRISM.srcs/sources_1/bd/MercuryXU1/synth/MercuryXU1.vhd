@@ -1,7 +1,7 @@
 --Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
---Date        : Mon Jan 31 11:24:15 2022
+--Date        : Tue Mar  8 16:05:16 2022
 --Host        : hyperk running 64-bit Ubuntu 18.04.6 LTS
 --Command     : generate_target MercuryXU1.bd
 --Design      : MercuryXU1
@@ -6420,50 +6420,6 @@ architecture STRUCTURE of MercuryXU1 is
     dout : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component MercuryXU1_xlconstant_0_0;
-  component MercuryXU1_tlast_generator_0_0 is
-  port (
-    clk : in STD_LOGIC;
-    rst_n : in STD_LOGIC;
-    num_samples_per_packet : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    trigger_mode : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    trigger_enable : in STD_LOGIC;
-    trigger_ps : in STD_LOGIC;
-    trigger_external : in STD_LOGIC;
-    trigger_internal_in : in STD_LOGIC;
-    trigger_internal_out : out STD_LOGIC;
-    trigger_detected : out STD_LOGIC;
-    data : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    data_enable : in STD_LOGIC;
-    counter : out STD_LOGIC_VECTOR ( 31 downto 0 );
-    trigger_test : out STD_LOGIC_VECTOR ( 4 downto 0 );
-    m_axis_tdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
-    m_axis_tvalid : out STD_LOGIC;
-    m_axis_tlast : out STD_LOGIC;
-    m_axis_tready : in STD_LOGIC
-  );
-  end component MercuryXU1_tlast_generator_0_0;
-  component MercuryXU1_tlast_generator_0_1 is
-  port (
-    clk : in STD_LOGIC;
-    rst_n : in STD_LOGIC;
-    num_samples_per_packet : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    trigger_mode : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    trigger_enable : in STD_LOGIC;
-    trigger_ps : in STD_LOGIC;
-    trigger_external : in STD_LOGIC;
-    trigger_internal_in : in STD_LOGIC;
-    trigger_internal_out : out STD_LOGIC;
-    trigger_detected : out STD_LOGIC;
-    data : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    data_enable : in STD_LOGIC;
-    counter : out STD_LOGIC_VECTOR ( 31 downto 0 );
-    trigger_test : out STD_LOGIC_VECTOR ( 4 downto 0 );
-    m_axis_tdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
-    m_axis_tvalid : out STD_LOGIC;
-    m_axis_tlast : out STD_LOGIC;
-    m_axis_tready : in STD_LOGIC
-  );
-  end component MercuryXU1_tlast_generator_0_1;
   component MercuryXU1_event_controller_0_1 is
   port (
     clk : in STD_LOGIC;
@@ -6531,6 +6487,52 @@ architecture STRUCTURE of MercuryXU1 is
     pulse_threshold : out STD_LOGIC_VECTOR ( 11 downto 0 )
   );
   end component MercuryXU1_bram_gpio_0_0;
+  component MercuryXU1_tlast_generator_0_0 is
+  port (
+    clk : in STD_LOGIC;
+    rst_n : in STD_LOGIC;
+    num_samples_per_packet : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    threshold : in STD_LOGIC_VECTOR ( 11 downto 0 );
+    trigger_mode : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    trigger_enable : in STD_LOGIC;
+    trigger_ps : in STD_LOGIC;
+    trigger_external : in STD_LOGIC;
+    trigger_internal_in : in STD_LOGIC;
+    trigger_internal_out : out STD_LOGIC;
+    trigger_detected : out STD_LOGIC;
+    data : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    data_enable : in STD_LOGIC;
+    counter : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    trigger_test : out STD_LOGIC_VECTOR ( 4 downto 0 );
+    m_axis_tdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    m_axis_tvalid : out STD_LOGIC;
+    m_axis_tlast : out STD_LOGIC;
+    m_axis_tready : in STD_LOGIC
+  );
+  end component MercuryXU1_tlast_generator_0_0;
+  component MercuryXU1_tlast_generator_0_1 is
+  port (
+    clk : in STD_LOGIC;
+    rst_n : in STD_LOGIC;
+    num_samples_per_packet : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    threshold : in STD_LOGIC_VECTOR ( 11 downto 0 );
+    trigger_mode : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    trigger_enable : in STD_LOGIC;
+    trigger_ps : in STD_LOGIC;
+    trigger_external : in STD_LOGIC;
+    trigger_internal_in : in STD_LOGIC;
+    trigger_internal_out : out STD_LOGIC;
+    trigger_detected : out STD_LOGIC;
+    data : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    data_enable : in STD_LOGIC;
+    counter : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    trigger_test : out STD_LOGIC_VECTOR ( 4 downto 0 );
+    m_axis_tdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    m_axis_tvalid : out STD_LOGIC;
+    m_axis_tlast : out STD_LOGIC;
+    m_axis_tready : in STD_LOGIC
+  );
+  end component MercuryXU1_tlast_generator_0_1;
   signal aclk_0_1 : STD_LOGIC;
   signal adc0_sample_0_1 : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal adc10_sample_0_1 : STD_LOGIC_VECTOR ( 31 downto 0 );
@@ -7402,7 +7404,7 @@ architecture STRUCTURE of MercuryXU1 is
   attribute X_INTERFACE_INFO : string;
   attribute X_INTERFACE_INFO of pl_clk1 : signal is "xilinx.com:signal:clock:1.0 CLK.PL_CLK1 CLK";
   attribute X_INTERFACE_PARAMETER : string;
-  attribute X_INTERFACE_PARAMETER of pl_clk1 : signal is "XIL_INTERFACENAME CLK.PL_CLK1, CLK_DOMAIN MercuryXU1_zynq_ultra_ps_e_0_0_pl_clk1, FREQ_HZ 49999500, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.000";
+  attribute X_INTERFACE_PARAMETER of pl_clk1 : signal is "XIL_INTERFACENAME CLK.PL_CLK1, CLK_DOMAIN MercuryXU1_zynq_ultra_ps_e_0_0_pl_clk1, FREQ_HZ 199998001, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.000";
   attribute X_INTERFACE_INFO of pl_resetn0 : signal is "xilinx.com:signal:reset:1.0 RST.PL_RESETN0 RST";
   attribute X_INTERFACE_PARAMETER of pl_resetn0 : signal is "XIL_INTERFACENAME RST.PL_RESETN0, INSERT_VIP 0, POLARITY ACTIVE_LOW";
   attribute X_INTERFACE_INFO of ps_master_i2c_scl_i : signal is "xilinx.com:interface:iic:1.0 ps_master_i2c SCL_I";
@@ -8619,6 +8621,7 @@ tlast_generator_0: component MercuryXU1_tlast_generator_0_0
       m_axis_tvalid => axis_subset_converter_0_M_AXIS_TVALID,
       num_samples_per_packet(31 downto 0) => axi_gpio_sample_number_gpio_io_o(31 downto 0),
       rst_n => aresetn_0_1(0),
+      threshold(11 downto 0) => bram_gpio_0_pulse_threshold(11 downto 0),
       trigger_detected => tlast_generator_0_trigger_detected,
       trigger_enable => event_controller_0_triger_enable,
       trigger_external => trigger_external_0_1,
@@ -8640,6 +8643,7 @@ tlast_generator_1: component MercuryXU1_tlast_generator_0_1
       m_axis_tvalid => tlast_generator_1_m_axis_TVALID,
       num_samples_per_packet(31 downto 0) => axi_gpio_sample_number_gpio_io_o(31 downto 0),
       rst_n => aresetn_0_1(0),
+      threshold(11 downto 0) => bram_gpio_0_pulse_threshold(11 downto 0),
       trigger_detected => tlast_generator_1_trigger_detected,
       trigger_enable => event_controller_0_triger_enable,
       trigger_external => trigger_external_0_1,
