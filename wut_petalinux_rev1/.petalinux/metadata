@@ -1,6 +1,6 @@
 PETALINUX_VER=2020.1
 VALIDATE_HW_CHKSUM=1
-HARDWARE_PATH=/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/system_top_180ps.xsa
-HARDWARE_CHECKSUM=25fb16fa4611f1e5c1c9e59bdb1ce82c
+HARDWARE_PATH=/home/ab/Documents/Projekty/2020-HyperK/iwcd-xu1-petalinux-rev0-2020-01/XU1_petalinux/Vivado_NuPRISM/system_top_230ps.xsa
+HARDWARE_CHECKSUM=9e649e43aab380a0d8d9489c223fede5
 YOCTO_SDK=b034efc026f5f7d24a4732927cb62e43
 RFSCONFIG_CHKSUM=6a61500e52c058bb202b0738ddabed46
