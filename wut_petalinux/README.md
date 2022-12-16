@@ -63,7 +63,7 @@ The system image/rootf for booting from SD card should created with the followin
 petalinux-package --boot --u-boot --fpga images/linux/system.bit --format BIN --force
 </pre>
 
-Use the following command to compile selected application and **do not remove** it from the `build/.../app_name/...` subdirectory:
+Use the following command to compile selected application and to **do not remove** it from the `build/.../app_name/...` subdirectory:
 <pre>
 petalinux-build -c app_name -x compile
 </pre>
